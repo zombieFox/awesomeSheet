@@ -82,25 +82,15 @@
           height: 100%;
           box-sizing: border-box;
         }
-        .m-character-select-list-item-class-level,
+        .m-character-select-list-item-class-level {
+          display: none;
+        }
         .m-character-select-list-item-name {
           white-space: nowrap;
           display: inline-block;
           line-height: $line-height-160;
           overflow: hidden;
           text-overflow: ellipsis;
-        }
-        .m-character-select-list-item-class-level {
-          color: $secondary-color-08;
-          font-size: $font-size-075;
-          flex: 0 1 auto;
-          min-width: 3em;
-          position: relative;
-          top: 0.1em;
-          min-width: 3em;
-          max-width: 70%;
-        }
-        .m-character-select-list-item-name {
           color: $base-color;
           font-family: $open-sans-semi-bold;
           flex: 0 1 auto;
@@ -121,9 +111,6 @@
           &:before {
             color: $white;
           }
-          .m-character-select-list-item-class-level {
-            color: $white;
-          }
           .m-character-select-list-item-name {
             color: $white;
           }
@@ -134,9 +121,6 @@
           background-color: $primary-color-10;
           color: $white;
           &:before {
-            color: $white;
-          }
-          .m-character-select-list-item-class-level {
             color: $white;
           }
           .m-character-select-list-item-name {
@@ -151,9 +135,6 @@
             &:before {
               color: $white;
             }
-            .m-character-select-list-item-class-level {
-              color: $white;
-            }
           }
         }
         &:active {
@@ -163,7 +144,6 @@
             &:before {
               color: $white;
             }
-            .m-character-select-list-item-class-level,
             .m-character-select-list-item-name {
               color: $white;
             }
@@ -344,9 +324,6 @@
           &:before {
             color: $secondary-color-12;
           }
-          .m-character-select-list-item-class-level {
-            color: $secondary-color-12;
-          }
           .m-character-select-list-item-name {
             color: $white;
             font-family: $open-sans-semi-bold;
@@ -366,9 +343,6 @@
             &:before {
               color: $white;
             }
-            .m-character-select-list-item-class-level {
-              color: $white;
-            }
             .m-character-select-list-item-name {
               color: $white;
             }
@@ -379,9 +353,6 @@
             background-color: $primary-color-10;
             color: $white;
             &:before {
-              color: $white;
-            }
-            .m-character-select-list-item-class-level {
               color: $white;
             }
             .m-character-select-list-item-name {
@@ -396,9 +367,6 @@
               &:before {
                 color: $white;
               }
-              .m-character-select-list-item-class-level {
-                color: $white;
-              }
             }
           }
           &:active {
@@ -408,7 +376,6 @@
               &:before {
                 color: $white;
               }
-              .m-character-select-list-item-class-level,
               .m-character-select-list-item-name {
                 color: $white;
               }
@@ -466,9 +433,6 @@
             &:before {
               color: $primary-color-12;
             }
-            .m-character-select-list-item-class-level {
-              color: $primary-color-12;
-            }
             .m-character-select-list-item-name {
               color: $white;
             }
@@ -487,9 +451,6 @@
               &:before {
                 color: $white;
               }
-              .m-character-select-list-item-class-level {
-                color: $white;
-              }
               .m-character-select-list-item-name {
                 color: $white;
               }
@@ -500,9 +461,6 @@
               background-color: $secondary-color-10;
               color: $white;
               &:before {
-                color: $white;
-              }
-              .m-character-select-list-item-class-level {
                 color: $white;
               }
               .m-character-select-list-item-name {
@@ -517,9 +475,6 @@
                 &:before {
                   color: $white;
                 }
-                .m-character-select-list-item-class-level {
-                  color: $white;
-                }
               }
             }
             &:active {
@@ -529,7 +484,6 @@
                 &:before {
                   color: $white;
                 }
-                .m-character-select-list-item-class-level,
                 .m-character-select-list-item-name {
                   color: $white;
                 }
@@ -589,9 +543,6 @@
           &:before {
             color: $primary-color-08;
           }
-          .m-character-select-list-item-class-level {
-            color: $primary-color-08;
-          }
           .m-character-select-list-item-name {
             color: $base-color;
           }
@@ -610,9 +561,6 @@
             &:before {
               color: $white;
             }
-            .m-character-select-list-item-class-level {
-              color: $white;
-            }
             .m-character-select-list-item-name {
               color: $white;
             }
@@ -623,9 +571,6 @@
             background-color: $secondary-color-10;
             color: $white;
             &:before {
-              color: $white;
-            }
-            .m-character-select-list-item-class-level {
               color: $white;
             }
             .m-character-select-list-item-name {
@@ -640,9 +585,6 @@
               &:before {
                 color: $white;
               }
-              .m-character-select-list-item-class-level {
-                color: $white;
-              }
             }
           }
           &:active {
@@ -652,7 +594,6 @@
               &:before {
                 color: $white;
               }
-              .m-character-select-list-item-class-level,
               .m-character-select-list-item-name {
                 color: $white;
               }
@@ -731,9 +672,191 @@
     text-overflow: ellipsis;
     display: block;
   }
+  .m-character-select-list-item {
+    input {
+      &[type="checkbox"],
+      &[type="radio"] {
+        & + label {
+          .m-character-select-list-item-class-level {
+            white-space: nowrap;
+            display: inline-block;
+            line-height: $line-height-160;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: $secondary-color-08;
+            font-size: $font-size-075;
+            flex: 0 1 auto;
+            min-width: 3em;
+            position: relative;
+            top: 0.1em;
+            min-width: 3em;
+            max-width: 70%;
+          }
+        }
+        &:active {
+          & + label {
+            .m-character-select-list-item-class-level {
+              color: $white;
+            }
+          }
+        }
+        &:checked {
+          & + label {
+            .m-character-select-list-item-class-level {
+              color: $white;
+            }
+          }
+          &:focus,
+          &:hover {
+            & + label {
+              .m-character-select-list-item-class-level {
+                color: $white;
+              }
+            }
+          }
+          &:active {
+            & + label {
+              .m-character-select-list-item-class-level {
+                color: $white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
   .is-active {
     .m-character-select-class-level {
       text-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+    }
+  }
+  .is-night-mode {
+    .m-character-select-list-item {
+      input {
+        &[type="checkbox"],
+        &[type="radio"] {
+          & + label {
+            .m-character-select-list-item-class-level {
+              color: $secondary-color-12;
+            }
+          }
+          &:active {
+            & + label {
+              .m-character-select-list-item-class-level {
+                color: $white;
+              }
+            }
+          }
+          &:checked {
+            & + label {
+              .m-character-select-list-item-class-level {
+                color: $white;
+              }
+            }
+            &:focus,
+            &:hover {
+              & + label {
+                .m-character-select-list-item-class-level {
+                  color: $white;
+                }
+              }
+            }
+            &:active {
+              & + label {
+                .m-character-select-list-item-class-level {
+                  color: $white;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .is-display-mode {
+      .m-character-select-list-item {
+        input {
+          &[type="checkbox"],
+          &[type="radio"] {
+            & + label {
+              .m-character-select-list-item-class-level {
+                color: $primary-color-12;
+              }
+            }
+            &:active {
+              & + label {
+                .m-character-select-list-item-class-level {
+                  color: $white;
+                }
+              }
+            }
+            &:checked {
+              & + label {
+                .m-character-select-list-item-class-level {
+                  color: $white;
+                }
+              }
+              &:focus,
+              &:hover {
+                & + label {
+                  .m-character-select-list-item-class-level {
+                    color: $white;
+                  }
+                }
+              }
+              &:active {
+                & + label {
+                  .m-character-select-list-item-class-level {
+                    color: $white;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .is-display-mode {
+    .m-character-select-list-item {
+      input {
+        &[type="checkbox"],
+        &[type="radio"] {
+          & + label {
+            .m-character-select-list-item-class-level {
+              color: $primary-color-08;
+            }
+          }
+          &:active {
+            & + label {
+              .m-character-select-list-item-class-level {
+                color: $white;
+              }
+            }
+          }
+          &:checked {
+            & + label {
+              .m-character-select-list-item-class-level {
+                color: $white;
+              }
+            }
+            &:focus,
+            &:hover {
+              & + label {
+                .m-character-select-list-item-class-level {
+                  color: $white;
+                }
+              }
+            }
+            &:active {
+              & + label {
+                .m-character-select-list-item-class-level {
+                  color: $white;
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
