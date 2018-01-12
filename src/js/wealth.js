@@ -72,12 +72,9 @@ var wealth = (function() {
       grandTotal = wealthInGp.reduce(function(a, b) {
         return a + b;
       });
-      // grandTotal = parseFloat(grandTotal).toFixed(2);
     } else {
       grandTotal = 0;
     };
-    console.log("wealthInGp", wealthInGp);
-    console.log("grandTotal", grandTotal);
     return grandTotal;
   };
 

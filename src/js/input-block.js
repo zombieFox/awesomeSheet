@@ -2,6 +2,7 @@ var inputBlock = (function() {
 
   var storeInputTimer = null;
   var updateNavTimer = null;
+  var updateWealthTimer = null;
 
   function bind(inputBlock) {
     if (inputBlock) {
@@ -154,6 +155,17 @@ var inputBlock = (function() {
     input.addEventListener("input", function() {
       clearTimeout(updateNavTimer);
       updateNavTimer = setTimeout(characterSelect.update, 300, this);
+    }, false);
+  };
+
+  function bind_wealth(inputBlock) {
+    var input = inputBlock.querySelector(".js-input-block-field");
+    input.addEventListener("input", function() {
+      clearTimeout(updateWealthTimer);
+      updateWealthTimer = setTimeout(function() {
+        wealth.render();
+        textBlock.render();
+      }, 300, this);
     }, false);
   };
 
@@ -661,6 +673,7 @@ var inputBlock = (function() {
     render: render,
     bind: bind,
     bind_classLevel: bind_classLevel,
+    bind_wealth: bind_wealth,
     bind_inputBlockIncrement: bind_inputBlockIncrement,
     clear: clear
   };
