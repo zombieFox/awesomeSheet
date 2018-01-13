@@ -59,10 +59,10 @@
 }
 .is-night-mode {
   .m-select-block {
-    &:after {
+    &:before {
       border-bottom-color: $secondary-color-16;
     }
-    &:before {
+    &:after {
       border-top-color: $secondary-color-16;
     }
   }
