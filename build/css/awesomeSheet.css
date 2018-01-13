@@ -3955,26 +3955,14 @@ label {
       width: 80%;
       height: 100%;
       box-sizing: border-box; }
-    .m-character-select-list-item input[type="checkbox"] + label .m-character-select-list-item-class-level,
-    .m-character-select-list-item input[type="checkbox"] + label .m-character-select-list-item-name, .m-character-select-list-item input[type="radio"] + label .m-character-select-list-item-class-level,
-    .m-character-select-list-item input[type="radio"] + label .m-character-select-list-item-name {
+    .m-character-select-list-item input[type="checkbox"] + label .m-character-select-list-item-class-level, .m-character-select-list-item input[type="radio"] + label .m-character-select-list-item-class-level {
+      display: none; }
+    .m-character-select-list-item input[type="checkbox"] + label .m-character-select-list-item-name, .m-character-select-list-item input[type="radio"] + label .m-character-select-list-item-name {
       white-space: nowrap;
       display: inline-block;
       line-height: 1.6666666667;
       overflow: hidden;
-      text-overflow: ellipsis; }
-    .m-character-select-list-item input[type="checkbox"] + label .m-character-select-list-item-class-level, .m-character-select-list-item input[type="radio"] + label .m-character-select-list-item-class-level {
-      color: #2063a7;
-      font-size: 0.75em;
-      -webkit-flex: 0 1 auto;
-          -ms-flex: 0 1 auto;
-              flex: 0 1 auto;
-      min-width: 3em;
-      position: relative;
-      top: 0.1em;
-      min-width: 3em;
-      max-width: 70%; }
-    .m-character-select-list-item input[type="checkbox"] + label .m-character-select-list-item-name, .m-character-select-list-item input[type="radio"] + label .m-character-select-list-item-name {
+      text-overflow: ellipsis;
       color: #2e2e2e;
       font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
       -webkit-flex: 0 1 auto;
@@ -3989,16 +3977,12 @@ label {
     color: #ffffff; }
     .m-character-select-list-item input[type="checkbox"]:active + label:before, .m-character-select-list-item input[type="radio"]:active + label:before {
       color: #ffffff; }
-    .m-character-select-list-item input[type="checkbox"]:active + label .m-character-select-list-item-class-level, .m-character-select-list-item input[type="radio"]:active + label .m-character-select-list-item-class-level {
-      color: #ffffff; }
     .m-character-select-list-item input[type="checkbox"]:active + label .m-character-select-list-item-name, .m-character-select-list-item input[type="radio"]:active + label .m-character-select-list-item-name {
       color: #ffffff; }
   .m-character-select-list-item input[type="checkbox"]:checked + label, .m-character-select-list-item input[type="radio"]:checked + label {
     background-color: #fd0042;
     color: #ffffff; }
     .m-character-select-list-item input[type="checkbox"]:checked + label:before, .m-character-select-list-item input[type="radio"]:checked + label:before {
-      color: #ffffff; }
-    .m-character-select-list-item input[type="checkbox"]:checked + label .m-character-select-list-item-class-level, .m-character-select-list-item input[type="radio"]:checked + label .m-character-select-list-item-class-level {
       color: #ffffff; }
     .m-character-select-list-item input[type="checkbox"]:checked + label .m-character-select-list-item-name, .m-character-select-list-item input[type="radio"]:checked + label .m-character-select-list-item-name {
       color: #ffffff; }
@@ -4007,16 +3991,12 @@ label {
     color: #ffffff; }
     .m-character-select-list-item input[type="checkbox"]:checked:focus + label:before, .m-character-select-list-item input[type="checkbox"]:checked:hover + label:before, .m-character-select-list-item input[type="radio"]:checked:focus + label:before, .m-character-select-list-item input[type="radio"]:checked:hover + label:before {
       color: #ffffff; }
-    .m-character-select-list-item input[type="checkbox"]:checked:focus + label .m-character-select-list-item-class-level, .m-character-select-list-item input[type="checkbox"]:checked:hover + label .m-character-select-list-item-class-level, .m-character-select-list-item input[type="radio"]:checked:focus + label .m-character-select-list-item-class-level, .m-character-select-list-item input[type="radio"]:checked:hover + label .m-character-select-list-item-class-level {
-      color: #ffffff; }
   .m-character-select-list-item input[type="checkbox"]:checked:active + label, .m-character-select-list-item input[type="radio"]:checked:active + label {
     background-color: #970027;
     color: #ffffff; }
     .m-character-select-list-item input[type="checkbox"]:checked:active + label:before, .m-character-select-list-item input[type="radio"]:checked:active + label:before {
       color: #ffffff; }
-    .m-character-select-list-item input[type="checkbox"]:checked:active + label .m-character-select-list-item-class-level,
-    .m-character-select-list-item input[type="checkbox"]:checked:active + label .m-character-select-list-item-name, .m-character-select-list-item input[type="radio"]:checked:active + label .m-character-select-list-item-class-level,
-    .m-character-select-list-item input[type="radio"]:checked:active + label .m-character-select-list-item-name {
+    .m-character-select-list-item input[type="checkbox"]:checked:active + label .m-character-select-list-item-name, .m-character-select-list-item input[type="radio"]:checked:active + label .m-character-select-list-item-name {
       color: #ffffff; }
 
 .m-character-select-control-link {
@@ -4198,9 +4178,6 @@ label {
 .is-night-mode .m-character-select-list-item input[type="checkbox"] + label:before, .is-night-mode .m-character-select-list-item input[type="radio"] + label:before {
   color: #3e96ee; }
 
-.is-night-mode .m-character-select-list-item input[type="checkbox"] + label .m-character-select-list-item-class-level, .is-night-mode .m-character-select-list-item input[type="radio"] + label .m-character-select-list-item-class-level {
-  color: #3e96ee; }
-
 .is-night-mode .m-character-select-list-item input[type="checkbox"] + label .m-character-select-list-item-name, .is-night-mode .m-character-select-list-item input[type="radio"] + label .m-character-select-list-item-name {
   color: #ffffff;
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
@@ -4214,8 +4191,6 @@ label {
   color: #ffffff; }
   .is-night-mode .m-character-select-list-item input[type="checkbox"]:active + label:before, .is-night-mode .m-character-select-list-item input[type="radio"]:active + label:before {
     color: #ffffff; }
-  .is-night-mode .m-character-select-list-item input[type="checkbox"]:active + label .m-character-select-list-item-class-level, .is-night-mode .m-character-select-list-item input[type="radio"]:active + label .m-character-select-list-item-class-level {
-    color: #ffffff; }
   .is-night-mode .m-character-select-list-item input[type="checkbox"]:active + label .m-character-select-list-item-name, .is-night-mode .m-character-select-list-item input[type="radio"]:active + label .m-character-select-list-item-name {
     color: #ffffff; }
 
@@ -4223,8 +4198,6 @@ label {
   background-color: #fd0042;
   color: #ffffff; }
   .is-night-mode .m-character-select-list-item input[type="checkbox"]:checked + label:before, .is-night-mode .m-character-select-list-item input[type="radio"]:checked + label:before {
-    color: #ffffff; }
-  .is-night-mode .m-character-select-list-item input[type="checkbox"]:checked + label .m-character-select-list-item-class-level, .is-night-mode .m-character-select-list-item input[type="radio"]:checked + label .m-character-select-list-item-class-level {
     color: #ffffff; }
   .is-night-mode .m-character-select-list-item input[type="checkbox"]:checked + label .m-character-select-list-item-name, .is-night-mode .m-character-select-list-item input[type="radio"]:checked + label .m-character-select-list-item-name {
     color: #ffffff; }
@@ -4234,17 +4207,13 @@ label {
   color: #ffffff; }
   .is-night-mode .m-character-select-list-item input[type="checkbox"]:checked:focus + label:before, .is-night-mode .m-character-select-list-item input[type="checkbox"]:checked:hover + label:before, .is-night-mode .m-character-select-list-item input[type="radio"]:checked:focus + label:before, .is-night-mode .m-character-select-list-item input[type="radio"]:checked:hover + label:before {
     color: #ffffff; }
-  .is-night-mode .m-character-select-list-item input[type="checkbox"]:checked:focus + label .m-character-select-list-item-class-level, .is-night-mode .m-character-select-list-item input[type="checkbox"]:checked:hover + label .m-character-select-list-item-class-level, .is-night-mode .m-character-select-list-item input[type="radio"]:checked:focus + label .m-character-select-list-item-class-level, .is-night-mode .m-character-select-list-item input[type="radio"]:checked:hover + label .m-character-select-list-item-class-level {
-    color: #ffffff; }
 
 .is-night-mode .m-character-select-list-item input[type="checkbox"]:checked:active + label, .is-night-mode .m-character-select-list-item input[type="radio"]:checked:active + label {
   background-color: #970027;
   color: #ffffff; }
   .is-night-mode .m-character-select-list-item input[type="checkbox"]:checked:active + label:before, .is-night-mode .m-character-select-list-item input[type="radio"]:checked:active + label:before {
     color: #ffffff; }
-  .is-night-mode .m-character-select-list-item input[type="checkbox"]:checked:active + label .m-character-select-list-item-class-level,
-  .is-night-mode .m-character-select-list-item input[type="checkbox"]:checked:active + label .m-character-select-list-item-name, .is-night-mode .m-character-select-list-item input[type="radio"]:checked:active + label .m-character-select-list-item-class-level,
-  .is-night-mode .m-character-select-list-item input[type="radio"]:checked:active + label .m-character-select-list-item-name {
+  .is-night-mode .m-character-select-list-item input[type="checkbox"]:checked:active + label .m-character-select-list-item-name, .is-night-mode .m-character-select-list-item input[type="radio"]:checked:active + label .m-character-select-list-item-name {
     color: #ffffff; }
 
 .is-night-mode .m-character-select-control-link {
@@ -4280,9 +4249,6 @@ label {
 .is-night-mode .is-display-mode .m-character-select-list-item input[type="checkbox"] + label:before, .is-night-mode .is-display-mode .m-character-select-list-item input[type="radio"] + label:before {
   color: #ff3166; }
 
-.is-night-mode .is-display-mode .m-character-select-list-item input[type="checkbox"] + label .m-character-select-list-item-class-level, .is-night-mode .is-display-mode .m-character-select-list-item input[type="radio"] + label .m-character-select-list-item-class-level {
-  color: #ff3166; }
-
 .is-night-mode .is-display-mode .m-character-select-list-item input[type="checkbox"] + label .m-character-select-list-item-name, .is-night-mode .is-display-mode .m-character-select-list-item input[type="radio"] + label .m-character-select-list-item-name {
   color: #ffffff; }
 
@@ -4295,8 +4261,6 @@ label {
   color: #ffffff; }
   .is-night-mode .is-display-mode .m-character-select-list-item input[type="checkbox"]:active + label:before, .is-night-mode .is-display-mode .m-character-select-list-item input[type="radio"]:active + label:before {
     color: #ffffff; }
-  .is-night-mode .is-display-mode .m-character-select-list-item input[type="checkbox"]:active + label .m-character-select-list-item-class-level, .is-night-mode .is-display-mode .m-character-select-list-item input[type="radio"]:active + label .m-character-select-list-item-class-level {
-    color: #ffffff; }
   .is-night-mode .is-display-mode .m-character-select-list-item input[type="checkbox"]:active + label .m-character-select-list-item-name, .is-night-mode .is-display-mode .m-character-select-list-item input[type="radio"]:active + label .m-character-select-list-item-name {
     color: #ffffff; }
 
@@ -4304,8 +4268,6 @@ label {
   background-color: #1e7ddc;
   color: #ffffff; }
   .is-night-mode .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked + label:before, .is-night-mode .is-display-mode .m-character-select-list-item input[type="radio"]:checked + label:before {
-    color: #ffffff; }
-  .is-night-mode .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked + label .m-character-select-list-item-class-level, .is-night-mode .is-display-mode .m-character-select-list-item input[type="radio"]:checked + label .m-character-select-list-item-class-level {
     color: #ffffff; }
   .is-night-mode .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked + label .m-character-select-list-item-name, .is-night-mode .is-display-mode .m-character-select-list-item input[type="radio"]:checked + label .m-character-select-list-item-name {
     color: #ffffff; }
@@ -4315,17 +4277,13 @@ label {
   color: #ffffff; }
   .is-night-mode .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked:focus + label:before, .is-night-mode .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked:hover + label:before, .is-night-mode .is-display-mode .m-character-select-list-item input[type="radio"]:checked:focus + label:before, .is-night-mode .is-display-mode .m-character-select-list-item input[type="radio"]:checked:hover + label:before {
     color: #ffffff; }
-  .is-night-mode .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked:focus + label .m-character-select-list-item-class-level, .is-night-mode .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked:hover + label .m-character-select-list-item-class-level, .is-night-mode .is-display-mode .m-character-select-list-item input[type="radio"]:checked:focus + label .m-character-select-list-item-class-level, .is-night-mode .is-display-mode .m-character-select-list-item input[type="radio"]:checked:hover + label .m-character-select-list-item-class-level {
-    color: #ffffff; }
 
 .is-night-mode .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked:active + label, .is-night-mode .is-display-mode .m-character-select-list-item input[type="radio"]:checked:active + label {
   background-color: #1e4a76;
   color: #ffffff; }
   .is-night-mode .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked:active + label:before, .is-night-mode .is-display-mode .m-character-select-list-item input[type="radio"]:checked:active + label:before {
     color: #ffffff; }
-  .is-night-mode .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked:active + label .m-character-select-list-item-class-level,
-  .is-night-mode .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked:active + label .m-character-select-list-item-name, .is-night-mode .is-display-mode .m-character-select-list-item input[type="radio"]:checked:active + label .m-character-select-list-item-class-level,
-  .is-night-mode .is-display-mode .m-character-select-list-item input[type="radio"]:checked:active + label .m-character-select-list-item-name {
+  .is-night-mode .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked:active + label .m-character-select-list-item-name, .is-night-mode .is-display-mode .m-character-select-list-item input[type="radio"]:checked:active + label .m-character-select-list-item-name {
     color: #ffffff; }
 
 .is-night-mode .is-display-mode .m-character-select-control-link {
@@ -4361,9 +4319,6 @@ label {
 .is-display-mode .m-character-select-list-item input[type="checkbox"] + label:before, .is-display-mode .m-character-select-list-item input[type="radio"] + label:before {
   color: #ca0035; }
 
-.is-display-mode .m-character-select-list-item input[type="checkbox"] + label .m-character-select-list-item-class-level, .is-display-mode .m-character-select-list-item input[type="radio"] + label .m-character-select-list-item-class-level {
-  color: #ca0035; }
-
 .is-display-mode .m-character-select-list-item input[type="checkbox"] + label .m-character-select-list-item-name, .is-display-mode .m-character-select-list-item input[type="radio"] + label .m-character-select-list-item-name {
   color: #2e2e2e; }
 
@@ -4376,8 +4331,6 @@ label {
   color: #ffffff; }
   .is-display-mode .m-character-select-list-item input[type="checkbox"]:active + label:before, .is-display-mode .m-character-select-list-item input[type="radio"]:active + label:before {
     color: #ffffff; }
-  .is-display-mode .m-character-select-list-item input[type="checkbox"]:active + label .m-character-select-list-item-class-level, .is-display-mode .m-character-select-list-item input[type="radio"]:active + label .m-character-select-list-item-class-level {
-    color: #ffffff; }
   .is-display-mode .m-character-select-list-item input[type="checkbox"]:active + label .m-character-select-list-item-name, .is-display-mode .m-character-select-list-item input[type="radio"]:active + label .m-character-select-list-item-name {
     color: #ffffff; }
 
@@ -4385,8 +4338,6 @@ label {
   background-color: #1e7ddc;
   color: #ffffff; }
   .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked + label:before, .is-display-mode .m-character-select-list-item input[type="radio"]:checked + label:before {
-    color: #ffffff; }
-  .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked + label .m-character-select-list-item-class-level, .is-display-mode .m-character-select-list-item input[type="radio"]:checked + label .m-character-select-list-item-class-level {
     color: #ffffff; }
   .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked + label .m-character-select-list-item-name, .is-display-mode .m-character-select-list-item input[type="radio"]:checked + label .m-character-select-list-item-name {
     color: #ffffff; }
@@ -4396,17 +4347,13 @@ label {
   color: #ffffff; }
   .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked:focus + label:before, .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked:hover + label:before, .is-display-mode .m-character-select-list-item input[type="radio"]:checked:focus + label:before, .is-display-mode .m-character-select-list-item input[type="radio"]:checked:hover + label:before {
     color: #ffffff; }
-  .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked:focus + label .m-character-select-list-item-class-level, .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked:hover + label .m-character-select-list-item-class-level, .is-display-mode .m-character-select-list-item input[type="radio"]:checked:focus + label .m-character-select-list-item-class-level, .is-display-mode .m-character-select-list-item input[type="radio"]:checked:hover + label .m-character-select-list-item-class-level {
-    color: #ffffff; }
 
 .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked:active + label, .is-display-mode .m-character-select-list-item input[type="radio"]:checked:active + label {
   background-color: #1e4a76;
   color: #ffffff; }
   .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked:active + label:before, .is-display-mode .m-character-select-list-item input[type="radio"]:checked:active + label:before {
     color: #ffffff; }
-  .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked:active + label .m-character-select-list-item-class-level,
-  .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked:active + label .m-character-select-list-item-name, .is-display-mode .m-character-select-list-item input[type="radio"]:checked:active + label .m-character-select-list-item-class-level,
-  .is-display-mode .m-character-select-list-item input[type="radio"]:checked:active + label .m-character-select-list-item-name {
+  .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked:active + label .m-character-select-list-item-name, .is-display-mode .m-character-select-list-item input[type="radio"]:checked:active + label .m-character-select-list-item-name {
     color: #ffffff; }
 
 .is-display-mode .m-character-select-control-link {
@@ -4462,8 +4409,62 @@ label {
     overflow: hidden;
     text-overflow: ellipsis;
     display: block; }
+  .m-character-select-list-item input[type="checkbox"] + label .m-character-select-list-item-class-level, .m-character-select-list-item input[type="radio"] + label .m-character-select-list-item-class-level {
+    white-space: nowrap;
+    display: inline-block;
+    line-height: 1.6666666667;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #2063a7;
+    font-size: 0.75em;
+    -webkit-flex: 0 1 auto;
+        -ms-flex: 0 1 auto;
+            flex: 0 1 auto;
+    min-width: 3em;
+    position: relative;
+    top: 0.1em;
+    min-width: 3em;
+    max-width: 70%; }
+  .m-character-select-list-item input[type="checkbox"]:active + label .m-character-select-list-item-class-level, .m-character-select-list-item input[type="radio"]:active + label .m-character-select-list-item-class-level {
+    color: #ffffff; }
+  .m-character-select-list-item input[type="checkbox"]:checked + label .m-character-select-list-item-class-level, .m-character-select-list-item input[type="radio"]:checked + label .m-character-select-list-item-class-level {
+    color: #ffffff; }
+  .m-character-select-list-item input[type="checkbox"]:checked:focus + label .m-character-select-list-item-class-level, .m-character-select-list-item input[type="checkbox"]:checked:hover + label .m-character-select-list-item-class-level, .m-character-select-list-item input[type="radio"]:checked:focus + label .m-character-select-list-item-class-level, .m-character-select-list-item input[type="radio"]:checked:hover + label .m-character-select-list-item-class-level {
+    color: #ffffff; }
+  .m-character-select-list-item input[type="checkbox"]:checked:active + label .m-character-select-list-item-class-level, .m-character-select-list-item input[type="radio"]:checked:active + label .m-character-select-list-item-class-level {
+    color: #ffffff; }
   .is-active .m-character-select-class-level {
-    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.4); } }
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.4); }
+  .is-night-mode .m-character-select-list-item input[type="checkbox"] + label .m-character-select-list-item-class-level, .is-night-mode .m-character-select-list-item input[type="radio"] + label .m-character-select-list-item-class-level {
+    color: #3e96ee; }
+  .is-night-mode .m-character-select-list-item input[type="checkbox"]:active + label .m-character-select-list-item-class-level, .is-night-mode .m-character-select-list-item input[type="radio"]:active + label .m-character-select-list-item-class-level {
+    color: #ffffff; }
+  .is-night-mode .m-character-select-list-item input[type="checkbox"]:checked + label .m-character-select-list-item-class-level, .is-night-mode .m-character-select-list-item input[type="radio"]:checked + label .m-character-select-list-item-class-level {
+    color: #ffffff; }
+  .is-night-mode .m-character-select-list-item input[type="checkbox"]:checked:focus + label .m-character-select-list-item-class-level, .is-night-mode .m-character-select-list-item input[type="checkbox"]:checked:hover + label .m-character-select-list-item-class-level, .is-night-mode .m-character-select-list-item input[type="radio"]:checked:focus + label .m-character-select-list-item-class-level, .is-night-mode .m-character-select-list-item input[type="radio"]:checked:hover + label .m-character-select-list-item-class-level {
+    color: #ffffff; }
+  .is-night-mode .m-character-select-list-item input[type="checkbox"]:checked:active + label .m-character-select-list-item-class-level, .is-night-mode .m-character-select-list-item input[type="radio"]:checked:active + label .m-character-select-list-item-class-level {
+    color: #ffffff; }
+  .is-night-mode .is-display-mode .m-character-select-list-item input[type="checkbox"] + label .m-character-select-list-item-class-level, .is-night-mode .is-display-mode .m-character-select-list-item input[type="radio"] + label .m-character-select-list-item-class-level {
+    color: #ff3166; }
+  .is-night-mode .is-display-mode .m-character-select-list-item input[type="checkbox"]:active + label .m-character-select-list-item-class-level, .is-night-mode .is-display-mode .m-character-select-list-item input[type="radio"]:active + label .m-character-select-list-item-class-level {
+    color: #ffffff; }
+  .is-night-mode .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked + label .m-character-select-list-item-class-level, .is-night-mode .is-display-mode .m-character-select-list-item input[type="radio"]:checked + label .m-character-select-list-item-class-level {
+    color: #ffffff; }
+  .is-night-mode .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked:focus + label .m-character-select-list-item-class-level, .is-night-mode .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked:hover + label .m-character-select-list-item-class-level, .is-night-mode .is-display-mode .m-character-select-list-item input[type="radio"]:checked:focus + label .m-character-select-list-item-class-level, .is-night-mode .is-display-mode .m-character-select-list-item input[type="radio"]:checked:hover + label .m-character-select-list-item-class-level {
+    color: #ffffff; }
+  .is-night-mode .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked:active + label .m-character-select-list-item-class-level, .is-night-mode .is-display-mode .m-character-select-list-item input[type="radio"]:checked:active + label .m-character-select-list-item-class-level {
+    color: #ffffff; }
+  .is-display-mode .m-character-select-list-item input[type="checkbox"] + label .m-character-select-list-item-class-level, .is-display-mode .m-character-select-list-item input[type="radio"] + label .m-character-select-list-item-class-level {
+    color: #ca0035; }
+  .is-display-mode .m-character-select-list-item input[type="checkbox"]:active + label .m-character-select-list-item-class-level, .is-display-mode .m-character-select-list-item input[type="radio"]:active + label .m-character-select-list-item-class-level {
+    color: #ffffff; }
+  .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked + label .m-character-select-list-item-class-level, .is-display-mode .m-character-select-list-item input[type="radio"]:checked + label .m-character-select-list-item-class-level {
+    color: #ffffff; }
+  .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked:focus + label .m-character-select-list-item-class-level, .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked:hover + label .m-character-select-list-item-class-level, .is-display-mode .m-character-select-list-item input[type="radio"]:checked:focus + label .m-character-select-list-item-class-level, .is-display-mode .m-character-select-list-item input[type="radio"]:checked:hover + label .m-character-select-list-item-class-level {
+    color: #ffffff; }
+  .is-display-mode .m-character-select-list-item input[type="checkbox"]:checked:active + label .m-character-select-list-item-class-level, .is-display-mode .m-character-select-list-item input[type="radio"]:checked:active + label .m-character-select-list-item-class-level {
+    color: #ffffff; } }
 
 @media (min-width: 700px) {
   .m-character-select {
@@ -5067,10 +5068,10 @@ label {
 .m-select-block-large .m-select-block-large {
   font-size: 1.5em; }
 
-.is-night-mode .m-select-block:after {
+.is-night-mode .m-select-block:before {
   border-bottom-color: #94c9ff; }
 
-.is-night-mode .m-select-block:before {
+.is-night-mode .m-select-block:after {
   border-top-color: #94c9ff; }
 
 .is-night-mode .m-select-block-label {
