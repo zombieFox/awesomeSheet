@@ -1,13 +1,112 @@
 var events = (function() {
 
   function bind() {
-    var all_eventLogs = helper.eA(".js-evets-log");
-    for (var i = 0; i < all_eventLogs.length; i++) {
-      all_eventLogs[i].addEventListener("click", function(event) {
+    _bind_all_eventsLog();
+    _bind_all_eventsClear();
+  };
+
+  function _bind_all_eventsLog() {
+    var all_eventsLog = helper.eA(".js-evets-log");
+    for (var i = 0; i < all_eventsLog.length; i++) {
+      all_eventsLog[i].addEventListener("click", function(event) {
         event.stopPropagation();
         event.preventDefault();
         render(this);
       }, false)
+    };
+  };
+
+  function _bind_all_eventsClear() {
+    var all_eventsLog = helper.eA(".js-evets-clear");
+    for (var i = 0; i < all_eventsLog.length; i++) {
+      all_eventsLog[i].addEventListener("click", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        destroy(this);
+      }, false)
+    };
+  };
+
+  function destroy(button) {
+    var options = helper.makeObject(button.dataset.eventsOptions);
+    var allEvents = helper.getObject({
+      object: sheet.getCharacter(),
+      path: "events"
+    });
+    var foundXp = false;
+    var foundWealth = false;
+    var newEvents = [];
+    var _checkForXp = function() {
+      allEvents.forEach(function(object, index) {
+        if (object.type == "xp") {
+          foundXp = true;
+        };
+      });
+    };
+    var _checkForWealth = function() {
+      allEvents.forEach(function(object, index) {
+        if (object.type == "platinum" || object.type == "gold" || object.type == "silver" || object.type == "copper") {
+          foundWealth = true;
+        };
+      });
+    };
+    var _destroyXp = function() {
+      allEvents.forEach(function(object, index) {
+        if (object.type != "xp") {
+          newEvents.push(allEvents[index]);
+        };
+      });
+    };
+    var _destroyWealth = function() {
+      allEvents.forEach(function(object, index) {
+        if (object.type != "platinum" && object.type != "gold" && object.type != "silver" && object.type != "copper") {
+          newEvents.push(allEvents[index]);
+        };
+      });
+    };
+    var _store = function() {
+      helper.setObject({
+        object: sheet.getCharacter(),
+        path: "events",
+        newValue: newEvents
+      });
+    };
+    if (options.type == "xp") {
+      _checkForXp();
+      if (foundXp) {
+        prompt.render({
+          heading: options.promptHeading,
+          message: options.promptMessage,
+          actionText: "Clear",
+          cancelText: "Cancel",
+          action: function() {
+            _destroyXp();
+            _store();
+          },
+        });
+      } else {
+        snack.render({
+          message: "Nothing to clear."
+        });
+      };
+    } else if (options.type == "wealth") {
+      _checkForWealth();
+      if (foundWealth) {
+        prompt.render({
+          heading: options.promptHeading,
+          message: options.promptMessage,
+          actionText: "Clear",
+          cancelText: "Cancel",
+          action: function() {
+            _destroyWealth();
+            _store();
+          },
+        });
+      } else {
+        snack.render({
+          message: "Nothing to clear."
+        });
+      };
     };
   };
 

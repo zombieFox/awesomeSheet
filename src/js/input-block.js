@@ -310,13 +310,17 @@ var inputBlock = (function() {
     var inputBlockField = helper.e("#" + options.target);
     var inputBlock = helper.getClosest(inputBlockField, ".js-input-block");
     var inputBlockOptions = helper.makeObject(inputBlock.dataset.inputBlockAggregateOptions);
-    var _clearValue = function() {
-      _aggregateClear({
-        path: inputBlockOptions.path,
-        action: options.action,
-        snackMessage: options.snackMessage
+    var foundValue = false;
+    var _checkForValue = function() {
+      var value = helper.getObject({
+        object: sheet.getCharacter(),
+        path: inputBlockOptions.path
       });
-      inputBlockField.value = "";
+      if (value != "") {
+        foundValue = true;
+      };
+    };
+    var _makeEvent = function() {
       var type = button.dataset.eventType;
       var note;
       if (inputBlockOptions.eventType == "xp") {
@@ -334,18 +338,34 @@ var inputBlock = (function() {
         note: note
       };
       events.store(inputBlockOptions.eventType, eventObject);
+    };
+    var _clearValue = function() {
+      _aggregateClear({
+        path: inputBlockOptions.path,
+        action: options.action,
+        snackMessage: options.snackMessage
+      });
+      inputBlockField.value = "";
+      _makeEvent();
       xp.render();
       wealth.render();
       totalBlock.render();
       textBlock.render();
       sheet.storeCharacters();
     };
-    prompt.render({
-      heading: options.promptHeading,
-      message: options.promptMessage,
-      actionText: "Clear",
-      action: _clearValue
-    });
+    _checkForValue();
+    if (foundValue) {
+      prompt.render({
+        heading: options.promptHeading,
+        message: options.promptMessage,
+        actionText: "Clear",
+        action: _clearValue
+      });
+    } else {
+      snack.render({
+        message: "Nothing to clear."
+      });
+    };
   };
 
   function _aggregateClear(options) {
@@ -603,68 +623,83 @@ var inputBlock = (function() {
     var inputBlockField = helper.e("#" + options.target);
     var inputBlock = helper.getClosest(inputBlockField, ".js-input-block");
     var inputBlockOptions = helper.makeObject(inputBlock.dataset.inputBlockOptions);
+    console.log(options);
+    console.log(inputBlockOptions);
     var oldData;
     var newData;
     var shift = event.shiftKey;
-    if (inputBlockOptions.path) {
-      if (inputBlockOptions.clone) {
-        oldData = helper.getObject({
-          object: sheet.getCharacter(),
-          path: inputBlockOptions.path,
-          clone: inputBlockOptions.clone
-        });
-      } else {
-        oldData = helper.getObject({
-          object: sheet.getCharacter(),
-          path: inputBlockOptions.path
-        });
+    var _store = function() {
+      if (inputBlockOptions.path) {
+        if (inputBlockOptions.clone) {
+          helper.setObject({
+            path: inputBlockOptions.path,
+            object: sheet.getCharacter(),
+            clone: inputBlockOptions.clone,
+            newValue: newData
+          });
+        } else {
+          helper.setObject({
+            path: inputBlockOptions.path,
+            object: sheet.getCharacter(),
+            newValue: newData
+          });
+        };
       };
     };
-    parseInt(oldData, 10);
-    if (isNaN(oldData) || typeof oldData == "string" || oldData == "") {
-      oldData = 0;
+    var _getOldValue = function() {
+      if (inputBlockOptions.path) {
+        if (inputBlockOptions.clone) {
+          oldData = helper.getObject({
+            object: sheet.getCharacter(),
+            path: inputBlockOptions.path,
+            clone: inputBlockOptions.clone
+          });
+        } else {
+          oldData = helper.getObject({
+            object: sheet.getCharacter(),
+            path: inputBlockOptions.path
+          });
+        };
+      };
+      if (isNaN(oldData) || typeof oldData == "string" || oldData == "") {
+        oldData = 0;
+      };
     };
-    if (options.action == "addition") {
-      if (shift) {
-        newData = oldData + 10;
-      } else {
-        newData = oldData + 1;
+    var _change = function() {
+      if (options.action == "addition") {
+        if (shift) {
+          newData = oldData + 10;
+        } else {
+          newData = oldData + 1;
+        };
+      } else if (options.action == "subtraction") {
+        if (shift) {
+          newData = oldData - 10;
+        } else {
+          newData = oldData - 1;
+        };
       };
-    } else if (options.action == "subtraction") {
-      if (shift) {
-        newData = oldData - 10;
-      } else {
-        newData = oldData - 1;
+      if (inputBlockOptions.minimum != null) {
+        if (newData < parseInt(inputBlockOptions.minimum, 10)) {
+          newData = parseInt(inputBlockOptions.minimum, 10);
+        };
       };
-    } else if (options.action == "clear") {
+      if (inputBlockOptions.noZero) {
+        if (newData == 0) {
+          newData = "";
+        };
+      };
+    };
+    var _clear = function() {
       newData = 0;
     };
-    if (inputBlockOptions.minimum != null) {
-      if (newData < parseInt(inputBlockOptions.minimum, 10)) {
-        newData = parseInt(inputBlockOptions.minimum, 10);
-      };
+    if (options.action == "addition" || options.action == "subtraction") {
+      _getOldValue();
+      _change();
+    } else if (options.action == "clear") {
+      _clear();
     };
-    if (inputBlockOptions.noZero) {
-      if (newData == 0) {
-        newData = "";
-      };
-    };
-    if (inputBlockOptions.path) {
-      if (inputBlockOptions.clone) {
-        helper.setObject({
-          path: inputBlockOptions.path,
-          object: sheet.getCharacter(),
-          clone: inputBlockOptions.clone,
-          newValue: newData
-        });
-      } else {
-        helper.setObject({
-          path: inputBlockOptions.path,
-          object: sheet.getCharacter(),
-          newValue: newData
-        });
-      };
-    };
+    _store();
     render(inputBlock);
   };
 
