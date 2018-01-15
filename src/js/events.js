@@ -145,6 +145,7 @@ var events = (function() {
 
   function render(button) {
     var options = helper.makeObject(button.dataset.eventsOptions);
+
     var _create_eventTr = function(eventObject) {
       // console.log(eventLogType, eventObject);
       var tr = document.createElement("tr");
@@ -186,47 +187,48 @@ var events = (function() {
       tr.appendChild(td1);
       return tr;
     };
-    var _create_eventTable = function() {
-      var table = document.createElement("table");
-      var tbody = document.createElement("tbody");
+
+    var _create_modalBody = function() {
+      var body = document.createElement("div");
       var all_events = helper.getObject({
         object: sheet.getCharacter(),
         path: "events"
       });
       var all_eventsToRender = [];
-      if (options.type == "xp") {
-        all_events.forEach(function(object) {
-          if (object.type == "xp") {
-            all_eventsToRender.push(object);
-          };
-        });
-      } else if (options.type == "wealth") {
-        all_events.forEach(function(object) {
-          if (object.type == "platinum" || object.type == "gold" || object.type == "silver" || object.type == "copper") {
-            all_eventsToRender.push(object);
-          };
-        });
+      var _collectAllEvents = function() {
+        if (options.type == "xp") {
+          all_events.forEach(function(object) {
+            if (object.type == "xp") {
+              all_eventsToRender.push(object);
+            };
+          });
+        } else if (options.type == "wealth") {
+          all_events.forEach(function(object) {
+            if (object.type == "platinum" || object.type == "gold" || object.type == "silver" || object.type == "copper") {
+              all_eventsToRender.push(object);
+            };
+          });
+        };
       };
+      _collectAllEvents();
       // console.log("all_eventsToRender", all_eventsToRender);
       if (all_eventsToRender.length > 0) {
+        var table = document.createElement("table");
+        var tbody = document.createElement("tbody");
         for (var i in all_eventsToRender) {
           tbody.appendChild(_create_eventTr(all_eventsToRender[i]));
         };
+        table.appendChild(tbody);
+        return table;
       } else {
-        var table = document.createElement("table");
-        var tbody = document.createElement("tbody");
-        var tr = document.createElement("tr");
-        var td = document.createElement("td");
         var para = document.createElement("p");
         para.textContent = options.emptyMessage;
-        td.appendChild(para);
-        tr.appendChild(td);
-        tbody.appendChild(tr);
+        return para;
       };
-      table.appendChild(tbody);
-      return table;
     };
-    var modalBody = _create_eventTable();
+
+    var modalBody = _create_modalBody();
+
     modal.render({
       heading: options.modalHeading,
       content: modalBody,

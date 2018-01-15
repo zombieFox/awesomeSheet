@@ -620,14 +620,15 @@ var inputBlock = (function() {
 
   function _increment(button, event) {
     var options = helper.makeObject(button.dataset.inputBlockIncrementOptions);
+    console.log(options);
     var inputBlockField = helper.e("#" + options.target);
     var inputBlock = helper.getClosest(inputBlockField, ".js-input-block");
     var inputBlockOptions = helper.makeObject(inputBlock.dataset.inputBlockOptions);
-    console.log(options);
     console.log(inputBlockOptions);
+    var shift = event.shiftKey;
     var oldData;
     var newData;
-    var shift = event.shiftKey;
+
     var _store = function() {
       if (inputBlockOptions.path) {
         if (inputBlockOptions.clone) {
@@ -646,6 +647,7 @@ var inputBlock = (function() {
         };
       };
     };
+
     var _getOldValue = function() {
       if (inputBlockOptions.path) {
         if (inputBlockOptions.clone) {
@@ -665,6 +667,7 @@ var inputBlock = (function() {
         oldData = 0;
       };
     };
+
     var _change = function() {
       if (options.action == "addition") {
         if (shift) {
@@ -690,17 +693,48 @@ var inputBlock = (function() {
         };
       };
     };
+
     var _clear = function() {
-      newData = 0;
+      if (inputBlockOptions.noZero) {
+        newData = "";
+        newData = "";
+        console.log();
+      } else {
+        newData = 0;
+      };
+      _store();
+      render(inputBlock);
+      xp.render();
+      wealth.render();
+      totalBlock.render();
+      textBlock.render();
+      sheet.storeCharacters();
     };
-    if (options.action == "addition" || options.action == "subtraction") {
-      _getOldValue();
-      _change();
-    } else if (options.action == "clear") {
-      _clear();
+
+    var _checkAction = function() {
+      if (options.action == "addition" || options.action == "subtraction") {
+        _getOldValue();
+        _change();
+        _store();
+        render(inputBlock);
+      } else if (options.action == "clear") {
+        if (oldData == "") {
+          snack.render({
+            message: "Nothing to clear."
+          });
+        } else {
+          prompt.render({
+            heading: options.promptHeading,
+            message: options.promptMessage,
+            actionText: "Clear",
+            cancelText: "Cancel",
+            action: _clear
+          });
+        };
+      };
     };
-    _store();
-    render(inputBlock);
+
+    _checkAction();
   };
 
   // exposed methods
