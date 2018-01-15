@@ -19187,6 +19187,9 @@ var inputBlock = (function() {
       } else if (options.action == "subtraction") {
         newQuickValue = oldValue - newQuickValue;
       };
+      if (newQuickValue < inputBlockOptions.minimum) {
+        newQuickValue = inputBlockOptions.minimum;
+      };
       if (newQuickValue == 0) {
         newQuickValue = "";
       };
