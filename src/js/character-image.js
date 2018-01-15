@@ -147,6 +147,10 @@ var characterImage = (function() {
         actionText: "Remove",
         action: destroy
       });
+    } else {
+      snack.render({
+        message: "Nothing to clear."
+      });
     };
   };
 
