@@ -14903,6 +14903,10 @@ var characterImage = (function() {
         actionText: "Remove",
         action: destroy
       });
+    } else {
+      snack.render({
+        message: "Nothing to clear."
+      });
     };
   };
 
@@ -18306,13 +18310,112 @@ var encumbrance = (function() {
 var events = (function() {
 
   function bind() {
-    var all_eventLogs = helper.eA(".js-evets-log");
-    for (var i = 0; i < all_eventLogs.length; i++) {
-      all_eventLogs[i].addEventListener("click", function(event) {
+    _bind_all_eventsLog();
+    _bind_all_eventsClear();
+  };
+
+  function _bind_all_eventsLog() {
+    var all_eventsLog = helper.eA(".js-evets-log");
+    for (var i = 0; i < all_eventsLog.length; i++) {
+      all_eventsLog[i].addEventListener("click", function(event) {
         event.stopPropagation();
         event.preventDefault();
         render(this);
       }, false)
+    };
+  };
+
+  function _bind_all_eventsClear() {
+    var all_eventsLog = helper.eA(".js-evets-clear");
+    for (var i = 0; i < all_eventsLog.length; i++) {
+      all_eventsLog[i].addEventListener("click", function(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        destroy(this);
+      }, false)
+    };
+  };
+
+  function destroy(button) {
+    var options = helper.makeObject(button.dataset.eventsOptions);
+    var allEvents = helper.getObject({
+      object: sheet.getCharacter(),
+      path: "events"
+    });
+    var foundXp = false;
+    var foundWealth = false;
+    var newEvents = [];
+    var _checkForXp = function() {
+      allEvents.forEach(function(object, index) {
+        if (object.type == "xp") {
+          foundXp = true;
+        };
+      });
+    };
+    var _checkForWealth = function() {
+      allEvents.forEach(function(object, index) {
+        if (object.type == "platinum" || object.type == "gold" || object.type == "silver" || object.type == "copper") {
+          foundWealth = true;
+        };
+      });
+    };
+    var _destroyXp = function() {
+      allEvents.forEach(function(object, index) {
+        if (object.type != "xp") {
+          newEvents.push(allEvents[index]);
+        };
+      });
+    };
+    var _destroyWealth = function() {
+      allEvents.forEach(function(object, index) {
+        if (object.type != "platinum" && object.type != "gold" && object.type != "silver" && object.type != "copper") {
+          newEvents.push(allEvents[index]);
+        };
+      });
+    };
+    var _store = function() {
+      helper.setObject({
+        object: sheet.getCharacter(),
+        path: "events",
+        newValue: newEvents
+      });
+    };
+    if (options.type == "xp") {
+      _checkForXp();
+      if (foundXp) {
+        prompt.render({
+          heading: options.promptHeading,
+          message: options.promptMessage,
+          actionText: "Clear",
+          cancelText: "Cancel",
+          action: function() {
+            _destroyXp();
+            _store();
+          },
+        });
+      } else {
+        snack.render({
+          message: "Nothing to clear."
+        });
+      };
+    } else if (options.type == "wealth") {
+      _checkForWealth();
+      if (foundWealth) {
+        prompt.render({
+          heading: options.promptHeading,
+          message: options.promptMessage,
+          actionText: "Clear",
+          cancelText: "Cancel",
+          action: function() {
+            _destroyWealth();
+            _store();
+          },
+        });
+      } else {
+        snack.render({
+          message: "Nothing to clear."
+        });
+      };
     };
   };
 
@@ -18351,6 +18454,7 @@ var events = (function() {
 
   function render(button) {
     var options = helper.makeObject(button.dataset.eventsOptions);
+
     var _create_eventTr = function(eventObject) {
       // console.log(eventLogType, eventObject);
       var tr = document.createElement("tr");
@@ -18392,47 +18496,48 @@ var events = (function() {
       tr.appendChild(td1);
       return tr;
     };
-    var _create_eventTable = function() {
-      var table = document.createElement("table");
-      var tbody = document.createElement("tbody");
+
+    var _create_modalBody = function() {
+      var body = document.createElement("div");
       var all_events = helper.getObject({
         object: sheet.getCharacter(),
         path: "events"
       });
       var all_eventsToRender = [];
-      if (options.type == "xp") {
-        all_events.forEach(function(object) {
-          if (object.type == "xp") {
-            all_eventsToRender.push(object);
-          };
-        });
-      } else if (options.type == "wealth") {
-        all_events.forEach(function(object) {
-          if (object.type == "platinum" || object.type == "gold" || object.type == "silver" || object.type == "copper") {
-            all_eventsToRender.push(object);
-          };
-        });
+      var _collectAllEvents = function() {
+        if (options.type == "xp") {
+          all_events.forEach(function(object) {
+            if (object.type == "xp") {
+              all_eventsToRender.push(object);
+            };
+          });
+        } else if (options.type == "wealth") {
+          all_events.forEach(function(object) {
+            if (object.type == "platinum" || object.type == "gold" || object.type == "silver" || object.type == "copper") {
+              all_eventsToRender.push(object);
+            };
+          });
+        };
       };
+      _collectAllEvents();
       // console.log("all_eventsToRender", all_eventsToRender);
       if (all_eventsToRender.length > 0) {
+        var table = document.createElement("table");
+        var tbody = document.createElement("tbody");
         for (var i in all_eventsToRender) {
           tbody.appendChild(_create_eventTr(all_eventsToRender[i]));
         };
+        table.appendChild(tbody);
+        return table;
       } else {
-        var table = document.createElement("table");
-        var tbody = document.createElement("tbody");
-        var tr = document.createElement("tr");
-        var td = document.createElement("td");
         var para = document.createElement("p");
         para.textContent = options.emptyMessage;
-        td.appendChild(para);
-        tr.appendChild(td);
-        tbody.appendChild(tr);
+        return para;
       };
-      table.appendChild(tbody);
-      return table;
     };
-    var modalBody = _create_eventTable();
+
+    var modalBody = _create_modalBody();
+
     modal.render({
       heading: options.modalHeading,
       content: modalBody,
@@ -18911,13 +19016,17 @@ var inputBlock = (function() {
     var inputBlockField = helper.e("#" + options.target);
     var inputBlock = helper.getClosest(inputBlockField, ".js-input-block");
     var inputBlockOptions = helper.makeObject(inputBlock.dataset.inputBlockAggregateOptions);
-    var _clearValue = function() {
-      _aggregateClear({
-        path: inputBlockOptions.path,
-        action: options.action,
-        snackMessage: options.snackMessage
+    var foundValue = false;
+    var _checkForValue = function() {
+      var value = helper.getObject({
+        object: sheet.getCharacter(),
+        path: inputBlockOptions.path
       });
-      inputBlockField.value = "";
+      if (value != "") {
+        foundValue = true;
+      };
+    };
+    var _makeEvent = function() {
       var type = button.dataset.eventType;
       var note;
       if (inputBlockOptions.eventType == "xp") {
@@ -18935,18 +19044,34 @@ var inputBlock = (function() {
         note: note
       };
       events.store(inputBlockOptions.eventType, eventObject);
+    };
+    var _clearValue = function() {
+      _aggregateClear({
+        path: inputBlockOptions.path,
+        action: options.action,
+        snackMessage: options.snackMessage
+      });
+      inputBlockField.value = "";
+      _makeEvent();
       xp.render();
       wealth.render();
       totalBlock.render();
       textBlock.render();
       sheet.storeCharacters();
     };
-    prompt.render({
-      heading: options.promptHeading,
-      message: options.promptMessage,
-      actionText: "Clear",
-      action: _clearValue
-    });
+    _checkForValue();
+    if (foundValue) {
+      prompt.render({
+        heading: options.promptHeading,
+        message: options.promptMessage,
+        actionText: "Clear",
+        action: _clearValue
+      });
+    } else {
+      snack.render({
+        message: "Nothing to clear."
+      });
+    };
   };
 
   function _aggregateClear(options) {
@@ -19184,11 +19309,12 @@ var inputBlock = (function() {
     var modalAction = function() {
       var defenceSection = helper.e(".js-section-defense");
       _store_data();
-      sheet.storeCharacters();
       render(inputBlock);
       totalBlock.render();
+      textBlock.render();
       display.clear(defenceSection);
       display.render(defenceSection);
+      sheet.storeCharacters();
     };
     modal.render({
       heading: options.modalHeading,
@@ -19204,69 +19330,114 @@ var inputBlock = (function() {
     var inputBlockField = helper.e("#" + options.target);
     var inputBlock = helper.getClosest(inputBlockField, ".js-input-block");
     var inputBlockOptions = helper.makeObject(inputBlock.dataset.inputBlockOptions);
+    var shift = event.shiftKey;
     var oldData;
     var newData;
-    var shift = event.shiftKey;
-    if (inputBlockOptions.path) {
-      if (inputBlockOptions.clone) {
-        oldData = helper.getObject({
-          object: sheet.getCharacter(),
-          path: inputBlockOptions.path,
-          clone: inputBlockOptions.clone
-        });
-      } else {
-        oldData = helper.getObject({
-          object: sheet.getCharacter(),
-          path: inputBlockOptions.path
-        });
+
+    var _store = function() {
+      if (inputBlockOptions.path) {
+        if (inputBlockOptions.clone) {
+          helper.setObject({
+            path: inputBlockOptions.path,
+            object: sheet.getCharacter(),
+            clone: inputBlockOptions.clone,
+            newValue: newData
+          });
+        } else {
+          helper.setObject({
+            path: inputBlockOptions.path,
+            object: sheet.getCharacter(),
+            newValue: newData
+          });
+        };
       };
     };
-    parseInt(oldData, 10);
-    if (isNaN(oldData) || typeof oldData == "string" || oldData == "") {
-      oldData = 0;
-    };
-    if (options.action == "addition") {
-      if (shift) {
-        newData = oldData + 10;
-      } else {
-        newData = oldData + 1;
+
+    var _get_oldValue = function() {
+      if (inputBlockOptions.path) {
+        if (inputBlockOptions.clone) {
+          oldData = helper.getObject({
+            object: sheet.getCharacter(),
+            path: inputBlockOptions.path,
+            clone: inputBlockOptions.clone
+          });
+        } else {
+          oldData = helper.getObject({
+            object: sheet.getCharacter(),
+            path: inputBlockOptions.path
+          });
+        };
       };
-    } else if (options.action == "subtraction") {
-      if (shift) {
-        newData = oldData - 10;
-      } else {
-        newData = oldData - 1;
-      };
-    } else if (options.action == "clear") {
-      newData = 0;
-    };
-    if (inputBlockOptions.minimum != null) {
-      if (newData < parseInt(inputBlockOptions.minimum, 10)) {
-        newData = parseInt(inputBlockOptions.minimum, 10);
+      if (isNaN(oldData) || typeof oldData == "string" || oldData == "") {
+        oldData = 0;
       };
     };
-    if (inputBlockOptions.noZero) {
-      if (newData == 0) {
+
+    var _change = function() {
+      if (options.action == "addition") {
+        if (shift) {
+          newData = oldData + 10;
+        } else {
+          newData = oldData + 1;
+        };
+      } else if (options.action == "subtraction") {
+        if (shift) {
+          newData = oldData - 10;
+        } else {
+          newData = oldData - 1;
+        };
+      };
+      if (inputBlockOptions.minimum != null) {
+        if (newData < parseInt(inputBlockOptions.minimum, 10)) {
+          newData = parseInt(inputBlockOptions.minimum, 10);
+        };
+      };
+      if (inputBlockOptions.noZero) {
+        if (newData == 0) {
+          newData = "";
+        };
+      };
+    };
+
+    var _clear = function() {
+      if (inputBlockOptions.noZero) {
         newData = "";
-      };
-    };
-    if (inputBlockOptions.path) {
-      if (inputBlockOptions.clone) {
-        helper.setObject({
-          path: inputBlockOptions.path,
-          object: sheet.getCharacter(),
-          clone: inputBlockOptions.clone,
-          newValue: newData
-        });
       } else {
-        helper.setObject({
-          path: inputBlockOptions.path,
-          object: sheet.getCharacter(),
-          newValue: newData
-        });
+        newData = 0;
+      };
+      _store();
+      render(inputBlock);
+      xp.render();
+      wealth.render();
+      totalBlock.render();
+      textBlock.render();
+      sheet.storeCharacters();
+    };
+
+    var _checkAction = function() {
+      _get_oldValue();
+      if (options.action == "addition" || options.action == "subtraction") {
+        _change();
+        _store();
+        render(inputBlock);
+      } else if (options.action == "clear") {
+        if (oldData == "" || oldData == undefined) {
+          snack.render({
+            message: "Nothing to clear."
+          });
+        } else {
+          prompt.render({
+            heading: options.promptHeading,
+            message: options.promptMessage,
+            actionText: "Clear",
+            cancelText: "Cancel",
+            action: _clear
+          });
+        };
       };
     };
-    render(inputBlock);
+
+    _checkAction();
   };
 
   // exposed methods
@@ -24406,7 +24577,7 @@ var update = (function() {
   }, {
     version: "4.0.0",
     list: [
-      "*Rebuild of the storing and retrieving logic for better performance.",
+      "Rebuild of the storing and retrieving logic for better performance.",
       "Added Potions and Scrolls area to Equipment.",
       "Added Mobile Safari support."
     ]

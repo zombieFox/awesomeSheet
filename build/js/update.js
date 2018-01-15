@@ -8,7 +8,7 @@ var update = (function() {
   }, {
     version: "4.0.0",
     list: [
-      "*Rebuild of the storing and retrieving logic for better performance.",
+      "Rebuild of the storing and retrieving logic for better performance.",
       "Added Potions and Scrolls area to Equipment.",
       "Added Mobile Safari support."
     ]
