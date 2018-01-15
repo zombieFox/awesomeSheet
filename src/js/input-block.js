@@ -620,11 +620,9 @@ var inputBlock = (function() {
 
   function _increment(button, event) {
     var options = helper.makeObject(button.dataset.inputBlockIncrementOptions);
-    console.log(options);
     var inputBlockField = helper.e("#" + options.target);
     var inputBlock = helper.getClosest(inputBlockField, ".js-input-block");
     var inputBlockOptions = helper.makeObject(inputBlock.dataset.inputBlockOptions);
-    console.log(inputBlockOptions);
     var shift = event.shiftKey;
     var oldData;
     var newData;
@@ -648,7 +646,7 @@ var inputBlock = (function() {
       };
     };
 
-    var _getOldValue = function() {
+    var _get_oldValue = function() {
       if (inputBlockOptions.path) {
         if (inputBlockOptions.clone) {
           oldData = helper.getObject({
@@ -697,8 +695,6 @@ var inputBlock = (function() {
     var _clear = function() {
       if (inputBlockOptions.noZero) {
         newData = "";
-        newData = "";
-        console.log();
       } else {
         newData = 0;
       };
@@ -712,13 +708,13 @@ var inputBlock = (function() {
     };
 
     var _checkAction = function() {
+      _get_oldValue();
       if (options.action == "addition" || options.action == "subtraction") {
-        _getOldValue();
         _change();
         _store();
         render(inputBlock);
       } else if (options.action == "clear") {
-        if (oldData == "") {
+        if (oldData == "" || oldData == undefined) {
           snack.render({
             message: "Nothing to clear."
           });
