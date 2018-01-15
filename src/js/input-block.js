@@ -603,11 +603,12 @@ var inputBlock = (function() {
     var modalAction = function() {
       var defenceSection = helper.e(".js-section-defense");
       _store_data();
-      sheet.storeCharacters();
       render(inputBlock);
       totalBlock.render();
+      textBlock.render();
       display.clear(defenceSection);
       display.render(defenceSection);
+      sheet.storeCharacters();
     };
     modal.render({
       heading: options.modalHeading,
