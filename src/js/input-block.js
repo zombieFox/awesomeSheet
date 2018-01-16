@@ -396,70 +396,91 @@ var inputBlock = (function() {
     };
     var oldData;
     var newData;
-    oldData = parseInt(helper.getObject({
-      object: sheet.getCharacter(),
-      path: defaultOptions.path
-    }), 10);
-    var undoData = oldData;
-    if (isNaN(oldData)) {
-      oldData = 0;
-    };
-    if (defaultOptions.action == "aggregate") {
-      newData = oldData + defaultOptions.value;
-      if (defaultOptions.value >= 0) {
-        defaultOptions.snackMessage = "+" + defaultOptions.value.toLocaleString(undefined, {
-          minimumFractionDigits: 0,
-          maximumFractionDigits: 0
-        }) + " " + defaultOptions.snackMessage;
-      } else {
-        defaultOptions.snackMessage = defaultOptions.value.toLocaleString(undefined, {
-          minimumFractionDigits: 0,
-          maximumFractionDigits: 0
-        }) + " " + defaultOptions.snackMessage;
+    var undoData;
+
+    var _store_lastAggregate = function(path, oldData) {
+      var object = {
+        path: path,
+        oldData: oldData
       };
-    } else if (defaultOptions.action == "clear") {
-      newData = "";
+      helper.store("lastAggregate", JSON.stringify(object));
     };
-    helper.setObject({
-      object: sheet.getCharacter(),
-      path: defaultOptions.path,
-      newValue: newData
-    });
-    _store_lastAggregate(defaultOptions.path, undoData);
-    snack.render({
-      message: defaultOptions.snackMessage,
-      button: "Undo",
-      action: _restore_lastAggregate,
-      destroyDelay: 8000
-    });
-  };
 
-  function _store_lastAggregate(path, oldData) {
-    var object = {
-      path: path,
-      oldData: oldData
+    var _restore_lastAggregate = function() {
+      events.undo();
+      var undoObject = JSON.parse(helper.read("lastAggregate"));
+      helper.setObject({
+        object: sheet.getCharacter(),
+        path: undoObject.path,
+        newValue: undoObject.oldData
+      });
+      xp.render();
+      wealth.render();
+      totalBlock.render();
+      textBlock.render();
+      sheet.storeCharacters();
+      _clear_lastRemovedAggregate();
     };
-    helper.store("lastAggregate", JSON.stringify(object));
-  };
 
-  function _restore_lastAggregate() {
-    events.undo();
-    var undoData = JSON.parse(helper.read("lastAggregate"));
-    helper.setObject({
-      object: sheet.getCharacter(),
-      path: undoData.path,
-      newValue: undoData.oldData
-    });
-    xp.render();
-    wealth.render();
-    totalBlock.render();
-    textBlock.render();
-    sheet.storeCharacters();
-    _clear_lastRemovedAggregate();
-  };
+    var _clear_lastRemovedAggregate = function() {
+      helper.remove("lastAggregate");
+    };
 
-  function _clear_lastRemovedAggregate() {
-    helper.remove("lastAggregate");
+    var _store_undoData = function(oldData) {
+      if (oldData == undefined || isNaN(oldData)) {
+        oldData = "";
+      };
+      undoData = oldData;
+    };
+
+    var _get_oldData = function() {
+      oldData = parseInt(helper.getObject({
+        object: sheet.getCharacter(),
+        path: defaultOptions.path
+      }), 10);
+      _store_undoData(oldData);
+      if (isNaN(oldData)) {
+        oldData = 0;
+      };
+    };
+
+    var _aggregateData = function() {
+      if (defaultOptions.action == "aggregate") {
+        newData = oldData + defaultOptions.value;
+        if (defaultOptions.value >= 0) {
+          defaultOptions.snackMessage = "+" + defaultOptions.value.toLocaleString(undefined, {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+          }) + " " + defaultOptions.snackMessage;
+        } else {
+          defaultOptions.snackMessage = defaultOptions.value.toLocaleString(undefined, {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+          }) + " " + defaultOptions.snackMessage;
+        };
+      } else if (defaultOptions.action == "clear") {
+        newData = "";
+      };
+    };
+
+    var _store_data = function() {
+      helper.setObject({
+        object: sheet.getCharacter(),
+        path: defaultOptions.path,
+        newValue: newData
+      });
+      _store_lastAggregate(defaultOptions.path, undoData);
+      snack.render({
+        message: defaultOptions.snackMessage,
+        button: "Undo",
+        action: _restore_lastAggregate,
+        destroyDelay: 8000
+      });
+    };
+
+    _get_oldData();
+    _aggregateData();
+    _store_data();
   };
 
   function _render_quickValueControls(button) {
@@ -469,17 +490,17 @@ var inputBlock = (function() {
     var inputBlockOptions = helper.makeObject(inputBlock.dataset.inputBlockOptions);
     var newQuickValue = 0;
     var _store_data = function() {
-      var oldValue = helper.getObject({
+      var oldData = helper.getObject({
         object: sheet.getCharacter(),
         path: inputBlockOptions.path
       });
-      if (oldValue == "") {
-        oldValue = 0;
+      if (oldData == "") {
+        oldData = 0;
       };
       if (options.action == "addition") {
-        newQuickValue = oldValue + newQuickValue;
+        newQuickValue = oldData + newQuickValue;
       } else if (options.action == "subtraction") {
-        newQuickValue = oldValue - newQuickValue;
+        newQuickValue = oldData - newQuickValue;
       };
       if (newQuickValue < inputBlockOptions.minimum) {
         newQuickValue = inputBlockOptions.minimum;
@@ -650,7 +671,7 @@ var inputBlock = (function() {
       };
     };
 
-    var _get_oldValue = function() {
+    var _get_oldData = function() {
       if (inputBlockOptions.path) {
         if (inputBlockOptions.clone) {
           oldData = helper.getObject({
@@ -712,7 +733,7 @@ var inputBlock = (function() {
     };
 
     var _checkAction = function() {
-      _get_oldValue();
+      _get_oldData();
       if (options.action == "addition" || options.action == "subtraction") {
         _change();
         _store();
