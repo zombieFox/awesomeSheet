@@ -53,12 +53,11 @@
     color: $base-color;
   }
   .m-menu-link-shortcut {
-    margin-right: 1em;
+    margin-right: 2em;
     flex: 1 0 auto;
     text-align: right;
     color: $secondary-color-08;
     font-size: $font-size-075;
-    font-family: $open-sans-bold;
   }
   [class*=" icon-"],
   [class^="icon-"] {
