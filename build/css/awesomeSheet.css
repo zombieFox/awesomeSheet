@@ -2718,14 +2718,13 @@ label {
   .m-menu-link .m-menu-link-text {
     color: #2e2e2e; }
   .m-menu-link .m-menu-link-shortcut {
-    margin-right: 1em;
+    margin-right: 2em;
     -webkit-flex: 1 0 auto;
         -ms-flex: 1 0 auto;
             flex: 1 0 auto;
     text-align: right;
     color: #2063a7;
-    font-size: 0.75em;
-    font-family: "Open Sans Bold", Helvetica, Arial, sans-serif; }
+    font-size: 0.75em; }
   .m-menu-link [class*=" icon-"],
   .m-menu-link [class^="icon-"] {
     -webkit-flex: 0 0 20%;
@@ -4000,7 +3999,6 @@ label {
       color: #ffffff; }
 
 .m-character-select-control-link {
-  padding: 0 1em 0 0;
   height: 3em;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -4034,14 +4032,13 @@ label {
         -ms-flex: 1 1 80%;
             flex: 1 1 80%; }
   .m-character-select-control-link .m-character-select-control-link-shortcut {
-    margin-right: 1em;
+    margin-right: 2em;
     -webkit-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
             flex: 0 0 auto;
     text-align: right;
     color: #2063a7;
-    font-size: 0.75em;
-    font-family: "Open Sans Bold", Helvetica, Arial, sans-serif; }
+    font-size: 0.75em; }
   .m-character-select-control-link:link, .m-character-select-control-link:visited {
     color: #2e2e2e; }
     .m-character-select-control-link:link [class*=" icon-"],
