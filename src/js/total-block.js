@@ -122,32 +122,24 @@ var totalBlock = (function() {
     var totalBlockObject;
     var toSum = [];
     var _get_totalBlockObject = function() {
-      var totalObject;
-      if (options.clone) {
-        totalObject = helper.getObject({
-          object: sheet.get(),
-          path: options.path,
-          clone: options.clone
-        });
-      } else {
-        totalObject = helper.getObject({
-          object: sheet.get(),
-          path: options.path
-        });
-      };
-      totalBlockObject = totalObject;
+      totalBlockObject = helper.getObject({
+        object: sheet.get(),
+        path: options.path
+      });
     };
     var _update_missingBonusKey = function() {
-      // if the options has bonuses
-      if (options.bonuses) {
-        // if the total block is missing bonuses
-        if (!totalBlockObject.bonuses) {
-          totalBlockObject.bonuses = {};
-        };
-        // loop over the options.bonuses and add them to totalBlockObject.bonuses
-        for (var i = 0; i < options.bonuses.length; i++) {
-          if (!(options.bonuses[i] in totalBlockObject.bonuses)) {
-            totalBlockObject.bonuses[options.bonuses[i]] = false;
+      if (totalBlockObject != undefined) {
+        // if the options has bonuses
+        if (options.bonuses) {
+          // if the total block is missing bonuses
+          if (!totalBlockObject.bonuses) {
+            totalBlockObject.bonuses = {};
+          };
+          // loop over the options.bonuses and add them to totalBlockObject.bonuses
+          for (var i = 0; i < options.bonuses.length; i++) {
+            if (!(options.bonuses[i] in totalBlockObject.bonuses)) {
+              totalBlockObject.bonuses[options.bonuses[i]] = false;
+            };
           };
         };
       };
@@ -360,13 +352,6 @@ var totalBlock = (function() {
           path: options.cloneSetPath + ".current",
           newValue: grandTotal
         });
-      } else if (options.clone) {
-        helper.setObject({
-          object: sheet.get(),
-          path: options.path + ".current",
-          clone: options.clone,
-          newValue: grandTotal
-        });
       } else {
         helper.setObject({
           object: sheet.get(),
@@ -392,14 +377,7 @@ var totalBlock = (function() {
     var totalBlockOptions = helper.makeObject(totalBlock.dataset.totalBlockOptions);
     var totalBlockBonusesObject;
     var object;
-    if (totalBlockOptions.clone) {
-      totalBlockBonusesObject = helper.getObject({
-        object: sheet.get(),
-        path: options.path,
-        clone: totalBlockOptions.clone
-      });
-      totalBlockBonusesObject = totalBlockBonusesObject;
-    } else {
+    if (options.path) {
       totalBlockBonusesObject = helper.getObject({
         object: sheet.get(),
         path: options.path
@@ -417,13 +395,7 @@ var totalBlock = (function() {
     var totalBlockBonusesObject;
     var newBonusesObject;
     var _get_bonusObject = function() {
-      if (totalBlockOptions.clone) {
-        totalBlockBonusesObject = helper.getObject({
-          object: sheet.get(),
-          path: options.path,
-          clone: totalBlockOptions.clone
-        });
-      } else {
+      if (options.path) {
         totalBlockBonusesObject = helper.getObject({
           object: sheet.get(),
           path: options.path
@@ -433,20 +405,11 @@ var totalBlock = (function() {
       newBonusesObject = JSON.parse(JSON.stringify(totalBlockBonusesObject));
     };
     var _store_data = function() {
-      if (options.clone) {
-        helper.setObject({
-          object: sheet.get(),
-          path: options.path,
-          clone: options.clone,
-          newValue: newBonusesObject
-        });
-      } else {
-        helper.setObject({
-          object: sheet.get(),
-          path: options.path,
-          newValue: newBonusesObject
-        });
-      };
+      helper.setObject({
+        object: sheet.get(),
+        path: options.path,
+        newValue: newBonusesObject
+      });
     };
     var _hold_data = function(input, key) {
       newBonusesObject[key] = input.checked;

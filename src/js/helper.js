@@ -143,7 +143,6 @@ var helper = (function() {
     var defaultOptions = {
       path: null,
       object: null,
-      clone: null,
       newValue: null
     };
     if (options) {
@@ -213,8 +212,7 @@ var helper = (function() {
   function getObject(options) {
     var defaultOptions = {
       object: null,
-      path: null,
-      clone: null
+      path: null
     };
     if (options) {
       var defaultOptions = helper.applyOptions(defaultOptions, options);

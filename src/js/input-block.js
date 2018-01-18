@@ -172,33 +172,24 @@ var inputBlock = (function() {
   function _store(element) {
     var inputBlock = helper.getClosest(element, ".js-input-block");
     var inputBlockOptions = helper.makeObject(inputBlock.dataset.inputBlockOptions);
-    var data = element.value;
+    var newData = element.value;
     if (inputBlockOptions.type == "integer") {
-      data = parseInt(data, 10);
-      if (isNaN(data)) {
-        data = "";
+      newData = parseInt(newData, 10);
+      if (isNaN(newData)) {
+        newData = "";
       };
     } else if (inputBlockOptions.type == "float") {
-      data = parseFloat(data);
-      if (isNaN(data)) {
-        data = "";
+      newData = parseFloat(newData);
+      if (isNaN(newData)) {
+        newData = "";
       };
     };
     if (inputBlockOptions.path) {
-      if (inputBlockOptions.clone) {
-        helper.setObject({
-          path: inputBlockOptions.path,
-          object: sheet.get(),
-          clone: inputBlockOptions.clone,
-          newValue: data
-        });
-      } else {
-        helper.setObject({
-          path: inputBlockOptions.path,
-          object: sheet.get(),
-          newValue: data
-        });
-      };
+      helper.setObject({
+        object: sheet.get(),
+        path: inputBlockOptions.path,
+        newValue: newData
+      });
     };
   };
 
@@ -247,18 +238,10 @@ var inputBlock = (function() {
     var options = helper.makeObject(inputBlock.dataset.inputBlockOptions);
     var data;
     if (options.path) {
-      if (options.clone) {
-        data = helper.getObject({
-          object: sheet.get(),
-          path: options.path,
-          clone: options.clone
-        });
-      } else {
-        data = helper.getObject({
-          object: sheet.get(),
-          path: options.path
-        });
-      };
+      data = helper.getObject({
+        object: sheet.get(),
+        path: options.path
+      });
       inputBlockField.value = data;
     };
   };
@@ -652,39 +635,22 @@ var inputBlock = (function() {
     var oldData;
     var newData;
 
-    var _store = function() {
+    var _store_data = function() {
       if (inputBlockOptions.path) {
-        if (inputBlockOptions.clone) {
-          helper.setObject({
-            path: inputBlockOptions.path,
-            object: sheet.get(),
-            clone: inputBlockOptions.clone,
-            newValue: newData
-          });
-        } else {
-          helper.setObject({
-            path: inputBlockOptions.path,
-            object: sheet.get(),
-            newValue: newData
-          });
-        };
+        helper.setObject({
+          path: inputBlockOptions.path,
+          object: sheet.get(),
+          newValue: newData
+        });
       };
     };
 
     var _get_oldData = function() {
       if (inputBlockOptions.path) {
-        if (inputBlockOptions.clone) {
-          oldData = helper.getObject({
-            object: sheet.get(),
-            path: inputBlockOptions.path,
-            clone: inputBlockOptions.clone
-          });
-        } else {
-          oldData = helper.getObject({
-            object: sheet.get(),
-            path: inputBlockOptions.path
-          });
-        };
+        oldData = helper.getObject({
+          object: sheet.get(),
+          path: inputBlockOptions.path
+        });
       };
       if (isNaN(oldData) || typeof oldData == "string" || oldData == "") {
         oldData = 0;
@@ -723,7 +689,7 @@ var inputBlock = (function() {
       } else {
         newData = 0;
       };
-      _store();
+      _store_data();
       render(inputBlock);
       xp.render();
       wealth.render();
@@ -736,7 +702,7 @@ var inputBlock = (function() {
       _get_oldData();
       if (options.action == "addition" || options.action == "subtraction") {
         _change();
-        _store();
+        _store_data();
         render(inputBlock);
       } else if (options.action == "clear") {
         if (oldData == "" || oldData == undefined) {
