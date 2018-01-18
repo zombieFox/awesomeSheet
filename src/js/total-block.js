@@ -89,7 +89,7 @@ var totalBlock = (function() {
       _render_totalBlockCheck(this);
       render();
       textBlock.render();
-      sheet.storeCharacters();
+      sheet.store();
     }, false);
   };
 
@@ -125,13 +125,13 @@ var totalBlock = (function() {
       var totalObject;
       if (options.clone) {
         totalObject = helper.getObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: options.path,
           clone: options.clone
         });
       } else {
         totalObject = helper.getObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: options.path
         });
       };
@@ -216,14 +216,14 @@ var totalBlock = (function() {
             // if max dex is true
             if (totalBlockObject.bonuses.max_dex) {
               if (helper.getObject({
-                  object: sheet.getCharacter(),
+                  object: sheet.get(),
                   path: "equipment.armor.max_dex"
                 }) != "" && helper.getObject({
-                  object: sheet.getCharacter(),
+                  object: sheet.get(),
                   path: "equipment.armor.max_dex"
                 }) < _checkValue(stats.getMod("dex"))) {
                 externalBouns = helper.getObject({
-                  object: sheet.getCharacter(),
+                  object: sheet.get(),
                   path: "equipment.armor.max_dex"
                 });
               } else {
@@ -247,67 +247,67 @@ var totalBlock = (function() {
           };
           if (key == "bab") {
             externalBouns = _checkValue(helper.getObject({
-              object: sheet.getCharacter(),
+              object: sheet.get(),
               path: "offense.base_attack"
             }));
           };
           if (key == "size") {
             externalBouns = _checkValue(helper.getObject({
-              object: sheet.getCharacter(),
+              object: sheet.get(),
               path: "basics.size.size_modifier"
             }));
           };
           if (key == "special_size") {
             externalBouns = _checkValue(helper.getObject({
-              object: sheet.getCharacter(),
+              object: sheet.get(),
               path: "basics.size.special_size_modifier"
             }));
           };
           if (key == "level") {
             externalBouns = _checkValue(helper.getObject({
-              object: sheet.getCharacter(),
+              object: sheet.get(),
               path: "basics.level"
             }));
           };
           if (key == "half_level") {
             externalBouns = Math.floor(_checkValue(helper.getObject({
-              object: sheet.getCharacter(),
+              object: sheet.get(),
               path: "basics.level"
             })) / 2);
           };
           if (key == "ac_armor") {
             externalBouns = _checkValue(helper.getObject({
-              object: sheet.getCharacter(),
+              object: sheet.get(),
               path: "defense.ac.armor"
             }));
           };
           if (key == "ac_shield") {
             externalBouns = _checkValue(helper.getObject({
-              object: sheet.getCharacter(),
+              object: sheet.get(),
               path: "defense.ac.shield"
             }));
           };
           if (key == "ac_deflect") {
             externalBouns = _checkValue(helper.getObject({
-              object: sheet.getCharacter(),
+              object: sheet.get(),
               path: "defense.ac.deflect"
             }));
           };
           if (key == "ac_dodge") {
             externalBouns = _checkValue(helper.getObject({
-              object: sheet.getCharacter(),
+              object: sheet.get(),
               path: "defense.ac.dodge"
             }));
           };
           if (key == "ac_natural") {
             externalBouns = _checkValue(helper.getObject({
-              object: sheet.getCharacter(),
+              object: sheet.get(),
               path: "defense.ac.natural"
             }));
           };
           if (key == "check_penalty") {
             externalBouns = _checkValue(helper.getObject({
-              object: sheet.getCharacter(),
+              object: sheet.get(),
               path: "equipment.armor.check_penalty"
             }));
           };
@@ -316,13 +316,13 @@ var totalBlock = (function() {
           };
           if (key == "size_modifier_fly") {
             externalBouns = _checkValue(helper.getObject({
-              object: sheet.getCharacter(),
+              object: sheet.get(),
               path: "basics.size.size_modifier_fly"
             }));
           };
           if (key == "size_modifier_stealth") {
             externalBouns = _checkValue(helper.getObject({
-              object: sheet.getCharacter(),
+              object: sheet.get(),
               path: "basics.size.size_modifier_stealth"
             }));
           };
@@ -356,20 +356,20 @@ var totalBlock = (function() {
     var _store = function(grandTotal) {
       if (options.cloneSet) {
         helper.setObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: options.cloneSetPath + ".current",
           newValue: grandTotal
         });
       } else if (options.clone) {
         helper.setObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: options.path + ".current",
           clone: options.clone,
           newValue: grandTotal
         });
       } else {
         helper.setObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: options.path + ".current",
           newValue: grandTotal
         });
@@ -394,14 +394,14 @@ var totalBlock = (function() {
     var object;
     if (totalBlockOptions.clone) {
       totalBlockBonusesObject = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: options.path,
         clone: totalBlockOptions.clone
       });
       totalBlockBonusesObject = totalBlockBonusesObject;
     } else {
       totalBlockBonusesObject = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: options.path
       });
     };
@@ -419,13 +419,13 @@ var totalBlock = (function() {
     var _get_bonusObject = function() {
       if (totalBlockOptions.clone) {
         totalBlockBonusesObject = helper.getObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: options.path,
           clone: totalBlockOptions.clone
         });
       } else {
         totalBlockBonusesObject = helper.getObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: options.path
         });
       };
@@ -435,14 +435,14 @@ var totalBlock = (function() {
     var _store_data = function() {
       if (options.clone) {
         helper.setObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: options.path,
           clone: options.clone,
           newValue: newBonusesObject
         });
       } else {
         helper.setObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: options.path,
           newValue: newBonusesObject
         });
@@ -639,7 +639,7 @@ var totalBlock = (function() {
       display.clear();
       display.render();
       textBlock.render();
-      sheet.storeCharacters();
+      sheet.store();
     }.bind(modalContent);
     modal.render({
       heading: options.modalHeading,

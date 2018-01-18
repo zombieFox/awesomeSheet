@@ -14,26 +14,26 @@ var wealth = (function() {
 
   function render() {
     var total = _create_goldTotal(helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "equipment.wealth"
     }));
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "equipment.wealth.total",
       newValue: total
     });
-    sheet.storeCharacters();
+    sheet.store();
   };
 
   function _create_goldTotal(wealth) {
     var includeItem = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "equipment.wealth.include_item"
     });
     var wealthInGp = [];
     if (includeItem) {
       wealthInGp.push(helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "equipment.item.value.current"
       }));
     };

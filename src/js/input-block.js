@@ -62,7 +62,7 @@ var inputBlock = (function() {
       wealth.render();
       totalBlock.render();
       textBlock.render();
-      sheet.storeCharacters();
+      sheet.store();
     }, false);
   };
 
@@ -84,7 +84,7 @@ var inputBlock = (function() {
           wealth.render();
           totalBlock.render();
           textBlock.render();
-          sheet.storeCharacters();
+          sheet.store();
         };
       }, false);
     };
@@ -105,7 +105,7 @@ var inputBlock = (function() {
         wealth.render();
         totalBlock.render();
         textBlock.render();
-        sheet.storeCharacters();
+        sheet.store();
       }, false);
     };
   };
@@ -188,14 +188,14 @@ var inputBlock = (function() {
       if (inputBlockOptions.clone) {
         helper.setObject({
           path: inputBlockOptions.path,
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           clone: inputBlockOptions.clone,
           newValue: data
         });
       } else {
         helper.setObject({
           path: inputBlockOptions.path,
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           newValue: data
         });
       };
@@ -208,7 +208,7 @@ var inputBlock = (function() {
     wealth.render();
     totalBlock.render();
     textBlock.render();
-    sheet.storeCharacters();
+    sheet.store();
     if (display.state()) {
       display.clear();
       display.render();
@@ -249,13 +249,13 @@ var inputBlock = (function() {
     if (options.path) {
       if (options.clone) {
         data = helper.getObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: options.path,
           clone: options.clone
         });
       } else {
         data = helper.getObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: options.path
         });
       };
@@ -313,7 +313,7 @@ var inputBlock = (function() {
     var foundValue = false;
     var _checkForValue = function() {
       var value = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: inputBlockOptions.path
       });
       if (value != "") {
@@ -351,7 +351,7 @@ var inputBlock = (function() {
       wealth.render();
       totalBlock.render();
       textBlock.render();
-      sheet.storeCharacters();
+      sheet.store();
     };
     _checkForValue();
     if (foundValue) {
@@ -410,7 +410,7 @@ var inputBlock = (function() {
       events.undo();
       var undoObject = JSON.parse(helper.read("lastAggregate"));
       helper.setObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: undoObject.path,
         newValue: undoObject.oldData
       });
@@ -418,7 +418,7 @@ var inputBlock = (function() {
       wealth.render();
       totalBlock.render();
       textBlock.render();
-      sheet.storeCharacters();
+      sheet.store();
       _clear_lastRemovedAggregate();
     };
 
@@ -435,7 +435,7 @@ var inputBlock = (function() {
 
     var _get_oldData = function() {
       oldData = parseInt(helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: defaultOptions.path
       }), 10);
       _store_undoData(oldData);
@@ -465,7 +465,7 @@ var inputBlock = (function() {
 
     var _store_data = function() {
       helper.setObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: defaultOptions.path,
         newValue: newData
       });
@@ -491,7 +491,7 @@ var inputBlock = (function() {
     var newQuickValue = 0;
     var _store_data = function() {
       var oldData = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: inputBlockOptions.path
       });
       if (oldData == "") {
@@ -514,7 +514,7 @@ var inputBlock = (function() {
         newQuickValue = "";
       };
       helper.setObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: inputBlockOptions.path,
         newValue: newQuickValue
       });
@@ -632,7 +632,7 @@ var inputBlock = (function() {
       textBlock.render();
       display.clear(defenceSection);
       display.render(defenceSection);
-      sheet.storeCharacters();
+      sheet.store();
     };
     modal.render({
       heading: options.modalHeading,
@@ -657,14 +657,14 @@ var inputBlock = (function() {
         if (inputBlockOptions.clone) {
           helper.setObject({
             path: inputBlockOptions.path,
-            object: sheet.getCharacter(),
+            object: sheet.get(),
             clone: inputBlockOptions.clone,
             newValue: newData
           });
         } else {
           helper.setObject({
             path: inputBlockOptions.path,
-            object: sheet.getCharacter(),
+            object: sheet.get(),
             newValue: newData
           });
         };
@@ -675,13 +675,13 @@ var inputBlock = (function() {
       if (inputBlockOptions.path) {
         if (inputBlockOptions.clone) {
           oldData = helper.getObject({
-            object: sheet.getCharacter(),
+            object: sheet.get(),
             path: inputBlockOptions.path,
             clone: inputBlockOptions.clone
           });
         } else {
           oldData = helper.getObject({
-            object: sheet.getCharacter(),
+            object: sheet.get(),
             path: inputBlockOptions.path
           });
         };
@@ -729,7 +729,7 @@ var inputBlock = (function() {
       wealth.render();
       totalBlock.render();
       textBlock.render();
-      sheet.storeCharacters();
+      sheet.store();
     };
 
     var _checkAction = function() {

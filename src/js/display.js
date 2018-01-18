@@ -187,7 +187,7 @@ var display = (function() {
     var all_node = [];
     for (var i = 0; i < all_displayPath.length; i++) {
       var bookPath = all_displayPath[i].split(".");
-      var all_spells = sheet.getCharacter()[bookPath[0]][bookPath[1]][bookPath[2]]["level_" + bookPath[2]];
+      var all_spells = sheet.get()[bookPath[0]][bookPath[1]][bookPath[2]]["level_" + bookPath[2]];
       if (all_spells.length == 0) {
         all_node.push(false);
       } else {
@@ -260,7 +260,7 @@ var display = (function() {
 
   function _get_skill(path, prefix) {
     var object = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: path
     });
     var displayListItem;
@@ -298,7 +298,7 @@ var display = (function() {
 
     for (var i = 0; i < all_displayPath.length; i++) {
       var all_clones = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: all_displayPath[i]
       });
       if (all_clones.length == 0) {
@@ -523,7 +523,7 @@ var display = (function() {
 
   function _get_list(path, prefix, suffix, valueType) {
     var data = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: path
     });
     var displayListItem;
@@ -568,11 +568,11 @@ var display = (function() {
     var displayItem;
     var data;
     var modifierPath = path.split(".");
-    if (sheet.getCharacter()[modifierPath[0]][modifierPath[1]][modifierPath[2]].temp_modifier) {
-      data = sheet.getCharacter()[modifierPath[0]][modifierPath[1]][modifierPath[2]].temp_modifier;
+    if (sheet.get()[modifierPath[0]][modifierPath[1]][modifierPath[2]].temp_modifier) {
+      data = sheet.get()[modifierPath[0]][modifierPath[1]][modifierPath[2]].temp_modifier;
     } else {
       data = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: path
       });
     };
@@ -606,11 +606,11 @@ var display = (function() {
     var displayItem;
     var data;
     var statPath = path.split(".");
-    if (sheet.getCharacter()[statPath[0]][statPath[1]][statPath[2]].temp_score) {
-      data = sheet.getCharacter()[statPath[0]][statPath[1]][statPath[2]].temp_score
+    if (sheet.get()[statPath[0]][statPath[1]][statPath[2]].temp_score) {
+      data = sheet.get()[statPath[0]][statPath[1]][statPath[2]].temp_score
     } else {
       data = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: path
       });
     };
@@ -637,7 +637,7 @@ var display = (function() {
 
   function _get_textBlock(path, target) {
     var data = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: path
     });
     var displayItem;
@@ -682,7 +682,7 @@ var display = (function() {
 
   function _get_textSnippet(path, prefix, suffix, dependency, valueType) {
     var data = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: path
     });
     var displayItem;
@@ -717,7 +717,7 @@ var display = (function() {
       };
       if (dependency) {
         data = data + " / " + helper.getObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: dependency
         });
       };
@@ -766,7 +766,7 @@ var display = (function() {
 
   function _get_image(path, scale, position, color) {
     var data = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: path
     });
     var displayImage;
@@ -779,7 +779,7 @@ var display = (function() {
       displayImageItem.src = data;
       if (scale) {
         var scale = helper.getObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: scale
         });
       } else {
@@ -787,7 +787,7 @@ var display = (function() {
       };
       if (position) {
         var position = helper.getObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: position
         });
       } else {
@@ -798,7 +798,7 @@ var display = (function() {
       };
       if (color) {
         var background = helper.getObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: "basics.character_image.background"
         });
         var color;
@@ -808,7 +808,7 @@ var display = (function() {
           color = "rgb(255,255,255)";
         } else if (background == "average") {
           color = helper.getObject({
-            object: sheet.getCharacter(),
+            object: sheet.get(),
             path: color
           });
           color = "rgb(" + color.r + "," + color.g + "," + color.b + ")";

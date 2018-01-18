@@ -31,38 +31,38 @@ var characterImage = (function() {
       _render_size("cover");
       _render_position("center");
       _update_all_inputRangeBlock();
-      sheet.storeCharacters();
+      sheet.store();
     }, false);
     characterImageScaleContain.addEventListener("click", function() {
       _render_size("contain");
       _render_position("center");
       _update_all_inputRangeBlock();
-      sheet.storeCharacters();
+      sheet.store();
     }, false);
     characterImageScaleCenter.addEventListener("click", function() {
       _render_position("center");
       _update_all_inputRangeBlock();
-      sheet.storeCharacters();
+      sheet.store();
     }, false);
     characterImageScaleTop.addEventListener("click", function() {
       _render_position("top");
       _update_all_inputRangeBlock();
-      sheet.storeCharacters();
+      sheet.store();
     }, false);
     characterImageScaleBottom.addEventListener("click", function() {
       _render_position("bottom");
       _update_all_inputRangeBlock();
-      sheet.storeCharacters();
+      sheet.store();
     }, false);
     characterImageScaleLeft.addEventListener("click", function() {
       _render_position("left");
       _update_all_inputRangeBlock();
-      sheet.storeCharacters();
+      sheet.store();
     }, false);
     characterImageScaleRight.addEventListener("click", function() {
       _render_position("right");
       _update_all_inputRangeBlock();
-      sheet.storeCharacters();
+      sheet.store();
     }, false);
 
     characterImageScaleInput.addEventListener("input", function() {
@@ -110,7 +110,7 @@ var characterImage = (function() {
     var dragStop = function() {
       // console.log("dragStop");
       image = null;
-      sheet.storeCharacters();
+      sheet.store();
     };
     // var checkElement = function(event) {
     //   return event.target.classList.contains("js-character-image-preview");
@@ -185,7 +185,7 @@ var characterImage = (function() {
           _update_all_inputRangeBlock();
           _update_all_radio();
           _clear_inputUpload();
-          sheet.storeCharacters();
+          sheet.store();
         } else {
           snack.render({
             message: "Image too large, max 2000x2000px."
@@ -269,7 +269,7 @@ var characterImage = (function() {
 
   function _calculate_orientation() {
     var size = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.character_image.size"
     });
     var imageWidth = size.width;
@@ -287,7 +287,7 @@ var characterImage = (function() {
 
   function _calculate_scale() {
     var characterImageObject = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.character_image"
     });
     var characterImagePreview = helper.e(".js-character-image-preview");
@@ -360,11 +360,11 @@ var characterImage = (function() {
       scale: ""
     };
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.character_image",
       newValue: object
     });
-    sheet.storeCharacters();
+    sheet.store();
     _update_all_inputRangeBlock();
     _update_all_radio();
     clear();
@@ -384,7 +384,7 @@ var characterImage = (function() {
       // console.log("render image");
       var characterImagePreview = helper.e(".js-character-image-preview");
       var characterImageObject = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "basics.character_image"
       });
       var image = new Image;
@@ -399,7 +399,7 @@ var characterImage = (function() {
     if (_get_uploadedState()) {
       // console.log("render background");
       var characterImageObject = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "basics.character_image"
       });
       var characterImageBackground = helper.e(".js-character-image-background");
@@ -419,7 +419,7 @@ var characterImage = (function() {
     if (_get_uploadedState()) {
       // console.log("render position");
       var characterImageObject = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "basics.character_image"
       });
       var characterImagePreview = helper.e(".js-character-image-preview");
@@ -478,7 +478,7 @@ var characterImage = (function() {
     if (_get_uploadedState()) {
       // console.log("render resize");
       var characterImageObject = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "basics.character_image"
       });
       var characterImage = helper.e(".js-character-image");
@@ -520,7 +520,7 @@ var characterImage = (function() {
       y: axisY
     };
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.character_image.position",
       newValue: position
     });
@@ -529,7 +529,7 @@ var characterImage = (function() {
   function _store_background(background) {
     // console.log("store background");
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.character_image.background",
       newValue: background
     });
@@ -538,7 +538,7 @@ var characterImage = (function() {
   function _store_color(color) {
     // console.log("store color");
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.character_image.color",
       newValue: color
     });
@@ -547,7 +547,7 @@ var characterImage = (function() {
   function _store_image(imageBase64) {
     // console.log("store image");
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.character_image.image",
       newValue: imageBase64
     });
@@ -556,7 +556,7 @@ var characterImage = (function() {
   function _store_scale(scale) {
     // console.log("store scale");
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.character_image.scale",
       newValue: scale
     });
@@ -565,7 +565,7 @@ var characterImage = (function() {
   function _store_orientation(orientation) {
     // console.log("store orientation");
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.character_image.orientation",
       newValue: orientation
     });
@@ -578,7 +578,7 @@ var characterImage = (function() {
       height: imageHeight
     };
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.character_image.size",
       newValue: size
     });
@@ -587,7 +587,7 @@ var characterImage = (function() {
   function _store_uploaded(boolean) {
     // console.log("store uploaded");
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.character_image.uploaded",
       newValue: boolean
     });
@@ -595,7 +595,7 @@ var characterImage = (function() {
 
   function _get_uploadedState() {
     var uploaded = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.character_image.uploaded"
     });
     if (uploaded == "") {

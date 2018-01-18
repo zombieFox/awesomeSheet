@@ -16,7 +16,7 @@ var onboarding = (function() {
 
   function render() {
     if (helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "demo"
       }) && (helper.read("onboarding") == undefined) || (helper.read("onboarding") == "false")) {
 

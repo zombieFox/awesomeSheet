@@ -12,13 +12,13 @@ var textBlock = (function() {
     var data;
     if (options.clone) {
       data = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: options.path,
         clone: options.clone
       });
     } else {
       data = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: options.path
       });
     };

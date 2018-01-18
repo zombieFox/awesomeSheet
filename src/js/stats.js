@@ -14,7 +14,7 @@ var stats = (function() {
     var options = helper.makeObject(stats.dataset.statsOptions);
     var path = stats.dataset.path;
     var statObject = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: options.path
     });
     var toSum = [];
@@ -39,7 +39,7 @@ var stats = (function() {
     _push_internalValues();
     var grandTotal = _reduceSum(toSum);
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: options.path + ".current",
       newValue: grandTotal
     });
@@ -49,11 +49,11 @@ var stats = (function() {
     var options = helper.makeObject(stats.dataset.statsOptions);
     var modifierPath = options.path + ".modifier";
     var modifier = _calculateModifer(helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: options.path + ".current"
     }));
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: modifierPath,
       newValue: modifier
     });
@@ -97,7 +97,7 @@ var stats = (function() {
   function get_score(key) {
     var value = 0;
     var score = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "statistics.stats." + key + ".current"
     });
     if (score != "" || !isNaN(score)) {
@@ -109,7 +109,7 @@ var stats = (function() {
   function get_mod(key) {
     var value = 0;
     var mod = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "statistics.stats." + key + ".modifier"
     });
     if (mod != "" || !isNaN(mod)) {

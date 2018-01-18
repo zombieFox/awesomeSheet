@@ -11,7 +11,7 @@ var sheet = (function() {
       allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.demo())); // for demo load sample characters
       // allCharacters = [blank.data]; // for production load blank character
     };
-    storeCharacters();
+    store();
   })();
 
   var setCurrentCharacterIndex = (function() {
@@ -20,15 +20,15 @@ var sheet = (function() {
     };
   })();
 
-  function storeCharacters() {
+  function store() {
     helper.store("allCharacters", JSON.stringify(allCharacters));
   };
 
-  function getAllCharacters() {
+  function getAll() {
     return allCharacters;
   };
 
-  function getCharacter() {
+  function get() {
     return allCharacters[currentCharacterIndex];
   };
 
@@ -41,23 +41,23 @@ var sheet = (function() {
     helper.store("charactersIndex", currentCharacterIndex);
   };
 
-  function addCharacter(newCharacter) {
+  function add(newCharacter) {
     var dataToAdd = newCharacter || JSON.parse(JSON.stringify(blank.data));
     allCharacters.push(dataToAdd);
-    setIndex(getAllCharacters().length - 1);
+    setIndex(getAll().length - 1);
     clear();
     render();
     nav.scrollToTop();
-    storeCharacters();
+    store();
     snack.render({
       message: "New character added."
     });
   };
 
-  function removeCharacter() {
+  function remove() {
     var name;
-    if (sheet.getCharacter().basics.name) {
-      name = sheet.getCharacter().basics.name;
+    if (sheet.get().basics.name) {
+      name = sheet.get().basics.name;
     } else {
       name = "New character";
     };
@@ -74,13 +74,13 @@ var sheet = (function() {
     allCharacters.splice(getIndex(), 1);
     var lastCharacterRemoved = false;
     if (allCharacters.length == 0) {
-      addCharacter();
+      add();
       lastCharacterRemoved = true;
     };
     setIndex(0);
     clear();
     render();
-    storeCharacters();
+    store();
     characterSelect.clear();
     characterSelect.render();
     if (lastCharacterRemoved) {
@@ -102,7 +102,7 @@ var sheet = (function() {
     helper.store("backupAllCharacters", JSON.stringify(allCharacters));
     allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.all()));
     setIndex(0);
-    storeCharacters();
+    store();
     clear();
     render();
     characterSelect.clear();
@@ -119,7 +119,7 @@ var sheet = (function() {
     snack.destroy();
     allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.demo()));
     setIndex(0);
-    storeCharacters();
+    store();
     clear();
     render();
     characterSelect.clear();
@@ -136,7 +136,7 @@ var sheet = (function() {
     snack.destroy();
     allCharacters = JSON.parse(JSON.stringify([blank.data]));
     setIndex(0);
-    storeCharacters();
+    store();
     clear();
     render();
     characterSelect.clear();
@@ -148,7 +148,7 @@ var sheet = (function() {
   };
 
   function render() {
-    repair.render(sheet.getCharacter());
+    repair.render(sheet.get());
     characterSelect.render();
     stats.render();
     clone.render();
@@ -232,7 +232,7 @@ var sheet = (function() {
     }, false);
   };
 
-  function switchCharacter(index) {
+  function switcher(index) {
     var switcheroo = function(index) {
       setIndex(index);
       clear();
@@ -240,7 +240,7 @@ var sheet = (function() {
       characterSelect.clear();
       characterSelect.render();
     };
-    if (index < 0 || index > getAllCharacters().length || typeof index != "number") {
+    if (index < 0 || index > getAll().length || typeof index != "number") {
       index = 0;
     };
     switcheroo(index);
@@ -314,7 +314,7 @@ var sheet = (function() {
       if (helper.isJsonString(event.target.result)) {
         var data = JSON.parse(event.target.result);
         if (data.awesomeSheet) {
-          addCharacter(data);
+          add(data);
           var name = allCharacters[getIndex()].basics.name || "New character";
           snack.render({
             message: helper.truncate(name, 40, true) + " imported and now in the game."
@@ -384,8 +384,8 @@ var sheet = (function() {
 
   function exportJson() {
     var fileName;
-    var characterName = getCharacter().basics.name;
-    var classLevel = classes.getClassLevel(sheet.getCharacter());
+    var characterName = get().basics.name;
+    var classLevel = classes.getClassLevel(sheet.get());
     if (characterName != "") {
       fileName = characterName;
     } else {
@@ -398,7 +398,7 @@ var sheet = (function() {
       heading: "Export " + characterName,
       message: "Download and backup " + characterName + " as a JSON file. This file can later be imported on this or another deivce.",
       actionText: "Download",
-      actionUrl: "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getCharacter()), null, " "),
+      actionUrl: "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(get()), null, " "),
       customAttribute: {
         key: "download",
         value: fileName + ".json"
@@ -408,14 +408,11 @@ var sheet = (function() {
 
   // exposed methods
   return {
-    getAllCharacters: getAllCharacters,
-    getCharacter: getCharacter,
-    storeCharacters: storeCharacters,
-    addCharacter: addCharacter,
-    removeCharacter: removeCharacter,
-    switchCharacter: switchCharacter,
-    getIndex: getIndex,
-    setIndex: setIndex,
+    getAll: getAll,
+    get: get,
+    store: store,
+    add: add,
+    remove: remove,
     destroy: destroy,
     clear: clear,
     all: all,
@@ -423,6 +420,9 @@ var sheet = (function() {
     import: importJson,
     export: exportJson,
     render: render,
+    switcher: switcher,
+    getIndex: getIndex,
+    setIndex: setIndex,
     bind: bind
   };
 

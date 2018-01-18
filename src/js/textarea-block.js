@@ -13,14 +13,14 @@ var textareaBlock = (function() {
       if (textareaBlockOptions.clone) {
         helper.setObject({
           path: textareaBlockOptions.path,
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           clone: textareaBlockOptions.clone,
           newValue: data
         });
       } else {
         helper.setObject({
           path: textareaBlockOptions.path,
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           newValue: data
         });
       };
@@ -29,7 +29,7 @@ var textareaBlock = (function() {
 
   function delayUpdate(element) {
     _store(element);
-    sheet.storeCharacters();
+    sheet.store();
     totalBlock.render();
     if (display.state()) {
       display.clear();
@@ -73,7 +73,7 @@ var textareaBlock = (function() {
       field.addEventListener("input", function() {
         clearTimeout(storeInputTimer);
         storeInputTimer = setTimeout(delayUpdate, 300, this);
-        sheet.storeCharacters();
+        sheet.store();
       }, false);
       field.addEventListener("focus", function() {
         _focus(this);
@@ -81,7 +81,7 @@ var textareaBlock = (function() {
       field.addEventListener("blur", function() {
         _store(this);
         _focus(this);
-        sheet.storeCharacters();
+        sheet.store();
       }, false);
       field.addEventListener("paste", function(event) {
         helper.pasteStrip(event);
@@ -107,13 +107,13 @@ var textareaBlock = (function() {
     if (options.path) {
       if (options.clone) {
         data = helper.getObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: options.path,
           clone: options.clone
         });
       } else {
         data = helper.getObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: options.path
         });
       };
