@@ -30,7 +30,7 @@ var events = (function() {
   function destroy(button) {
     var options = helper.makeObject(button.dataset.eventsOptions);
     var allEvents = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "events"
     });
     var foundXp = false;
@@ -66,7 +66,7 @@ var events = (function() {
     };
     var _store = function() {
       helper.setObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "events",
         newValue: newEvents
       });
@@ -120,8 +120,8 @@ var events = (function() {
   };
 
   function store(type, eventObject) {
-    sheet.getCharacter().events.unshift(_create_event(type, eventObject));
-    sheet.storeCharacters();
+    sheet.get().events.unshift(_create_event(type, eventObject));
+    sheet.store();
   };
 
   function _timestampString(timestamp) {
@@ -191,7 +191,7 @@ var events = (function() {
     var _create_modalBody = function() {
       var body = document.createElement("div");
       var all_events = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "events"
       });
       var all_eventsToRender = [];
@@ -239,7 +239,7 @@ var events = (function() {
   };
 
   function undo() {
-    sheet.getCharacter().events.shift();
+    sheet.get().events.shift();
   };
 
   // exposed methods

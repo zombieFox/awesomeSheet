@@ -8,7 +8,7 @@ var radioBlock = (function() {
     var newValue = input.value;
     if (radioBlockOptions.path) {
       helper.setObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: radioBlockOptions.path,
         newValue: newValue
       });
@@ -17,7 +17,7 @@ var radioBlock = (function() {
 
   function delayUpdate(input) {
     _store(input);
-    sheet.storeCharacters();
+    sheet.store();
   };
 
   function clear() {
@@ -65,7 +65,7 @@ var radioBlock = (function() {
     var value = radioBlockInput.value;
     if (options.path) {
       var selection = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: options.path
       });
       if (value == selection) {

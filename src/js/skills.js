@@ -26,15 +26,15 @@ var skills = (function() {
 
   function render() {
     var includeCustom = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "skills.ranks.spent.include_custom"
     });
     var all_skills = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "skills.all"
     });
     var all_customSkills = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "skills.custom"
     });
     var ranks = [];
@@ -51,7 +51,7 @@ var skills = (function() {
       return a + b;
     });
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "skills.ranks.spent.current",
       newValue: ranksTotal
     });

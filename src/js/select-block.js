@@ -8,7 +8,7 @@ var selectBlock = (function() {
     if (selectBlockOptions.path) {
       helper.setObject({
         path: selectBlockOptions.path,
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         newValue: newValue
       });
     };
@@ -18,7 +18,7 @@ var selectBlock = (function() {
 
   function delayUpdate(element) {
     _store(element);
-    sheet.storeCharacters();
+    sheet.store();
     totalBlock.render();
     textBlock.render();
     if (display.state()) {
@@ -79,7 +79,7 @@ var selectBlock = (function() {
     if (options.path) {
       var selection =
         helper.getObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: options.path
         });
       helper.setDropdown(selectBlockDropdown, selection);

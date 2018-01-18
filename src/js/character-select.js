@@ -2,10 +2,10 @@ var characterSelect = (function() {
 
   function _switchCharacter(characterInput) {
     var newIndex = parseInt(characterInput.dataset.characterSelectIndex, 10);
-    sheet.switchCharacter(newIndex);
+    sheet.switcher(newIndex);
     menu.close();
     snack.render({
-      message: helper.truncate(_get_name(sheet.getCharacter()), 50, true) + " now in the game."
+      message: helper.truncate(_get_name(sheet.get()), 50, true) + " now in the game."
     });
   };
 
@@ -47,13 +47,13 @@ var characterSelect = (function() {
       menu.close();
       shade.destroy();
       close();
-      sheet.addCharacter();
+      sheet.add();
       page.update();
     }, false);
 
     characterSelectRemove.addEventListener("click", function(event) {
       close();
-      sheet.removeCharacter();
+      sheet.remove();
       page.update();
     }, false);
 
@@ -150,7 +150,7 @@ var characterSelect = (function() {
   };
 
   function _render_allCharacterItems() {
-    var character = sheet.getAllCharacters();
+    var character = sheet.getAll();
     var characterSelectList = helper.e(".js-character-select-list");
     for (var key in character) {
       characterSelectList.appendChild(_createCharacterItem(character[key], key));
@@ -162,8 +162,8 @@ var characterSelect = (function() {
   function _render_currentCharacter() {
     var characterSelectName = helper.e(".js-character-select-name");
     var characterSelectClassLevel = helper.e(".js-character-select-class-level");
-    characterSelectName.textContent = _get_name(sheet.getCharacter());
-    characterSelectClassLevel.textContent = classes.getClassLevel(sheet.getCharacter());
+    characterSelectName.textContent = _get_name(sheet.get());
+    characterSelectClassLevel.textContent = classes.getClassLevel(sheet.get());
   };
 
   function _get_name(characterObject) {

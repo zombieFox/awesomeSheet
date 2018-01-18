@@ -13,7 +13,7 @@ var xp = (function() {
 
   function delayUpdate(element) {
     render();
-    sheet.storeCharacters();
+    sheet.store();
     textBlock.render();
   };
 
@@ -24,7 +24,7 @@ var xp = (function() {
     var trackPathfinderSociety = [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57];
     var selectedTrack = false;
     var speed = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.xp.advancement_speed"
     });
     var nextLevel;
@@ -32,7 +32,7 @@ var xp = (function() {
     var nextLevelXpNeeded;
     var nextLevelIndex;
     var currentXp = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.xp.total"
     });
     if (speed == "Slow") {
@@ -58,23 +58,23 @@ var xp = (function() {
           nextLevelXpNeeded = "";
         };
         helper.setObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: "basics.xp.next_level",
           newValue: nextLevelXpMileStone
         });
         helper.setObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: "basics.xp.needed",
           newValue: nextLevelXpNeeded
         });
       } else {
         helper.setObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: "basics.xp.next_level",
           newValue: ""
         });
         helper.setObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: "basics.xp.needed",
           newValue: ""
         });
@@ -82,12 +82,12 @@ var xp = (function() {
     };
     var _clear_nextXp = function() {
       helper.setObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "basics.xp.next_level",
         newValue: ""
       });
       helper.setObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "basics.xp.needed",
         newValue: ""
       });

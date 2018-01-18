@@ -25,7 +25,7 @@ var checkBlock = (function() {
 
   function delayUpdate(input) {
     _store(input);
-    sheet.storeCharacters();
+    sheet.store();
   };
 
   function _store(input) {
@@ -34,7 +34,7 @@ var checkBlock = (function() {
     var newValue = input.checked;
     if (checkBlockOptions.path) {
       helper.setObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: checkBlockOptions.path,
         newValue: newValue
       });
@@ -57,7 +57,7 @@ var checkBlock = (function() {
     var checkBlockInput = checkBlock.querySelector(".js-check-block-input");
     if (options.path) {
       var data = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: options.path
       });
       checkBlockInput.checked = data;

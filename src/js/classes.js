@@ -55,7 +55,7 @@ var classes = (function() {
 
   function render() {
     var all_classes = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.classes"
     });
     var totalLevels = _total(all_classes, "level");
@@ -67,42 +67,42 @@ var classes = (function() {
     var totalWill = _total(all_classes, "will");
     var baseAttackBonuses = _makeBaseAttackBonuses(totalBab);
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.level",
       newValue: totalLevels
     });
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "defense.hp.total",
       newValue: totalHP
     });
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "offense.base_attack",
       newValue: totalBab
     });
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "offense.base_attack_bonuses",
       newValue: baseAttackBonuses
     });
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "skills.ranks.total",
       newValue: totalRanks
     });
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "defense.fortitude.base",
       newValue: totalFortitude
     });
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "defense.reflex.base",
       newValue: totalReflex
     });
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "defense.will.base",
       newValue: totalWill
     });

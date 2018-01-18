@@ -17,7 +17,7 @@ var inputRangeBlock = (function() {
     };
     if (inputRangeBlockOptions.path) {
       helper.setObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: inputRangeBlockOptions.path,
         newValue: data
       });
@@ -44,7 +44,7 @@ var inputRangeBlock = (function() {
     if (input) {
       input.addEventListener("input", function() {
         _store(this);
-        sheet.storeCharacters();
+        sheet.store();
       }, false);
     };
   };
@@ -65,7 +65,7 @@ var inputRangeBlock = (function() {
     var inputRangeBlockField = inputRangeBlock.querySelector(".js-input-range-block-field");
     if (options.path) {
       var data = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: options.path
       });
       if (options.type == "integer" && typeof data == "string") {

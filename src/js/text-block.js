@@ -10,58 +10,60 @@ var textBlock = (function() {
   function _render_textBlock(textBlock) {
     var options = helper.makeObject(textBlock.dataset.textBlockOptions);
     var data;
-    if (options.clone) {
-      data = helper.getObject({
-        object: sheet.getCharacter(),
-        path: options.path,
-        clone: options.clone
-      });
-    } else {
-      data = helper.getObject({
-        object: sheet.getCharacter(),
-        path: options.path
-      });
+    var _get_data = function() {
+      if (options.path) {
+        data = helper.getObject({
+          object: sheet.get(),
+          path: options.path
+        });
+      };
     };
-    if (options.type) {
-      if (options.type == "currency") {
-        if (data != "") {
-          data = parseFloat(data).toLocaleString(undefined, {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-          });
-          if (data.indexOf(".00") !== -1) {
-            data = data.substr(0, data.indexOf("."));
+    var _addPrefixSuffix = function() {
+      if (options.type) {
+        if (options.type == "currency") {
+          if (data != "" && data != undefined) {
+            data = parseFloat(data).toLocaleString(undefined, {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2
+            });
+            if (data.indexOf(".00") !== -1) {
+              data = data.substr(0, data.indexOf("."));
+            };
+            data = data + " GP";
           };
-          data = data + " GP";
-        };
-      } else if (options.type == "number") {
-        if (data != "") {
-          data = parseFloat(data).toLocaleString(undefined, {
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0
-          });
-        } else {
-          data = 0;
-        };
-      } else if (options.type == "weight") {
-        if (data != "") {
-          data = parseFloat(data).toLocaleString(undefined, {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-          });
-          if (data.indexOf(".00") !== -1) {
-            data = data.substr(0, data.indexOf("."));
+        } else if (options.type == "number") {
+          if (data != "" && data != undefined) {
+            data = parseFloat(data).toLocaleString(undefined, {
+              minimumFractionDigits: 0,
+              maximumFractionDigits: 0
+            });
+          } else {
+            data = 0;
           };
-          data = data + " lbs";
-        };
-      } else if (options.type == "bonus") {
-        if (data != "" && data > 0) {
-          data = "+" + data;
+        } else if (options.type == "weight") {
+          if (data != "" && data != undefined) {
+            data = parseFloat(data).toLocaleString(undefined, {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2
+            });
+            if (data.indexOf(".00") !== -1) {
+              data = data.substr(0, data.indexOf("."));
+            };
+            data = data + " lbs";
+          };
+        } else if (options.type == "bonus") {
+          if (data != "" && data > 0) {
+            data = "+" + data;
+          };
         };
       };
     };
-    // console.log(options.path, typeof data, data);
-    textBlock.textContent = data;
+    var _render = function() {
+      textBlock.textContent = data;
+    };
+    _get_data();
+    _addPrefixSuffix();
+    _render();
   };
 
   function render(textBlock) {

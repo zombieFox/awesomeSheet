@@ -23,17 +23,17 @@ var encumbrance = (function() {
   function render() {
     var object = _create_encumbranceObject(stats.getScore("str"));
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "equipment.encumbrance.carry_move",
       newValue: object
     });
-    sheet.storeCharacters();
+    sheet.store();
   };
 
   function _create_encumbranceObject(value) {
-    var encumbranceStr = sheet.getCharacter().equipment.encumbrance.encumbrance_str;
-    if (sheet.getCharacter().equipment.encumbrance.encumbrance_str != "" && !isNaN(sheet.getCharacter().equipment.encumbrance.encumbrance_str)) {
-      value = sheet.getCharacter().equipment.encumbrance.encumbrance_str;
+    var encumbranceStr = sheet.get().equipment.encumbrance.encumbrance_str;
+    if (sheet.get().equipment.encumbrance.encumbrance_str != "" && !isNaN(sheet.get().equipment.encumbrance.encumbrance_str)) {
+      value = sheet.get().equipment.encumbrance.encumbrance_str;
     };
     if (!isNaN(value)) {
       var str = parseInt(value, 10);

@@ -659,7 +659,7 @@ var repair = (function() {
       characterObject.equipment.item.value.current = "";
     };
     // --------------------------------------------------
-    // sheet.storeCharacters();
+    // sheet.store();
     return characterObject;
   };
 
@@ -667,7 +667,7 @@ var repair = (function() {
     if (characterObject) {
       _repair(characterObject)
     } else {
-      var allCharacters = sheet.getAllCharacters();
+      var allCharacters = sheet.getAll();
       for (var i = 0; i < allCharacters.length; i++) {
         _repair(allCharacters[i]);
       };
