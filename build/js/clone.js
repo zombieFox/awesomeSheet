@@ -147,7 +147,7 @@ var clone = (function() {
         '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:consumable-total-' + cloneIndex + ',clone:true,action:addition" tabindex="1"><span class="icon-add"></span></a>' +
         '        </div>' +
         '        <div class="m-edit-box-item-button-large">' +
-        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:consumable-total-' + cloneIndex + ',clone:true,action:clear" tabindex="1"><span class="icon-close"></span></a>' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:consumable-total-' + cloneIndex + ',clone:true,action:clear,promptHeading:Clear Consumable Total?,promptMessage:Are you sure you want to clear the Consumable Total count?" tabindex="1"><span class="icon-close"></span></a>' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item m-edit-box-group-control-set">' +
@@ -164,7 +164,7 @@ var clone = (function() {
         '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:consumable-used-' + cloneIndex + ',clone:true,action:addition" tabindex="1"><span class="icon-add"></span></a>' +
         '        </div>' +
         '        <div class="m-edit-box-item-button-large">' +
-        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:consumable-used-' + cloneIndex + ',clone:true,action:clear" tabindex="1"><span class="icon-close"></span></a>' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:consumable-used-' + cloneIndex + ',clone:true,action:clear,promptHeading:Clear Consumable Used?,promptMessage:Are you sure you want to clear the Consumable Used count?" tabindex="1"><span class="icon-close"></span></a>' +
         '        </div>' +
         '      </div>' +
         '    </div>' +
