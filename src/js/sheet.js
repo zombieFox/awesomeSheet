@@ -180,6 +180,7 @@ var sheet = (function() {
   };
 
   function bind() {
+    shortcuts();
     scroll();
     resize();
     characterSelect.bind();
@@ -237,6 +238,15 @@ var sheet = (function() {
       index = 0;
     };
     switcheroo(index);
+  };
+
+  function update() {
+    modal.render({
+      heading: "Update character",
+      content: "update message",
+      action: null,
+      actionText: "Update"
+    });
   };
 
   function importJson() {
@@ -393,6 +403,56 @@ var sheet = (function() {
     });
   };
 
+  function shortcuts() {
+    window.addEventListener("keydown", function(event) {
+      // ctrl+alt+f
+      if (event.ctrlKey && event.altKey && event.keyCode == 70) {
+        fullscreen.toggle();
+      };
+      // ctrl+alt+i
+      if (event.ctrlKey && event.altKey && event.keyCode == 73) {
+        importJson();
+        page.update();
+      };
+      // ctrl+alt+u
+      if (event.ctrlKey && event.altKey && event.keyCode == 85) {
+        update();
+        page.update();
+      };
+      // ctrl+alt+e
+      if (event.ctrlKey && event.altKey && event.keyCode == 69) {
+        exportJson();
+        page.update();
+      };
+      // ctrl+alt+m
+      if (event.ctrlKey && event.altKey && event.keyCode == 77) {
+        menu.toggle();
+        page.update();
+      };
+      // ctrl+alt+d
+      if (event.ctrlKey && event.altKey && event.keyCode == 68) {
+        display.clear();
+        display.render();
+        display.toggle();
+        themeColor.update();
+      };
+      // ctrl+alt+n
+      if (event.ctrlKey && event.altKey && event.keyCode == 78) {
+        night.toggle();
+      };
+      // esc
+      if (event.keyCode == 27) {
+        menu.close();
+      };
+    }, false);
+    // key debugging
+    // window.addEventListener("keydown", function(event) {
+    //   console.log(event.keyCode);
+    //   console.log(event.metaKey);
+    //   console.log(event);
+    // });
+  };
+
   // exposed methods
   return {
     getAll: getAll,
@@ -404,6 +464,7 @@ var sheet = (function() {
     clear: clear,
     all: all,
     restore: restore,
+    update: update,
     import: importJson,
     export: exportJson,
     render: render,
