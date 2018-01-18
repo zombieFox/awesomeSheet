@@ -29,16 +29,16 @@ var checkUrl = (function() {
   function _loadCharacter() {
     var index;
     var characterParameter = helper.getUrlParameter("character");
-    for (var i = 0; i < sheet.getAllCharacters().length; i++) {
-      if (characterParameter == sheet.getAllCharacters()[i].basics.name.toLowerCase().split(" ")[0]) {
+    for (var i = 0; i < sheet.getAll().length; i++) {
+      if (characterParameter == sheet.getAll()[i].basics.name.toLowerCase().split(" ")[0]) {
         index = i;
       };
     };
     if (typeof index !== "undefined") {
-      sheet.switchCharacter(index);
+      sheet.switcher(index);
     } else {
       if (hardCodedCharacters.single()[characterParameter]) {
-        sheet.addCharacter(hardCodedCharacters.single()[characterParameter]);
+        sheet.add(hardCodedCharacters.single()[characterParameter]);
       } else {
         snack.render({
           message: "No character with that name."

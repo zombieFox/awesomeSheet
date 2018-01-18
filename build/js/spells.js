@@ -14,11 +14,11 @@ var spells = (function() {
       var newSpellField = spellBook.querySelector(".js-new-spell-field");
       all_newSpellAdd[i].addEventListener("click", function() {
         _addNewSpell(helper.getClosest(this, ".js-spell-book").querySelector(".js-new-spell-field"));
-        sheet.storeCharacters();
+        sheet.store();
       }, false);
       newSpellField.addEventListener("keypress", function() {
         _addNewSpellOnEnter(this);
-        sheet.storeCharacters();
+        sheet.store();
       }, false);
     };
     spellPrepareButton.addEventListener("click", function() {
@@ -59,19 +59,19 @@ var spells = (function() {
   function _resetAllSpells() {
     var all_spells = helper.eA(".js-spell");
     if (all_spells.length > 0) {
-      for (var i in sheet.getCharacter().spells.book) {
-        for (var j in sheet.getCharacter().spells.book[i]) {
-          for (var k in sheet.getCharacter().spells.book[i][j]) {
-            sheet.getCharacter().spells.book[i][j][k].prepared = 0;
-            sheet.getCharacter().spells.book[i][j][k].cast = 0;
-            sheet.getCharacter().spells.book[i][j][k].active = false;
-            // console.log(sheet.getCharacter().spells.book[i][j][k]);
+      for (var i in sheet.get().spells.book) {
+        for (var j in sheet.get().spells.book[i]) {
+          for (var k in sheet.get().spells.book[i][j]) {
+            sheet.get().spells.book[i][j][k].prepared = 0;
+            sheet.get().spells.book[i][j][k].cast = 0;
+            sheet.get().spells.book[i][j][k].active = false;
+            // console.log(sheet.get().spells.book[i][j][k]);
           };
         };
       };
       clear();
       render();
-      sheet.storeCharacters();
+      sheet.store();
       snack.render({
         message: "All spells reset."
       });
@@ -79,12 +79,12 @@ var spells = (function() {
   };
 
   function _sortAllSpells() {
-    for (var i in sheet.getCharacter().spells.book) {
-      for (var j in sheet.getCharacter().spells.book[i]) {
-        helper.sortObject(sheet.getCharacter().spells.book[i][j], "name");
+    for (var i in sheet.get().spells.book) {
+      for (var j in sheet.get().spells.book[i]) {
+        helper.sortObject(sheet.get().spells.book[i][j], "name");
       };
     };
-    sheet.storeCharacters();
+    sheet.store();
     clear();
     render();
     snack.render({
@@ -99,9 +99,9 @@ var spells = (function() {
     // if input value is not empty
     if (spellName !== "") {
       // add spell to current character known spells
-      sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel].push(newSpell);
-      var newSpellIndex = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel].length - 1;
-      _render_spell(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][newSpellIndex], spellLevel, newSpellIndex);
+      sheet.get().spells.book[spellLevel]["level_" + spellLevel].push(newSpell);
+      var newSpellIndex = sheet.get().spells.book[spellLevel]["level_" + spellLevel].length - 1;
+      _render_spell(sheet.get().spells.book[spellLevel]["level_" + spellLevel][newSpellIndex], spellLevel, newSpellIndex);
       // clear input field
       element.value = "";
     };
@@ -129,7 +129,7 @@ var spells = (function() {
     var spellCount = parseInt(button.dataset.spellCount, 10);
     var spellRoot = helper.getClosest(button, ".js-spells") || helper.e(".js-spells");
     var spellState = spellRoot.dataset.spellState;
-    var spellObject = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount];
+    var spellObject = sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount];
 
     if (spellState == "cast") {
       var fireballName = ["Fireball", "fireball", "Fire ball", "fire Ball", "fire ball", "Fire Ball", "FIREBALL", "FIREBALL!", "FIREBALL!!", "FIREBALL!!!", "FIREBALL!!!!"];
@@ -147,7 +147,7 @@ var spells = (function() {
     var spellCount = parseInt(button.dataset.spellCount, 10);
     var spellRoot = helper.getClosest(button, ".js-spells") || helper.e(".js-spells");
     var spellState = spellRoot.dataset.spellState;
-    var spellObject = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount];
+    var spellObject = sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount];
 
     function _render_count(spellControl) {
       var currentPreparedCount = parseInt(spellControl.dataset.spellPrepared, 10);
@@ -199,7 +199,7 @@ var spells = (function() {
     function _update_spellObject(spellControl) {
       var spellLevel = parseInt(spellControl.dataset.spellLevel, 10);
       var spellCount = parseInt(spellControl.dataset.spellCount, 10);
-      var spellObject = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount];
+      var spellObject = sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount];
       if (spellControl.dataset.spellActive == "true") {
         spellObject.active = true;
       } else {
@@ -451,7 +451,7 @@ var spells = (function() {
           var spellSection = helper.e(".js-section-spells");
           _update_spellObject(this);
           _update_spellButton(button, true);
-          sheet.storeCharacters();
+          sheet.store();
           display.clear(spellSection);
           display.render(spellSection);
         }.bind(modalContent),
@@ -471,7 +471,7 @@ var spells = (function() {
     var spellMarks = button.querySelector(".js-spell-marks");
     var spellActive = button.querySelector(".js-spell-active");
     var spellState = spellRoot.dataset.spellState;
-    var spellObject = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount];
+    var spellObject = sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount];
     if (spellState == "prepare" || spellState == "unprepare" || spellState == "cast" || spellState == "active" || force) {
       if (spellMarks.lastChild) {
         while (spellMarks.lastChild) {
@@ -511,7 +511,7 @@ var spells = (function() {
       spellName.textContent = spellObject.name;
     } else if (spellState == "remove") {
       _destroy_spellBook(spellLevel);
-      _render_all_spells(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel], spellLevel);
+      _render_all_spells(sheet.get().spells.book[spellLevel]["level_" + spellLevel], spellLevel);
     };
   };
 
@@ -521,38 +521,38 @@ var spells = (function() {
     var spellLevel = parseInt(button.dataset.spellLevel, 10);
     var spellCount = parseInt(button.dataset.spellCount, 10);
     if (spellState == "prepare") {
-      if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared < 50) {
-        sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared++;
+      if (sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared < 50) {
+        sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared++;
       };
-      // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
+      // console.log(sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
     } else if (spellState == "unprepare") {
-      if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared > 0) {
-        sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared--;
+      if (sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared > 0) {
+        sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared--;
       };
-      if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared < sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast) {
-        sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared;
+      if (sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared < sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast) {
+        sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast = sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared;
       };
-      // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
+      // console.log(sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
     } else if (spellState == "cast") {
-      if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast < 50) {
-        sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast++;
+      if (sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast < 50) {
+        sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast++;
       };
-      if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast > sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared) {
-        sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast;
+      if (sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast > sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared) {
+        sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared = sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast;
       };
-      // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
+      // console.log(sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
     } else if (spellState == "active") {
-      if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].active) {
-        sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].active = false;
+      if (sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].active) {
+        sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].active = false;
       } else {
-        sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].active = true;
+        sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].active = true;
       };
-      // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
+      // console.log(sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
     } else if (spellState == "remove") {
-      // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
-      var spellName = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].name;
-      _store_lastRemovedSpell(spellLevel, spellCount, sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
-      sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel].splice(spellCount, 1);
+      // console.log(sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
+      var spellName = sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].name;
+      _store_lastRemovedSpell(spellLevel, spellCount, sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
+      sheet.get().spells.book[spellLevel]["level_" + spellLevel].splice(spellCount, 1);
       snack.render({
         message: helper.truncate(spellName, 40, true) + " removed.",
         button: "Undo",
@@ -560,8 +560,8 @@ var spells = (function() {
         destroyDelay: 8000
       });
     };
-    // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
-    sheet.storeCharacters();
+    // console.log(sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
+    sheet.store();
   };
 
   function _store_lastRemovedSpell(spellLevel, spellCount, spell) {
@@ -585,10 +585,10 @@ var spells = (function() {
   };
 
   function _restore_spellObject(spellLevel, spellCount, spell) {
-    sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel].splice(spellCount, 0, spell);
+    sheet.get().spells.book[spellLevel]["level_" + spellLevel].splice(spellCount, 0, spell);
     _destroy_spellBook(spellLevel);
-    _render_all_spells(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel], spellLevel);
-    sheet.storeCharacters();
+    _render_all_spells(sheet.get().spells.book[spellLevel]["level_" + spellLevel], spellLevel);
+    sheet.store();
   };
 
   function _change_spellState(button) {
@@ -697,7 +697,7 @@ var spells = (function() {
     var spellRoot = helper.e(".js-spells");
     var spellState = spellRoot.dataset.spellState;
     if (spellState == "prepare" || spellState == "unprepare" || spellState == "cast" || spellState == "active" || spellState == "remove") {
-      sheet.storeCharacters();
+      sheet.store();
     };
     if (display.state()) {
       display.clear();
@@ -709,10 +709,10 @@ var spells = (function() {
     // build an array of spell objects
     var spellsToRender;
     // iterate over all objects keys to find spells then push those values to spellsToRender
-    if (sheet.getCharacter().spells.book) {
-      for (var i in sheet.getCharacter().spells.book) {
-        for (var j in sheet.getCharacter().spells.book[i]) {
-          spellsToRender = sheet.getCharacter().spells.book[i][j];
+    if (sheet.get().spells.book) {
+      for (var i in sheet.get().spells.book) {
+        for (var j in sheet.get().spells.book[i]) {
+          spellsToRender = sheet.get().spells.book[i][j];
           _render_all_spells(spellsToRender, i);
         };
       };

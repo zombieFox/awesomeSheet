@@ -5,31 +5,22 @@ var textareaBlock = (function() {
   function _store(textarea) {
     var textareaBlock = helper.getClosest(textarea, ".js-textarea-block");
     var textareaBlockOptions = helper.makeObject(textareaBlock.dataset.textareaBlockOptions);
-    var data = textarea.innerHTML;
-    if (data == "<div><br></div>" || data == "<br>" || data == "<br><br>" || data == "<br><br><br>") {
-      data = "";
+    var newData = textarea.innerHTML;
+    if (newData == "<div><br></div>" || newData == "<br>" || newData == "<br><br>" || newData == "<br><br><br>") {
+      newData = "";
     };
     if (textareaBlockOptions.path) {
-      if (textareaBlockOptions.clone) {
-        helper.setObject({
-          path: textareaBlockOptions.path,
-          object: sheet.getCharacter(),
-          clone: textareaBlockOptions.clone,
-          newValue: data
-        });
-      } else {
-        helper.setObject({
-          path: textareaBlockOptions.path,
-          object: sheet.getCharacter(),
-          newValue: data
-        });
-      };
+      helper.setObject({
+        path: textareaBlockOptions.path,
+        object: sheet.get(),
+        newValue: newData
+      });
     };
   };
 
   function delayUpdate(element) {
     _store(element);
-    sheet.storeCharacters();
+    sheet.store();
     totalBlock.render();
     if (display.state()) {
       display.clear();
@@ -73,7 +64,7 @@ var textareaBlock = (function() {
       field.addEventListener("input", function() {
         clearTimeout(storeInputTimer);
         storeInputTimer = setTimeout(delayUpdate, 300, this);
-        sheet.storeCharacters();
+        sheet.store();
       }, false);
       field.addEventListener("focus", function() {
         _focus(this);
@@ -81,7 +72,7 @@ var textareaBlock = (function() {
       field.addEventListener("blur", function() {
         _store(this);
         _focus(this);
-        sheet.storeCharacters();
+        sheet.store();
       }, false);
       field.addEventListener("paste", function(event) {
         helper.pasteStrip(event);
@@ -105,18 +96,10 @@ var textareaBlock = (function() {
     var options = helper.makeObject(textareaBlock.dataset.textareaBlockOptions);
     var data;
     if (options.path) {
-      if (options.clone) {
-        data = helper.getObject({
-          object: sheet.getCharacter(),
-          path: options.path,
-          clone: options.clone
-        });
-      } else {
-        data = helper.getObject({
-          object: sheet.getCharacter(),
-          path: options.path
-        });
-      };
+      data = helper.getObject({
+        object: sheet.get(),
+        path: options.path
+      });
       textareaBlockField.innerHTML = data;
     };
   };

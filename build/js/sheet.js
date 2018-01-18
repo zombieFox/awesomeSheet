@@ -11,7 +11,7 @@ var sheet = (function() {
       allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.demo())); // for demo load sample characters
       // allCharacters = [blank.data]; // for production load blank character
     };
-    storeCharacters();
+    store();
   })();
 
   var setCurrentCharacterIndex = (function() {
@@ -20,15 +20,15 @@ var sheet = (function() {
     };
   })();
 
-  function storeCharacters() {
+  function store() {
     helper.store("allCharacters", JSON.stringify(allCharacters));
   };
 
-  function getAllCharacters() {
+  function getAll() {
     return allCharacters;
   };
 
-  function getCharacter() {
+  function get() {
     return allCharacters[currentCharacterIndex];
   };
 
@@ -41,58 +41,51 @@ var sheet = (function() {
     helper.store("charactersIndex", currentCharacterIndex);
   };
 
-  function addCharacter(newCharacter) {
+  function add(newCharacter) {
     var dataToAdd = newCharacter || JSON.parse(JSON.stringify(blank.data));
     allCharacters.push(dataToAdd);
-    setIndex(getAllCharacters().length - 1);
+    setIndex(getAll().length - 1);
     clear();
     render();
     nav.scrollToTop();
-    storeCharacters();
+    store();
     snack.render({
       message: "New character added."
     });
   };
 
-  function removeCharacter() {
-    var name;
-    if (sheet.getCharacter().basics.name) {
-      name = sheet.getCharacter().basics.name;
-    } else {
+  function remove() {
+    var _destroy = function() {
+      allCharacters.splice(getIndex(), 1);
+      var message = helper.truncate(name, 50, true) + " removed.";
+      if (allCharacters.length == 0) {
+        add();
+        message = message + " New character added.";
+      };
+      setIndex(0);
+      clear();
+      render();
+      store();
+      characterSelect.clear();
+      characterSelect.render();
+      nav.scrollToTop();
+      snack.render({
+        message: message
+      });
+    };
+    var name = helper.getObject({
+      object: get(),
+      path: "basics.name"
+    });
+    if (name == "" || name == undefined) {
       name = "New character";
     };
     prompt.render({
       heading: "Remove " + name + "?",
       message: "The current character will be removed. This can not be undone. Have you backed up your characters by Exporting?",
       actionText: "Remove",
-      action: destroyCharacter
+      action: _destroy
     });
-  };
-
-  function destroyCharacter() {
-    var name = allCharacters[getIndex()].basics.name || "New character";
-    allCharacters.splice(getIndex(), 1);
-    var lastCharacterRemoved = false;
-    if (allCharacters.length == 0) {
-      addCharacter();
-      lastCharacterRemoved = true;
-    };
-    setIndex(0);
-    clear();
-    render();
-    storeCharacters();
-    characterSelect.clear();
-    characterSelect.render();
-    if (lastCharacterRemoved) {
-      snack.render({
-        message: helper.truncate(name, 40, true) + " removed. New character added."
-      });
-    } else {
-      nav.scrollToTop();
-      snack.render({
-        message: helper.truncate(name, 50, true) + " removed."
-      });
-    };
   };
 
   function all() {
@@ -102,7 +95,7 @@ var sheet = (function() {
     helper.store("backupAllCharacters", JSON.stringify(allCharacters));
     allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.all()));
     setIndex(0);
-    storeCharacters();
+    store();
     clear();
     render();
     characterSelect.clear();
@@ -119,7 +112,7 @@ var sheet = (function() {
     snack.destroy();
     allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.demo()));
     setIndex(0);
-    storeCharacters();
+    store();
     clear();
     render();
     characterSelect.clear();
@@ -136,7 +129,7 @@ var sheet = (function() {
     snack.destroy();
     allCharacters = JSON.parse(JSON.stringify([blank.data]));
     setIndex(0);
-    storeCharacters();
+    store();
     clear();
     render();
     characterSelect.clear();
@@ -148,7 +141,7 @@ var sheet = (function() {
   };
 
   function render() {
-    repair.render(sheet.getCharacter());
+    repair.render(sheet.get());
     characterSelect.render();
     stats.render();
     clone.render();
@@ -232,7 +225,7 @@ var sheet = (function() {
     }, false);
   };
 
-  function switchCharacter(index) {
+  function switcher(index) {
     var switcheroo = function(index) {
       setIndex(index);
       clear();
@@ -240,102 +233,96 @@ var sheet = (function() {
       characterSelect.clear();
       characterSelect.render();
     };
-    if (index < 0 || index > getAllCharacters().length || typeof index != "number") {
+    if (index < 0 || index > getAll().length || typeof index != "number") {
       index = 0;
     };
     switcheroo(index);
   };
 
-  function _handleFiles() {
-    var importSelectLabel = helper.e(".js-import-select-label");
-    var importSelectLabelText = helper.e(".js-import-select-label-text");
-    var importSelectLabelIcon = helper.e(".js-import-select-label-icon");
-    var fileList = this.files;
-    helper.removeClass(importSelectLabel, "m-import-select-label-ok");
-    helper.removeClass(importSelectLabel, "m-import-select-label-error");
-    helper.removeClass(importSelectLabelIcon, "icon-check");
-    helper.removeClass(importSelectLabelIcon, "icon-error-outline");
-    helper.addClass(importSelectLabelIcon, "icon-file-upload");
-    // console.log(fileList);
-
-    var readFile = new FileReader();
-    readFile.onload = function(event) {
-      if (helper.isJsonString(event.target.result)) {
-        // console.log("JSON true");
-        if (JSON.parse(event.target.result).awesomeSheet) {
-          // console.log("awesome key true");
-          importSelectLabelText.textContent = fileList[0].name;
-          helper.addClass(importSelectLabel, "m-import-select-label-ok");
-          helper.removeClass(importSelectLabel, "m-import-select-label-error");
-          helper.removeClass(importSelectLabelIcon, "icon-file-upload");
-          helper.removeClass(importSelectLabelIcon, "icon-error-outline");
-          helper.addClass(importSelectLabelIcon, "icon-check");
+  function importJson() {
+    var _handleFiles = function() {
+      var importSelectLabel = helper.e(".js-import-select-label");
+      var importSelectLabelText = helper.e(".js-import-select-label-text");
+      var importSelectLabelIcon = helper.e(".js-import-select-label-icon");
+      var fileList = this.files;
+      helper.removeClass(importSelectLabel, "m-import-select-label-ok");
+      helper.removeClass(importSelectLabel, "m-import-select-label-error");
+      helper.removeClass(importSelectLabelIcon, "icon-check");
+      helper.removeClass(importSelectLabelIcon, "icon-error-outline");
+      helper.addClass(importSelectLabelIcon, "icon-file-upload");
+      // console.log(fileList);
+      var readFile = new FileReader();
+      readFile.onload = function(event) {
+        if (helper.isJsonString(event.target.result)) {
+          // console.log("JSON true");
+          if (JSON.parse(event.target.result).awesomeSheet) {
+            // console.log("awesome key true");
+            importSelectLabelText.textContent = fileList[0].name;
+            helper.addClass(importSelectLabel, "m-import-select-label-ok");
+            helper.removeClass(importSelectLabel, "m-import-select-label-error");
+            helper.removeClass(importSelectLabelIcon, "icon-file-upload");
+            helper.removeClass(importSelectLabelIcon, "icon-error-outline");
+            helper.addClass(importSelectLabelIcon, "icon-check");
+          } else {
+            // console.log("awesome key false");
+            importSelectLabelText.textContent = "JSON file not recognised by awesomeSheet";
+            helper.removeClass(importSelectLabel, "m-import-select-label-ok");
+            helper.addClass(importSelectLabel, "m-import-select-label-error");
+            helper.removeClass(importSelectLabelIcon, "icon-file-upload");
+            helper.removeClass(importSelectLabelIcon, "icon-check");
+            helper.addClass(importSelectLabelIcon, "icon-error-outline");
+          };
         } else {
-          // console.log("awesome key false");
-          importSelectLabelText.textContent = "JSON file not recognised by awesomeSheet";
+          // console.log("JSON false");
+          importSelectLabelText.textContent = "Not a JSON file";
           helper.removeClass(importSelectLabel, "m-import-select-label-ok");
           helper.addClass(importSelectLabel, "m-import-select-label-error");
           helper.removeClass(importSelectLabelIcon, "icon-file-upload");
           helper.removeClass(importSelectLabelIcon, "icon-check");
           helper.addClass(importSelectLabelIcon, "icon-error-outline");
         };
+      };
+      if (fileList.length > 0) {
+        readFile.readAsText(fileList.item(0));
+        // console.log(readFile.result);
       } else {
-        // console.log("JSON false");
-        importSelectLabelText.textContent = "Not a JSON file";
-        helper.removeClass(importSelectLabel, "m-import-select-label-ok");
-        helper.addClass(importSelectLabel, "m-import-select-label-error");
-        helper.removeClass(importSelectLabelIcon, "icon-file-upload");
-        helper.removeClass(importSelectLabelIcon, "icon-check");
-        helper.addClass(importSelectLabelIcon, "icon-error-outline");
+        importSelectLabelText.textContent = "Select a file";
       };
     };
-    if (fileList.length > 0) {
-      readFile.readAsText(fileList.item(0));
-      // console.log(readFile.result);
-    } else {
-      importSelectLabelText.textContent = "Select a file";
-    };
-  };
-
-  function _readJsonFile() {
-    var fileList = helper.e(".js-import-select-input").files;
-
-    // if no JSON file is selected
-    if (fileList.length <= 0) {
-      snack.render({
-        message: "No file selected."
-      });
-      return false;
-    };
-
-    var readFile = new FileReader();
-    readFile.onload = function(event) {
-      // console.log(event);
-      if (helper.isJsonString(event.target.result)) {
-        var data = JSON.parse(event.target.result);
-        if (data.awesomeSheet) {
-          addCharacter(data);
-          var name = allCharacters[getIndex()].basics.name || "New character";
-          snack.render({
-            message: helper.truncate(name, 40, true) + " imported and now in the game."
-          });
+    var _readJsonFile = function() {
+      var fileList = helper.e(".js-import-select-input").files;
+      // if no JSON file is selected
+      if (fileList.length <= 0) {
+        snack.render({
+          message: "No file selected."
+        });
+        return false;
+      };
+      var readFile = new FileReader();
+      readFile.onload = function(event) {
+        // console.log(event);
+        if (helper.isJsonString(event.target.result)) {
+          var data = JSON.parse(event.target.result);
+          if (data.awesomeSheet) {
+            add(data);
+            var name = allCharacters[getIndex()].basics.name || "New character";
+            snack.render({
+              message: helper.truncate(name, 40, true) + " imported and now in the game."
+            });
+          } else {
+            snack.render({
+              message: "JSON file not recognised by awesomeSheet."
+            });
+          };
         } else {
           snack.render({
-            message: "JSON file not recognised by awesomeSheet."
+            message: "Not a JSON file."
           });
         };
-      } else {
-        snack.render({
-          message: "Not a JSON file."
-        });
       };
+      readFile.readAsText(fileList.item(0));
     };
-
-    readFile.readAsText(fileList.item(0));
-  };
-
-  function importJson() {
-    var modalContent = function() {
+    var _modalContent = function() {
       var container = document.createElement("div");
       container.setAttribute("class", "container");
       var row = document.createElement("div");
@@ -376,7 +363,7 @@ var sheet = (function() {
     };
     modal.render({
       heading: "Import character",
-      content: modalContent(),
+      content: _modalContent(),
       action: _readJsonFile,
       actionText: "Import"
     });
@@ -384,8 +371,8 @@ var sheet = (function() {
 
   function exportJson() {
     var fileName;
-    var characterName = getCharacter().basics.name;
-    var classLevel = classes.getClassLevel(sheet.getCharacter());
+    var characterName = get().basics.name;
+    var classLevel = classes.getClassLevel(sheet.get());
     if (characterName != "") {
       fileName = characterName;
     } else {
@@ -398,7 +385,7 @@ var sheet = (function() {
       heading: "Export " + characterName,
       message: "Download and backup " + characterName + " as a JSON file. This file can later be imported on this or another deivce.",
       actionText: "Download",
-      actionUrl: "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getCharacter()), null, " "),
+      actionUrl: "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(get()), null, " "),
       customAttribute: {
         key: "download",
         value: fileName + ".json"
@@ -408,14 +395,11 @@ var sheet = (function() {
 
   // exposed methods
   return {
-    getAllCharacters: getAllCharacters,
-    getCharacter: getCharacter,
-    storeCharacters: storeCharacters,
-    addCharacter: addCharacter,
-    removeCharacter: removeCharacter,
-    switchCharacter: switchCharacter,
-    getIndex: getIndex,
-    setIndex: setIndex,
+    getAll: getAll,
+    get: get,
+    store: store,
+    add: add,
+    remove: remove,
     destroy: destroy,
     clear: clear,
     all: all,
@@ -423,6 +407,9 @@ var sheet = (function() {
     import: importJson,
     export: exportJson,
     render: render,
+    switcher: switcher,
+    getIndex: getIndex,
+    setIndex: setIndex,
     bind: bind
   };
 

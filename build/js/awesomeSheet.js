@@ -145,7 +145,6 @@ var helper = (function() {
     var defaultOptions = {
       path: null,
       object: null,
-      clone: null,
       newValue: null
     };
     if (options) {
@@ -202,7 +201,7 @@ var helper = (function() {
       };
     };
     if (defaultOptions.object != null && defaultOptions.path != null && defaultOptions.newValue != null) {
-      if (defaultOptions.clone) {
+      if (defaultOptions.path.indexOf("[") != -1 && defaultOptions.path.indexOf("]") != -1) {
         _setCloneData();
       } else {
         _setData();
@@ -215,8 +214,7 @@ var helper = (function() {
   function getObject(options) {
     var defaultOptions = {
       object: null,
-      path: null,
-      clone: null
+      path: null
     };
     if (options) {
       var defaultOptions = helper.applyOptions(defaultOptions, options);
@@ -277,7 +275,7 @@ var helper = (function() {
       return defaultOptions.object;
     };
     if (defaultOptions.object != null && defaultOptions.path != null) {
-      if (defaultOptions.clone) {
+      if (defaultOptions.path.indexOf("[") != -1 && defaultOptions.path.indexOf("]") != -1) {
         return _getCloneData();
       } else {
         return _getData();
@@ -14787,38 +14785,38 @@ var characterImage = (function() {
       _render_size("cover");
       _render_position("center");
       _update_all_inputRangeBlock();
-      sheet.storeCharacters();
+      sheet.store();
     }, false);
     characterImageScaleContain.addEventListener("click", function() {
       _render_size("contain");
       _render_position("center");
       _update_all_inputRangeBlock();
-      sheet.storeCharacters();
+      sheet.store();
     }, false);
     characterImageScaleCenter.addEventListener("click", function() {
       _render_position("center");
       _update_all_inputRangeBlock();
-      sheet.storeCharacters();
+      sheet.store();
     }, false);
     characterImageScaleTop.addEventListener("click", function() {
       _render_position("top");
       _update_all_inputRangeBlock();
-      sheet.storeCharacters();
+      sheet.store();
     }, false);
     characterImageScaleBottom.addEventListener("click", function() {
       _render_position("bottom");
       _update_all_inputRangeBlock();
-      sheet.storeCharacters();
+      sheet.store();
     }, false);
     characterImageScaleLeft.addEventListener("click", function() {
       _render_position("left");
       _update_all_inputRangeBlock();
-      sheet.storeCharacters();
+      sheet.store();
     }, false);
     characterImageScaleRight.addEventListener("click", function() {
       _render_position("right");
       _update_all_inputRangeBlock();
-      sheet.storeCharacters();
+      sheet.store();
     }, false);
 
     characterImageScaleInput.addEventListener("input", function() {
@@ -14866,7 +14864,7 @@ var characterImage = (function() {
     var dragStop = function() {
       // console.log("dragStop");
       image = null;
-      sheet.storeCharacters();
+      sheet.store();
     };
     // var checkElement = function(event) {
     //   return event.target.classList.contains("js-character-image-preview");
@@ -14941,7 +14939,7 @@ var characterImage = (function() {
           _update_all_inputRangeBlock();
           _update_all_radio();
           _clear_inputUpload();
-          sheet.storeCharacters();
+          sheet.store();
         } else {
           snack.render({
             message: "Image too large, max 2000x2000px."
@@ -15025,7 +15023,7 @@ var characterImage = (function() {
 
   function _calculate_orientation() {
     var size = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.character_image.size"
     });
     var imageWidth = size.width;
@@ -15043,7 +15041,7 @@ var characterImage = (function() {
 
   function _calculate_scale() {
     var characterImageObject = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.character_image"
     });
     var characterImagePreview = helper.e(".js-character-image-preview");
@@ -15116,11 +15114,11 @@ var characterImage = (function() {
       scale: ""
     };
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.character_image",
       newValue: object
     });
-    sheet.storeCharacters();
+    sheet.store();
     _update_all_inputRangeBlock();
     _update_all_radio();
     clear();
@@ -15140,7 +15138,7 @@ var characterImage = (function() {
       // console.log("render image");
       var characterImagePreview = helper.e(".js-character-image-preview");
       var characterImageObject = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "basics.character_image"
       });
       var image = new Image;
@@ -15155,7 +15153,7 @@ var characterImage = (function() {
     if (_get_uploadedState()) {
       // console.log("render background");
       var characterImageObject = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "basics.character_image"
       });
       var characterImageBackground = helper.e(".js-character-image-background");
@@ -15175,7 +15173,7 @@ var characterImage = (function() {
     if (_get_uploadedState()) {
       // console.log("render position");
       var characterImageObject = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "basics.character_image"
       });
       var characterImagePreview = helper.e(".js-character-image-preview");
@@ -15234,7 +15232,7 @@ var characterImage = (function() {
     if (_get_uploadedState()) {
       // console.log("render resize");
       var characterImageObject = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "basics.character_image"
       });
       var characterImage = helper.e(".js-character-image");
@@ -15276,7 +15274,7 @@ var characterImage = (function() {
       y: axisY
     };
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.character_image.position",
       newValue: position
     });
@@ -15285,7 +15283,7 @@ var characterImage = (function() {
   function _store_background(background) {
     // console.log("store background");
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.character_image.background",
       newValue: background
     });
@@ -15294,7 +15292,7 @@ var characterImage = (function() {
   function _store_color(color) {
     // console.log("store color");
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.character_image.color",
       newValue: color
     });
@@ -15303,7 +15301,7 @@ var characterImage = (function() {
   function _store_image(imageBase64) {
     // console.log("store image");
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.character_image.image",
       newValue: imageBase64
     });
@@ -15312,7 +15310,7 @@ var characterImage = (function() {
   function _store_scale(scale) {
     // console.log("store scale");
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.character_image.scale",
       newValue: scale
     });
@@ -15321,7 +15319,7 @@ var characterImage = (function() {
   function _store_orientation(orientation) {
     // console.log("store orientation");
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.character_image.orientation",
       newValue: orientation
     });
@@ -15334,7 +15332,7 @@ var characterImage = (function() {
       height: imageHeight
     };
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.character_image.size",
       newValue: size
     });
@@ -15343,7 +15341,7 @@ var characterImage = (function() {
   function _store_uploaded(boolean) {
     // console.log("store uploaded");
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.character_image.uploaded",
       newValue: boolean
     });
@@ -15351,7 +15349,7 @@ var characterImage = (function() {
 
   function _get_uploadedState() {
     var uploaded = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.character_image.uploaded"
     });
     if (uploaded == "") {
@@ -15374,10 +15372,10 @@ var characterSelect = (function() {
 
   function _switchCharacter(characterInput) {
     var newIndex = parseInt(characterInput.dataset.characterSelectIndex, 10);
-    sheet.switchCharacter(newIndex);
+    sheet.switcher(newIndex);
     menu.close();
     snack.render({
-      message: helper.truncate(_get_name(sheet.getCharacter()), 50, true) + " now in the game."
+      message: helper.truncate(_get_name(sheet.get()), 50, true) + " now in the game."
     });
   };
 
@@ -15419,13 +15417,13 @@ var characterSelect = (function() {
       menu.close();
       shade.destroy();
       close();
-      sheet.addCharacter();
+      sheet.add();
       page.update();
     }, false);
 
     characterSelectRemove.addEventListener("click", function(event) {
       close();
-      sheet.removeCharacter();
+      sheet.remove();
       page.update();
     }, false);
 
@@ -15522,7 +15520,7 @@ var characterSelect = (function() {
   };
 
   function _render_allCharacterItems() {
-    var character = sheet.getAllCharacters();
+    var character = sheet.getAll();
     var characterSelectList = helper.e(".js-character-select-list");
     for (var key in character) {
       characterSelectList.appendChild(_createCharacterItem(character[key], key));
@@ -15534,8 +15532,8 @@ var characterSelect = (function() {
   function _render_currentCharacter() {
     var characterSelectName = helper.e(".js-character-select-name");
     var characterSelectClassLevel = helper.e(".js-character-select-class-level");
-    characterSelectName.textContent = _get_name(sheet.getCharacter());
-    characterSelectClassLevel.textContent = classes.getClassLevel(sheet.getCharacter());
+    characterSelectName.textContent = _get_name(sheet.get());
+    characterSelectClassLevel.textContent = classes.getClassLevel(sheet.get());
   };
 
   function _get_name(characterObject) {
@@ -15635,7 +15633,7 @@ var checkBlock = (function() {
 
   function delayUpdate(input) {
     _store(input);
-    sheet.storeCharacters();
+    sheet.store();
   };
 
   function _store(input) {
@@ -15644,7 +15642,7 @@ var checkBlock = (function() {
     var newValue = input.checked;
     if (checkBlockOptions.path) {
       helper.setObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: checkBlockOptions.path,
         newValue: newValue
       });
@@ -15667,7 +15665,7 @@ var checkBlock = (function() {
     var checkBlockInput = checkBlock.querySelector(".js-check-block-input");
     if (options.path) {
       var data = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: options.path
       });
       checkBlockInput.checked = data;
@@ -15721,16 +15719,16 @@ var checkUrl = (function() {
   function _loadCharacter() {
     var index;
     var characterParameter = helper.getUrlParameter("character");
-    for (var i = 0; i < sheet.getAllCharacters().length; i++) {
-      if (characterParameter == sheet.getAllCharacters()[i].basics.name.toLowerCase().split(" ")[0]) {
+    for (var i = 0; i < sheet.getAll().length; i++) {
+      if (characterParameter == sheet.getAll()[i].basics.name.toLowerCase().split(" ")[0]) {
         index = i;
       };
     };
     if (typeof index !== "undefined") {
-      sheet.switchCharacter(index);
+      sheet.switcher(index);
     } else {
       if (hardCodedCharacters.single()[characterParameter]) {
-        sheet.addCharacter(hardCodedCharacters.single()[characterParameter]);
+        sheet.add(hardCodedCharacters.single()[characterParameter]);
       } else {
         snack.render({
           message: "No character with that name."
@@ -15804,7 +15802,7 @@ var classes = (function() {
 
   function render() {
     var all_classes = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.classes"
     });
     var totalLevels = _total(all_classes, "level");
@@ -15816,42 +15814,42 @@ var classes = (function() {
     var totalWill = _total(all_classes, "will");
     var baseAttackBonuses = _makeBaseAttackBonuses(totalBab);
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.level",
       newValue: totalLevels
     });
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "defense.hp.total",
       newValue: totalHP
     });
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "offense.base_attack",
       newValue: totalBab
     });
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "offense.base_attack_bonuses",
       newValue: baseAttackBonuses
     });
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "skills.ranks.total",
       newValue: totalRanks
     });
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "defense.fortitude.base",
       newValue: totalFortitude
     });
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "defense.reflex.base",
       newValue: totalReflex
     });
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "defense.will.base",
       newValue: totalWill
     });
@@ -15906,28 +15904,28 @@ var clone = (function() {
   function _get_cloneObjects(cloneType) {
     var object;
     if (cloneType == "class") {
-      object = sheet.getCharacter().basics.classes;
+      object = sheet.get().basics.classes;
     };
     if (cloneType == "consumable") {
-      object = sheet.getCharacter().equipment.consumable;
+      object = sheet.get().equipment.consumable;
     };
     if (cloneType == "item") {
-      object = sheet.getCharacter().equipment.item.all;
+      object = sheet.get().equipment.item.all;
     };
     if (cloneType == "skill") {
-      object = sheet.getCharacter().skills.custom;
+      object = sheet.get().skills.custom;
     };
     if (cloneType == "attack-melee") {
-      object = sheet.getCharacter().offense.attack.melee;
+      object = sheet.get().offense.attack.melee;
     };
     if (cloneType == "attack-ranged") {
-      object = sheet.getCharacter().offense.attack.ranged;
+      object = sheet.get().offense.attack.ranged;
     };
     if (cloneType == "note-character") {
-      object = sheet.getCharacter().notes.character;
+      object = sheet.get().notes.character;
     };
     if (cloneType == "note-story") {
-      object = sheet.getCharacter().notes.story;
+      object = sheet.get().notes.story;
     };
     return object;
   };
@@ -16348,67 +16346,67 @@ var clone = (function() {
     var cloneCount;
     if (cloneType == "class") {
       cloneCount = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "basics.classes"
       }).length;
     };
     if (cloneType == "attack-melee") {
       cloneCount = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "offense.attack.melee"
       }).length;
     };
     if (cloneType == "attack-ranged") {
       cloneCount = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "offense.attack.ranged"
       }).length;
     };
     if (cloneType == "consumable") {
       cloneCount = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "equipment.consumable"
       }).length;
     };
     if (cloneType == "item") {
       cloneCount = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "equipment.item.all"
       }).length;
     };
     if (cloneType == "skill") {
       cloneCount = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "skills.custom"
       }).length;
     };
     if (cloneType == "note-character") {
       cloneCount = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "notes.character"
       }).length;
     };
     if (cloneType == "note-story") {
       cloneCount = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "notes.story"
       }).length;
     };
     if (cloneType == "note" || cloneType == "note-character" && mixed || cloneType == "note-story" && mixed) {
       (cloneCount = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "notes.character"
       }).length + helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "notes.story"
       }).length)
     };
     if (cloneType == "attack" || cloneType == "attack-melee" && mixed || cloneType == "attack-ranged" && mixed) {
       (cloneCount = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "offense.attack.melee"
       }).length + helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "offense.attack.ranged"
       }).length)
     };
@@ -16697,42 +16695,42 @@ var clone = (function() {
     cloneAddClass.addEventListener("click", function() {
       _addNewClone("class");
       characterSelect.update();
-      sheet.storeCharacters();
+      sheet.store();
     }, false);
 
     cloneAddConsumable.addEventListener("click", function() {
       _addNewClone("consumable");
-      sheet.storeCharacters();
+      sheet.store();
     }, false);
 
     cloneAddItem.addEventListener("click", function() {
       _addNewClone("item");
-      sheet.storeCharacters();
+      sheet.store();
     }, false);
 
     cloneAddSkill.addEventListener("click", function() {
       _addNewClone("skill");
-      sheet.storeCharacters();
+      sheet.store();
     }, false);
 
     cloneAddAttackMelee.addEventListener("click", function() {
       _addNewClone("attack-melee");
-      sheet.storeCharacters();
+      sheet.store();
     }, false);
 
     cloneAddAttackRanged.addEventListener("click", function() {
       _addNewClone("attack-ranged");
-      sheet.storeCharacters();
+      sheet.store();
     }, false);
 
     cloneAddCharacterNote.addEventListener("click", function() {
       _addNewClone("note-character");
-      sheet.storeCharacters();
+      sheet.store();
     }, false);
 
     cloneAddStoryNote.addEventListener("click", function() {
       _addNewClone("note-story");
-      sheet.storeCharacters();
+      sheet.store();
     }, false);
 
     cloneRemoveClass.addEventListener("click", function() {
@@ -16771,7 +16769,7 @@ var clone = (function() {
       _store_lastRemovedClone(this, cloneType);
       _remove_clone(this, cloneType);
       _update_removeButtonTab(cloneType);
-      sheet.storeCharacters();
+      sheet.store();
     }, false);
     if (cloneType == "class") {
       button.addEventListener("click", function() {
@@ -16966,7 +16964,7 @@ var clone = (function() {
       wealth.render();
     };
     textBlock.render();
-    sheet.storeCharacters();
+    sheet.store();
   };
 
   function _store_lastRemovedClone(button, cloneType) {
@@ -17344,7 +17342,7 @@ var display = (function() {
     var all_node = [];
     for (var i = 0; i < all_displayPath.length; i++) {
       var bookPath = all_displayPath[i].split(".");
-      var all_spells = sheet.getCharacter()[bookPath[0]][bookPath[1]][bookPath[2]]["level_" + bookPath[2]];
+      var all_spells = sheet.get()[bookPath[0]][bookPath[1]][bookPath[2]]["level_" + bookPath[2]];
       if (all_spells.length == 0) {
         all_node.push(false);
       } else {
@@ -17417,7 +17415,7 @@ var display = (function() {
 
   function _get_skill(path, prefix) {
     var object = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: path
     });
     var displayListItem;
@@ -17455,7 +17453,7 @@ var display = (function() {
 
     for (var i = 0; i < all_displayPath.length; i++) {
       var all_clones = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: all_displayPath[i]
       });
       if (all_clones.length == 0) {
@@ -17680,7 +17678,7 @@ var display = (function() {
 
   function _get_list(path, prefix, suffix, valueType) {
     var data = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: path
     });
     var displayListItem;
@@ -17725,11 +17723,11 @@ var display = (function() {
     var displayItem;
     var data;
     var modifierPath = path.split(".");
-    if (sheet.getCharacter()[modifierPath[0]][modifierPath[1]][modifierPath[2]].temp_modifier) {
-      data = sheet.getCharacter()[modifierPath[0]][modifierPath[1]][modifierPath[2]].temp_modifier;
+    if (sheet.get()[modifierPath[0]][modifierPath[1]][modifierPath[2]].temp_modifier) {
+      data = sheet.get()[modifierPath[0]][modifierPath[1]][modifierPath[2]].temp_modifier;
     } else {
       data = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: path
       });
     };
@@ -17763,11 +17761,11 @@ var display = (function() {
     var displayItem;
     var data;
     var statPath = path.split(".");
-    if (sheet.getCharacter()[statPath[0]][statPath[1]][statPath[2]].temp_score) {
-      data = sheet.getCharacter()[statPath[0]][statPath[1]][statPath[2]].temp_score
+    if (sheet.get()[statPath[0]][statPath[1]][statPath[2]].temp_score) {
+      data = sheet.get()[statPath[0]][statPath[1]][statPath[2]].temp_score
     } else {
       data = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: path
       });
     };
@@ -17794,7 +17792,7 @@ var display = (function() {
 
   function _get_textBlock(path, target) {
     var data = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: path
     });
     var displayItem;
@@ -17839,7 +17837,7 @@ var display = (function() {
 
   function _get_textSnippet(path, prefix, suffix, dependency, valueType) {
     var data = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: path
     });
     var displayItem;
@@ -17874,7 +17872,7 @@ var display = (function() {
       };
       if (dependency) {
         data = data + " / " + helper.getObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: dependency
         });
       };
@@ -17923,7 +17921,7 @@ var display = (function() {
 
   function _get_image(path, scale, position, color) {
     var data = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: path
     });
     var displayImage;
@@ -17936,7 +17934,7 @@ var display = (function() {
       displayImageItem.src = data;
       if (scale) {
         var scale = helper.getObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: scale
         });
       } else {
@@ -17944,7 +17942,7 @@ var display = (function() {
       };
       if (position) {
         var position = helper.getObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: position
         });
       } else {
@@ -17955,7 +17953,7 @@ var display = (function() {
       };
       if (color) {
         var background = helper.getObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: "basics.character_image.background"
         });
         var color;
@@ -17965,7 +17963,7 @@ var display = (function() {
           color = "rgb(255,255,255)";
         } else if (background == "average") {
           color = helper.getObject({
-            object: sheet.getCharacter(),
+            object: sheet.get(),
             path: color
           });
           color = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
@@ -18243,17 +18241,17 @@ var encumbrance = (function() {
   function render() {
     var object = _create_encumbranceObject(stats.getScore("str"));
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "equipment.encumbrance.carry_move",
       newValue: object
     });
-    sheet.storeCharacters();
+    sheet.store();
   };
 
   function _create_encumbranceObject(value) {
-    var encumbranceStr = sheet.getCharacter().equipment.encumbrance.encumbrance_str;
-    if (sheet.getCharacter().equipment.encumbrance.encumbrance_str != "" && !isNaN(sheet.getCharacter().equipment.encumbrance.encumbrance_str)) {
-      value = sheet.getCharacter().equipment.encumbrance.encumbrance_str;
+    var encumbranceStr = sheet.get().equipment.encumbrance.encumbrance_str;
+    if (sheet.get().equipment.encumbrance.encumbrance_str != "" && !isNaN(sheet.get().equipment.encumbrance.encumbrance_str)) {
+      value = sheet.get().equipment.encumbrance.encumbrance_str;
     };
     if (!isNaN(value)) {
       var str = parseInt(value, 10);
@@ -18339,7 +18337,7 @@ var events = (function() {
   function destroy(button) {
     var options = helper.makeObject(button.dataset.eventsOptions);
     var allEvents = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "events"
     });
     var foundXp = false;
@@ -18375,7 +18373,7 @@ var events = (function() {
     };
     var _store = function() {
       helper.setObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "events",
         newValue: newEvents
       });
@@ -18429,8 +18427,8 @@ var events = (function() {
   };
 
   function store(type, eventObject) {
-    sheet.getCharacter().events.unshift(_create_event(type, eventObject));
-    sheet.storeCharacters();
+    sheet.get().events.unshift(_create_event(type, eventObject));
+    sheet.store();
   };
 
   function _timestampString(timestamp) {
@@ -18500,7 +18498,7 @@ var events = (function() {
     var _create_modalBody = function() {
       var body = document.createElement("div");
       var all_events = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "events"
       });
       var all_eventsToRender = [];
@@ -18548,7 +18546,7 @@ var events = (function() {
   };
 
   function undo() {
-    sheet.getCharacter().events.shift();
+    sheet.get().events.shift();
   };
 
   // exposed methods
@@ -18768,7 +18766,7 @@ var inputBlock = (function() {
       wealth.render();
       totalBlock.render();
       textBlock.render();
-      sheet.storeCharacters();
+      sheet.store();
     }, false);
   };
 
@@ -18790,7 +18788,7 @@ var inputBlock = (function() {
           wealth.render();
           totalBlock.render();
           textBlock.render();
-          sheet.storeCharacters();
+          sheet.store();
         };
       }, false);
     };
@@ -18811,7 +18809,7 @@ var inputBlock = (function() {
         wealth.render();
         totalBlock.render();
         textBlock.render();
-        sheet.storeCharacters();
+        sheet.store();
       }, false);
     };
   };
@@ -18878,33 +18876,24 @@ var inputBlock = (function() {
   function _store(element) {
     var inputBlock = helper.getClosest(element, ".js-input-block");
     var inputBlockOptions = helper.makeObject(inputBlock.dataset.inputBlockOptions);
-    var data = element.value;
+    var newData = element.value;
     if (inputBlockOptions.type == "integer") {
-      data = parseInt(data, 10);
-      if (isNaN(data)) {
-        data = "";
+      newData = parseInt(newData, 10);
+      if (isNaN(newData)) {
+        newData = "";
       };
     } else if (inputBlockOptions.type == "float") {
-      data = parseFloat(data);
-      if (isNaN(data)) {
-        data = "";
+      newData = parseFloat(newData);
+      if (isNaN(newData)) {
+        newData = "";
       };
     };
     if (inputBlockOptions.path) {
-      if (inputBlockOptions.clone) {
-        helper.setObject({
-          path: inputBlockOptions.path,
-          object: sheet.getCharacter(),
-          clone: inputBlockOptions.clone,
-          newValue: data
-        });
-      } else {
-        helper.setObject({
-          path: inputBlockOptions.path,
-          object: sheet.getCharacter(),
-          newValue: data
-        });
-      };
+      helper.setObject({
+        object: sheet.get(),
+        path: inputBlockOptions.path,
+        newValue: newData
+      });
     };
   };
 
@@ -18914,7 +18903,7 @@ var inputBlock = (function() {
     wealth.render();
     totalBlock.render();
     textBlock.render();
-    sheet.storeCharacters();
+    sheet.store();
     if (display.state()) {
       display.clear();
       display.render();
@@ -18953,18 +18942,10 @@ var inputBlock = (function() {
     var options = helper.makeObject(inputBlock.dataset.inputBlockOptions);
     var data;
     if (options.path) {
-      if (options.clone) {
-        data = helper.getObject({
-          object: sheet.getCharacter(),
-          path: options.path,
-          clone: options.clone
-        });
-      } else {
-        data = helper.getObject({
-          object: sheet.getCharacter(),
-          path: options.path
-        });
-      };
+      data = helper.getObject({
+        object: sheet.get(),
+        path: options.path
+      });
       inputBlockField.value = data;
     };
   };
@@ -19019,7 +19000,7 @@ var inputBlock = (function() {
     var foundValue = false;
     var _checkForValue = function() {
       var value = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: inputBlockOptions.path
       });
       if (value != "") {
@@ -19057,7 +19038,7 @@ var inputBlock = (function() {
       wealth.render();
       totalBlock.render();
       textBlock.render();
-      sheet.storeCharacters();
+      sheet.store();
     };
     _checkForValue();
     if (foundValue) {
@@ -19116,7 +19097,7 @@ var inputBlock = (function() {
       events.undo();
       var undoObject = JSON.parse(helper.read("lastAggregate"));
       helper.setObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: undoObject.path,
         newValue: undoObject.oldData
       });
@@ -19124,7 +19105,7 @@ var inputBlock = (function() {
       wealth.render();
       totalBlock.render();
       textBlock.render();
-      sheet.storeCharacters();
+      sheet.store();
       _clear_lastRemovedAggregate();
     };
 
@@ -19141,7 +19122,7 @@ var inputBlock = (function() {
 
     var _get_oldData = function() {
       oldData = parseInt(helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: defaultOptions.path
       }), 10);
       _store_undoData(oldData);
@@ -19171,7 +19152,7 @@ var inputBlock = (function() {
 
     var _store_data = function() {
       helper.setObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: defaultOptions.path,
         newValue: newData
       });
@@ -19197,7 +19178,7 @@ var inputBlock = (function() {
     var newQuickValue = 0;
     var _store_data = function() {
       var oldData = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: inputBlockOptions.path
       });
       if (oldData == "") {
@@ -19220,7 +19201,7 @@ var inputBlock = (function() {
         newQuickValue = "";
       };
       helper.setObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: inputBlockOptions.path,
         newValue: newQuickValue
       });
@@ -19338,7 +19319,7 @@ var inputBlock = (function() {
       textBlock.render();
       display.clear(defenceSection);
       display.render(defenceSection);
-      sheet.storeCharacters();
+      sheet.store();
     };
     modal.render({
       heading: options.modalHeading,
@@ -19358,39 +19339,22 @@ var inputBlock = (function() {
     var oldData;
     var newData;
 
-    var _store = function() {
+    var _store_data = function() {
       if (inputBlockOptions.path) {
-        if (inputBlockOptions.clone) {
-          helper.setObject({
-            path: inputBlockOptions.path,
-            object: sheet.getCharacter(),
-            clone: inputBlockOptions.clone,
-            newValue: newData
-          });
-        } else {
-          helper.setObject({
-            path: inputBlockOptions.path,
-            object: sheet.getCharacter(),
-            newValue: newData
-          });
-        };
+        helper.setObject({
+          path: inputBlockOptions.path,
+          object: sheet.get(),
+          newValue: newData
+        });
       };
     };
 
     var _get_oldData = function() {
       if (inputBlockOptions.path) {
-        if (inputBlockOptions.clone) {
-          oldData = helper.getObject({
-            object: sheet.getCharacter(),
-            path: inputBlockOptions.path,
-            clone: inputBlockOptions.clone
-          });
-        } else {
-          oldData = helper.getObject({
-            object: sheet.getCharacter(),
-            path: inputBlockOptions.path
-          });
-        };
+        oldData = helper.getObject({
+          object: sheet.get(),
+          path: inputBlockOptions.path
+        });
       };
       if (isNaN(oldData) || typeof oldData == "string" || oldData == "") {
         oldData = 0;
@@ -19429,20 +19393,20 @@ var inputBlock = (function() {
       } else {
         newData = 0;
       };
-      _store();
+      _store_data();
       render(inputBlock);
       xp.render();
       wealth.render();
       totalBlock.render();
       textBlock.render();
-      sheet.storeCharacters();
+      sheet.store();
     };
 
     var _checkAction = function() {
       _get_oldData();
       if (options.action == "addition" || options.action == "subtraction") {
         _change();
-        _store();
+        _store_data();
         render(inputBlock);
       } else if (options.action == "clear") {
         if (oldData == "" || oldData == undefined) {
@@ -19495,7 +19459,7 @@ var inputRangeBlock = (function() {
     };
     if (inputRangeBlockOptions.path) {
       helper.setObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: inputRangeBlockOptions.path,
         newValue: data
       });
@@ -19522,7 +19486,7 @@ var inputRangeBlock = (function() {
     if (input) {
       input.addEventListener("input", function() {
         _store(this);
-        sheet.storeCharacters();
+        sheet.store();
       }, false);
     };
   };
@@ -19543,7 +19507,7 @@ var inputRangeBlock = (function() {
     var inputRangeBlockField = inputRangeBlock.querySelector(".js-input-range-block-field");
     if (options.path) {
       var data = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: options.path
       });
       if (options.type == "integer" && typeof data == "string") {
@@ -20443,7 +20407,7 @@ var onboarding = (function() {
 
   function render() {
     if (helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "demo"
       }) && (helper.read("onboarding") == undefined) || (helper.read("onboarding") == "false")) {
 
@@ -20706,7 +20670,7 @@ var radioBlock = (function() {
     var newValue = input.value;
     if (radioBlockOptions.path) {
       helper.setObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: radioBlockOptions.path,
         newValue: newValue
       });
@@ -20715,7 +20679,7 @@ var radioBlock = (function() {
 
   function delayUpdate(input) {
     _store(input);
-    sheet.storeCharacters();
+    sheet.store();
   };
 
   function clear() {
@@ -20763,7 +20727,7 @@ var radioBlock = (function() {
     var value = radioBlockInput.value;
     if (options.path) {
       var selection = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: options.path
       });
       if (value == selection) {
@@ -21497,7 +21461,7 @@ var repair = (function() {
       characterObject.equipment.item.value.current = "";
     };
     // --------------------------------------------------
-    // sheet.storeCharacters();
+    // sheet.store();
     return characterObject;
   };
 
@@ -21505,7 +21469,7 @@ var repair = (function() {
     if (characterObject) {
       _repair(characterObject)
     } else {
-      var allCharacters = sheet.getAllCharacters();
+      var allCharacters = sheet.getAll();
       for (var i = 0; i < allCharacters.length; i++) {
         _repair(allCharacters[i]);
       };
@@ -21529,7 +21493,7 @@ var selectBlock = (function() {
     if (selectBlockOptions.path) {
       helper.setObject({
         path: selectBlockOptions.path,
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         newValue: newValue
       });
     };
@@ -21539,7 +21503,7 @@ var selectBlock = (function() {
 
   function delayUpdate(element) {
     _store(element);
-    sheet.storeCharacters();
+    sheet.store();
     totalBlock.render();
     textBlock.render();
     if (display.state()) {
@@ -21600,7 +21564,7 @@ var selectBlock = (function() {
     if (options.path) {
       var selection =
         helper.getObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: options.path
         });
       helper.setDropdown(selectBlockDropdown, selection);
@@ -21640,7 +21604,7 @@ var sheet = (function() {
       allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.demo())); // for demo load sample characters
       // allCharacters = [blank.data]; // for production load blank character
     };
-    storeCharacters();
+    store();
   })();
 
   var setCurrentCharacterIndex = (function() {
@@ -21649,15 +21613,15 @@ var sheet = (function() {
     };
   })();
 
-  function storeCharacters() {
+  function store() {
     helper.store("allCharacters", JSON.stringify(allCharacters));
   };
 
-  function getAllCharacters() {
+  function getAll() {
     return allCharacters;
   };
 
-  function getCharacter() {
+  function get() {
     return allCharacters[currentCharacterIndex];
   };
 
@@ -21670,58 +21634,51 @@ var sheet = (function() {
     helper.store("charactersIndex", currentCharacterIndex);
   };
 
-  function addCharacter(newCharacter) {
+  function add(newCharacter) {
     var dataToAdd = newCharacter || JSON.parse(JSON.stringify(blank.data));
     allCharacters.push(dataToAdd);
-    setIndex(getAllCharacters().length - 1);
+    setIndex(getAll().length - 1);
     clear();
     render();
     nav.scrollToTop();
-    storeCharacters();
+    store();
     snack.render({
       message: "New character added."
     });
   };
 
-  function removeCharacter() {
-    var name;
-    if (sheet.getCharacter().basics.name) {
-      name = sheet.getCharacter().basics.name;
-    } else {
+  function remove() {
+    var _destroy = function() {
+      allCharacters.splice(getIndex(), 1);
+      var message = helper.truncate(name, 50, true) + " removed.";
+      if (allCharacters.length == 0) {
+        add();
+        message = message + " New character added.";
+      };
+      setIndex(0);
+      clear();
+      render();
+      store();
+      characterSelect.clear();
+      characterSelect.render();
+      nav.scrollToTop();
+      snack.render({
+        message: message
+      });
+    };
+    var name = helper.getObject({
+      object: get(),
+      path: "basics.name"
+    });
+    if (name == "" || name == undefined) {
       name = "New character";
     };
     prompt.render({
       heading: "Remove " + name + "?",
       message: "The current character will be removed. This can not be undone. Have you backed up your characters by Exporting?",
       actionText: "Remove",
-      action: destroyCharacter
+      action: _destroy
     });
-  };
-
-  function destroyCharacter() {
-    var name = allCharacters[getIndex()].basics.name || "New character";
-    allCharacters.splice(getIndex(), 1);
-    var lastCharacterRemoved = false;
-    if (allCharacters.length == 0) {
-      addCharacter();
-      lastCharacterRemoved = true;
-    };
-    setIndex(0);
-    clear();
-    render();
-    storeCharacters();
-    characterSelect.clear();
-    characterSelect.render();
-    if (lastCharacterRemoved) {
-      snack.render({
-        message: helper.truncate(name, 40, true) + " removed. New character added."
-      });
-    } else {
-      nav.scrollToTop();
-      snack.render({
-        message: helper.truncate(name, 50, true) + " removed."
-      });
-    };
   };
 
   function all() {
@@ -21731,7 +21688,7 @@ var sheet = (function() {
     helper.store("backupAllCharacters", JSON.stringify(allCharacters));
     allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.all()));
     setIndex(0);
-    storeCharacters();
+    store();
     clear();
     render();
     characterSelect.clear();
@@ -21748,7 +21705,7 @@ var sheet = (function() {
     snack.destroy();
     allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.demo()));
     setIndex(0);
-    storeCharacters();
+    store();
     clear();
     render();
     characterSelect.clear();
@@ -21765,7 +21722,7 @@ var sheet = (function() {
     snack.destroy();
     allCharacters = JSON.parse(JSON.stringify([blank.data]));
     setIndex(0);
-    storeCharacters();
+    store();
     clear();
     render();
     characterSelect.clear();
@@ -21777,7 +21734,7 @@ var sheet = (function() {
   };
 
   function render() {
-    repair.render(sheet.getCharacter());
+    repair.render(sheet.get());
     characterSelect.render();
     stats.render();
     clone.render();
@@ -21861,7 +21818,7 @@ var sheet = (function() {
     }, false);
   };
 
-  function switchCharacter(index) {
+  function switcher(index) {
     var switcheroo = function(index) {
       setIndex(index);
       clear();
@@ -21869,102 +21826,96 @@ var sheet = (function() {
       characterSelect.clear();
       characterSelect.render();
     };
-    if (index < 0 || index > getAllCharacters().length || typeof index != "number") {
+    if (index < 0 || index > getAll().length || typeof index != "number") {
       index = 0;
     };
     switcheroo(index);
   };
 
-  function _handleFiles() {
-    var importSelectLabel = helper.e(".js-import-select-label");
-    var importSelectLabelText = helper.e(".js-import-select-label-text");
-    var importSelectLabelIcon = helper.e(".js-import-select-label-icon");
-    var fileList = this.files;
-    helper.removeClass(importSelectLabel, "m-import-select-label-ok");
-    helper.removeClass(importSelectLabel, "m-import-select-label-error");
-    helper.removeClass(importSelectLabelIcon, "icon-check");
-    helper.removeClass(importSelectLabelIcon, "icon-error-outline");
-    helper.addClass(importSelectLabelIcon, "icon-file-upload");
-    // console.log(fileList);
-
-    var readFile = new FileReader();
-    readFile.onload = function(event) {
-      if (helper.isJsonString(event.target.result)) {
-        // console.log("JSON true");
-        if (JSON.parse(event.target.result).awesomeSheet) {
-          // console.log("awesome key true");
-          importSelectLabelText.textContent = fileList[0].name;
-          helper.addClass(importSelectLabel, "m-import-select-label-ok");
-          helper.removeClass(importSelectLabel, "m-import-select-label-error");
-          helper.removeClass(importSelectLabelIcon, "icon-file-upload");
-          helper.removeClass(importSelectLabelIcon, "icon-error-outline");
-          helper.addClass(importSelectLabelIcon, "icon-check");
+  function importJson() {
+    var _handleFiles = function() {
+      var importSelectLabel = helper.e(".js-import-select-label");
+      var importSelectLabelText = helper.e(".js-import-select-label-text");
+      var importSelectLabelIcon = helper.e(".js-import-select-label-icon");
+      var fileList = this.files;
+      helper.removeClass(importSelectLabel, "m-import-select-label-ok");
+      helper.removeClass(importSelectLabel, "m-import-select-label-error");
+      helper.removeClass(importSelectLabelIcon, "icon-check");
+      helper.removeClass(importSelectLabelIcon, "icon-error-outline");
+      helper.addClass(importSelectLabelIcon, "icon-file-upload");
+      // console.log(fileList);
+      var readFile = new FileReader();
+      readFile.onload = function(event) {
+        if (helper.isJsonString(event.target.result)) {
+          // console.log("JSON true");
+          if (JSON.parse(event.target.result).awesomeSheet) {
+            // console.log("awesome key true");
+            importSelectLabelText.textContent = fileList[0].name;
+            helper.addClass(importSelectLabel, "m-import-select-label-ok");
+            helper.removeClass(importSelectLabel, "m-import-select-label-error");
+            helper.removeClass(importSelectLabelIcon, "icon-file-upload");
+            helper.removeClass(importSelectLabelIcon, "icon-error-outline");
+            helper.addClass(importSelectLabelIcon, "icon-check");
+          } else {
+            // console.log("awesome key false");
+            importSelectLabelText.textContent = "JSON file not recognised by awesomeSheet";
+            helper.removeClass(importSelectLabel, "m-import-select-label-ok");
+            helper.addClass(importSelectLabel, "m-import-select-label-error");
+            helper.removeClass(importSelectLabelIcon, "icon-file-upload");
+            helper.removeClass(importSelectLabelIcon, "icon-check");
+            helper.addClass(importSelectLabelIcon, "icon-error-outline");
+          };
         } else {
-          // console.log("awesome key false");
-          importSelectLabelText.textContent = "JSON file not recognised by awesomeSheet";
+          // console.log("JSON false");
+          importSelectLabelText.textContent = "Not a JSON file";
           helper.removeClass(importSelectLabel, "m-import-select-label-ok");
           helper.addClass(importSelectLabel, "m-import-select-label-error");
           helper.removeClass(importSelectLabelIcon, "icon-file-upload");
           helper.removeClass(importSelectLabelIcon, "icon-check");
           helper.addClass(importSelectLabelIcon, "icon-error-outline");
         };
+      };
+      if (fileList.length > 0) {
+        readFile.readAsText(fileList.item(0));
+        // console.log(readFile.result);
       } else {
-        // console.log("JSON false");
-        importSelectLabelText.textContent = "Not a JSON file";
-        helper.removeClass(importSelectLabel, "m-import-select-label-ok");
-        helper.addClass(importSelectLabel, "m-import-select-label-error");
-        helper.removeClass(importSelectLabelIcon, "icon-file-upload");
-        helper.removeClass(importSelectLabelIcon, "icon-check");
-        helper.addClass(importSelectLabelIcon, "icon-error-outline");
+        importSelectLabelText.textContent = "Select a file";
       };
     };
-    if (fileList.length > 0) {
-      readFile.readAsText(fileList.item(0));
-      // console.log(readFile.result);
-    } else {
-      importSelectLabelText.textContent = "Select a file";
-    };
-  };
-
-  function _readJsonFile() {
-    var fileList = helper.e(".js-import-select-input").files;
-
-    // if no JSON file is selected
-    if (fileList.length <= 0) {
-      snack.render({
-        message: "No file selected."
-      });
-      return false;
-    };
-
-    var readFile = new FileReader();
-    readFile.onload = function(event) {
-      // console.log(event);
-      if (helper.isJsonString(event.target.result)) {
-        var data = JSON.parse(event.target.result);
-        if (data.awesomeSheet) {
-          addCharacter(data);
-          var name = allCharacters[getIndex()].basics.name || "New character";
-          snack.render({
-            message: helper.truncate(name, 40, true) + " imported and now in the game."
-          });
+    var _readJsonFile = function() {
+      var fileList = helper.e(".js-import-select-input").files;
+      // if no JSON file is selected
+      if (fileList.length <= 0) {
+        snack.render({
+          message: "No file selected."
+        });
+        return false;
+      };
+      var readFile = new FileReader();
+      readFile.onload = function(event) {
+        // console.log(event);
+        if (helper.isJsonString(event.target.result)) {
+          var data = JSON.parse(event.target.result);
+          if (data.awesomeSheet) {
+            add(data);
+            var name = allCharacters[getIndex()].basics.name || "New character";
+            snack.render({
+              message: helper.truncate(name, 40, true) + " imported and now in the game."
+            });
+          } else {
+            snack.render({
+              message: "JSON file not recognised by awesomeSheet."
+            });
+          };
         } else {
           snack.render({
-            message: "JSON file not recognised by awesomeSheet."
+            message: "Not a JSON file."
           });
         };
-      } else {
-        snack.render({
-          message: "Not a JSON file."
-        });
       };
+      readFile.readAsText(fileList.item(0));
     };
-
-    readFile.readAsText(fileList.item(0));
-  };
-
-  function importJson() {
-    var modalContent = function() {
+    var _modalContent = function() {
       var container = document.createElement("div");
       container.setAttribute("class", "container");
       var row = document.createElement("div");
@@ -22005,7 +21956,7 @@ var sheet = (function() {
     };
     modal.render({
       heading: "Import character",
-      content: modalContent(),
+      content: _modalContent(),
       action: _readJsonFile,
       actionText: "Import"
     });
@@ -22013,8 +21964,8 @@ var sheet = (function() {
 
   function exportJson() {
     var fileName;
-    var characterName = getCharacter().basics.name;
-    var classLevel = classes.getClassLevel(sheet.getCharacter());
+    var characterName = get().basics.name;
+    var classLevel = classes.getClassLevel(sheet.get());
     if (characterName != "") {
       fileName = characterName;
     } else {
@@ -22027,7 +21978,7 @@ var sheet = (function() {
       heading: "Export " + characterName,
       message: "Download and backup " + characterName + " as a JSON file. This file can later be imported on this or another deivce.",
       actionText: "Download",
-      actionUrl: "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(getCharacter()), null, " "),
+      actionUrl: "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(get()), null, " "),
       customAttribute: {
         key: "download",
         value: fileName + ".json"
@@ -22037,14 +21988,11 @@ var sheet = (function() {
 
   // exposed methods
   return {
-    getAllCharacters: getAllCharacters,
-    getCharacter: getCharacter,
-    storeCharacters: storeCharacters,
-    addCharacter: addCharacter,
-    removeCharacter: removeCharacter,
-    switchCharacter: switchCharacter,
-    getIndex: getIndex,
-    setIndex: setIndex,
+    getAll: getAll,
+    get: get,
+    store: store,
+    add: add,
+    remove: remove,
     destroy: destroy,
     clear: clear,
     all: all,
@@ -22052,6 +22000,9 @@ var sheet = (function() {
     import: importJson,
     export: exportJson,
     render: render,
+    switcher: switcher,
+    getIndex: getIndex,
+    setIndex: setIndex,
     bind: bind
   };
 
@@ -22173,26 +22124,26 @@ var size = (function() {
     var index = selectBlockDropdown.selectedIndex;
     var object = _create_sizeObject(index);
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.size.size_modifier",
       newValue: object.size_modifier
     });
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.size.special_size_modifier",
       newValue: object.special_size_modifier
     });
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.size.size_modifier_fly",
       newValue: object.size_modifier_fly
     });
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.size.size_modifier_stealth",
       newValue: object.size_modifier_stealth
     });
-    sheet.storeCharacters();
+    sheet.store();
   };
 
   function _create_sizeObject(index) {
@@ -22246,15 +22197,15 @@ var skills = (function() {
 
   function render() {
     var includeCustom = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "skills.ranks.spent.include_custom"
     });
     var all_skills = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "skills.all"
     });
     var all_customSkills = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "skills.custom"
     });
     var ranks = [];
@@ -22271,7 +22222,7 @@ var skills = (function() {
       return a + b;
     });
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "skills.ranks.spent.current",
       newValue: ranksTotal
     });
@@ -22422,11 +22373,11 @@ var spells = (function() {
       var newSpellField = spellBook.querySelector(".js-new-spell-field");
       all_newSpellAdd[i].addEventListener("click", function() {
         _addNewSpell(helper.getClosest(this, ".js-spell-book").querySelector(".js-new-spell-field"));
-        sheet.storeCharacters();
+        sheet.store();
       }, false);
       newSpellField.addEventListener("keypress", function() {
         _addNewSpellOnEnter(this);
-        sheet.storeCharacters();
+        sheet.store();
       }, false);
     };
     spellPrepareButton.addEventListener("click", function() {
@@ -22467,19 +22418,19 @@ var spells = (function() {
   function _resetAllSpells() {
     var all_spells = helper.eA(".js-spell");
     if (all_spells.length > 0) {
-      for (var i in sheet.getCharacter().spells.book) {
-        for (var j in sheet.getCharacter().spells.book[i]) {
-          for (var k in sheet.getCharacter().spells.book[i][j]) {
-            sheet.getCharacter().spells.book[i][j][k].prepared = 0;
-            sheet.getCharacter().spells.book[i][j][k].cast = 0;
-            sheet.getCharacter().spells.book[i][j][k].active = false;
-            // console.log(sheet.getCharacter().spells.book[i][j][k]);
+      for (var i in sheet.get().spells.book) {
+        for (var j in sheet.get().spells.book[i]) {
+          for (var k in sheet.get().spells.book[i][j]) {
+            sheet.get().spells.book[i][j][k].prepared = 0;
+            sheet.get().spells.book[i][j][k].cast = 0;
+            sheet.get().spells.book[i][j][k].active = false;
+            // console.log(sheet.get().spells.book[i][j][k]);
           };
         };
       };
       clear();
       render();
-      sheet.storeCharacters();
+      sheet.store();
       snack.render({
         message: "All spells reset."
       });
@@ -22487,12 +22438,12 @@ var spells = (function() {
   };
 
   function _sortAllSpells() {
-    for (var i in sheet.getCharacter().spells.book) {
-      for (var j in sheet.getCharacter().spells.book[i]) {
-        helper.sortObject(sheet.getCharacter().spells.book[i][j], "name");
+    for (var i in sheet.get().spells.book) {
+      for (var j in sheet.get().spells.book[i]) {
+        helper.sortObject(sheet.get().spells.book[i][j], "name");
       };
     };
-    sheet.storeCharacters();
+    sheet.store();
     clear();
     render();
     snack.render({
@@ -22507,9 +22458,9 @@ var spells = (function() {
     // if input value is not empty
     if (spellName !== "") {
       // add spell to current character known spells
-      sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel].push(newSpell);
-      var newSpellIndex = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel].length - 1;
-      _render_spell(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][newSpellIndex], spellLevel, newSpellIndex);
+      sheet.get().spells.book[spellLevel]["level_" + spellLevel].push(newSpell);
+      var newSpellIndex = sheet.get().spells.book[spellLevel]["level_" + spellLevel].length - 1;
+      _render_spell(sheet.get().spells.book[spellLevel]["level_" + spellLevel][newSpellIndex], spellLevel, newSpellIndex);
       // clear input field
       element.value = "";
     };
@@ -22537,7 +22488,7 @@ var spells = (function() {
     var spellCount = parseInt(button.dataset.spellCount, 10);
     var spellRoot = helper.getClosest(button, ".js-spells") || helper.e(".js-spells");
     var spellState = spellRoot.dataset.spellState;
-    var spellObject = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount];
+    var spellObject = sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount];
 
     if (spellState == "cast") {
       var fireballName = ["Fireball", "fireball", "Fire ball", "fire Ball", "fire ball", "Fire Ball", "FIREBALL", "FIREBALL!", "FIREBALL!!", "FIREBALL!!!", "FIREBALL!!!!"];
@@ -22555,7 +22506,7 @@ var spells = (function() {
     var spellCount = parseInt(button.dataset.spellCount, 10);
     var spellRoot = helper.getClosest(button, ".js-spells") || helper.e(".js-spells");
     var spellState = spellRoot.dataset.spellState;
-    var spellObject = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount];
+    var spellObject = sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount];
 
     function _render_count(spellControl) {
       var currentPreparedCount = parseInt(spellControl.dataset.spellPrepared, 10);
@@ -22607,7 +22558,7 @@ var spells = (function() {
     function _update_spellObject(spellControl) {
       var spellLevel = parseInt(spellControl.dataset.spellLevel, 10);
       var spellCount = parseInt(spellControl.dataset.spellCount, 10);
-      var spellObject = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount];
+      var spellObject = sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount];
       if (spellControl.dataset.spellActive == "true") {
         spellObject.active = true;
       } else {
@@ -22859,7 +22810,7 @@ var spells = (function() {
           var spellSection = helper.e(".js-section-spells");
           _update_spellObject(this);
           _update_spellButton(button, true);
-          sheet.storeCharacters();
+          sheet.store();
           display.clear(spellSection);
           display.render(spellSection);
         }.bind(modalContent),
@@ -22879,7 +22830,7 @@ var spells = (function() {
     var spellMarks = button.querySelector(".js-spell-marks");
     var spellActive = button.querySelector(".js-spell-active");
     var spellState = spellRoot.dataset.spellState;
-    var spellObject = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount];
+    var spellObject = sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount];
     if (spellState == "prepare" || spellState == "unprepare" || spellState == "cast" || spellState == "active" || force) {
       if (spellMarks.lastChild) {
         while (spellMarks.lastChild) {
@@ -22919,7 +22870,7 @@ var spells = (function() {
       spellName.textContent = spellObject.name;
     } else if (spellState == "remove") {
       _destroy_spellBook(spellLevel);
-      _render_all_spells(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel], spellLevel);
+      _render_all_spells(sheet.get().spells.book[spellLevel]["level_" + spellLevel], spellLevel);
     };
   };
 
@@ -22929,38 +22880,38 @@ var spells = (function() {
     var spellLevel = parseInt(button.dataset.spellLevel, 10);
     var spellCount = parseInt(button.dataset.spellCount, 10);
     if (spellState == "prepare") {
-      if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared < 50) {
-        sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared++;
+      if (sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared < 50) {
+        sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared++;
       };
-      // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
+      // console.log(sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
     } else if (spellState == "unprepare") {
-      if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared > 0) {
-        sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared--;
+      if (sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared > 0) {
+        sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared--;
       };
-      if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared < sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast) {
-        sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared;
+      if (sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared < sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast) {
+        sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast = sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared;
       };
-      // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
+      // console.log(sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
     } else if (spellState == "cast") {
-      if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast < 50) {
-        sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast++;
+      if (sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast < 50) {
+        sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast++;
       };
-      if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast > sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared) {
-        sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast;
+      if (sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast > sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared) {
+        sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared = sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast;
       };
-      // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
+      // console.log(sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
     } else if (spellState == "active") {
-      if (sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].active) {
-        sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].active = false;
+      if (sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].active) {
+        sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].active = false;
       } else {
-        sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].active = true;
+        sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].active = true;
       };
-      // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
+      // console.log(sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
     } else if (spellState == "remove") {
-      // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
-      var spellName = sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount].name;
-      _store_lastRemovedSpell(spellLevel, spellCount, sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
-      sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel].splice(spellCount, 1);
+      // console.log(sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
+      var spellName = sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].name;
+      _store_lastRemovedSpell(spellLevel, spellCount, sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
+      sheet.get().spells.book[spellLevel]["level_" + spellLevel].splice(spellCount, 1);
       snack.render({
         message: helper.truncate(spellName, 40, true) + " removed.",
         button: "Undo",
@@ -22968,8 +22919,8 @@ var spells = (function() {
         destroyDelay: 8000
       });
     };
-    // console.log(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
-    sheet.storeCharacters();
+    // console.log(sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
+    sheet.store();
   };
 
   function _store_lastRemovedSpell(spellLevel, spellCount, spell) {
@@ -22993,10 +22944,10 @@ var spells = (function() {
   };
 
   function _restore_spellObject(spellLevel, spellCount, spell) {
-    sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel].splice(spellCount, 0, spell);
+    sheet.get().spells.book[spellLevel]["level_" + spellLevel].splice(spellCount, 0, spell);
     _destroy_spellBook(spellLevel);
-    _render_all_spells(sheet.getCharacter().spells.book[spellLevel]["level_" + spellLevel], spellLevel);
-    sheet.storeCharacters();
+    _render_all_spells(sheet.get().spells.book[spellLevel]["level_" + spellLevel], spellLevel);
+    sheet.store();
   };
 
   function _change_spellState(button) {
@@ -23105,7 +23056,7 @@ var spells = (function() {
     var spellRoot = helper.e(".js-spells");
     var spellState = spellRoot.dataset.spellState;
     if (spellState == "prepare" || spellState == "unprepare" || spellState == "cast" || spellState == "active" || spellState == "remove") {
-      sheet.storeCharacters();
+      sheet.store();
     };
     if (display.state()) {
       display.clear();
@@ -23117,10 +23068,10 @@ var spells = (function() {
     // build an array of spell objects
     var spellsToRender;
     // iterate over all objects keys to find spells then push those values to spellsToRender
-    if (sheet.getCharacter().spells.book) {
-      for (var i in sheet.getCharacter().spells.book) {
-        for (var j in sheet.getCharacter().spells.book[i]) {
-          spellsToRender = sheet.getCharacter().spells.book[i][j];
+    if (sheet.get().spells.book) {
+      for (var i in sheet.get().spells.book) {
+        for (var j in sheet.get().spells.book[i]) {
+          spellsToRender = sheet.get().spells.book[i][j];
           _render_all_spells(spellsToRender, i);
         };
       };
@@ -23264,7 +23215,7 @@ var stats = (function() {
     var options = helper.makeObject(stats.dataset.statsOptions);
     var path = stats.dataset.path;
     var statObject = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: options.path
     });
     var toSum = [];
@@ -23289,7 +23240,7 @@ var stats = (function() {
     _push_internalValues();
     var grandTotal = _reduceSum(toSum);
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: options.path + ".current",
       newValue: grandTotal
     });
@@ -23299,11 +23250,11 @@ var stats = (function() {
     var options = helper.makeObject(stats.dataset.statsOptions);
     var modifierPath = options.path + ".modifier";
     var modifier = _calculateModifer(helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: options.path + ".current"
     }));
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: modifierPath,
       newValue: modifier
     });
@@ -23347,7 +23298,7 @@ var stats = (function() {
   function get_score(key) {
     var value = 0;
     var score = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "statistics.stats." + key + ".current"
     });
     if (score != "" || !isNaN(score)) {
@@ -23359,7 +23310,7 @@ var stats = (function() {
   function get_mod(key) {
     var value = 0;
     var mod = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "statistics.stats." + key + ".modifier"
     });
     if (mod != "" || !isNaN(mod)) {
@@ -23531,58 +23482,60 @@ var textBlock = (function() {
   function _render_textBlock(textBlock) {
     var options = helper.makeObject(textBlock.dataset.textBlockOptions);
     var data;
-    if (options.clone) {
-      data = helper.getObject({
-        object: sheet.getCharacter(),
-        path: options.path,
-        clone: options.clone
-      });
-    } else {
-      data = helper.getObject({
-        object: sheet.getCharacter(),
-        path: options.path
-      });
+    var _get_data = function() {
+      if (options.path) {
+        data = helper.getObject({
+          object: sheet.get(),
+          path: options.path
+        });
+      };
     };
-    if (options.type) {
-      if (options.type == "currency") {
-        if (data != "") {
-          data = parseFloat(data).toLocaleString(undefined, {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-          });
-          if (data.indexOf(".00") !== -1) {
-            data = data.substr(0, data.indexOf("."));
+    var _addPrefixSuffix = function() {
+      if (options.type) {
+        if (options.type == "currency") {
+          if (data != "" && data != undefined) {
+            data = parseFloat(data).toLocaleString(undefined, {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2
+            });
+            if (data.indexOf(".00") !== -1) {
+              data = data.substr(0, data.indexOf("."));
+            };
+            data = data + " GP";
           };
-          data = data + " GP";
-        };
-      } else if (options.type == "number") {
-        if (data != "") {
-          data = parseFloat(data).toLocaleString(undefined, {
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0
-          });
-        } else {
-          data = 0;
-        };
-      } else if (options.type == "weight") {
-        if (data != "") {
-          data = parseFloat(data).toLocaleString(undefined, {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-          });
-          if (data.indexOf(".00") !== -1) {
-            data = data.substr(0, data.indexOf("."));
+        } else if (options.type == "number") {
+          if (data != "" && data != undefined) {
+            data = parseFloat(data).toLocaleString(undefined, {
+              minimumFractionDigits: 0,
+              maximumFractionDigits: 0
+            });
+          } else {
+            data = 0;
           };
-          data = data + " lbs";
-        };
-      } else if (options.type == "bonus") {
-        if (data != "" && data > 0) {
-          data = "+" + data;
+        } else if (options.type == "weight") {
+          if (data != "" && data != undefined) {
+            data = parseFloat(data).toLocaleString(undefined, {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2
+            });
+            if (data.indexOf(".00") !== -1) {
+              data = data.substr(0, data.indexOf("."));
+            };
+            data = data + " lbs";
+          };
+        } else if (options.type == "bonus") {
+          if (data != "" && data > 0) {
+            data = "+" + data;
+          };
         };
       };
     };
-    // console.log(options.path, typeof data, data);
-    textBlock.textContent = data;
+    var _render = function() {
+      textBlock.textContent = data;
+    };
+    _get_data();
+    _addPrefixSuffix();
+    _render();
   };
 
   function render(textBlock) {
@@ -23611,31 +23564,22 @@ var textareaBlock = (function() {
   function _store(textarea) {
     var textareaBlock = helper.getClosest(textarea, ".js-textarea-block");
     var textareaBlockOptions = helper.makeObject(textareaBlock.dataset.textareaBlockOptions);
-    var data = textarea.innerHTML;
-    if (data == "<div><br></div>" || data == "<br>" || data == "<br><br>" || data == "<br><br><br>") {
-      data = "";
+    var newData = textarea.innerHTML;
+    if (newData == "<div><br></div>" || newData == "<br>" || newData == "<br><br>" || newData == "<br><br><br>") {
+      newData = "";
     };
     if (textareaBlockOptions.path) {
-      if (textareaBlockOptions.clone) {
-        helper.setObject({
-          path: textareaBlockOptions.path,
-          object: sheet.getCharacter(),
-          clone: textareaBlockOptions.clone,
-          newValue: data
-        });
-      } else {
-        helper.setObject({
-          path: textareaBlockOptions.path,
-          object: sheet.getCharacter(),
-          newValue: data
-        });
-      };
+      helper.setObject({
+        path: textareaBlockOptions.path,
+        object: sheet.get(),
+        newValue: newData
+      });
     };
   };
 
   function delayUpdate(element) {
     _store(element);
-    sheet.storeCharacters();
+    sheet.store();
     totalBlock.render();
     if (display.state()) {
       display.clear();
@@ -23679,7 +23623,7 @@ var textareaBlock = (function() {
       field.addEventListener("input", function() {
         clearTimeout(storeInputTimer);
         storeInputTimer = setTimeout(delayUpdate, 300, this);
-        sheet.storeCharacters();
+        sheet.store();
       }, false);
       field.addEventListener("focus", function() {
         _focus(this);
@@ -23687,7 +23631,7 @@ var textareaBlock = (function() {
       field.addEventListener("blur", function() {
         _store(this);
         _focus(this);
-        sheet.storeCharacters();
+        sheet.store();
       }, false);
       field.addEventListener("paste", function(event) {
         helper.pasteStrip(event);
@@ -23711,18 +23655,10 @@ var textareaBlock = (function() {
     var options = helper.makeObject(textareaBlock.dataset.textareaBlockOptions);
     var data;
     if (options.path) {
-      if (options.clone) {
-        data = helper.getObject({
-          object: sheet.getCharacter(),
-          path: options.path,
-          clone: options.clone
-        });
-      } else {
-        data = helper.getObject({
-          object: sheet.getCharacter(),
-          path: options.path
-        });
-      };
+      data = helper.getObject({
+        object: sheet.get(),
+        path: options.path
+      });
       textareaBlockField.innerHTML = data;
     };
   };
@@ -23986,7 +23922,7 @@ var totalBlock = (function() {
       _render_totalBlockCheck(this);
       render();
       textBlock.render();
-      sheet.storeCharacters();
+      sheet.store();
     }, false);
   };
 
@@ -24019,32 +23955,24 @@ var totalBlock = (function() {
     var totalBlockObject;
     var toSum = [];
     var _get_totalBlockObject = function() {
-      var totalObject;
-      if (options.clone) {
-        totalObject = helper.getObject({
-          object: sheet.getCharacter(),
-          path: options.path,
-          clone: options.clone
-        });
-      } else {
-        totalObject = helper.getObject({
-          object: sheet.getCharacter(),
-          path: options.path
-        });
-      };
-      totalBlockObject = totalObject;
+      totalBlockObject = helper.getObject({
+        object: sheet.get(),
+        path: options.path
+      });
     };
     var _update_missingBonusKey = function() {
-      // if the options has bonuses
-      if (options.bonuses) {
-        // if the total block is missing bonuses
-        if (!totalBlockObject.bonuses) {
-          totalBlockObject.bonuses = {};
-        };
-        // loop over the options.bonuses and add them to totalBlockObject.bonuses
-        for (var i = 0; i < options.bonuses.length; i++) {
-          if (!(options.bonuses[i] in totalBlockObject.bonuses)) {
-            totalBlockObject.bonuses[options.bonuses[i]] = false;
+      if (totalBlockObject != undefined) {
+        // if the options has bonuses
+        if (options.bonuses) {
+          // if the total block is missing bonuses
+          if (!totalBlockObject.bonuses) {
+            totalBlockObject.bonuses = {};
+          };
+          // loop over the options.bonuses and add them to totalBlockObject.bonuses
+          for (var i = 0; i < options.bonuses.length; i++) {
+            if (!(options.bonuses[i] in totalBlockObject.bonuses)) {
+              totalBlockObject.bonuses[options.bonuses[i]] = false;
+            };
           };
         };
       };
@@ -24113,14 +24041,14 @@ var totalBlock = (function() {
             // if max dex is true
             if (totalBlockObject.bonuses.max_dex) {
               if (helper.getObject({
-                  object: sheet.getCharacter(),
+                  object: sheet.get(),
                   path: "equipment.armor.max_dex"
                 }) != "" && helper.getObject({
-                  object: sheet.getCharacter(),
+                  object: sheet.get(),
                   path: "equipment.armor.max_dex"
                 }) < _checkValue(stats.getMod("dex"))) {
                 externalBouns = helper.getObject({
-                  object: sheet.getCharacter(),
+                  object: sheet.get(),
                   path: "equipment.armor.max_dex"
                 });
               } else {
@@ -24144,67 +24072,67 @@ var totalBlock = (function() {
           };
           if (key == "bab") {
             externalBouns = _checkValue(helper.getObject({
-              object: sheet.getCharacter(),
+              object: sheet.get(),
               path: "offense.base_attack"
             }));
           };
           if (key == "size") {
             externalBouns = _checkValue(helper.getObject({
-              object: sheet.getCharacter(),
+              object: sheet.get(),
               path: "basics.size.size_modifier"
             }));
           };
           if (key == "special_size") {
             externalBouns = _checkValue(helper.getObject({
-              object: sheet.getCharacter(),
+              object: sheet.get(),
               path: "basics.size.special_size_modifier"
             }));
           };
           if (key == "level") {
             externalBouns = _checkValue(helper.getObject({
-              object: sheet.getCharacter(),
+              object: sheet.get(),
               path: "basics.level"
             }));
           };
           if (key == "half_level") {
             externalBouns = Math.floor(_checkValue(helper.getObject({
-              object: sheet.getCharacter(),
+              object: sheet.get(),
               path: "basics.level"
             })) / 2);
           };
           if (key == "ac_armor") {
             externalBouns = _checkValue(helper.getObject({
-              object: sheet.getCharacter(),
+              object: sheet.get(),
               path: "defense.ac.armor"
             }));
           };
           if (key == "ac_shield") {
             externalBouns = _checkValue(helper.getObject({
-              object: sheet.getCharacter(),
+              object: sheet.get(),
               path: "defense.ac.shield"
             }));
           };
           if (key == "ac_deflect") {
             externalBouns = _checkValue(helper.getObject({
-              object: sheet.getCharacter(),
+              object: sheet.get(),
               path: "defense.ac.deflect"
             }));
           };
           if (key == "ac_dodge") {
             externalBouns = _checkValue(helper.getObject({
-              object: sheet.getCharacter(),
+              object: sheet.get(),
               path: "defense.ac.dodge"
             }));
           };
           if (key == "ac_natural") {
             externalBouns = _checkValue(helper.getObject({
-              object: sheet.getCharacter(),
+              object: sheet.get(),
               path: "defense.ac.natural"
             }));
           };
           if (key == "check_penalty") {
             externalBouns = _checkValue(helper.getObject({
-              object: sheet.getCharacter(),
+              object: sheet.get(),
               path: "equipment.armor.check_penalty"
             }));
           };
@@ -24213,13 +24141,13 @@ var totalBlock = (function() {
           };
           if (key == "size_modifier_fly") {
             externalBouns = _checkValue(helper.getObject({
-              object: sheet.getCharacter(),
+              object: sheet.get(),
               path: "basics.size.size_modifier_fly"
             }));
           };
           if (key == "size_modifier_stealth") {
             externalBouns = _checkValue(helper.getObject({
-              object: sheet.getCharacter(),
+              object: sheet.get(),
               path: "basics.size.size_modifier_stealth"
             }));
           };
@@ -24253,20 +24181,13 @@ var totalBlock = (function() {
     var _store = function(grandTotal) {
       if (options.cloneSet) {
         helper.setObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: options.cloneSetPath + ".current",
-          newValue: grandTotal
-        });
-      } else if (options.clone) {
-        helper.setObject({
-          object: sheet.getCharacter(),
-          path: options.path + ".current",
-          clone: options.clone,
           newValue: grandTotal
         });
       } else {
         helper.setObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: options.path + ".current",
           newValue: grandTotal
         });
@@ -24289,16 +24210,9 @@ var totalBlock = (function() {
     var totalBlockOptions = helper.makeObject(totalBlock.dataset.totalBlockOptions);
     var totalBlockBonusesObject;
     var object;
-    if (totalBlockOptions.clone) {
+    if (options.path) {
       totalBlockBonusesObject = helper.getObject({
-        object: sheet.getCharacter(),
-        path: options.path,
-        clone: totalBlockOptions.clone
-      });
-      totalBlockBonusesObject = totalBlockBonusesObject;
-    } else {
-      totalBlockBonusesObject = helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: options.path
       });
     };
@@ -24314,15 +24228,9 @@ var totalBlock = (function() {
     var totalBlockBonusesObject;
     var newBonusesObject;
     var _get_bonusObject = function() {
-      if (totalBlockOptions.clone) {
+      if (options.path) {
         totalBlockBonusesObject = helper.getObject({
-          object: sheet.getCharacter(),
-          path: options.path,
-          clone: totalBlockOptions.clone
-        });
-      } else {
-        totalBlockBonusesObject = helper.getObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: options.path
         });
       };
@@ -24330,20 +24238,11 @@ var totalBlock = (function() {
       newBonusesObject = JSON.parse(JSON.stringify(totalBlockBonusesObject));
     };
     var _store_data = function() {
-      if (options.clone) {
-        helper.setObject({
-          object: sheet.getCharacter(),
-          path: options.path,
-          clone: options.clone,
-          newValue: newBonusesObject
-        });
-      } else {
-        helper.setObject({
-          object: sheet.getCharacter(),
-          path: options.path,
-          newValue: newBonusesObject
-        });
-      };
+      helper.setObject({
+        object: sheet.get(),
+        path: options.path,
+        newValue: newBonusesObject
+      });
     };
     var _hold_data = function(input, key) {
       newBonusesObject[key] = input.checked;
@@ -24536,7 +24435,7 @@ var totalBlock = (function() {
       display.clear();
       display.render();
       textBlock.render();
-      sheet.storeCharacters();
+      sheet.store();
     }.bind(modalContent);
     modal.render({
       heading: options.modalHeading,
@@ -24837,26 +24736,26 @@ var wealth = (function() {
 
   function render() {
     var total = _create_goldTotal(helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "equipment.wealth"
     }));
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "equipment.wealth.total",
       newValue: total
     });
-    sheet.storeCharacters();
+    sheet.store();
   };
 
   function _create_goldTotal(wealth) {
     var includeItem = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "equipment.wealth.include_item"
     });
     var wealthInGp = [];
     if (includeItem) {
       wealthInGp.push(helper.getObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "equipment.item.value.current"
       }));
     };
@@ -24926,7 +24825,7 @@ var xp = (function() {
 
   function delayUpdate(element) {
     render();
-    sheet.storeCharacters();
+    sheet.store();
     textBlock.render();
   };
 
@@ -24937,7 +24836,7 @@ var xp = (function() {
     var trackPathfinderSociety = [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57];
     var selectedTrack = false;
     var speed = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.xp.advancement_speed"
     });
     var nextLevel;
@@ -24945,7 +24844,7 @@ var xp = (function() {
     var nextLevelXpNeeded;
     var nextLevelIndex;
     var currentXp = helper.getObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.xp.total"
     });
     if (speed == "Slow") {
@@ -24971,23 +24870,23 @@ var xp = (function() {
           nextLevelXpNeeded = "";
         };
         helper.setObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: "basics.xp.next_level",
           newValue: nextLevelXpMileStone
         });
         helper.setObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: "basics.xp.needed",
           newValue: nextLevelXpNeeded
         });
       } else {
         helper.setObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: "basics.xp.next_level",
           newValue: ""
         });
         helper.setObject({
-          object: sheet.getCharacter(),
+          object: sheet.get(),
           path: "basics.xp.needed",
           newValue: ""
         });
@@ -24995,12 +24894,12 @@ var xp = (function() {
     };
     var _clear_nextXp = function() {
       helper.setObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "basics.xp.next_level",
         newValue: ""
       });
       helper.setObject({
-        object: sheet.getCharacter(),
+        object: sheet.get(),
         path: "basics.xp.needed",
         newValue: ""
       });

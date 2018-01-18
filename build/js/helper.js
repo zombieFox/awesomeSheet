@@ -143,7 +143,6 @@ var helper = (function() {
     var defaultOptions = {
       path: null,
       object: null,
-      clone: null,
       newValue: null
     };
     if (options) {
@@ -200,7 +199,7 @@ var helper = (function() {
       };
     };
     if (defaultOptions.object != null && defaultOptions.path != null && defaultOptions.newValue != null) {
-      if (defaultOptions.clone) {
+      if (defaultOptions.path.indexOf("[") != -1 && defaultOptions.path.indexOf("]") != -1) {
         _setCloneData();
       } else {
         _setData();
@@ -213,8 +212,7 @@ var helper = (function() {
   function getObject(options) {
     var defaultOptions = {
       object: null,
-      path: null,
-      clone: null
+      path: null
     };
     if (options) {
       var defaultOptions = helper.applyOptions(defaultOptions, options);
@@ -275,7 +273,7 @@ var helper = (function() {
       return defaultOptions.object;
     };
     if (defaultOptions.object != null && defaultOptions.path != null) {
-      if (defaultOptions.clone) {
+      if (defaultOptions.path.indexOf("[") != -1 && defaultOptions.path.indexOf("]") != -1) {
         return _getCloneData();
       } else {
         return _getData();

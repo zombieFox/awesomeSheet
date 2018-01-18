@@ -27,26 +27,26 @@ var size = (function() {
     var index = selectBlockDropdown.selectedIndex;
     var object = _create_sizeObject(index);
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.size.size_modifier",
       newValue: object.size_modifier
     });
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.size.special_size_modifier",
       newValue: object.special_size_modifier
     });
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.size.size_modifier_fly",
       newValue: object.size_modifier_fly
     });
     helper.setObject({
-      object: sheet.getCharacter(),
+      object: sheet.get(),
       path: "basics.size.size_modifier_stealth",
       newValue: object.size_modifier_stealth
     });
-    sheet.storeCharacters();
+    sheet.store();
   };
 
   function _create_sizeObject(index) {
