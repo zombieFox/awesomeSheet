@@ -200,7 +200,7 @@ var helper = (function() {
       };
     };
     if (defaultOptions.object != null && defaultOptions.path != null && defaultOptions.newValue != null) {
-      if (defaultOptions.clone) {
+      if (defaultOptions.path.indexOf("[") != -1 && defaultOptions.path.indexOf("]") != -1) {
         _setCloneData();
       } else {
         _setData();
@@ -275,7 +275,7 @@ var helper = (function() {
       return defaultOptions.object;
     };
     if (defaultOptions.object != null && defaultOptions.path != null) {
-      if (defaultOptions.clone) {
+      if (defaultOptions.path.indexOf("[") != -1 && defaultOptions.path.indexOf("]") != -1) {
         return _getCloneData();
       } else {
         return _getData();
