@@ -55,45 +55,39 @@ var sheet = (function() {
   };
 
   function remove() {
-    var name;
-    if (sheet.get().basics.name) {
-      name = sheet.get().basics.name;
-    } else {
+    var _destroy = function() {
+      allCharacters.splice(getIndex(), 1);
+      var message = helper.truncate(name, 50, true) + " removed.";
+      if (allCharacters.length == 0) {
+        add();
+        message = message + " New character added.";
+      };
+      setIndex(0);
+      clear();
+      render();
+      store();
+      characterSelect.clear();
+      characterSelect.render();
+      nav.scrollToTop();
+      snack.render({
+        message: message
+      });
+    };
+    var name = helper.getObject({
+      object: get(),
+      path: "basics.name"
+    });
+    if (name == "" || name == undefined) {
       name = "New character";
     };
     prompt.render({
       heading: "Remove " + name + "?",
       message: "The current character will be removed. This can not be undone. Have you backed up your characters by Exporting?",
       actionText: "Remove",
-      action: destroyCharacter
+      action: _destroy
     });
   };
 
-  function destroyCharacter() {
-    var name = allCharacters[getIndex()].basics.name || "New character";
-    allCharacters.splice(getIndex(), 1);
-    var lastCharacterRemoved = false;
-    if (allCharacters.length == 0) {
-      add();
-      lastCharacterRemoved = true;
-    };
-    setIndex(0);
-    clear();
-    render();
-    store();
-    characterSelect.clear();
-    characterSelect.render();
-    if (lastCharacterRemoved) {
-      snack.render({
-        message: helper.truncate(name, 40, true) + " removed. New character added."
-      });
-    } else {
-      nav.scrollToTop();
-      snack.render({
-        message: helper.truncate(name, 50, true) + " removed."
-      });
-    };
-  };
 
   function all() {
     localStorage.clear();
