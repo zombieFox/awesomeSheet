@@ -377,7 +377,7 @@ var sheet = (function() {
           update(data);
           var name = allCharacters[getIndex()].basics.name || "New character";
           snack.render({
-            message: helper.truncate(name, 40, true) + " imported and now in the game."
+            message: helper.truncate(name, 40, true) + " updated and back in the game."
           });
         } else {
           snack.render({
