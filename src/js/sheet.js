@@ -258,7 +258,7 @@ var sheet = (function() {
     modal.render({
       heading: "Update " + name,
       content: _importJsonModal({
-        message: "Overwrite " + name + " with a previously exported file (JSON). This can not be undone. Are you sure you want to update this character?",
+        message: "Overwrite and update " + name + " with a previously exported file (JSON). This can not be undone. Are you sure you want to update this character?",
         action: _validateJsonFile
       }),
       action: _updateJsonFile,

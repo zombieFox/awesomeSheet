@@ -11,8 +11,6 @@ var snack = (function() {
     };
   };
 
-  // message, button, action, destroyDelay, postSnack
-
   function render(options) {
     var defaultOptions = {
       message: "Snack",
