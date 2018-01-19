@@ -54,6 +54,16 @@ var sheet = (function() {
     });
   };
 
+  function update(newCharacter) {
+    var dataToAdd = newCharacter;
+    allCharacters.splice(getIndex(), 1);
+    allCharacters.splice(getIndex(), 0, dataToAdd);
+    clear();
+    render();
+    nav.scrollToTop();
+    store();
+  };
+
   function remove() {
     var _destroy = function() {
       allCharacters.splice(getIndex(), 1);
@@ -240,143 +250,197 @@ var sheet = (function() {
     switcheroo(index);
   };
 
-  function update() {
+  function updateJson() {
+    var name = helper.getObject({
+      object: get(),
+      path: "basics.name"
+    });
     modal.render({
-      heading: "Update character",
-      content: "update message",
-      action: null,
+      heading: "Update " + name,
+      content: _importJsonModal({
+        message: "Overwrite " + name + " with a previously exported file (JSON). This can not be undone. Are you sure you want to update this character?",
+        action: _validateJsonFile
+      }),
+      action: _updateJsonFile,
       actionText: "Update"
     });
   };
 
   function importJson() {
-    var _handleFiles = function() {
-      var importSelectLabel = helper.e(".js-import-select-label");
-      var importSelectLabelText = helper.e(".js-import-select-label-text");
-      var importSelectLabelIcon = helper.e(".js-import-select-label-icon");
-      var fileList = this.files;
-      helper.removeClass(importSelectLabel, "m-import-select-label-ok");
-      helper.removeClass(importSelectLabel, "m-import-select-label-error");
-      helper.removeClass(importSelectLabelIcon, "icon-check");
-      helper.removeClass(importSelectLabelIcon, "icon-error-outline");
-      helper.addClass(importSelectLabelIcon, "icon-file-upload");
-      // console.log(fileList);
-      var readFile = new FileReader();
-      readFile.onload = function(event) {
-        if (helper.isJsonString(event.target.result)) {
-          // console.log("JSON true");
-          if (JSON.parse(event.target.result).awesomeSheet) {
-            // console.log("awesome key true");
-            importSelectLabelText.textContent = fileList[0].name;
-            helper.addClass(importSelectLabel, "m-import-select-label-ok");
-            helper.removeClass(importSelectLabel, "m-import-select-label-error");
-            helper.removeClass(importSelectLabelIcon, "icon-file-upload");
-            helper.removeClass(importSelectLabelIcon, "icon-error-outline");
-            helper.addClass(importSelectLabelIcon, "icon-check");
-          } else {
-            // console.log("awesome key false");
-            importSelectLabelText.textContent = "JSON file not recognised by awesomeSheet";
-            helper.removeClass(importSelectLabel, "m-import-select-label-ok");
-            helper.addClass(importSelectLabel, "m-import-select-label-error");
-            helper.removeClass(importSelectLabelIcon, "icon-file-upload");
-            helper.removeClass(importSelectLabelIcon, "icon-check");
-            helper.addClass(importSelectLabelIcon, "icon-error-outline");
-          };
+    modal.render({
+      heading: "Import character",
+      content: _importJsonModal({
+        message: "Import a previously exported character file (JSON) from this or another device.",
+        action: _validateJsonFile
+      }),
+      action: _addJsonFile,
+      actionText: "Import"
+    });
+  };
+
+  function _importJsonModal(options) {
+    var defaultOptions = {
+      message: null,
+      action: null
+    };
+    if (options) {
+      var defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
+    var container = document.createElement("div");
+    container.setAttribute("class", "container");
+    var row = document.createElement("div");
+    row.setAttribute("class", "row");
+    var col = document.createElement("div");
+    col.setAttribute("class", "col-xs-12");
+    var importSelectWrapper = document.createElement("div");
+    importSelectWrapper.setAttribute("class", "m-import-select-wrapper");
+    var importSelect = document.createElement("div");
+    importSelect.setAttribute("class", "m-import-select");
+    var input = document.createElement("input");
+    input.setAttribute("id", "import-select");
+    input.setAttribute("type", "file");
+    input.setAttribute("class", "m-import-select-input js-import-select-input");
+    var label = document.createElement("label");
+    label.setAttribute("tabindex", "1");
+    label.setAttribute("for", "import-select");
+    label.setAttribute("class", "m-import-select-label button button-icon button-large js-import-select-label");
+    var labelText = document.createElement("span");
+    labelText.textContent = "Select a file";
+    labelText.setAttribute("class", "m-import-select-label-text js-import-select-label-text");
+    var icon = document.createElement("span");
+    icon.setAttribute("class", "icon-file-upload m-import-select-label-icon js-import-select-label-icon");
+    var message = document.createElement("p");
+    message.setAttribute("class", "m-import-select-message");
+    message.textContent = defaultOptions.message;
+    label.appendChild(icon);
+    label.appendChild(labelText);
+    importSelect.appendChild(input);
+    importSelect.appendChild(label);
+    importSelectWrapper.appendChild(importSelect);
+    col.appendChild(message);
+    col.appendChild(importSelectWrapper);
+    row.appendChild(col);
+    container.appendChild(row);
+    input.addEventListener("change", defaultOptions.action, false);
+    return container;
+  };
+
+  function _addJsonFile() {
+    var fileList = helper.e(".js-import-select-input").files;
+    // if no JSON file is selected
+    if (fileList.length <= 0) {
+      snack.render({
+        message: "No file selected."
+      });
+      return false;
+    };
+    var readFile = new FileReader();
+    readFile.onload = function(event) {
+      // console.log(event);
+      if (helper.isJsonString(event.target.result)) {
+        var data = JSON.parse(event.target.result);
+        if (data.awesomeSheet) {
+          add(data);
+          var name = allCharacters[getIndex()].basics.name;
+          snack.render({
+            message: helper.truncate(name, 40, true) + " updated with JSON file."
+          });
         } else {
-          // console.log("JSON false");
-          importSelectLabelText.textContent = "Not a JSON file";
+          snack.render({
+            message: "JSON file not recognised by awesomeSheet."
+          });
+        };
+      } else {
+        snack.render({
+          message: "Not a JSON file."
+        });
+      };
+    };
+    readFile.readAsText(fileList.item(0));
+  };
+
+  function _updateJsonFile() {
+    var fileList = helper.e(".js-import-select-input").files;
+    // if no JSON file is selected
+    if (fileList.length <= 0) {
+      snack.render({
+        message: "No file selected."
+      });
+      return false;
+    };
+    var readFile = new FileReader();
+    readFile.onload = function(event) {
+      // console.log(event);
+      if (helper.isJsonString(event.target.result)) {
+        var data = JSON.parse(event.target.result);
+        if (data.awesomeSheet) {
+          update(data);
+          var name = allCharacters[getIndex()].basics.name || "New character";
+          snack.render({
+            message: helper.truncate(name, 40, true) + " imported and now in the game."
+          });
+        } else {
+          snack.render({
+            message: "JSON file not recognised by awesomeSheet."
+          });
+        };
+      } else {
+        snack.render({
+          message: "Not a JSON file."
+        });
+      };
+    };
+    readFile.readAsText(fileList.item(0));
+  };
+
+  function _validateJsonFile() {
+    var importSelectLabel = helper.e(".js-import-select-label");
+    var importSelectLabelText = helper.e(".js-import-select-label-text");
+    var importSelectLabelIcon = helper.e(".js-import-select-label-icon");
+    var fileList = this.files;
+    helper.removeClass(importSelectLabel, "m-import-select-label-ok");
+    helper.removeClass(importSelectLabel, "m-import-select-label-error");
+    helper.removeClass(importSelectLabelIcon, "icon-check");
+    helper.removeClass(importSelectLabelIcon, "icon-error-outline");
+    helper.addClass(importSelectLabelIcon, "icon-file-upload");
+    // console.log(fileList);
+    var readFile = new FileReader();
+    readFile.onload = function(event) {
+      if (helper.isJsonString(event.target.result)) {
+        // console.log("JSON true");
+        if (JSON.parse(event.target.result).awesomeSheet) {
+          // console.log("awesome key true");
+          importSelectLabelText.textContent = fileList[0].name;
+          helper.addClass(importSelectLabel, "m-import-select-label-ok");
+          helper.removeClass(importSelectLabel, "m-import-select-label-error");
+          helper.removeClass(importSelectLabelIcon, "icon-file-upload");
+          helper.removeClass(importSelectLabelIcon, "icon-error-outline");
+          helper.addClass(importSelectLabelIcon, "icon-check");
+        } else {
+          // console.log("awesome key false");
+          importSelectLabelText.textContent = "JSON file not recognised by awesomeSheet";
           helper.removeClass(importSelectLabel, "m-import-select-label-ok");
           helper.addClass(importSelectLabel, "m-import-select-label-error");
           helper.removeClass(importSelectLabelIcon, "icon-file-upload");
           helper.removeClass(importSelectLabelIcon, "icon-check");
           helper.addClass(importSelectLabelIcon, "icon-error-outline");
         };
-      };
-      if (fileList.length > 0) {
-        readFile.readAsText(fileList.item(0));
-        // console.log(readFile.result);
       } else {
-        importSelectLabelText.textContent = "Select a file";
+        // console.log("JSON false");
+        importSelectLabelText.textContent = "Not a JSON file";
+        helper.removeClass(importSelectLabel, "m-import-select-label-ok");
+        helper.addClass(importSelectLabel, "m-import-select-label-error");
+        helper.removeClass(importSelectLabelIcon, "icon-file-upload");
+        helper.removeClass(importSelectLabelIcon, "icon-check");
+        helper.addClass(importSelectLabelIcon, "icon-error-outline");
       };
     };
-    var _readJsonFile = function() {
-      var fileList = helper.e(".js-import-select-input").files;
-      // if no JSON file is selected
-      if (fileList.length <= 0) {
-        snack.render({
-          message: "No file selected."
-        });
-        return false;
-      };
-      var readFile = new FileReader();
-      readFile.onload = function(event) {
-        // console.log(event);
-        if (helper.isJsonString(event.target.result)) {
-          var data = JSON.parse(event.target.result);
-          if (data.awesomeSheet) {
-            add(data);
-            var name = allCharacters[getIndex()].basics.name || "New character";
-            snack.render({
-              message: helper.truncate(name, 40, true) + " imported and now in the game."
-            });
-          } else {
-            snack.render({
-              message: "JSON file not recognised by awesomeSheet."
-            });
-          };
-        } else {
-          snack.render({
-            message: "Not a JSON file."
-          });
-        };
-      };
+    if (fileList.length > 0) {
       readFile.readAsText(fileList.item(0));
+      // console.log(readFile.result);
+    } else {
+      importSelectLabelText.textContent = "Select a file";
     };
-    var _modalContent = function() {
-      var container = document.createElement("div");
-      container.setAttribute("class", "container");
-      var row = document.createElement("div");
-      row.setAttribute("class", "row");
-      var col = document.createElement("div");
-      col.setAttribute("class", "col-xs-12");
-      var importSelectWrapper = document.createElement("div");
-      importSelectWrapper.setAttribute("class", "m-import-select-wrapper");
-      var importSelect = document.createElement("div");
-      importSelect.setAttribute("class", "m-import-select");
-      var input = document.createElement("input");
-      input.setAttribute("id", "import-select");
-      input.setAttribute("type", "file");
-      input.setAttribute("class", "m-import-select-input js-import-select-input");
-      var label = document.createElement("label");
-      label.setAttribute("tabindex", "1");
-      label.setAttribute("for", "import-select");
-      label.setAttribute("class", "m-import-select-label button button-icon button-large js-import-select-label");
-      var labelText = document.createElement("span");
-      labelText.textContent = "Select a file";
-      labelText.setAttribute("class", "m-import-select-label-text js-import-select-label-text");
-      var icon = document.createElement("span");
-      icon.setAttribute("class", "icon-file-upload m-import-select-label-icon js-import-select-label-icon");
-      var message = document.createElement("p");
-      message.setAttribute("class", "m-import-select-message");
-      message.textContent = "Import a previously exported character file (JSON) from this or another device.";
-      label.appendChild(icon);
-      label.appendChild(labelText);
-      importSelect.appendChild(input);
-      importSelect.appendChild(label);
-      importSelectWrapper.appendChild(importSelect);
-      col.appendChild(message);
-      col.appendChild(importSelectWrapper);
-      row.appendChild(col);
-      container.appendChild(row);
-      input.addEventListener("change", _handleFiles, false);
-      return container;
-    };
-    modal.render({
-      heading: "Import character",
-      content: _modalContent(),
-      action: _readJsonFile,
-      actionText: "Import"
-    });
   };
 
   function exportJson() {
@@ -416,7 +480,7 @@ var sheet = (function() {
       };
       // ctrl+alt+u
       if (event.ctrlKey && event.altKey && event.keyCode == 85) {
-        update();
+        updateJson();
         page.update();
       };
       // ctrl+alt+e
@@ -464,7 +528,7 @@ var sheet = (function() {
     clear: clear,
     all: all,
     restore: restore,
-    update: update,
+    update: updateJson,
     import: importJson,
     export: exportJson,
     render: render,
