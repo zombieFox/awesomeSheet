@@ -258,7 +258,7 @@ var sheet = (function() {
     modal.render({
       heading: "Replace " + name,
       content: _importJsonModal({
-        message: "Replace " + name + " with a previously exported file (JSON). Useful for when updating a character from another device. This can not be undone. Are you sure you want to Replace this character?",
+        message: "Replace " + name + " with a previously exported file (JSON). Useful for when updating this character from another device. This can not be undone. Are you sure you want to Replace this character?",
         action: _validateJsonFile
       }),
       action: _replaceJsonFile,
