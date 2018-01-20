@@ -3688,7 +3688,9 @@ label {
 
 .is-night-mode .m-edit-box-content-outline {
   background-color: #2e2e2e;
-  border-color: #474747; }
+  border-color: #474747;
+  background-color: #000000;
+  border-color: #2e2e2e; }
 
 @media (min-width: 550px) {
   .m-edit-box {
