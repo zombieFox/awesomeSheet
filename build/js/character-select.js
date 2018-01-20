@@ -39,6 +39,7 @@ var characterSelect = (function() {
   function _bind_characterSelectControls() {
     var characterSelectAdd = helper.e(".js-character-select-add");
     var characterSelectRemove = helper.e(".js-character-select-remove");
+    var characterSelectUpdate = helper.e(".js-character-select-update");
     var characterSelectImport = helper.e(".js-character-select-import");
     var characterSelectExport = helper.e(".js-character-select-export");
     var headerControlExport = helper.e(".js-header-control-export");
@@ -60,6 +61,12 @@ var characterSelect = (function() {
     characterSelectImport.addEventListener("click", function(event) {
       close();
       sheet.import();
+      page.update();
+    }, false);
+
+    characterSelectUpdate.addEventListener("click", function(event) {
+      close();
+      sheet.replace();
       page.update();
     }, false);
 

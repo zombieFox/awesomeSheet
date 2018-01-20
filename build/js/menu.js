@@ -99,51 +99,6 @@ var menu = (function() {
     body.dataset.menuOpen = true;
   };
 
-  function _bind_shortcutKeys() {
-    window.addEventListener("keydown", function(event) {
-      // ctrl+alt+f
-      if (event.ctrlKey && event.altKey && event.keyCode == 70) {
-        fullscreen.toggle();
-      };
-      // ctrl+alt+i
-      if (event.ctrlKey && event.altKey && event.keyCode == 73) {
-        sheet.import();
-        page.update();
-      };
-      // ctrl+alt+e
-      if (event.ctrlKey && event.altKey && event.keyCode == 69) {
-        sheet.export();
-        page.update();
-      };
-      // ctrl+alt+m
-      if (event.ctrlKey && event.altKey && event.keyCode == 77) {
-        toggle();
-        page.update();
-      };
-      // ctrl+alt+d
-      if (event.ctrlKey && event.altKey && event.keyCode == 68) {
-        display.clear();
-        display.render();
-        display.toggle();
-        themeColor.update();
-      };
-      // ctrl+alt+n
-      if (event.ctrlKey && event.altKey && event.keyCode == 78) {
-        night.toggle();
-      };
-      // esc
-      if (event.keyCode == 27) {
-        close();
-      };
-    }, false);
-    // key debugging
-    // window.addEventListener("keydown", function(event) {
-    //   console.log(event.keyCode);
-    //   console.log(event.metaKey);
-    //   console.log(event);
-    // });
-  };
-
   function _bind_menuLinks() {
     var menuToggle = helper.e(".js-menu-toggle");
     var menuLinkChnageLog = helper.e(".js-menu-link-chnage-log");
@@ -209,7 +164,6 @@ var menu = (function() {
 
   function bind() {
     _bind_menuLinks();
-    _bind_shortcutKeys();
   };
 
   // exposed methods
