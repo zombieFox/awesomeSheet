@@ -54,7 +54,7 @@ var sheet = (function() {
     });
   };
 
-  function update(newCharacter) {
+  function replace(newCharacter) {
     var dataToAdd = newCharacter;
     allCharacters.splice(getIndex(), 1);
     allCharacters.splice(getIndex(), 0, dataToAdd);
@@ -250,19 +250,19 @@ var sheet = (function() {
     switcheroo(index);
   };
 
-  function updateJson() {
+  function replaceJson() {
     var name = helper.getObject({
       object: get(),
       path: "basics.name"
     });
     modal.render({
-      heading: "Update " + name,
+      heading: "Replace " + name,
       content: _importJsonModal({
-        message: "Overwrite and update " + name + " with a previously exported file (JSON). This can not be undone. Are you sure you want to update this character?",
+        message: "Replace " + name + " with a previously exported file (JSON). Useful for when updating a character from another device. This can not be undone. Are you sure you want to Replace this character?",
         action: _validateJsonFile
       }),
-      action: _updateJsonFile,
-      actionText: "Update"
+      action: _replaceJsonFile,
+      actionText: "Replace"
     });
   };
 
@@ -359,7 +359,7 @@ var sheet = (function() {
     readFile.readAsText(fileList.item(0));
   };
 
-  function _updateJsonFile() {
+  function _replaceJsonFile() {
     var fileList = helper.e(".js-import-select-input").files;
     // if no JSON file is selected
     if (fileList.length <= 0) {
@@ -374,10 +374,10 @@ var sheet = (function() {
       if (helper.isJsonString(event.target.result)) {
         var data = JSON.parse(event.target.result);
         if (data.awesomeSheet) {
-          update(data);
+          replace(data);
           var name = allCharacters[getIndex()].basics.name || "New character";
           snack.render({
-            message: helper.truncate(name, 40, true) + " updated and back in the game."
+            message: helper.truncate(name, 40, true) + " replaced and back in the game."
           });
         } else {
           snack.render({
@@ -478,9 +478,9 @@ var sheet = (function() {
         importJson();
         page.update();
       };
-      // ctrl+alt+u
-      if (event.ctrlKey && event.altKey && event.keyCode == 85) {
-        updateJson();
+      // ctrl+alt+r
+      if (event.ctrlKey && event.altKey && event.keyCode == 82) {
+        replaceJson();
         page.update();
       };
       // ctrl+alt+e
@@ -528,7 +528,7 @@ var sheet = (function() {
     clear: clear,
     all: all,
     restore: restore,
-    update: updateJson,
+    replace: replaceJson,
     import: importJson,
     export: exportJson,
     render: render,

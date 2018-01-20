@@ -66,7 +66,7 @@ var characterSelect = (function() {
 
     characterSelectUpdate.addEventListener("click", function(event) {
       close();
-      sheet.update();
+      sheet.replace();
       page.update();
     }, false);
 
