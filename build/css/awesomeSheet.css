@@ -2597,27 +2597,27 @@ label {
     border-radius: 5px 5px 0 0; }
   .is-minimise .m-card:hover .m-card-head,
   .is-minimise .m-card:hover .m-card-tabs {
-    background-color: #c7c7c7; }
+    background-color: #d4d4d4; }
   .is-minimise .m-card-head {
-    background-color: #d4d4d4;
+    background-color: #e0e0e0;
     border-radius: 5px; }
     .is-minimise .m-card-head .button {
       color: #3b3b3b; }
   .is-minimise.is-display-mode .m-card-head {
-    background-color: #d4d4d4; }
+    background-color: #e0e0e0; }
     .is-minimise.is-display-mode .m-card-head .button {
       color: #3b3b3b; }
   .is-night-mode .m-card {
     box-shadow: none; }
   .is-night-mode .is-minimise .m-card:hover .m-card-head,
   .is-night-mode .is-minimise .m-card:hover .m-card-tabs {
-    background-color: #474747; }
+    background-color: #212121; }
   .is-night-mode .is-minimise .m-card-head {
-    background-color: #3b3b3b; }
+    background-color: #141414; }
     .is-night-mode .is-minimise .m-card-head .button {
       color: #ffffff; }
   .is-night-mode .is-minimise.is-display-mode .m-card-head {
-    background-color: #3b3b3b; }
+    background-color: #141414; }
     .is-night-mode .is-minimise.is-display-mode .m-card-head .button {
       color: #ffffff; } }
 
@@ -6174,7 +6174,7 @@ label {
 
 .m-tip-message {
   padding: 0.5em 1em;
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 0.95);
   border-radius: 5px;
   color: #ffffff;
   font-size: 0.8em;
@@ -6188,7 +6188,7 @@ label {
 
 .m-tip-arrow {
   border: 0.4em solid transparent;
-  border-top-color: rgba(0, 0, 0, 0.85);
+  border-top-color: rgba(0, 0, 0, 0.95);
   position: absolute;
   width: 0;
   height: 0;
@@ -6201,11 +6201,11 @@ label {
           transform: translate(-50%, 0); }
 
 .is-night-mode .m-tip-message {
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.95);
   color: #000000; }
 
 .is-night-mode .m-tip-arrow {
-  border-top-color: rgba(255, 255, 255, 0.85); }
+  border-top-color: rgba(255, 255, 255, 0.95); }
 
 @media (min-width: 550px) {
   .m-tip {
