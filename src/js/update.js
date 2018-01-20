@@ -1,6 +1,11 @@
 var update = (function() {
 
   var history = [{
+    version: "4.1.0",
+    list: [
+      "Added a Replace feature to Character Select menu. Useful for when updating the current character from another device."
+    ]
+  }, {
     version: "4.0.1",
     list: [
       "Fixed Classes, Item, Consumables and Custom Skills not setting or recalling the correct data."
