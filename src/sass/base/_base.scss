@@ -3,7 +3,7 @@ html {
   font-size: 87.5%; // 1rem = 14px
 }
 body {
-  background: $gray-18;
+  background-color: $gray-19;
   margin: 0;
   padding: 0 0 calc(100vh - 7em);
   font-weight: normal;
@@ -12,7 +12,7 @@ body {
   font-size: $font-size-root-100;
   line-height: $line-height-160;
   &.is-night-mode {
-    background-color: $gray-04;
+    background-color: $black;
     color: $white;
   }
   &.is-header-pinned {

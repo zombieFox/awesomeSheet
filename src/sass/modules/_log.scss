@@ -9,14 +9,15 @@
   min-width: 200px;
   opacity: 0;
   perspective: 1000px;
-  transition: opacity $transition-ease-fast;
+  transform: translate(0, 0);
+  transition: transform $transition-ease-fast, opacity $transition-ease-fast;
   &.is-transition-end {
-    transition: opacity $transition-ease-medium;
+    transition: transform $transition-ease-medium, opacity $transition-ease-medium;
   }
 }
 .is-onscreen-snack {
   .m-log {
-    bottom: 5.5em;
+    transform: translate(0, -4em);
   }
 }
 .m-log-wrapper {

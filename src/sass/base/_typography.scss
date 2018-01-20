@@ -92,15 +92,15 @@ ul:not(:last-child) {
 }
 li {
   margin: 0;
-   > ol,
-  > ul {
+  > ul,
+  > ol {
     margin: 0;
   }
 }
 li:not(:last-child) {
   margin-bottom: 0.5em;
-   > ol:not(:last-child),
-  > ul:not(:last-child) {
+  > ul:not(:last-child),
+  > ol:not(:last-child) {
     margin-bottom: 0.5em;
   }
 }
@@ -145,7 +145,7 @@ table {
 }
 .is-night-mode {
   hr {
-    border-color: $gray-03;
+    border-top-color: $gray-03;
   }
   table {
     thead {
