@@ -61,10 +61,11 @@
 }
 .is-night-mode {
   .m-tip-message {
-    background-color: $secondary-color-alpha-02;
+    background-color: $light-alpha-04;
+    color: $black;
   }
   .m-tip-arrow {
-    border-top-color: $secondary-color-alpha-02;
+    border-top-color: $light-alpha-04;
   }
 }
 // --------------------------------------------------

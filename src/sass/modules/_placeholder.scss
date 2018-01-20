@@ -34,7 +34,11 @@
 }
 .is-display-mode {
   .m-placeholder {
+    background-color: transparent;
+    border-color: transparent;
+    border-radius: 0;
     margin: 0;
+    padding: 0;
   }
   .m-placeholder-key {
     background-color: $primary-color-alpha-20;

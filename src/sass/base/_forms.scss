@@ -361,7 +361,7 @@ input {
 .is-night-mode {
   select {
     background-color: $gray-02;
-    border-color: $gray-04;
+    border-color: $gray-06;
     color: $white;
     box-shadow: none;
     &:hover {
@@ -383,7 +383,7 @@ input {
   .textarea,
   textarea {
     background-color: $gray-02;
-    border-color: $gray-04;
+    border-color: $gray-06;
     color: $white;
     box-shadow: none;
     &:hover {
@@ -410,7 +410,7 @@ input {
     &[type="tel"],
     &[type="text"] {
       background-color: $gray-02;
-      border-color: $gray-04;
+      border-color: $gray-06;
       color: $white;
       box-shadow: none;
       &:hover {

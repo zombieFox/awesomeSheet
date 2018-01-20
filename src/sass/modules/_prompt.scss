@@ -5,8 +5,8 @@
   font-size: $font-size-root-100;
   z-index: $prompt;
   width: 30em;
-  max-width: 95%;
-  min-width: 200px;
+  max-width: calc(100% - 6em);
+  min-width: 10em;
   transform: translate(-50%, -50%);
   opacity: 0;
   perspective: 1000px;
@@ -16,8 +16,6 @@
   }
 }
 .m-prompt-wrapper {
-  background-color: $white;
-  border-radius: $border-radius-large;
   box-sizing: border-box;
   position: relative;
   transition: all $transition-bounce-fast;
@@ -28,12 +26,19 @@
   }
 }
 .m-prompt-body {
-  padding: $font-size-200;
+  background-color: $white;
+  border-radius: $border-radius-large $border-radius-large 0 0;
+  border-bottom: 1em solid transparent;
+  border-bottom-color: $white;
+  padding: 2em;
   z-index: 1;
   position: relative;
   .m-prompt-heading {
     font-family: $open-sans-semi-bold;
     font-size: $font-size-150;
+    &:not(:only-child):not(:last-child) {
+      margin-bottom: 0.5em;
+    }
     &:focus {
       outline: 0;
     }
@@ -45,7 +50,7 @@
   }
 }
 .m-prompt-controls {
-  margin: 0;
+  margin: -1em 0 0;
   position: relative;
   z-index: 2;
   .button {
@@ -70,23 +75,18 @@
   white-space: pre-wrap;
 }
 .is-night-mode {
-  .m-prompt {
-    .m-prompt-wrapper {
-      background-color: $gray-04;
-    }
+  .m-prompt-body {
+    background-color: $gray-03;
+    border-bottom-color: $gray-03;
   }
 }
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
-@media (min-width: $screen-sm) {
-  .m-prompt {
-    max-width: 90%;
-  }
-}
+@media (min-width: $screen-sm) {}
 @media (min-width: $screen-md) {
   .m-prompt {
-    max-width: 80%;
+    max-width: calc(100% - 4em);
   }
 }
 @media (min-width: $screen-lg) {}
