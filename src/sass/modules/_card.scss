@@ -98,12 +98,12 @@
       &:hover {
         .m-card-head,
         .m-card-tabs {
-          background-color: $gray-16;
+          background-color: $gray-17;
         }
       }
     }
     .m-card-head {
-      background-color: $gray-17;
+      background-color: $gray-18;
       border-radius: $border-radius-large;
       .button {
         color: $gray-05;
@@ -111,7 +111,7 @@
     }
     &.is-display-mode {
       .m-card-head {
-        background-color: $gray-17;
+        background-color: $gray-18;
         .button {
           color: $gray-05;
         }
@@ -127,19 +127,19 @@
         &:hover {
           .m-card-head,
           .m-card-tabs {
-            background-color: $gray-06;
+            background-color: $gray-03;
           }
         }
       }
       .m-card-head {
-        background-color: $gray-05;
+        background-color: $gray-02;
         .button {
           color: $white;
         }
       }
       &.is-display-mode {
         .m-card-head {
-          background-color: $gray-05;
+          background-color: $gray-02;
           .button {
             color: $white;
           }

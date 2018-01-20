@@ -33,7 +33,7 @@
 }
 .m-tip-message {
   padding: 0.5em 1em;
-  background-color: $dark-alpha-04;
+  background-color: $dark-alpha-02;
   border-radius: $border-radius-large;
   color: $white;
   font-size: 0.8em;
@@ -49,7 +49,7 @@
 }
 .m-tip-arrow {
   border: 0.4em solid transparent;
-  border-top-color: $dark-alpha-04;
+  border-top-color: $dark-alpha-02;
   position: absolute;
   width: 0;
   height: 0;
@@ -61,11 +61,11 @@
 }
 .is-night-mode {
   .m-tip-message {
-    background-color: $light-alpha-04;
+    background-color: $light-alpha-02;
     color: $black;
   }
   .m-tip-arrow {
-    border-top-color: $light-alpha-04;
+    border-top-color: $light-alpha-02;
   }
 }
 // --------------------------------------------------
