@@ -659,6 +659,22 @@ var repair = (function() {
       characterObject.equipment.item.value.current = "";
     };
     // --------------------------------------------------
+    // repair spell bonus
+    if (!("bonus" in characterObject.spells)) {
+      // console.log("repair item spells bonus");
+      characterObject.spells.bonus = {};
+      characterObject.spells.bonus.level_0 = "";
+      characterObject.spells.bonus.level_1 = "";
+      characterObject.spells.bonus.level_2 = "";
+      characterObject.spells.bonus.level_3 = "";
+      characterObject.spells.bonus.level_4 = "";
+      characterObject.spells.bonus.level_5 = "";
+      characterObject.spells.bonus.level_6 = "";
+      characterObject.spells.bonus.level_7 = "";
+      characterObject.spells.bonus.level_8 = "";
+      characterObject.spells.bonus.level_9 = "";
+    };
+    // --------------------------------------------------
     // sheet.store();
     return characterObject;
   };

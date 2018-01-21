@@ -103,35 +103,6 @@ var tabs = (function() {
     _scrollTabInToView(tabRow, tab);
   };
 
-  // function render() {
-  //   var all_tabGroup = helper.eA(".js-tab-group");
-  //   for (var i = 0; i < all_tabGroup.length; i++) {
-  //     var tabRow = all_tabGroup[i].querySelector(".js-tab-row");
-  //     if (tabRow.scrollWidth > tabRow.clientWidth) {
-  //     var tabLeft = document.createElement("button");
-  //     tabLeft.setAttribute("class", "m-tab-arrow button button-tertiary button-icon js-tab-left");
-  //     var tabLeftIcon = document.createElement("span");
-  //     tabLeftIcon.setAttribute("class", "icon-chevron-left");
-  //     tabLeft.appendChild(tabLeftIcon);
-  //     tabLeft.addEventListener("click", function() {
-  //       _tabLeftRight(this);
-  //     }, false);
-  //
-  //     var tabRight = document.createElement("button");
-  //     tabRight.setAttribute("class", "m-tab-arrow button button-tertiary button-icon js-tab-right");
-  //     var tabRightIcon = document.createElement("span");
-  //     tabRightIcon.setAttribute("class", "icon-chevron-right");
-  //     tabRight.appendChild(tabRightIcon);
-  //     tabRight.addEventListener("click", function() {
-  //       _tabLeftRight(this);
-  //     }, false);
-  //
-  //     all_tabGroup[i].insertBefore(tabLeft, all_tabGroup[i].firstChild);
-  //     all_tabGroup[i].insertBefore(tabRight, all_tabGroup[i].lastChild);
-  //     };
-  //   };
-  // };
-
   // exposed methods
   return {
     bind: bind

@@ -225,8 +225,6 @@ var sheet = (function() {
     window.addEventListener("scroll", function(event) {
       header.scroll();
       nav.scroll();
-      // disabled in favour of position: sticky
-      // edit.scroll();
     }, false);
   };
 
