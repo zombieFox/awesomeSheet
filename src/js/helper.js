@@ -173,12 +173,12 @@ var helper = (function() {
         var currentKey = address.shift();
         // if the key is not found make a new object
         if (!(currentKey in defaultOptions.object)) {
+          // make an empty object in the current object level
           if (isNaN(currentKey)) {
             defaultOptions.object[currentKey] = {};
           } else {
             defaultOptions.object[currentKey] = [];
           };
-          // make an empty object in the current object level
         };
         // drill down the object with the first key
         defaultOptions.object = defaultOptions.object[currentKey];
@@ -208,8 +208,12 @@ var helper = (function() {
         var currentKey = address.shift();
         // if the key is not found make a new object
         if (!(currentKey in defaultOptions.object)) {
-          defaultOptions.object[currentKey] = {};
           // make an empty object in the current object level
+          if (isNaN(currentKey)) {
+            defaultOptions.object[currentKey] = {};
+          } else {
+            defaultOptions.object[currentKey] = [];
+          };
         };
         // drill down the object with the first key
         defaultOptions.object = defaultOptions.object[currentKey];
