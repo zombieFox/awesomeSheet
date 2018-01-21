@@ -740,56 +740,95 @@ var spells = (function() {
       object: sheet.get(),
       path: "spells.book[" + options.level + "]level_" + options.level + "[" + options.index + "]"
     });
-    console.log(spellObject);
-
-
-
-
-
-    // if (spellState["level" + options.level] == "prepare") {
-    //   if (sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared < 50) {
-    //     sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared++;
-    //   };
-    //   // console.log(sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
-    // } else if (spellState["level" + options.level] == "unprepare") {
-    //   if (sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared > 0) {
-    //     sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared--;
-    //   };
-    //   if (sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared < sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast) {
-    //     sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast = sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared;
-    //   };
-    //   // console.log(sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
-    // } else if (spellState["level" + options.level] == "cast") {
-    //   if (sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast < 50) {
-    //     sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast++;
-    //   };
-    //   if (sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast > sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared) {
-    //     sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].prepared = sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].cast;
-    //   };
-    //   // console.log(sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
-    // } else if (spellState["level" + options.level] == "active") {
-    //   if (sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].active) {
-    //     sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].active = false;
-    //   } else {
-    //     sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].active = true;
-    //   };
-    //   // console.log(sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
-    // } else if (spellState["level" + options.level] == "remove") {
-    //   // console.log(sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
-    //   var spellName = sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount].name;
-    //   _store_lastRemovedSpell(spellLevel, spellCount, sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
-    //   sheet.get().spells.book[spellLevel]["level_" + spellLevel].splice(spellCount, 1);
-    //   snack.render({
-    //     message: helper.truncate(spellName, 40, true) + " removed.",
-    //     button: "Undo",
-    //     action: _restore_lastRemovedSpell,
-    //     destroyDelay: 8000
-    //   });
-    // };
-    // // console.log(sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount]);
-    // sheet.store();
+    if (spellState["level_" + options.level] == "prepare") {
+      if (spellObject.prepared < 50) {
+        spellObject.prepared++;
+      };
+    } else if (spellState["level_" + options.level] == "unprepare") {
+      if (spellObject.prepared > 0) {
+        spellObject.prepared--;
+      };
+      if (spellObject.prepared < spellObject.cast) {
+        spellObject.cast = spellObject.prepared;
+      };
+    } else if (spellState["level_" + options.level] == "cast") {
+      if (spellObject.cast < 50) {
+        spellObject.cast++;
+      };
+      if (spellObject.cast > spellObject.prepared) {
+        spellObject.prepared = spellObject.cast;
+      };
+    } else if (spellState["level_" + options.level] == "active") {
+      if (spellObject.active) {
+        spellObject.active = false;
+      } else {
+        spellObject.active = true;
+      };
+    } else if (spellState["level_" + options.level] == "remove") {
+      _store_lastRemovedSpell(spellLevel, spellCount, spellObject);
+      sheet.get().spells.book[spellLevel]["level_" + spellLevel].splice(spellCount, 1);
+      snack.render({
+        message: helper.truncate(spellObject.name, 40, true) + " removed.",
+        button: "Undo",
+        action: _restore_lastRemovedSpell,
+        destroyDelay: 8000
+      });
+    };
+    // console.log(spellObject);
+    sheet.store();
   };
 
+  function _update_spellButton(button, force) {
+    var spellLevel = parseInt(button.dataset.spellLevel, 10);
+    var spellCount = parseInt(button.dataset.spellCount, 10);
+    var spellRoot = helper.getClosest(button, ".js-spells") || helper.e(".js-spells");
+    var spellName = button.querySelector(".js-spell-name");
+    var spellMarks = button.querySelector(".js-spell-marks");
+    var spellActive = button.querySelector(".js-spell-active");
+    var spellState = spellRoot.dataset.spellState;
+    var spellObject = sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount];
+    if (spellState == "prepare" || spellState == "unprepare" || spellState == "cast" || spellState == "active" || force) {
+      if (spellMarks.lastChild) {
+        while (spellMarks.lastChild) {
+          spellMarks.removeChild(spellMarks.lastChild);
+        };
+      };
+      if (spellActive.lastChild) {
+        while (spellActive.lastChild) {
+          spellActive.removeChild(spellActive.lastChild);
+        };
+      };
+      if (spellObject.prepared > 0) {
+        for (var i = 0; i < spellObject.prepared; i++) {
+          var preparedIcon = document.createElement("span");
+          preparedIcon.setAttribute("class", "icon-radio-button-checked js-spell-mark-checked");
+          spellMarks.insertBefore(preparedIcon, spellMarks.firstChild);
+        };
+      };
+      if (spellObject.cast > 0) {
+        var all_check = spellMarks.querySelectorAll(".icon-radio-button-checked");
+        for (var j = 0; j < spellObject.cast; j++) {
+          if (all_check[j]) {
+            helper.toggleClass(all_check[j], "icon-radio-button-checked");
+            helper.toggleClass(all_check[j], "icon-radio-button-unchecked");
+            helper.toggleClass(all_check[j], "js-spell-mark-checked");
+            helper.toggleClass(all_check[j], "js-spell-mark-unchecked");
+          };
+        };
+      };
+      if (spellObject.active) {
+        var activeIcon = document.createElement("span");
+        activeIcon.setAttribute("class", "icon-play-arrow");
+        if (spellObject.active) {
+          spellActive.appendChild(activeIcon);
+        };
+      };
+      spellName.textContent = spellObject.name;
+    } else if (spellState == "remove") {
+      _destroy_spellBook(spellLevel);
+      _render_all_spells(sheet.get().spells.book[spellLevel]["level_" + spellLevel], spellLevel);
+    };
+  };
 
 
 
