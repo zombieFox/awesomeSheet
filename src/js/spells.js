@@ -132,327 +132,6 @@ var spells = (function() {
   //
   // };
   //
-  // function _update_spellControls(button, force) {
-  //
-  //   var spellLevel = parseInt(button.dataset.spellLevel, 10);
-  //   var spellCount = parseInt(button.dataset.spellCount, 10);
-  //   var spellRoot = helper.getClosest(button, ".js-spells") || helper.e(".js-spells");
-  //   var spellState = spellRoot.dataset.spellState;
-  //   var spellObject = sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount];
-  //
-  //   function _render_count(spellControl) {
-  //     var currentPreparedCount = parseInt(spellControl.dataset.spellPrepared, 10);
-  //     var currentCastCount = parseInt(spellControl.dataset.spellCast, 10);
-  //     var spellControlPreparedCount = spellControl.querySelector(".js-spell-control-prepared-count");
-  //     var spellControlCastCount = spellControl.querySelector(".js-spell-control-cast-count");
-  //     spellControlPreparedCount.textContent = currentPreparedCount;
-  //     spellControlCastCount.textContent = currentCastCount;
-  //   };
-  //
-  //   function _store_data(spellControl, action, type) {
-  //     var newCount;
-  //     var currentActive = spellControl.dataset.spellActive;
-  //     var currentPreparedCount = parseInt(spellControl.dataset.spellPrepared, 10);
-  //     var currentCastCount = parseInt(spellControl.dataset.spellCast, 10);
-  //     if (type == "prepared") {
-  //       if (action == "plus" && currentPreparedCount < 50) {
-  //         spellControl.dataset.spellPrepared = currentPreparedCount + 1;
-  //       } else if (action == "minus" && currentPreparedCount > 0) {
-  //         spellControl.dataset.spellPrepared = currentPreparedCount - 1;
-  //       } else if (action == "clear" && currentPreparedCount > 0) {
-  //         spellControl.dataset.spellPrepared = 0;
-  //       };
-  //       if (parseInt(spellControl.dataset.spellCast, 10) > parseInt(spellControl.dataset.spellPrepared, 10)) {
-  //         spellControl.dataset.spellCast = parseInt(spellControl.dataset.spellPrepared, 10);
-  //       };
-  //     };
-  //     if (type == "cast") {
-  //       if (action == "plus" && currentCastCount < 50) {
-  //         spellControl.dataset.spellCast = currentCastCount + 1;
-  //       } else if (action == "minus" && currentCastCount > 0) {
-  //         spellControl.dataset.spellCast = currentCastCount - 1;
-  //       } else if (action == "clear" && currentCastCount > 0) {
-  //         spellControl.dataset.spellCast = 0;
-  //       };
-  //       if (parseInt(spellControl.dataset.spellPrepared, 10) < parseInt(spellControl.dataset.spellCast, 10)) {
-  //         spellControl.dataset.spellPrepared = parseInt(spellControl.dataset.spellCast, 10);
-  //       };
-  //     };
-  //     if (type == "active" && action == "toggle") {
-  //       if (currentActive == "true") {
-  //         spellControl.dataset.spellActive = false;
-  //       } else {
-  //         spellControl.dataset.spellActive = true;
-  //       };
-  //     };
-  //   };
-  //
-  //   function _update_spellObject(spellControl) {
-  //     var spellLevel = parseInt(spellControl.dataset.spellLevel, 10);
-  //     var spellCount = parseInt(spellControl.dataset.spellCount, 10);
-  //     var spellObject = sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount];
-  //     if (spellControl.dataset.spellActive == "true") {
-  //       spellObject.active = true;
-  //     } else {
-  //       spellObject.active = false;
-  //     };
-  //     spellObject.prepared = parseInt(spellControl.dataset.spellPrepared, 10);
-  //     spellObject.cast = parseInt(spellControl.dataset.spellCast, 10);
-  //     spellObject.name = spellControl.querySelector(".js-spell-control-input-name").value;
-  //     spellObject.note = spellControl.querySelector(".js-spell-control-textarea-note").innerHTML;
-  //     if (spellObject.note == " " || spellObject.note == "&nbsp;" || spellObject.note == "<br/>" || spellObject.note == "<br>") {
-  //       spellObject.note = "";
-  //     };
-  //   };
-  //
-  //   function _create_editBoxItem(size, child) {
-  //     var editBoxItem = document.createElement("div");
-  //     editBoxItem.setAttribute("class", "m-edit-box-item-" + size);
-  //     if (child) {
-  //       editBoxItem.appendChild(child);
-  //     };
-  //     return editBoxItem;
-  //   };
-  //
-  //   function _create_spellControlModal() {
-  //     var spellControl = document.createElement("div");
-  //     spellControl.setAttribute("class", "m-spell-control js-spell-control");
-  //     spellControl.setAttribute("data-spell-level", spellLevel);
-  //     spellControl.setAttribute("data-spell-count", spellCount);
-  //     spellControl.setAttribute("data-spell-name", spellObject.name);
-  //     spellControl.setAttribute("data-spell-active", spellObject.active);
-  //     spellControl.setAttribute("data-spell-prepared", spellObject.prepared);
-  //     spellControl.setAttribute("data-spell-cast", spellObject.cast);
-  //
-  //     var nameEditBox = document.createElement("div");
-  //     nameEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
-  //     var nameEditBoxHead = document.createElement("div");
-  //     nameEditBoxHead.setAttribute("class", "m-edit-box-head");
-  //     var nameEditBoxHeadTitle = document.createElement("h2");
-  //     nameEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
-  //     nameEditBoxHeadTitle.textContent = "Name";
-  //     var nameEditBoxBody = document.createElement("div");
-  //     nameEditBoxBody.setAttribute("class", "m-edit-box-body");
-  //     var nameEditBoxContent = document.createElement("div");
-  //     nameEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
-  //     var nameEditBoxBodyInput = document.createElement("input");
-  //     nameEditBoxBodyInput.setAttribute("class", "js-spell-control-input-name");
-  //     nameEditBoxBodyInput.setAttribute("type", "text");
-  //     nameEditBoxBodyInput.setAttribute("tabindex", "1");
-  //     nameEditBoxBodyInput.value = spellObject.name;
-  //
-  //     nameEditBoxContent.appendChild(_create_editBoxItem("max", nameEditBoxBodyInput));
-  //     nameEditBoxBody.appendChild(nameEditBoxContent);
-  //     nameEditBoxHead.appendChild(nameEditBoxHeadTitle);
-  //     nameEditBox.appendChild(nameEditBoxHead);
-  //     nameEditBox.appendChild(nameEditBoxBody);
-  //
-  //     var preparedEditBox = document.createElement("div");
-  //     preparedEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
-  //     var preparedEditBoxHead = document.createElement("div");
-  //     preparedEditBoxHead.setAttribute("class", "m-edit-box-head");
-  //     var preparedEditBoxHeadTitle = document.createElement("h2");
-  //     preparedEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
-  //     preparedEditBoxHeadTitle.textContent = "Prepared";
-  //     var preparedEditBoxBody = document.createElement("div");
-  //     preparedEditBoxBody.setAttribute("class", "m-edit-box-body");
-  //     var preparedEditBoxContent = document.createElement("div");
-  //     preparedEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
-  //     var preparedEditBoxGroup = document.createElement("div");
-  //     preparedEditBoxGroup.setAttribute("class", "m-edit-box-item m-edit-box-group-control-set");
-  //     var preparedCount = document.createElement("p");
-  //     preparedCount.setAttribute("class", "m-edit-box-total js-spell-control-prepared-count");
-  //     preparedCount.textContent = spellObject.prepared;
-  //     var preparedPlus = document.createElement("button");
-  //     preparedPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
-  //     preparedPlus.setAttribute("tabindex", "1");
-  //     var preparedPlusIcon = document.createElement("span");
-  //     preparedPlusIcon.setAttribute("class", "icon-add");
-  //     preparedPlus.addEventListener("click", function() {
-  //       _store_data(spellControl, "plus", "prepared");
-  //       _render_count(spellControl);
-  //     }, false);
-  //     var preparedMinus = document.createElement("button");
-  //     preparedMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
-  //     preparedMinus.setAttribute("tabindex", "1");
-  //     var preparedMinusIcon = document.createElement("span");
-  //     preparedMinusIcon.setAttribute("class", "icon-remove");
-  //     preparedMinus.addEventListener("click", function() {
-  //       _store_data(spellControl, "minus", "prepared");
-  //       _render_count(spellControl);
-  //     }, false);
-  //     var preparedClear = document.createElement("button");
-  //     preparedClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
-  //     preparedClear.setAttribute("tabindex", "1");
-  //     var preparedClearIcon = document.createElement("span");
-  //     preparedClearIcon.setAttribute("class", "icon-close");
-  //     preparedClear.addEventListener("click", function() {
-  //       _store_data(spellControl, "clear", "prepared");
-  //       _render_count(spellControl);
-  //     }, false);
-  //
-  //     preparedMinus.appendChild(preparedMinusIcon);
-  //     preparedPlus.appendChild(preparedPlusIcon);
-  //     preparedClear.appendChild(preparedClearIcon);
-  //
-  //     preparedEditBoxGroup.appendChild(_create_editBoxItem("button-large", preparedMinus));
-  //     preparedEditBoxGroup.appendChild(_create_editBoxItem("max", preparedCount));
-  //     preparedEditBoxGroup.appendChild(_create_editBoxItem("button-large", preparedPlus));
-  //     preparedEditBoxContent.appendChild(preparedEditBoxGroup);
-  //     preparedEditBoxContent.appendChild(_create_editBoxItem("button-large", preparedClear));
-  //     preparedEditBoxBody.appendChild(preparedEditBoxContent);
-  //     preparedEditBoxHead.appendChild(preparedEditBoxHeadTitle);
-  //     preparedEditBox.appendChild(preparedEditBoxHead);
-  //     preparedEditBox.appendChild(preparedEditBoxBody);
-  //
-  //     var castEditBox = document.createElement("div");
-  //     castEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
-  //     var castEditBoxHead = document.createElement("div");
-  //     castEditBoxHead.setAttribute("class", "m-edit-box-head");
-  //     var castEditBoxHeadTitle = document.createElement("h2");
-  //     castEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
-  //     castEditBoxHeadTitle.textContent = "Cast";
-  //     var castEditBoxBody = document.createElement("div");
-  //     castEditBoxBody.setAttribute("class", "m-edit-box-body");
-  //     var castEditBoxContent = document.createElement("div");
-  //     castEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
-  //     var castEditBoxGroup = document.createElement("div");
-  //     castEditBoxGroup.setAttribute("class", "m-edit-box-item m-edit-box-group-control-set");
-  //     var castCount = document.createElement("p");
-  //     castCount.setAttribute("class", "m-edit-box-total js-spell-control-cast-count");
-  //     castCount.textContent = spellObject.cast;
-  //     var castPlus = document.createElement("button");
-  //     castPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
-  //     castPlus.setAttribute("tabindex", "1");
-  //     var castPlusIcon = document.createElement("span");
-  //     castPlusIcon.setAttribute("class", "icon-add");
-  //     castPlus.addEventListener("click", function() {
-  //       _store_data(spellControl, "plus", "cast");
-  //       _render_count(spellControl);
-  //     }, false);
-  //     var castMinus = document.createElement("button");
-  //     castMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
-  //     castMinus.setAttribute("tabindex", "1");
-  //     var castMinusIcon = document.createElement("span");
-  //     castMinusIcon.setAttribute("class", "icon-remove");
-  //     castMinus.addEventListener("click", function() {
-  //       _store_data(spellControl, "minus", "cast");
-  //       _render_count(spellControl);
-  //     }, false);
-  //     var castClear = document.createElement("button");
-  //     castClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
-  //     castClear.setAttribute("tabindex", "1");
-  //     var castClearIcon = document.createElement("span");
-  //     castClearIcon.setAttribute("class", "icon-close");
-  //     castClear.addEventListener("click", function() {
-  //       _store_data(spellControl, "clear", "cast");
-  //       _render_count(spellControl);
-  //     }, false);
-  //
-  //     castMinus.appendChild(castMinusIcon);
-  //     castPlus.appendChild(castPlusIcon);
-  //     castClear.appendChild(castClearIcon);
-  //
-  //     castEditBoxGroup.appendChild(_create_editBoxItem("button-large", castMinus));
-  //     castEditBoxGroup.appendChild(_create_editBoxItem("max", castCount));
-  //     castEditBoxGroup.appendChild(_create_editBoxItem("button-large", castPlus));
-  //     castEditBoxContent.appendChild(castEditBoxGroup);
-  //     castEditBoxContent.appendChild(_create_editBoxItem("button-large", castClear));
-  //     castEditBoxBody.appendChild(castEditBoxContent);
-  //     castEditBoxHead.appendChild(castEditBoxHeadTitle);
-  //     castEditBox.appendChild(castEditBoxHead);
-  //     castEditBox.appendChild(castEditBoxBody);
-  //
-  //     var activeEditBox = document.createElement("div");
-  //     activeEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
-  //     var activeEditBoxHead = document.createElement("div");
-  //     activeEditBoxHead.setAttribute("class", "m-edit-box-head");
-  //     var activeEditBoxHeadTitle = document.createElement("h2");
-  //     activeEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
-  //     activeEditBoxHeadTitle.textContent = "Active";
-  //     var activeEditBoxBody = document.createElement("div");
-  //     activeEditBoxBody.setAttribute("class", "m-edit-box-body");
-  //     var activeEditBoxContent = document.createElement("div");
-  //     activeEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
-  //     var activeCheck = document.createElement("div");
-  //     activeCheck.setAttribute("class", "m-check-block");
-  //     var activeInput = document.createElement("input");
-  //     activeInput.setAttribute("type", "checkbox");
-  //     activeInput.setAttribute("id", "spell-active");
-  //     activeInput.setAttribute("class", "m-check-block-check js-spell-control-active");
-  //     activeInput.setAttribute("tabindex", "1");
-  //     activeInput.checked = spellObject.active;
-  //     activeInput.addEventListener("change", function() {
-  //       _store_data(spellControl, "toggle", "active");
-  //       _render_count(spellControl);
-  //     }, false);
-  //     var activeIcon = document.createElement("span");
-  //     activeIcon.setAttribute("class", "m-check-block-check-icon");
-  //
-  //     activeCheck.appendChild(activeInput);
-  //     activeCheck.appendChild(activeIcon);
-  //     activeEditBoxContent.appendChild(_create_editBoxItem("check", activeCheck));
-  //     activeEditBoxBody.appendChild(activeEditBoxContent);
-  //     activeEditBoxHead.appendChild(activeEditBoxHeadTitle);
-  //     activeEditBox.appendChild(activeEditBoxHead);
-  //     activeEditBox.appendChild(activeEditBoxBody);
-  //
-  //     var noteEditBox = document.createElement("div");
-  //     noteEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
-  //     var noteEditBoxHead = document.createElement("div");
-  //     noteEditBoxHead.setAttribute("class", "m-edit-box-head");
-  //     var noteEditBoxHeadTitle = document.createElement("h2");
-  //     noteEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
-  //     noteEditBoxHeadTitle.textContent = "Spell Notes";
-  //     var noteEditBoxBody = document.createElement("div");
-  //     noteEditBoxBody.setAttribute("class", "m-edit-box-body");
-  //     var noteEditBoxContent = document.createElement("div");
-  //     noteEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
-  //     var noteTextarea = document.createElement("div");
-  //     noteTextarea.setAttribute("class", "m-textarea-block-field textarea textarea-large u-full-width js-spell-control-textarea-note");
-  //     noteTextarea.setAttribute("contenteditable", "true");
-  //     noteTextarea.setAttribute("tabindex", "1");
-  //     noteTextarea.innerHTML = spellObject.note;
-  //     noteTextarea.addEventListener("paste", function(event) {
-  //       helper.pasteStrip(event);
-  //     });
-  //
-  //     noteEditBoxContent.appendChild(_create_editBoxItem("max", noteTextarea));
-  //     noteEditBoxBody.appendChild(noteEditBoxContent);
-  //     noteEditBoxHead.appendChild(noteEditBoxHeadTitle);
-  //     noteEditBox.appendChild(noteEditBoxHead);
-  //     noteEditBox.appendChild(noteEditBoxBody);
-  //
-  //     spellControl.appendChild(nameEditBox);
-  //     spellControl.appendChild(preparedEditBox);
-  //     spellControl.appendChild(castEditBox);
-  //     spellControl.appendChild(activeEditBox);
-  //     spellControl.appendChild(noteEditBox);
-  //
-  //     return spellControl;
-  //   };
-  //
-  //   if (spellState == "false" || force) {
-  //     var modalContent = _create_spellControlModal();
-  //
-  //     modal.render({
-  //       heading: spellObject.name,
-  //       content: modalContent,
-  //       action: function() {
-  //         var spellSection = helper.e(".js-section-spells");
-  //         _update_spellObject(this);
-  //         _update_spellButton(button, true);
-  //         sheet.store();
-  //         display.clear(spellSection);
-  //         display.render(spellSection);
-  //       }.bind(modalContent),
-  //       actionText: "Save",
-  //       size: "medium"
-  //     });
-  //     page.update();
-  //   };
-  //
-  // };
   //
   // function _update_spellButton(button, force) {
   //   var spellLevel = parseInt(button.dataset.spellLevel, 10);
@@ -507,124 +186,17 @@ var spells = (function() {
   // };
   //
   //
-  // function _store_lastRemovedSpell(spellLevel, spellCount, spell) {
-  //   var object = {
-  //     spellLevel: spellLevel,
-  //     spellCount: spellCount,
-  //     spell: spell
-  //   };
-  //   helper.store("lastRemovedSpell", JSON.stringify(object));
-  // };
+
   //
-  // function _remove_lastRemovedSpell() {
-  //   helper.remove("lastRemovedSpell");
-  // };
+
   //
-  // function _restore_lastRemovedSpell() {
-  //   var undoData = JSON.parse(helper.read("lastRemovedSpell"));
-  //   _restore_spellObject(undoData.spellLevel, undoData.spellCount, undoData.spell);
-  //   _remove_lastRemovedSpell();
-  //   _checkSpellState();
-  // };
+
   //
-  // function _restore_spellObject(spellLevel, spellCount, spell) {
-  //   sheet.get().spells.book[spellLevel]["level_" + spellLevel].splice(spellCount, 0, spell);
-  //   _destroy_spellBook(spellLevel);
-  //   _render_all_spells(sheet.get().spells.book[spellLevel]["level_" + spellLevel], spellLevel);
-  //   sheet.store();
-  // };
+
   //
-  // function _change_spellState(button) {
-  //   var all_spellLevels = helper.eA(".js-spell-book-known");
-  //   var spellsFound = false;
-  //   var spellRoot = helper.e(".js-spells");
-  //   var spellPrepareButton = helper.e(".js-spell-prepare");
-  //   var spellUnprepareButton = helper.e(".js-spell-unprepare");
-  //   var spellCastButton = helper.e(".js-spell-cast");
-  //   var spellActiveButton = helper.e(".js-spell-active");
-  //   var spellRemoveButton = helper.e(".js-spell-remove");
-  //   var all_spellStateControls = spellRoot.querySelectorAll(".js-spell-state-control");
-  //   var all_spellBookItem = helper.eA(".js-spell");
-  //   for (var i = 0; i < all_spellLevels.length; i++) {
-  //     if (all_spellLevels[i].children.length > 0) {
-  //       spellsFound = true;
-  //     };
-  //   };
+
   //
-  //   var _normalStateSpellItems = function() {
-  //     for (var i = 0; i < all_spellBookItem.length; i++) {
-  //       helper.removeClass(all_spellBookItem[i], "button-primary");
-  //       helper.removeClass(all_spellBookItem[i], "button-secondary");
-  //     };
-  //   };
-  //
-  //   var _activeStateSpellItems = function() {
-  //     for (var i = 0; i < all_spellBookItem.length; i++) {
-  //       helper.addClass(all_spellBookItem[i], "button-secondary");
-  //     };
-  //   };
-  //
-  //   var _remove_stateSpellItems = function() {
-  //     for (var i = 0; i < all_spellBookItem.length; i++) {
-  //       helper.addClass(all_spellBookItem[i], "button-primary");
-  //     };
-  //   };
-  //
-  //   var _reset_allControls = function() {
-  //     for (var i = 0; i < all_spellStateControls.length; i++) {
-  //       helper.removeClass(all_spellStateControls[i], "is-live");
-  //     };
-  //   };
-  //
-  //   // change spell state
-  //   if (spellsFound) {
-  //     if (button.dataset.state != spellRoot.dataset.spellState) {
-  //       spellRoot.dataset.spellState = button.dataset.state;
-  //       _reset_allControls();
-  //       if (button.dataset.state == "prepare" || button.dataset.state == "unprepare" || button.dataset.state == "cast" || button.dataset.state == "active") {
-  //         helper.addClass(button, "is-live");
-  //       };
-  //     } else {
-  //       spellRoot.dataset.spellState = false;
-  //       _reset_allControls();
-  //     };
-  //   };
-  //
-  //   // change spells to reflect state
-  //   if (spellRoot.dataset.spellState == "remove") {
-  //     _normalStateSpellItems();
-  //     _remove_stateSpellItems();
-  //     helper.addClass(spellRoot, "is-state-remove");
-  //     helper.addClass(spellRemoveButton, "button-primary");
-  //     helper.removeClass(spellRemoveButton, "button-secondary");
-  //   } else if (spellRoot.dataset.spellState != "false") {
-  //     _activeStateSpellItems();
-  //     helper.removeClass(spellRoot, "is-state-remove");
-  //     helper.removeClass(spellRemoveButton, "button-primary");
-  //     helper.addClass(spellRemoveButton, "button-secondary");
-  //   } else {
-  //     _normalStateSpellItems();
-  //     helper.removeClass(spellRoot, "is-state-remove");
-  //     helper.removeClass(spellRemoveButton, "button-primary");
-  //     helper.addClass(spellRemoveButton, "button-secondary");
-  //   };
-  // };
-  //
-  // function _checkSpellState() {
-  //   var spellRoot = helper.e(".js-spells");
-  //   var all_spellStateControls = spellRoot.querySelectorAll(".js-spell-state-control");
-  //   var all_spellBookItem = helper.eA(".js-spell");
-  //   var spellRemoveButton = helper.e(".js-spell-remove");
-  //   if (all_spellBookItem.length == 0) {
-  //     helper.removeClass(spellRoot, "is-state-remove");
-  //     for (var i = 0; i < all_spellStateControls.length; i++) {
-  //       helper.removeClass(all_spellStateControls[i], "is-live");
-  //       helper.removeClass(spellRemoveButton, "button-primary");
-  //       helper.addClass(spellRemoveButton, "button-secondary");
-  //     };
-  //     spellRoot.dataset.spellState = "false";
-  //   };
-  // };
+
   //
   // function _create_spellObject(spellName, spellPrepared, spellActive, spellCast, spellNote) {
   //   return {
@@ -649,12 +221,7 @@ var spells = (function() {
   // };
   //
   //
-  // function _destroy_spellBook(level) {
-  //   var spellBook = helper.e(".js-spell-book-known-level-" + level);
-  //   while (spellBook.lastChild) {
-  //     spellBook.removeChild(spellBook.lastChild);
-  //   };
-  // };
+
   //
   // function clear() {
   //   var all_spellBookKnown = helper.eA(".js-spell-book-known");
@@ -685,54 +252,82 @@ var spells = (function() {
     level_9: null
   };
 
-  function _set_spellState(level, state) {
+  function _get_spellState(level) {
+    return spellState["level_" + level];
+  };
+
+  function _update_spellState(level, state) {
     if (spellState["level_" + level] == null || spellState["level_" + level] != state) {
       spellState["level_" + level] = state;
     } else {
       spellState["level_" + level] = null;
     };
-    console.log("spellState == ", spellState);
+    console.log("spellState changed", spellState);
   };
 
-  function _set_spellControlState(spellBook, button) {
-    var options = helper.makeObject(button.dataset.spellControlOptions);
-    var spellBookOptions = helper.makeObject(spellBook.dataset.spellBookOptions);
-    var all_spellControl = spellBook.querySelectorAll(".js-spell-control");
-    // make the cliked button live
-    if (options.state == "remove") {
-      if (button.classList.contains("button-primary")) {
-        helper.removeClass(button, "button-primary");
-        helper.addClass(button, "button-secondary");
-      } else {
-        helper.removeClass(button, "button-secondary");
-        helper.addClass(button, "button-primary");
-      };
-    } else {
-      if (button.classList.contains("is-live")) {
-        helper.removeClass(button, "is-live");
-      } else {
-        helper.addClass(button, "is-live");
-      };
+  function _destroy_spellBook(level) {
+    var spellBook = helper.e(".js-spell-book-known-level-" + level);
+    while (spellBook.lastChild) {
+      spellBook.removeChild(spellBook.lastChild);
     };
-    // make each other buttons normal
+  };
+
+  function _store_lastRemovedSpell(level, index, spell) {
+    var object = {
+      level: level,
+      index: index,
+      spell: spell
+    };
+    helper.store("lastRemovedSpell", JSON.stringify(object));
+  };
+
+  function _restore_lastRemovedSpell() {
+    var undoData = JSON.parse(helper.read("lastRemovedSpell"));
+    _restore_spellObject(undoData.level, undoData.index, undoData.spell);
+    _remove_lastRemovedSpell();
+    _update_spellState();
+  };
+
+  function _restore_spellObject(level, index, spell) {
+    var spellBook = helper.getObject({
+      object: sheet.get(),
+      path: "spells.book[" + level + "]level_" + level
+    });
+    spellBook.splice(index, 0, spell);
+    _destroy_spellBook(level);
+    _render_all_spells(spellBook, level);
+    sheet.store();
+  };
+
+  function _remove_lastRemovedSpell() {
+    helper.remove("lastRemovedSpell");
+  };
+
+  function clear() {};
+
+  function bind() {
+    _bind_all_spellControl()
+  };
+
+  function _bind_all_spellControl() {
+    all_spellControl = helper.eA(".js-spell-control");
     for (var i = 0; i < all_spellControl.length; i++) {
-      if (all_spellControl[i] != button) {
-        if (all_spellControl[i].classList.contains("button-primary")) {
-          helper.removeClass(all_spellControl[i], "button-primary");
-          helper.addClass(all_spellControl[i], "button-secondary");
-        };
-        helper.removeClass(all_spellControl[i], "is-live");
-      };
+      all_spellControl[i].addEventListener("click", function() {
+        _spellControl(this);
+      }, false);
     };
   };
 
-  function _set_spellBookState() {};
-
-
-
-
-
-
+  function _bind_spellKnownItem(button) {
+    button.addEventListener("click", function() {
+      _update_spellObject(this);
+      _update_spellButton(this);
+      _render_quickSpellControl(this);
+      // _update_spellState(this);
+      // _change_spellState(this);
+      // _castFireball(this);
+    }, false);
+  };
 
   function _update_spellObject(button) {
     var options = helper.makeObject(button.dataset.spellButtonOptions);
@@ -740,54 +335,62 @@ var spells = (function() {
       object: sheet.get(),
       path: "spells.book[" + options.level + "]level_" + options.level + "[" + options.index + "]"
     });
-    if (spellState["level_" + options.level] == "prepare") {
-      if (spellObject.prepared < 50) {
-        spellObject.prepared++;
+    if (_get_spellState(options.level) != null) {
+      if (_get_spellState(options.level) == "prepare") {
+        if (spellObject.prepared < 50) {
+          spellObject.prepared++;
+        };
+      } else if (_get_spellState(options.level) == "unprepare") {
+        if (spellObject.prepared > 0) {
+          spellObject.prepared--;
+        };
+        if (spellObject.prepared < spellObject.cast) {
+          spellObject.cast = spellObject.prepared;
+        };
+      } else if (_get_spellState(options.level) == "cast") {
+        if (spellObject.cast < 50) {
+          spellObject.cast++;
+        };
+        if (spellObject.cast > spellObject.prepared) {
+          spellObject.prepared = spellObject.cast;
+        };
+      } else if (_get_spellState(options.level) == "active") {
+        if (spellObject.active) {
+          spellObject.active = false;
+        } else {
+          spellObject.active = true;
+        };
+      } else if (_get_spellState(options.level) == "remove") {
+        // store undo data
+        _store_lastRemovedSpell(options.level, options.index, spellObject);
+        // remove spell from spellbook
+        helper.getObject({
+          object: sheet.get(),
+          path: "spells.book[" + options.level + "]level_" + options.level
+        }).splice(options.index, 1);
+        // snack with undo option
+        snack.render({
+          message: helper.truncate(spellObject.name, 40, true) + " removed.",
+          button: "Undo",
+          action: _restore_lastRemovedSpell,
+          destroyDelay: 8000
+        });
       };
-    } else if (spellState["level_" + options.level] == "unprepare") {
-      if (spellObject.prepared > 0) {
-        spellObject.prepared--;
-      };
-      if (spellObject.prepared < spellObject.cast) {
-        spellObject.cast = spellObject.prepared;
-      };
-    } else if (spellState["level_" + options.level] == "cast") {
-      if (spellObject.cast < 50) {
-        spellObject.cast++;
-      };
-      if (spellObject.cast > spellObject.prepared) {
-        spellObject.prepared = spellObject.cast;
-      };
-    } else if (spellState["level_" + options.level] == "active") {
-      if (spellObject.active) {
-        spellObject.active = false;
-      } else {
-        spellObject.active = true;
-      };
-    } else if (spellState["level_" + options.level] == "remove") {
-      _store_lastRemovedSpell(spellLevel, spellCount, spellObject);
-      sheet.get().spells.book[spellLevel]["level_" + spellLevel].splice(spellCount, 1);
-      snack.render({
-        message: helper.truncate(spellObject.name, 40, true) + " removed.",
-        button: "Undo",
-        action: _restore_lastRemovedSpell,
-        destroyDelay: 8000
-      });
+      // console.log(spellObject);
+      sheet.store();
     };
-    // console.log(spellObject);
-    sheet.store();
   };
 
   function _update_spellButton(button, force) {
-    var spellLevel = parseInt(button.dataset.spellLevel, 10);
-    var spellCount = parseInt(button.dataset.spellCount, 10);
-    var spellRoot = helper.getClosest(button, ".js-spells") || helper.e(".js-spells");
+    var options = helper.makeObject(button.dataset.spellButtonOptions);
+    var spellObject = helper.getObject({
+      object: sheet.get(),
+      path: "spells.book[" + options.level + "]level_" + options.level + "[" + options.index + "]"
+    });
     var spellName = button.querySelector(".js-spell-name");
     var spellMarks = button.querySelector(".js-spell-marks");
     var spellActive = button.querySelector(".js-spell-active");
-    var spellState = spellRoot.dataset.spellState;
-    var spellObject = sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount];
-    if (spellState == "prepare" || spellState == "unprepare" || spellState == "cast" || spellState == "active" || force) {
+    if (_get_spellState(options.level) == "prepare" || _get_spellState(options.level) == "unprepare" || _get_spellState(options.level) == "cast" || _get_spellState(options.level) == "active" || force) {
       if (spellMarks.lastChild) {
         while (spellMarks.lastChild) {
           spellMarks.removeChild(spellMarks.lastChild);
@@ -824,43 +427,328 @@ var spells = (function() {
         };
       };
       spellName.textContent = spellObject.name;
-    } else if (spellState == "remove") {
-      _destroy_spellBook(spellLevel);
-      _render_all_spells(sheet.get().spells.book[spellLevel]["level_" + spellLevel], spellLevel);
+    } else if (_get_spellState(options.level) == "remove") {
+      _destroy_spellBook(options.level);
+      _render_all_spells(helper.getObject({
+        object: sheet.get(),
+        path: "spells.book[" + options.level + "]level_" + options.level
+      }), options.level);
     };
   };
 
+  function _render_quickSpellControl(button, force) {
+    var options = helper.makeObject(button.dataset.spellButtonOptions);
+    var spellObject = helper.getObject({
+      object: sheet.get(),
+      path: "spells.book[" + options.level + "]level_" + options.level + "[" + options.index + "]"
+    });
+    var tempSpellObject = JSON.parse(JSON.stringify(spellObject));
 
+    var _hold_data = function(action, type) {
+      if (type == "prepared") {
+        if (action == "plus" && tempSpellObject.prepared < 50) {
+          tempSpellObject.prepared++;
+        } else if (action == "minus" && tempSpellObject.prepared > 0) {
+          tempSpellObject.prepared--;
+        } else if (action == "clear" && tempSpellObject.prepared > 0) {
+          tempSpellObject.prepared = 0;
+        };
+        if (tempSpellObject.cast > tempSpellObject.prepared) {
+          tempSpellObject.cast = tempSpellObject.prepared;
+        };
+      };
+      if (type == "cast") {
+        if (action == "plus" && tempSpellObject.cast < 50) {
+          tempSpellObject.cast++;
+        } else if (action == "minus" && tempSpellObject.cast > 0) {
+          tempSpellObject.cast--;
+        } else if (action == "clear" && tempSpellObject.cast > 0) {
+          tempSpellObject.cast = 0;
+        };
+        if (tempSpellObject.prepared < tempSpellObject.cast) {
+          tempSpellObject.prepared = tempSpellObject.cast;
+        };
+      };
+      if (type == "active" && action == "toggle") {
+        if (tempSpellObject.active) {
+          tempSpellObject.active = false;
+        } else {
+          tempSpellObject.active = true;
+        };
+      };
+      // console.log("tempSpellObject", tempSpellObject);
+    };
 
+    var _render_count = function(spellControl) {
+      var spellControlPreparedCount = spellControl.querySelector(".js-spell-control-prepared-count");
+      var spellControlCastCount = spellControl.querySelector(".js-spell-control-cast-count");
+      spellControlPreparedCount.textContent = tempSpellObject.prepared;
+      spellControlCastCount.textContent = tempSpellObject.cast;
+    };
 
+    var _store_data = function(spellControl) {
+      tempSpellObject.note = spellControl.querySelector(".js-spell-control-textarea-note").innerHTML;
+      if (tempSpellObject.note == " " || tempSpellObject.note == "&nbsp;" || tempSpellObject.note == "<br/>" || tempSpellObject.note == "<br>") {
+        tempSpellObject.note = "";
+      };
+      tempSpellObject.name = spellControl.querySelector(".js-spell-control-input-name").value;
+      helper.setObject({
+        object: sheet.get(),
+        path: "spells.book[ " + options.level + "].level_" + options.level + "[" + options.index + "]",
+        newValue: tempSpellObject
+      });
+    };
 
+    var _create_editBoxItem = function(size, child) {
+      var editBoxItem = document.createElement("div");
+      editBoxItem.setAttribute("class", "m-edit-box-item-" + size);
+      if (child) {
+        editBoxItem.appendChild(child);
+      };
+      return editBoxItem;
+    };
 
+    var _create_spellControlModal = function() {
+      var spellControl = document.createElement("div");
+      spellControl.setAttribute("class", "m-spell-control js-spell-control");
 
+      var nameEditBox = document.createElement("div");
+      nameEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
+      var nameEditBoxHead = document.createElement("div");
+      nameEditBoxHead.setAttribute("class", "m-edit-box-head");
+      var nameEditBoxHeadTitle = document.createElement("h2");
+      nameEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
+      nameEditBoxHeadTitle.textContent = "Name";
+      var nameEditBoxBody = document.createElement("div");
+      nameEditBoxBody.setAttribute("class", "m-edit-box-body");
+      var nameEditBoxContent = document.createElement("div");
+      nameEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
+      var nameEditBoxBodyInput = document.createElement("input");
+      nameEditBoxBodyInput.setAttribute("class", "js-spell-control-input-name");
+      nameEditBoxBodyInput.setAttribute("type", "text");
+      nameEditBoxBodyInput.setAttribute("tabindex", "1");
+      nameEditBoxBodyInput.value = tempSpellObject.name;
 
-  function clear() {};
+      nameEditBoxContent.appendChild(_create_editBoxItem("max", nameEditBoxBodyInput));
+      nameEditBoxBody.appendChild(nameEditBoxContent);
+      nameEditBoxHead.appendChild(nameEditBoxHeadTitle);
+      nameEditBox.appendChild(nameEditBoxHead);
+      nameEditBox.appendChild(nameEditBoxBody);
 
-  function bind() {
-    _bind_all_spellControl()
-  };
-
-  function _bind_all_spellControl() {
-    all_spellControl = helper.eA(".js-spell-control");
-    for (var i = 0; i < all_spellControl.length; i++) {
-      all_spellControl[i].addEventListener("click", function() {
-        _spellControl(this);
+      var preparedEditBox = document.createElement("div");
+      preparedEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
+      var preparedEditBoxHead = document.createElement("div");
+      preparedEditBoxHead.setAttribute("class", "m-edit-box-head");
+      var preparedEditBoxHeadTitle = document.createElement("h2");
+      preparedEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
+      preparedEditBoxHeadTitle.textContent = "Prepared";
+      var preparedEditBoxBody = document.createElement("div");
+      preparedEditBoxBody.setAttribute("class", "m-edit-box-body");
+      var preparedEditBoxContent = document.createElement("div");
+      preparedEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
+      var preparedEditBoxGroup = document.createElement("div");
+      preparedEditBoxGroup.setAttribute("class", "m-edit-box-item m-edit-box-group-control-set");
+      var preparedCount = document.createElement("p");
+      preparedCount.setAttribute("class", "m-edit-box-total js-spell-control-prepared-count");
+      preparedCount.textContent = tempSpellObject.prepared;
+      var preparedPlus = document.createElement("button");
+      preparedPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
+      preparedPlus.setAttribute("tabindex", "1");
+      var preparedPlusIcon = document.createElement("span");
+      preparedPlusIcon.setAttribute("class", "icon-add");
+      preparedPlus.addEventListener("click", function() {
+        _hold_data("plus", "prepared");
+        _render_count(spellControl);
       }, false);
+      var preparedMinus = document.createElement("button");
+      preparedMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
+      preparedMinus.setAttribute("tabindex", "1");
+      var preparedMinusIcon = document.createElement("span");
+      preparedMinusIcon.setAttribute("class", "icon-remove");
+      preparedMinus.addEventListener("click", function() {
+        _hold_data("minus", "prepared");
+        _render_count(spellControl);
+      }, false);
+      var preparedClear = document.createElement("button");
+      preparedClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
+      preparedClear.setAttribute("tabindex", "1");
+      var preparedClearIcon = document.createElement("span");
+      preparedClearIcon.setAttribute("class", "icon-close");
+      preparedClear.addEventListener("click", function() {
+        _hold_data("clear", "prepared");
+        _render_count(spellControl);
+      }, false);
+
+      preparedMinus.appendChild(preparedMinusIcon);
+      preparedPlus.appendChild(preparedPlusIcon);
+      preparedClear.appendChild(preparedClearIcon);
+
+      preparedEditBoxGroup.appendChild(_create_editBoxItem("button-large", preparedMinus));
+      preparedEditBoxGroup.appendChild(_create_editBoxItem("max", preparedCount));
+      preparedEditBoxGroup.appendChild(_create_editBoxItem("button-large", preparedPlus));
+      preparedEditBoxContent.appendChild(preparedEditBoxGroup);
+      preparedEditBoxContent.appendChild(_create_editBoxItem("button-large", preparedClear));
+      preparedEditBoxBody.appendChild(preparedEditBoxContent);
+      preparedEditBoxHead.appendChild(preparedEditBoxHeadTitle);
+      preparedEditBox.appendChild(preparedEditBoxHead);
+      preparedEditBox.appendChild(preparedEditBoxBody);
+
+      var castEditBox = document.createElement("div");
+      castEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
+      var castEditBoxHead = document.createElement("div");
+      castEditBoxHead.setAttribute("class", "m-edit-box-head");
+      var castEditBoxHeadTitle = document.createElement("h2");
+      castEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
+      castEditBoxHeadTitle.textContent = "Cast";
+      var castEditBoxBody = document.createElement("div");
+      castEditBoxBody.setAttribute("class", "m-edit-box-body");
+      var castEditBoxContent = document.createElement("div");
+      castEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
+      var castEditBoxGroup = document.createElement("div");
+      castEditBoxGroup.setAttribute("class", "m-edit-box-item m-edit-box-group-control-set");
+      var castCount = document.createElement("p");
+      castCount.setAttribute("class", "m-edit-box-total js-spell-control-cast-count");
+      castCount.textContent = tempSpellObject.cast;
+      var castPlus = document.createElement("button");
+      castPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
+      castPlus.setAttribute("tabindex", "1");
+      var castPlusIcon = document.createElement("span");
+      castPlusIcon.setAttribute("class", "icon-add");
+      castPlus.addEventListener("click", function() {
+        _hold_data("plus", "cast");
+        _render_count(spellControl);
+      }, false);
+      var castMinus = document.createElement("button");
+      castMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
+      castMinus.setAttribute("tabindex", "1");
+      var castMinusIcon = document.createElement("span");
+      castMinusIcon.setAttribute("class", "icon-remove");
+      castMinus.addEventListener("click", function() {
+        _hold_data("minus", "cast");
+        _render_count(spellControl);
+      }, false);
+      var castClear = document.createElement("button");
+      castClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
+      castClear.setAttribute("tabindex", "1");
+      var castClearIcon = document.createElement("span");
+      castClearIcon.setAttribute("class", "icon-close");
+      castClear.addEventListener("click", function() {
+        _hold_data("clear", "cast");
+        _render_count(spellControl);
+      }, false);
+
+      castMinus.appendChild(castMinusIcon);
+      castPlus.appendChild(castPlusIcon);
+      castClear.appendChild(castClearIcon);
+
+      castEditBoxGroup.appendChild(_create_editBoxItem("button-large", castMinus));
+      castEditBoxGroup.appendChild(_create_editBoxItem("max", castCount));
+      castEditBoxGroup.appendChild(_create_editBoxItem("button-large", castPlus));
+      castEditBoxContent.appendChild(castEditBoxGroup);
+      castEditBoxContent.appendChild(_create_editBoxItem("button-large", castClear));
+      castEditBoxBody.appendChild(castEditBoxContent);
+      castEditBoxHead.appendChild(castEditBoxHeadTitle);
+      castEditBox.appendChild(castEditBoxHead);
+      castEditBox.appendChild(castEditBoxBody);
+
+      var activeEditBox = document.createElement("div");
+      activeEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
+      var activeEditBoxHead = document.createElement("div");
+      activeEditBoxHead.setAttribute("class", "m-edit-box-head");
+      var activeEditBoxHeadTitle = document.createElement("h2");
+      activeEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
+      activeEditBoxHeadTitle.textContent = "Active";
+      var activeEditBoxBody = document.createElement("div");
+      activeEditBoxBody.setAttribute("class", "m-edit-box-body");
+      var activeEditBoxContent = document.createElement("div");
+      activeEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
+      var activeCheck = document.createElement("div");
+      activeCheck.setAttribute("class", "m-check-block");
+      var activeInput = document.createElement("input");
+      activeInput.setAttribute("type", "checkbox");
+      activeInput.setAttribute("id", "spell-active");
+      activeInput.setAttribute("class", "m-check-block-check js-spell-control-active");
+      activeInput.setAttribute("tabindex", "1");
+      activeInput.checked = tempSpellObject.active;
+      activeInput.addEventListener("change", function() {
+        _hold_data("toggle", "active");
+        _render_count(spellControl);
+      }, false);
+      var activeIcon = document.createElement("span");
+      activeIcon.setAttribute("class", "m-check-block-check-icon");
+
+      activeCheck.appendChild(activeInput);
+      activeCheck.appendChild(activeIcon);
+      activeEditBoxContent.appendChild(_create_editBoxItem("check", activeCheck));
+      activeEditBoxBody.appendChild(activeEditBoxContent);
+      activeEditBoxHead.appendChild(activeEditBoxHeadTitle);
+      activeEditBox.appendChild(activeEditBoxHead);
+      activeEditBox.appendChild(activeEditBoxBody);
+
+      var noteEditBox = document.createElement("div");
+      noteEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
+      var noteEditBoxHead = document.createElement("div");
+      noteEditBoxHead.setAttribute("class", "m-edit-box-head");
+      var noteEditBoxHeadTitle = document.createElement("h2");
+      noteEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
+      noteEditBoxHeadTitle.textContent = "Spell Notes";
+      var noteEditBoxBody = document.createElement("div");
+      noteEditBoxBody.setAttribute("class", "m-edit-box-body");
+      var noteEditBoxContent = document.createElement("div");
+      noteEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
+      var noteTextarea = document.createElement("div");
+      noteTextarea.setAttribute("class", "m-textarea-block-field textarea textarea-large u-full-width js-spell-control-textarea-note");
+      noteTextarea.setAttribute("contenteditable", "true");
+      noteTextarea.setAttribute("tabindex", "1");
+      noteTextarea.innerHTML = tempSpellObject.note;
+      noteTextarea.addEventListener("paste", function(event) {
+        helper.pasteStrip(event);
+      });
+
+      noteEditBoxContent.appendChild(_create_editBoxItem("max", noteTextarea));
+      noteEditBoxBody.appendChild(noteEditBoxContent);
+      noteEditBoxHead.appendChild(noteEditBoxHeadTitle);
+      noteEditBox.appendChild(noteEditBoxHead);
+      noteEditBox.appendChild(noteEditBoxBody);
+
+      spellControl.appendChild(nameEditBox);
+      spellControl.appendChild(preparedEditBox);
+      spellControl.appendChild(castEditBox);
+      spellControl.appendChild(activeEditBox);
+      spellControl.appendChild(noteEditBox);
+
+      return spellControl;
+    };
+
+    if (_get_spellState(options.level) == null || force) {
+      var modalContent = _create_spellControlModal();
+      var modalAction = function() {
+        var spellSection = helper.e(".js-section-spells");
+        _store_data(this);
+        _update_spellButton(button, true);
+        sheet.store();
+        display.clear(spellSection);
+        display.render(spellSection);
+      }.bind(modalContent);
+
+      modal.render({
+        heading: spellObject.name,
+        content: modalContent,
+        action: modalAction,
+        actionText: "Save",
+        size: "medium"
+      });
+      page.update();
     };
   };
 
-  function _bind_spellKnownItem(button) {
-    button.addEventListener("click", function() {
-      _update_spellObject(this);
-      // _update_spellButton(this);
-      // _update_spellControls(this);
-      // _checkSpellState();
-      // _castFireball(this);
-    }, false);
-  };
+  // function _update_spellState(button) {
+  // console.log(options);
+  // var options = helper.makeObject(button.dataset.spellButtonOptions);
+  // if (_get_spellBookCount(options.level) == 0) {
+  //   _update_spellState(options.level, null);
+  // };
+  // };
 
   function _spellControl(button) {
     var options = helper.makeObject(button.dataset.spellControlOptions);
@@ -878,40 +766,37 @@ var spells = (function() {
     var options = helper.makeObject(button.dataset.spellControlOptions);
     var spellBook = helper.getClosest(button, ".js-spell-book");
     var spellBookOptions = helper.makeObject(spellBook.dataset.spellBookOptions);
-    if (_get_spellCount(spellBookOptions.level) > 0) {
-      _set_spellState(spellBookOptions.level, options.state);
-      _set_spellControlState(spellBook, button);
-      _set_spellBookState(spellBook, options.state);
+    if (_get_spellBookCount(spellBookOptions.level) > 0) {
+      _update_spellState(spellBookOptions.level, options.state);
+      _render_spellControl(button);
+      _render_spellBookItem(spellBook, spellBookOptions.level);
+    } else {
+      _update_spellState(spellBookOptions.level, null);
+      _render_spellControl(button);
     };
   };
 
-  function _get_spellCount(level) {
+  function _get_spellBookCount(level) {
     return helper.getObject({
       object: sheet.get(),
       path: "spells.book[" + level + "]level_" + level
     }).length;
   };
 
-  function _update_spellControls() {};
-
-  function render() {};
-
-
-
-
   function render() {
-    var spellBook = helper.getObject({
+    var all_spellBook = helper.getObject({
       object: sheet.get(),
       path: "spells.book"
     });
     var spellsToRender;
     // iterate over all objects keys to find spells then push those values to spellsToRender
-    if (spellBook) {
-      for (var i in spellBook) {
-        for (var j in spellBook[i]) {
-          // console.log(spellBook[i][j]);
-          spellsToRender = spellBook[i][j];
-          _render_all_spells(spellsToRender, parseInt(i, 10));
+    if (all_spellBook) {
+      for (var i = 0; i < all_spellBook.length; i++) {
+        // console.log(all_spellBook[i]);
+        for (var j in all_spellBook[i]) {
+          // console.log(all_spellBook[i][j]);
+          spellsToRender = all_spellBook[i][j];
+          _render_all_spells(spellsToRender, i);
         };
       };
     };
@@ -953,7 +838,7 @@ var spells = (function() {
     spellButton.setAttribute("class", "m-spell button button-medium js-spell");
     spellButton.setAttribute("type", "button");
     spellButton.setAttribute("tabindex", "1");
-    if (spellState["level_" + level] == "remove") {
+    if (_get_spellState(level) == "remove") {
       helper.addClass(spellButton, "button-primary");
     };
     var spellActive = document.createElement("span");
@@ -1010,13 +895,78 @@ var spells = (function() {
     return spellButton;
   };
 
+  function _render_spellBookItem(spellBook, level) {
+    var all_spellBookItem = spellBook.querySelectorAll(".js-spell");
+    var _normalStateSpellItems = function() {
+      for (var i = 0; i < all_spellBookItem.length; i++) {
+        helper.removeClass(all_spellBookItem[i], "button-primary");
+        helper.removeClass(all_spellBookItem[i], "button-secondary");
+      };
+    };
+    var _activeStateSpellItems = function() {
+      for (var i = 0; i < all_spellBookItem.length; i++) {
+        helper.addClass(all_spellBookItem[i], "button-secondary");
+      };
+    };
+    var _remove_stateSpellItems = function() {
+      for (var i = 0; i < all_spellBookItem.length; i++) {
+        helper.addClass(all_spellBookItem[i], "button-primary");
+      };
+    };
+    // change spells to reflect state
+    if (_get_spellState(level) == "remove") {
+      _normalStateSpellItems();
+      _remove_stateSpellItems();
+    } else if (_get_spellState(level) == "prepare" || _get_spellState(level) == "unprepare" || _get_spellState(level) == "cast" || _get_spellState(level) == "active") {
+      _activeStateSpellItems();
+    } else {
+      _normalStateSpellItems();
+    };
+  };
+
+  function _render_spellControl(button) {
+    var spellBook = helper.getClosest(button, ".js-spell-book");
+    var spellBookOptions = helper.makeObject(spellBook.dataset.spellBookOptions);
+    var all_spellControl = spellBook.querySelectorAll(".js-spell-control");
+    var _resetAllControl = function() {
+      for (var i = 0; i < all_spellControl.length; i++) {
+        if (all_spellControl[i].classList.contains("button-primary")) {
+          helper.removeClass(all_spellControl[i], "button-primary");
+          helper.addClass(all_spellControl[i], "button-secondary");
+        };
+        if (all_spellControl[i].classList.contains("is-live")) {
+          helper.removeClass(all_spellControl[i], "is-live");
+        };
+      };
+    };
+    var _activateControl = function() {
+      if (_get_spellState(spellBookOptions.level) == "remove") {
+        helper.removeClass(button, "button-secondary");
+        helper.addClass(button, "button-primary");
+      } else if (_get_spellState(spellBookOptions.level) == null) {
+        helper.addClass(button, "button-secondary");
+        helper.removeClass(button, "button-primary");
+      };
+      if (_get_spellState(spellBookOptions.level) == "prepare" || _get_spellState(spellBookOptions.level) == "unprepare" || _get_spellState(spellBookOptions.level) == "cast" || _get_spellState(spellBookOptions.level) == "active") {
+        helper.addClass(button, "is-live");
+      } else if (_get_spellState(spellBookOptions.level) == null) {
+        helper.removeClass(button, "is-live");
+      };
+    };
+    if (_get_spellState(spellBookOptions.level) != null) {
+      _resetAllControl();
+      _activateControl();
+    } else {
+      _resetAllControl();
+    };
+  };
 
   // exposed methods
   return {
     clear: clear,
     bind: bind,
     render: render,
-    update: _update_spellControls
+    update: _render_quickSpellControl
   };
 
 })();

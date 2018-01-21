@@ -220,11 +220,10 @@ var helper = (function() {
       };
       var finalKey = address.shift();
       if (!(finalKey in defaultOptions.object)) {
-        // if nothing found set empty value and then return
-        defaultOptions.object[finalKey] = "";
+        return "";
+      } else {
         return defaultOptions.object[finalKey];
       };
-      return defaultOptions.object[finalKey];
     };
     if (defaultOptions.object != null && defaultOptions.path != null) {
       return _getData();

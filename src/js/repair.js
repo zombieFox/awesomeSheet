@@ -675,6 +675,22 @@ var repair = (function() {
       characterObject.spells.bonus.level_9 = "";
     };
     // --------------------------------------------------
+    // repair skills
+    for (var i in characterObject.skills.all) {
+      if (!("racial" in characterObject.skills.all[i])) {
+        // console.log("repair skill", i, "racial");
+        characterObject.skills.all[i].racial = "";
+      };
+      if (!("feat" in characterObject.skills.all[i])) {
+        // console.log("repair skill", i, "feat");
+        characterObject.skills.all[i].feat = "";
+      };
+      if (!("trait" in characterObject.skills.all[i])) {
+        // console.log("repair skill", i, "trait");
+        characterObject.skills.all[i].trait = "";
+      };
+    };
+    // --------------------------------------------------
     // sheet.store();
     return characterObject;
   };
