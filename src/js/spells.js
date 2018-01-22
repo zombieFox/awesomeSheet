@@ -22,19 +22,19 @@ var spells = (function() {
   //     }, false);
   //   };
   //   spellPrepareButton.addEventListener("click", function() {
-  //     _change_spellState(this);
+  //     _update_stateSpellEditMode(this);
   //   }, false);
   //   spellUnprepareButton.addEventListener("click", function() {
-  //     _change_spellState(this);
+  //     _update_stateSpellEditMode(this);
   //   }, false);
   //   spellCastButton.addEventListener("click", function() {
-  //     _change_spellState(this);
+  //     _update_stateSpellEditMode(this);
   //   }, false);
   //   spellActiveButton.addEventListener("click", function() {
-  //     _change_spellState(this);
+  //     _update_stateSpellEditMode(this);
   //   }, false);
   //   spellRemoveButton.addEventListener("click", function() {
-  //     _change_spellState(this);
+  //     _update_stateSpellEditMode(this);
   //   }, false);
   //   spellReset.addEventListener("click", function() {
   //     prompt.render({
@@ -115,22 +115,7 @@ var spells = (function() {
   // };
   //
   //
-  // function _castFireball(button) {
-  //   var spellLevel = parseInt(button.dataset.spellLevel, 10);
-  //   var spellCount = parseInt(button.dataset.spellCount, 10);
-  //   var spellRoot = helper.getClosest(button, ".js-spells") || helper.e(".js-spells");
-  //   var spellState = spellRoot.dataset.spellState;
-  //   var spellObject = sheet.get().spells.book[spellLevel]["level_" + spellLevel][spellCount];
-  //
-  //   if (spellState == "cast") {
-  //     var fireballName = ["Fireball", "fireball", "Fire ball", "fire Ball", "fire ball", "Fire Ball", "FIREBALL", "FIREBALL!", "FIREBALL!!", "FIREBALL!!!", "FIREBALL!!!!"];
-  //     if (fireballName.indexOf(spellObject.name) > -1) {
-  //       // easter egg fireball!
-  //       fireball.render();
-  //     };
-  //   };
-  //
-  // };
+
   //
   //
   // function _update_spellButton(button, force) {
@@ -235,35 +220,41 @@ var spells = (function() {
 
 
 
+  var _spellState = (function() {
 
-
-
-
-  var spellState = {
-    level_0: null,
-    level_1: null,
-    level_2: null,
-    level_3: null,
-    level_4: null,
-    level_5: null,
-    level_6: null,
-    level_7: null,
-    level_8: null,
-    level_9: null
-  };
-
-  function _get_spellState(level) {
-    return spellState["level_" + level];
-  };
-
-  function _update_spellState(level, state) {
-    if (spellState["level_" + level] == null || spellState["level_" + level] != state) {
-      spellState["level_" + level] = state;
-    } else {
-      spellState["level_" + level] = null;
+    var spellState = {
+      level_0: null,
+      level_1: null,
+      level_2: null,
+      level_3: null,
+      level_4: null,
+      level_5: null,
+      level_6: null,
+      level_7: null,
+      level_8: null,
+      level_9: null
     };
-    console.log("spellState changed", spellState);
-  };
+
+    function get(level) {
+      return spellState["level_" + level];
+    };
+
+    function set(level, state) {
+      if (spellState["level_" + level] == null || spellState["level_" + level] != state) {
+        spellState["level_" + level] = state;
+      } else {
+        spellState["level_" + level] = null;
+      };
+      console.log("spellState changed", spellState);
+    };
+
+    // exposed methods
+    return {
+      set: set,
+      get: get
+    };
+
+  })();
 
   function _destroy_spellBook(level) {
     var spellBook = helper.e(".js-spell-book-known-level-" + level);
@@ -285,7 +276,7 @@ var spells = (function() {
     var undoData = JSON.parse(helper.read("lastRemovedSpell"));
     _restore_spellObject(undoData.level, undoData.index, undoData.spell);
     _remove_lastRemovedSpell();
-    _update_spellState();
+    _spellState.set();
   };
 
   function _restore_spellObject(level, index, spell) {
@@ -320,13 +311,37 @@ var spells = (function() {
 
   function _bind_spellKnownItem(button) {
     button.addEventListener("click", function() {
-      _update_spellObject(this);
-      _update_spellButton(this);
-      _render_quickSpellControl(this);
-      // _update_spellState(this);
-      // _change_spellState(this);
-      // _castFireball(this);
+      _spellKnownItem(this);
     }, false);
+  };
+
+  function _spellKnownItem(button) {
+    var options = helper.makeObject(button.dataset.spellButtonOptions);
+    var spellBook = helper.getClosest(button, ".js-spell-book");
+    var spellBookOptions = helper.makeObject(spellBook.dataset.spellBookOptions);
+    _update_spellObject(button);
+    _update_spellButton(button);
+    if (_get_spellBookCount(spellBookOptions.level) > 0) {
+      _render_quickSpellControl(button);
+      _castFireball(options.level, options.index);
+    } else {
+      _spellState.set(spellBookOptions.level, null);
+      _reset_stateSpellControl(spellBook);
+    };
+  };
+
+  function _castFireball(level, index) {
+    var spellObject = helper.getObject({
+      object: sheet.get(),
+      path: "spells.book[" + level + "]level_" + level + "[" + index + "]"
+    });
+    if (_spellState.get(level) == "cast") {
+      var fireballName = ["Fireball", "fireball", "Fire ball", "fire Ball", "fire ball", "Fire Ball", "FIREBALL", "FIREBALL!", "FIREBALL!!", "FIREBALL!!!", "FIREBALL!!!!"];
+      if (fireballName.indexOf(spellObject.name) > -1) {
+        // easter egg fireball!
+        fireball.render();
+      };
+    };
   };
 
   function _update_spellObject(button) {
@@ -335,32 +350,32 @@ var spells = (function() {
       object: sheet.get(),
       path: "spells.book[" + options.level + "]level_" + options.level + "[" + options.index + "]"
     });
-    if (_get_spellState(options.level) != null) {
-      if (_get_spellState(options.level) == "prepare") {
+    if (_spellState.get(options.level) != null) {
+      if (_spellState.get(options.level) == "prepare") {
         if (spellObject.prepared < 50) {
           spellObject.prepared++;
         };
-      } else if (_get_spellState(options.level) == "unprepare") {
+      } else if (_spellState.get(options.level) == "unprepare") {
         if (spellObject.prepared > 0) {
           spellObject.prepared--;
         };
         if (spellObject.prepared < spellObject.cast) {
           spellObject.cast = spellObject.prepared;
         };
-      } else if (_get_spellState(options.level) == "cast") {
+      } else if (_spellState.get(options.level) == "cast") {
         if (spellObject.cast < 50) {
           spellObject.cast++;
         };
         if (spellObject.cast > spellObject.prepared) {
           spellObject.prepared = spellObject.cast;
         };
-      } else if (_get_spellState(options.level) == "active") {
+      } else if (_spellState.get(options.level) == "active") {
         if (spellObject.active) {
           spellObject.active = false;
         } else {
           spellObject.active = true;
         };
-      } else if (_get_spellState(options.level) == "remove") {
+      } else if (_spellState.get(options.level) == "remove") {
         // store undo data
         _store_lastRemovedSpell(options.level, options.index, spellObject);
         // remove spell from spellbook
@@ -390,7 +405,7 @@ var spells = (function() {
     var spellName = button.querySelector(".js-spell-name");
     var spellMarks = button.querySelector(".js-spell-marks");
     var spellActive = button.querySelector(".js-spell-active");
-    if (_get_spellState(options.level) == "prepare" || _get_spellState(options.level) == "unprepare" || _get_spellState(options.level) == "cast" || _get_spellState(options.level) == "active" || force) {
+    if (_spellState.get(options.level) == "prepare" || _spellState.get(options.level) == "unprepare" || _spellState.get(options.level) == "cast" || _spellState.get(options.level) == "active" || force) {
       if (spellMarks.lastChild) {
         while (spellMarks.lastChild) {
           spellMarks.removeChild(spellMarks.lastChild);
@@ -427,7 +442,7 @@ var spells = (function() {
         };
       };
       spellName.textContent = spellObject.name;
-    } else if (_get_spellState(options.level) == "remove") {
+    } else if (_spellState.get(options.level) == "remove") {
       _destroy_spellBook(options.level);
       _render_all_spells(helper.getObject({
         object: sheet.get(),
@@ -443,7 +458,6 @@ var spells = (function() {
       path: "spells.book[" + options.level + "]level_" + options.level + "[" + options.index + "]"
     });
     var tempSpellObject = JSON.parse(JSON.stringify(spellObject));
-
     var _hold_data = function(action, type) {
       if (type == "prepared") {
         if (action == "plus" && tempSpellObject.prepared < 50) {
@@ -478,14 +492,12 @@ var spells = (function() {
       };
       // console.log("tempSpellObject", tempSpellObject);
     };
-
     var _render_count = function(spellControl) {
       var spellControlPreparedCount = spellControl.querySelector(".js-spell-control-prepared-count");
       var spellControlCastCount = spellControl.querySelector(".js-spell-control-cast-count");
       spellControlPreparedCount.textContent = tempSpellObject.prepared;
       spellControlCastCount.textContent = tempSpellObject.cast;
     };
-
     var _store_data = function(spellControl) {
       tempSpellObject.note = spellControl.querySelector(".js-spell-control-textarea-note").innerHTML;
       if (tempSpellObject.note == " " || tempSpellObject.note == "&nbsp;" || tempSpellObject.note == "<br/>" || tempSpellObject.note == "<br>") {
@@ -498,7 +510,6 @@ var spells = (function() {
         newValue: tempSpellObject
       });
     };
-
     var _create_editBoxItem = function(size, child) {
       var editBoxItem = document.createElement("div");
       editBoxItem.setAttribute("class", "m-edit-box-item-" + size);
@@ -507,7 +518,6 @@ var spells = (function() {
       };
       return editBoxItem;
     };
-
     var _create_spellControlModal = function() {
       var spellControl = document.createElement("div");
       spellControl.setAttribute("class", "m-spell-control js-spell-control");
@@ -719,8 +729,7 @@ var spells = (function() {
 
       return spellControl;
     };
-
-    if (_get_spellState(options.level) == null || force) {
+    if (_spellState.get(options.level) == null || force) {
       var modalContent = _create_spellControlModal();
       var modalAction = function() {
         var spellSection = helper.e(".js-section-spells");
@@ -742,18 +751,10 @@ var spells = (function() {
     };
   };
 
-  // function _update_spellState(button) {
-  // console.log(options);
-  // var options = helper.makeObject(button.dataset.spellButtonOptions);
-  // if (_get_spellBookCount(options.level) == 0) {
-  //   _update_spellState(options.level, null);
-  // };
-  // };
-
   function _spellControl(button) {
     var options = helper.makeObject(button.dataset.spellControlOptions);
     if (options.action == "changeState") {
-      _change_spellState(button);
+      _update_stateSpellEditMode(button);
       // console.log("changeState");
     } else if (options.action == "reset") {
       // console.log("reset");
@@ -762,17 +763,17 @@ var spells = (function() {
     };
   };
 
-  function _change_spellState(button) {
+  function _update_stateSpellEditMode(button) {
     var options = helper.makeObject(button.dataset.spellControlOptions);
     var spellBook = helper.getClosest(button, ".js-spell-book");
     var spellBookOptions = helper.makeObject(spellBook.dataset.spellBookOptions);
     if (_get_spellBookCount(spellBookOptions.level) > 0) {
-      _update_spellState(spellBookOptions.level, options.state);
-      _render_spellControl(button);
-      _render_spellBookItem(spellBook, spellBookOptions.level);
+      _spellState.set(spellBookOptions.level, options.state);
+      _render_stateSpellControl(button);
+      _render_stateSpellBookItem(spellBook, spellBookOptions.level);
     } else {
-      _update_spellState(spellBookOptions.level, null);
-      _render_spellControl(button);
+      _spellState.set(spellBookOptions.level, null);
+      _render_stateSpellControl(button);
     };
   };
 
@@ -838,7 +839,7 @@ var spells = (function() {
     spellButton.setAttribute("class", "m-spell button button-medium js-spell");
     spellButton.setAttribute("type", "button");
     spellButton.setAttribute("tabindex", "1");
-    if (_get_spellState(level) == "remove") {
+    if (_spellState.get(level) == "remove") {
       helper.addClass(spellButton, "button-primary");
     };
     var spellActive = document.createElement("span");
@@ -895,7 +896,7 @@ var spells = (function() {
     return spellButton;
   };
 
-  function _render_spellBookItem(spellBook, level) {
+  function _render_stateSpellBookItem(spellBook, level) {
     var all_spellBookItem = spellBook.querySelectorAll(".js-spell");
     var _normalStateSpellItems = function() {
       for (var i = 0; i < all_spellBookItem.length; i++) {
@@ -914,17 +915,17 @@ var spells = (function() {
       };
     };
     // change spells to reflect state
-    if (_get_spellState(level) == "remove") {
+    if (_spellState.get(level) == "remove") {
       _normalStateSpellItems();
       _remove_stateSpellItems();
-    } else if (_get_spellState(level) == "prepare" || _get_spellState(level) == "unprepare" || _get_spellState(level) == "cast" || _get_spellState(level) == "active") {
+    } else if (_spellState.get(level) == "prepare" || _spellState.get(level) == "unprepare" || _spellState.get(level) == "cast" || _spellState.get(level) == "active") {
       _activeStateSpellItems();
     } else {
       _normalStateSpellItems();
     };
   };
 
-  function _render_spellControl(button) {
+  function _render_stateSpellControl(button) {
     var spellBook = helper.getClosest(button, ".js-spell-book");
     var spellBookOptions = helper.makeObject(spellBook.dataset.spellBookOptions);
     var all_spellControl = spellBook.querySelectorAll(".js-spell-control");
@@ -940,24 +941,40 @@ var spells = (function() {
       };
     };
     var _activateControl = function() {
-      if (_get_spellState(spellBookOptions.level) == "remove") {
+      if (_spellState.get(spellBookOptions.level) == "remove") {
         helper.removeClass(button, "button-secondary");
         helper.addClass(button, "button-primary");
-      } else if (_get_spellState(spellBookOptions.level) == null) {
+      } else if (_spellState.get(spellBookOptions.level) == null) {
         helper.addClass(button, "button-secondary");
         helper.removeClass(button, "button-primary");
       };
-      if (_get_spellState(spellBookOptions.level) == "prepare" || _get_spellState(spellBookOptions.level) == "unprepare" || _get_spellState(spellBookOptions.level) == "cast" || _get_spellState(spellBookOptions.level) == "active") {
+      if (_spellState.get(spellBookOptions.level) == "prepare" || _spellState.get(spellBookOptions.level) == "unprepare" || _spellState.get(spellBookOptions.level) == "cast" || _spellState.get(spellBookOptions.level) == "active") {
         helper.addClass(button, "is-live");
-      } else if (_get_spellState(spellBookOptions.level) == null) {
+      } else if (_spellState.get(spellBookOptions.level) == null) {
         helper.removeClass(button, "is-live");
       };
     };
-    if (_get_spellState(spellBookOptions.level) != null) {
+    if (_spellState.get(spellBookOptions.level) != null) {
       _resetAllControl();
       _activateControl();
     } else {
       _resetAllControl();
+    };
+  };
+
+  function _reset_stateSpellControl(spellBook) {
+    var spellBookOptions = helper.makeObject(spellBook.dataset.spellBookOptions);
+    var all_spellControl = spellBook.querySelectorAll(".js-spell-control");
+    if (_get_spellBookCount(spellBookOptions.level) == 0) {
+      for (var i = 0; i < all_spellControl.length; i++) {
+        if (all_spellControl[i].classList.contains("button-primary")) {
+          helper.removeClass(all_spellControl[i], "button-primary");
+          helper.addClass(all_spellControl[i], "button-secondary");
+        };
+        if (all_spellControl[i].classList.contains("is-live")) {
+          helper.removeClass(all_spellControl[i], "is-live");
+        };
+      };
     };
   };
 
