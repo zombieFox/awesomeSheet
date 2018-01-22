@@ -16,26 +16,26 @@
 
     <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
       <div class="m-edit-box-head">
-        <h2 class="m-edit-box-title">Spells</h2>
+        <h2 class="m-edit-box-title">Spell Counts</h2>
       </div>
       <div class="m-edit-box-body">
         <div class="m-edit-box-content m-edit-box-content-margin-large">
           <div class="m-edit-box-item m-edit-box-group">
-            <div class="m-edit-box-item-large">
+            <div class="m-edit-box-item-small">
               <div class="m-input-block js-input-block" data-input-block-options="path:spells.known.level_0,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-known-level-0">Known</label>
+                <label class="m-input-block-label js-input-block-label" for="spells-known-level-0">Known Spells</label>
                 <input id="spells-known-level-0" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
-            <div class="m-edit-box-item-large">
+            <div class="m-edit-box-item-small">
               <div class="m-input-block js-input-block" data-input-block-options="path:spells.bonus.level_0,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-bonus-level-0">Bonus</label>
+                <label class="m-input-block-label js-input-block-label" for="spells-bonus-level-0">Bonus Spells</label>
                 <input id="spells-bonus-level-0" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
-            <div class="m-edit-box-item-large">
+            <div class="m-edit-box-item-small">
               <div class="m-input-block js-input-block" data-input-block-options="path:spells.per_day.level_0,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-daily-level-0">Daily</label>
+                <label class="m-input-block-label js-input-block-label" for="spells-daily-level-0">Spells Per Day</label>
                 <input id="spells-daily-level-0" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
@@ -44,18 +44,45 @@
       </div>
     </div>
 
-    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:spells.dc.level_0,addition:+misc+temp+feat+trait,bonuses:+str_bonus+dex_bonus+con_bonus+int_bonus+wis_bonus+cha_bonus+level+half_level+spell_level+plus_ten">
       <div class="m-edit-box-head">
-        <h2 class="m-edit-box-title">DC</h2>
+        <h2 class="m-edit-box-title">Save DC</h2>
       </div>
       <div class="m-edit-box-body">
         <div class="m-edit-box-content m-edit-box-content-margin-large">
+
           <div class="m-edit-box-item m-edit-box-group">
+            <div class="m-edit-box-item-total">
+              <p class="m-edit-box-label">Total</p>
+              <p class="m-edit-box-total js-text-block" data-text-block-options="path:spells.dc.level_0.current,type:bonus"></p>
+            </div>
             <div class="m-edit-box-item-small">
-              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_0,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-dc-level-0">DC</label>
-                <input id="spells-dc-level-0" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_0.misc,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-misc">Misc</label>
+                <input id="basics-Initiative-misc" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_0.temp,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-temp">Temp</label>
+                <input id="basics-Initiative-temp" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_0.feat,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-feat">Feat</label>
+                <input id="basics-Initiative-feat" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_0.trait,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-trait">Trait</label>
+                <input id="basics-Initiative-trait" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-button-small">
+              <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-total-block-bonuses-options="path:spells.dc.level_0.bonuses,modalHeading:Level 0 DC bonuses"
+                tabindex="1"><span class="icon-more-vertical"></span></a>
             </div>
           </div>
         </div>
@@ -64,7 +91,7 @@
 
     <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
       <div class="m-edit-box-head">
-        <h2 class="m-edit-box-title">Spells</h2>
+        <h2 class="m-edit-box-title">Spell List</h2>
       </div>
       <div class="m-edit-box-body">
         <div class="m-edit-box-content m-edit-box-content-margin-large">
@@ -109,38 +136,89 @@
 
     <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
       <div class="m-edit-box-head">
-        <h2 class="m-edit-box-title">Level 1</h2>
+        <h2 class="m-edit-box-title">Spell Counts</h2>
       </div>
       <div class="m-edit-box-body">
         <div class="m-edit-box-content m-edit-box-content-margin-large">
           <div class="m-edit-box-item m-edit-box-group">
             <div class="m-edit-box-item-small">
               <div class="m-input-block js-input-block" data-input-block-options="path:spells.known.level_1,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-known-level-1">Known</label>
+                <label class="m-input-block-label js-input-block-label" for="spells-known-level-1">Known Spells</label>
                 <input id="spells-known-level-1" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item-small">
-              <div class="m-input-block js-input-block" data-input-block-options="path:spells.per_day.level_1,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-daily-level-1">Daily</label>
-                <input id="spells-daily-level-1" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
-              </div>
-            </div>
-            <div class="m-edit-box-item-small">
               <div class="m-input-block js-input-block" data-input-block-options="path:spells.bonus.level_1,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-bonus-level-1">Bonus</label>
+                <label class="m-input-block-label js-input-block-label" for="spells-bonus-level-1">Bonus Spells</label>
                 <input id="spells-bonus-level-1" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item-small">
-              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_1,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-dc-level-1">DC</label>
-                <input id="spells-dc-level-1" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.per_day.level_1,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="spells-daily-level-1">Spells Per Day</label>
+                <input id="spells-daily-level-1" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:spells.dc.level_1,addition:+misc+temp+feat+trait,bonuses:+str_bonus+dex_bonus+con_bonus+int_bonus+wis_bonus+cha_bonus+level+half_level+spell_level+plus_ten">
+      <div class="m-edit-box-head">
+        <h2 class="m-edit-box-title">Save DC</h2>
+      </div>
+      <div class="m-edit-box-body">
+        <div class="m-edit-box-content m-edit-box-content-margin-large">
+
+          <div class="m-edit-box-item m-edit-box-group">
+            <div class="m-edit-box-item-total">
+              <p class="m-edit-box-label">Total</p>
+              <p class="m-edit-box-total js-text-block" data-text-block-options="path:spells.dc.level_1.current,type:bonus"></p>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_1.misc,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-misc">Misc</label>
+                <input id="basics-Initiative-misc" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_1.temp,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-temp">Temp</label>
+                <input id="basics-Initiative-temp" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_1.feat,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-feat">Feat</label>
+                <input id="basics-Initiative-feat" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_1.trait,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-trait">Trait</label>
+                <input id="basics-Initiative-trait" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-button-small">
+              <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-total-block-bonuses-options="path:spells.dc.level_1.bonuses,modalHeading:Level 1 DC bonuses"
+                tabindex="1"><span class="icon-more-vertical"></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
+      <div class="m-edit-box-head">
+        <h2 class="m-edit-box-title">Spell List</h2>
+      </div>
+      <div class="m-edit-box-body">
+        <div class="m-edit-box-content m-edit-box-content-margin-large">
+          <div class="m-edit-box-item m-edit-box-group">
             <div class="m-edit-box-item-large">
               <div class="m-input-block">
-                <label class="m-input-block-label" for="add-new-spell-level-1">Add Spell</label>
+                <label class="m-input-block-label" for="add-new-spell-level-1">Add New Spell</label>
                 <input id="add-new-spell-level-1" class="m-new-spell-field m-input-block-field u-full-width js-add-new-spell-field" type="text" tabindex="1">
               </div>
             </div>
@@ -178,38 +256,89 @@
 
     <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
       <div class="m-edit-box-head">
-        <h2 class="m-edit-box-title">Level 2</h2>
+        <h2 class="m-edit-box-title">Spell Counts</h2>
       </div>
       <div class="m-edit-box-body">
         <div class="m-edit-box-content m-edit-box-content-margin-large">
           <div class="m-edit-box-item m-edit-box-group">
             <div class="m-edit-box-item-small">
               <div class="m-input-block js-input-block" data-input-block-options="path:spells.known.level_2,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-known-level-2">Known</label>
+                <label class="m-input-block-label js-input-block-label" for="spells-known-level-2">Known Spells</label>
                 <input id="spells-known-level-2" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item-small">
-              <div class="m-input-block js-input-block" data-input-block-options="path:spells.per_day.level_2,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-daily-level-2">Daily</label>
-                <input id="spells-daily-level-2" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
-              </div>
-            </div>
-            <div class="m-edit-box-item-small">
               <div class="m-input-block js-input-block" data-input-block-options="path:spells.bonus.level_2,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-bonus-level-2">Bonus</label>
+                <label class="m-input-block-label js-input-block-label" for="spells-bonus-level-2">Bonus Spells</label>
                 <input id="spells-bonus-level-2" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item-small">
-              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_2,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-dc-level-2">DC</label>
-                <input id="spells-dc-level-2" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.per_day.level_2,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="spells-daily-level-2">Spells Per Day</label>
+                <input id="spells-daily-level-2" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:spells.dc.level_2,addition:+misc+temp+feat+trait,bonuses:+str_bonus+dex_bonus+con_bonus+int_bonus+wis_bonus+cha_bonus+level+half_level+spell_level+plus_ten">
+      <div class="m-edit-box-head">
+        <h2 class="m-edit-box-title">Save DC</h2>
+      </div>
+      <div class="m-edit-box-body">
+        <div class="m-edit-box-content m-edit-box-content-margin-large">
+
+          <div class="m-edit-box-item m-edit-box-group">
+            <div class="m-edit-box-item-total">
+              <p class="m-edit-box-label">Total</p>
+              <p class="m-edit-box-total js-text-block" data-text-block-options="path:spells.dc.level_2.current,type:bonus"></p>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_2.misc,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-misc">Misc</label>
+                <input id="basics-Initiative-misc" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_2.temp,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-temp">Temp</label>
+                <input id="basics-Initiative-temp" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_2.feat,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-feat">Feat</label>
+                <input id="basics-Initiative-feat" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_2.trait,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-trait">Trait</label>
+                <input id="basics-Initiative-trait" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-button-small">
+              <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-total-block-bonuses-options="path:spells.dc.level_2.bonuses,modalHeading:Level 2 DC bonuses"
+                tabindex="1"><span class="icon-more-vertical"></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
+      <div class="m-edit-box-head">
+        <h2 class="m-edit-box-title">Spell List</h2>
+      </div>
+      <div class="m-edit-box-body">
+        <div class="m-edit-box-content m-edit-box-content-margin-large">
+          <div class="m-edit-box-item m-edit-box-group">
             <div class="m-edit-box-item-large">
               <div class="m-input-block">
-                <label class="m-input-block-label" for="add-new-spell-level-2">Add Spell</label>
+                <label class="m-input-block-label" for="add-new-spell-level-2">Add New Spell</label>
                 <input id="add-new-spell-level-2" class="m-new-spell-field m-input-block-field u-full-width js-add-new-spell-field" type="text" tabindex="1">
               </div>
             </div>
@@ -247,38 +376,89 @@
 
     <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
       <div class="m-edit-box-head">
-        <h2 class="m-edit-box-title">Level 3</h2>
+        <h2 class="m-edit-box-title">Spell Counts</h2>
       </div>
       <div class="m-edit-box-body">
         <div class="m-edit-box-content m-edit-box-content-margin-large">
           <div class="m-edit-box-item m-edit-box-group">
             <div class="m-edit-box-item-small">
               <div class="m-input-block js-input-block" data-input-block-options="path:spells.known.level_3,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-known-level-3">Known</label>
+                <label class="m-input-block-label js-input-block-label" for="spells-known-level-3">Known Spells</label>
                 <input id="spells-known-level-3" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item-small">
-              <div class="m-input-block js-input-block" data-input-block-options="path:spells.per_day.level_3,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-daily-level-3">Daily</label>
-                <input id="spells-daily-level-3" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
-              </div>
-            </div>
-            <div class="m-edit-box-item-small">
               <div class="m-input-block js-input-block" data-input-block-options="path:spells.bonus.level_3,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-bonus-level-3">Bonus</label>
+                <label class="m-input-block-label js-input-block-label" for="spells-bonus-level-3">Bonus Spells</label>
                 <input id="spells-bonus-level-3" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item-small">
-              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_3,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-dc-level-3">DC</label>
-                <input id="spells-dc-level-3" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.per_day.level_3,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="spells-daily-level-3">Spells Per Day</label>
+                <input id="spells-daily-level-3" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:spells.dc.level_3,addition:+misc+temp+feat+trait,bonuses:+str_bonus+dex_bonus+con_bonus+int_bonus+wis_bonus+cha_bonus+level+half_level+spell_level+plus_ten">
+      <div class="m-edit-box-head">
+        <h2 class="m-edit-box-title">Save DC</h2>
+      </div>
+      <div class="m-edit-box-body">
+        <div class="m-edit-box-content m-edit-box-content-margin-large">
+
+          <div class="m-edit-box-item m-edit-box-group">
+            <div class="m-edit-box-item-total">
+              <p class="m-edit-box-label">Total</p>
+              <p class="m-edit-box-total js-text-block" data-text-block-options="path:spells.dc.level_3.current,type:bonus"></p>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_3.misc,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-misc">Misc</label>
+                <input id="basics-Initiative-misc" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_3.temp,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-temp">Temp</label>
+                <input id="basics-Initiative-temp" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_3.feat,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-feat">Feat</label>
+                <input id="basics-Initiative-feat" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_3.trait,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-trait">Trait</label>
+                <input id="basics-Initiative-trait" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-button-small">
+              <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-total-block-bonuses-options="path:spells.dc.level_3.bonuses,modalHeading:Level 3 DC bonuses"
+                tabindex="1"><span class="icon-more-vertical"></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
+      <div class="m-edit-box-head">
+        <h2 class="m-edit-box-title">Spell List</h2>
+      </div>
+      <div class="m-edit-box-body">
+        <div class="m-edit-box-content m-edit-box-content-margin-large">
+          <div class="m-edit-box-item m-edit-box-group">
             <div class="m-edit-box-item-large">
               <div class="m-input-block">
-                <label class="m-input-block-label" for="add-new-spell-level-3">Add Spell</label>
+                <label class="m-input-block-label" for="add-new-spell-level-3">Add New Spell</label>
                 <input id="add-new-spell-level-3" class="m-new-spell-field m-input-block-field u-full-width js-add-new-spell-field" type="text" tabindex="1">
               </div>
             </div>
@@ -316,38 +496,89 @@
 
     <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
       <div class="m-edit-box-head">
-        <h2 class="m-edit-box-title">Level 4</h2>
+        <h2 class="m-edit-box-title">Spell Counts</h2>
       </div>
       <div class="m-edit-box-body">
         <div class="m-edit-box-content m-edit-box-content-margin-large">
           <div class="m-edit-box-item m-edit-box-group">
             <div class="m-edit-box-item-small">
               <div class="m-input-block js-input-block" data-input-block-options="path:spells.known.level_4,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-known-level-4">Known</label>
+                <label class="m-input-block-label js-input-block-label" for="spells-known-level-4">Known Spells</label>
                 <input id="spells-known-level-4" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item-small">
-              <div class="m-input-block js-input-block" data-input-block-options="path:spells.per_day.level_4,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-daily-level-4">Daily</label>
-                <input id="spells-daily-level-4" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
-              </div>
-            </div>
-            <div class="m-edit-box-item-small">
               <div class="m-input-block js-input-block" data-input-block-options="path:spells.bonus.level_4,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-bonus-level-4">Bonus</label>
+                <label class="m-input-block-label js-input-block-label" for="spells-bonus-level-4">Bonus Spells</label>
                 <input id="spells-bonus-level-4" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item-small">
-              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_4,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-dc-level-4">DC</label>
-                <input id="spells-dc-level-4" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.per_day.level_4,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="spells-daily-level-4">Spells Per Day</label>
+                <input id="spells-daily-level-4" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:spells.dc.level_4,addition:+misc+temp+feat+trait,bonuses:+str_bonus+dex_bonus+con_bonus+int_bonus+wis_bonus+cha_bonus+level+half_level+spell_level+plus_ten">
+      <div class="m-edit-box-head">
+        <h2 class="m-edit-box-title">Save DC</h2>
+      </div>
+      <div class="m-edit-box-body">
+        <div class="m-edit-box-content m-edit-box-content-margin-large">
+
+          <div class="m-edit-box-item m-edit-box-group">
+            <div class="m-edit-box-item-total">
+              <p class="m-edit-box-label">Total</p>
+              <p class="m-edit-box-total js-text-block" data-text-block-options="path:spells.dc.level_4.current,type:bonus"></p>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_4.misc,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-misc">Misc</label>
+                <input id="basics-Initiative-misc" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_4.temp,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-temp">Temp</label>
+                <input id="basics-Initiative-temp" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_4.feat,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-feat">Feat</label>
+                <input id="basics-Initiative-feat" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_4.trait,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-trait">Trait</label>
+                <input id="basics-Initiative-trait" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-button-small">
+              <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-total-block-bonuses-options="path:spells.dc.level_4.bonuses,modalHeading:Level 4 DC bonuses"
+                tabindex="1"><span class="icon-more-vertical"></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
+      <div class="m-edit-box-head">
+        <h2 class="m-edit-box-title">Spell List</h2>
+      </div>
+      <div class="m-edit-box-body">
+        <div class="m-edit-box-content m-edit-box-content-margin-large">
+          <div class="m-edit-box-item m-edit-box-group">
             <div class="m-edit-box-item-large">
               <div class="m-input-block">
-                <label class="m-input-block-label" for="add-new-spell-level-4">Add Spell</label>
+                <label class="m-input-block-label" for="add-new-spell-level-4">Add New Spell</label>
                 <input id="add-new-spell-level-4" class="m-new-spell-field m-input-block-field u-full-width js-add-new-spell-field" type="text" tabindex="1">
               </div>
             </div>
@@ -385,38 +616,89 @@
 
     <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
       <div class="m-edit-box-head">
-        <h2 class="m-edit-box-title">Level 5</h2>
+        <h2 class="m-edit-box-title">Spell Counts</h2>
       </div>
       <div class="m-edit-box-body">
         <div class="m-edit-box-content m-edit-box-content-margin-large">
           <div class="m-edit-box-item m-edit-box-group">
             <div class="m-edit-box-item-small">
               <div class="m-input-block js-input-block" data-input-block-options="path:spells.known.level_5,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-known-level-5">Known</label>
+                <label class="m-input-block-label js-input-block-label" for="spells-known-level-5">Known Spells</label>
                 <input id="spells-known-level-5" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item-small">
-              <div class="m-input-block js-input-block" data-input-block-options="path:spells.per_day.level_5,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-daily-level-5">Daily</label>
-                <input id="spells-daily-level-5" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
-              </div>
-            </div>
-            <div class="m-edit-box-item-small">
               <div class="m-input-block js-input-block" data-input-block-options="path:spells.bonus.level_5,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-bonus-level-5">Bonus</label>
+                <label class="m-input-block-label js-input-block-label" for="spells-bonus-level-5">Bonus Spells</label>
                 <input id="spells-bonus-level-5" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item-small">
-              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_5,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-dc-level-5">DC</label>
-                <input id="spells-dc-level-5" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.per_day.level_5,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="spells-daily-level-5">Spells Per Day</label>
+                <input id="spells-daily-level-5" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:spells.dc.level_5,addition:+misc+temp+feat+trait,bonuses:+str_bonus+dex_bonus+con_bonus+int_bonus+wis_bonus+cha_bonus+level+half_level+spell_level+plus_ten">
+      <div class="m-edit-box-head">
+        <h2 class="m-edit-box-title">Save DC</h2>
+      </div>
+      <div class="m-edit-box-body">
+        <div class="m-edit-box-content m-edit-box-content-margin-large">
+
+          <div class="m-edit-box-item m-edit-box-group">
+            <div class="m-edit-box-item-total">
+              <p class="m-edit-box-label">Total</p>
+              <p class="m-edit-box-total js-text-block" data-text-block-options="path:spells.dc.level_5.current,type:bonus"></p>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_5.misc,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-misc">Misc</label>
+                <input id="basics-Initiative-misc" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_5.temp,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-temp">Temp</label>
+                <input id="basics-Initiative-temp" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_5.feat,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-feat">Feat</label>
+                <input id="basics-Initiative-feat" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_5.trait,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-trait">Trait</label>
+                <input id="basics-Initiative-trait" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-button-small">
+              <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-total-block-bonuses-options="path:spells.dc.level_5.bonuses,modalHeading:Level 5 DC bonuses"
+                tabindex="1"><span class="icon-more-vertical"></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
+      <div class="m-edit-box-head">
+        <h2 class="m-edit-box-title">Spell List</h2>
+      </div>
+      <div class="m-edit-box-body">
+        <div class="m-edit-box-content m-edit-box-content-margin-large">
+          <div class="m-edit-box-item m-edit-box-group">
             <div class="m-edit-box-item-large">
               <div class="m-input-block">
-                <label class="m-input-block-label" for="add-new-spell-level-5">Add Spell</label>
+                <label class="m-input-block-label" for="add-new-spell-level-5">Add New Spell</label>
                 <input id="add-new-spell-level-5" class="m-new-spell-field m-input-block-field u-full-width js-add-new-spell-field" type="text" tabindex="1">
               </div>
             </div>
@@ -454,38 +736,89 @@
 
     <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
       <div class="m-edit-box-head">
-        <h2 class="m-edit-box-title">Level 6</h2>
+        <h2 class="m-edit-box-title">Spell Counts</h2>
       </div>
       <div class="m-edit-box-body">
         <div class="m-edit-box-content m-edit-box-content-margin-large">
           <div class="m-edit-box-item m-edit-box-group">
             <div class="m-edit-box-item-small">
               <div class="m-input-block js-input-block" data-input-block-options="path:spells.known.level_6,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-known-level-6">Known</label>
+                <label class="m-input-block-label js-input-block-label" for="spells-known-level-6">Known Spells</label>
                 <input id="spells-known-level-6" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item-small">
-              <div class="m-input-block js-input-block" data-input-block-options="path:spells.per_day.level_6,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-daily-level-6">Daily</label>
-                <input id="spells-daily-level-6" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
-              </div>
-            </div>
-            <div class="m-edit-box-item-small">
               <div class="m-input-block js-input-block" data-input-block-options="path:spells.bonus.level_6,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-bonus-level-6">Bonus</label>
+                <label class="m-input-block-label js-input-block-label" for="spells-bonus-level-6">Bonus Spells</label>
                 <input id="spells-bonus-level-6" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item-small">
-              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_6,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-dc-level-6">DC</label>
-                <input id="spells-dc-level-6" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.per_day.level_6,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="spells-daily-level-6">Spells Per Day</label>
+                <input id="spells-daily-level-6" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:spells.dc.level_6,addition:+misc+temp+feat+trait,bonuses:+str_bonus+dex_bonus+con_bonus+int_bonus+wis_bonus+cha_bonus+level+half_level+spell_level+plus_ten">
+      <div class="m-edit-box-head">
+        <h2 class="m-edit-box-title">Save DC</h2>
+      </div>
+      <div class="m-edit-box-body">
+        <div class="m-edit-box-content m-edit-box-content-margin-large">
+
+          <div class="m-edit-box-item m-edit-box-group">
+            <div class="m-edit-box-item-total">
+              <p class="m-edit-box-label">Total</p>
+              <p class="m-edit-box-total js-text-block" data-text-block-options="path:spells.dc.level_6.current,type:bonus"></p>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_6.misc,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-misc">Misc</label>
+                <input id="basics-Initiative-misc" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_6.temp,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-temp">Temp</label>
+                <input id="basics-Initiative-temp" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_6.feat,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-feat">Feat</label>
+                <input id="basics-Initiative-feat" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_6.trait,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-trait">Trait</label>
+                <input id="basics-Initiative-trait" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-button-small">
+              <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-total-block-bonuses-options="path:spells.dc.level_6.bonuses,modalHeading:Level 6 DC bonuses"
+                tabindex="1"><span class="icon-more-vertical"></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
+      <div class="m-edit-box-head">
+        <h2 class="m-edit-box-title">Spell List</h2>
+      </div>
+      <div class="m-edit-box-body">
+        <div class="m-edit-box-content m-edit-box-content-margin-large">
+          <div class="m-edit-box-item m-edit-box-group">
             <div class="m-edit-box-item-large">
               <div class="m-input-block">
-                <label class="m-input-block-label" for="add-new-spell-level-6">Add Spell</label>
+                <label class="m-input-block-label" for="add-new-spell-level-6">Add New Spell</label>
                 <input id="add-new-spell-level-6" class="m-new-spell-field m-input-block-field u-full-width js-add-new-spell-field" type="text" tabindex="1">
               </div>
             </div>
@@ -523,38 +856,89 @@
 
     <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
       <div class="m-edit-box-head">
-        <h2 class="m-edit-box-title">Level 7</h2>
+        <h2 class="m-edit-box-title">Spell Counts</h2>
       </div>
       <div class="m-edit-box-body">
         <div class="m-edit-box-content m-edit-box-content-margin-large">
           <div class="m-edit-box-item m-edit-box-group">
             <div class="m-edit-box-item-small">
               <div class="m-input-block js-input-block" data-input-block-options="path:spells.known.level_7,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-known-level-7">Known</label>
+                <label class="m-input-block-label js-input-block-label" for="spells-known-level-7">Known Spells</label>
                 <input id="spells-known-level-7" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item-small">
-              <div class="m-input-block js-input-block" data-input-block-options="path:spells.per_day.level_7,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-daily-level-7">Daily</label>
-                <input id="spells-daily-level-7" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
-              </div>
-            </div>
-            <div class="m-edit-box-item-small">
               <div class="m-input-block js-input-block" data-input-block-options="path:spells.bonus.level_7,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-bonus-level-7">Bonus</label>
+                <label class="m-input-block-label js-input-block-label" for="spells-bonus-level-7">Bonus Spells</label>
                 <input id="spells-bonus-level-7" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item-small">
-              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_7,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-dc-level-7">DC</label>
-                <input id="spells-dc-level-7" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.per_day.level_7,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="spells-daily-level-7">Spells Per Day</label>
+                <input id="spells-daily-level-7" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:spells.dc.level_7,addition:+misc+temp+feat+trait,bonuses:+str_bonus+dex_bonus+con_bonus+int_bonus+wis_bonus+cha_bonus+level+half_level+spell_level+plus_ten">
+      <div class="m-edit-box-head">
+        <h2 class="m-edit-box-title">Save DC</h2>
+      </div>
+      <div class="m-edit-box-body">
+        <div class="m-edit-box-content m-edit-box-content-margin-large">
+
+          <div class="m-edit-box-item m-edit-box-group">
+            <div class="m-edit-box-item-total">
+              <p class="m-edit-box-label">Total</p>
+              <p class="m-edit-box-total js-text-block" data-text-block-options="path:spells.dc.level_7.current,type:bonus"></p>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_7.misc,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-misc">Misc</label>
+                <input id="basics-Initiative-misc" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_7.temp,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-temp">Temp</label>
+                <input id="basics-Initiative-temp" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_7.feat,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-feat">Feat</label>
+                <input id="basics-Initiative-feat" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_7.trait,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-trait">Trait</label>
+                <input id="basics-Initiative-trait" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-button-small">
+              <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-total-block-bonuses-options="path:spells.dc.level_7.bonuses,modalHeading:Level 7 DC bonuses"
+                tabindex="1"><span class="icon-more-vertical"></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
+      <div class="m-edit-box-head">
+        <h2 class="m-edit-box-title">Spell List</h2>
+      </div>
+      <div class="m-edit-box-body">
+        <div class="m-edit-box-content m-edit-box-content-margin-large">
+          <div class="m-edit-box-item m-edit-box-group">
             <div class="m-edit-box-item-large">
               <div class="m-input-block">
-                <label class="m-input-block-label" for="add-new-spell-level-7">Add Spell</label>
+                <label class="m-input-block-label" for="add-new-spell-level-7">Add New Spell</label>
                 <input id="add-new-spell-level-7" class="m-new-spell-field m-input-block-field u-full-width js-add-new-spell-field" type="text" tabindex="1">
               </div>
             </div>
@@ -592,38 +976,89 @@
 
     <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
       <div class="m-edit-box-head">
-        <h2 class="m-edit-box-title">Level 8</h2>
+        <h2 class="m-edit-box-title">Spell Counts</h2>
       </div>
       <div class="m-edit-box-body">
         <div class="m-edit-box-content m-edit-box-content-margin-large">
           <div class="m-edit-box-item m-edit-box-group">
             <div class="m-edit-box-item-small">
               <div class="m-input-block js-input-block" data-input-block-options="path:spells.known.level_8,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-known-level-8">Known</label>
+                <label class="m-input-block-label js-input-block-label" for="spells-known-level-8">Known Spells</label>
                 <input id="spells-known-level-8" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item-small">
-              <div class="m-input-block js-input-block" data-input-block-options="path:spells.per_day.level_8,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-daily-level-8">Daily</label>
-                <input id="spells-daily-level-8" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
-              </div>
-            </div>
-            <div class="m-edit-box-item-small">
               <div class="m-input-block js-input-block" data-input-block-options="path:spells.bonus.level_8,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-bonus-level-8">Bonus</label>
+                <label class="m-input-block-label js-input-block-label" for="spells-bonus-level-8">Bonus Spells</label>
                 <input id="spells-bonus-level-8" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item-small">
-              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_8,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-dc-level-8">DC</label>
-                <input id="spells-dc-level-8" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.per_day.level_8,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="spells-daily-level-8">Spells Per Day</label>
+                <input id="spells-daily-level-8" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:spells.dc.level_8,addition:+misc+temp+feat+trait,bonuses:+str_bonus+dex_bonus+con_bonus+int_bonus+wis_bonus+cha_bonus+level+half_level+spell_level+plus_ten">
+      <div class="m-edit-box-head">
+        <h2 class="m-edit-box-title">Save DC</h2>
+      </div>
+      <div class="m-edit-box-body">
+        <div class="m-edit-box-content m-edit-box-content-margin-large">
+
+          <div class="m-edit-box-item m-edit-box-group">
+            <div class="m-edit-box-item-total">
+              <p class="m-edit-box-label">Total</p>
+              <p class="m-edit-box-total js-text-block" data-text-block-options="path:spells.dc.level_8.current,type:bonus"></p>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_8.misc,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-misc">Misc</label>
+                <input id="basics-Initiative-misc" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_8.temp,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-temp">Temp</label>
+                <input id="basics-Initiative-temp" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_8.feat,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-feat">Feat</label>
+                <input id="basics-Initiative-feat" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_8.trait,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-trait">Trait</label>
+                <input id="basics-Initiative-trait" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-button-small">
+              <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-total-block-bonuses-options="path:spells.dc.level_8.bonuses,modalHeading:Level 8 DC bonuses"
+                tabindex="1"><span class="icon-more-vertical"></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
+      <div class="m-edit-box-head">
+        <h2 class="m-edit-box-title">Spell List</h2>
+      </div>
+      <div class="m-edit-box-body">
+        <div class="m-edit-box-content m-edit-box-content-margin-large">
+          <div class="m-edit-box-item m-edit-box-group">
             <div class="m-edit-box-item-large">
               <div class="m-input-block">
-                <label class="m-input-block-label" for="add-new-spell-level-8">Add Spell</label>
+                <label class="m-input-block-label" for="add-new-spell-level-8">Add New Spell</label>
                 <input id="add-new-spell-level-8" class="m-new-spell-field m-input-block-field u-full-width js-add-new-spell-field" type="text" tabindex="1">
               </div>
             </div>
@@ -661,38 +1096,89 @@
 
     <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
       <div class="m-edit-box-head">
-        <h2 class="m-edit-box-title">Level 9</h2>
+        <h2 class="m-edit-box-title">Spell Counts</h2>
       </div>
       <div class="m-edit-box-body">
         <div class="m-edit-box-content m-edit-box-content-margin-large">
           <div class="m-edit-box-item m-edit-box-group">
             <div class="m-edit-box-item-small">
               <div class="m-input-block js-input-block" data-input-block-options="path:spells.known.level_9,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-known-level-9">Known</label>
+                <label class="m-input-block-label js-input-block-label" for="spells-known-level-9">Known Spells</label>
                 <input id="spells-known-level-9" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item-small">
-              <div class="m-input-block js-input-block" data-input-block-options="path:spells.per_day.level_9,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-daily-level-9">Daily</label>
-                <input id="spells-daily-level-9" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
-              </div>
-            </div>
-            <div class="m-edit-box-item-small">
               <div class="m-input-block js-input-block" data-input-block-options="path:spells.bonus.level_9,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-bonus-level-9">Bonus</label>
+                <label class="m-input-block-label js-input-block-label" for="spells-bonus-level-9">Bonus Spells</label>
                 <input id="spells-bonus-level-9" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item-small">
-              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_9,type:integer">
-                <label class="m-input-block-label js-input-block-label" for="spells-dc-level-9">DC</label>
-                <input id="spells-dc-level-9" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.per_day.level_9,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="spells-daily-level-9">Spells Per Day</label>
+                <input id="spells-daily-level-9" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:spells.dc.level_9,addition:+misc+temp+feat+trait,bonuses:+str_bonus+dex_bonus+con_bonus+int_bonus+wis_bonus+cha_bonus+level+half_level+spell_level+plus_ten">
+      <div class="m-edit-box-head">
+        <h2 class="m-edit-box-title">Save DC</h2>
+      </div>
+      <div class="m-edit-box-body">
+        <div class="m-edit-box-content m-edit-box-content-margin-large">
+
+          <div class="m-edit-box-item m-edit-box-group">
+            <div class="m-edit-box-item-total">
+              <p class="m-edit-box-label">Total</p>
+              <p class="m-edit-box-total js-text-block" data-text-block-options="path:spells.dc.level_9.current,type:bonus"></p>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_9.misc,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-misc">Misc</label>
+                <input id="basics-Initiative-misc" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_9.temp,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-temp">Temp</label>
+                <input id="basics-Initiative-temp" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_9.feat,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-feat">Feat</label>
+                <input id="basics-Initiative-feat" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-small">
+              <div class="m-input-block js-input-block" data-input-block-options="path:spells.dc.level_9.trait,type:integer">
+                <label class="m-input-block-label js-input-block-label" for="basics-Initiative-trait">Trait</label>
+                <input id="basics-Initiative-trait" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+              </div>
+            </div>
+            <div class="m-edit-box-item-button-small">
+              <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-total-block-bonuses-options="path:spells.dc.level_9.bonuses,modalHeading:Level 9 DC bonuses"
+                tabindex="1"><span class="icon-more-vertical"></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
+      <div class="m-edit-box-head">
+        <h2 class="m-edit-box-title">Spell List</h2>
+      </div>
+      <div class="m-edit-box-body">
+        <div class="m-edit-box-content m-edit-box-content-margin-large">
+          <div class="m-edit-box-item m-edit-box-group">
             <div class="m-edit-box-item-large">
               <div class="m-input-block">
-                <label class="m-input-block-label" for="add-new-spell-level-9">Add Spell</label>
+                <label class="m-input-block-label" for="add-new-spell-level-9">Add New Spell</label>
                 <input id="add-new-spell-level-9" class="m-new-spell-field m-input-block-field u-full-width js-add-new-spell-field" type="text" tabindex="1">
               </div>
             </div>

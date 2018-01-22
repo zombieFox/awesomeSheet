@@ -45,6 +45,8 @@ var totalBlock = (function() {
       return "Armor Check Penalty";
     } else if (label == "max-dex" || label == "max_dex") {
       return "Max Dex Bonus";
+    } else if (label == "spell-level" || label == "spell_level") {
+      return "Spell Level";
     } else {
       return label;
     };
@@ -318,6 +320,12 @@ var totalBlock = (function() {
               path: "basics.size.size_modifier_stealth"
             }));
           };
+          if (key == "spell_level") {
+            externalBouns = _checkValue(helper.getObject({
+              object: sheet.get(),
+              path: options.path + ".spell_level"
+            }));
+          };
           if (key == "plus_ten") {
             externalBouns = 10;
           };
@@ -578,6 +586,11 @@ var totalBlock = (function() {
         if ("size_modifier_stealth" in totalBlockBonusesObject) {
           orderedBonuses.push({
             "size_modifier_stealth": totalBlockBonusesObject["size_modifier_stealth"]
+          })
+        };
+        if ("spell_level" in totalBlockBonusesObject) {
+          orderedBonuses.push({
+            "spell_level": totalBlockBonusesObject["spell_level"]
           })
         };
         for (var i = 0; i < orderedBonuses.length; i++) {

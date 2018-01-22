@@ -1154,16 +1154,206 @@ var blank = (function() {
         level_9: ""
       },
       dc: {
-        level_0: "",
-        level_1: "",
-        level_2: "",
-        level_3: "",
-        level_4: "",
-        level_5: "",
-        level_6: "",
-        level_7: "",
-        level_8: "",
-        level_9: ""
+        level_0: {
+          spell_level: 0,
+          misc: "",
+          temp: "",
+          feat: "",
+          trait: "",
+          current: "",
+          bonuses: {
+            str_bonus: false,
+            dex_bonus: false,
+            con_bonus: false,
+            int_bonus: false,
+            wis_bonus: false,
+            cha_bonus: false,
+            level: false,
+            half_level: false,
+            spell_level: false,
+            plus_ten: false
+          }
+        },
+        level_1: {
+          spell_level: 1,
+          misc: "",
+          temp: "",
+          feat: "",
+          trait: "",
+          current: "",
+          bonuses: {
+            str_bonus: false,
+            dex_bonus: false,
+            con_bonus: false,
+            int_bonus: false,
+            wis_bonus: false,
+            cha_bonus: false,
+            level: false,
+            half_level: false,
+            spell_level: false,
+            plus_ten: false
+          }
+        },
+        level_2: {
+          spell_level: 2,
+          misc: "",
+          temp: "",
+          feat: "",
+          trait: "",
+          current: "",
+          bonuses: {
+            str_bonus: false,
+            dex_bonus: false,
+            con_bonus: false,
+            int_bonus: false,
+            wis_bonus: false,
+            cha_bonus: false,
+            level: false,
+            half_level: false,
+            spell_level: false,
+            plus_ten: false
+          }
+        },
+        level_3: {
+          spell_level: 3,
+          misc: "",
+          temp: "",
+          feat: "",
+          trait: "",
+          current: "",
+          bonuses: {
+            str_bonus: false,
+            dex_bonus: false,
+            con_bonus: false,
+            int_bonus: false,
+            wis_bonus: false,
+            cha_bonus: false,
+            level: false,
+            half_level: false,
+            spell_level: false,
+            plus_ten: false
+          }
+        },
+        level_4: {
+          spell_level: 4,
+          misc: "",
+          temp: "",
+          feat: "",
+          trait: "",
+          current: "",
+          bonuses: {
+            str_bonus: false,
+            dex_bonus: false,
+            con_bonus: false,
+            int_bonus: false,
+            wis_bonus: false,
+            cha_bonus: false,
+            level: false,
+            half_level: false,
+            spell_level: false,
+            plus_ten: false
+          }
+        },
+        level_5: {
+          spell_level: 5,
+          misc: "",
+          temp: "",
+          feat: "",
+          trait: "",
+          current: "",
+          bonuses: {
+            str_bonus: false,
+            dex_bonus: false,
+            con_bonus: false,
+            int_bonus: false,
+            wis_bonus: false,
+            cha_bonus: false,
+            level: false,
+            half_level: false,
+            spell_level: false,
+            plus_ten: false
+          }
+        },
+        level_6: {
+          spell_level: 6,
+          misc: "",
+          temp: "",
+          feat: "",
+          trait: "",
+          current: "",
+          bonuses: {
+            str_bonus: false,
+            dex_bonus: false,
+            con_bonus: false,
+            int_bonus: false,
+            wis_bonus: false,
+            cha_bonus: false,
+            level: false,
+            half_level: false,
+            spell_level: false,
+            plus_ten: false
+          }
+        },
+        level_7: {
+          spell_level: 7,
+          misc: "",
+          temp: "",
+          feat: "",
+          trait: "",
+          current: "",
+          bonuses: {
+            str_bonus: false,
+            dex_bonus: false,
+            con_bonus: false,
+            int_bonus: false,
+            wis_bonus: false,
+            cha_bonus: false,
+            level: false,
+            half_level: false,
+            spell_level: false,
+            plus_ten: false
+          }
+        },
+        level_8: {
+          spell_level: 8,
+          misc: "",
+          temp: "",
+          feat: "",
+          trait: "",
+          current: "",
+          bonuses: {
+            str_bonus: false,
+            dex_bonus: false,
+            con_bonus: false,
+            int_bonus: false,
+            wis_bonus: false,
+            cha_bonus: false,
+            level: false,
+            half_level: false,
+            spell_level: false,
+            plus_ten: false
+          }
+        },
+        level_9: {
+          spell_level: 9,
+          misc: "",
+          temp: "",
+          feat: "",
+          trait: "",
+          current: "",
+          bonuses: {
+            str_bonus: false,
+            dex_bonus: false,
+            con_bonus: false,
+            int_bonus: false,
+            wis_bonus: false,
+            cha_bonus: false,
+            level: false,
+            half_level: false,
+            spell_level: false,
+            plus_ten: false
+          }
+        }
       },
       known: {
         level_0: "",
