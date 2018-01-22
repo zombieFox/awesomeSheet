@@ -762,6 +762,8 @@ var spells = (function() {
     spellButton.setAttribute("tabindex", "1");
     if (_spellState.get(level) == "remove") {
       helper.addClass(spellButton, "button-primary");
+    } else if (_spellState.get(level) == "prepare" || _spellState.get(level) == "unprepare" || _spellState.get(level) == "cast" || _spellState.get(level) == "active") {
+      helper.addClass(spellButton, "button-secondary");
     };
     var spellActive = document.createElement("span");
     spellActive.setAttribute("class", "m-spell-active js-spell-active");
