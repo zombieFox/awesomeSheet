@@ -1,81 +1,5 @@
 var spells = (function() {
 
-  // function bind() {
-  //   var spellPrepareButton = helper.e(".js-spell-prepare");
-  //   var spellUnprepareButton = helper.e(".js-spell-unprepare");
-  //   var spellCastButton = helper.e(".js-spell-cast");
-  //   var spellActiveButton = helper.e(".js-spell-active");
-  //   var spellRemoveButton = helper.e(".js-spell-remove");
-  //   var spellReset = helper.e(".js-spell-reset");
-  //   var spellSort = helper.e(".js-spell-sort");
-  //   var all_newSpellAdd = helper.eA(".js-new-spell-add");
-  //   for (var i = 0; i < all_newSpellAdd.length; i++) {
-  //     var spellBook = helper.getClosest(all_newSpellAdd[i], ".js-spell-book");
-  //     var newSpellField = spellBook.querySelector(".js-new-spell-field");
-  //     all_newSpellAdd[i].addEventListener("click", function() {
-  //       _addNewSpell(helper.getClosest(this, ".js-spell-book").querySelector(".js-new-spell-field"));
-  //       sheet.store();
-  //     }, false);
-  //     newSpellField.addEventListener("keypress", function() {
-  //       _addNewSpellOnEnter(this);
-  //       sheet.store();
-  //     }, false);
-  //   };
-  //   spellPrepareButton.addEventListener("click", function() {
-  //     _update_stateSpellEditMode(this);
-  //   }, false);
-  //   spellUnprepareButton.addEventListener("click", function() {
-  //     _update_stateSpellEditMode(this);
-  //   }, false);
-  //   spellCastButton.addEventListener("click", function() {
-  //     _update_stateSpellEditMode(this);
-  //   }, false);
-  //   spellActiveButton.addEventListener("click", function() {
-  //     _update_stateSpellEditMode(this);
-  //   }, false);
-  //   spellRemoveButton.addEventListener("click", function() {
-  //     _update_stateSpellEditMode(this);
-  //   }, false);
-  //   spellReset.addEventListener("click", function() {
-  //     prompt.render({
-  //       heading: "Reset all spells?",
-  //       message: "All Prepared, Cast and Active spells will be set to normal states.",
-  //       actionText: "Reset",
-  //       action: _resetAllSpells
-  //     });
-  //     page.update();
-  //   }, false);
-  //   spellSort.addEventListener("click", function() {
-  //     prompt.render({
-  //       heading: "Sort Spells",
-  //       message: "Sort all Spells in alphabetical order?",
-  //       actionText: "Sort",
-  //       action: _sortAllSpells
-  //     });
-  //     page.update();
-  //   }, false);
-  // };
-  //
-  //
-  // function delayUpdate() {
-  //   var spellRoot = helper.e(".js-spells");
-  //   var spellState = spellRoot.dataset.spellState;
-  //   if (spellState == "prepare" || spellState == "unprepare" || spellState == "cast" || spellState == "active" || spellState == "remove") {
-  //     sheet.store();
-  //   };
-  //   if (display.state()) {
-  //     display.clear();
-  //     display.render();
-  //   };
-  // };
-  //
-  //
-
-  //
-
-
-
-
   var _spellState = (function() {
 
     var spellState = {
@@ -111,6 +35,13 @@ var spells = (function() {
     };
 
   })();
+
+  var addSpellTimer = null;
+
+  function delayUpdate(element, event) {
+    _addNewSpellOnEnter(element, event);
+    sheet.store();
+  };
 
   function _destroy_spellBook(level) {
     var spellBook = helper.e(".js-spell-book-known-level-" + level);
@@ -160,7 +91,29 @@ var spells = (function() {
   };
 
   function bind() {
-    _bind_all_spellControl()
+    _bind_all_spellControl();
+    _bind_all_addNewSpell();
+    _bind_all_addNewSpellField();
+  };
+
+  function _bind_all_addNewSpell() {
+    var all_addNewSpell = helper.eA(".js-add-new-spell");
+    for (var i = 0; i < all_addNewSpell.length; i++) {
+      all_addNewSpell[i].addEventListener("click", function() {
+        _addNewSpell(this);
+        sheet.store();
+      }, false);
+    };
+  };
+
+  function _bind_all_addNewSpellField() {
+    var addNewSpellField = helper.eA(".js-add-new-spell-field");
+    for (var i = 0; i < addNewSpellField.length; i++) {
+      addNewSpellField[i].addEventListener("keypress", function() {
+        clearTimeout(addSpellTimer);
+        addSpellTimer = setTimeout(delayUpdate, 300, this, event);
+      }, false);
+    };
   };
 
   function _bind_all_spellControl() {
@@ -176,6 +129,40 @@ var spells = (function() {
     button.addEventListener("click", function() {
       _spellKnownItem(this);
     }, false);
+  };
+
+  function _addNewSpell(element) {
+    var spellBook = helper.getClosest(element, ".js-spell-book");
+    var spellBookOptions = helper.makeObject(spellBook.dataset.spellBookOptions);
+    var addNewSpellField = spellBook.querySelector(".js-add-new-spell-field");
+    var spellName = addNewSpellField.value;
+    if (spellName != "") {
+      helper.setObject({
+        object: sheet.get(),
+        path: spellBookOptions.path + "[" + _get_spellBookCount(spellBookOptions.level) + "]",
+        newValue: new _create_spellObject(spellName, 0, false, 0, "")
+      });
+      clear();
+      render();
+      addNewSpellField.value = "";
+    };
+  };
+
+  function _addNewSpellOnEnter(input, event) {
+    var keystroke = event.keyCode || event.which;
+    if (keystroke == 13) {
+      _addNewSpell(input);
+    };
+  };
+
+  function _create_spellObject(spellName, spellPrepared, spellActive, spellCast, spellNote) {
+    return {
+      name: this.name = spellName || "",
+      prepared: this.prepared = spellPrepared || 0,
+      active: this.active = spellActive || false,
+      cast: this.cast = spellCast || 0,
+      note: this.note = spellNote || ""
+    };
   };
 
   function _spellKnownItem(button) {
@@ -651,7 +638,7 @@ var spells = (function() {
     };
     if (_get_spellBookCount(spellBookOptions.level)) {
       prompt.render({
-        heading: "Reset all spells?",
+        heading: "Reset level " + spellBookOptions.level + " spells?",
         message: "All level " + spellBookOptions.level + " Prepared, Cast and Active spells will be set to normal states.",
         actionText: "Reset",
         action: promotAction
@@ -687,7 +674,7 @@ var spells = (function() {
     };
     if (_get_spellBookCount(spellBookOptions.level)) {
       prompt.render({
-        heading: "Sort Spells",
+        heading: "Sort level " + spellBookOptions.level + " spells",
         message: "Sort all level " + spellBookOptions.level + " spells in alphabetical order?",
         actionText: "Sort",
         action: promotAction
@@ -912,43 +899,11 @@ var spells = (function() {
   };
 
 
-  // function _addNewSpell(element) {
-  //   var spellLevel = helper.getClosest(element, ".js-spell-book").dataset.spellLevel;
-  //   var spellName = element.value;
-  //   var newSpell = new _create_spellObject(spellName, 0, false, 0);
-  //   // if input value is not empty
-  //   if (spellName !== "") {
-  //     // add spell to current character known spells
-  //     sheet.get().spells.book[spellLevel]["level_" + spellLevel].push(newSpell);
-  //     var newSpellIndex = sheet.get().spells.book[spellLevel]["level_" + spellLevel].length - 1;
-  //     _render_spell(sheet.get().spells.book[spellLevel]["level_" + spellLevel][newSpellIndex], spellLevel, newSpellIndex);
-  //     // clear input field
-  //     element.value = "";
-  //   };
-  // };
-  //
-  // function _addNewSpellOnEnter(element) {
-  //   var keystroke = event.keyCode || event.which;
-  //   if (keystroke == 13) {
-  //     _addNewSpell(element);
-  //   };
-  // };
-  //
-  //
 
-  //
-  //
 
-  //
-  // function _create_spellObject(spellName, spellPrepared, spellActive, spellCast, spellNote) {
-  //   return {
-  //     name: this.name = spellName || "",
-  //     prepared: this.prepared = spellPrepared || 0,
-  //     active: this.active = spellActive || false,
-  //     cast: this.cast = spellCast || 0,
-  //     note: this.note = spellNote || ""
-  //   };
-  // };
+
+
+
 
   // exposed methods
   return {
