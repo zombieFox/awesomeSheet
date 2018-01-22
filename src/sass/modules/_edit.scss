@@ -449,7 +449,7 @@
 .m-edit-controls {
   margin: 0 0 1em;
   position: sticky;
-  top: 7em;
+  top: 6.5em;
   transition: top $transition-ease-fast;
   z-index: $edit-controls;
   .button-group {
@@ -458,7 +458,7 @@
 }
 .is-header-pinned {
   .m-edit-controls {
-    top: 4em;
+    top: 3.5em;
   }
 }
 // --------------------------------------------------
@@ -566,17 +566,17 @@
 }
 @media (min-width: $screen-md) {
   .m-edit-controls {
-    top: 7em;
+    top: 6.5em;
   }
   .is-header-pinned {
     .m-edit-controls {
-      top: 4em;
+      top: 3.5em;
     }
   }
 }
 @media (min-width: $screen-lg) {
   .m-edit-controls {
-    top: 4em;
+    top: 3.5em;
   }
 }
 @media (min-width: $screen-xl) {}
