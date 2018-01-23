@@ -1,7 +1,7 @@
 .m-tip {
   position: absolute;
   max-width: 20em;
-  margin: 0.5em;
+  margin: 0.5em 1em;
   left: 0;
   top: 0;
   font-size: $font-size-root-125;
@@ -16,20 +16,6 @@
 }
 .m-tip-outro {
   animation: shirnk $transition-ease-medium 1;
-}
-.m-tip-push-left {
-  left: 20%;
-  transform: translate(-60%, 0);
-  &:before {
-    left: 80%;
-  }
-}
-.m-tip-push-right {
-  left: 80%;
-  transform: translate(-40%, 0);
-  &:before {
-    left: 20%;
-  }
 }
 .m-tip-message {
   padding: 0.5em 1em;
