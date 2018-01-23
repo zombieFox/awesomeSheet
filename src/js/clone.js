@@ -746,7 +746,9 @@ var clone = (function() {
           class_skill: false,
           level: false,
           half_level: false,
-          check_penalty: false
+          check_penalty: false,
+          size_modifier_stealth: false,
+          size_modifier_fly: false
         }
       };
     };
