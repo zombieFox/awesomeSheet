@@ -26120,7 +26120,7 @@ var spells = (function() {
         object: sheet.get(),
         path: spellBookOptions.path
       });
-      newSpellBook = helper.sortObject(spellBook, "name");
+      var newSpellBook = helper.sortObject(spellBook, "name");
       helper.setObject({
         object: sheet.get(),
         path: spellBookOptions.path,
@@ -26955,11 +26955,11 @@ var tip = (function() {
     };
 
     if (tipWrapper.getBoundingClientRect().left < parseInt(getComputedStyle(tipWrapper).marginLeft, 10)) {
-      console.log("too far left");
+      // console.log("too far left");
       tipWrapper.setAttribute("style", "width: " + style.width + "; top: " + style.top + "; left: " + 0 + "px;");
       tipArrow.setAttribute("style", "left: " + (parseInt(tip.getBoundingClientRect().left, 10) + parseInt((tip.getBoundingClientRect().width / 2), 10) - parseInt(getComputedStyle(tipWrapper).marginLeft, 10)) + "px;");
     } else if (tipWrapper.getBoundingClientRect().right > (document.documentElement.clientWidth - parseInt(getComputedStyle(tipWrapper).marginLeft, 10))) {
-      console.log("too far right");
+      // console.log("too far right");
       tipWrapper.setAttribute("style", "width: " + style.width + "; top: " + style.top + "; left: initial; right: " + 0 + "px;");
       tipArrow.setAttribute("style", "left: " + (-parseInt(tipWrapper.getBoundingClientRect().left, 10) + parseInt(tip.getBoundingClientRect().left, 10) + (parseInt((tip.getBoundingClientRect().width), 10) / 2)) + "px;");
     };
