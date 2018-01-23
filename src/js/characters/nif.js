@@ -1379,10 +1379,34 @@ var nif = (function() {
       spell_notes: "<strong>Arcane school</strong> Conjuration (Teleportation).<br><strong>Opposition Arcane school</strong> Enchantment, Necromancy.<br>Conjuration spells +2 DC.",
       per_day: {
         level_0: 4,
-        level_1: 7,
-        level_2: 5,
-        level_3: 5,
-        level_4: 4,
+        level_1: 4,
+        level_2: 3,
+        level_3: 3,
+        level_4: 2,
+        level_5: "",
+        level_6: "",
+        level_7: "",
+        level_8: "",
+        level_9: ""
+      },
+      known: {
+        level_0: "",
+        level_1: "",
+        level_2: "",
+        level_3: "",
+        level_4: "",
+        level_5: "",
+        level_6: "",
+        level_7: "",
+        level_8: "",
+        level_9: ""
+      },
+      bonus: {
+        level_0: "",
+        level_1: 2,
+        level_2: 2,
+        level_3: 2,
+        level_4: 2,
         level_5: "",
         level_6: "",
         level_7: "",
@@ -1590,30 +1614,6 @@ var nif = (function() {
             plus_ten: false
           }
         }
-      },
-      known: {
-        level_0: "",
-        level_1: "",
-        level_2: "",
-        level_3: "",
-        level_4: "",
-        level_5: "",
-        level_6: "",
-        level_7: "",
-        level_8: "",
-        level_9: ""
-      },
-      bonus: {
-        level_0: "",
-        level_1: "",
-        level_2: "",
-        level_3: "",
-        level_4: "",
-        level_5: "",
-        level_6: "",
-        level_7: "",
-        level_8: "",
-        level_9: ""
       },
       book: [{
         level_0: [{

@@ -1371,12 +1371,36 @@ var izlara = (function() {
       spell_notes: "",
       per_day: {
         level_0: 4,
-        level_1: 7,
-        level_2: 6,
-        level_3: 6,
-        level_4: 5,
-        level_5: 5,
-        level_6: 3,
+        level_1: 4,
+        level_2: 4,
+        level_3: 4,
+        level_4: 3,
+        level_5: 3,
+        level_6: 2,
+        level_7: "",
+        level_8: "",
+        level_9: ""
+      },
+      known: {
+        level_0: "",
+        level_1: "",
+        level_2: "",
+        level_3: "",
+        level_4: "",
+        level_5: "",
+        level_6: "",
+        level_7: "",
+        level_8: "",
+        level_9: ""
+      },
+      bonus: {
+        level_0: "",
+        level_1: 3,
+        level_2: 2,
+        level_3: 2,
+        level_4: 2,
+        level_5: 2,
+        level_6: 1,
         level_7: "",
         level_8: "",
         level_9: ""
@@ -1582,30 +1606,6 @@ var izlara = (function() {
             plus_ten: false
           }
         }
-      },
-      known: {
-        level_0: "",
-        level_1: "",
-        level_2: "",
-        level_3: "",
-        level_4: "",
-        level_5: "",
-        level_6: "",
-        level_7: "",
-        level_8: "",
-        level_9: ""
-      },
-      bonus: {
-        level_0: "",
-        level_1: "",
-        level_2: "",
-        level_3: "",
-        level_4: "",
-        level_5: "",
-        level_6: "",
-        level_7: "",
-        level_8: "",
-        level_9: ""
       },
       book: [{
         level_0: [{

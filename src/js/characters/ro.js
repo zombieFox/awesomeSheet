@@ -1327,10 +1327,34 @@ var ro = (function() {
       },
       spell_notes: "",
       per_day: {
-        level_0: 6,
-        level_1: 5,
-        level_2: 4,
-        level_3: 2,
+        level_0: 5,
+        level_1: 4,
+        level_2: 3,
+        level_3: 1,
+        level_4: "",
+        level_5: "",
+        level_6: "",
+        level_7: "",
+        level_8: "",
+        level_9: ""
+      },
+      known: {
+        level_0: "",
+        level_1: "",
+        level_2: "",
+        level_3: "",
+        level_4: "",
+        level_5: "",
+        level_6: "",
+        level_7: "",
+        level_8: "",
+        level_9: ""
+      },
+      bonus: {
+        level_0: "",
+        level_1: 1,
+        level_2: 1,
+        level_3: 1,
         level_4: "",
         level_5: "",
         level_6: "",
@@ -1540,30 +1564,6 @@ var ro = (function() {
           }
         }
       },
-      known: {
-        level_0: "",
-        level_1: "",
-        level_2: "",
-        level_3: "",
-        level_4: "",
-        level_5: "",
-        level_6: "",
-        level_7: "",
-        level_8: "",
-        level_9: ""
-      },
-      bonus: {
-        level_0: "",
-        level_1: "",
-        level_2: "",
-        level_3: "",
-        level_4: "",
-        level_5: "",
-        level_6: "",
-        level_7: "",
-        level_8: "",
-        level_9: ""
-      },
       book: [{
         level_0: [{
           name: "Acid Splash",
@@ -1615,7 +1615,7 @@ var ro = (function() {
           note: ""
         }, {
           name: "Light",
-          prepared: 1,
+          prepared: 0,
           active: false,
           cast: 0,
           note: ""
