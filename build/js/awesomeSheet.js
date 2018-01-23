@@ -27693,7 +27693,7 @@ var update = (function() {
   var history = [{
     version: "4.2.0",
     list: [
-      "*Added Spell DC controls. You may need to review you previous DCs and turn on appropriate bonuses for each Spell Level."
+      "*Added Spell DC controls. You may need to review your previous DCs and turn on appropriate bonuses for each Spell Level."
     ]
   }, {
     version: "4.1.0",
