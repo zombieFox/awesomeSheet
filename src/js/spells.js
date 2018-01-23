@@ -656,7 +656,7 @@ var spells = (function() {
         object: sheet.get(),
         path: spellBookOptions.path
       });
-      newSpellBook = helper.sortObject(spellBook, "name");
+      var newSpellBook = helper.sortObject(spellBook, "name");
       helper.setObject({
         object: sheet.get(),
         path: spellBookOptions.path,
