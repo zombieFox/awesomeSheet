@@ -92,7 +92,7 @@ var sheet = (function() {
     };
     prompt.render({
       heading: "Remove " + name + "?",
-      message: "The current character will be removed. This can not be undone. Have you backed up your characters by Exporting?",
+      message: "The current character will be removed. This can not be undone. Have you backed up this character by Exporting?",
       actionText: "Remove",
       action: _destroy
     });
