@@ -1,4 +1,109 @@
-<div class="m-tab-panel js-tab-panel js-tab-panel-spell-level-0">
+<div class="m-tab-panel js-tab-panel js-tab-panel-spell-stats">
+
+  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:spells.concentration,addition:+misc+temp+feat,bonuses:+str_bonus+dex_bonus+con_bonus+int_bonus+wis_bonus+cha_bonus+level+half_level">
+    <div class="m-edit-box-head">
+      <h2 class="m-edit-box-title">Concentration</h2>
+    </div>
+    <div class="m-edit-box-body">
+      <div class="m-edit-box-content m-edit-box-content-margin-large">
+        <div class="m-edit-box-item m-edit-box-group">
+          <div class="m-edit-box-item-total">
+            <p class="m-edit-box-label">Total</p>
+            <p class="m-edit-box-total js-text-block" data-text-block-options="path:spells.concentration.current,type:bonus"></p>
+          </div>
+          <div class="m-edit-box-item-small">
+            <div class="m-input-block js-input-block" data-input-block-options="path:spells.concentration.misc,type:integer">
+              <label class="m-input-block-label js-input-block-label" for="spells-concentration-misc">Misc</label>
+              <input id="spells-concentration-misc" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+            </div>
+          </div>
+          <div class="m-edit-box-item-small">
+            <div class="m-input-block js-input-block" data-input-block-options="path:spells.concentration.temp,type:integer">
+              <label class="m-input-block-label js-input-block-label" for="spells-concentration-temp">Temp</label>
+              <input id="spells-concentration-temp" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+            </div>
+          </div>
+          <div class="m-edit-box-item-small">
+            <div class="m-input-block js-input-block" data-input-block-options="path:spells.concentration.feat,type:integer">
+              <label class="m-input-block-label js-input-block-label" for="spells-concentration-feat">Feat</label>
+              <input id="spells-concentration-feat" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+            </div>
+          </div>
+          <div class="m-edit-box-item-small">
+            <div class="m-input-block js-input-block" data-input-block-options="path:spells.concentration.trait,type:integer">
+              <label class="m-input-block-label js-input-block-label" for="spells-concentration-trait">Trait</label>
+              <input id="spells-concentration-trait" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+            </div>
+          </div>
+          <div class="m-edit-box-item-button-small">
+            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-total-block-bonuses-options="path:spells.concentration.bonuses,modalHeading:Concentration bonuses"
+              tabindex="1"><span class="icon-more-vertical"></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:spells.caster_level_check,addition:+misc+temp+feat,bonuses:+str_bonus+dex_bonus+con_bonus+int_bonus+wis_bonus+cha_bonus+level+half_level">
+    <div class="m-edit-box-head">
+      <h2 class="m-edit-box-title">Caster Level Check</h2>
+    </div>
+    <div class="m-edit-box-body">
+      <div class="m-edit-box-content m-edit-box-content-margin-large">
+        <div class="m-edit-box-item m-edit-box-group">
+          <div class="m-edit-box-item-total">
+            <p class="m-edit-box-label">Total</p>
+            <p class="m-edit-box-total js-text-block" data-text-block-options="path:spells.caster_level_check.current,type:bonus"></p>
+          </div>
+          <div class="m-edit-box-item-small">
+            <div class="m-input-block js-input-block" data-input-block-options="path:spells.caster_level_check.misc,type:integer">
+              <label class="m-input-block-label js-input-block-label" for="spells-caster-level-check-misc">Misc</label>
+              <input id="spells-caster-level-check-misc" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+            </div>
+          </div>
+          <div class="m-edit-box-item-small">
+            <div class="m-input-block js-input-block" data-input-block-options="path:spells.caster_level_check.temp,type:integer">
+              <label class="m-input-block-label js-input-block-label" for="spells-caster-level-check-temp">Temp</label>
+              <input id="spells-caster-level-check-temp" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+            </div>
+          </div>
+          <div class="m-edit-box-item-small">
+            <div class="m-input-block js-input-block" data-input-block-options="path:spells.caster_level_check.feat,type:integer">
+              <label class="m-input-block-label js-input-block-label" for="spells-caster-level-check-feat">Feat</label>
+              <input id="spells-caster-level-check-feat" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+            </div>
+          </div>
+          <div class="m-edit-box-item-small">
+            <div class="m-input-block js-input-block" data-input-block-options="path:spells.caster_level_check.trait,type:integer">
+              <label class="m-input-block-label js-input-block-label" for="spells-caster-level-check-trait">Trait</label>
+              <input id="spells-caster-level-check-trait" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+            </div>
+          </div>
+          <div class="m-edit-box-item-button-small">
+            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-total-block-bonuses-options="path:spells.caster_level_check.bonuses,modalHeading:Caster Level Check bonuses"
+              tabindex="1"><span class="icon-more-vertical"></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="m-edit-box m-edit-box-indent m-edit-box-no-head-small">
+    <div class="m-edit-box-body">
+      <div class="m-edit-box-content">
+        <div class="m-edit-box-item-max">
+          <div class="m-textarea-block js-textarea-block" data-textarea-block-options="path:spells.spell_notes">
+            <label class="m-textarea-block-label js-textarea-block-label" for="spells-spell-notes">Spell Notes</label>
+            <div id="spells-spell-notes" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="1"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="m-tab-panel js-tab-panel js-tab-panel-spell-level-0 is-hidden">
   <div class="m-spell-book js-spell-book 0" data-spell-book-options="path:spells.book[0]level_0,level:#0">
 
     <div class="m-edit-controls button-group button-group-right">
@@ -1196,109 +1301,4 @@
     </div>
 
   </div>
-</div>
-
-<div class="m-tab-panel js-tab-panel js-tab-panel-spell-stats is-hidden">
-
-  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:spells.concentration,addition:+misc+temp+feat,bonuses:+str_bonus+dex_bonus+con_bonus+int_bonus+wis_bonus+cha_bonus+level+half_level">
-    <div class="m-edit-box-head">
-      <h2 class="m-edit-box-title">Concentration</h2>
-    </div>
-    <div class="m-edit-box-body">
-      <div class="m-edit-box-content m-edit-box-content-margin-large">
-        <div class="m-edit-box-item m-edit-box-group">
-          <div class="m-edit-box-item-total">
-            <p class="m-edit-box-label">Total</p>
-            <p class="m-edit-box-total js-text-block" data-text-block-options="path:spells.concentration.current,type:bonus"></p>
-          </div>
-          <div class="m-edit-box-item-small">
-            <div class="m-input-block js-input-block" data-input-block-options="path:spells.concentration.misc,type:integer">
-              <label class="m-input-block-label js-input-block-label" for="spells-concentration-misc">Misc</label>
-              <input id="spells-concentration-misc" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
-            </div>
-          </div>
-          <div class="m-edit-box-item-small">
-            <div class="m-input-block js-input-block" data-input-block-options="path:spells.concentration.temp,type:integer">
-              <label class="m-input-block-label js-input-block-label" for="spells-concentration-temp">Temp</label>
-              <input id="spells-concentration-temp" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
-            </div>
-          </div>
-          <div class="m-edit-box-item-small">
-            <div class="m-input-block js-input-block" data-input-block-options="path:spells.concentration.feat,type:integer">
-              <label class="m-input-block-label js-input-block-label" for="spells-concentration-feat">Feat</label>
-              <input id="spells-concentration-feat" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
-            </div>
-          </div>
-          <div class="m-edit-box-item-small">
-            <div class="m-input-block js-input-block" data-input-block-options="path:spells.concentration.trait,type:integer">
-              <label class="m-input-block-label js-input-block-label" for="spells-concentration-trait">Trait</label>
-              <input id="spells-concentration-trait" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
-            </div>
-          </div>
-          <div class="m-edit-box-item-button-small">
-            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-total-block-bonuses-options="path:spells.concentration.bonuses,modalHeading:Concentration bonuses"
-              tabindex="1"><span class="icon-more-vertical"></span></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:spells.caster_level_check,addition:+misc+temp+feat,bonuses:+str_bonus+dex_bonus+con_bonus+int_bonus+wis_bonus+cha_bonus+level+half_level">
-    <div class="m-edit-box-head">
-      <h2 class="m-edit-box-title">Caster Level Check</h2>
-    </div>
-    <div class="m-edit-box-body">
-      <div class="m-edit-box-content m-edit-box-content-margin-large">
-        <div class="m-edit-box-item m-edit-box-group">
-          <div class="m-edit-box-item-total">
-            <p class="m-edit-box-label">Total</p>
-            <p class="m-edit-box-total js-text-block" data-text-block-options="path:spells.caster_level_check.current,type:bonus"></p>
-          </div>
-          <div class="m-edit-box-item-small">
-            <div class="m-input-block js-input-block" data-input-block-options="path:spells.caster_level_check.misc,type:integer">
-              <label class="m-input-block-label js-input-block-label" for="spells-caster-level-check-misc">Misc</label>
-              <input id="spells-caster-level-check-misc" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
-            </div>
-          </div>
-          <div class="m-edit-box-item-small">
-            <div class="m-input-block js-input-block" data-input-block-options="path:spells.caster_level_check.temp,type:integer">
-              <label class="m-input-block-label js-input-block-label" for="spells-caster-level-check-temp">Temp</label>
-              <input id="spells-caster-level-check-temp" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
-            </div>
-          </div>
-          <div class="m-edit-box-item-small">
-            <div class="m-input-block js-input-block" data-input-block-options="path:spells.caster_level_check.feat,type:integer">
-              <label class="m-input-block-label js-input-block-label" for="spells-caster-level-check-feat">Feat</label>
-              <input id="spells-caster-level-check-feat" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
-            </div>
-          </div>
-          <div class="m-edit-box-item-small">
-            <div class="m-input-block js-input-block" data-input-block-options="path:spells.caster_level_check.trait,type:integer">
-              <label class="m-input-block-label js-input-block-label" for="spells-caster-level-check-trait">Trait</label>
-              <input id="spells-caster-level-check-trait" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
-            </div>
-          </div>
-          <div class="m-edit-box-item-button-small">
-            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-total-block-bonuses-options="path:spells.caster_level_check.bonuses,modalHeading:Caster Level Check bonuses"
-              tabindex="1"><span class="icon-more-vertical"></span></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="m-edit-box m-edit-box-indent m-edit-box-no-head-small">
-    <div class="m-edit-box-body">
-      <div class="m-edit-box-content">
-        <div class="m-edit-box-item-max">
-          <div class="m-textarea-block js-textarea-block" data-textarea-block-options="path:spells.spell_notes">
-            <label class="m-textarea-block-label js-textarea-block-label" for="spells-spell-notes">Spell Notes</label>
-            <div id="spells-spell-notes" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="1"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
 </div>

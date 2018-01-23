@@ -18,52 +18,41 @@ var tabs = (function() {
   };
 
   function _bind_tabArrow() {
-    var all_tabLeft = helper.eA(".js-tab-left");
-    var all_tabRight = helper.eA(".js-tab-right");
-    for (var i = 0; i < all_tabLeft.length; i++) {
-      all_tabLeft[i].addEventListener("click", function() {
-        _tabLeftRight(this);
-      }, false);
-    };
-    for (var i = 0; i < all_tabRight.length; i++) {
-      all_tabRight[i].addEventListener("click", function() {
-        _tabLeftRight(this);
+    var all_tabArrow = helper.eA(".js-tab-arrow");
+    for (var i = 0; i < all_tabArrow.length; i++) {
+      all_tabArrow[i].addEventListener("click", function() {
+        _tabArrow(this);
       }, false);
     };
   };
 
-  function _tabLeftRight(arrowButton) {
-    var direction;
-    var tabGroup = helper.getClosest(arrowButton, ".js-tab-group");
+  function _tabArrow(button) {
+    var options = helper.makeObject(button.dataset.tabArrowOptions);
+    var tabGroup = helper.getClosest(button, ".js-tab-group");
     var tabRow = tabGroup.querySelector(".js-tab-row");
-    if (arrowButton.classList.contains("js-tab-left")) {
-      direction = "left";
-    } else if (arrowButton.classList.contains("js-tab-right")) {
-      direction = "right";
-    };
     var all_tabItem = tabGroup.querySelectorAll(".js-tab-item");
     var currentIndex;
     var newIndex;
     for (var i = 0; i < all_tabItem.length; i++) {
-      if (all_tabItem[i].dataset.tabActive == "true") {
+      if (all_tabItem[i].dataset.tabState == "true") {
         currentIndex = i;
       };
       helper.removeClass(all_tabItem[i], "is-active");
-      all_tabItem[i].dataset.tabActive = false;
+      all_tabItem[i].dataset.tabState = false;
     };
-    if (direction == "right") {
+    if (options.action == "right") {
       newIndex = currentIndex + 1;
       if (newIndex > all_tabItem.length - 1) {
         newIndex = 0;
       };
-    } else if (direction == "left") {
+    } else if (options.action == "left") {
       newIndex = currentIndex - 1;
       if (newIndex < 0) {
         newIndex = all_tabItem.length - 1;
       };
     };
     helper.addClass(all_tabItem[newIndex], "is-active");
-    all_tabItem[newIndex].dataset.tabActive = true;
+    all_tabItem[newIndex].dataset.tabState = true;
     _scrollTabInToView(tabRow, all_tabItem[newIndex]);
     _switchTabPanel(all_tabItem[newIndex]);
   };
@@ -81,25 +70,32 @@ var tabs = (function() {
   };
 
   function _switchTabPanel(tab) {
-    var all_targetToReveal = tab.dataset.tabTarget.split(",");
+    var options = helper.makeObject(tab.dataset.tabOptions);
+    var all_targetToShow = options.target.split(",");
     var tabGroup = helper.getClosest(tab, ".js-tab-group");
     var tabRow = tabGroup.querySelector(".js-tab-row");
     var all_tabItem = tabGroup.querySelectorAll(".js-tab-item");
-    for (var i = 0; i < all_tabItem.length; i++) {
-      var all_targetToHide = all_tabItem[i].dataset.tabTarget.split(",");
-      for (var j = 0; j < all_targetToHide.length; j++) {
-        var target = helper.e("." + all_targetToHide[j]);
-        helper.addClass(target, "is-hidden");
+    var _hideAllTabPanel = function() {
+      for (var i = 0; i < all_tabItem.length; i++) {
+        all_tabItem[i].dataset.tabState = false;
+        helper.removeClass(all_tabItem[i], "is-active");
+        var tabItemOptions = helper.makeObject(all_tabItem[i].dataset.tabOptions);
+        var all_targetToHide = tabItemOptions.target.split(",");
+        for (var j = 0; j < all_targetToHide.length; j++) {
+          helper.addClass(helper.e("." + all_targetToHide[j]), "is-hidden");
+        };
       };
-      helper.removeClass(all_tabItem[i], "is-active");
-      all_tabItem[i].dataset.tabActive = false;
     };
-    helper.addClass(tab, "is-active");
-    for (var i = 0; i < all_targetToReveal.length; i++) {
-      var target = helper.e("." + all_targetToReveal[i]);
-      helper.removeClass(target, "is-hidden");
+    var _showPanel = function() {
+      tab.dataset.tabState = true;
+      helper.addClass(tab, "is-active");
+      for (var i = 0; i < all_targetToShow.length; i++) {
+        var target = helper.e("." + all_targetToShow[i]);
+        helper.removeClass(target, "is-hidden");
+      };
     };
-    tab.dataset.tabActive = true;
+    _hideAllTabPanel();
+    _showPanel();
     _scrollTabInToView(tabRow, tab);
   };
 
