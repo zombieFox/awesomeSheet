@@ -1,54 +1,5 @@
 var totalBlock = (function() {
 
-  function _bonusTextLable(label) {
-    if (label == "str-bonus" || label == "str_bonus") {
-      return "STR Bonus";
-    } else if (label == "dex-bonus" || label == "dex_bonus") {
-      return "DEX Bonus";
-    } else if (label == "con-bonus" || label == "con_bonus") {
-      return "CON Bonus";
-    } else if (label == "int-bonus" || label == "int_bonus") {
-      return "INT Bonus";
-    } else if (label == "wis-bonus" || label == "wis_bonus") {
-      return "WIS Bonus";
-    } else if (label == "cha-bonus" || label == "cha_bonus") {
-      return "CHA Bonus";
-    } else if (label == "bab") {
-      return "Base Attack Bonus";
-    } else if (label == "size") {
-      return "Size Bonus";
-    } else if (label == "special_size") {
-      return "Special Size Bonus";
-    } else if (label == "size_modifier_fly") {
-      return "Size Fly Bonus";
-    } else if (label == "size_modifier_stealth") {
-      return "Size Stealth Bonus";
-    } else if (label == "level") {
-      return "Level";
-    } else if (label == "half-level" || label == "half_level") {
-      return "Half Level";
-    } else if (label == "plus-ten" || label == "plus_ten") {
-      return "Plus 10";
-    } else if (label == "ac-armor" || label == "ac_armor") {
-      return "Armor Bonus";
-    } else if (label == "ac-shield" || label == "ac_shield") {
-      return "Shield Bonus";
-    } else if (label == "ac-deflect" || label == "ac_deflect") {
-      return "Deflect Bonus";
-    } else if (label == "ac-dodge" || label == "ac_dodge") {
-      return "Dodge Bonus";
-    } else if (label == "ac-natural" || label == "ac_natural") {
-      return "Natural Armor Bonus";
-    } else if (label == "class-skill" || label == "class_skill") {
-      return "Class Skill";
-    } else if (label == "check-penalty" || label == "check_penalty") {
-      return "Armor Check Penalty";
-    } else if (label == "max-dex" || label == "max_dex") {
-      return "Max Dex Bonus";
-    } else {
-      return label;
-    };
-  };
 
   function bind(totalBlock) {
     if (totalBlock) {
@@ -318,6 +269,12 @@ var totalBlock = (function() {
               path: "basics.size.size_modifier_stealth"
             }));
           };
+          if (key == "spell_level") {
+            externalBouns = _checkValue(helper.getObject({
+              object: sheet.get(),
+              path: options.path + ".spell_level"
+            }));
+          };
           if (key == "plus_ten") {
             externalBouns = 10;
           };
@@ -465,6 +422,115 @@ var totalBlock = (function() {
       editBox.appendChild(editBoxBody);
       return editBox;
     };
+    var _bonusTextLable = function(label) {
+      var _addPrefix = function(data) {
+        var newData;
+        if (data != "" && data != undefined) {
+          if (data > 0) {
+            newData = "+" + data;
+          } else {
+            newData = data
+          };
+        } else {
+          newData = 0;
+        };
+        return newData;
+      };
+      if (label == "str-bonus" || label == "str_bonus") {
+        return "STR Bonus (" + _addPrefix(stats.getMod("str")) + ")";
+      } else if (label == "dex-bonus" || label == "dex_bonus") {
+        return "DEX Bonus (" + _addPrefix(stats.getMod("dex")) + ")";
+      } else if (label == "con-bonus" || label == "con_bonus") {
+        return "CON Bonus (" + _addPrefix(stats.getMod("con")) + ")";
+      } else if (label == "int-bonus" || label == "int_bonus") {
+        return "INT Bonus (" + _addPrefix(stats.getMod("int")) + ")";
+      } else if (label == "wis-bonus" || label == "wis_bonus") {
+        return "WIS Bonus (" + _addPrefix(stats.getMod("wis")) + ")";
+      } else if (label == "cha-bonus" || label == "cha_bonus") {
+        return "CHA Bonus (" + _addPrefix(stats.getMod("cha")) + ")";
+      } else if (label == "bab") {
+        return "Base Attack Bonus (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "offense.base_attack"
+        })) + ")";
+      } else if (label == "size") {
+        return "Size Bonus (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "basics.size.size_modifier"
+        })) + ")";
+      } else if (label == "special_size") {
+        return "Special Size Bonus (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "basics.size.special_size_modifier"
+        })) + ")";
+      } else if (label == "size_modifier_fly") {
+        return "Size Fly Bonus (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "basics.size.size_modifier_fly"
+        })) + ")";
+      } else if (label == "size_modifier_stealth") {
+        return "Size Stealth Bonus (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "basics.size.size_modifier_stealth"
+        })) + ")";
+      } else if (label == "level") {
+        return "Level (" + helper.getObject({
+          object: sheet.get(),
+          path: "basics.level"
+        }) + ")";
+      } else if (label == "half-level" || label == "half_level") {
+        return "Half Level (" + Math.floor(helper.getObject({
+          object: sheet.get(),
+          path: "basics.level"
+        }) / 2) + ")";
+      } else if (label == "plus-ten" || label == "plus_ten") {
+        return "Plus 10";
+      } else if (label == "ac-armor" || label == "ac_armor") {
+        return "Armor Bonus (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.armor"
+        })) + ")";
+      } else if (label == "ac-shield" || label == "ac_shield") {
+        return "Shield Bonus (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.shield"
+        })) + ")";
+      } else if (label == "ac-deflect" || label == "ac_deflect") {
+        return "Deflect Bonus (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.deflect"
+        })) + ")";
+      } else if (label == "ac-dodge" || label == "ac_dodge") {
+        return "Dodge Bonus (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.dodge"
+        })) + ")";
+      } else if (label == "ac-natural" || label == "ac_natural") {
+        return "Natural Armor Bonus (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.natural"
+        })) + ")";
+      } else if (label == "class-skill" || label == "class_skill") {
+        return "Class Skill (+3)";
+      } else if (label == "check-penalty" || label == "check_penalty") {
+        return "Armor Check Penalty (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "equipment.armor.check_penalty"
+        })) + ")";
+      } else if (label == "max-dex" || label == "max_dex") {
+        return "Max Dex Bonus (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "equipment.armor.max_dex"
+        })) + ")";
+      } else if (label == "spell-level" || label == "spell_level") {
+        return "Spell Level (" + helper.getObject({
+          object: sheet.get(),
+          path: totalBlockOptions.path + ".spell_level"
+        }) + ")";
+      } else {
+        return label;
+      };
+    };
     var _render_totalBlockBonusesModal = function() {
       var totalBlockControls = document.createElement("div");
       if (totalBlockBonusesObject) {
@@ -578,6 +644,11 @@ var totalBlock = (function() {
         if ("size_modifier_stealth" in totalBlockBonusesObject) {
           orderedBonuses.push({
             "size_modifier_stealth": totalBlockBonusesObject["size_modifier_stealth"]
+          })
+        };
+        if ("spell_level" in totalBlockBonusesObject) {
+          orderedBonuses.push({
+            "spell_level": totalBlockBonusesObject["spell_level"]
           })
         };
         for (var i = 0; i < orderedBonuses.length; i++) {

@@ -139,6 +139,24 @@ var helper = (function() {
     };
   };
 
+  function _makeAddress(path) {
+    var array;
+    if (path.indexOf("[") != -1 && path.indexOf("]") != -1) {
+      array = path.split(".").join(",").split("[").join(",").split("]").join(",").split(",");
+      for (var i = 0; i < array.length; i++) {
+        if (array[i] == "") {
+          array.splice(i, 1);
+        };
+        if (!isNaN(parseInt(array[i], 10))) {
+          array[i] = parseInt(array[i], 10);
+        };
+      };
+    } else {
+      array = path.split(".");
+    };
+    return array;
+  };
+
   function setObject(options) {
     var defaultOptions = {
       path: null,
@@ -148,62 +166,28 @@ var helper = (function() {
     if (options) {
       var defaultOptions = helper.applyOptions(defaultOptions, options);
     };
+    var address = _makeAddress(defaultOptions.path);
     var _setData = function() {
-      // split path into array items
-      var address = defaultOptions.path.split(".");
-      // while array has more than 1 item
       while (address.length > 1) {
         // shift off and store the first key
         var currentKey = address.shift();
-        // copy the object
-        var parentObject = defaultOptions.object;
+        // if the key is not found make a new object
+        if (!(currentKey in defaultOptions.object)) {
+          // make an empty object in the current object level
+          if (isNaN(currentKey)) {
+            defaultOptions.object[currentKey] = {};
+          } else {
+            defaultOptions.object[currentKey] = [];
+          };
+        };
         // drill down the object with the first key
         defaultOptions.object = defaultOptions.object[currentKey];
-        // if there is not object there make one
-        if (!defaultOptions.object || typeof defaultOptions.object != "object") {
-          defaultOptions.object = parentObject;
-          defaultOptions.object[currentKey] = {};
-        };
       };
       var finalKey = address.shift();
-      if (finalKey in defaultOptions.object) {
-        defaultOptions.object[finalKey] = defaultOptions.newValue;
-      };
-    };
-    var _setCloneData = function() {
-      var addressOne = defaultOptions.path.substr(0, defaultOptions.path.indexOf("[")).split(".");
-      var index = parseInt(defaultOptions.path.substr((defaultOptions.path.indexOf("[") + 1), (defaultOptions.path.indexOf("]") - 1)), 10);
-      var addressTwo = defaultOptions.path.substr((defaultOptions.path.indexOf("]") + 1), defaultOptions.path.length).split(".");
-      if (addressTwo[0] == "") {
-        addressTwo.shift();
-      };
-      if (addressOne.length > 0) {
-        while (addressOne.length > 1) {
-          // shift off and store the first key
-          var currentKey = addressOne.shift();
-          // drill down the object with the first key
-          defaultOptions.object = defaultOptions.object[currentKey];
-        };
-        var finalKey = addressOne.shift();
-        defaultOptions.object = defaultOptions.object[finalKey][index];
-      };
-      if (addressTwo.length > 0) {
-        while (addressTwo.length > 1) {
-          // shift off and store the first key
-          var currentKey = addressTwo.shift();
-          // drill down the object with the first key
-          defaultOptions.object = defaultOptions.object[currentKey];
-        };
-        var finalKey = addressTwo.shift();
-        defaultOptions.object[finalKey] = defaultOptions.newValue;
-      };
+      defaultOptions.object[finalKey] = defaultOptions.newValue;
     };
     if (defaultOptions.object != null && defaultOptions.path != null && defaultOptions.newValue != null) {
-      if (defaultOptions.path.indexOf("[") != -1 && defaultOptions.path.indexOf("]") != -1) {
-        _setCloneData();
-      } else {
-        _setData();
-      };
+      _setData();
     } else {
       return false;
     };
@@ -217,67 +201,32 @@ var helper = (function() {
     if (options) {
       var defaultOptions = helper.applyOptions(defaultOptions, options);
     };
+    var address = _makeAddress(defaultOptions.path);
     var _getData = function() {
-      // split path into array items
-      var address = defaultOptions.path.split(".");
-      // while array has more than 1 item
       while (address.length > 1) {
         // shift off and store the first key
         var currentKey = address.shift();
-        // copy the object
-        var parentObject = defaultOptions.object;
+        // if the key is not found make a new object
+        if (!(currentKey in defaultOptions.object)) {
+          // make an empty object in the current object level
+          if (isNaN(currentKey)) {
+            defaultOptions.object[currentKey] = {};
+          } else {
+            defaultOptions.object[currentKey] = [];
+          };
+        };
         // drill down the object with the first key
         defaultOptions.object = defaultOptions.object[currentKey];
-        // if there is not object there make one
-        if (!defaultOptions.object || typeof defaultOptions.object != "object") {
-          defaultOptions.object = parentObject;
-          defaultOptions.object[currentKey] = {};
-        };
       };
       var finalKey = address.shift();
-      if (finalKey in defaultOptions.object) {
-        return defaultOptions.object[finalKey];
+      if (!(finalKey in defaultOptions.object)) {
+        return "";
       } else {
-        // if nothing found set empty value and then return
-        defaultOptions.object[finalKey] = "";
         return defaultOptions.object[finalKey];
       };
-    };
-    var _getCloneData = function() {
-      var addressOne = defaultOptions.path.substr(0, defaultOptions.path.indexOf("[")).split(".");
-      var index = parseInt(defaultOptions.path.substr((defaultOptions.path.indexOf("[") + 1), (defaultOptions.path.indexOf("]") - 1)), 10);
-      var addressTwo = defaultOptions.path.substr((defaultOptions.path.indexOf("]") + 1), defaultOptions.path.length).split(".");
-      if (addressTwo[0] == "") {
-        addressTwo.shift();
-      };
-      if (addressOne.length > 0) {
-        while (addressOne.length > 1) {
-          // shift off and store the first key
-          var currentKey = addressOne.shift();
-          // drill down the object with the first key
-          defaultOptions.object = defaultOptions.object[currentKey];
-        };
-        var finalKey = addressOne.shift();
-        defaultOptions.object = defaultOptions.object[finalKey][index];
-      };
-      if (addressTwo.length > 0) {
-        while (addressTwo.length > 1) {
-          // shift off and store the first key
-          var currentKey = addressTwo.shift();
-          // drill down the object with the first key
-          defaultOptions.object = defaultOptions.object[currentKey];
-        };
-        var finalKey = addressTwo.shift();
-        defaultOptions.object = defaultOptions.object[finalKey];
-      };
-      return defaultOptions.object;
     };
     if (defaultOptions.object != null && defaultOptions.path != null) {
-      if (defaultOptions.path.indexOf("[") != -1 && defaultOptions.path.indexOf("]") != -1) {
-        return _getCloneData();
-      } else {
-        return _getData();
-      };
+      return _getData();
     } else {
       return false;
     };
