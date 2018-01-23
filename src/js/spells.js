@@ -117,7 +117,7 @@ var spells = (function() {
   };
 
   function _bind_all_spellControl() {
-    all_spellControl = helper.eA(".js-spell-control");
+    var all_spellControl = helper.eA(".js-spell-control");
     for (var i = 0; i < all_spellControl.length; i++) {
       all_spellControl[i].addEventListener("click", function() {
         _spellControl(this);
