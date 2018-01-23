@@ -3246,7 +3246,7 @@ label {
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block.is-focus,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block.is-focus,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block.is-focus {
-        z-index: 3; }
+        z-index: 4; }
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-check-block-check-icon,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-input-block-field,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-input-file-block-field,
@@ -3658,7 +3658,7 @@ label {
   position: sticky;
   top: 6.5em;
   transition: top 0.2s ease-in-out;
-  z-index: 3000; }
+  z-index: 2000; }
   .m-edit-controls .button-group {
     margin-bottom: 0; }
 
@@ -6132,12 +6132,12 @@ label {
 .m-tip {
   position: absolute;
   max-width: 20em;
-  margin: 0.5em;
+  margin: 0.5em 1em;
   left: 0;
   top: 0;
   font-size: 1.25rem;
   opacity: 1;
-  z-index: 2000;
+  z-index: 3000;
   transition: opacity 0.3s ease-in-out;
   -webkit-transform-origin: bottom center;
       -ms-transform-origin: bottom center;
@@ -6151,22 +6151,6 @@ label {
 .m-tip-outro {
   -webkit-animation: shirnk 0.3s ease-in-out 1;
           animation: shirnk 0.3s ease-in-out 1; }
-
-.m-tip-push-left {
-  left: 20%;
-  -webkit-transform: translate(-60%, 0);
-      -ms-transform: translate(-60%, 0);
-          transform: translate(-60%, 0); }
-  .m-tip-push-left:before {
-    left: 80%; }
-
-.m-tip-push-right {
-  left: 80%;
-  -webkit-transform: translate(-40%, 0);
-      -ms-transform: translate(-40%, 0);
-          transform: translate(-40%, 0); }
-  .m-tip-push-right:before {
-    left: 20%; }
 
 .m-tip-message {
   padding: 0.5em 1em;
