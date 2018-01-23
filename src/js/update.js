@@ -1,6 +1,11 @@
 var update = (function() {
 
   var history = [{
+    version: "4.2.0",
+    list: [
+      "*Added Spell DC controls. You may need to review you previous DCs and turn on appropriate bonuses for each Spell Level."
+    ]
+  }, {
     version: "4.1.0",
     list: [
       "Added a Replace feature to Character Select menu. Useful for when updating the current character from another device."

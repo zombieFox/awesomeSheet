@@ -1,7 +1,7 @@
 var repair = (function() {
 
   function _repair(characterObject) {
-    // console.log("-- Repair update fired >>", characterObject.basics.name);
+    console.log("-- Repair update fired >>", characterObject.basics.name);
     // --------------------------------------------------
     // repair spell notes
     if (characterObject.spells.book) {
@@ -180,7 +180,7 @@ var repair = (function() {
     };
     // --------------------------------------------------
     // repair racial save bonuses
-    function ifRacial(key, object) {
+    var ifRacial = function(key, object) {
       if (key in object) {
         if (object.racial != "" && !isNaN(object.racial)) {
           if (object.misc != "" && !isNaN(object.misc)) {
@@ -689,6 +689,48 @@ var repair = (function() {
         // console.log("repair skill", i, "trait");
         characterObject.skills.all[i].trait = "";
       };
+    };
+    // --------------------------------------------------
+    // repair spells
+    if (typeof characterObject.spells.dc.level_0 != "object") {
+      // console.log("repair spell dc");
+      // console.log(characterObject.spells.dc);
+      var dcObject = function(level, oldDc) {
+        var object = {
+          spell_level: level,
+          misc: "",
+          temp: "",
+          feat: "",
+          trait: "",
+          current: "",
+          bonuses: {
+            str_bonus: false,
+            dex_bonus: false,
+            con_bonus: false,
+            int_bonus: false,
+            wis_bonus: false,
+            cha_bonus: false,
+            level: false,
+            half_level: false,
+            spell_level: false,
+            plus_ten: false
+          }
+        };
+        if (oldDc) {
+          object.misc = oldDc;
+        };
+        return object;
+      };
+      characterObject.spells.dc.level_0 = dcObject(0, characterObject.spells.dc.level_0);
+      characterObject.spells.dc.level_1 = dcObject(1, characterObject.spells.dc.level_1);
+      characterObject.spells.dc.level_2 = dcObject(2, characterObject.spells.dc.level_2);
+      characterObject.spells.dc.level_3 = dcObject(3, characterObject.spells.dc.level_3);
+      characterObject.spells.dc.level_4 = dcObject(4, characterObject.spells.dc.level_4);
+      characterObject.spells.dc.level_5 = dcObject(5, characterObject.spells.dc.level_5);
+      characterObject.spells.dc.level_6 = dcObject(6, characterObject.spells.dc.level_6);
+      characterObject.spells.dc.level_7 = dcObject(7, characterObject.spells.dc.level_7);
+      characterObject.spells.dc.level_8 = dcObject(8, characterObject.spells.dc.level_8);
+      characterObject.spells.dc.level_9 = dcObject(9, characterObject.spells.dc.level_9);
     };
     // --------------------------------------------------
     // sheet.store();
