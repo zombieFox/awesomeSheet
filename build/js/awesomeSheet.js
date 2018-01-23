@@ -24339,7 +24339,7 @@ var repair = (function() {
     // repair item
     if (Array.isArray(characterObject.equipment.item)) {
       if (debug) {
-        console.log("repair item");
+        console.log("\trepair item");
       };
       var tempItems = characterObject.equipment.item.slice();
       characterObject.equipment.item = {};
@@ -24347,14 +24347,14 @@ var repair = (function() {
     };
     if (!("weight" in characterObject.equipment.item)) {
       if (debug) {
-        console.log("repair item weight");
+        console.log("\trepair item weight");
       };
       characterObject.equipment.item.weight = {};
       characterObject.equipment.item.weight.current = "";
     };
     if (!("value" in characterObject.equipment.item)) {
       if (debug) {
-        console.log("repair item value");
+        console.log("\trepair item value");
       };
       characterObject.equipment.item.value = {};
       characterObject.equipment.item.value.current = "";
