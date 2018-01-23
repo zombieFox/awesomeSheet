@@ -1,6 +1,6 @@
 var repair = (function() {
 
-  var debug = true;
+  var debug = false;
 
   function _repair(characterObject) {
     if (debug) {
