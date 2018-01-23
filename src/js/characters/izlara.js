@@ -236,9 +236,9 @@ var izlara = (function() {
         wrist: ""
       },
       wealth: {
-        platinum: "45",
-        gold: "8,405",
-        silver: "102",
+        platinum: 45,
+        gold: 8405,
+        silver: 102,
         copper: "",
         total: ""
       },
@@ -1315,6 +1315,9 @@ var izlara = (function() {
         name: "Spellcraft (Identify magic items)",
         ranks: 12,
         misc: 2,
+        racial: "",
+        feat: "",
+        trait: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: false,
@@ -1336,6 +1339,7 @@ var izlara = (function() {
         misc: "",
         temp: "",
         feat: 4,
+        trait: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: false,
@@ -1352,6 +1356,7 @@ var izlara = (function() {
         misc: "",
         temp: "",
         feat: 2,
+        trait: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: false,
@@ -1579,6 +1584,18 @@ var izlara = (function() {
         }
       },
       known: {
+        level_0: "",
+        level_1: "",
+        level_2: "",
+        level_3: "",
+        level_4: "",
+        level_5: "",
+        level_6: "",
+        level_7: "",
+        level_8: "",
+        level_9: ""
+      },
+      bonus: {
         level_0: "",
         level_1: "",
         level_2: "",

@@ -531,6 +531,10 @@ var ravich = (function() {
         name: "Perception (Traps)",
         ranks: 6,
         misc: "",
+        current: "",
+        racial: "",
+        trait: "",
+        feat: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: false,
@@ -542,12 +546,15 @@ var ravich = (function() {
           level: false,
           half_level: true,
           check_penalty: false
-        },
-        current: ""
+        }
       }, {
         name: "Disable Device (Traps)",
         ranks: 6,
         misc: 2,
+        current: "",
+        racial: "",
+        trait: "",
+        feat: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: true,
@@ -559,12 +566,15 @@ var ravich = (function() {
           level: false,
           half_level: true,
           check_penalty: false
-        },
-        current: ""
+        }
       }, {
         name: "Acrobatics (Jump)",
         ranks: 6,
         misc: 5,
+        current: "",
+        racial: "",
+        trait: "",
+        feat: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: true,
@@ -576,8 +586,7 @@ var ravich = (function() {
           level: false,
           half_level: false,
           check_penalty: false
-        },
-        current: ""
+        }
       }],
       all: {
         acrobatics: {
@@ -1356,6 +1365,7 @@ var ravich = (function() {
         misc: "",
         temp: "",
         feat: "",
+        trait: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: false,
@@ -1372,6 +1382,7 @@ var ravich = (function() {
         misc: "",
         temp: "",
         feat: "",
+        trait: "",
         bonuses: {
           str_bonus: false,
           dex_bonus: false,
@@ -1599,6 +1610,18 @@ var ravich = (function() {
         }
       },
       known: {
+        level_0: "",
+        level_1: "",
+        level_2: "",
+        level_3: "",
+        level_4: "",
+        level_5: "",
+        level_6: "",
+        level_7: "",
+        level_8: "",
+        level_9: ""
+      },
+      bonus: {
         level_0: "",
         level_1: "",
         level_2: "",
