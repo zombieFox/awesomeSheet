@@ -3,7 +3,7 @@ var update = (function() {
   var history = [{
     version: "4.3.0",
     list: [
-      "*Added Powers section to track character special abilities."
+      "Added Powers section to track character special abilities."
     ]
   }, {
     version: "4.2.0",
