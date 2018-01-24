@@ -143,7 +143,17 @@ var nif = (function() {
       traits: "Resilient",
       languages: "Aquan, Auran, Azlanti, Celestial, Common, Draconic, Dwarven, Elven, Giant, Gnome, Goblin, Ignan, Orc, Sylvan, Undercommon",
       special_abilities: "Arcane bond (Su), Bonus feats, Cantrips, Arcane schools, Teleportation sub school, Opposition arcane school, Elven Immunities (Ex), Elven Magic (Ex), Keen Senses (Ex), Low-Light Vision (Ex), Headband of Vast Intelligence skill (Use Magic Device, Fly), Linguistics Skill (Dwarven, Giant, Undercommon), Shift (Su), Summoner's Charm (Su), Weapon Familiarity (Ex)",
-      power: []
+      power: [{
+        name: "Shift",
+        current: "",
+        total: 11,
+        used: 2
+      }, {
+        name: "Dimensional Step",
+        current: "",
+        total: 240,
+        used: 50
+      }]
     },
     equipment: {
       gear: "Spellbook, Scroll case, Spell component pouch, Candle, Flint and Steel, Tindertwig, Ink, pen and paper, Belt Pouch, Backpack, Rations (5 days), Combat trained horse",
@@ -262,11 +272,6 @@ var nif = (function() {
         total: 50,
         used: 40
       }, {
-        item: "Shift",
-        current: "",
-        total: 11,
-        used: 2
-      }, {
         item: "Pearl of Power (1st Level)",
         current: "",
         total: 1,
@@ -276,11 +281,6 @@ var nif = (function() {
         current: "",
         total: 50,
         used: ""
-      }, {
-        item: "Dimensional Step",
-        current: "",
-        total: 240,
-        used: 50
       }]
     },
     defense: {
