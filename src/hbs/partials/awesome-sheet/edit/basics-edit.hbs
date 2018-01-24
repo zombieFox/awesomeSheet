@@ -153,7 +153,7 @@
         </div>
         <div class="m-edit-box-item-small m-edit-box-group">
           <div class="m-edit-box-item-button-small">
-            <a href="javascript:void(0)" class="u-inline-with-input button js-evets-log" data-events-options="type:xp,emptyMessage:No Experience logged yet. Why not add some?,modalHeading:Experience log." tabindex="1">EXP Log</a>
+            <a href="javascript:void(0)" class="u-inline-with-input button js-evets-log" data-events-options="type:xp,emptyMessage:No Experience logged yet. Why not add some?,modalHeading:Experience log." tabindex="1">Experience Log</a>
           </div>
           <div class="m-edit-box-item-button-small">
             <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-slim js-evets-clear" data-events-options="type:xp,promptHeading:Clear Experience Log?,promptMessage:Are you sure you want to clear the Experience Log? This can not be undone."
@@ -228,6 +228,12 @@
             <p class="m-edit-box-total js-text-block" data-text-block-options="path:basics.initiative.current,type:bonus"></p>
           </div>
           <div class="m-edit-box-item-small">
+            <div class="m-input-block js-input-block" data-input-block-options="path:basics.initiative.feat,type:integer">
+              <label class="m-input-block-label js-input-block-label" for="basics-Initiative-feat">Feat</label>
+              <input id="basics-Initiative-feat" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+            </div>
+          </div>
+          <div class="m-edit-box-item-small">
             <div class="m-input-block js-input-block" data-input-block-options="path:basics.initiative.misc,type:integer">
               <label class="m-input-block-label js-input-block-label" for="basics-Initiative-misc">Misc</label>
               <input id="basics-Initiative-misc" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
@@ -237,12 +243,6 @@
             <div class="m-input-block js-input-block" data-input-block-options="path:basics.initiative.temp,type:integer">
               <label class="m-input-block-label js-input-block-label" for="basics-Initiative-temp">Temp</label>
               <input id="basics-Initiative-temp" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
-            </div>
-          </div>
-          <div class="m-edit-box-item-small">
-            <div class="m-input-block js-input-block" data-input-block-options="path:basics.initiative.feat,type:integer">
-              <label class="m-input-block-label js-input-block-label" for="basics-Initiative-feat">Feat</label>
-              <input id="basics-Initiative-feat" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
             </div>
           </div>
           <div class="m-edit-box-item-button-small">
