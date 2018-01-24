@@ -1,6 +1,11 @@
 var update = (function() {
 
   var history = [{
+    version: "4.3.0",
+    list: [
+      "*Added Powers section to track character special abilities."
+    ]
+  }, {
     version: "4.2.0",
     list: [
       "*Added Spell DC controls. You may need to review your previous DCs and turn on appropriate bonuses for each Spell Level."
