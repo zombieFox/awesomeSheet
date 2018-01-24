@@ -474,15 +474,15 @@ var totalBlock = (function() {
           path: "basics.size.size_modifier_stealth"
         })) + ")";
       } else if (label == "level") {
-        return "Level (" + helper.getObject({
+        return "Level (" + _addPrefix(helper.getObject({
           object: sheet.get(),
           path: "basics.level"
-        }) + ")";
+        })) + ")";
       } else if (label == "half-level" || label == "half_level") {
-        return "Half Level (" + Math.floor(helper.getObject({
+        return "Half Level (" + _addPrefix(Math.floor(helper.getObject({
           object: sheet.get(),
           path: "basics.level"
-        }) / 2) + ")";
+        }) / 2)) + ")";
       } else if (label == "plus-ten" || label == "plus_ten") {
         return "Plus 10";
       } else if (label == "ac-armor" || label == "ac_armor") {
@@ -523,10 +523,10 @@ var totalBlock = (function() {
           path: "equipment.armor.max_dex"
         })) + ")";
       } else if (label == "spell-level" || label == "spell_level") {
-        return "Spell Level (" + helper.getObject({
+        return "Spell Level (" + _addPrefix(helper.getObject({
           object: sheet.get(),
           path: totalBlockOptions.path + ".spell_level"
-        }) + ")";
+        })) + ")";
       } else {
         return label;
       };

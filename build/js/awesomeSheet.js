@@ -704,7 +704,8 @@ var blank = (function() {
       feats: "",
       traits: "",
       languages: "",
-      special_abilities: ""
+      special_abilities: "",
+      power: []
     },
     equipment: {
       gear: "",
@@ -1790,6 +1791,7 @@ var blank = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {
@@ -1807,6 +1809,7 @@ var blank = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {
@@ -2240,7 +2243,18 @@ var izlara = (function() {
       feats: "Improved Initiative, Combat Casting, Craft Wondrous Item, Spell Focus (Conjuration), Extend Spell, Quicken Spell, Spell Penetration, Eschew materials",
       traits: "Reactionary, Magical Lineage (Overland Flight)",
       languages: "Abyssal, Aklo, Aquan, Auran, Celestial, Common, Druidic, Dwarven, Elven, Giant, Goblin, Gnoll, Halfling, Ignan, Infernal, Orc, Sylvan, Terran, Undercommon",
-      special_abilities: "Low-Light Vision, Elven Immunities, Elven Magic, Keen Senses, Weapon Familiarity, Arcane bond (Rat), Arcane School (Divination [Foresight]), Opposition Arcane School: Enchantment, Necromancy, Cantrips, Scribe scroll, Forewarned, Prescience, Foretell"
+      special_abilities: "Low-Light Vision, Elven Immunities, Elven Magic, Keen Senses, Weapon Familiarity, Arcane bond (Rat), Arcane School (Divination [Foresight]), Opposition Arcane School: Enchantment, Necromancy, Cantrips, Scribe scroll, Forewarned, Prescience, Foretell",
+      power: [{
+        name: "Prescience",
+        current: 6,
+        total: 12,
+        used: 6
+      }, {
+        name: "Foretell",
+        current: 11,
+        total: 12,
+        used: 1
+      }]
     },
     equipment: {
       gear: "Spellbook, Scroll case, Spell component pouch, Candle, Flint and steel, Tindertwig, Ink, pen and paper, Belt Pouch, Backpack, Rations (5 days), Spyglass",
@@ -3139,7 +3153,7 @@ var izlara = (function() {
           ranks: 12,
           misc: 5,
           current: "",
-          racial: "",
+          racial: 2,
           trait: "",
           feat: "",
           bonuses: {
@@ -3435,6 +3449,7 @@ var izlara = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: 4,
         trait: "",
         bonuses: {
@@ -3452,6 +3467,7 @@ var izlara = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: 2,
         trait: "",
         bonuses: {
@@ -3465,7 +3481,7 @@ var izlara = (function() {
           half_level: false
         }
       },
-      spell_notes: "",
+      spell_notes: "+2 on caster level checks to overcome spell resistance.",
       per_day: {
         level_0: 4,
         level_1: 4,
@@ -4991,7 +5007,8 @@ var ravich = (function() {
       feats: "Weapon Finesse, Weapon Focus (Rapier), Improved Initiative, Deft Hands, Acrobatic, Toughness, Two-Weapon Fighting, Magical Aptitude, Great Fortitude",
       traits: "Resilient, Dirty Fighter",
       languages: "Common, Humans, Dwarven, Undercommon",
-      special_abilities: "Sneak Attack +2d6, Trapfinding, Evasion, Rogue Talent (Finesse Rogue), Trap Sense +1, Bonus Feat (2), Bravery +1, Armor Training 1"
+      special_abilities: "Sneak Attack +2d6, Trapfinding, Evasion, Rogue Talent (Finesse Rogue), Trap Sense +1, Bonus Feat (2), Bravery +1, Armor Training 1",
+      power: []
     },
     equipment: {
       gear: "Backpack, Flask Of Oil (2), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Dagger, Combat Horse (Tafi), Roc feathers, head and feet, Red Dragon (Adult) scales and claws",
@@ -6203,6 +6220,7 @@ var ravich = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {
@@ -6220,6 +6238,7 @@ var ravich = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {
@@ -7132,7 +7151,8 @@ var marika = (function() {
       feats: "Deft Hands, Weapon Finesse, Two Weapon Fighting, Improved Two Weapon Fighting, Double Slice, Extra Rogue Talent.",
       traits: "Child of the Streets, Deft Dodger.",
       languages: "Common, Giant, Goblin.",
-      special_abilities: "Sneak Attack +5d6, Trapfinding, Trap Sense +3, Uncanny Dodge, Improved Uncanny Dodge, Minor Magic (Mage Hand 3/day), Major Magic (Unseen Servant 2/day), Fast Fingers, Fast Stealth, Powerful Sneak."
+      special_abilities: "Sneak Attack +5d6, Trapfinding, Trap Sense +3, Uncanny Dodge, Improved Uncanny Dodge, Minor Magic (Mage Hand 3/day), Major Magic (Unseen Servant 2/day), Fast Fingers, Fast Stealth, Powerful Sneak.",
+      power: []
     },
     equipment: {
       gear: "Large Black Backpack, Bedroll, Silk Rope, Pencils, Ink, Paper, Sketch Book, Grappling Hook, Flint and Steel, Torch, Masterwork Thieves’ Tools (+2 Disable Device), Magnifying Glass (+2 Appraise), Merchant’s Scale (+2 Appraise), Trail Rations, Bread, Cheese and Wine.",
@@ -8301,6 +8321,7 @@ var marika = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {
@@ -8318,6 +8339,7 @@ var marika = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {
@@ -8766,7 +8788,8 @@ var nefi = (function() {
       feats: "Weapon Focus (Guisarme), Iron Will, Great Fortitude, Combat Reflexes, Dodge, Power Attack, Combat Expertise, Greater Trip, Improved Trip, Felling Smash, Greater Weapon Focus (Guisarme), Weapon Specialization (Guisarme), Furious Focus",
       traits: "Resilient, Adopted (Elven Reflexes)",
       languages: "Common, Elven, Draconic",
-      special_abilities: "Bonus feat (5), Bravery +3, Weapon training 2 (Pole Arms +2, Blades, Heavy +1),  Armor training 3"
+      special_abilities: "Bonus feat (5), Bravery +3, Weapon training 2 (Pole Arms +2, Blades, Heavy +1),  Armor training 3",
+      power: []
     },
     equipment: {
       gear: "Backpack, Flask Of Oil (2), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Dagger, Combat Horse (Tafi), Roc feathers, head and feet, Red Dragon (Adult) scales and claws",
@@ -9905,6 +9928,7 @@ var nefi = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {
@@ -9922,6 +9946,7 @@ var nefi = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {
@@ -10364,7 +10389,18 @@ var nif = (function() {
       feats: "Alertness, Augment Summoning, Craft Wondrous Item, Greater Spell Focus (Conjuration), Scribe Scroll, Spell Focus (Conjuration), Combat Casting",
       traits: "Resilient",
       languages: "Aquan, Auran, Azlanti, Celestial, Common, Draconic, Dwarven, Elven, Giant, Gnome, Goblin, Ignan, Orc, Sylvan, Undercommon",
-      special_abilities: "Arcane bond (Su), Bonus feats, Cantrips, Arcane schools, Teleportation sub school, Opposition arcane school, Elven Immunities (Ex), Elven Magic (Ex), Keen Senses (Ex), Low-Light Vision (Ex), Headband of Vast Intelligence skill (Use Magic Device, Fly), Linguistics Skill (Dwarven, Giant, Undercommon), Shift (Su), Summoner's Charm (Su), Weapon Familiarity (Ex)"
+      special_abilities: "Arcane bond (Su), Bonus feats, Cantrips, Arcane schools, Teleportation sub school, Opposition arcane school, Elven Immunities (Ex), Elven Magic (Ex), Keen Senses (Ex), Low-Light Vision (Ex), Headband of Vast Intelligence skill (Use Magic Device, Fly), Linguistics Skill (Dwarven, Giant, Undercommon), Shift (Su), Summoner's Charm (Su), Weapon Familiarity (Ex)",
+      power: [{
+        name: "Shift",
+        current: "",
+        total: 11,
+        used: 2
+      }, {
+        name: "Dimensional Step",
+        current: "",
+        total: 240,
+        used: 50
+      }]
     },
     equipment: {
       gear: "Spellbook, Scroll case, Spell component pouch, Candle, Flint and Steel, Tindertwig, Ink, pen and paper, Belt Pouch, Backpack, Rations (5 days), Combat trained horse",
@@ -10483,11 +10519,6 @@ var nif = (function() {
         total: 50,
         used: 40
       }, {
-        item: "Shift",
-        current: "",
-        total: 11,
-        used: 2
-      }, {
         item: "Pearl of Power (1st Level)",
         current: "",
         total: 1,
@@ -10497,11 +10528,6 @@ var nif = (function() {
         current: "",
         total: 50,
         used: ""
-      }, {
-        item: "Dimensional Step",
-        current: "",
-        total: 240,
-        used: 50
       }]
     },
     defense: {
@@ -11568,6 +11594,7 @@ var nif = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: 4,
         trait: "",
         bonuses: {
@@ -11585,6 +11612,7 @@ var nif = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {
@@ -11598,7 +11626,7 @@ var nif = (function() {
           half_level: false
         }
       },
-      spell_notes: "<strong>Arcane school</strong> Conjuration (Teleportation).<br><strong>Opposition Arcane school</strong> Enchantment, Necromancy.<br>Conjuration spells +2 DC.",
+      spell_notes: "<strong>Arcane school</strong> Conjuration (Teleportation).<br><strong>Opposition Arcane school</strong> Enchantment, Necromancy.<br>Conjuration spells +2 DC.<br>+2 on caster level checks to overcome spell resistance.",
       per_day: {
         level_0: 4,
         level_1: 4,
@@ -12449,7 +12477,13 @@ var orrin = (function() {
       feats: "Weapon Finesse, Dodge, Two-Weapon Fighting, Weapon focus (Rapier), Deft hands, Great Fortitude, Iron Will",
       traits: "Reactionary, Resilient",
       languages: "Common, Elven",
-      special_abilities: "Sneak Attack (+5d6), Trapfinding, Evasion (Ex), Rogue Talent Trap spotter (Ex), Trap Sense +3 (Ex), Rogue Talent Finesse Rogue, Uncanny Dodge (Ex), Rogue Talent Fast Stealth (Ex), Improved Uncanny Dodge (Ex), Rogue Talent Combat Trick - Improved Two-Weapon Fighting, Rogue Talent Offensive Defense (Ex), Advanced Talent Knock-Out Blow (Ex)"
+      special_abilities: "Sneak Attack (+5d6), Trapfinding, Evasion (Ex), Rogue Talent Trap spotter (Ex), Trap Sense +3 (Ex), Rogue Talent Finesse Rogue, Uncanny Dodge (Ex), Rogue Talent Fast Stealth (Ex), Improved Uncanny Dodge (Ex), Rogue Talent Combat Trick - Improved Two-Weapon Fighting, Rogue Talent Offensive Defense (Ex), Advanced Talent Knock-Out Blow (Ex)",
+      power: [{
+        name: "Knock-Out Blow",
+        current: "",
+        total: 1,
+        used: ""
+      }]
     },
     equipment: {
       gear: "Fur coat and cold weather outfit, Thieves' tools MW, Climber's kit, Magnifying glass, Merchant's scale, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Torch, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Dagger (2), Hide armor, 10ft pole in pieces",
@@ -12534,11 +12568,6 @@ var orrin = (function() {
         current: "",
         total: 50,
         used: 1
-      }, {
-        item: "Knock-Out Blow",
-        current: "",
-        total: 1,
-        used: ""
       }, {
         item: "Wand of Entangle",
         current: "",
@@ -13678,6 +13707,7 @@ var orrin = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {
@@ -13695,6 +13725,7 @@ var orrin = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {
@@ -14152,7 +14183,18 @@ var ro = (function() {
       feats: "Weapon Finesse, Dervish Dance, Alertness, Extra Arcane Pool, Weapon Focus (Black Blade), Intensified Spell",
       traits: "Magical Lineage (Shocking Grasp), Focused Mind (+2 on concentration checks)",
       languages: "Common, Draconic, Dwarven, Elven, Orc",
-      special_abilities: "Low-Light Vision (Ex), Elven Immunities (Ex), Elven Magic (Ex), Weapon Familiarity (Ex), Keen Senses (Ex), Arcane Pool, Cantrips, Spell Combat (EX), Black Blade (Ex), Spell Recall (Su), Magus Arcana (Arcane Accuracy), Knowledge Pool (Su), Medium Armor (Ex)"
+      special_abilities: "Low-Light Vision (Ex), Elven Immunities (Ex), Elven Magic (Ex), Weapon Familiarity (Ex), Keen Senses (Ex), Arcane Pool, Cantrips, Spell Combat (EX), Black Blade (Ex), Spell Recall (Su), Magus Arcana (Arcane Accuracy), Knowledge Pool (Su), Medium Armor (Ex)",
+      power: [{
+        name: "Arcane Pool",
+        current: "",
+        total: 8,
+        used: ""
+      }, {
+        name: "Black Blade Arcane Pool",
+        current: "",
+        total: 2,
+        used: ""
+      }]
     },
     equipment: {
       gear: "Fur coat and cold weather outfit, Rapier, Spell component pouch, Spellbook, Backpack, Flask of Oil x3, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Tent for 2, Trained Donkey (commands: come, down, stay heal, work), Alchemist Fire (3), Potion of CLW (3)",
@@ -14207,16 +14249,6 @@ var ro = (function() {
         total: ""
       },
       consumable: [{
-        item: "Arcane Pool",
-        current: "",
-        total: 8,
-        used: ""
-      }, {
-        item: "Black Blade Arcane Pool",
-        current: "",
-        total: 2,
-        used: ""
-      }, {
         item: "Alchemist Fire",
         current: "",
         total: 3,
@@ -15305,6 +15337,7 @@ var ro = (function() {
         current: "",
         misc: 2,
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {
@@ -15320,8 +15353,9 @@ var ro = (function() {
       },
       caster_level_check: {
         current: "",
-        misc: 2,
+        misc: "",
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {
@@ -15335,7 +15369,7 @@ var ro = (function() {
           half_level: false
         }
       },
-      spell_notes: "",
+      spell_notes: "+2 on caster level checks to overcome spell resistance.",
       per_day: {
         level_0: 5,
         level_1: 4,
@@ -16046,7 +16080,12 @@ var vos = (function() {
       feats: "Weapon Focus (Unarmed Strike), Improved Grapple, Dodge, Extra Ki, Improved Disarm, Extra Ki, Combat Reflexes, Great Fortitude",
       traits: "",
       languages: "Common, Dwarven",
-      special_abilities: "Darkvision, Defensive Training, Greed, Hatred, Hardy, Stability, Stonecunning, Weapon Familiarity, Evasion, Flurry of Blows (Ex), Stunning Fist (Ex), Unarmed Strike, AC Bonus (Ex), Evasion (Ex), Fast Movement (Ex), Maneuver Training (Ex), Still Mind (Ex), Ki Pool (magic/cold iron/silver) (Su), Slow Fall 40ft (Ex), High Jump (Ex), Purity of Body (Ex), Wholeness of Body (Su)"
+      special_abilities: "Darkvision, Defensive Training, Greed, Hatred, Hardy, Stability, Stonecunning, Weapon Familiarity, Evasion, Flurry of Blows (Ex), Stunning Fist (Ex), Unarmed Strike, AC Bonus (Ex), Evasion (Ex), Fast Movement (Ex), Maneuver Training (Ex), Still Mind (Ex), Ki Pool (magic/cold iron/silver) (Su), Slow Fall 40ft (Ex), High Jump (Ex), Purity of Body (Ex), Wholeness of Body (Su)",
+      power: [{
+        name: "Alchemist Fire",
+        quantity: 3,
+        weight: ""
+      }]
     },
     equipment: {
       gear: "Backpack, Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Rubbing Poweder, Fine Cheese (1), Smelly Cheese (3), Wine (2), Wrestling Costume (2), Dagger, Lavendar soap, Soap bar",
@@ -16055,10 +16094,6 @@ var vos = (function() {
       scrolls: "",
       item: {
         all: [{
-          name: "Alchemist Fire",
-          quantity: 3,
-          weight: ""
-        }, {
           name: "Flask Of Oil",
           quantity: 3,
           weight: ""
@@ -17236,6 +17271,7 @@ var vos = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {
@@ -17253,6 +17289,7 @@ var vos = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {
@@ -18745,6 +18782,7 @@ var clone = (function() {
     _render_all_clones("attack-melee");
     _render_all_clones("attack-ranged");
     _render_all_clones("consumable");
+    _render_all_clones("power");
     _render_all_clones("item");
     _render_all_clones("skill");
     _render_all_clones("note-character");
@@ -18753,6 +18791,7 @@ var clone = (function() {
     _update_clonePlaceholder("attack-melee");
     _update_clonePlaceholder("attack-ranged");
     _update_clonePlaceholder("consumable");
+    _update_clonePlaceholder("power");
     _update_clonePlaceholder("item");
     _update_clonePlaceholder("skill");
     _update_clonePlaceholder("note-character");
@@ -18768,6 +18807,9 @@ var clone = (function() {
     };
     if (cloneType == "consumable") {
       object = sheet.get().equipment.consumable;
+    };
+    if (cloneType == "power") {
+      object = sheet.get().statistics.power;
     };
     if (cloneType == "item") {
       object = sheet.get().equipment.item.all;
@@ -18914,6 +18956,64 @@ var clone = (function() {
         '  <button class="u-inline-with-input u-no-margin button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
         '</div>'
     };
+    if (cloneType == "power") {
+      cloneString =
+        '<div class="m-clone-block-content js-clone-block-content">' +
+        '  <div class="js-total-block" data-total-block-options="path:statistics.power[' + cloneIndex + '],addition:+total,subtraction:+used,clone:true">' +
+        '    <div class="m-edit-box-content m-edit-box-content-outline m-edit-box-content-margin-large">' +
+        '      <div class="m-edit-box-item-max m-edit-box-group">' +
+        '        <div class="m-edit-box-item-large">' +
+        '          <div class="m-input-block js-input-block" data-input-block-options="path:statistics.power[' + cloneIndex + ']name,clone:true">' +
+        '            <label class="m-input-block-label js-input-block-label" for="power-name-' + cloneIndex + '">Power</label>' +
+        '            <input id="power-name-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">' +
+        '          </div>' +
+        '        </div>' +
+        '        <div class="m-edit-box-item-total">' +
+        '          <p class="m-edit-box-label">Remaining</p>' +
+        '          <p class="m-edit-box-total js-text-block" data-text-block-options="path:statistics.power[' + cloneIndex + ']current,clone:true"></p>' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item m-edit-box-group-control-set">' +
+        '        <div class="m-edit-box-item-button-large">' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:power-total-' + cloneIndex + ',clone:true,action:subtraction" tabindex="1"><span class="icon-remove"></span></a>' +
+        '        </div>' +
+        '        <div class="m-edit-box-item-large">' +
+        '          <div class="m-input-block js-input-block" data-input-block-options="path:statistics.power[' + cloneIndex + ']total,type:integer,minimum:0,noZero:true,clone:true">' +
+        '            <label class="m-input-block-label js-input-block-label" for="power-total-' + cloneIndex + '">Total</label>' +
+        '            <input id="power-total-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
+        '          </div>' +
+        '        </div>' +
+        '        <div class="m-edit-box-item-button-large">' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:power-total-' + cloneIndex + ',clone:true,action:addition" tabindex="1"><span class="icon-add"></span></a>' +
+        '        </div>' +
+        '        <div class="m-edit-box-item-button-large">' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:power-total-' + cloneIndex + ',clone:true,action:clear,promptHeading:Clear Power Total?,promptMessage:Are you sure you want to clear the Power Total count?" tabindex="1"><span class="icon-close"></span></a>' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item m-edit-box-group-control-set">' +
+        '        <div class="m-edit-box-item-button-large">' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:power-used-' + cloneIndex + ',clone:true,action:subtraction" tabindex="1"><span class="icon-remove"></span></a>' +
+        '        </div>' +
+        '        <div class="m-edit-box-item-large">' +
+        '          <div class="m-input-block js-input-block" data-input-block-options="path:statistics.power[' + cloneIndex + ']used,type:integer,minimum:0,noZero:true,clone:true">' +
+        '            <label class="m-input-block-label js-input-block-label" for="power-used-' + cloneIndex + '">Used</label>' +
+        '            <input id="power-used-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
+        '          </div>' +
+        '        </div>' +
+        '        <div class="m-edit-box-item-button-large">' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:power-used-' + cloneIndex + ',clone:true,action:addition" tabindex="1"><span class="icon-add"></span></a>' +
+        '        </div>' +
+        '        <div class="m-edit-box-item-button-large">' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:power-used-' + cloneIndex + ',clone:true,action:clear,promptHeading:Clear Power Used?,promptMessage:Are you sure you want to clear the Power Used count?" tabindex="1"><span class="icon-close"></span></a>' +
+        '        </div>' +
+        '      </div>' +
+        '    </div>' +
+        '  </div>' +
+        '</div>' +
+        '<div class="m-clone-block-delete-controls">' +
+        '  <button class="u-inline-with-input u-no-margin button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
+        '</div>'
+    };
     if (cloneType == "item") {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
@@ -18961,18 +19061,12 @@ var clone = (function() {
         '          <div class="m-edit-box-item m-edit-box-group">' +
         '            <div class="m-edit-box-item-total">' +
         '              <p class="m-edit-box-label">Total</p>' +
-        '              <p class="m-edit-box-total js-text-block" data-text-block-options="path:skills.custom[' + cloneIndex + ']current,clone:true"></p>' +
+        '              <p class="m-edit-box-total js-text-block" data-text-block-options="path:skills.custom[' + cloneIndex + ']current,type:bonus,clone:true"></p>' +
         '            </div>' +
         '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
         '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']ranks,type:integer,clone:true">' +
         '                <label class="m-input-block-label js-input-block-label" for="skills-custom-' + cloneIndex + '-ranks">Ranks</label>' +
         '                <input id="skills-custom-' + cloneIndex + '-ranks" class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-field-ranks" type="number" tabindex="1">' +
-        '              </div>' +
-        '            </div>' +
-        '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
-        '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']misc,type:integer,clone:true">' +
-        '                <label class="m-input-block-label js-input-block-label" for="skills-custom-' + cloneIndex + '-misc">Misc</label>' +
-        '                <input id="skills-custom-' + cloneIndex + '-misc" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '              </div>' +
         '            </div>' +
         '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
@@ -18991,6 +19085,12 @@ var clone = (function() {
         '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']trait,type:integer,clone:true">' +
         '                <label class="m-input-block-label js-input-block-label" for="skills-custom-' + cloneIndex + '-trait">Trait</label>' +
         '                <input id="skills-custom-' + cloneIndex + '-trait" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
+        '              </div>' +
+        '            </div>' +
+        '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
+        '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']misc,type:integer,clone:true">' +
+        '                <label class="m-input-block-label js-input-block-label" for="skills-custom-' + cloneIndex + '-misc">Misc</label>' +
+        '                <input id="skills-custom-' + cloneIndex + '-misc" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '              </div>' +
         '            </div>' +
         '            <div class="m-edit-box-item-check">' +
@@ -19164,6 +19264,9 @@ var clone = (function() {
     if (cloneType == "consumable") {
       cloneBlock = helper.e(".js-clone-block-consumable");
     };
+    if (cloneType == "power") {
+      cloneBlock = helper.e(".js-clone-block-power");
+    };
     if (cloneType == "skill") {
       cloneBlock = helper.e(".js-clone-block-skill");
     };
@@ -19186,6 +19289,9 @@ var clone = (function() {
     };
     if (cloneType == "consumable") {
       cloneTarget = helper.e(".js-clone-block-target-consumable");
+    };
+    if (cloneType == "power") {
+      cloneTarget = helper.e(".js-clone-block-target-power");
     };
     if (cloneType == "item") {
       cloneTarget = helper.e(".js-clone-block-target-item");
@@ -19226,6 +19332,12 @@ var clone = (function() {
       cloneCount = helper.getObject({
         object: sheet.get(),
         path: "equipment.consumable"
+      }).length;
+    };
+    if (cloneType == "power") {
+      cloneCount = helper.getObject({
+        object: sheet.get(),
+        path: "statistics.power"
       }).length;
     };
     if (cloneType == "item") {
@@ -19287,6 +19399,9 @@ var clone = (function() {
     if (cloneType == "consumable") {
       clonePlaceholder = helper.e(".js-placeholder-clone-consumable");
     };
+    if (cloneType == "power") {
+      clonePlaceholder = helper.e(".js-placeholder-clone-power");
+    };
     if (cloneType == "item") {
       clonePlaceholder = helper.e(".js-placeholder-clone-item");
     };
@@ -19315,6 +19430,9 @@ var clone = (function() {
     };
     if (cloneType == "consumable") {
       clonePrefix = helper.e(".js-clone-block-prefix-consumable");
+    };
+    if (cloneType == "power") {
+      clonePrefix = helper.e(".js-clone-block-prefix-power");
     };
     if (cloneType == "item") {
       clonePrefix = helper.e(".js-clone-block-prefix-item");
@@ -19345,6 +19463,9 @@ var clone = (function() {
     if (cloneType == "consumable") {
       cloneSuffix = helper.e(".js-clone-block-suffix-consumable");
     };
+    if (cloneType == "power") {
+      cloneSuffix = helper.e(".js-clone-block-suffix-power");
+    };
     if (cloneType == "item") {
       cloneSuffix = helper.e(".js-clone-block-suffix-item");
     };
@@ -19374,6 +19495,9 @@ var clone = (function() {
     if (cloneType == "consumable") {
       message = message + " Consumables.";
     };
+    if (cloneType == "power") {
+      message = message + " Powers.";
+    };
     if (cloneType == "item") {
       message = message + " Items.";
     };
@@ -19402,6 +19526,9 @@ var clone = (function() {
     };
     if (cloneType == "consumable") {
       message = "Consumable " + message;
+    };
+    if (cloneType == "power") {
+      message = "Power " + message;
     };
     if (cloneType == "item") {
       message = "Item " + message;
@@ -19455,6 +19582,14 @@ var clone = (function() {
     if (cloneType == "consumable") {
       object = {
         item: "",
+        current: "",
+        total: "",
+        used: ""
+      };
+    };
+    if (cloneType == "power") {
+      object = {
+        name: "",
         current: "",
         total: "",
         used: ""
@@ -19529,6 +19664,7 @@ var clone = (function() {
   function _bind_cloneControls() {
     var cloneBlockClass = _get_cloneBlock("class");
     var cloneBlockConsumable = _get_cloneBlock("consumable");
+    var cloneBlockPower = _get_cloneBlock("power");
     var cloneBlockSkill = _get_cloneBlock("skill");
     var cloneBlockItem = _get_cloneBlock("item");
     var cloneBlockAttack = _get_cloneBlock("attack");
@@ -19539,6 +19675,9 @@ var clone = (function() {
 
     var cloneAddConsumable = cloneBlockConsumable.querySelector(".js-clone-add-consumable");
     var cloneRemoveConsumable = cloneBlockConsumable.querySelector(".js-clone-remove");
+
+    var cloneAddPower = cloneBlockPower.querySelector(".js-clone-add-power");
+    var cloneRemovePower = cloneBlockPower.querySelector(".js-clone-remove");
 
     var cloneAddItem = cloneBlockItem.querySelector(".js-clone-add-item");
     var cloneRemoveItem = cloneBlockItem.querySelector(".js-clone-remove");
@@ -19562,6 +19701,11 @@ var clone = (function() {
 
     cloneAddConsumable.addEventListener("click", function() {
       _addNewClone("consumable");
+      sheet.store();
+    }, false);
+
+    cloneAddPower.addEventListener("click", function() {
+      _addNewClone("power");
       sheet.store();
     }, false);
 
@@ -19610,6 +19754,11 @@ var clone = (function() {
       _update_removeButtonTab("consumable");
     }, false);
 
+    cloneRemovePower.addEventListener("click", function() {
+      _change_cloneState("power");
+      _update_removeButtonTab("power");
+    }, false);
+
     cloneRemoveItem.addEventListener("click", function() {
       _change_cloneState("item");
       _update_removeButtonTab("item");
@@ -19647,11 +19796,11 @@ var clone = (function() {
       _bind_classLevelInputBlock(newClone.querySelectorAll(".js-basics-class-level"));
       _bind_tip(newClone.querySelectorAll(".js-tip"));
     };
-    if (cloneType == "consumable" || cloneType == "skill") {
+    if (cloneType == "consumable" || cloneType == "power" || cloneType == "skill") {
       _bind_totalBlock(newClone.querySelector(".js-total-block"));
       _bind_inputBlockIncrement(newClone.querySelectorAll(".js-input-block-increment"));
     };
-    if (cloneType == "consumable" || cloneType == "skill" || cloneType == "item" || cloneType == "attack-melee" || cloneType == "attack-ranged") {
+    if (cloneType == "consumable" || cloneType == "power" || cloneType == "skill" || cloneType == "item" || cloneType == "attack-melee" || cloneType == "attack-ranged") {
       _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
     };
     if (cloneType == "skill") {
@@ -19766,7 +19915,7 @@ var clone = (function() {
       };
       classes.render();
     };
-    if (cloneType == "consumable" || cloneType == "item" || cloneType == "skill" || cloneType == "attack-melee" || cloneType == "attack-ranged") {
+    if (cloneType == "consumable" || cloneType == "power" || cloneType == "item" || cloneType == "skill" || cloneType == "attack-melee" || cloneType == "attack-ranged") {
       var all_inputBlocks = target.querySelectorAll(".js-input-block");
       for (var i = 0; i < all_inputBlocks.length; i++) {
         inputBlock.render(all_inputBlocks[i]);
@@ -19992,6 +20141,7 @@ var clone = (function() {
       _clear_cloneTarget("attack-melee");
       _clear_cloneTarget("attack-ranged");
       _clear_cloneTarget("consumable");
+      _clear_cloneTarget("power");
       _clear_cloneTarget("item");
       _clear_cloneTarget("skill");
       _clear_cloneTarget("note-character");
@@ -20329,6 +20479,9 @@ var display = (function() {
           if (all_displayPath[i] == "equipment.consumable") {
             cloneType = "consumable";
           };
+          if (all_displayPath[i] == "statistics.power") {
+            cloneType = "power";
+          };
           if (all_displayPath[i] == "equipment.item.all") {
             cloneType = "item";
           };
@@ -20387,6 +20540,42 @@ var display = (function() {
         displayListItem.setAttribute("class", "m-display-list-item");
         for (var i in object) {
           if (i == "item") {
+            var data = object[i];
+            if (typeof data != "undefined" && data != "") {
+              var displayListItemPrefix = document.createElement("span");
+              displayListItemPrefix.setAttribute("class", "m-display-list-item-prefix");
+              displayListItemPrefix.textContent = data;
+              displayListItem.appendChild(displayListItemPrefix);
+            };
+          } else if (i == "current") {
+            var data = object[i];
+            if (typeof data != "undefined" && data != "" || data == 0) {
+              var displayListItemValue = document.createElement("span");
+              displayListItemValue.setAttribute("class", "m-display-list-item-value");
+              if (typeof object.total != "undefined" && object.total != "") {
+                data = data + "/" + object.total;
+              };
+              displayListItemValue.textContent = data;
+              displayListItem.appendChild(displayListItemValue);
+            };
+          };
+        };
+        var percentage = parseFloat(((object.total - object.used) / object.total) * 100).toFixed(2);
+        if (percentage < 0) {
+          percentage = 0;
+        };
+        var percentageBar = document.createElement("span");
+        percentageBar.setAttribute("class", "m-display-list-item-percentage");
+        percentageBar.setAttribute("style", "width: " + percentage + "%;");
+        displayListItem.appendChild(percentageBar);
+        // console.log(object.item, object.total, object.used, percentage);
+      };
+
+      if (cloneType == "power") {
+        displayListItem = document.createElement("li");
+        displayListItem.setAttribute("class", "m-display-list-item");
+        for (var i in object) {
+          if (i == "name") {
             var data = object[i];
             if (typeof data != "undefined" && data != "") {
               var displayListItemPrefix = document.createElement("span");
@@ -24445,6 +24634,28 @@ var repair = (function() {
       characterObject.spells.dc.level_9 = dcObject(9, characterObject.spells.dc.level_9);
     };
     // --------------------------------------------------
+    // repair caster level check and concentration
+    if (!("racial" in characterObject.spells.concentration)) {
+      if (debug) {
+        console.log("\trepair concentration racial");
+      };
+      characterObject.spells.concentration.racial = "";
+    };
+    if (!("racial" in characterObject.spells.caster_level_check)) {
+      if (debug) {
+        console.log("\trepair caster level check racial");
+      };
+      characterObject.spells.caster_level_check.racial = "";
+    };
+    // --------------------------------------------------
+    // repair power
+    if (!("power" in characterObject.statistics)) {
+      if (debug) {
+        console.log("\trepair power");
+      };
+      characterObject.statistics.power = [];
+    };
+    // --------------------------------------------------
     // sheet.store();
     return characterObject;
   };
@@ -27453,15 +27664,15 @@ var totalBlock = (function() {
           path: "basics.size.size_modifier_stealth"
         })) + ")";
       } else if (label == "level") {
-        return "Level (" + helper.getObject({
+        return "Level (" + _addPrefix(helper.getObject({
           object: sheet.get(),
           path: "basics.level"
-        }) + ")";
+        })) + ")";
       } else if (label == "half-level" || label == "half_level") {
-        return "Half Level (" + Math.floor(helper.getObject({
+        return "Half Level (" + _addPrefix(Math.floor(helper.getObject({
           object: sheet.get(),
           path: "basics.level"
-        }) / 2) + ")";
+        }) / 2)) + ")";
       } else if (label == "plus-ten" || label == "plus_ten") {
         return "Plus 10";
       } else if (label == "ac-armor" || label == "ac_armor") {
@@ -27502,10 +27713,10 @@ var totalBlock = (function() {
           path: "equipment.armor.max_dex"
         })) + ")";
       } else if (label == "spell-level" || label == "spell_level") {
-        return "Spell Level (" + helper.getObject({
+        return "Spell Level (" + _addPrefix(helper.getObject({
           object: sheet.get(),
           path: totalBlockOptions.path + ".spell_level"
-        }) + ")";
+        })) + ")";
       } else {
         return label;
       };

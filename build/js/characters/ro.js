@@ -142,7 +142,18 @@ var ro = (function() {
       feats: "Weapon Finesse, Dervish Dance, Alertness, Extra Arcane Pool, Weapon Focus (Black Blade), Intensified Spell",
       traits: "Magical Lineage (Shocking Grasp), Focused Mind (+2 on concentration checks)",
       languages: "Common, Draconic, Dwarven, Elven, Orc",
-      special_abilities: "Low-Light Vision (Ex), Elven Immunities (Ex), Elven Magic (Ex), Weapon Familiarity (Ex), Keen Senses (Ex), Arcane Pool, Cantrips, Spell Combat (EX), Black Blade (Ex), Spell Recall (Su), Magus Arcana (Arcane Accuracy), Knowledge Pool (Su), Medium Armor (Ex)"
+      special_abilities: "Low-Light Vision (Ex), Elven Immunities (Ex), Elven Magic (Ex), Weapon Familiarity (Ex), Keen Senses (Ex), Arcane Pool, Cantrips, Spell Combat (EX), Black Blade (Ex), Spell Recall (Su), Magus Arcana (Arcane Accuracy), Knowledge Pool (Su), Medium Armor (Ex)",
+      power: [{
+        name: "Arcane Pool",
+        current: "",
+        total: 8,
+        used: ""
+      }, {
+        name: "Black Blade Arcane Pool",
+        current: "",
+        total: 2,
+        used: ""
+      }]
     },
     equipment: {
       gear: "Fur coat and cold weather outfit, Rapier, Spell component pouch, Spellbook, Backpack, Flask of Oil x3, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Tent for 2, Trained Donkey (commands: come, down, stay heal, work), Alchemist Fire (3), Potion of CLW (3)",
@@ -197,16 +208,6 @@ var ro = (function() {
         total: ""
       },
       consumable: [{
-        item: "Arcane Pool",
-        current: "",
-        total: 8,
-        used: ""
-      }, {
-        item: "Black Blade Arcane Pool",
-        current: "",
-        total: 2,
-        used: ""
-      }, {
         item: "Alchemist Fire",
         current: "",
         total: 3,
@@ -1295,6 +1296,7 @@ var ro = (function() {
         current: "",
         misc: 2,
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {
@@ -1310,8 +1312,9 @@ var ro = (function() {
       },
       caster_level_check: {
         current: "",
-        misc: 2,
+        misc: "",
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {
@@ -1325,7 +1328,7 @@ var ro = (function() {
           half_level: false
         }
       },
-      spell_notes: "",
+      spell_notes: "+2 on caster level checks to overcome spell resistance.",
       per_day: {
         level_0: 5,
         level_1: 4,

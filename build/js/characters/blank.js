@@ -142,7 +142,8 @@ var blank = (function() {
       feats: "",
       traits: "",
       languages: "",
-      special_abilities: ""
+      special_abilities: "",
+      power: []
     },
     equipment: {
       gear: "",
@@ -1228,6 +1229,7 @@ var blank = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {
@@ -1245,6 +1247,7 @@ var blank = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {

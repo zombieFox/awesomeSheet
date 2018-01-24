@@ -5,6 +5,7 @@ var clone = (function() {
     _render_all_clones("attack-melee");
     _render_all_clones("attack-ranged");
     _render_all_clones("consumable");
+    _render_all_clones("power");
     _render_all_clones("item");
     _render_all_clones("skill");
     _render_all_clones("note-character");
@@ -13,6 +14,7 @@ var clone = (function() {
     _update_clonePlaceholder("attack-melee");
     _update_clonePlaceholder("attack-ranged");
     _update_clonePlaceholder("consumable");
+    _update_clonePlaceholder("power");
     _update_clonePlaceholder("item");
     _update_clonePlaceholder("skill");
     _update_clonePlaceholder("note-character");
@@ -28,6 +30,9 @@ var clone = (function() {
     };
     if (cloneType == "consumable") {
       object = sheet.get().equipment.consumable;
+    };
+    if (cloneType == "power") {
+      object = sheet.get().statistics.power;
     };
     if (cloneType == "item") {
       object = sheet.get().equipment.item.all;
@@ -174,6 +179,64 @@ var clone = (function() {
         '  <button class="u-inline-with-input u-no-margin button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
         '</div>'
     };
+    if (cloneType == "power") {
+      cloneString =
+        '<div class="m-clone-block-content js-clone-block-content">' +
+        '  <div class="js-total-block" data-total-block-options="path:statistics.power[' + cloneIndex + '],addition:+total,subtraction:+used,clone:true">' +
+        '    <div class="m-edit-box-content m-edit-box-content-outline m-edit-box-content-margin-large">' +
+        '      <div class="m-edit-box-item-max m-edit-box-group">' +
+        '        <div class="m-edit-box-item-large">' +
+        '          <div class="m-input-block js-input-block" data-input-block-options="path:statistics.power[' + cloneIndex + ']name,clone:true">' +
+        '            <label class="m-input-block-label js-input-block-label" for="power-name-' + cloneIndex + '">Power</label>' +
+        '            <input id="power-name-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">' +
+        '          </div>' +
+        '        </div>' +
+        '        <div class="m-edit-box-item-total">' +
+        '          <p class="m-edit-box-label">Remaining</p>' +
+        '          <p class="m-edit-box-total js-text-block" data-text-block-options="path:statistics.power[' + cloneIndex + ']current,clone:true"></p>' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item m-edit-box-group-control-set">' +
+        '        <div class="m-edit-box-item-button-large">' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:power-total-' + cloneIndex + ',clone:true,action:subtraction" tabindex="1"><span class="icon-remove"></span></a>' +
+        '        </div>' +
+        '        <div class="m-edit-box-item-large">' +
+        '          <div class="m-input-block js-input-block" data-input-block-options="path:statistics.power[' + cloneIndex + ']total,type:integer,minimum:0,noZero:true,clone:true">' +
+        '            <label class="m-input-block-label js-input-block-label" for="power-total-' + cloneIndex + '">Total</label>' +
+        '            <input id="power-total-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
+        '          </div>' +
+        '        </div>' +
+        '        <div class="m-edit-box-item-button-large">' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:power-total-' + cloneIndex + ',clone:true,action:addition" tabindex="1"><span class="icon-add"></span></a>' +
+        '        </div>' +
+        '        <div class="m-edit-box-item-button-large">' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:power-total-' + cloneIndex + ',clone:true,action:clear,promptHeading:Clear Power Total?,promptMessage:Are you sure you want to clear the Power Total count?" tabindex="1"><span class="icon-close"></span></a>' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item m-edit-box-group-control-set">' +
+        '        <div class="m-edit-box-item-button-large">' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:power-used-' + cloneIndex + ',clone:true,action:subtraction" tabindex="1"><span class="icon-remove"></span></a>' +
+        '        </div>' +
+        '        <div class="m-edit-box-item-large">' +
+        '          <div class="m-input-block js-input-block" data-input-block-options="path:statistics.power[' + cloneIndex + ']used,type:integer,minimum:0,noZero:true,clone:true">' +
+        '            <label class="m-input-block-label js-input-block-label" for="power-used-' + cloneIndex + '">Used</label>' +
+        '            <input id="power-used-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
+        '          </div>' +
+        '        </div>' +
+        '        <div class="m-edit-box-item-button-large">' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:power-used-' + cloneIndex + ',clone:true,action:addition" tabindex="1"><span class="icon-add"></span></a>' +
+        '        </div>' +
+        '        <div class="m-edit-box-item-button-large">' +
+        '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:power-used-' + cloneIndex + ',clone:true,action:clear,promptHeading:Clear Power Used?,promptMessage:Are you sure you want to clear the Power Used count?" tabindex="1"><span class="icon-close"></span></a>' +
+        '        </div>' +
+        '      </div>' +
+        '    </div>' +
+        '  </div>' +
+        '</div>' +
+        '<div class="m-clone-block-delete-controls">' +
+        '  <button class="u-inline-with-input u-no-margin button button-icon button-large button-primary js-clone-block-delete" tabindex="-1"><span class="icon-close"></span></button>' +
+        '</div>'
+    };
     if (cloneType == "item") {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
@@ -221,18 +284,12 @@ var clone = (function() {
         '          <div class="m-edit-box-item m-edit-box-group">' +
         '            <div class="m-edit-box-item-total">' +
         '              <p class="m-edit-box-label">Total</p>' +
-        '              <p class="m-edit-box-total js-text-block" data-text-block-options="path:skills.custom[' + cloneIndex + ']current,clone:true"></p>' +
+        '              <p class="m-edit-box-total js-text-block" data-text-block-options="path:skills.custom[' + cloneIndex + ']current,type:bonus,clone:true"></p>' +
         '            </div>' +
         '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
         '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']ranks,type:integer,clone:true">' +
         '                <label class="m-input-block-label js-input-block-label" for="skills-custom-' + cloneIndex + '-ranks">Ranks</label>' +
         '                <input id="skills-custom-' + cloneIndex + '-ranks" class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-field-ranks" type="number" tabindex="1">' +
-        '              </div>' +
-        '            </div>' +
-        '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
-        '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']misc,type:integer,clone:true">' +
-        '                <label class="m-input-block-label js-input-block-label" for="skills-custom-' + cloneIndex + '-misc">Misc</label>' +
-        '                <input id="skills-custom-' + cloneIndex + '-misc" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '              </div>' +
         '            </div>' +
         '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
@@ -251,6 +308,12 @@ var clone = (function() {
         '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']trait,type:integer,clone:true">' +
         '                <label class="m-input-block-label js-input-block-label" for="skills-custom-' + cloneIndex + '-trait">Trait</label>' +
         '                <input id="skills-custom-' + cloneIndex + '-trait" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
+        '              </div>' +
+        '            </div>' +
+        '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
+        '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']misc,type:integer,clone:true">' +
+        '                <label class="m-input-block-label js-input-block-label" for="skills-custom-' + cloneIndex + '-misc">Misc</label>' +
+        '                <input id="skills-custom-' + cloneIndex + '-misc" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '              </div>' +
         '            </div>' +
         '            <div class="m-edit-box-item-check">' +
@@ -424,6 +487,9 @@ var clone = (function() {
     if (cloneType == "consumable") {
       cloneBlock = helper.e(".js-clone-block-consumable");
     };
+    if (cloneType == "power") {
+      cloneBlock = helper.e(".js-clone-block-power");
+    };
     if (cloneType == "skill") {
       cloneBlock = helper.e(".js-clone-block-skill");
     };
@@ -446,6 +512,9 @@ var clone = (function() {
     };
     if (cloneType == "consumable") {
       cloneTarget = helper.e(".js-clone-block-target-consumable");
+    };
+    if (cloneType == "power") {
+      cloneTarget = helper.e(".js-clone-block-target-power");
     };
     if (cloneType == "item") {
       cloneTarget = helper.e(".js-clone-block-target-item");
@@ -486,6 +555,12 @@ var clone = (function() {
       cloneCount = helper.getObject({
         object: sheet.get(),
         path: "equipment.consumable"
+      }).length;
+    };
+    if (cloneType == "power") {
+      cloneCount = helper.getObject({
+        object: sheet.get(),
+        path: "statistics.power"
       }).length;
     };
     if (cloneType == "item") {
@@ -547,6 +622,9 @@ var clone = (function() {
     if (cloneType == "consumable") {
       clonePlaceholder = helper.e(".js-placeholder-clone-consumable");
     };
+    if (cloneType == "power") {
+      clonePlaceholder = helper.e(".js-placeholder-clone-power");
+    };
     if (cloneType == "item") {
       clonePlaceholder = helper.e(".js-placeholder-clone-item");
     };
@@ -575,6 +653,9 @@ var clone = (function() {
     };
     if (cloneType == "consumable") {
       clonePrefix = helper.e(".js-clone-block-prefix-consumable");
+    };
+    if (cloneType == "power") {
+      clonePrefix = helper.e(".js-clone-block-prefix-power");
     };
     if (cloneType == "item") {
       clonePrefix = helper.e(".js-clone-block-prefix-item");
@@ -605,6 +686,9 @@ var clone = (function() {
     if (cloneType == "consumable") {
       cloneSuffix = helper.e(".js-clone-block-suffix-consumable");
     };
+    if (cloneType == "power") {
+      cloneSuffix = helper.e(".js-clone-block-suffix-power");
+    };
     if (cloneType == "item") {
       cloneSuffix = helper.e(".js-clone-block-suffix-item");
     };
@@ -634,6 +718,9 @@ var clone = (function() {
     if (cloneType == "consumable") {
       message = message + " Consumables.";
     };
+    if (cloneType == "power") {
+      message = message + " Powers.";
+    };
     if (cloneType == "item") {
       message = message + " Items.";
     };
@@ -662,6 +749,9 @@ var clone = (function() {
     };
     if (cloneType == "consumable") {
       message = "Consumable " + message;
+    };
+    if (cloneType == "power") {
+      message = "Power " + message;
     };
     if (cloneType == "item") {
       message = "Item " + message;
@@ -715,6 +805,14 @@ var clone = (function() {
     if (cloneType == "consumable") {
       object = {
         item: "",
+        current: "",
+        total: "",
+        used: ""
+      };
+    };
+    if (cloneType == "power") {
+      object = {
+        name: "",
         current: "",
         total: "",
         used: ""
@@ -789,6 +887,7 @@ var clone = (function() {
   function _bind_cloneControls() {
     var cloneBlockClass = _get_cloneBlock("class");
     var cloneBlockConsumable = _get_cloneBlock("consumable");
+    var cloneBlockPower = _get_cloneBlock("power");
     var cloneBlockSkill = _get_cloneBlock("skill");
     var cloneBlockItem = _get_cloneBlock("item");
     var cloneBlockAttack = _get_cloneBlock("attack");
@@ -799,6 +898,9 @@ var clone = (function() {
 
     var cloneAddConsumable = cloneBlockConsumable.querySelector(".js-clone-add-consumable");
     var cloneRemoveConsumable = cloneBlockConsumable.querySelector(".js-clone-remove");
+
+    var cloneAddPower = cloneBlockPower.querySelector(".js-clone-add-power");
+    var cloneRemovePower = cloneBlockPower.querySelector(".js-clone-remove");
 
     var cloneAddItem = cloneBlockItem.querySelector(".js-clone-add-item");
     var cloneRemoveItem = cloneBlockItem.querySelector(".js-clone-remove");
@@ -822,6 +924,11 @@ var clone = (function() {
 
     cloneAddConsumable.addEventListener("click", function() {
       _addNewClone("consumable");
+      sheet.store();
+    }, false);
+
+    cloneAddPower.addEventListener("click", function() {
+      _addNewClone("power");
       sheet.store();
     }, false);
 
@@ -870,6 +977,11 @@ var clone = (function() {
       _update_removeButtonTab("consumable");
     }, false);
 
+    cloneRemovePower.addEventListener("click", function() {
+      _change_cloneState("power");
+      _update_removeButtonTab("power");
+    }, false);
+
     cloneRemoveItem.addEventListener("click", function() {
       _change_cloneState("item");
       _update_removeButtonTab("item");
@@ -907,11 +1019,11 @@ var clone = (function() {
       _bind_classLevelInputBlock(newClone.querySelectorAll(".js-basics-class-level"));
       _bind_tip(newClone.querySelectorAll(".js-tip"));
     };
-    if (cloneType == "consumable" || cloneType == "skill") {
+    if (cloneType == "consumable" || cloneType == "power" || cloneType == "skill") {
       _bind_totalBlock(newClone.querySelector(".js-total-block"));
       _bind_inputBlockIncrement(newClone.querySelectorAll(".js-input-block-increment"));
     };
-    if (cloneType == "consumable" || cloneType == "skill" || cloneType == "item" || cloneType == "attack-melee" || cloneType == "attack-ranged") {
+    if (cloneType == "consumable" || cloneType == "power" || cloneType == "skill" || cloneType == "item" || cloneType == "attack-melee" || cloneType == "attack-ranged") {
       _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
     };
     if (cloneType == "skill") {
@@ -1026,7 +1138,7 @@ var clone = (function() {
       };
       classes.render();
     };
-    if (cloneType == "consumable" || cloneType == "item" || cloneType == "skill" || cloneType == "attack-melee" || cloneType == "attack-ranged") {
+    if (cloneType == "consumable" || cloneType == "power" || cloneType == "item" || cloneType == "skill" || cloneType == "attack-melee" || cloneType == "attack-ranged") {
       var all_inputBlocks = target.querySelectorAll(".js-input-block");
       for (var i = 0; i < all_inputBlocks.length; i++) {
         inputBlock.render(all_inputBlocks[i]);
@@ -1252,6 +1364,7 @@ var clone = (function() {
       _clear_cloneTarget("attack-melee");
       _clear_cloneTarget("attack-ranged");
       _clear_cloneTarget("consumable");
+      _clear_cloneTarget("power");
       _clear_cloneTarget("item");
       _clear_cloneTarget("skill");
       _clear_cloneTarget("note-character");

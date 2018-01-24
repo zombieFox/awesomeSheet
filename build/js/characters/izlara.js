@@ -143,7 +143,18 @@ var izlara = (function() {
       feats: "Improved Initiative, Combat Casting, Craft Wondrous Item, Spell Focus (Conjuration), Extend Spell, Quicken Spell, Spell Penetration, Eschew materials",
       traits: "Reactionary, Magical Lineage (Overland Flight)",
       languages: "Abyssal, Aklo, Aquan, Auran, Celestial, Common, Druidic, Dwarven, Elven, Giant, Goblin, Gnoll, Halfling, Ignan, Infernal, Orc, Sylvan, Terran, Undercommon",
-      special_abilities: "Low-Light Vision, Elven Immunities, Elven Magic, Keen Senses, Weapon Familiarity, Arcane bond (Rat), Arcane School (Divination [Foresight]), Opposition Arcane School: Enchantment, Necromancy, Cantrips, Scribe scroll, Forewarned, Prescience, Foretell"
+      special_abilities: "Low-Light Vision, Elven Immunities, Elven Magic, Keen Senses, Weapon Familiarity, Arcane bond (Rat), Arcane School (Divination [Foresight]), Opposition Arcane School: Enchantment, Necromancy, Cantrips, Scribe scroll, Forewarned, Prescience, Foretell",
+      power: [{
+        name: "Prescience",
+        current: 6,
+        total: 12,
+        used: 6
+      }, {
+        name: "Foretell",
+        current: 11,
+        total: 12,
+        used: 1
+      }]
     },
     equipment: {
       gear: "Spellbook, Scroll case, Spell component pouch, Candle, Flint and steel, Tindertwig, Ink, pen and paper, Belt Pouch, Backpack, Rations (5 days), Spyglass",
@@ -1042,7 +1053,7 @@ var izlara = (function() {
           ranks: 12,
           misc: 5,
           current: "",
-          racial: "",
+          racial: 2,
           trait: "",
           feat: "",
           bonuses: {
@@ -1338,6 +1349,7 @@ var izlara = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: 4,
         trait: "",
         bonuses: {
@@ -1355,6 +1367,7 @@ var izlara = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: 2,
         trait: "",
         bonuses: {
@@ -1368,7 +1381,7 @@ var izlara = (function() {
           half_level: false
         }
       },
-      spell_notes: "",
+      spell_notes: "+2 on caster level checks to overcome spell resistance.",
       per_day: {
         level_0: 4,
         level_1: 4,

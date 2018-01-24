@@ -827,6 +827,28 @@ var repair = (function() {
       characterObject.spells.dc.level_9 = dcObject(9, characterObject.spells.dc.level_9);
     };
     // --------------------------------------------------
+    // repair caster level check and concentration
+    if (!("racial" in characterObject.spells.concentration)) {
+      if (debug) {
+        console.log("\trepair concentration racial");
+      };
+      characterObject.spells.concentration.racial = "";
+    };
+    if (!("racial" in characterObject.spells.caster_level_check)) {
+      if (debug) {
+        console.log("\trepair caster level check racial");
+      };
+      characterObject.spells.caster_level_check.racial = "";
+    };
+    // --------------------------------------------------
+    // repair power
+    if (!("power" in characterObject.statistics)) {
+      if (debug) {
+        console.log("\trepair power");
+      };
+      characterObject.statistics.power = [];
+    };
+    // --------------------------------------------------
     // sheet.store();
     return characterObject;
   };
