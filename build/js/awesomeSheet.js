@@ -16108,12 +16108,12 @@ var vos = (function() {
       languages: "Common, Dwarven",
       special_abilities: "Darkvision, Defensive Training, Greed, Hatred, Hardy, Stability, Stonecunning, Weapon Familiarity, Evasion, Flurry of Blows (Ex), Stunning Fist (Ex), Unarmed Strike, AC Bonus (Ex), Evasion (Ex), Fast Movement (Ex), Maneuver Training (Ex), Still Mind (Ex), Ki Pool (magic/cold iron/silver) (Su), Slow Fall 40ft (Ex), High Jump (Ex), Purity of Body (Ex), Wholeness of Body (Su)",
       power: [{
-        item: "Ki Pool",
+        name: "Ki Pool",
         current: "",
         total: 11,
         used: 2
       }, {
-        item: "Stunning Fist",
+        name: "Stunning Fist",
         current: "",
         total: 10,
         used: 1
@@ -16200,7 +16200,7 @@ var vos = (function() {
         total: ""
       },
       consumable: [{
-        name: "Alchemist Fire",
+        item: "Alchemist Fire",
         quantity: 3,
         weight: ""
       }]
