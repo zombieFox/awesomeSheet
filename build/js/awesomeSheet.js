@@ -16108,9 +16108,15 @@ var vos = (function() {
       languages: "Common, Dwarven",
       special_abilities: "Darkvision, Defensive Training, Greed, Hatred, Hardy, Stability, Stonecunning, Weapon Familiarity, Evasion, Flurry of Blows (Ex), Stunning Fist (Ex), Unarmed Strike, AC Bonus (Ex), Evasion (Ex), Fast Movement (Ex), Maneuver Training (Ex), Still Mind (Ex), Ki Pool (magic/cold iron/silver) (Su), Slow Fall 40ft (Ex), High Jump (Ex), Purity of Body (Ex), Wholeness of Body (Su)",
       power: [{
-        name: "Alchemist Fire",
-        quantity: 3,
-        weight: ""
+        item: "Ki Pool",
+        current: "",
+        total: 11,
+        used: 2
+      }, {
+        item: "Stunning Fist",
+        current: "",
+        total: 10,
+        used: 1
       }]
     },
     equipment: {
@@ -16194,15 +16200,9 @@ var vos = (function() {
         total: ""
       },
       consumable: [{
-        item: "Ki Pool",
-        current: "",
-        total: 11,
-        used: 2
-      }, {
-        item: "Stunning Fist",
-        current: "",
-        total: 10,
-        used: 1
+        name: "Alchemist Fire",
+        quantity: 3,
+        weight: ""
       }]
     },
     defense: {
@@ -27179,7 +27179,7 @@ var tip = (function() {
     tipWrapper.appendChild(tipMessage);
     tipWrapper.appendChild(tipArrow);
     body.appendChild(tipWrapper);
-    tipWrapper.setAttribute("style", "width: " + parseInt(tipWrapper.getBoundingClientRect().width, 10) + "px;");
+    tipWrapper.setAttribute("style", "width: " + (parseInt(tipWrapper.getBoundingClientRect().width, 10) + 2) + "px;");
 
     var width = parseInt(tipWrapper.getBoundingClientRect().width);
     var top = parseInt(tip.getBoundingClientRect().top, 10) + parseInt(pageYOffset, 10) - parseInt(tipWrapper.getBoundingClientRect().height, 10) - parseInt(getComputedStyle(tipWrapper).marginTop, 10) - parseInt(getComputedStyle(tipWrapper).marginBottom, 10);

@@ -90,7 +90,7 @@ var tip = (function() {
     tipWrapper.appendChild(tipMessage);
     tipWrapper.appendChild(tipArrow);
     body.appendChild(tipWrapper);
-    tipWrapper.setAttribute("style", "width: " + parseInt(tipWrapper.getBoundingClientRect().width, 10) + "px;");
+    tipWrapper.setAttribute("style", "width: " + (parseInt(tipWrapper.getBoundingClientRect().width, 10) + 2) + "px;");
 
     var width = parseInt(tipWrapper.getBoundingClientRect().width);
     var top = parseInt(tip.getBoundingClientRect().top, 10) + parseInt(pageYOffset, 10) - parseInt(tipWrapper.getBoundingClientRect().height, 10) - parseInt(getComputedStyle(tipWrapper).marginTop, 10) - parseInt(getComputedStyle(tipWrapper).marginBottom, 10);
