@@ -1281,6 +1281,7 @@ var nefi = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {
@@ -1298,6 +1299,7 @@ var nefi = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {

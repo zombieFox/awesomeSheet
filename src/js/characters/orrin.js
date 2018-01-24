@@ -1371,6 +1371,7 @@ var orrin = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {
@@ -1388,6 +1389,7 @@ var orrin = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {

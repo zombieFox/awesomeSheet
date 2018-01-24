@@ -1346,6 +1346,7 @@ var nif = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: 4,
         trait: "",
         bonuses: {
@@ -1363,6 +1364,7 @@ var nif = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {
@@ -1376,7 +1378,7 @@ var nif = (function() {
           half_level: false
         }
       },
-      spell_notes: "<strong>Arcane school</strong> Conjuration (Teleportation).<br><strong>Opposition Arcane school</strong> Enchantment, Necromancy.<br>Conjuration spells +2 DC.",
+      spell_notes: "<strong>Arcane school</strong> Conjuration (Teleportation).<br><strong>Opposition Arcane school</strong> Enchantment, Necromancy.<br>Conjuration spells +2 DC.<br>+2 on caster level checks to overcome spell resistance.",
       per_day: {
         level_0: 4,
         level_1: 4,

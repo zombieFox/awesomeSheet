@@ -1228,6 +1228,7 @@ var blank = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {
@@ -1245,6 +1246,7 @@ var blank = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {

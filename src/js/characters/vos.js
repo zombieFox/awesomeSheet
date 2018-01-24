@@ -1332,6 +1332,7 @@ var vos = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {
@@ -1349,6 +1350,7 @@ var vos = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {

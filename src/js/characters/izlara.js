@@ -1042,7 +1042,7 @@ var izlara = (function() {
           ranks: 12,
           misc: 5,
           current: "",
-          racial: "",
+          racial: 2,
           trait: "",
           feat: "",
           bonuses: {
@@ -1338,6 +1338,7 @@ var izlara = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: 4,
         trait: "",
         bonuses: {
@@ -1355,6 +1356,7 @@ var izlara = (function() {
         current: "",
         misc: "",
         temp: "",
+        racial: "",
         feat: 2,
         trait: "",
         bonuses: {
@@ -1368,7 +1370,7 @@ var izlara = (function() {
           half_level: false
         }
       },
-      spell_notes: "",
+      spell_notes: "+2 on caster level checks to overcome spell resistance.",
       per_day: {
         level_0: 4,
         level_1: 4,

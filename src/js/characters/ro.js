@@ -1295,6 +1295,7 @@ var ro = (function() {
         current: "",
         misc: 2,
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {
@@ -1310,8 +1311,9 @@ var ro = (function() {
       },
       caster_level_check: {
         current: "",
-        misc: 2,
+        misc: "",
         temp: "",
+        racial: "",
         feat: "",
         trait: "",
         bonuses: {
@@ -1325,7 +1327,7 @@ var ro = (function() {
           half_level: false
         }
       },
-      spell_notes: "",
+      spell_notes: "+2 on caster level checks to overcome spell resistance.",
       per_day: {
         level_0: 5,
         level_1: 4,
