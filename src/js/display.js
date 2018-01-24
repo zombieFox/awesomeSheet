@@ -312,6 +312,9 @@ var display = (function() {
           if (all_displayPath[i] == "equipment.consumable") {
             cloneType = "consumable";
           };
+          if (all_displayPath[i] == "statistics.power") {
+            cloneType = "power";
+          };
           if (all_displayPath[i] == "equipment.item.all") {
             cloneType = "item";
           };
@@ -370,6 +373,42 @@ var display = (function() {
         displayListItem.setAttribute("class", "m-display-list-item");
         for (var i in object) {
           if (i == "item") {
+            var data = object[i];
+            if (typeof data != "undefined" && data != "") {
+              var displayListItemPrefix = document.createElement("span");
+              displayListItemPrefix.setAttribute("class", "m-display-list-item-prefix");
+              displayListItemPrefix.textContent = data;
+              displayListItem.appendChild(displayListItemPrefix);
+            };
+          } else if (i == "current") {
+            var data = object[i];
+            if (typeof data != "undefined" && data != "" || data == 0) {
+              var displayListItemValue = document.createElement("span");
+              displayListItemValue.setAttribute("class", "m-display-list-item-value");
+              if (typeof object.total != "undefined" && object.total != "") {
+                data = data + "/" + object.total;
+              };
+              displayListItemValue.textContent = data;
+              displayListItem.appendChild(displayListItemValue);
+            };
+          };
+        };
+        var percentage = parseFloat(((object.total - object.used) / object.total) * 100).toFixed(2);
+        if (percentage < 0) {
+          percentage = 0;
+        };
+        var percentageBar = document.createElement("span");
+        percentageBar.setAttribute("class", "m-display-list-item-percentage");
+        percentageBar.setAttribute("style", "width: " + percentage + "%;");
+        displayListItem.appendChild(percentageBar);
+        // console.log(object.item, object.total, object.used, percentage);
+      };
+
+      if (cloneType == "power") {
+        displayListItem = document.createElement("li");
+        displayListItem.setAttribute("class", "m-display-list-item");
+        for (var i in object) {
+          if (i == "name") {
             var data = object[i];
             if (typeof data != "undefined" && data != "") {
               var displayListItemPrefix = document.createElement("span");

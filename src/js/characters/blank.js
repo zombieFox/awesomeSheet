@@ -142,7 +142,8 @@ var blank = (function() {
       feats: "",
       traits: "",
       languages: "",
-      special_abilities: ""
+      special_abilities: "",
+      power: []
     },
     equipment: {
       gear: "",

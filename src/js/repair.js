@@ -841,6 +841,14 @@ var repair = (function() {
       characterObject.spells.caster_level_check.racial = "";
     };
     // --------------------------------------------------
+    // repair power
+    if (!("power" in characterObject.statistics)) {
+      if (debug) {
+        console.log("\trepair power");
+      };
+      characterObject.statistics.power = [];
+    };
+    // --------------------------------------------------
     // sheet.store();
     return characterObject;
   };
