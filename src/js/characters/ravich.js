@@ -53,6 +53,7 @@ var ravich = (function() {
         misc: "",
         temp: "",
         feat: 4,
+        trait: "",
         current: "",
         bonuses: {
           str_bonus: false,

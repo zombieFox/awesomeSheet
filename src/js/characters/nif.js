@@ -43,6 +43,7 @@ var nif = (function() {
         misc: "",
         temp: "",
         feat: "",
+        trait: "",
         current: "",
         bonuses: {
           str_bonus: false,

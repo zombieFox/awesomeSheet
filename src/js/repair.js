@@ -841,12 +841,12 @@ var repair = (function() {
       characterObject.spells.caster_level_check.racial = "";
     };
     // --------------------------------------------------
-    // repair power
-    if (!("power" in characterObject.statistics)) {
+    // repair initiative trait
+    if (!("trait" in characterObject.basics.initiative)) {
       if (debug) {
-        console.log("\trepair power");
+        console.log("\trepair initiative trait");
       };
-      characterObject.statistics.power = [];
+      characterObject.basics.initiative.trait = "";
     };
     // --------------------------------------------------
     // sheet.store();
