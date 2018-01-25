@@ -1,5 +1,53 @@
 var spells = (function() {
 
+  function find(spellName) {
+
+    console.log("looking up", spellName);
+
+    var logit = function(data) {
+      var allSpells = JSON.parse(data);
+      console.log("logit fire");
+      allSpells.forEach(function(arrayItem) {
+        if (arrayItem.name.includes(spellName)) {
+          console.log(arrayItem);
+          // var spellDesciption = document.createElement("div");
+          // var para1 = document.createElement("p");
+          // para1.insertAdjacentHTML("beforeend", "<p><strong>School</strong> " + arrayItem.school + "</p>");
+          // var para2 = document.createElement("p");
+          // para2.insertAdjacentHTML("beforeend", "<p><strong>Casting Time</strong> " + arrayItem.casting_time + "</p>");
+          // var para3 = document.createElement("p");
+          // para3.insertAdjacentHTML("beforeend", "<p><strong>Components</strong> " + arrayItem.components + "</p>");
+          // var para4 = document.createElement("p");
+          // para4.insertAdjacentHTML("beforeend", "<p><strong>Range</strong> " + arrayItem.range + "</p>");
+          // var para5 = document.createElement("p");
+          // para5.insertAdjacentHTML("beforeend", "<p><strong>Area</strong> " + arrayItem.area + "</p>");
+          // var para6 = document.createElement("p");
+          // para6.insertAdjacentHTML("beforeend", "<p><strong>Duration</strong> " + arrayItem.casting_time + "</p>");
+          // var para7 = document.createElement("p");
+          // para7.insertAdjacentHTML("beforeend", "<p><strong>Saving Throw</strong> " + arrayItem.saving_throw + "</p>");
+          // var para8 = document.createElement("p");
+          // para8.insertAdjacentHTML("beforeend", arrayItem.description_formated);
+          // var para9 = document.createElement("p");
+          // para9.insertAdjacentHTML("beforeend", arrayItem.description_formated);
+          // spellDesciption.appendChild(para1);
+          // spellDesciption.appendChild(para2);
+          // spellDesciption.appendChild(para3);
+          // spellDesciption.appendChild(para4);
+          // spellDesciption.appendChild(para5);
+          // spellDesciption.appendChild(para6);
+          // spellDesciption.appendChild(para7);
+          // spellDesciption.appendChild(para8);
+          // spellDesciption.appendChild(para9);
+          // helper.e("body").appendChild(spellDesciption);
+          // console.log(spellDesciption);
+        };
+      });
+    };
+
+    helper.loadJSON("../db/spells.json", logit);
+
+  };
+
   var _spellState = (function() {
 
     var spellState = {
@@ -913,6 +961,7 @@ var spells = (function() {
     clear: clear,
     bind: bind,
     render: render,
+    find: find,
     update: _render_quickSpellControl
   };
 

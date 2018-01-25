@@ -15,13 +15,13 @@ module.exports = function(grunt) {
     copy: {
       dev: {
         cwd: '<%= folders.src %>/',
-        src: ['{images,fonts,js}/**/*', 'bower_components/**/*.js', 'manifest.json'],
+        src: ['{images,fonts,js,db}/**/*', 'bower_components/**/*.js', 'manifest.json'],
         dest: '<%= folders.dev %>/',
         expand: true
       },
       build: {
         cwd: '<%= folders.src %>/',
-        src: ['{images,fonts,js}/**/*', 'bower_components/**/*.js', 'manifest.json'],
+        src: ['{images,fonts,js,db}/**/*', 'bower_components/**/*.js', 'manifest.json'],
         dest: '<%= folders.build %>/',
         expand: true
       },
