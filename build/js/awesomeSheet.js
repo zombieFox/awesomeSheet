@@ -605,6 +605,7 @@ var blank = (function() {
         misc: "",
         temp: "",
         feat: "",
+        trait: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -2141,9 +2142,10 @@ var izlara = (function() {
       hero_points: 1,
       character_description: "A responsible woman with a pragmatic outlook on life. Slim and a little taller than average, pale skin, diamond-shape face, hazel-green deep-set eyes.",
       initiative: {
-        misc: 2,
+        misc: "",
         temp: "",
         feat: 4,
+        trait: 2,
         current: "",
         bonuses: {
           str_bonus: false,
@@ -4908,6 +4910,7 @@ var ravich = (function() {
         misc: "",
         temp: "",
         feat: 4,
+        trait: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -7052,6 +7055,7 @@ var marika = (function() {
         misc: "",
         temp: "",
         feat: "",
+        trait: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -8689,6 +8693,7 @@ var nefi = (function() {
         misc: "2",
         temp: "",
         feat: "",
+        trait: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -10290,6 +10295,7 @@ var nif = (function() {
         misc: "",
         temp: "",
         feat: "",
+        trait: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -12378,6 +12384,7 @@ var orrin = (function() {
         misc: "",
         temp: "",
         feat: "",
+        trait: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -14110,6 +14117,7 @@ var ro = (function() {
         misc: "",
         temp: "",
         feat: "",
+        trait: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -16007,6 +16015,7 @@ var vos = (function() {
         misc: "",
         temp: "",
         feat: "",
+        trait: "",
         current: "",
         bonuses: {
           str_bonus: false,
@@ -24674,12 +24683,12 @@ var repair = (function() {
       characterObject.spells.caster_level_check.racial = "";
     };
     // --------------------------------------------------
-    // repair power
-    if (!("power" in characterObject.statistics)) {
+    // repair initiative trait
+    if (!("trait" in characterObject.basics.initiative)) {
       if (debug) {
-        console.log("\trepair power");
+        console.log("\trepair initiative trait");
       };
-      characterObject.statistics.power = [];
+      characterObject.basics.initiative.trait = "";
     };
     // --------------------------------------------------
     // sheet.store();

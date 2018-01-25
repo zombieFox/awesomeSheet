@@ -43,6 +43,7 @@ var nefi = (function() {
         misc: "2",
         temp: "",
         feat: "",
+        trait: "",
         current: "",
         bonuses: {
           str_bonus: false,
