@@ -3,6 +3,19 @@
   z-index: 1;
   font-size: $font-size-root-100;
 }
+.m-input-block-list {
+  background-color: $white;
+  max-height: 30vh;
+  overflow-y: auto;
+  padding: 1em;
+  position: absolute;
+  top: calc(100% + 0.5em);
+  left: 0;
+  width: 100%;
+  border-radius: $border-radius-small;
+  box-shadow: $shadow-small;
+  z-index: $dropdown;
+}
 .m-input-block-label {
   margin: 0 1em 0 0;
   padding: 0;
