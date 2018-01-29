@@ -431,13 +431,28 @@ var helper = (function() {
     var xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
     xobj.open("GET", jsonPath, true); // Replace 'my_data' with the path to your file
-    xobj.onreadystatechange = function () {
+    xobj.onreadystatechange = function() {
       if (xobj.readyState == 4 && xobj.status == "200") {
         // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
         callback(xobj.responseText);
       };
     };
     xobj.send(null);
+  };
+
+  function csvToJSON(string) {
+    var lines = string.split("\n");
+    var keys = lines[0].split(",");
+    var result = [];
+    for (var i = 1; i < lines.length; i++) {
+      var object = {};
+      var currentline = lines[i].split(",");
+      for (var j = 0; j < keys.length; j++) {
+        object[keys[j]] = currentline[j];
+      };
+      result.push(object);
+    };
+    return JSON.parse(JSON.stringify(result));
   };
 
   // exposed methods
@@ -470,7 +485,8 @@ var helper = (function() {
     getAverageColor: getAverageColor,
     applyOptions: applyOptions,
     replaceAt: replaceAt,
-    loadJSON: loadJSON
+    loadJSON: loadJSON,
+    csvToJSON: csvToJSON
   };
 
 })();

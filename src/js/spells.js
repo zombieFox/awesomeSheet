@@ -1,7 +1,6 @@
 var spells = (function() {
 
   function find(input) {
-    console.log(input);
     var searchString = input.value;
     var machedIndex = [];
     var _get_SpellName = function(data) {
@@ -76,7 +75,7 @@ var spells = (function() {
   var addSpellTimer = null;
 
   function delayUpdate(element, event) {
-    find(element, event);
+    // find(element, event);
     _addNewSpellOnEnter(element, event);
     sheet.store();
   };
@@ -149,7 +148,7 @@ var spells = (function() {
     for (var i = 0; i < addNewSpellField.length; i++) {
       addNewSpellField[i].addEventListener("keypress", function() {
         clearTimeout(addSpellTimer);
-        addSpellTimer = setTimeout(delayUpdate, 100, this, event);
+        addSpellTimer = setTimeout(delayUpdate, 300, this, event);
       }, false);
     };
   };

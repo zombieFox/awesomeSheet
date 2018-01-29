@@ -1,8 +1,9 @@
 var inputBlock = (function() {
 
-  var storeInputTimer = null;
-  var updateNavTimer = null;
-  var updateWealthTimer = null;
+  var _timer_store = null;
+  var _timer_updateNav = null;
+  var _timer_delayWealth = null;
+  var _timer_autoSuggestt= null;
 
   function bind(inputBlock) {
     if (inputBlock) {
@@ -14,6 +15,7 @@ var inputBlock = (function() {
       _bind_all_inputBlockAggregateControl();
       _bind_all_inputBlockAggregateClear();
       _bind_all_inputBlockQuickValue();
+      _bind_all_inputBlockAutoSuggest();
       _bind_name();
     };
   };
@@ -32,8 +34,8 @@ var inputBlock = (function() {
     var input = inputBlock.querySelector(".js-input-block-field");
     if (input) {
       input.addEventListener("input", function() {
-        clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 300, this);
+        clearTimeout(_timer_store);
+        _timer_store = setTimeout(delayStoreUpdate, 300, this);
       }, false);
       input.addEventListener("focus", function() {
         _focus(this);
@@ -132,6 +134,7 @@ var inputBlock = (function() {
     };
   };
 
+
   function _bind_inputBlockQuickValue(inputBlockQuickValues) {
     if (inputBlockQuickValues) {
       inputBlockQuickValues.addEventListener("click", function() {
@@ -141,28 +144,45 @@ var inputBlock = (function() {
     };
   };
 
+  function _bind_all_inputBlockAutoSuggest() {
+    var all_inputBlockAutoSuggest = helper.eA(".js-input-block-auto-suggest");
+    for (var i = 0; i < all_inputBlockAutoSuggest.length; i++) {
+      _bind_inputBlockAutoSuggest(all_inputBlockAutoSuggest[i]);
+    };
+  };
+
+  function _bind_inputBlockAutoSuggest(inputBlockAutoSuggest) {
+    var input = inputBlockAutoSuggest.querySelector(".js-input-block-field");
+    if (input) {
+      input.addEventListener("input", function() {
+        clearTimeout(_timer_store);
+        _timer_store = setTimeout(_timer_autoSuggest, 100, this);
+      }, false);
+    };
+  };
+
   function _bind_name() {
     var inputBlock = helper.e(".js-basics-name");
     var input = inputBlock.querySelector(".js-input-block-field");
     input.addEventListener("input", function() {
-      clearTimeout(updateNavTimer);
-      updateNavTimer = setTimeout(characterSelect.update, 300, this);
+      clearTimeout(_timer_updateNav);
+      _timer_updateNav = setTimeout(characterSelect.update, 300, this);
     }, false);
   };
 
   function bind_classLevel(inputBlock) {
     var input = inputBlock.querySelector(".js-input-block-field");
     input.addEventListener("input", function() {
-      clearTimeout(updateNavTimer);
-      updateNavTimer = setTimeout(characterSelect.update, 300, this);
+      clearTimeout(_timer_updateNav);
+      _timer_updateNav = setTimeout(characterSelect.update, 300, this);
     }, false);
   };
 
   function bind_wealth(inputBlock) {
     var input = inputBlock.querySelector(".js-input-block-field");
     input.addEventListener("input", function() {
-      clearTimeout(updateWealthTimer);
-      updateWealthTimer = setTimeout(function() {
+      clearTimeout(_timer_delayWealth);
+      _timer_delayWealth = setTimeout(function() {
         wealth.render();
         textBlock.render();
       }, 300, this);
@@ -193,7 +213,7 @@ var inputBlock = (function() {
     };
   };
 
-  function delayUpdate(element) {
+  function delayStoreUpdate(element) {
     _store(element);
     xp.render();
     wealth.render();
