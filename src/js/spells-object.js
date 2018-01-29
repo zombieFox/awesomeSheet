@@ -153,6 +153,7 @@ var spellsObject = (function() {
           // add
           arrayItem.level = tempLevel;
           // remove
+          delete arrayItem.spell_level;
           delete arrayItem.SLA_Level;
           delete arrayItem.sorcerer;
           delete arrayItem.wizard;
@@ -196,9 +197,9 @@ var spellsObject = (function() {
             };
           };
           if (arrayItem.material_costs != "NULL") {
-            tempComponents.costs = parseInt(arrayItem.material_costs, 10);
+            tempComponents.cost = parseInt(arrayItem.material_costs, 10);
           } else {
-            tempComponents.costs = 0;
+            tempComponents.cost = 0;
           };
           tempComponents.string = arrayItem.components;
           // add
@@ -214,6 +215,19 @@ var spellsObject = (function() {
 
           // casting
           var tempCasting = {};
+          if (arrayItem.dismissible == "1") {
+            tempCasting.dismissible = true;
+          } else {
+            tempCasting.dismissible = false;
+          };
+          if (arrayItem.shapeable == "1") {
+            tempCasting.shapeable = true;
+          } else {
+            tempCasting.shapeable = false;
+          };
+          tempCasting.saving = arrayItem.saving_throw;
+          tempCasting.spell_resistence = arrayItem.spell_resistence;
+          tempCasting.targets = arrayItem.targets;
           tempCasting.time = arrayItem.casting_time;
           tempCasting.range = arrayItem.range;
           tempCasting.area = arrayItem.area;
@@ -221,6 +235,11 @@ var spellsObject = (function() {
           // add
           arrayItem.casting = tempCasting
           // remove
+          delete arrayItem.spell_resistence;
+          delete arrayItem.targets;
+          delete arrayItem.shapeable;
+          delete arrayItem.dismissible;
+          delete arrayItem.saving_throw;
           delete arrayItem.casting_time;
           delete arrayItem.range;
           delete arrayItem.area;

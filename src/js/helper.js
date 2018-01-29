@@ -455,16 +455,16 @@ var helper = (function() {
 
   function csvToJSON(string) {
     var lines = string.split("\n");
+    // remove trailing spaces at end of each line
+    for (var i = 0; i < lines.length; i++) {
+      lines[i] = lines[i].substr(0, (lines[i].length - 1));
+    };
     var keys = lines[0].split(/\|(?=\S)/);
-    keys.forEach(function(arrayItem) {
-      console.log(arrayItem, arrayItem.length);
-      arrayItem = arrayItem.replace(/\s/g, "");
-      console.log(arrayItem, arrayItem.length);
-    });
     var result = [];
     for (var i = 1; i < lines.length; i++) {
       var object = {};
       var currentline = lines[i].split(/\|(?=\S)/);
+      // var currentline = lines[i].substr(0, (lines[i].length - 1)).split(/\|(?=\S)/);
       for (var j = 0; j < keys.length; j++) {
         object[keys[j]] = currentline[j];
       };
