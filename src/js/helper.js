@@ -456,6 +456,11 @@ var helper = (function() {
   function csvToJSON(string) {
     var lines = string.split("\n");
     var keys = lines[0].split(/\|(?=\S)/);
+    keys.forEach(function(arrayItem) {
+      console.log(arrayItem, arrayItem.length);
+      arrayItem = arrayItem.replace(/\s/g, "");
+      console.log(arrayItem, arrayItem.length);
+    });
     var result = [];
     for (var i = 1; i < lines.length; i++) {
       var object = {};

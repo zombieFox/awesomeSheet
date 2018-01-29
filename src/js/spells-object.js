@@ -46,6 +46,7 @@ var spellsObject = (function() {
           tempDescriptor.sonic = arrayItem.sonic;
           tempDescriptor.water = arrayItem.water;
           tempDescriptor.ruse = arrayItem.ruse;
+          tempDescriptor.meditative = arrayItem.meditative;
           for (var key in tempDescriptor) {
             if (tempDescriptor[key] == "1") {
               tempDescriptor[key] = true;
@@ -83,6 +84,7 @@ var spellsObject = (function() {
           delete arrayItem.sonic;
           delete arrayItem.water;
           delete arrayItem.ruse;
+          delete arrayItem.meditative;
 
           // description
           var tempDescription = {};
@@ -90,14 +92,27 @@ var spellsObject = (function() {
           tempDescription.short = arrayItem.short_description;
           tempDescription.plain = arrayItem.description;
           tempDescription.formated = arrayItem.description_formated;
-          tempDescription.mythic = arrayItem.mythic_text;
           // add
           arrayItem.description = tempDescription;
           // remove
           delete arrayItem.effect;
           delete arrayItem.description_formated;
           delete arrayItem.short_description;
+
+          // mythic
+          var tempMythic = {};
+          if (arrayItem.mythic == "1") {
+            tempMythic.mythic = true;
+          } else {
+            tempMythic.mythic = false;
+          };
+          tempMythic.text = arrayItem.mythic_text;
+          tempMythic.augmented = arrayItem.augmented;
+          // add
+          arrayItem.mythic = tempMythic;
+          // remove
           delete arrayItem.mythic_text;
+          delete arrayItem.augmented;
 
           // level
           var tempLevel = {};
@@ -117,7 +132,6 @@ var spellsObject = (function() {
           tempLevel.antipaladin = arrayItem.antipaladin;
           tempLevel.magus = arrayItem.magus;
           tempLevel.adept = arrayItem.adept;
-          tempLevel.mythic = arrayItem.mythic;
           tempLevel.bloodrager = arrayItem.bloodrager;
           tempLevel.shaman = arrayItem.shaman;
           tempLevel.psychic = arrayItem.psychic;
@@ -155,7 +169,6 @@ var spellsObject = (function() {
           delete arrayItem.antipaladin;
           delete arrayItem.magus;
           delete arrayItem.adept;
-          delete arrayItem.mythic;
           delete arrayItem.bloodrager;
           delete arrayItem.shaman;
           delete arrayItem.psychic;
