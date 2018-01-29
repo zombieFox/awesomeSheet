@@ -45,6 +45,7 @@ var spellsObject = (function() {
           tempDescriptor.shadow = arrayItem.shadow;
           tempDescriptor.sonic = arrayItem.sonic;
           tempDescriptor.water = arrayItem.water;
+          tempDescriptor.ruse = arrayItem.ruse;
           for (var key in tempDescriptor) {
             if (tempDescriptor[key] == "1") {
               tempDescriptor[key] = true;
@@ -81,6 +82,7 @@ var spellsObject = (function() {
           delete arrayItem.shadow;
           delete arrayItem.sonic;
           delete arrayItem.water;
+          delete arrayItem.ruse;
 
           // description
           var tempDescription = {};
@@ -180,8 +182,13 @@ var spellsObject = (function() {
               tempComponents[key] = false;
             };
           };
-          // add
+          if (arrayItem.material_costs != "NULL") {
+            tempComponents.costs = parseInt(arrayItem.material_costs, 10);
+          } else {
+            tempComponents.costs = 0;
+          };
           tempComponents.string = arrayItem.components;
+          // add
           arrayItem.components = tempComponents
           // remove
           delete arrayItem.verbal;
@@ -190,6 +197,21 @@ var spellsObject = (function() {
           delete arrayItem.focus;
           delete arrayItem.divine_focus;
           delete arrayItem.costly_components;
+          delete arrayItem.material_costs;
+
+          // casting
+          var tempCasting = {};
+          tempCasting.time = arrayItem.casting_time;
+          tempCasting.range = arrayItem.range;
+          tempCasting.area = arrayItem.area;
+          tempCasting.duration = arrayItem.duration;
+          // add
+          arrayItem.casting = tempCasting
+          // remove
+          delete arrayItem.casting_time;
+          delete arrayItem.range;
+          delete arrayItem.area;
+          delete arrayItem.duration;
 
         };
       });
