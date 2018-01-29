@@ -430,7 +430,20 @@ var helper = (function() {
   function loadJSON(jsonPath, callback) {
     var xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
-    xobj.open("GET", jsonPath, true); // Replace 'my_data' with the path to your file
+    xobj.open("GET", jsonPath, true);
+    xobj.onreadystatechange = function() {
+      if (xobj.readyState == 4 && xobj.status == "200") {
+        // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+        callback(xobj.responseText);
+      };
+    };
+    xobj.send(null);
+  };
+
+  function loadCsv(csvPath, callback) {
+    var xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/csv");
+    xobj.open("GET", csvPath, true);
     xobj.onreadystatechange = function() {
       if (xobj.readyState == 4 && xobj.status == "200") {
         // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
@@ -486,6 +499,7 @@ var helper = (function() {
     applyOptions: applyOptions,
     replaceAt: replaceAt,
     loadJSON: loadJSON,
+    loadCsv: loadCsv,
     csvToJSON: csvToJSON
   };
 
