@@ -1,23 +1,28 @@
 var spellsObject = (function() {
 
+  var _all_spellsObject = null;
 
-  var xxx = function(data) {
-    console.log(helper.csvToJSON(data)[1000]);
-    // var allSpellNames = JSON.parse(data);
-    // allSpellNames.forEach(function(arrayItem, index) {
-    //   if (arrayItem.toLowerCase().includes(searchString.toLowerCase())) {
-    //     console.log(index, arrayItem);
-    //     machedIndex.push(index);
-    //   };
-    // });
-    // _render_machedIndex(data);
-  };
-
-  function get(index) {
-    var _all_spellObject = helper.loadCsv("../db/spells.csv", xxx);
-    // _all_spellObject;
-    // return helper.csvToJSON(_all_spellObject)[index];
-
+  function get(array) {
+    var _get_allSpells = function(data) {
+      _all_spellsObject = helper.csvToJSON(data);
+      return _findSpell();
+    };
+    var _findSpell = function() {
+      if (array) {
+        array.forEach(function(arrayItem) {
+          return _all_spellsObject[arrayItem.index];
+        });
+      } else {
+        return _all_spellsObject;
+      };
+    };
+    if (_all_spellsObject == null) {
+      helper.loadCsv("../db/spells.csv", function(data) {
+        _get_allSpells(data);
+      });
+    } else {
+      return _findSpell();
+    };
   };
 
   // exposed methods

@@ -2831,18 +2831,19 @@ var spellsName = (function() {
   ];
 
   function get(string) {
-    var machedIndex = [];
+    var mached = [];
     _all_spellName.forEach(function(arrayItem, index) {
       if (arrayItem.toLowerCase().includes(string.toLowerCase())) {
         var object = {
           index: index,
           name: arrayItem
         };
-        machedIndex.push(object);
+        mached.push(object);
       };
     });
-    if (machedIndex.length > 0) {
-      return machedIndex;
+    if (mached.length > 0) {
+      return mached;
+      // spellsObject.get(mached);
     } else {
       return false
     };
