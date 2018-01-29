@@ -3,7 +3,7 @@ var inputBlock = (function() {
   var _timer_store = null;
   var _timer_updateNav = null;
   var _timer_delayWealth = null;
-  var _timer_autoSuggestt= null;
+  var _timer_autoSuggest= null;
 
   function bind(inputBlock) {
     if (inputBlock) {
@@ -155,8 +155,8 @@ var inputBlock = (function() {
     var input = inputBlockAutoSuggest.querySelector(".js-input-block-field");
     if (input) {
       input.addEventListener("input", function() {
-        clearTimeout(_timer_store);
-        _timer_store = setTimeout(_timer_autoSuggest, 100, this);
+        clearTimeout(_timer_autoSuggest);
+        _timer_autoSuggest = setTimeout(_render_autoSuggest, 200, this);
       }, false);
     };
   };
@@ -369,6 +369,29 @@ var inputBlock = (function() {
         message: "Nothing to clear."
       });
     };
+  };
+
+  function _render_autoSuggest(input) {
+    var options = helper.makeObject(input.dataset.inputBlockAutoSuggestOptions);
+    var body = helper.e("body");
+    var spells = spellsData.get(input.value);
+    var style = {
+      left: input.getBoundingClientRect().left,
+      bottom: input.getBoundingClientRect().bottom + window.scrollY,
+      width: input.getBoundingClientRect().width
+    };
+    if (helper.e(".js-input-block-auto-suggest-list")) {
+      helper.e(".js-input-block-auto-suggest-list").remove();
+    };
+    var autoSuggestList = document.createElement("ul");
+    autoSuggestList.setAttribute("class", "m-input-block-auto-suggest-list js-input-block-auto-suggest-list");
+    for (var i = 0; i < spells.length; i++) {
+      var li = document.createElement("li");
+      li.textContent = spells[i].name;
+      autoSuggestList.appendChild(li);
+    };
+    body.appendChild(autoSuggestList);
+    autoSuggestList.setAttribute("style", "width: " + style.width + "px; top: " + style.bottom + "px; left: " + style.left + "px;");
   };
 
   function _aggregateClear(options) {
