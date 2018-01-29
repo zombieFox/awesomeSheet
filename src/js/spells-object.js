@@ -84,6 +84,7 @@ var spellsObject = (function() {
 
           // description
           var tempDescription = {};
+          tempDescription.effect = arrayItem.effect;
           tempDescription.short = arrayItem.short_description;
           tempDescription.plain = arrayItem.description;
           tempDescription.formated = arrayItem.description_formated;
@@ -91,6 +92,7 @@ var spellsObject = (function() {
           // add
           arrayItem.description = tempDescription;
           // remove
+          delete arrayItem.effect;
           delete arrayItem.description_formated;
           delete arrayItem.short_description;
           delete arrayItem.mythic_text;
@@ -170,6 +172,7 @@ var spellsObject = (function() {
           tempComponents.material = arrayItem.material;
           tempComponents.focus = arrayItem.focus;
           tempComponents.divine_focus = arrayItem.divine_focus;
+          tempComponents.costly = arrayItem.costly_components;
           for (var key in tempComponents) {
             if (tempComponents[key] == "1") {
               tempComponents[key] = true;
@@ -186,6 +189,7 @@ var spellsObject = (function() {
           delete arrayItem.material;
           delete arrayItem.focus;
           delete arrayItem.divine_focus;
+          delete arrayItem.costly_components;
 
         };
       });
