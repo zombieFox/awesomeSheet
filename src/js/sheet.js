@@ -234,6 +234,10 @@ var sheet = (function() {
     }, false);
   };
 
+  function load() {
+    spellsObject.load();
+  };
+
   function switcher(index) {
     var switcheroo = function(index) {
       setIndex(index);
@@ -530,6 +534,7 @@ var sheet = (function() {
     import: importJson,
     export: exportJson,
     render: render,
+    load: load,
     switcher: switcher,
     getIndex: getIndex,
     setIndex: setIndex,

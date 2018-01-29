@@ -10,5 +10,6 @@
   log.bind();
   log.render();
   checkUrl.render();
+  sheet.load();
 
 })();
