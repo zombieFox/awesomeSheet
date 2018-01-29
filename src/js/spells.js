@@ -1,41 +1,5 @@
 var spells = (function() {
 
-  function find(input) {
-    var searchString = input.value;
-    var machedIndex = [];
-    var _get_SpellName = function(data) {
-      var allSpellNames = JSON.parse(data);
-      allSpellNames.forEach(function(arrayItem, index) {
-        if (arrayItem.toLowerCase().includes(searchString.toLowerCase())) {
-          console.log(index, arrayItem);
-          machedIndex.push(index);
-        };
-      });
-      _render_machedIndex(data);
-    };
-    var _render_machedIndex = function(data) {
-      var target = helper.getClosest(helper.e("#add-new-spell-level-0"), ".m-input-block");
-      if (target.querySelector("ul")) {
-        target.removeChild(target.querySelector("ul"));
-      };
-      var list = document.createElement("ul");
-      list.setAttribute("class", "m-input-block-list u-list-unstyled");
-      for (var i = 0; i < machedIndex.length; i++) {
-        var listItem = document.createElement("li");
-        listItem.textContent = JSON.parse(data)[machedIndex[i]];
-        list.appendChild(listItem);
-      };
-      target.appendChild(list);
-    };
-    var _get_spellObject = function(data) {
-      indexX.forEach(function(arrayItem) {
-        console.log(JSON.parse(data)[arrayItem]);
-      });
-    };
-    var names = helper.loadJSON("../db/spell-names.json", _get_SpellName);
-    // var spells = helper.loadJSON("../db/spells.json", _get_spellObject);
-  };
-
   var _spellState = (function() {
 
     var spellState = {
@@ -75,7 +39,6 @@ var spells = (function() {
   var addSpellTimer = null;
 
   function delayUpdate(element, event) {
-    // find(element, event);
     _addNewSpellOnEnter(element, event);
     sheet.store();
   };
@@ -950,7 +913,6 @@ var spells = (function() {
     clear: clear,
     bind: bind,
     render: render,
-    find: find,
     update: _render_quickSpellControl
   };
 
