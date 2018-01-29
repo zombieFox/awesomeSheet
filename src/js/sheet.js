@@ -235,7 +235,7 @@ var sheet = (function() {
   };
 
   function load() {
-    spellsObject.load();
+    spellsData.load();
   };
 
   function switcher(index) {
