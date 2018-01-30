@@ -381,8 +381,12 @@ var inputBlock = (function() {
         name: input.value
       });
     };
-    console.log(suggestItems);
+    var _xxx = function(event) {
+      console.log(event);
+    };
     var _render_autoSuggestList = function() {
+      console.log("add");
+      document.addEventListener("click", _xxx, false);
       var inputBlockAutoSuggestList = helper.e(".js-input-block-auto-suggest-list");
       if (inputBlockAutoSuggestList) {
         while (inputBlockAutoSuggestList.lastChild) {
@@ -403,6 +407,8 @@ var inputBlock = (function() {
       };
     };
     var _clear_autoSuggestList = function() {
+      console.log("remove");
+      document.removeEventListener("click", _xxx, false);
       var inputBlockAutoSuggestList = helper.e(".js-input-block-auto-suggest-list");
       if (inputBlockAutoSuggestList) {
         inputBlockAutoSuggestList.remove();
@@ -421,9 +427,6 @@ var inputBlock = (function() {
         anchor.setAttribute("class", "m-input-block-auto-suggest-link");
         anchor.setAttribute("data-spells-data", "index:#" + suggestItems[i].index);
         anchor.addEventListener("click", function() {
-          console.log(spellsData.get({
-            index: helper.makeObject(this.dataset.spellsData).index
-          }));
           spells.add(input, spellsData.get({
             index: helper.makeObject(this.dataset.spellsData).index
           }));
