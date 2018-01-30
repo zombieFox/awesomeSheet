@@ -2834,19 +2834,26 @@ var spellsData = (function() {
 
   function get(string) {
     var mached = [];
-    _all_spellName.forEach(function(arrayItem, index) {
-      if (arrayItem.toLowerCase().includes(string.toLowerCase())) {
-        var object = {
-          index: index,
-          name: arrayItem
+    var _checkForSepllName = function() {
+      _all_spellName.forEach(function(arrayItem, index) {
+        if (arrayItem.toLowerCase().includes(string.toLowerCase())) {
+          var object = {
+            index: index,
+            name: arrayItem
+          };
+          mached.push(object);
         };
-        mached.push(object);
+      });
+    };
+    if (string) {
+      _checkForSepllName();
+      if (mached.length > 0) {
+        return _get_spellsObject(mached);
+      } else {
+        return false
       };
-    });
-    if (mached.length > 0) {
-      return _get_spellsObject(mached);
     } else {
-      return false
+      return false;
     };
   };
 
