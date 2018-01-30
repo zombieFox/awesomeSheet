@@ -100,7 +100,7 @@ var spells = (function() {
     var all_addNewSpell = helper.eA(".js-add-new-spell");
     for (var i = 0; i < all_addNewSpell.length; i++) {
       all_addNewSpell[i].addEventListener("click", function() {
-        _addNewSpell(this);
+        addNewSpell(this);
         sheet.store();
       }, false);
     };
@@ -131,11 +131,11 @@ var spells = (function() {
     }, false);
   };
 
-  function _addNewSpell(element) {
+  function addNewSpell(element, spellObject) {
     var spellBook = helper.getClosest(element, ".js-spell-book");
     var spellBookOptions = helper.makeObject(spellBook.dataset.spellBookOptions);
     var addNewSpellField = spellBook.querySelector(".js-add-new-spell-field");
-    var spellName = addNewSpellField.value;
+    var spellName = spellObject.name || addNewSpellField.value;
     if (spellName != "") {
       var newSpellObject = new _create_spellObject(spellName, 0, false, 0, "");
       var newIndex = _get_spellBookCount(spellBookOptions.level);
@@ -152,7 +152,7 @@ var spells = (function() {
   function _addNewSpellOnEnter(input, event) {
     var keystroke = event.keyCode || event.which;
     if (keystroke == 13) {
-      _addNewSpell(input);
+      addNewSpell(input);
     };
   };
 
@@ -913,7 +913,8 @@ var spells = (function() {
     clear: clear,
     bind: bind,
     render: render,
-    update: _render_quickSpellControl
+    update: _render_quickSpellControl,
+    add: addNewSpell
   };
 
 })();

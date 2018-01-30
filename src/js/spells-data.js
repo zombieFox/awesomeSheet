@@ -2832,11 +2832,19 @@ var spellsData = (function() {
     "Storm Sight"
   ];
 
-  function get(string) {
+  function get(options) {
+    var defaultOptions = {
+      name: false,
+      index: false,
+      full: false
+    };
+    if (options) {
+      var defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
     var mached = [];
     var _checkForSepllName = function() {
       _all_spellName.forEach(function(arrayItem, index) {
-        if (arrayItem.toLowerCase().includes(string.toLowerCase())) {
+        if (arrayItem.toLowerCase().includes(options.name.toLowerCase())) {
           var object = {
             index: index,
             name: arrayItem
@@ -2845,13 +2853,54 @@ var spellsData = (function() {
         };
       });
     };
-    if (string) {
-      _checkForSepllName();
-      if (mached.length > 0) {
-        return _get_spellsObject(mached);
-      } else {
-        return false
+    if (options.name || options.index) {
+      if (options.name) {
+        _checkForSepllName();
+        if (mached.length > 0) {
+          if (options.full) {
+            return _get_spellsObject({
+              array: mached
+            });
+          } else {
+            return mached;
+          };
+        } else {
+          return false
+        };
+      } else if (options.index) {
+        return _get_spellsObject({
+          index: options.index
+        });
       };
+    } else {
+      return false;
+    };
+  };
+
+
+  function _get_spellsObject(options) {
+    var defaultOptions = {
+      array: false,
+      index: false
+    };
+    if (options) {
+      var defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
+    var _findSpells = function() {
+      if (options.array) {
+        var spellsObject = [];
+        options.array.forEach(function(arrayItem) {
+          spellsObject.push(_all_spellsObject[arrayItem.index]);
+        });
+        return spellsObject;
+      } else if (options.index) {
+        return _all_spellsObject[options.index];
+      } else {
+        return false;
+      };
+    };
+    if (_all_spellsObject != null) {
+      return _findSpells();
     } else {
       return false;
     };
@@ -3118,21 +3167,6 @@ var spellsData = (function() {
     helper.loadCsv("../db/spells.csv", function(data) {
       _get_allSpells(data);
     });
-  };
-
-  function _get_spellsObject(array) {
-    var _findSpells = function() {
-      var spellsObject = [];
-      array.forEach(function(arrayItem) {
-       spellsObject.push(_all_spellsObject[arrayItem.index]);
-      });
-      return spellsObject;
-    };
-    if (_all_spellsObject != null) {
-      return _findSpells();
-    } else {
-      return false;
-    };
   };
 
   // exposed methods
