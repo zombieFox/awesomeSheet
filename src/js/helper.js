@@ -80,6 +80,16 @@ var helper = (function() {
     };
   };
 
+  function toTitleCase(string) {
+    return string.replace(/\w\S*/g, function(text) {
+      return text.charAt(0).toUpperCase() + text.substr(1).toLowerCase();
+    });
+  };
+
+  function capFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.substr(1);
+  };
+
   function makeObject(string) {
     var _stringOrBooleanOrNumber = function(stringToTest) {
       if (stringToTest == "true") {
@@ -503,6 +513,8 @@ var helper = (function() {
     getAverageColor: getAverageColor,
     applyOptions: applyOptions,
     replaceAt: replaceAt,
+    toTitleCase: toTitleCase,
+    capFirstLetter: capFirstLetter,
     loadJSON: loadJSON,
     loadCsv: loadCsv,
     csvToJSON: csvToJSON

@@ -419,7 +419,7 @@ var spells = (function() {
         nameEditBoxHead.setAttribute("class", "m-edit-box-head");
         var nameEditBoxHeadTitle = document.createElement("h2");
         nameEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
-        nameEditBoxHeadTitle.textContent = "Name";
+        nameEditBoxHeadTitle.textContent = "Rename";
         var nameEditBoxBody = document.createElement("div");
         nameEditBoxBody.setAttribute("class", "m-edit-box-body");
         var nameEditBoxContent = document.createElement("div");
@@ -592,7 +592,7 @@ var spells = (function() {
         noteEditBoxHead.setAttribute("class", "m-edit-box-head");
         var noteEditBoxHeadTitle = document.createElement("h2");
         noteEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
-        noteEditBoxHeadTitle.textContent = "Spell Notes";
+        noteEditBoxHeadTitle.textContent = "Spell notes";
         var noteEditBoxBody = document.createElement("div");
         noteEditBoxBody.setAttribute("class", "m-edit-box-body");
         var noteEditBoxContent = document.createElement("div");
@@ -612,26 +612,24 @@ var spells = (function() {
         noteEditBox.appendChild(noteEditBoxHead);
         noteEditBox.appendChild(noteEditBoxBody);
 
-        spellControl.appendChild(nameEditBox);
         spellControl.appendChild(preparedEditBox);
         spellControl.appendChild(castEditBox);
         spellControl.appendChild(activeEditBox);
+        spellControl.appendChild(nameEditBox);
         spellControl.appendChild(noteEditBox);
       };
 
       var _create_spellblock = function() {
-        var hr = document.createElement("hr");
-        spellControl.appendChild(hr);
-
         if (tempSpellObject.data.school.base != "") {
           var para = document.createElement("p");
-          para.textContent = tempSpellObject.data.school.base;
+          var string = helper.capFirstLetter(tempSpellObject.data.school.base);
           if (tempSpellObject.data.school.subschool != "") {
-            para.textContent = para.textContent + " (" + tempSpellObject.data.school.subschool + ")";
+            string = string + " (" + helper.capFirstLetter(tempSpellObject.data.school.subschool) + ")";
           };
           if (tempSpellObject.data.descriptor.string != "") {
-            para.textContent = para.textContent + " [" + tempSpellObject.data.descriptor.string + "]";
+            string = string + " [" + helper.capFirstLetter(tempSpellObject.data.descriptor.string) + "]";
           };
+          para.textContent = string;
           spellControl.appendChild(_create_editBox({
             title: "School",
             content: para
@@ -640,19 +638,116 @@ var spells = (function() {
 
         if (tempSpellObject.data.level.string != "") {
           var para = document.createElement("p");
-          para.textContent = tempSpellObject.data.level.string;
+          var string = "";
+          for (var key in tempSpellObject.data.level) {
+            if (key != "string" && key != "sla" && tempSpellObject.data.level[key] != null) {
+              string = string + helper.capFirstLetter(key) + " " + tempSpellObject.data.level[key] + ", ";
+            };
+          };
+          string = string.replace(/,\s*$/, "");
+          para.textContent = string;
           spellControl.appendChild(_create_editBox({
             title: "Level",
             content: para
           }));
         };
 
+        if (tempSpellObject.data.casting.time != "") {
+          var para = document.createElement("p");
+          para.textContent = helper.capFirstLetter(tempSpellObject.data.casting.time);
+          spellControl.appendChild(_create_editBox({
+            title: "Casting time",
+            content: para
+          }));
+        };
+
+        if (tempSpellObject.data.components.string != "") {
+          var para = document.createElement("p");
+          para.textContent = tempSpellObject.data.components.string;
+          spellControl.appendChild(_create_editBox({
+            title: "Components",
+            content: para
+          }));
+        };
+
+        if (tempSpellObject.data.casting.range != "") {
+          var para = document.createElement("p");
+          para.textContent = helper.capFirstLetter(tempSpellObject.data.casting.range);
+          spellControl.appendChild(_create_editBox({
+            title: "Range",
+            content: para
+          }));
+        };
+
+        if (tempSpellObject.data.casting.area != "") {
+          var para = document.createElement("p");
+          var string = helper.capFirstLetter(tempSpellObject.data.casting.area);
+          if (tempSpellObject.data.casting.shapeable) {
+            string = string + " (S)";
+          };
+          para.textContent = string;
+          spellControl.appendChild(_create_editBox({
+            title: "Area",
+            content: para
+          }));
+        };
+
+        if (tempSpellObject.data.casting.targets != "") {
+          var para = document.createElement("p");
+          para.textContent = helper.capFirstLetter(tempSpellObject.data.casting.targets);
+          spellControl.appendChild(_create_editBox({
+            title: "Targets",
+            content: para
+          }));
+        };
+
+        if (tempSpellObject.data.casting.duration != "") {
+          var para = document.createElement("p");
+          var string = helper.capFirstLetter(tempSpellObject.data.casting.duration);
+          if (tempSpellObject.data.casting.dismissible) {
+            string = string + " (D)";
+          };
+          para.textContent = string;
+          spellControl.appendChild(_create_editBox({
+            title: "Duration",
+            content: para
+          }));
+        };
+
+        if (tempSpellObject.data.casting.saving != "") {
+          var para = document.createElement("p");
+          para.textContent = helper.capFirstLetter(tempSpellObject.data.casting.saving);
+          spellControl.appendChild(_create_editBox({
+            title: "Saving Throw",
+            content: para
+          }));
+        };
+
+        if (tempSpellObject.data.casting.spell_resistence != "") {
+          var para = document.createElement("p");
+          para.textContent = helper.capFirstLetter(tempSpellObject.data.casting.spell_resistence);
+          spellControl.appendChild(_create_editBox({
+            title: "Spell Resistence",
+            content: para
+          }));
+        };
+
+        if (tempSpellObject.data.description.formated != "") {
+          var div = document.createElement("div");
+          div.innerHTML = tempSpellObject.data.description.formated;
+          spellControl.appendChild(_create_editBox({
+            title: "Description",
+            content: div
+          }));
+        };
+
       };
 
-      _create_controls();
       if ("data" in tempSpellObject) {
         _create_spellblock();
+        spellControl.appendChild(document.createElement("hr"));
       };
+      _create_controls();
       return spellControl;
     };
     if (_spellState.get(options.level) == null || force) {
@@ -670,7 +765,7 @@ var spells = (function() {
         content: modalContent,
         action: modalAction,
         actionText: "Save",
-        size: "medium"
+        size: "large"
       });
       page.update();
     };
