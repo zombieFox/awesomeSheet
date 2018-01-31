@@ -2,6 +2,13 @@ var autoSuggest = (function() {
 
   var _timer_autoSuggest = null;
 
+  function _delayRender(input) {
+    render({
+      input: input,
+      action: "render"
+    });
+  };
+
   function bind() {
     var all_autoSuggest = helper.eA(".js-auto-suggest");
     for (var i = 0; i < all_autoSuggest.length; i++) {
@@ -13,24 +20,14 @@ var autoSuggest = (function() {
     var input = autoSuggest.querySelector(".js-auto-suggest-field");
     if (input) {
       input.addEventListener("input", function() {
-        // clearTimeout(_timer_autoSuggest);
-        // _timer_autoSuggest = setTimeout(function(this) {
-        render({
-          input: this,
-          action: "render"
-        });
-        // }, 300, this);
+        clearTimeout(_timer_autoSuggest);
+        _timer_autoSuggest = setTimeout(_delayRender, 300, this);
       }, false);
-      // input.addEventListener("keydown", function() {
-      //   if (event.keyCode == 27) {
-      //     _destroyrender(this);
-      //   };
-      // }, false);
-      // input.addEventListener("keydown", function() {
-      //   if (event.keyCode == 13) {
-      //     _destroyrender(this);
-      //   };
-      // }, false);
+      input.addEventListener("keydown", function() {
+        if (event.keyCode == 13) {
+          destroy(this);
+        };
+      }, false);
     };
   };
 
@@ -44,11 +41,11 @@ var autoSuggest = (function() {
 
   function _checkClick(event) {
     if (!(event.target.classList.contains("js-auto-suggest-field"))) {
-      _destroy();
+      destroy();
     };
   };
 
-  function _destroy() {
+  function destroy() {
     var autoSuggestList = helper.e(".js-auto-suggest-list");
     if (autoSuggestList) {
       autoSuggestList.remove();
@@ -107,7 +104,7 @@ var autoSuggest = (function() {
               index: helper.makeObject(this.dataset.spellsData).index
             }));
           };
-          _destroy();
+          destroy();
         }, false);
         var partOneText = string.substr(0, (string.toLowerCase().indexOf(options.input.value.toLowerCase())));
         var strongText = string.substr((string.toLowerCase().indexOf(options.input.value.toLowerCase())), options.input.value.length);
@@ -142,7 +139,7 @@ var autoSuggest = (function() {
     if (suggestItems) {
       _render_autoSuggestList();
     } else {
-      _destroy();
+      destroy();
     };
   };
 
@@ -150,7 +147,8 @@ var autoSuggest = (function() {
 
   // exposed methods
   return {
-    bind: bind
+    bind: bind,
+    destroy: destroy
   };
 
 })();

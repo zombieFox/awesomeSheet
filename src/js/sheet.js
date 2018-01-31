@@ -470,6 +470,7 @@ var sheet = (function() {
     window.addEventListener("keydown", function(event) {
       //  esc
       if (event.keyCode == 27) {
+        autoSuggest.destroy();
         snack.destroy();
         modal.destroy();
         prompt.destroy();
@@ -518,10 +519,6 @@ var sheet = (function() {
       if (event.ctrlKey && event.altKey && event.keyCode == 67) {
         characterSelect.toggle();
         page.update();
-      };
-      // esc
-      if (event.keyCode == 27) {
-        menu.close();
       };
     }, false);
     // key debugging
