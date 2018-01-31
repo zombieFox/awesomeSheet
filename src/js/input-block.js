@@ -134,7 +134,6 @@ var inputBlock = (function() {
     };
   };
 
-
   function _bind_inputBlockQuickValue(inputBlockQuickValues) {
     if (inputBlockQuickValues) {
       inputBlockQuickValues.addEventListener("click", function() {

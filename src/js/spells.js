@@ -25,7 +25,6 @@ var spells = (function() {
       } else {
         spellState["level_" + level] = null;
       };
-      // console.log("spellState changed", spellState);
     };
 
     // exposed methods
@@ -730,7 +729,6 @@ var spells = (function() {
   };
 
   function _render_all_spells(array, level) {
-    // console.log(array, typeof level, level);
     // read spells and add them to spell lists
     for (var i = 0; i < array.length; i++) {
       var spellObject = array[i];
@@ -910,6 +908,7 @@ var spells = (function() {
           helper.removeClass(all_spellControl[i], "is-live");
         };
       };
+      _render_stateSpellBook(spellBook, spellBookOptions.level);
     };
   };
 
