@@ -17,9 +17,6 @@ var repair = (function() {
                 if (debug) {
                   console.log("\trepair spell notes");
                 };
-                if (debug) {
-                  console.log("\tspell notes not found");
-                };
                 characterObject.spells.book[i][j][k].note = "";
               };
             };
@@ -848,6 +845,28 @@ var repair = (function() {
       };
       characterObject.basics.initiative.trait = "";
     };
+    // --------------------------------------------------
+    // repair spells
+    characterObject.spells.book.forEach(function(arrayItem) {
+      for (var key in arrayItem) {
+        if (arrayItem[key].length > 0) {
+          arrayItem[key].forEach(function(arrayItem) {
+            if (!("state" in arrayItem)) {
+              if (debug) {
+                console.log("\trepair spells");
+              };
+              arrayItem.state = {};
+              arrayItem.state.active = arrayItem.active;
+              arrayItem.state.cast = arrayItem.cast;
+              arrayItem.state.prepared = arrayItem.prepared;
+              delete arrayItem.active;
+              delete arrayItem.cast;
+              delete arrayItem.prepared;
+            };
+          });
+        };
+      };
+    });
     // --------------------------------------------------
     // sheet.store();
     return characterObject;

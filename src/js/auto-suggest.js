@@ -105,6 +105,7 @@ var autoSuggest = (function() {
             }));
           };
           destroy();
+          sheet.store();
         }, false);
         var partOneText = string.substr(0, (string.toLowerCase().indexOf(options.input.value.toLowerCase())));
         var strongText = string.substr((string.toLowerCase().indexOf(options.input.value.toLowerCase())), options.input.value.length);

@@ -130,18 +130,25 @@ var spells = (function() {
     }, false);
   };
 
-  function addNewSpell(element, spellObject) {
+  function add(element, data) {
+    addNewSpell(element, data);
+  };
+
+  function addNewSpell(element, data) {
     var spellBook = helper.getClosest(element, ".js-spell-book");
     var spellBookOptions = helper.makeObject(spellBook.dataset.spellBookOptions);
     var addNewSpellField = spellBook.querySelector(".js-add-new-spell-field");
     var spellName;
-    if (spellObject) {
-      spellName = spellObject.name;
+    if (data) {
+      spellName = data.name;
     } else {
       spellName = addNewSpellField.value
     };
     if (spellName != "") {
       var newSpellObject = new _create_spellObject(spellName, 0, false, 0, "");
+      if (data) {
+        newSpellObject.data = data;
+      };
       var newIndex = _get_spellBookCount(spellBookOptions.level);
       helper.setObject({
         object: sheet.get(),
@@ -163,10 +170,12 @@ var spells = (function() {
   function _create_spellObject(spellName, spellPrepared, spellActive, spellCast, spellNote) {
     return {
       name: this.name = spellName || "",
-      prepared: this.prepared = spellPrepared || 0,
-      active: this.active = spellActive || false,
-      cast: this.cast = spellCast || 0,
-      note: this.note = spellNote || ""
+      note: this.note = spellNote || "",
+      state: {
+        prepared: this.prepared = spellPrepared || 0,
+        active: this.active = spellActive || false,
+        cast: this.cast = spellCast || 0,
+      }
     };
   };
 
@@ -207,28 +216,28 @@ var spells = (function() {
     });
     if (_spellState.get(options.level) != null) {
       if (_spellState.get(options.level) == "prepare") {
-        if (spellObject.prepared < 50) {
-          spellObject.prepared++;
+        if (spellObject.state.prepared < 50) {
+          spellObject.state.prepared++;
         };
       } else if (_spellState.get(options.level) == "unprepare") {
-        if (spellObject.prepared > 0) {
-          spellObject.prepared--;
+        if (spellObject.state.prepared > 0) {
+          spellObject.state.prepared--;
         };
-        if (spellObject.prepared < spellObject.cast) {
-          spellObject.cast = spellObject.prepared;
+        if (spellObject.state.prepared < spellObject.state.cast) {
+          spellObject.state.cast = spellObject.state.prepared;
         };
       } else if (_spellState.get(options.level) == "cast") {
-        if (spellObject.cast < 50) {
-          spellObject.cast++;
+        if (spellObject.state.cast < 50) {
+          spellObject.state.cast++;
         };
-        if (spellObject.cast > spellObject.prepared) {
-          spellObject.prepared = spellObject.cast;
+        if (spellObject.state.cast > spellObject.state.prepared) {
+          spellObject.state.prepared = spellObject.state.cast;
         };
       } else if (_spellState.get(options.level) == "active") {
-        if (spellObject.active) {
-          spellObject.active = false;
+        if (spellObject.state.active) {
+          spellObject.state.active = false;
         } else {
-          spellObject.active = true;
+          spellObject.state.active = true;
         };
       } else if (_spellState.get(options.level) == "remove") {
         // store undo data
@@ -271,16 +280,16 @@ var spells = (function() {
           spellActive.removeChild(spellActive.lastChild);
         };
       };
-      if (spellObject.prepared > 0) {
-        for (var i = 0; i < spellObject.prepared; i++) {
+      if (spellObject.state.prepared > 0) {
+        for (var i = 0; i < spellObject.state.prepared; i++) {
           var preparedIcon = document.createElement("span");
           preparedIcon.setAttribute("class", "icon-radio-button-checked js-spell-mark-checked");
           spellMarks.insertBefore(preparedIcon, spellMarks.firstChild);
         };
       };
-      if (spellObject.cast > 0) {
+      if (spellObject.state.cast > 0) {
         var all_check = spellMarks.querySelectorAll(".icon-radio-button-checked");
-        for (var j = 0; j < spellObject.cast; j++) {
+        for (var j = 0; j < spellObject.state.cast; j++) {
           if (all_check[j]) {
             helper.toggleClass(all_check[j], "icon-radio-button-checked");
             helper.toggleClass(all_check[j], "icon-radio-button-unchecked");
@@ -289,10 +298,10 @@ var spells = (function() {
           };
         };
       };
-      if (spellObject.active) {
+      if (spellObject.state.active) {
         var activeIcon = document.createElement("span");
         activeIcon.setAttribute("class", "icon-play-arrow");
-        if (spellObject.active) {
+        if (spellObject.state.active) {
           spellActive.appendChild(activeIcon);
         };
       };
@@ -315,34 +324,34 @@ var spells = (function() {
     var tempSpellObject = JSON.parse(JSON.stringify(spellObject));
     var _hold_data = function(action, type) {
       if (type == "prepared") {
-        if (action == "plus" && tempSpellObject.prepared < 50) {
-          tempSpellObject.prepared++;
-        } else if (action == "minus" && tempSpellObject.prepared > 0) {
-          tempSpellObject.prepared--;
-        } else if (action == "clear" && tempSpellObject.prepared > 0) {
-          tempSpellObject.prepared = 0;
+        if (action == "plus" && tempSpellObject.state.prepared < 50) {
+          tempSpellObject.state.prepared++;
+        } else if (action == "minus" && tempSpellObject.state.prepared > 0) {
+          tempSpellObject.state.prepared--;
+        } else if (action == "clear" && tempSpellObject.state.prepared > 0) {
+          tempSpellObject.state.prepared = 0;
         };
-        if (tempSpellObject.cast > tempSpellObject.prepared) {
-          tempSpellObject.cast = tempSpellObject.prepared;
+        if (tempSpellObject.state.cast > tempSpellObject.state.prepared) {
+          tempSpellObject.state.cast = tempSpellObject.state.prepared;
         };
       };
       if (type == "cast") {
-        if (action == "plus" && tempSpellObject.cast < 50) {
-          tempSpellObject.cast++;
-        } else if (action == "minus" && tempSpellObject.cast > 0) {
-          tempSpellObject.cast--;
-        } else if (action == "clear" && tempSpellObject.cast > 0) {
-          tempSpellObject.cast = 0;
+        if (action == "plus" && tempSpellObject.state.cast < 50) {
+          tempSpellObject.state.cast++;
+        } else if (action == "minus" && tempSpellObject.state.cast > 0) {
+          tempSpellObject.state.cast--;
+        } else if (action == "clear" && tempSpellObject.state.cast > 0) {
+          tempSpellObject.state.cast = 0;
         };
-        if (tempSpellObject.prepared < tempSpellObject.cast) {
-          tempSpellObject.prepared = tempSpellObject.cast;
+        if (tempSpellObject.state.prepared < tempSpellObject.state.cast) {
+          tempSpellObject.state.prepared = tempSpellObject.state.cast;
         };
       };
       if (type == "active" && action == "toggle") {
-        if (tempSpellObject.active) {
-          tempSpellObject.active = false;
+        if (tempSpellObject.state.active) {
+          tempSpellObject.state.active = false;
         } else {
-          tempSpellObject.active = true;
+          tempSpellObject.state.active = true;
         };
       };
       // console.log("tempSpellObject", tempSpellObject);
@@ -350,8 +359,8 @@ var spells = (function() {
     var _render_count = function(spellControl) {
       var spellControlPreparedCount = spellControl.querySelector(".js-spell-control-prepared-count");
       var spellControlCastCount = spellControl.querySelector(".js-spell-control-cast-count");
-      spellControlPreparedCount.textContent = tempSpellObject.prepared;
-      spellControlCastCount.textContent = tempSpellObject.cast;
+      spellControlPreparedCount.textContent = tempSpellObject.state.prepared;
+      spellControlCastCount.textContent = tempSpellObject.state.cast;
     };
     var _store_data = function(spellControl) {
       tempSpellObject.note = spellControl.querySelector(".js-spell-control-textarea-note").innerHTML;
@@ -415,7 +424,7 @@ var spells = (function() {
       preparedEditBoxGroup.setAttribute("class", "m-edit-box-item m-edit-box-group-control-set");
       var preparedCount = document.createElement("p");
       preparedCount.setAttribute("class", "m-edit-box-total js-spell-control-prepared-count");
-      preparedCount.textContent = tempSpellObject.prepared;
+      preparedCount.textContent = tempSpellObject.state.prepared;
       var preparedPlus = document.createElement("button");
       preparedPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
       preparedPlus.setAttribute("tabindex", "1");
@@ -473,7 +482,7 @@ var spells = (function() {
       castEditBoxGroup.setAttribute("class", "m-edit-box-item m-edit-box-group-control-set");
       var castCount = document.createElement("p");
       castCount.setAttribute("class", "m-edit-box-total js-spell-control-cast-count");
-      castCount.textContent = tempSpellObject.cast;
+      castCount.textContent = tempSpellObject.state.cast;
       var castPlus = document.createElement("button");
       castPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
       castPlus.setAttribute("tabindex", "1");
@@ -534,7 +543,7 @@ var spells = (function() {
       activeInput.setAttribute("id", "spell-active");
       activeInput.setAttribute("class", "m-check-block-check js-spell-control-active");
       activeInput.setAttribute("tabindex", "1");
-      activeInput.checked = tempSpellObject.active;
+      activeInput.checked = tempSpellObject.state.active;
       activeInput.addEventListener("change", function() {
         _hold_data("toggle", "active");
         _render_count(spellControl);
@@ -626,9 +635,9 @@ var spells = (function() {
         path: spellBookOptions.path
       });
       for (var i in spellBook) {
-        spellBook[i].prepared = 0;
-        spellBook[i].cast = 0;
-        spellBook[i].active = false;
+        spellBook[i].state.prepared = 0;
+        spellBook[i].state.cast = 0;
+        spellBook[i].state.active = false;
       };
     };
     var promotAction = function() {
@@ -778,16 +787,16 @@ var spells = (function() {
     var spellMarks = document.createElement("span");
     spellMarks.setAttribute("class", "m-spell-marks js-spell-marks");
     spellButton.appendChild(spellMarks);
-    if (spellObject.prepared > 0) {
-      for (var i = 0; i < spellObject.prepared; i++) {
+    if (spellObject.state.prepared > 0) {
+      for (var i = 0; i < spellObject.state.prepared; i++) {
         var preparedIcon = document.createElement("span");
         preparedIcon.setAttribute("class", "icon-radio-button-checked js-spell-mark-checked");
         spellMarks.insertBefore(preparedIcon, spellMarks.firstChild);
       };
     };
-    if (spellObject.cast > 0) {
+    if (spellObject.state.cast > 0) {
       var all_check = spellMarks.querySelectorAll(".icon-radio-button-checked");
-      for (var j = 0; j < spellObject.cast; j++) {
+      for (var j = 0; j < spellObject.state.cast; j++) {
         if (all_check[j]) {
           helper.toggleClass(all_check[j], "icon-radio-button-checked");
           helper.toggleClass(all_check[j], "icon-radio-button-unchecked");
@@ -796,7 +805,7 @@ var spells = (function() {
         };
       };
     };
-    if (spellObject.active) {
+    if (spellObject.state.active) {
       var activeIcon = document.createElement("span");
       activeIcon.setAttribute("class", "icon-play-arrow");
       if (spellActive.children.length > 0) {
@@ -918,7 +927,7 @@ var spells = (function() {
     bind: bind,
     render: render,
     update: _render_quickSpellControl,
-    add: addNewSpell
+    add: add
   };
 
 })();
