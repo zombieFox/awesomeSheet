@@ -1,7 +1,6 @@
 var spells = (function() {
 
   var _spellState = (function() {
-
     var spellState = {
       level_0: null,
       level_1: null,
@@ -14,25 +13,21 @@ var spells = (function() {
       level_8: null,
       level_9: null
     };
-
-    function get(level) {
+    var get = function(level) {
       return spellState["level_" + level];
     };
-
-    function set(level, state) {
+    var set = function(level, state) {
       if (spellState["level_" + level] == null || spellState["level_" + level] != state) {
         spellState["level_" + level] = state;
       } else {
         spellState["level_" + level] = null;
       };
     };
-
     // exposed methods
     return {
       set: set,
       get: get
     };
-
   })();
 
   var addSpellTimer = null;
@@ -383,20 +378,24 @@ var spells = (function() {
         var defaultOptions = helper.applyOptions(defaultOptions, options);
       };
       var box = document.createElement("div");
-      box.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
-      var head = document.createElement("div");
-      head.setAttribute("class", "m-edit-box-head");
-      var title = document.createElement("h2");
-      title.setAttribute("class", "m-edit-box-title");
-      title.textContent = options.title;
+      if (options.title != null) {
+        box.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
+        var head = document.createElement("div");
+        head.setAttribute("class", "m-edit-box-head");
+        var title = document.createElement("h2");
+        title.setAttribute("class", "m-edit-box-title");
+        title.textContent = options.title;
+        head.appendChild(title);
+        box.appendChild(head);
+      } else {
+        box.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-no-head-small");
+      };
       var body = document.createElement("div");
       body.setAttribute("class", "m-edit-box-body");
       var boxContent = document.createElement("div");
       boxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
       boxContent.appendChild(_create_editBoxItem("max", options.content));
       body.appendChild(boxContent);
-      head.appendChild(title);
-      box.appendChild(head);
       box.appendChild(body);
       return box;
     };
@@ -738,6 +737,15 @@ var spells = (function() {
           spellControl.appendChild(_create_editBox({
             title: "Description",
             content: div
+          }));
+        };
+
+        if (tempSpellObject.data.source != "") {
+          var para = document.createElement("p");
+          para.textContent = "Source: " + tempSpellObject.data.source;
+          para.setAttribute("class", "u-muted-text");
+          spellControl.appendChild(_create_editBox({
+            content: para
           }));
         };
 
