@@ -195,6 +195,7 @@ var sheet = (function() {
     resize();
     characterSelect.bind();
     stats.bind();
+    autoSuggest.bind();
     inputBlock.bind();
     inputRangeBlock.bind();
     selectBlock.bind();

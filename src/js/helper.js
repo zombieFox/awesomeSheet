@@ -35,7 +35,7 @@ var helper = (function() {
   };
 
   function selectText(element) {
-    var node = helper.e(element);
+    var node = e(element);
     if (document.selection) {
       var range = document.body.createTextRange();
       range.moveToElementText(node);
@@ -164,7 +164,7 @@ var helper = (function() {
       newValue: null
     };
     if (options) {
-      var defaultOptions = helper.applyOptions(defaultOptions, options);
+      var defaultOptions = applyOptions(defaultOptions, options);
     };
     var address = _makeAddress(defaultOptions.path);
     var _setData = function() {
@@ -199,7 +199,7 @@ var helper = (function() {
       path: null
     };
     if (options) {
-      var defaultOptions = helper.applyOptions(defaultOptions, options);
+      var defaultOptions = applyOptions(defaultOptions, options);
     };
     var address = _makeAddress(defaultOptions.path);
     var _getData = function() {

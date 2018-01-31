@@ -37,7 +37,7 @@ var spells = (function() {
 
   var addSpellTimer = null;
 
-  function delayUpdate(element, event) {
+  function delayAddSpell(element, event) {
     _addNewSpellOnEnter(element, event);
     sheet.store();
   };
@@ -110,7 +110,7 @@ var spells = (function() {
     for (var i = 0; i < addNewSpellField.length; i++) {
       addNewSpellField[i].addEventListener("keypress", function() {
         clearTimeout(addSpellTimer);
-        addSpellTimer = setTimeout(delayUpdate, 300, this, event);
+        addSpellTimer = setTimeout(delayAddSpell, 300, this, event);
       }, false);
     };
   };
