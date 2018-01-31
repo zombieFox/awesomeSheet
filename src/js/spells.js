@@ -374,6 +374,32 @@ var spells = (function() {
         newValue: tempSpellObject
       });
     };
+    var _create_editBox = function(options) {
+      var defaultOptions = {
+        title: null,
+        content: null
+      };
+      if (options) {
+        var defaultOptions = helper.applyOptions(defaultOptions, options);
+      };
+      var box = document.createElement("div");
+      box.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
+      var head = document.createElement("div");
+      head.setAttribute("class", "m-edit-box-head");
+      var title = document.createElement("h2");
+      title.setAttribute("class", "m-edit-box-title");
+      title.textContent = options.title;
+      var body = document.createElement("div");
+      body.setAttribute("class", "m-edit-box-body");
+      var boxContent = document.createElement("div");
+      boxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
+      boxContent.appendChild(_create_editBoxItem("max", options.content));
+      body.appendChild(boxContent);
+      head.appendChild(title);
+      box.appendChild(head);
+      box.appendChild(body);
+      return box;
+    };
     var _create_editBoxItem = function(size, child) {
       var editBoxItem = document.createElement("div");
       editBoxItem.setAttribute("class", "m-edit-box-item-" + size);
@@ -386,211 +412,247 @@ var spells = (function() {
       var spellControl = document.createElement("div");
       spellControl.setAttribute("class", "m-spell-control js-spell-control");
 
-      var nameEditBox = document.createElement("div");
-      nameEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
-      var nameEditBoxHead = document.createElement("div");
-      nameEditBoxHead.setAttribute("class", "m-edit-box-head");
-      var nameEditBoxHeadTitle = document.createElement("h2");
-      nameEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
-      nameEditBoxHeadTitle.textContent = "Name";
-      var nameEditBoxBody = document.createElement("div");
-      nameEditBoxBody.setAttribute("class", "m-edit-box-body");
-      var nameEditBoxContent = document.createElement("div");
-      nameEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
-      var nameEditBoxBodyInput = document.createElement("input");
-      nameEditBoxBodyInput.setAttribute("class", "js-spell-control-input-name");
-      nameEditBoxBodyInput.setAttribute("type", "text");
-      nameEditBoxBodyInput.setAttribute("tabindex", "1");
-      nameEditBoxBodyInput.value = tempSpellObject.name;
+      var _create_controls = function() {
+        var nameEditBox = document.createElement("div");
+        nameEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
+        var nameEditBoxHead = document.createElement("div");
+        nameEditBoxHead.setAttribute("class", "m-edit-box-head");
+        var nameEditBoxHeadTitle = document.createElement("h2");
+        nameEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
+        nameEditBoxHeadTitle.textContent = "Name";
+        var nameEditBoxBody = document.createElement("div");
+        nameEditBoxBody.setAttribute("class", "m-edit-box-body");
+        var nameEditBoxContent = document.createElement("div");
+        nameEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
+        var nameEditBoxBodyInput = document.createElement("input");
+        nameEditBoxBodyInput.setAttribute("class", "js-spell-control-input-name");
+        nameEditBoxBodyInput.setAttribute("type", "text");
+        nameEditBoxBodyInput.setAttribute("tabindex", "1");
+        nameEditBoxBodyInput.value = tempSpellObject.name;
 
-      nameEditBoxContent.appendChild(_create_editBoxItem("max", nameEditBoxBodyInput));
-      nameEditBoxBody.appendChild(nameEditBoxContent);
-      nameEditBoxHead.appendChild(nameEditBoxHeadTitle);
-      nameEditBox.appendChild(nameEditBoxHead);
-      nameEditBox.appendChild(nameEditBoxBody);
+        nameEditBoxContent.appendChild(_create_editBoxItem("max", nameEditBoxBodyInput));
+        nameEditBoxBody.appendChild(nameEditBoxContent);
+        nameEditBoxHead.appendChild(nameEditBoxHeadTitle);
+        nameEditBox.appendChild(nameEditBoxHead);
+        nameEditBox.appendChild(nameEditBoxBody);
 
-      var preparedEditBox = document.createElement("div");
-      preparedEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
-      var preparedEditBoxHead = document.createElement("div");
-      preparedEditBoxHead.setAttribute("class", "m-edit-box-head");
-      var preparedEditBoxHeadTitle = document.createElement("h2");
-      preparedEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
-      preparedEditBoxHeadTitle.textContent = "Prepared";
-      var preparedEditBoxBody = document.createElement("div");
-      preparedEditBoxBody.setAttribute("class", "m-edit-box-body");
-      var preparedEditBoxContent = document.createElement("div");
-      preparedEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
-      var preparedEditBoxGroup = document.createElement("div");
-      preparedEditBoxGroup.setAttribute("class", "m-edit-box-item m-edit-box-group-control-set");
-      var preparedCount = document.createElement("p");
-      preparedCount.setAttribute("class", "m-edit-box-total js-spell-control-prepared-count");
-      preparedCount.textContent = tempSpellObject.state.prepared;
-      var preparedPlus = document.createElement("button");
-      preparedPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
-      preparedPlus.setAttribute("tabindex", "1");
-      var preparedPlusIcon = document.createElement("span");
-      preparedPlusIcon.setAttribute("class", "icon-add");
-      preparedPlus.addEventListener("click", function() {
-        _hold_data("plus", "prepared");
-        _render_count(spellControl);
-      }, false);
-      var preparedMinus = document.createElement("button");
-      preparedMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
-      preparedMinus.setAttribute("tabindex", "1");
-      var preparedMinusIcon = document.createElement("span");
-      preparedMinusIcon.setAttribute("class", "icon-remove");
-      preparedMinus.addEventListener("click", function() {
-        _hold_data("minus", "prepared");
-        _render_count(spellControl);
-      }, false);
-      var preparedClear = document.createElement("button");
-      preparedClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
-      preparedClear.setAttribute("tabindex", "1");
-      var preparedClearIcon = document.createElement("span");
-      preparedClearIcon.setAttribute("class", "icon-close");
-      preparedClear.addEventListener("click", function() {
-        _hold_data("clear", "prepared");
-        _render_count(spellControl);
-      }, false);
+        var preparedEditBox = document.createElement("div");
+        preparedEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
+        var preparedEditBoxHead = document.createElement("div");
+        preparedEditBoxHead.setAttribute("class", "m-edit-box-head");
+        var preparedEditBoxHeadTitle = document.createElement("h2");
+        preparedEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
+        preparedEditBoxHeadTitle.textContent = "Prepared";
+        var preparedEditBoxBody = document.createElement("div");
+        preparedEditBoxBody.setAttribute("class", "m-edit-box-body");
+        var preparedEditBoxContent = document.createElement("div");
+        preparedEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
+        var preparedEditBoxGroup = document.createElement("div");
+        preparedEditBoxGroup.setAttribute("class", "m-edit-box-item m-edit-box-group-control-set");
+        var preparedCount = document.createElement("p");
+        preparedCount.setAttribute("class", "m-edit-box-total js-spell-control-prepared-count");
+        preparedCount.textContent = tempSpellObject.state.prepared;
+        var preparedPlus = document.createElement("button");
+        preparedPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
+        preparedPlus.setAttribute("tabindex", "1");
+        var preparedPlusIcon = document.createElement("span");
+        preparedPlusIcon.setAttribute("class", "icon-add");
+        preparedPlus.addEventListener("click", function() {
+          _hold_data("plus", "prepared");
+          _render_count(spellControl);
+        }, false);
+        var preparedMinus = document.createElement("button");
+        preparedMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
+        preparedMinus.setAttribute("tabindex", "1");
+        var preparedMinusIcon = document.createElement("span");
+        preparedMinusIcon.setAttribute("class", "icon-remove");
+        preparedMinus.addEventListener("click", function() {
+          _hold_data("minus", "prepared");
+          _render_count(spellControl);
+        }, false);
+        var preparedClear = document.createElement("button");
+        preparedClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
+        preparedClear.setAttribute("tabindex", "1");
+        var preparedClearIcon = document.createElement("span");
+        preparedClearIcon.setAttribute("class", "icon-close");
+        preparedClear.addEventListener("click", function() {
+          _hold_data("clear", "prepared");
+          _render_count(spellControl);
+        }, false);
 
-      preparedMinus.appendChild(preparedMinusIcon);
-      preparedPlus.appendChild(preparedPlusIcon);
-      preparedClear.appendChild(preparedClearIcon);
+        preparedMinus.appendChild(preparedMinusIcon);
+        preparedPlus.appendChild(preparedPlusIcon);
+        preparedClear.appendChild(preparedClearIcon);
 
-      preparedEditBoxGroup.appendChild(_create_editBoxItem("button-large", preparedMinus));
-      preparedEditBoxGroup.appendChild(_create_editBoxItem("max", preparedCount));
-      preparedEditBoxGroup.appendChild(_create_editBoxItem("button-large", preparedPlus));
-      preparedEditBoxContent.appendChild(preparedEditBoxGroup);
-      preparedEditBoxContent.appendChild(_create_editBoxItem("button-large", preparedClear));
-      preparedEditBoxBody.appendChild(preparedEditBoxContent);
-      preparedEditBoxHead.appendChild(preparedEditBoxHeadTitle);
-      preparedEditBox.appendChild(preparedEditBoxHead);
-      preparedEditBox.appendChild(preparedEditBoxBody);
+        preparedEditBoxGroup.appendChild(_create_editBoxItem("button-large", preparedMinus));
+        preparedEditBoxGroup.appendChild(_create_editBoxItem("max", preparedCount));
+        preparedEditBoxGroup.appendChild(_create_editBoxItem("button-large", preparedPlus));
+        preparedEditBoxContent.appendChild(preparedEditBoxGroup);
+        preparedEditBoxContent.appendChild(_create_editBoxItem("button-large", preparedClear));
+        preparedEditBoxBody.appendChild(preparedEditBoxContent);
+        preparedEditBoxHead.appendChild(preparedEditBoxHeadTitle);
+        preparedEditBox.appendChild(preparedEditBoxHead);
+        preparedEditBox.appendChild(preparedEditBoxBody);
 
-      var castEditBox = document.createElement("div");
-      castEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
-      var castEditBoxHead = document.createElement("div");
-      castEditBoxHead.setAttribute("class", "m-edit-box-head");
-      var castEditBoxHeadTitle = document.createElement("h2");
-      castEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
-      castEditBoxHeadTitle.textContent = "Cast";
-      var castEditBoxBody = document.createElement("div");
-      castEditBoxBody.setAttribute("class", "m-edit-box-body");
-      var castEditBoxContent = document.createElement("div");
-      castEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
-      var castEditBoxGroup = document.createElement("div");
-      castEditBoxGroup.setAttribute("class", "m-edit-box-item m-edit-box-group-control-set");
-      var castCount = document.createElement("p");
-      castCount.setAttribute("class", "m-edit-box-total js-spell-control-cast-count");
-      castCount.textContent = tempSpellObject.state.cast;
-      var castPlus = document.createElement("button");
-      castPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
-      castPlus.setAttribute("tabindex", "1");
-      var castPlusIcon = document.createElement("span");
-      castPlusIcon.setAttribute("class", "icon-add");
-      castPlus.addEventListener("click", function() {
-        _hold_data("plus", "cast");
-        _render_count(spellControl);
-      }, false);
-      var castMinus = document.createElement("button");
-      castMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
-      castMinus.setAttribute("tabindex", "1");
-      var castMinusIcon = document.createElement("span");
-      castMinusIcon.setAttribute("class", "icon-remove");
-      castMinus.addEventListener("click", function() {
-        _hold_data("minus", "cast");
-        _render_count(spellControl);
-      }, false);
-      var castClear = document.createElement("button");
-      castClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
-      castClear.setAttribute("tabindex", "1");
-      var castClearIcon = document.createElement("span");
-      castClearIcon.setAttribute("class", "icon-close");
-      castClear.addEventListener("click", function() {
-        _hold_data("clear", "cast");
-        _render_count(spellControl);
-      }, false);
+        var castEditBox = document.createElement("div");
+        castEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
+        var castEditBoxHead = document.createElement("div");
+        castEditBoxHead.setAttribute("class", "m-edit-box-head");
+        var castEditBoxHeadTitle = document.createElement("h2");
+        castEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
+        castEditBoxHeadTitle.textContent = "Cast";
+        var castEditBoxBody = document.createElement("div");
+        castEditBoxBody.setAttribute("class", "m-edit-box-body");
+        var castEditBoxContent = document.createElement("div");
+        castEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
+        var castEditBoxGroup = document.createElement("div");
+        castEditBoxGroup.setAttribute("class", "m-edit-box-item m-edit-box-group-control-set");
+        var castCount = document.createElement("p");
+        castCount.setAttribute("class", "m-edit-box-total js-spell-control-cast-count");
+        castCount.textContent = tempSpellObject.state.cast;
+        var castPlus = document.createElement("button");
+        castPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
+        castPlus.setAttribute("tabindex", "1");
+        var castPlusIcon = document.createElement("span");
+        castPlusIcon.setAttribute("class", "icon-add");
+        castPlus.addEventListener("click", function() {
+          _hold_data("plus", "cast");
+          _render_count(spellControl);
+        }, false);
+        var castMinus = document.createElement("button");
+        castMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
+        castMinus.setAttribute("tabindex", "1");
+        var castMinusIcon = document.createElement("span");
+        castMinusIcon.setAttribute("class", "icon-remove");
+        castMinus.addEventListener("click", function() {
+          _hold_data("minus", "cast");
+          _render_count(spellControl);
+        }, false);
+        var castClear = document.createElement("button");
+        castClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
+        castClear.setAttribute("tabindex", "1");
+        var castClearIcon = document.createElement("span");
+        castClearIcon.setAttribute("class", "icon-close");
+        castClear.addEventListener("click", function() {
+          _hold_data("clear", "cast");
+          _render_count(spellControl);
+        }, false);
 
-      castMinus.appendChild(castMinusIcon);
-      castPlus.appendChild(castPlusIcon);
-      castClear.appendChild(castClearIcon);
+        castMinus.appendChild(castMinusIcon);
+        castPlus.appendChild(castPlusIcon);
+        castClear.appendChild(castClearIcon);
 
-      castEditBoxGroup.appendChild(_create_editBoxItem("button-large", castMinus));
-      castEditBoxGroup.appendChild(_create_editBoxItem("max", castCount));
-      castEditBoxGroup.appendChild(_create_editBoxItem("button-large", castPlus));
-      castEditBoxContent.appendChild(castEditBoxGroup);
-      castEditBoxContent.appendChild(_create_editBoxItem("button-large", castClear));
-      castEditBoxBody.appendChild(castEditBoxContent);
-      castEditBoxHead.appendChild(castEditBoxHeadTitle);
-      castEditBox.appendChild(castEditBoxHead);
-      castEditBox.appendChild(castEditBoxBody);
+        castEditBoxGroup.appendChild(_create_editBoxItem("button-large", castMinus));
+        castEditBoxGroup.appendChild(_create_editBoxItem("max", castCount));
+        castEditBoxGroup.appendChild(_create_editBoxItem("button-large", castPlus));
+        castEditBoxContent.appendChild(castEditBoxGroup);
+        castEditBoxContent.appendChild(_create_editBoxItem("button-large", castClear));
+        castEditBoxBody.appendChild(castEditBoxContent);
+        castEditBoxHead.appendChild(castEditBoxHeadTitle);
+        castEditBox.appendChild(castEditBoxHead);
+        castEditBox.appendChild(castEditBoxBody);
 
-      var activeEditBox = document.createElement("div");
-      activeEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
-      var activeEditBoxHead = document.createElement("div");
-      activeEditBoxHead.setAttribute("class", "m-edit-box-head");
-      var activeEditBoxHeadTitle = document.createElement("h2");
-      activeEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
-      activeEditBoxHeadTitle.textContent = "Active";
-      var activeEditBoxBody = document.createElement("div");
-      activeEditBoxBody.setAttribute("class", "m-edit-box-body");
-      var activeEditBoxContent = document.createElement("div");
-      activeEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
-      var activeCheck = document.createElement("div");
-      activeCheck.setAttribute("class", "m-check-block");
-      var activeInput = document.createElement("input");
-      activeInput.setAttribute("type", "checkbox");
-      activeInput.setAttribute("id", "spell-active");
-      activeInput.setAttribute("class", "m-check-block-check js-spell-control-active");
-      activeInput.setAttribute("tabindex", "1");
-      activeInput.checked = tempSpellObject.state.active;
-      activeInput.addEventListener("change", function() {
-        _hold_data("toggle", "active");
-        _render_count(spellControl);
-      }, false);
-      var activeIcon = document.createElement("span");
-      activeIcon.setAttribute("class", "m-check-block-check-icon");
+        var activeEditBox = document.createElement("div");
+        activeEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
+        var activeEditBoxHead = document.createElement("div");
+        activeEditBoxHead.setAttribute("class", "m-edit-box-head");
+        var activeEditBoxHeadTitle = document.createElement("h2");
+        activeEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
+        activeEditBoxHeadTitle.textContent = "Active";
+        var activeEditBoxBody = document.createElement("div");
+        activeEditBoxBody.setAttribute("class", "m-edit-box-body");
+        var activeEditBoxContent = document.createElement("div");
+        activeEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
+        var activeCheck = document.createElement("div");
+        activeCheck.setAttribute("class", "m-check-block");
+        var activeInput = document.createElement("input");
+        activeInput.setAttribute("type", "checkbox");
+        activeInput.setAttribute("id", "spell-active");
+        activeInput.setAttribute("class", "m-check-block-check js-spell-control-active");
+        activeInput.setAttribute("tabindex", "1");
+        activeInput.checked = tempSpellObject.state.active;
+        activeInput.addEventListener("change", function() {
+          _hold_data("toggle", "active");
+          _render_count(spellControl);
+        }, false);
+        var activeIcon = document.createElement("span");
+        activeIcon.setAttribute("class", "m-check-block-check-icon");
 
-      activeCheck.appendChild(activeInput);
-      activeCheck.appendChild(activeIcon);
-      activeEditBoxContent.appendChild(_create_editBoxItem("check", activeCheck));
-      activeEditBoxBody.appendChild(activeEditBoxContent);
-      activeEditBoxHead.appendChild(activeEditBoxHeadTitle);
-      activeEditBox.appendChild(activeEditBoxHead);
-      activeEditBox.appendChild(activeEditBoxBody);
+        activeCheck.appendChild(activeInput);
+        activeCheck.appendChild(activeIcon);
+        activeEditBoxContent.appendChild(_create_editBoxItem("check", activeCheck));
+        activeEditBoxBody.appendChild(activeEditBoxContent);
+        activeEditBoxHead.appendChild(activeEditBoxHeadTitle);
+        activeEditBox.appendChild(activeEditBoxHead);
+        activeEditBox.appendChild(activeEditBoxBody);
 
-      var noteEditBox = document.createElement("div");
-      noteEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
-      var noteEditBoxHead = document.createElement("div");
-      noteEditBoxHead.setAttribute("class", "m-edit-box-head");
-      var noteEditBoxHeadTitle = document.createElement("h2");
-      noteEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
-      noteEditBoxHeadTitle.textContent = "Spell Notes";
-      var noteEditBoxBody = document.createElement("div");
-      noteEditBoxBody.setAttribute("class", "m-edit-box-body");
-      var noteEditBoxContent = document.createElement("div");
-      noteEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
-      var noteTextarea = document.createElement("div");
-      noteTextarea.setAttribute("class", "m-textarea-block-field textarea textarea-large u-full-width js-spell-control-textarea-note");
-      noteTextarea.setAttribute("contenteditable", "true");
-      noteTextarea.setAttribute("tabindex", "1");
-      noteTextarea.innerHTML = tempSpellObject.note;
-      noteTextarea.addEventListener("paste", function(event) {
-        helper.pasteStrip(event);
-      });
+        var noteEditBox = document.createElement("div");
+        noteEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
+        var noteEditBoxHead = document.createElement("div");
+        noteEditBoxHead.setAttribute("class", "m-edit-box-head");
+        var noteEditBoxHeadTitle = document.createElement("h2");
+        noteEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
+        noteEditBoxHeadTitle.textContent = "Spell Notes";
+        var noteEditBoxBody = document.createElement("div");
+        noteEditBoxBody.setAttribute("class", "m-edit-box-body");
+        var noteEditBoxContent = document.createElement("div");
+        noteEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
+        var noteTextarea = document.createElement("div");
+        noteTextarea.setAttribute("class", "m-textarea-block-field textarea textarea-large u-full-width js-spell-control-textarea-note");
+        noteTextarea.setAttribute("contenteditable", "true");
+        noteTextarea.setAttribute("tabindex", "1");
+        noteTextarea.innerHTML = tempSpellObject.note;
+        noteTextarea.addEventListener("paste", function(event) {
+          helper.pasteStrip(event);
+        });
 
-      noteEditBoxContent.appendChild(_create_editBoxItem("max", noteTextarea));
-      noteEditBoxBody.appendChild(noteEditBoxContent);
-      noteEditBoxHead.appendChild(noteEditBoxHeadTitle);
-      noteEditBox.appendChild(noteEditBoxHead);
-      noteEditBox.appendChild(noteEditBoxBody);
+        noteEditBoxContent.appendChild(_create_editBoxItem("max", noteTextarea));
+        noteEditBoxBody.appendChild(noteEditBoxContent);
+        noteEditBoxHead.appendChild(noteEditBoxHeadTitle);
+        noteEditBox.appendChild(noteEditBoxHead);
+        noteEditBox.appendChild(noteEditBoxBody);
 
-      spellControl.appendChild(nameEditBox);
-      spellControl.appendChild(preparedEditBox);
-      spellControl.appendChild(castEditBox);
-      spellControl.appendChild(activeEditBox);
-      spellControl.appendChild(noteEditBox);
+        spellControl.appendChild(nameEditBox);
+        spellControl.appendChild(preparedEditBox);
+        spellControl.appendChild(castEditBox);
+        spellControl.appendChild(activeEditBox);
+        spellControl.appendChild(noteEditBox);
+      };
 
+      var _create_spellblock = function() {
+        var hr = document.createElement("hr");
+        spellControl.appendChild(hr);
+
+        if (tempSpellObject.data.school.base != "") {
+          var para = document.createElement("p");
+          para.textContent = tempSpellObject.data.school.base;
+          if (tempSpellObject.data.school.subschool != "") {
+            para.textContent = para.textContent + " (" + tempSpellObject.data.school.subschool + ")";
+          };
+          if (tempSpellObject.data.descriptor.string != "") {
+            para.textContent = para.textContent + " [" + tempSpellObject.data.descriptor.string + "]";
+          };
+          spellControl.appendChild(_create_editBox({
+            title: "School",
+            content: para
+          }));
+        };
+
+        if (tempSpellObject.data.level.string != "") {
+          var para = document.createElement("p");
+          para.textContent = tempSpellObject.data.level.string;
+          spellControl.appendChild(_create_editBox({
+            title: "Level",
+            content: para
+          }));
+        };
+
+      };
+
+      _create_controls();
+      if ("data" in tempSpellObject) {
+        _create_spellblock();
+      };
       return spellControl;
     };
     if (_spellState.get(options.level) == null || force) {
