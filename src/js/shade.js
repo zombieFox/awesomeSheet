@@ -2,14 +2,6 @@ var shade = (function() {
 
   var previousShade = null;
 
-  function bind() {
-    window.addEventListener("keydown", function(event) {
-      if (event.keyCode == 27) {
-        destroy();
-      };
-    }, false);
-  };
-
   function destroy() {
     var all_shade = helper.eA(".js-shade");
     if (all_shade[0]) {
@@ -78,7 +70,6 @@ var shade = (function() {
 
   // exposed methods
   return {
-    bind: bind,
     destroy: destroy,
     render: render
   };

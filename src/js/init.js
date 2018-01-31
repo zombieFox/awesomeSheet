@@ -7,7 +7,6 @@
   nav.bind();
   menu.bind();
   tabs.bind();
-  log.bind();
   log.render();
   checkUrl.render();
   sheet.load();

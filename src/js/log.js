@@ -2,14 +2,6 @@ var log = (function() {
 
   var previousLog = null;
 
-  function bind() {
-    window.addEventListener("keydown", function(event) {
-      if (event.keyCode == 27) {
-        destroy();
-      };
-    }, false);
-  };
-
   function destroy() {
     var all_log = helper.eA(".js-log");
     if (all_log[0]) {
@@ -275,7 +267,6 @@ var log = (function() {
   return {
     changeLog: _render_fullChangeLog,
     render: render,
-    bind: bind,
     destroy: destroy
   };
 

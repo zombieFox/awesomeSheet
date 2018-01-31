@@ -155,7 +155,7 @@ var inputBlock = (function() {
     if (input) {
       input.addEventListener("input", function() {
         clearTimeout(_timer_autoSuggest);
-        _timer_autoSuggest = setTimeout(_render_autoSuggest, 300, this);
+        _timer_autoSuggest = setTimeout(_render_autoSuggest, 300, this, event);
       }, false);
     };
   };
@@ -370,7 +370,8 @@ var inputBlock = (function() {
     };
   };
 
-  function _render_autoSuggest(input) {
+  function _render_autoSuggest(input, event) {
+    console.log(event);
     var inputBlockAutoSuggest = helper.getClosest(input, ".js-input-block-auto-suggest");
     var options = helper.makeObject(inputBlockAutoSuggest.dataset.inputBlockAutoSuggestOptions);
     var body = helper.e("body");

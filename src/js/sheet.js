@@ -194,10 +194,6 @@ var sheet = (function() {
     scroll();
     resize();
     characterSelect.bind();
-    prompt.bind();
-    modal.bind();
-    shade.bind();
-    snack.bind();
     stats.bind();
     inputBlock.bind();
     inputRangeBlock.bind();
@@ -471,6 +467,17 @@ var sheet = (function() {
 
   function shortcuts() {
     window.addEventListener("keydown", function(event) {
+      //  esc
+      if (event.keyCode == 27) {
+        snack.destroy();
+        modal.destroy();
+        prompt.destroy();
+        characterSelect.close();
+        menu.close();
+        shade.destroy();
+        log.destroy();
+        page.update();
+      };
       // ctrl+alt+f
       if (event.ctrlKey && event.altKey && event.keyCode == 70) {
         fullscreen.toggle();
@@ -505,6 +512,11 @@ var sheet = (function() {
       // ctrl+alt+n
       if (event.ctrlKey && event.altKey && event.keyCode == 78) {
         night.toggle();
+      };
+      // ctrl+alt+c
+      if (event.ctrlKey && event.altKey && event.keyCode == 67) {
+        characterSelect.toggle();
+        page.update();
       };
       // esc
       if (event.keyCode == 27) {
