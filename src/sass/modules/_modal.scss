@@ -4,7 +4,7 @@
   left: 50%;
   font-size: $font-size-root-100;
   z-index: $modal;
-  width: 40em;
+  width: 45em;
   max-width: calc(100% - 6em);
   min-width: 10em;
   transform: translate(-50%, -50%);
@@ -16,11 +16,11 @@
   }
 }
 .m-modal-large {
-  width: 60em;
+  width: 65em;
   max-width: calc(100% - 2em);
 }
 .m-modal-small {
-  width: 20em;
+  width: 25em;
 }
 .m-modal-wrapper {
   box-sizing: border-box;
