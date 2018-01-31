@@ -23,12 +23,27 @@ var autoSuggest = (function() {
         clearTimeout(_timer_autoSuggest);
         _timer_autoSuggest = setTimeout(_delayRender, 300, this);
       }, false);
-      input.addEventListener("keydown", function() {
+      input.addEventListener("keyup", function() {
         if (event.keyCode == 13) {
           destroy(this);
         };
       }, false);
+      // input.addEventListener("keyup", function() {
+      //   if (event.keyCode == 40) {
+      //     _focusAutoSuggest(this);
+      //   };
+      // }, false);
+      input.addEventListener("keydown", function() {
+        if (event.keyCode == 9) {
+          _focusAutoSuggest(this);
+        };
+      }, false);
     };
+  };
+
+  function _focusAutoSuggest() {
+    var autoSuggest = helper.e(".js-auto-suggest-list");
+    autoSuggest.querySelector(".js-auto-suggest-link").focus(this);
   };
 
   function _addDocumentEvent() {
@@ -96,7 +111,8 @@ var autoSuggest = (function() {
         li.setAttribute("class", "m-auto-suggest-list-item");
         var anchor = document.createElement("a");
         anchor.setAttribute("href", "javascript:void(0)");
-        anchor.setAttribute("class", "m-auto-suggest-link");
+        anchor.setAttribute("tabindex", "2");
+        anchor.setAttribute("class", "m-auto-suggest-link js-auto-suggest-link");
         anchor.setAttribute("data-spells-data", "index:#" + suggestItems[i].index);
         anchor.addEventListener("click", function() {
           if (autoSuggestOptions.type == "spells") {
