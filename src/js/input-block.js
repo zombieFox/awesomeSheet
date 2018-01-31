@@ -376,17 +376,18 @@ var inputBlock = (function() {
     var options = helper.makeObject(inputBlockAutoSuggest.dataset.inputBlockAutoSuggestOptions);
     var body = helper.e("body");
     var suggestItems;
-    if (options.type == "spells") {
-      suggestItems = spellsData.get({
-        name: input.value
-      });
+    var _addDocumentEvent = function() {
+      document.addEventListener("click", _checkClick, false);
     };
-    var _xxx = function(event) {
-      console.log(event);
+    var _removeDocumentEvent = function() {
+      document.removeEventListener("click", _checkClick, false);
+    };
+    var _checkClick = function(event) {
+      if (event.target != input) {
+        _clear_autoSuggestList();
+      };
     };
     var _render_autoSuggestList = function() {
-      console.log("add");
-      document.addEventListener("click", _xxx, false);
       var inputBlockAutoSuggestList = helper.e(".js-input-block-auto-suggest-list");
       if (inputBlockAutoSuggestList) {
         while (inputBlockAutoSuggestList.lastChild) {
@@ -404,15 +405,15 @@ var inputBlock = (function() {
         body.appendChild(autoSuggestList);
         autoSuggestList.setAttribute("style", "width: " + style.width + "px; top: " + style.top + "px; left: " + style.left + "px;");
         _populateList(autoSuggestList);
+        _addDocumentEvent();
       };
     };
     var _clear_autoSuggestList = function() {
-      console.log("remove");
-      document.removeEventListener("click", _xxx, false);
       var inputBlockAutoSuggestList = helper.e(".js-input-block-auto-suggest-list");
       if (inputBlockAutoSuggestList) {
         inputBlockAutoSuggestList.remove();
       };
+      _removeDocumentEvent();
     };
     var _populateList = function(list) {
       for (var i = 0; i < suggestItems.length; i++) {
@@ -430,6 +431,7 @@ var inputBlock = (function() {
           spells.add(input, spellsData.get({
             index: helper.makeObject(this.dataset.spellsData).index
           }));
+          _clear_autoSuggestList();
         }, false);
         var partOneText = string.substr(0, (string.toLowerCase().indexOf(input.value.toLowerCase())));
         var strongText = string.substr((string.toLowerCase().indexOf(input.value.toLowerCase())), input.value.length);
@@ -455,6 +457,11 @@ var inputBlock = (function() {
           list.appendChild(li);
         };
       };
+    };
+    if (options.type == "spells") {
+      suggestItems = spellsData.get({
+        name: input.value
+      });
     };
     if (suggestItems) {
       _render_autoSuggestList();

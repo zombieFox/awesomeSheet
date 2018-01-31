@@ -135,7 +135,12 @@ var spells = (function() {
     var spellBook = helper.getClosest(element, ".js-spell-book");
     var spellBookOptions = helper.makeObject(spellBook.dataset.spellBookOptions);
     var addNewSpellField = spellBook.querySelector(".js-add-new-spell-field");
-    var spellName = spellObject.name || addNewSpellField.value;
+    var spellName;
+    if (spellObject) {
+      spellName = spellObject.name;
+    } else {
+      spellName = addNewSpellField.value
+    };
     if (spellName != "") {
       var newSpellObject = new _create_spellObject(spellName, 0, false, 0, "");
       var newIndex = _get_spellBookCount(spellBookOptions.level);
