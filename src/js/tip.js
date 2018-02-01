@@ -22,6 +22,8 @@ var tip = (function() {
     if (options.state == "focus") {
       tip.addEventListener("focus", function() {
         render(tip);
+        clearTimeout(destroyTimer);
+        destroyTimer = setTimeout(destroy, 3000, this);
       }, false);
       tip.addEventListener("blur", function() {
         destroy();
