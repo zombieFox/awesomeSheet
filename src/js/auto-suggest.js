@@ -1,6 +1,7 @@
 var autoSuggest = (function() {
 
   var _timer_autoSuggest = null;
+  var _activeInput;
 
   function _delayRender(input) {
     render({
@@ -30,8 +31,6 @@ var autoSuggest = (function() {
       }, false);
     };
   };
-
-  var _activeInput;
 
   function _navigateResults(event) {
     var elementToFocus;
