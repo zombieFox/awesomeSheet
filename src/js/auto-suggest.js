@@ -161,6 +161,17 @@ var autoSuggest = (function() {
           destroy();
           sheet.store();
         }, false);
+        // console.log("-------------");
+        // console.log(string);
+        // console.log("start", string.toLowerCase().indexOf(options.input.value.toLowerCase()));
+        // console.log("end", options.input.value.toLowerCase().length);
+        // console.log(string.substr(
+        //   // start
+        //   string.toLowerCase().indexOf(options.input.value.toLowerCase())
+        //   ,
+        //   options.input.value.toLowerCase().length
+        //   // end
+        // ));
         var partOneText = string.substr(0, (string.toLowerCase().indexOf(options.input.value.toLowerCase())));
         var strongText = string.substr((string.toLowerCase().indexOf(options.input.value.toLowerCase())), options.input.value.length);
         var partTwoText = string.substr(((string.toLowerCase().indexOf(options.input.value.toLowerCase())) + options.input.value.length));

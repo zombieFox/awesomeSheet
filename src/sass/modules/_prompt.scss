@@ -63,17 +63,6 @@
     }
   }
 }
-.m-prompt-code {
-  background-color: $dark-alpha-06;
-  max-height: 300px;
-  overflow-y: scroll;
-  margin: 0;
-  padding: 20px 60px;
-  color: $white;
-  box-sizing: border-box;
-  box-shadow: $shadow-large-inset;
-  white-space: pre-wrap;
-}
 .is-night-mode {
   .m-prompt-body {
     background-color: $gray-03;

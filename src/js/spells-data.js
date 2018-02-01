@@ -3162,6 +3162,9 @@ var spellsData = (function() {
       _all_spellsObject.forEach(function(arrayItem) {
         _cleanUpSpellObject(arrayItem);
       });
+      // // sort spells by name
+      // _all_spellsObject = helper.sortObject(_all_spellsObject, "name");
+      // console.log(_all_spellsObject);
     };
     helper.loadCsv("db/spells.csv", function(data) {
       _get_allSpells(data);
