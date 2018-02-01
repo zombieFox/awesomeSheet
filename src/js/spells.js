@@ -32,7 +32,7 @@ var spells = (function() {
 
   var addSpellTimer = null;
 
-  function delayAddSpell(element, event) {
+  function _delayAddSpell(element, event) {
     _addNewSpellOnEnter(element, event);
     sheet.store();
   };
@@ -103,9 +103,9 @@ var spells = (function() {
   function _bind_all_addNewSpellField() {
     var addNewSpellField = helper.eA(".js-add-new-spell-field");
     for (var i = 0; i < addNewSpellField.length; i++) {
-      addNewSpellField[i].addEventListener("keypress", function() {
+      addNewSpellField[i].addEventListener("keypress", function(event) {
         clearTimeout(addSpellTimer);
-        addSpellTimer = setTimeout(delayAddSpell, 300, this, event);
+        addSpellTimer = setTimeout(_delayAddSpell, 300, this, event);
       }, false);
     };
   };
@@ -156,8 +156,7 @@ var spells = (function() {
   };
 
   function _addNewSpellOnEnter(input, event) {
-    var keystroke = event.keyCode || event.which;
-    if (keystroke == 13) {
+    if (event.keyCode == 13) {
       addNewSpell(input);
     };
   };

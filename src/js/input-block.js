@@ -57,7 +57,7 @@ var inputBlock = (function() {
   };
 
   function bind_inputBlockIncrement(inputBlockIncrement) {
-    inputBlockIncrement.addEventListener("click", function() {
+    inputBlockIncrement.addEventListener("click", function(event) {
       _increment(this, event);
       xp.render();
       wealth.render();
@@ -77,7 +77,7 @@ var inputBlock = (function() {
   function _bind_inputBlockAggregate(inputBlockAggregate) {
     var input = inputBlockAggregate.querySelector(".js-input-block-field");
     if (input) {
-      input.addEventListener("keydown", function() {
+      input.addEventListener("keydown", function(event) {
         // if enter
         if (event.keyCode == 13) {
           _render_aggregate(this);

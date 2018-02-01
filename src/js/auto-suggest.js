@@ -23,35 +23,74 @@ var autoSuggest = (function() {
         clearTimeout(_timer_autoSuggest);
         _timer_autoSuggest = setTimeout(_delayRender, 300, this);
       }, false);
-      input.addEventListener("keyup", function() {
+      input.addEventListener("keydown", function(event) {
         if (event.keyCode == 13) {
           destroy(this);
-        };
-      }, false);
-      // input.addEventListener("keyup", function() {
-      //   if (event.keyCode == 40) {
-      //     _focusAutoSuggest(this);
-      //   };
-      // }, false);
-      input.addEventListener("keydown", function() {
-        if (event.keyCode == 9) {
-          _focusAutoSuggest(this);
         };
       }, false);
     };
   };
 
-  function _focusAutoSuggest() {
-    var autoSuggest = helper.e(".js-auto-suggest-list");
-    autoSuggest.querySelector(".js-auto-suggest-link").focus(this);
+  var _activeInput;
+
+  function _navigateResults(event) {
+    var elementToFocus;
+    var currentFocus = null;
+    var all_anchor = helper.eA(".js-auto-suggest-link");
+    var _findInput = function() {
+      if (event.target.classList.contains("js-auto-suggest-field")) {
+        _activeInput = event.target;
+      };
+    };
+    var _findFocus = function() {
+      for (var i = 0; i < all_anchor.length; i++) {
+        if (all_anchor[i] == document.activeElement) {
+          currentFocus = i;
+        };
+      };
+    };
+    _findInput();
+    _findFocus();
+    // down key or tab key
+    if (event.keyCode == 40 || event.keyCode == 9) {
+      event.preventDefault();
+      if (currentFocus == null) {
+        elementToFocus = all_anchor[0];
+      } else {
+        if (currentFocus < all_anchor.length - 1) {
+          elementToFocus = all_anchor[currentFocus + 1];
+        } else {
+          elementToFocus = all_anchor[currentFocus];
+        };
+      };
+      elementToFocus.focus();
+    };
+    // up key or tab and shift key
+    if (event.keyCode == 38 || event.keyCode == 9 && event.shiftKey) {
+      event.preventDefault();
+      if (currentFocus == null) {
+        elementToFocus = _activeInput;
+      } else {
+        if (currentFocus == 0) {
+          elementToFocus = _activeInput;
+        } else if (currentFocus > 0) {
+          elementToFocus = all_anchor[currentFocus - 1];
+        } else {
+          elementToFocus = all_anchor[0];
+        };
+      };
+      elementToFocus.focus();
+    };
   };
 
   function _addDocumentEvent() {
     document.addEventListener("click", _checkClick, false);
+    document.addEventListener("keydown", _navigateResults, false);
   };
 
   function _removeDocumentEvent() {
     document.removeEventListener("click", _checkClick, false);
+    document.removeEventListener("keydown", _navigateResults, false);
   };
 
   function _checkClick(event) {
@@ -111,7 +150,7 @@ var autoSuggest = (function() {
         li.setAttribute("class", "m-auto-suggest-list-item");
         var anchor = document.createElement("a");
         anchor.setAttribute("href", "javascript:void(0)");
-        anchor.setAttribute("tabindex", "2");
+        anchor.setAttribute("tabindex", 1);
         anchor.setAttribute("class", "m-auto-suggest-link js-auto-suggest-link");
         anchor.setAttribute("data-spells-data", "index:#" + suggestItems[i].index);
         anchor.addEventListener("click", function() {
