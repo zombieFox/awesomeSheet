@@ -301,6 +301,7 @@ module.exports = function(grunt) {
         staticFileGlobs: [
           '**/*.html',
           '**/*.json',
+          'db/**/*.csv',
           'css/**/*.css',
           'fonts/**/*.{woff,ttf,svg,eot,woff,woff2}',
           'images/**/*.{gif,png,jpg}',

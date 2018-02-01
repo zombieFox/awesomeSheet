@@ -2865,7 +2865,7 @@ var spellsData = (function() {
             return mached;
           };
         } else {
-          return false
+          return false;
         };
       } else if (options.index) {
         return _get_spellsObject({
@@ -3162,9 +3162,8 @@ var spellsData = (function() {
       _all_spellsObject.forEach(function(arrayItem) {
         _cleanUpSpellObject(arrayItem);
       });
-      // console.log("spell data loaded");
     };
-    helper.loadCsv("../db/spells.csv", function(data) {
+    helper.loadCsv("db/spells.csv", function(data) {
       _get_allSpells(data);
     });
   };
