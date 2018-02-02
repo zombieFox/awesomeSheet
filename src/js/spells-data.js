@@ -2847,6 +2847,7 @@ var spellsData = (function() {
         if (arrayItem.toLowerCase().includes(options.name.toLowerCase())) {
           var object = {
             index: index,
+            shortDescription: _all_spellsObject[index].description.short,
             name: arrayItem
           };
           mached.push(object);

@@ -191,7 +191,11 @@ var autoSuggest = (function() {
           partTwo.textContent = partTwoText;
           anchor.appendChild(partTwo);
         };
+        var para = document.createElement("p");
+        para.textContent = suggestItems[i].shortDescription;
+        para.setAttribute("class", "m-auto-suggest-description");
         if (partOneText.length > 0 || strongText.length > 0 || partTwoText.length > 0) {
+          anchor.appendChild(para);
           li.appendChild(anchor);
           list.appendChild(li);
         };
@@ -208,8 +212,6 @@ var autoSuggest = (function() {
       destroy();
     };
   };
-
-
 
   // exposed methods
   return {

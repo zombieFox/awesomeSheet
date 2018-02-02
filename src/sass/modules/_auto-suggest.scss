@@ -42,12 +42,18 @@
   &:active {
     background-color: $secondary-color-06;
     color: $white;
+    .m-auto-suggest-description,
     .m-auto-suggest-strong {
       color: $white;
     }
   }
   .m-auto-suggest-strong {
     color: $secondary-color-10;
+  }
+  .m-auto-suggest-description {
+    padding-left: 1em;
+    font-size: $font-size-075;
+    color: $gray-06;
   }
 }
 .m-auto-suggest-label {
