@@ -22,7 +22,7 @@ var autoSuggest = (function() {
     if (input) {
       input.addEventListener("input", function() {
         clearTimeout(_timer_autoSuggest);
-        _timer_autoSuggest = setTimeout(_delayRender, 300, this);
+        _timer_autoSuggest = setTimeout(_delayRender, 150, this);
       }, false);
       input.addEventListener("keydown", function(event) {
         if (event.keyCode == 13) {
