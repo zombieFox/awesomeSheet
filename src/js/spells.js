@@ -710,13 +710,35 @@ var spells = (function() {
 
         if (tempSpellObject.data.source != "") {
           var para = document.createElement("p");
-          para.textContent = "Source: " + tempSpellObject.data.source;
-          para.setAttribute("class", "u-muted-text");
+          para.textContent = tempSpellObject.data.source;
           spellControl.appendChild(_create_editBox({
+            title: "Source",
             content: [para],
-            boxSize: "m-edit-box-item-max"
+            boxSize: "m-edit-box-item-max",
+            contentMargin: "small"
           }));
         };
+
+        // if (tempSpellObject.data.mythic.mythic && tempSpellObject.data.mythic.text != "") {
+        //   var para = document.createElement("p");
+        //   para.textContent = tempSpellObject.data.mythic.text;
+        //   spellControl.appendChild(_create_editBox({
+        //     title: "Mythic",
+        //     content: [para],
+        //     boxSize: "m-edit-box-item-max",
+        //     contentMargin: "small"
+        //   }));
+        // };
+        //
+        // if (tempSpellObject.data.mythic.mythic && tempSpellObject.data.mythic.augmented != "") {
+        //   var para = document.createElement("p");
+        //   para.textContent = tempSpellObject.data.mythic.augmented;
+        //   spellControl.appendChild(_create_editBox({
+        //     content: [para],
+        //     boxSize: "m-edit-box-item-max",
+        //     contentMargin: "small"
+        //   }));
+        // };
 
       };
 

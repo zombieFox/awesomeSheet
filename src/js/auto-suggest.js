@@ -1,13 +1,10 @@
 var autoSuggest = (function() {
 
   var _timer_autoSuggest = null;
-  var _activeInput;
+  var _cuurentInput;
 
   function _delayRender(input) {
-    render({
-      input: input,
-      action: "render"
-    });
+    render(input);
   };
 
   function bind() {
@@ -38,7 +35,7 @@ var autoSuggest = (function() {
     var all_anchor = helper.eA(".js-auto-suggest-link");
     var _findInput = function() {
       if (event.target.classList.contains("js-auto-suggest-field")) {
-        _activeInput = event.target;
+        _cuurentInput = event.target;
       };
     };
     var _findFocus = function() {
@@ -68,10 +65,10 @@ var autoSuggest = (function() {
     if (event.keyCode == 38 || event.keyCode == 9 && event.shiftKey) {
       event.preventDefault();
       if (currentFocus == null) {
-        elementToFocus = _activeInput;
+        elementToFocus = _cuurentInput;
       } else {
         if (currentFocus == 0) {
-          elementToFocus = _activeInput;
+          elementToFocus = _cuurentInput;
         } else if (currentFocus > 0) {
           elementToFocus = all_anchor[currentFocus - 1];
         } else {
@@ -106,108 +103,130 @@ var autoSuggest = (function() {
     _removeDocumentEvent();
   };
 
-  function render(options) {
-    var defaultOptions = {
-      input: null,
-      action: null
-    };
-    if (options) {
-      var defaultOptions = helper.applyOptions(defaultOptions, options);
-    };
+  function render(input) {
+    _cuurentInput = input;
+    var searchTerm = _cuurentInput.value.replace(/^\s+/, "").replace(/\s+$/, "");
     var body = helper.e("body");
-    var autoSuggest = helper.getClosest(options.input, ".js-auto-suggest");
+    var autoSuggest = helper.getClosest(_cuurentInput, ".js-auto-suggest");
     var autoSuggestOptions = helper.makeObject(autoSuggest.dataset.autoSuggestOptions);
     var suggestItems;
+
+    var _populateList = function(list) {
+      var _populateSpells = function() {
+        suggestItems.forEach(function(arrayItem) {
+          var li = document.createElement("li");
+          li.setAttribute("class", "m-auto-suggest-list-item");
+
+          var anchor = document.createElement("a");
+          anchor.setAttribute("href", "javascript:void(0)");
+          anchor.setAttribute("tabindex", 1);
+          anchor.setAttribute("class", "m-auto-suggest-link js-auto-suggest-link");
+          anchor.setAttribute("data-spells-data", "index:#" + arrayItem.index);
+          anchor.addEventListener("click", function() {
+            if (autoSuggestOptions.type == "spells") {
+              spells.add(_cuurentInput, spellsData.get({
+                index: helper.makeObject(this.dataset.spellsData).index
+              }));
+            };
+            destroy();
+            sheet.store();
+          }, false);
+
+          var string = arrayItem.name;
+
+          var text = document.createElement("span");
+          text.setAttribute("class", "m-auto-suggest-text");
+
+          var result = document.createElement("span");
+          result.setAttribute("class", "m-auto-suggest-result");
+
+          var resultPartOneString = string.substr(0, (string.toLowerCase().indexOf(searchTerm.toLowerCase())));
+          var resultPartHighlightString = string.substr((string.toLowerCase().indexOf(searchTerm.toLowerCase())), searchTerm.length);
+          var resultPartTwoString = string.substr(((string.toLowerCase().indexOf(searchTerm.toLowerCase())) + searchTerm.length));
+
+          if (resultPartOneString.length > 0) {
+            var resultPartOne = document.createElement("strong");
+            resultPartOne.setAttribute("class", "m-auto-suggest-part");
+            resultPartOne.textContent = resultPartOneString;
+            result.appendChild(resultPartOne);
+          };
+
+          if (resultPartHighlightString.length > 0) {
+            var resultPartHighlight = document.createElement("strong");
+            resultPartHighlight.setAttribute("class", "m-auto-suggest-highlight");
+            resultPartHighlight.textContent = resultPartHighlightString;
+            result.appendChild(resultPartHighlight);
+          };
+
+          if (resultPartTwoString.length > 0) {
+            var resultPartTwo = document.createElement("strong");
+            resultPartTwo.setAttribute("class", "m-auto-suggest-part");
+            resultPartTwo.textContent = resultPartTwoString;
+            result.appendChild(resultPartTwo);
+          };
+
+          if (resultPartOneString.length > 0 || resultPartHighlightString.length > 0 || resultPartTwoString.length > 0) {
+            text.appendChild(result);
+          };
+
+          if (arrayItem.school) {
+            var resultMeta = document.createElement("i");
+            resultMeta.setAttribute("class", "m-auto-suggest-result-meta");
+            resultMeta.textContent = helper.capFirstLetter(arrayItem.school);
+            text.appendChild(resultMeta);
+          };
+
+          anchor.appendChild(text);
+
+          if (arrayItem.description) {
+            var textSub = document.createElement("span");
+            textSub.setAttribute("class", "m-auto-suggest-text-sub");
+            textSub.textContent = arrayItem.description;
+            anchor.appendChild(textSub);
+          };
+
+          li.appendChild(anchor);
+          list.appendChild(li);
+
+        });
+      };
+      if (autoSuggestOptions.type == "spells") {
+        _populateSpells();
+      };
+    };
+
     var _render_autoSuggestList = function() {
       var autoSuggestList = helper.e(".js-auto-suggest-list");
       if (autoSuggestList) {
         while (autoSuggestList.lastChild) {
           autoSuggestList.removeChild(autoSuggestList.lastChild);
         };
-        _populateList(autoSuggestList);
       } else {
         var style = {
-          left: options.input.getBoundingClientRect().left,
-          top: options.input.getBoundingClientRect().bottom + window.scrollY,
-          width: options.input.getBoundingClientRect().width
+          left: _cuurentInput.getBoundingClientRect().left,
+          top: _cuurentInput.getBoundingClientRect().bottom + window.scrollY,
+          width: _cuurentInput.getBoundingClientRect().width
         };
         var autoSuggestList = document.createElement("ul");
         autoSuggestList.setAttribute("class", "m-auto-suggest-list u-list-unstyled js-auto-suggest-list");
         body.appendChild(autoSuggestList);
         autoSuggestList.setAttribute("style", "width: " + style.width + "px; top: " + style.top + "px; left: " + style.left + "px;");
-        _populateList(autoSuggestList);
         _addDocumentEvent();
       };
+      _populateList(autoSuggestList);
     };
-    var _populateList = function(list) {
-      for (var i = 0; i < suggestItems.length; i++) {
-        var string;
-        if (autoSuggestOptions.type == "spells") {
-          string = suggestItems[i].name;
-        };
-        var li = document.createElement("li");
-        li.setAttribute("class", "m-auto-suggest-list-item");
-        var anchor = document.createElement("a");
-        anchor.setAttribute("href", "javascript:void(0)");
-        anchor.setAttribute("tabindex", 1);
-        anchor.setAttribute("class", "m-auto-suggest-link js-auto-suggest-link");
-        anchor.setAttribute("data-spells-data", "index:#" + suggestItems[i].index);
-        anchor.addEventListener("click", function() {
-          if (autoSuggestOptions.type == "spells") {
-            spells.add(options.input, spellsData.get({
-              index: helper.makeObject(this.dataset.spellsData).index
-            }));
-          };
-          destroy();
-          sheet.store();
-        }, false);
-        // console.log("-------------");
-        // console.log(string);
-        // console.log("start", string.toLowerCase().indexOf(options.input.value.toLowerCase()));
-        // console.log("end", options.input.value.toLowerCase().length);
-        // console.log(string.substr(
-        //   // start
-        //   string.toLowerCase().indexOf(options.input.value.toLowerCase())
-        //   ,
-        //   options.input.value.toLowerCase().length
-        //   // end
-        // ));
-        var partOneText = string.substr(0, (string.toLowerCase().indexOf(options.input.value.toLowerCase())));
-        var strongText = string.substr((string.toLowerCase().indexOf(options.input.value.toLowerCase())), options.input.value.length);
-        var partTwoText = string.substr(((string.toLowerCase().indexOf(options.input.value.toLowerCase())) + options.input.value.length));
-        if (partOneText.length > 0) {
-          var partOne = document.createElement("span");
-          partOne.textContent = partOneText;
-          anchor.appendChild(partOne);
-        };
-        if (strongText.length > 0) {
-          var strong = document.createElement("strong");
-          strong.setAttribute("class", "m-auto-suggest-strong");
-          strong.textContent = strongText;
-          anchor.appendChild(strong);
-        };
-        if (partTwoText.length > 0) {
-          var partTwo = document.createElement("span");
-          partTwo.textContent = partTwoText;
-          anchor.appendChild(partTwo);
-        };
-        var para = document.createElement("p");
-        para.textContent = suggestItems[i].shortDescription;
-        para.setAttribute("class", "m-auto-suggest-description");
-        if (partOneText.length > 0 || strongText.length > 0 || partTwoText.length > 0) {
-          anchor.appendChild(para);
-          li.appendChild(anchor);
-          list.appendChild(li);
-        };
+
+    if (searchTerm != "") {
+      if (autoSuggestOptions.type == "spells") {
+        suggestItems = spellsData.get({
+          name: searchTerm
+        });
       };
-    };
-    if (autoSuggestOptions.type == "spells") {
-      suggestItems = spellsData.get({
-        name: options.input.value
-      });
-    };
-    if (suggestItems) {
-      _render_autoSuggestList();
+      if (suggestItems) {
+        _render_autoSuggestList();
+      } else {
+        destroy();
+      };
     } else {
       destroy();
     };

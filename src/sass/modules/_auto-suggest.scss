@@ -19,7 +19,8 @@
 }
 .m-auto-suggest-list-item {
   padding: 0;
-  &:not(:last-child) {
+  &:not(:only-child):not(:last-child) {
+    border-bottom: 1px solid $gray-19;
     margin-bottom: 0;
   }
 }
@@ -28,6 +29,8 @@
   padding: 0.5em 1em;
   display: block;
   text-decoration: none;
+  flex-flow: row wrap;
+  justify-content: space-between;
   &:link,
   &:visited {
     color: $gray-06;
@@ -38,22 +41,40 @@
     background-color: $gray-19;
     color: $gray-06;
     text-decoration: none;
+    .m-auto-suggest-sub-text {
+      color: $gray-08;
+    }
   }
   &:active {
     background-color: $secondary-color-06;
     color: $white;
-    .m-auto-suggest-description,
-    .m-auto-suggest-strong {
+    .m-auto-suggest-highlight {
+      border-bottom-color: $white;
+    }
+    .m-auto-suggest-highlight,
+    .m-auto-suggest-result-meta,
+    .m-auto-suggest-text-sub {
       color: $white;
     }
   }
-  .m-auto-suggest-strong {
-    color: $secondary-color-10;
+  .m-auto-suggest-text {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: baseline;
   }
-  .m-auto-suggest-description {
-    padding-left: 1em;
+  .m-auto-suggest-highlight {
+    color: $secondary-color-10;
+    border-bottom: 1px solid $secondary-color-14;
+  }
+  .m-auto-suggest-result-meta {
+    margin-left: 0.5em;
+    color: $gray-12;
     font-size: $font-size-075;
-    color: $gray-06;
+  }
+  .m-auto-suggest-text-sub {
+    display: none;
   }
 }
 .m-auto-suggest-label {
@@ -82,7 +103,16 @@
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
-@media (min-width: $screen-sm) {}
+@media (min-width: $screen-sm) {
+  .m-auto-suggest-link {
+    .m-auto-suggest-text-sub {
+      margin: 0.2em 0 0 1em;
+      display: block;
+      color: $gray-12;
+      font-size: $font-size-075;
+    }
+  }
+}
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}
