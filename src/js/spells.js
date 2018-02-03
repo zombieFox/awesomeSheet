@@ -372,6 +372,8 @@ var spells = (function() {
     var _create_editBox = function(options) {
       var defaultOptions = {
         title: null,
+        textOnly: null,
+        guides: null,
         boxSize: null,
         content: null,
         contentMargin: null
@@ -380,8 +382,15 @@ var spells = (function() {
         var defaultOptions = helper.applyOptions(defaultOptions, options);
       };
       var box = document.createElement("div");
+      box.setAttribute("class", "m-edit-box m-edit-box-indent");
+      if (options.textOnly != null) {
+        helper.addClass(box, "m-edit-box-text-only");
+      };
+      if (options.guides != null) {
+        helper.addClass(box, "m-edit-box-guides");
+      };
       if (options.title != null) {
-        box.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
+        helper.addClass(box, "m-edit-box-head-small");
         var head = document.createElement("div");
         head.setAttribute("class", "m-edit-box-head");
         var title = document.createElement("h2");
@@ -390,7 +399,7 @@ var spells = (function() {
         head.appendChild(title);
         box.appendChild(head);
       } else {
-        box.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-no-head-small");
+        helper.addClass(box, "m-edit-box-no-head-small");
       };
       var body = document.createElement("div");
       body.setAttribute("class", "m-edit-box-body");
@@ -538,28 +547,29 @@ var spells = (function() {
 
         spellControl.appendChild(_create_editBox({
           title: "Prepared",
-          content: [preparedGroup, _create_editBoxItem("m-edit-box-item-button-large", preparedClear)],
-          contentMargin: "large"
+          guides: true,
+          content: [preparedGroup, _create_editBoxItem("m-edit-box-item-button-large", preparedClear)]
         }));
         spellControl.appendChild(_create_editBox({
           title: "Cast",
-          content: [castGroup, _create_editBoxItem("m-edit-box-item-button-large", castClear)],
-          contentMargin: "large"
+          guides: true,
+          content: [castGroup, _create_editBoxItem("m-edit-box-item-button-large", castClear)]
         }));
         spellControl.appendChild(_create_editBox({
           title: "Active",
+          guides: true,
           boxSize: "m-edit-box-item-check",
-          content: [activeCheck],
-          contentMargin: "large"
+          content: [activeCheck]
         }));
         spellControl.appendChild(_create_editBox({
           title: "Rename",
+          guides: true,
           boxSize: "m-edit-box-item-max",
-          content: [renameInput],
-          contentMargin: "large"
+          content: [renameInput]
         }));
         spellControl.appendChild(_create_editBox({
           title: "Spell notes",
+          guides: true,
           boxSize: "m-edit-box-item-max",
           content: [noteTextarea]
         }));
@@ -583,9 +593,10 @@ var spells = (function() {
           para.textContent = string;
           spellControl.appendChild(_create_editBox({
             title: "School",
+            textOnly: true,
+            guides: true,
             content: [para],
-            boxSize: "m-edit-box-item-max",
-            contentMargin: "small"
+            boxSize: "m-edit-box-item-max"
           }));
         };
 
@@ -601,9 +612,10 @@ var spells = (function() {
           para.textContent = string;
           spellControl.appendChild(_create_editBox({
             title: "Level",
+            textOnly: true,
+            guides: true,
             content: [para],
-            boxSize: "m-edit-box-item-max",
-            contentMargin: "small"
+            boxSize: "m-edit-box-item-max"
           }));
         };
 
@@ -612,9 +624,10 @@ var spells = (function() {
           para.textContent = helper.capFirstLetter(spellData.casting.time);
           spellControl.appendChild(_create_editBox({
             title: "Casting time",
+            textOnly: true,
+            guides: true,
             content: [para],
-            boxSize: "m-edit-box-item-max",
-            contentMargin: "small"
+            boxSize: "m-edit-box-item-max"
           }));
         };
 
@@ -623,9 +636,10 @@ var spells = (function() {
           para.textContent = spellData.components.string;
           spellControl.appendChild(_create_editBox({
             title: "Components",
+            textOnly: true,
+            guides: true,
             content: [para],
-            boxSize: "m-edit-box-item-max",
-            contentMargin: "small"
+            boxSize: "m-edit-box-item-max"
           }));
         };
 
@@ -634,9 +648,10 @@ var spells = (function() {
           para.textContent = helper.capFirstLetter(spellData.casting.range);
           spellControl.appendChild(_create_editBox({
             title: "Range",
+            textOnly: true,
+            guides: true,
             content: [para],
-            boxSize: "m-edit-box-item-max",
-            contentMargin: "small"
+            boxSize: "m-edit-box-item-max"
           }));
         };
 
@@ -649,9 +664,10 @@ var spells = (function() {
           para.textContent = string;
           spellControl.appendChild(_create_editBox({
             title: "Area",
+            textOnly: true,
+            guides: true,
             content: [para],
-            boxSize: "m-edit-box-item-max",
-            contentMargin: "small"
+            boxSize: "m-edit-box-item-max"
           }));
         };
 
@@ -660,9 +676,10 @@ var spells = (function() {
           para.textContent = helper.capFirstLetter(spellData.casting.targets);
           spellControl.appendChild(_create_editBox({
             title: "Targets",
+            textOnly: true,
+            guides: true,
             content: [para],
-            boxSize: "m-edit-box-item-max",
-            contentMargin: "small"
+            boxSize: "m-edit-box-item-max"
           }));
         };
 
@@ -675,9 +692,10 @@ var spells = (function() {
           para.textContent = string;
           spellControl.appendChild(_create_editBox({
             title: "Duration",
+            textOnly: true,
+            guides: true,
             content: [para],
-            boxSize: "m-edit-box-item-max",
-            contentMargin: "small"
+            boxSize: "m-edit-box-item-max"
           }));
         };
 
@@ -686,9 +704,10 @@ var spells = (function() {
           para.textContent = helper.capFirstLetter(spellData.casting.saving);
           spellControl.appendChild(_create_editBox({
             title: "Saving Throw",
+            textOnly: true,
+            guides: true,
             content: [para],
-            boxSize: "m-edit-box-item-max",
-            contentMargin: "small"
+            boxSize: "m-edit-box-item-max"
           }));
         };
 
@@ -697,9 +716,10 @@ var spells = (function() {
           para.textContent = helper.capFirstLetter(spellData.casting.spell_resistence);
           spellControl.appendChild(_create_editBox({
             title: "Spell Resistence",
+            textOnly: true,
+            guides: true,
             content: [para],
-            boxSize: "m-edit-box-item-max",
-            contentMargin: "small"
+            boxSize: "m-edit-box-item-max"
           }));
         };
 
@@ -708,9 +728,10 @@ var spells = (function() {
           div.innerHTML = spellData.description.formated;
           spellControl.appendChild(_create_editBox({
             title: "Description",
+            textOnly: true,
+            guides: true,
             content: [div],
-            boxSize: "m-edit-box-item-max",
-            contentMargin: "large"
+            boxSize: "m-edit-box-item-max"
           }));
         };
 
@@ -719,9 +740,10 @@ var spells = (function() {
           para.textContent = spellData.mythic.text;
           spellControl.appendChild(_create_editBox({
             title: "Mythic",
+            textOnly: true,
+            guides: true,
             content: [para],
-            boxSize: "m-edit-box-item-max",
-            contentMargin: "small"
+            boxSize: "m-edit-box-item-max"
           }));
         };
 
@@ -730,8 +752,9 @@ var spells = (function() {
           para.textContent = spellData.mythic.augmented;
           spellControl.appendChild(_create_editBox({
             content: [para],
-            boxSize: "m-edit-box-item-max",
-            contentMargin: "small"
+            textOnly: true,
+            guides: true,
+            boxSize: "m-edit-box-item-max"
           }));
         };
 
@@ -740,17 +763,18 @@ var spells = (function() {
           para.textContent = spellData.source;
           spellControl.appendChild(_create_editBox({
             title: "Source",
+            textOnly: true,
+            guides: true,
             content: [para],
-            boxSize: "m-edit-box-item-max",
-            contentMargin: "small"
+            boxSize: "m-edit-box-item-max"
           }));
         };
       };
 
       if ("index" in tempSpellObject && tempSpellObject.index != "") {
         _create_spellblock();
-        spellControl.appendChild(document.createElement("hr"));
       };
+
       _create_controls();
       return spellControl;
     };

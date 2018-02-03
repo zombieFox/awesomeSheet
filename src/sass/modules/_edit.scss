@@ -27,6 +27,15 @@
   align-items: stretch;
 }
 // --------------------------------------------------
+// edit body text
+// --------------------------------------------------
+.m-edit-box-text-only {
+  .m-edit-box-title {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+// --------------------------------------------------
 // edit body indent
 // --------------------------------------------------
 .m-edit-box-indent {
@@ -106,9 +115,11 @@
 .m-edit-box-guides {
   padding-top: 0.5em;
   padding-bottom: 0.5em;
-  border-bottom: $border;
-  border-bottom-color: $gray-18;
   transition: border-color $transition-ease-fast, margin $transition-ease-fast, padding $transition-ease-fast;
+  &:not(:only-child):not(:last-child) {
+    border-bottom: $border;
+    border-bottom-color: $gray-19;
+  }
 }
 // --------------------------------------------------
 // edit title
@@ -229,8 +240,8 @@
         z-index: 3;
       }
     }
-    .m-check-block,
     .m-auto-suggest,
+    .m-check-block,
     .m-input-block,
     .m-input-file-block,
     .m-radio-block,
@@ -239,8 +250,8 @@
       &.is-focus {
         z-index: 4;
       }
-      .m-check-block-check-icon,
       .m-auto-suggest-field,
+      .m-check-block-check-icon,
       .m-input-block-field,
       .m-input-file-block-field,
       .m-radio-block-radio-icon,
@@ -252,8 +263,8 @@
       }
     }
     &:hover {
-      .m-check-block,
       .m-auto-suggest,
+      .m-check-block,
       .m-input-block,
       .m-input-file-block,
       .m-radio-block,
@@ -484,7 +495,9 @@
 // --------------------------------------------------
 .is-night-mode {
   .m-edit-box-guides {
-    border-bottom-color: $gray-03;
+    &:not(:only-child):not(:last-child) {
+      border-bottom-color: $gray-03;
+    }
   }
   .m-edit-heading {
     background-color: $secondary-color-04;
@@ -507,9 +520,8 @@
   .m-edit-box-content-outline {
     background-color: $gray-04;
     border-color: $gray-06;
-      background-color: $gray-01;
-
-      border-color: $gray-04;
+    background-color: $gray-01;
+    border-color: $gray-04;
   }
 }
 // --------------------------------------------------
