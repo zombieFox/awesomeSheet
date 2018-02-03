@@ -264,14 +264,17 @@ var display = (function() {
       path: path
     });
     var displayListItem;
-    if (typeof object != "undefined" && object != "") {
+    if (typeof object != undefined && object != "") {
 
-      if (object.ranks != "undefined" && object.ranks != "") {
+      if (object.ranks != undefined && object.ranks != "") {
         displayListItem = document.createElement("li");
         displayListItem.setAttribute("class", "m-display-list-item");
         var value = document.createElement("span");
         value.setAttribute("class", "m-display-list-item-value");
-        value.textContent = "+" + object.current;
+        value.textContent = object.current;
+        if (object.current > 0) {
+          value.textContent = "+" + value.textContent;
+        };
         if (prefix || object["name"] || object["variant_name"]) {
           var displayListItemPrefix = document.createElement("span");
           displayListItemPrefix.setAttribute("class", "m-display-list-item-prefix");
@@ -350,7 +353,7 @@ var display = (function() {
         for (var i in object) {
           if (i == "classname") {
             var data = object[i];
-            if (typeof data != "undefined" && data != "") {
+            if (typeof data != undefined && data != "") {
               var displayListItemPrefix = document.createElement("span");
               displayListItemPrefix.setAttribute("class", "m-display-item-text-snippet-prefix");
               displayListItemPrefix.textContent = data;
@@ -358,7 +361,7 @@ var display = (function() {
             };
           } else if (i == "level") {
             var data = object[i];
-            if (typeof data != "undefined" && data != "" || data == 0) {
+            if (typeof data != undefined && data != "" || data == 0) {
               var displayListItemValue = document.createElement("span");
               displayListItemValue.setAttribute("class", "m-display-item-text-snippet-value");
               displayListItemValue.textContent = data;
@@ -374,7 +377,7 @@ var display = (function() {
         for (var i in object) {
           if (i == "item") {
             var data = object[i];
-            if (typeof data != "undefined" && data != "") {
+            if (typeof data != undefined && data != "") {
               var displayListItemPrefix = document.createElement("span");
               displayListItemPrefix.setAttribute("class", "m-display-list-item-prefix");
               displayListItemPrefix.textContent = data;
@@ -382,10 +385,10 @@ var display = (function() {
             };
           } else if (i == "current") {
             var data = object[i];
-            if (typeof data != "undefined" && data != "" || data == 0) {
+            if (typeof data != undefined && data != "" || data == 0) {
               var displayListItemValue = document.createElement("span");
               displayListItemValue.setAttribute("class", "m-display-list-item-value");
-              if (typeof object.total != "undefined" && object.total != "") {
+              if (typeof object.total != undefined && object.total != "") {
                 data = data + "/" + object.total;
               };
               displayListItemValue.textContent = data;
@@ -410,7 +413,7 @@ var display = (function() {
         for (var i in object) {
           if (i == "name") {
             var data = object[i];
-            if (typeof data != "undefined" && data != "") {
+            if (typeof data != undefined && data != "") {
               var displayListItemPrefix = document.createElement("span");
               displayListItemPrefix.setAttribute("class", "m-display-list-item-prefix");
               displayListItemPrefix.textContent = data;
@@ -418,10 +421,10 @@ var display = (function() {
             };
           } else if (i == "current") {
             var data = object[i];
-            if (typeof data != "undefined" && data != "" || data == 0) {
+            if (typeof data != undefined && data != "" || data == 0) {
               var displayListItemValue = document.createElement("span");
               displayListItemValue.setAttribute("class", "m-display-list-item-value");
-              if (typeof object.total != "undefined" && object.total != "") {
+              if (typeof object.total != undefined && object.total != "") {
                 data = data + "/" + object.total;
               };
               displayListItemValue.textContent = data;
@@ -446,7 +449,7 @@ var display = (function() {
         for (var i in object) {
           if (i == "name") {
             var data = object[i];
-            if (typeof data != "undefined" && data != "") {
+            if (typeof data != undefined && data != "") {
               var displayListItemPrefix = document.createElement("span");
               displayListItemPrefix.setAttribute("class", "m-display-list-item-prefix");
               displayListItemPrefix.textContent = data;
@@ -454,7 +457,7 @@ var display = (function() {
             };
           } else if (i == "quantity") {
             var data = object[i];
-            if (typeof data != "undefined" && data != "" || data == 0) {
+            if (typeof data != undefined && data != "" || data == 0) {
               var displayListItemValue = document.createElement("span");
               displayListItemValue.setAttribute("class", "m-display-list-item-value");
               displayListItemValue.textContent = data;
@@ -465,12 +468,15 @@ var display = (function() {
       };
 
       if (cloneType == "skill") {
-        if (object.ranks != "undefined" && object.ranks != "") {
+        if (object.ranks != undefined && object.ranks != "") {
           displayListItem = document.createElement("li");
           displayListItem.setAttribute("class", "m-display-list-item");
           var displayListItemValue = document.createElement("span");
           displayListItemValue.setAttribute("class", "m-display-list-item-value");
-          displayListItemValue.textContent = "+" + object.current;
+          displayListItemValue.textContent = object.current;
+          if (object.current > 0) {
+            displayListItemValue.textContent = "+" + displayListItemValue.textContent;
+          };
           if (object["name"]) {
             var displayListItemPrefix = document.createElement("span");
             displayListItemPrefix.setAttribute("class", "m-display-list-item-prefix");
@@ -491,7 +497,7 @@ var display = (function() {
         for (var i in object) {
           if (i == "weapon" || i == "damage" || i == "critical" || i == "range" || i == "type" || i == "ammo") {
             var data = object[i];
-            if (typeof data != "undefined" && data != "") {
+            if (typeof data != undefined && data != "") {
               var displayListItemPrefix = document.createElement("span");
               displayListItemPrefix.setAttribute("class", "m-display-list-item-" + cloneType + "-" + i);
               displayListItemPrefix.textContent = data;
@@ -499,7 +505,7 @@ var display = (function() {
             };
           } else if (i == "attack") {
             var data = object[i];
-            if (typeof data != "undefined" && data != "") {
+            if (typeof data != undefined && data != "") {
               var displayListItemValue = document.createElement("h2");
               displayListItemValue.setAttribute("class", "m-display-list-item-" + cloneType + "-" + i);
               displayListItemValue.textContent = data;
@@ -514,7 +520,7 @@ var display = (function() {
         displayListItem.setAttribute("class", "m-display-list-item");
         for (var i in object) {
           var data = object[i];
-          if (typeof data != "undefined" && data != "") {
+          if (typeof data != undefined && data != "") {
             displayListItem.innerHTML = data;
           };
         };
@@ -526,7 +532,7 @@ var display = (function() {
     for (var i in object) {
       var testForValues = false;
       for (var j in object[i]) {
-        if (typeof object[i][j] != "undefined" && object[i][j] != "") {
+        if (typeof object[i][j] != undefined && object[i][j] != "") {
           testForValues = true;
         };
       };
@@ -566,7 +572,7 @@ var display = (function() {
       path: path
     });
     var displayListItem;
-    if (typeof data != "undefined" && data != "") {
+    if (typeof data != undefined && data != "") {
       if (valueType == "bonus" && data > 0) {
         data = "+" + data;
       };
@@ -615,7 +621,7 @@ var display = (function() {
         path: path
       });
     };
-    if (typeof data != "undefined" && data != "") {
+    if (typeof data != undefined && data != "") {
       displayItem = document.createElement("span");
       if (all_displayValueType) {
         if (all_displayValueType == "bonus" && data > 0) {
@@ -653,7 +659,7 @@ var display = (function() {
         path: path
       });
     };
-    if (typeof data != "undefined" && data != "") {
+    if (typeof data != undefined && data != "") {
       displayItem = document.createElement("span");
       displayItem.textContent = data;
     } else if (typeof data == "number" && data == 0) {
@@ -680,7 +686,7 @@ var display = (function() {
       path: path
     });
     var displayItem;
-    if (typeof data != "undefined" && data != "") {
+    if (typeof data != undefined && data != "") {
       displayItem = document.createElement("span");
       displayItem.setAttribute("class", "m-display-item-text-block");
       var value = document.createElement("span");
@@ -725,7 +731,7 @@ var display = (function() {
       path: path
     });
     var displayItem;
-    if (typeof data != "undefined" && data != "") {
+    if (typeof data != undefined && data != "") {
       displayItem = document.createElement("span");
       displayItem.setAttribute("class", "m-display-item-text-snippet");
       var value = document.createElement("span");
@@ -809,7 +815,7 @@ var display = (function() {
       path: path
     });
     var displayImage;
-    if (typeof data != "undefined" && data != "") {
+    if (typeof data != undefined && data != "") {
       var displayImage = document.createElement("div");
       displayImage.setAttribute("class", "m-display-item-image-wrapper");
       var displayImageItem = new Image;
