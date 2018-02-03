@@ -3,7 +3,7 @@ var update = (function() {
   var history = [{
     version: "4.4.0",
     list: [
-      "*Added Spells look up and Spell description. Newly added Spells will have descriptions."
+      "*Added Spell Search, newly added Spells will have a descriptions."
     ]
   }, {
     version: "4.3.0",
