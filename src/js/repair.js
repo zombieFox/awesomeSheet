@@ -878,7 +878,7 @@ var repair = (function() {
       if (debug) {
         console.log("\trepair power");
       };
-      characterObject.statistics.power = "";
+      characterObject.statistics.power = [];
     };
     // --------------------------------------------------
     // sheet.store();
