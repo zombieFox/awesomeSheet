@@ -152,6 +152,7 @@ var spells = (function() {
       });
       _render_spell(newSpellObject, spellBookOptions.level, newIndex, true);
       addNewSpellField.value = "";
+      _render_spellPlaceholder(spellBookOptions.level);
     };
   };
 
@@ -184,6 +185,7 @@ var spells = (function() {
     } else {
       _spellState.set(spellBookOptions.level, null);
       _reset_stateSpellControl(spellBook);
+      _render_spellPlaceholder(spellBookOptions.level);
     };
   };
 
@@ -910,6 +912,7 @@ var spells = (function() {
       knownListToSaveTo.appendChild(spellButtonCol);
       _bind_spellKnownItem(spellButton);
     };
+    _render_spellPlaceholder(level);
   };
 
   function _render_spell(spellObject, level, spellIndex) {
