@@ -118,19 +118,6 @@
 <div class="m-tab-panel js-tab-panel js-tab-panel-spell-level-0">
   <div class="m-spell-book js-spell-book" data-spell-book-options="path:spells.book[0]level_0,level:#0">
 
-    <div class="m-edit-controls button-group button-group-right">
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:prepare" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-radio-button-checked"></span><span class="button-text">Prepare</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:unprepare" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-refresh"></span><span class="button-text">Unprepare</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:cast" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-radio-button-unchecked"></span><span class="button-text">Cast</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:active" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-play-arrow"></span><span class="button-text">Active</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:remove" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-close"></span><span class="button-text">Remove</span></button>
-    </div>
-
-    <div class="button-group button-group-right">
-      <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:reset" tabindex="1"><span class="icon-renew"></span><span class="button-text">Reset</span></button>
-      <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:sort" tabindex="1"><span class="icon-sort-az"></span><span class="button-text">Sort</span></button>
-    </div>
-
     <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
       <div class="m-edit-box-head">
         <h2 class="m-edit-box-title">Spell Counts</h2>
@@ -226,6 +213,17 @@
         </div>
         <div class="m-edit-box-content m-edit-box-content-margin-large">
           <div class="m-edit-box-item-max">
+            <div class="button-group button-group">
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:reset" tabindex="1"><span class="icon-renew"></span><span class="button-text">Reset</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:sort" tabindex="1"><span class="icon-sort-az"></span><span class="button-text">Sort</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:remove" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-close"></span><span class="button-text">Remove</span></button>
+            </div>
+            <div class="button-group button-group">
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:prepare" tabindex="1"><span class="icon-radio-button-checked"></span><span class="button-text">Prepare</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:unprepare" tabindex="1"><span class="icon-refresh"></span><span class="button-text">Unprepare</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:cast" tabindex="1"><span class="icon-radio-button-unchecked"></span><span class="button-text">Cast</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:active" tabindex="1"><span class="icon-play-arrow"></span><span class="button-text">Active</span></button>
+            </div>
             <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-0"></div>
             <div class="m-placeholder js-placeholder-spell-level-0">
               <p class="m-placeholder-description u-muted-text">Add Level 0 Spells using <strong class="m-placeholder-key">Spell search</strong>.</p>
@@ -240,19 +238,6 @@
 
 <div class="m-tab-panel js-tab-panel js-tab-panel-spell-level-1 is-hidden">
   <div class="m-spell-book js-spell-book" data-spell-book-options="path:spells.book[1]level_1,level:#1">
-
-    <div class="m-edit-controls button-group button-group-right">
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:prepare" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-radio-button-checked"></span><span class="button-text">Prepare</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:unprepare" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-refresh"></span><span class="button-text">Unprepare</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:cast" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-radio-button-unchecked"></span><span class="button-text">Cast</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:active" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-play-arrow"></span><span class="button-text">Active</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:remove" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-close"></span><span class="button-text">Remove</span></button>
-    </div>
-
-    <div class="button-group button-group-right">
-      <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:reset" tabindex="1"><span class="icon-renew"></span><span class="button-text">Reset</span></button>
-      <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:sort" tabindex="1"><span class="icon-sort-az"></span><span class="button-text">Sort</span></button>
-    </div>
 
     <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
       <div class="m-edit-box-head">
@@ -349,6 +334,17 @@
         </div>
         <div class="m-edit-box-content m-edit-box-content-margin-large">
           <div class="m-edit-box-item-max">
+            <div class="button-group button-group">
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:reset" tabindex="1"><span class="icon-renew"></span><span class="button-text">Reset</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:sort" tabindex="1"><span class="icon-sort-az"></span><span class="button-text">Sort</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:remove" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-close"></span><span class="button-text">Remove</span></button>
+            </div>
+            <div class="button-group button-group">
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:prepare" tabindex="1"><span class="icon-radio-button-checked"></span><span class="button-text">Prepare</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:unprepare" tabindex="1"><span class="icon-refresh"></span><span class="button-text">Unprepare</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:cast" tabindex="1"><span class="icon-radio-button-unchecked"></span><span class="button-text">Cast</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:active" tabindex="1"><span class="icon-play-arrow"></span><span class="button-text">Active</span></button>
+            </div>
             <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-1"></div>
             <div class="m-placeholder js-placeholder-spell-level-1">
               <p class="m-placeholder-description u-muted-text">Add Level 1 Spells using <strong class="m-placeholder-key">Spell search</strong>.</p>
@@ -363,19 +359,6 @@
 
 <div class="m-tab-panel js-tab-panel js-tab-panel-spell-level-2 is-hidden">
   <div class="m-spell-book js-spell-book" data-spell-book-options="path:spells.book[2]level_2,level:#2">
-
-    <div class="m-edit-controls button-group button-group-right">
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:prepare" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-radio-button-checked"></span><span class="button-text">Prepare</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:unprepare" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-refresh"></span><span class="button-text">Unprepare</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:cast" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-radio-button-unchecked"></span><span class="button-text">Cast</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:active" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-play-arrow"></span><span class="button-text">Active</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:remove" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-close"></span><span class="button-text">Remove</span></button>
-    </div>
-
-    <div class="button-group button-group-right">
-      <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:reset" tabindex="1"><span class="icon-renew"></span><span class="button-text">Reset</span></button>
-      <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:sort" tabindex="1"><span class="icon-sort-az"></span><span class="button-text">Sort</span></button>
-    </div>
 
     <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
       <div class="m-edit-box-head">
@@ -472,6 +455,17 @@
         </div>
         <div class="m-edit-box-content m-edit-box-content-margin-large">
           <div class="m-edit-box-item-max">
+            <div class="button-group button-group">
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:reset" tabindex="1"><span class="icon-renew"></span><span class="button-text">Reset</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:sort" tabindex="1"><span class="icon-sort-az"></span><span class="button-text">Sort</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:remove" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-close"></span><span class="button-text">Remove</span></button>
+            </div>
+            <div class="button-group button-group">
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:prepare" tabindex="1"><span class="icon-radio-button-checked"></span><span class="button-text">Prepare</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:unprepare" tabindex="1"><span class="icon-refresh"></span><span class="button-text">Unprepare</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:cast" tabindex="1"><span class="icon-radio-button-unchecked"></span><span class="button-text">Cast</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:active" tabindex="1"><span class="icon-play-arrow"></span><span class="button-text">Active</span></button>
+            </div>
             <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-2"></div>
             <div class="m-placeholder js-placeholder-spell-level-2">
               <p class="m-placeholder-description u-muted-text">Add Level 2 Spells using <strong class="m-placeholder-key">Spell search</strong>.</p>
@@ -486,19 +480,6 @@
 
 <div class="m-tab-panel js-tab-panel js-tab-panel-spell-level-3 is-hidden">
   <div class="m-spell-book js-spell-book" data-spell-book-options="path:spells.book[3]level_3,level:#3">
-
-    <div class="m-edit-controls button-group button-group-right">
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:prepare" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-radio-button-checked"></span><span class="button-text">Prepare</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:unprepare" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-refresh"></span><span class="button-text">Unprepare</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:cast" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-radio-button-unchecked"></span><span class="button-text">Cast</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:active" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-play-arrow"></span><span class="button-text">Active</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:remove" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-close"></span><span class="button-text">Remove</span></button>
-    </div>
-
-    <div class="button-group button-group-right">
-      <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:reset" tabindex="1"><span class="icon-renew"></span><span class="button-text">Reset</span></button>
-      <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:sort" tabindex="1"><span class="icon-sort-az"></span><span class="button-text">Sort</span></button>
-    </div>
 
     <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
       <div class="m-edit-box-head">
@@ -595,6 +576,17 @@
         </div>
         <div class="m-edit-box-content m-edit-box-content-margin-large">
           <div class="m-edit-box-item-max">
+            <div class="button-group button-group">
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:reset" tabindex="1"><span class="icon-renew"></span><span class="button-text">Reset</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:sort" tabindex="1"><span class="icon-sort-az"></span><span class="button-text">Sort</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:remove" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-close"></span><span class="button-text">Remove</span></button>
+            </div>
+            <div class="button-group button-group">
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:prepare" tabindex="1"><span class="icon-radio-button-checked"></span><span class="button-text">Prepare</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:unprepare" tabindex="1"><span class="icon-refresh"></span><span class="button-text">Unprepare</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:cast" tabindex="1"><span class="icon-radio-button-unchecked"></span><span class="button-text">Cast</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:active" tabindex="1"><span class="icon-play-arrow"></span><span class="button-text">Active</span></button>
+            </div>
             <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-3"></div>
             <div class="m-placeholder js-placeholder-spell-level-3">
               <p class="m-placeholder-description u-muted-text">Add Level 3 Spells using <strong class="m-placeholder-key">Spell search</strong>.</p>
@@ -609,19 +601,6 @@
 
 <div class="m-tab-panel js-tab-panel js-tab-panel-spell-level-4 is-hidden">
   <div class="m-spell-book js-spell-book" data-spell-book-options="path:spells.book[4]level_4,level:#4">
-
-    <div class="m-edit-controls button-group button-group-right">
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:prepare" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-radio-button-checked"></span><span class="button-text">Prepare</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:unprepare" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-refresh"></span><span class="button-text">Unprepare</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:cast" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-radio-button-unchecked"></span><span class="button-text">Cast</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:active" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-play-arrow"></span><span class="button-text">Active</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:remove" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-close"></span><span class="button-text">Remove</span></button>
-    </div>
-
-    <div class="button-group button-group-right">
-      <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:reset" tabindex="1"><span class="icon-renew"></span><span class="button-text">Reset</span></button>
-      <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:sort" tabindex="1"><span class="icon-sort-az"></span><span class="button-text">Sort</span></button>
-    </div>
 
     <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
       <div class="m-edit-box-head">
@@ -718,6 +697,17 @@
         </div>
         <div class="m-edit-box-content m-edit-box-content-margin-large">
           <div class="m-edit-box-item-max">
+            <div class="button-group button-group">
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:reset" tabindex="1"><span class="icon-renew"></span><span class="button-text">Reset</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:sort" tabindex="1"><span class="icon-sort-az"></span><span class="button-text">Sort</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:remove" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-close"></span><span class="button-text">Remove</span></button>
+            </div>
+            <div class="button-group button-group">
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:prepare" tabindex="1"><span class="icon-radio-button-checked"></span><span class="button-text">Prepare</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:unprepare" tabindex="1"><span class="icon-refresh"></span><span class="button-text">Unprepare</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:cast" tabindex="1"><span class="icon-radio-button-unchecked"></span><span class="button-text">Cast</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:active" tabindex="1"><span class="icon-play-arrow"></span><span class="button-text">Active</span></button>
+            </div>
             <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-4"></div>
             <div class="m-placeholder js-placeholder-spell-level-4">
               <p class="m-placeholder-description u-muted-text">Add Level 4 Spells using <strong class="m-placeholder-key">Spell search</strong>.</p>
@@ -732,19 +722,6 @@
 
 <div class="m-tab-panel js-tab-panel js-tab-panel-spell-level-5 is-hidden">
   <div class="m-spell-book js-spell-book" data-spell-book-options="path:spells.book[5]level_5,level:#5">
-
-    <div class="m-edit-controls button-group button-group-right">
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:prepare" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-radio-button-checked"></span><span class="button-text">Prepare</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:unprepare" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-refresh"></span><span class="button-text">Unprepare</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:cast" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-radio-button-unchecked"></span><span class="button-text">Cast</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:active" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-play-arrow"></span><span class="button-text">Active</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:remove" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-close"></span><span class="button-text">Remove</span></button>
-    </div>
-
-    <div class="button-group button-group-right">
-      <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:reset" tabindex="1"><span class="icon-renew"></span><span class="button-text">Reset</span></button>
-      <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:sort" tabindex="1"><span class="icon-sort-az"></span><span class="button-text">Sort</span></button>
-    </div>
 
     <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
       <div class="m-edit-box-head">
@@ -841,6 +818,17 @@
         </div>
         <div class="m-edit-box-content m-edit-box-content-margin-large">
           <div class="m-edit-box-item-max">
+            <div class="button-group button-group">
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:reset" tabindex="1"><span class="icon-renew"></span><span class="button-text">Reset</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:sort" tabindex="1"><span class="icon-sort-az"></span><span class="button-text">Sort</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:remove" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-close"></span><span class="button-text">Remove</span></button>
+            </div>
+            <div class="button-group button-group">
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:prepare" tabindex="1"><span class="icon-radio-button-checked"></span><span class="button-text">Prepare</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:unprepare" tabindex="1"><span class="icon-refresh"></span><span class="button-text">Unprepare</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:cast" tabindex="1"><span class="icon-radio-button-unchecked"></span><span class="button-text">Cast</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:active" tabindex="1"><span class="icon-play-arrow"></span><span class="button-text">Active</span></button>
+            </div>
             <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-5"></div>
             <div class="m-placeholder js-placeholder-spell-level-5">
               <p class="m-placeholder-description u-muted-text">Add Level 5 Spells using <strong class="m-placeholder-key">Spell search</strong>.</p>
@@ -855,19 +843,6 @@
 
 <div class="m-tab-panel js-tab-panel js-tab-panel-spell-level-6 is-hidden">
   <div class="m-spell-book js-spell-book" data-spell-book-options="path:spells.book[6]level_6,level:#6">
-
-    <div class="m-edit-controls button-group button-group-right">
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:prepare" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-radio-button-checked"></span><span class="button-text">Prepare</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:unprepare" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-refresh"></span><span class="button-text">Unprepare</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:cast" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-radio-button-unchecked"></span><span class="button-text">Cast</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:active" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-play-arrow"></span><span class="button-text">Active</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:remove" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-close"></span><span class="button-text">Remove</span></button>
-    </div>
-
-    <div class="button-group button-group-right">
-      <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:reset" tabindex="1"><span class="icon-renew"></span><span class="button-text">Reset</span></button>
-      <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:sort" tabindex="1"><span class="icon-sort-az"></span><span class="button-text">Sort</span></button>
-    </div>
 
     <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
       <div class="m-edit-box-head">
@@ -964,6 +939,17 @@
         </div>
         <div class="m-edit-box-content m-edit-box-content-margin-large">
           <div class="m-edit-box-item-max">
+            <div class="button-group button-group">
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:reset" tabindex="1"><span class="icon-renew"></span><span class="button-text">Reset</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:sort" tabindex="1"><span class="icon-sort-az"></span><span class="button-text">Sort</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:remove" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-close"></span><span class="button-text">Remove</span></button>
+            </div>
+            <div class="button-group button-group">
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:prepare" tabindex="1"><span class="icon-radio-button-checked"></span><span class="button-text">Prepare</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:unprepare" tabindex="1"><span class="icon-refresh"></span><span class="button-text">Unprepare</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:cast" tabindex="1"><span class="icon-radio-button-unchecked"></span><span class="button-text">Cast</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:active" tabindex="1"><span class="icon-play-arrow"></span><span class="button-text">Active</span></button>
+            </div>
             <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-6"></div>
             <div class="m-placeholder js-placeholder-spell-level-6">
               <p class="m-placeholder-description u-muted-text">Add Level 6 Spells using <strong class="m-placeholder-key">Spell search</strong>.</p>
@@ -978,19 +964,6 @@
 
 <div class="m-tab-panel js-tab-panel js-tab-panel-spell-level-7 is-hidden">
   <div class="m-spell-book js-spell-book" data-spell-book-options="path:spells.book[7]level_7,level:#7">
-
-    <div class="m-edit-controls button-group button-group-right">
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:prepare" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-radio-button-checked"></span><span class="button-text">Prepare</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:unprepare" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-refresh"></span><span class="button-text">Unprepare</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:cast" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-radio-button-unchecked"></span><span class="button-text">Cast</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:active" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-play-arrow"></span><span class="button-text">Active</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:remove" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-close"></span><span class="button-text">Remove</span></button>
-    </div>
-
-    <div class="button-group button-group-right">
-      <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:reset" tabindex="1"><span class="icon-renew"></span><span class="button-text">Reset</span></button>
-      <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:sort" tabindex="1"><span class="icon-sort-az"></span><span class="button-text">Sort</span></button>
-    </div>
 
     <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
       <div class="m-edit-box-head">
@@ -1087,6 +1060,17 @@
         </div>
         <div class="m-edit-box-content m-edit-box-content-margin-large">
           <div class="m-edit-box-item-max">
+            <div class="button-group button-group">
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:reset" tabindex="1"><span class="icon-renew"></span><span class="button-text">Reset</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:sort" tabindex="1"><span class="icon-sort-az"></span><span class="button-text">Sort</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:remove" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-close"></span><span class="button-text">Remove</span></button>
+            </div>
+            <div class="button-group button-group">
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:prepare" tabindex="1"><span class="icon-radio-button-checked"></span><span class="button-text">Prepare</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:unprepare" tabindex="1"><span class="icon-refresh"></span><span class="button-text">Unprepare</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:cast" tabindex="1"><span class="icon-radio-button-unchecked"></span><span class="button-text">Cast</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:active" tabindex="1"><span class="icon-play-arrow"></span><span class="button-text">Active</span></button>
+            </div>
             <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-7"></div>
             <div class="m-placeholder js-placeholder-spell-level-7">
               <p class="m-placeholder-description u-muted-text">Add Level 7 Spells using <strong class="m-placeholder-key">Spell search</strong>.</p>
@@ -1101,19 +1085,6 @@
 
 <div class="m-tab-panel js-tab-panel js-tab-panel-spell-level-8 is-hidden">
   <div class="m-spell-book js-spell-book" data-spell-book-options="path:spells.book[8]level_8,level:#8">
-
-    <div class="m-edit-controls button-group button-group-right">
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:prepare" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-radio-button-checked"></span><span class="button-text">Prepare</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:unprepare" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-refresh"></span><span class="button-text">Unprepare</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:cast" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-radio-button-unchecked"></span><span class="button-text">Cast</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:active" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-play-arrow"></span><span class="button-text">Active</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:remove" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-close"></span><span class="button-text">Remove</span></button>
-    </div>
-
-    <div class="button-group button-group-right">
-      <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:reset" tabindex="1"><span class="icon-renew"></span><span class="button-text">Reset</span></button>
-      <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:sort" tabindex="1"><span class="icon-sort-az"></span><span class="button-text">Sort</span></button>
-    </div>
 
     <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
       <div class="m-edit-box-head">
@@ -1210,6 +1181,17 @@
         </div>
         <div class="m-edit-box-content m-edit-box-content-margin-large">
           <div class="m-edit-box-item-max">
+            <div class="button-group button-group">
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:reset" tabindex="1"><span class="icon-renew"></span><span class="button-text">Reset</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:sort" tabindex="1"><span class="icon-sort-az"></span><span class="button-text">Sort</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:remove" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-close"></span><span class="button-text">Remove</span></button>
+            </div>
+            <div class="button-group button-group">
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:prepare" tabindex="1"><span class="icon-radio-button-checked"></span><span class="button-text">Prepare</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:unprepare" tabindex="1"><span class="icon-refresh"></span><span class="button-text">Unprepare</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:cast" tabindex="1"><span class="icon-radio-button-unchecked"></span><span class="button-text">Cast</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:active" tabindex="1"><span class="icon-play-arrow"></span><span class="button-text">Active</span></button>
+            </div>
             <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-8"></div>
             <div class="m-placeholder js-placeholder-spell-level-8">
               <p class="m-placeholder-description u-muted-text">Add Level 8 Spells using <strong class="m-placeholder-key">Spell search</strong>.</p>
@@ -1224,19 +1206,6 @@
 
 <div class="m-tab-panel js-tab-panel js-tab-panel-spell-level-9 is-hidden">
   <div class="m-spell-book js-spell-book" data-spell-book-options="path:spells.book[9]level_9,level:#9">
-
-    <div class="m-edit-controls button-group button-group-right">
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:prepare" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-radio-button-checked"></span><span class="button-text">Prepare</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:unprepare" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-refresh"></span><span class="button-text">Unprepare</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:cast" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-radio-button-unchecked"></span><span class="button-text">Cast</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:active" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-play-arrow"></span><span class="button-text">Active</span></button>
-      <button type="button" class="button button-medium button-secondary button-icon js-spell-control" data-spell-control-options="action:changeState,state:remove" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-close"></span><span class="button-text">Remove</span></button>
-    </div>
-
-    <div class="button-group button-group-right">
-      <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:reset" tabindex="1"><span class="icon-renew"></span><span class="button-text">Reset</span></button>
-      <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:sort" tabindex="1"><span class="icon-sort-az"></span><span class="button-text">Sort</span></button>
-    </div>
 
     <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
       <div class="m-edit-box-head">
@@ -1333,6 +1302,17 @@
         </div>
         <div class="m-edit-box-content m-edit-box-content-margin-large">
           <div class="m-edit-box-item-max">
+            <div class="button-group button-group">
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:reset" tabindex="1"><span class="icon-renew"></span><span class="button-text">Reset</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:sort" tabindex="1"><span class="icon-sort-az"></span><span class="button-text">Sort</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:remove" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-close"></span><span class="button-text">Remove</span></button>
+            </div>
+            <div class="button-group button-group">
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:prepare" tabindex="1"><span class="icon-radio-button-checked"></span><span class="button-text">Prepare</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:unprepare" tabindex="1"><span class="icon-refresh"></span><span class="button-text">Unprepare</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:cast" tabindex="1"><span class="icon-radio-button-unchecked"></span><span class="button-text">Cast</span></button>
+              <button type="button" class="button button-medium button-icon js-spell-control" data-spell-control-options="action:changeState,state:active" tabindex="1"><span class="icon-play-arrow"></span><span class="button-text">Active</span></button>
+            </div>
             <div class="m-spell-book-known js-spell-book-known js-spell-book-known-level-9"></div>
             <div class="m-placeholder js-placeholder-spell-level-9">
               <p class="m-placeholder-description u-muted-text">Add Level 9 Spells using <strong class="m-placeholder-key">Spell search</strong>.</p>

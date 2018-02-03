@@ -1037,25 +1037,24 @@ var spells = (function() {
       for (var i = 0; i < all_spellControl.length; i++) {
         if (all_spellControl[i].classList.contains("button-primary")) {
           helper.removeClass(all_spellControl[i], "button-primary");
-          helper.addClass(all_spellControl[i], "button-secondary");
         };
-        if (all_spellControl[i].classList.contains("is-live")) {
-          helper.removeClass(all_spellControl[i], "is-live");
+        if (all_spellControl[i].classList.contains("button-secondary")) {
+          helper.removeClass(all_spellControl[i], "button-secondary");
         };
       };
     };
     var _activateControl = function() {
       if (_spellState.get(spellBookOptions.level) == "remove") {
-        helper.removeClass(button, "button-secondary");
         helper.addClass(button, "button-primary");
       } else if (_spellState.get(spellBookOptions.level) == null) {
-        helper.addClass(button, "button-secondary");
         helper.removeClass(button, "button-primary");
       };
       if (_spellState.get(spellBookOptions.level) == "prepare" || _spellState.get(spellBookOptions.level) == "unprepare" || _spellState.get(spellBookOptions.level) == "cast" || _spellState.get(spellBookOptions.level) == "active") {
-        helper.addClass(button, "is-live");
+        // helper.addClass(button, "is-live");
+        helper.addClass(button, "button-secondary");
       } else if (_spellState.get(spellBookOptions.level) == null) {
-        helper.removeClass(button, "is-live");
+        // helper.removeClass(button, "is-live");
+        helper.removeClass(button, "button-secondary");
       };
     };
     if (_spellState.get(spellBookOptions.level) != null) {
@@ -1073,11 +1072,11 @@ var spells = (function() {
       for (var i = 0; i < all_spellControl.length; i++) {
         if (all_spellControl[i].classList.contains("button-primary")) {
           helper.removeClass(all_spellControl[i], "button-primary");
-          helper.addClass(all_spellControl[i], "button-secondary");
+          helper.removeClass(all_spellControl[i], "button-secondary");
         };
-        if (all_spellControl[i].classList.contains("is-live")) {
-          helper.removeClass(all_spellControl[i], "is-live");
-        };
+        // if (all_spellControl[i].classList.contains("is-live")) {
+        //   helper.removeClass(all_spellControl[i], "is-live");
+        // };
       };
       _render_stateSpellBook(spellBook, spellBookOptions.level);
     };
