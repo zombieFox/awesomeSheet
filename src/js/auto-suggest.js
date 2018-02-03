@@ -128,6 +128,7 @@ var autoSuggest = (function() {
             };
             destroy();
             sheet.store();
+            _cuurentInput.focus();
           }, false);
 
           var string = arrayItem.name;
