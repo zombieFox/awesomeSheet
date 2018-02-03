@@ -1380,6 +1380,8 @@ var nif = (function() {
           half_level: false
         }
       },
+      specialty: "",
+      opposition: "",
       spell_notes: "<strong>Arcane school</strong> Conjuration (Teleportation).<br><strong>Opposition Arcane school</strong> Enchantment, Necromancy.<br>Conjuration spells +2 DC.<br>+2 on caster level checks to overcome spell resistance.",
       per_day: {
         level_0: 4,

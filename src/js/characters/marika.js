@@ -1345,6 +1345,8 @@ var marika = (function() {
           half_level: false
         }
       },
+      specialty: "",
+      opposition: "",
       spell_notes: "",
       per_day: {
         level_0: "",

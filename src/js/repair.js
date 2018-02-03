@@ -846,6 +846,21 @@ var repair = (function() {
       characterObject.basics.initiative.trait = "";
     };
     // --------------------------------------------------
+    // repair spell specialty and opposition
+    if (!("opposition" in characterObject.spells)) {
+      if (debug) {
+        console.log("\trepair spell opposition");
+      };
+      characterObject.spells.opposition = "";
+    };
+    // --------------------------------------------------
+    if (!("specialty" in characterObject.spells)) {
+      if (debug) {
+        console.log("\trepair spell specialty");
+      };
+      characterObject.spells.specialty = "";
+    };
+    // --------------------------------------------------
     // sheet.store();
     return characterObject;
   };

@@ -1382,6 +1382,8 @@ var izlara = (function() {
           half_level: false
         }
       },
+      specialty: "",
+      opposition: "",
       spell_notes: "+2 on caster level checks to overcome spell resistance.",
       per_day: {
         level_0: 4,
