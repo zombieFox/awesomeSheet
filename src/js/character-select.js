@@ -81,28 +81,11 @@ var characterSelect = (function() {
       sheet.export();
       page.update();
     }, false);
-  }
-
-  function _bind_shortcutKeys() {
-    window.addEventListener("keydown", function(event) {
-      // console.log(event.keyCode);
-      // esc
-      if (event.keyCode == 27) {
-        close();
-        page.update();
-      };
-      // ctrl+alt+c
-      if (event.ctrlKey && event.altKey && event.keyCode == 67) {
-        toggle();
-        page.update();
-      };
-    }, false);
   };
 
   function bind() {
     _bind_characterSelectToggle();
     _bind_characterSelectControls();
-    _bind_shortcutKeys();
   };
 
   function toggle() {

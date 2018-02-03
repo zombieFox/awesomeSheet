@@ -57,6 +57,7 @@ hr {
   clear: both;
 }
 b,
+caption,
 strong {
   font-family: $open-sans-semi-bold;
 }
@@ -92,15 +93,15 @@ ul:not(:last-child) {
 }
 li {
   margin: 0;
-  > ul,
-  > ol {
+  > ol,
+  > ul {
     margin: 0;
   }
 }
 li:not(:last-child) {
   margin-bottom: 0.5em;
-  > ul:not(:last-child),
-  > ol:not(:last-child) {
+  > ol:not(:last-child),
+  > ul:not(:last-child) {
     margin-bottom: 0.5em;
   }
 }
@@ -112,8 +113,9 @@ table {
   border-spacing: 0;
   thead {
     tr {
-      td {
-        padding: $font-size-050;
+      td,
+      th {
+        padding: 0.5em;
         margin: 0;
         border: 0;
         text-align: left;
@@ -128,12 +130,26 @@ table {
       &:nth-child(odd) {
         background-color: $gray-20;
       }
-      td {
-        padding: $font-size-050;
+      td,
+      th {
+        padding: 0.5em;
         margin: 0;
         border: 0;
         text-align: left;
         box-sizing: border-box;
+      }
+    }
+  }
+  tfoot {
+    tr {
+      td,
+      th {
+        padding: 0.5em;
+        margin: 0;
+        border: 0;
+        text-align: left;
+        box-sizing: border-box;
+        font-size: $font-size-075;
       }
     }
   }

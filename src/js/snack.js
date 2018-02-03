@@ -90,14 +90,6 @@ var snack = (function() {
     _checkBodyForSnack();
   };
 
-  function bind() {
-    window.addEventListener("keydown", function(event) {
-      if (event.keyCode == 27) {
-        destroy();
-      };
-    }, false);
-  };
-
   function _checkBodyForSnack() {
     var body = helper.e("body");
     var snackBar = helper.e(".js-snack-bar");
@@ -110,7 +102,6 @@ var snack = (function() {
 
   // exposed methods
   return {
-    bind: bind,
     destroy: destroy,
     render: render
   };

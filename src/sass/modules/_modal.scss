@@ -17,6 +17,7 @@
 }
 .m-modal-large {
   width: 65em;
+  max-width: calc(100% - 2em);
 }
 .m-modal-small {
   width: 25em;
@@ -40,7 +41,7 @@
   border-bottom: 1em solid transparent;
   border-bottom-color: $white;
   padding: 2em;
-  max-height: calc(80vh - 3.6666666667em);
+  max-height: calc(90vh - 3.6666666667em);
   overflow: scroll;
   box-sizing: border-box;
   z-index: 1;
@@ -68,8 +69,8 @@
 }
 .is-night-mode {
   .m-modal-body {
-    background-color: $gray-03;
-    border-bottom-color: $gray-03;
+    background-color: $gray-02;
+    border-bottom-color: $gray-02;
   }
 }
 // --------------------------------------------------
@@ -78,6 +79,10 @@
 @media (min-width: $screen-sm) {}
 @media (min-width: $screen-md) {
   .m-modal {
+    max-width: calc(100% - 4em);
+  }
+  .m-modal-large {
+    width: 55em;
     max-width: calc(100% - 4em);
   }
 }

@@ -17,9 +17,6 @@ var repair = (function() {
                 if (debug) {
                   console.log("\trepair spell notes");
                 };
-                if (debug) {
-                  console.log("\tspell notes not found");
-                };
                 characterObject.spells.book[i][j][k].note = "";
               };
             };

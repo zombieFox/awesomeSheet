@@ -1,8 +1,9 @@
 var inputBlock = (function() {
 
-  var storeInputTimer = null;
-  var updateNavTimer = null;
-  var updateWealthTimer = null;
+  var _timer_store = null;
+  var _timer_updateNav = null;
+  var _timer_delayWealth = null;
+  var _timer_autoSuggest = null;
 
   function bind(inputBlock) {
     if (inputBlock) {
@@ -32,8 +33,8 @@ var inputBlock = (function() {
     var input = inputBlock.querySelector(".js-input-block-field");
     if (input) {
       input.addEventListener("input", function() {
-        clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 300, this);
+        clearTimeout(_timer_store);
+        _timer_store = setTimeout(delayStoreUpdate, 300, this);
       }, false);
       input.addEventListener("focus", function() {
         _focus(this);
@@ -56,7 +57,7 @@ var inputBlock = (function() {
   };
 
   function bind_inputBlockIncrement(inputBlockIncrement) {
-    inputBlockIncrement.addEventListener("click", function() {
+    inputBlockIncrement.addEventListener("click", function(event) {
       _increment(this, event);
       xp.render();
       wealth.render();
@@ -76,7 +77,7 @@ var inputBlock = (function() {
   function _bind_inputBlockAggregate(inputBlockAggregate) {
     var input = inputBlockAggregate.querySelector(".js-input-block-field");
     if (input) {
-      input.addEventListener("keydown", function() {
+      input.addEventListener("keydown", function(event) {
         // if enter
         if (event.keyCode == 13) {
           _render_aggregate(this);
@@ -145,24 +146,24 @@ var inputBlock = (function() {
     var inputBlock = helper.e(".js-basics-name");
     var input = inputBlock.querySelector(".js-input-block-field");
     input.addEventListener("input", function() {
-      clearTimeout(updateNavTimer);
-      updateNavTimer = setTimeout(characterSelect.update, 300, this);
+      clearTimeout(_timer_updateNav);
+      _timer_updateNav = setTimeout(characterSelect.update, 300, this);
     }, false);
   };
 
   function bind_classLevel(inputBlock) {
     var input = inputBlock.querySelector(".js-input-block-field");
     input.addEventListener("input", function() {
-      clearTimeout(updateNavTimer);
-      updateNavTimer = setTimeout(characterSelect.update, 300, this);
+      clearTimeout(_timer_updateNav);
+      _timer_updateNav = setTimeout(characterSelect.update, 300, this);
     }, false);
   };
 
   function bind_wealth(inputBlock) {
     var input = inputBlock.querySelector(".js-input-block-field");
     input.addEventListener("input", function() {
-      clearTimeout(updateWealthTimer);
-      updateWealthTimer = setTimeout(function() {
+      clearTimeout(_timer_delayWealth);
+      _timer_delayWealth = setTimeout(function() {
         wealth.render();
         textBlock.render();
       }, 300, this);
@@ -193,7 +194,7 @@ var inputBlock = (function() {
     };
   };
 
-  function delayUpdate(element) {
+  function delayStoreUpdate(element) {
     _store(element);
     xp.render();
     wealth.render();

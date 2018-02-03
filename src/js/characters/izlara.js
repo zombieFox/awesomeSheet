@@ -1624,112 +1624,130 @@ var izlara = (function() {
       book: [{
         level_0: [{
           name: "Acid Splash",
+          note: "",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          index: 23
         }, {
           name: "Arcane Mark",
+          note: "",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          index: 135
         }, {
           name: "Dancing Lights",
+          note: "",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          index: 608
         }, {
           name: "Detect Magic",
+          note: "",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          index: 691
         }, {
           name: "Detect Poison",
+          note: "",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          index: 695
         }, {
           name: "Flare",
+          note: "",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          index: 975
         }, {
           name: "Ghost Sound",
+          note: "",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          index: 1074
         }, {
           name: "Haunted Fey Aspect",
+          note: "",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          index: 1151
         }, {
           name: "Light",
+          note: "",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          index: 1431
         }, {
           name: "Mage Hand",
+          note: "",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          index: 1491
         }, {
           name: "Mending",
+          note: "",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          index: 1564
         }, {
           name: "Message",
+          note: "",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          index: 1572
         }, {
           name: "Open/Close",
+          note: "",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          index: 1696
         }, {
           name: "Prestidigitation",
+          note: "",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          index: 1835
         }, {
           name: "Ray of Frost",
+          note: "",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          index: 1916
         }, {
           name: "Read Magic",
+          note: "",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          index: 1918
         }, {
           name: "Resistance",
+          note: "",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          index: 1980
         }, {
           name: "Spark",
+          note: "",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          index: 2267
         }]
       }, {
         level_1: [{

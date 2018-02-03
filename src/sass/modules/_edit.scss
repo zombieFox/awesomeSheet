@@ -230,6 +230,7 @@
       }
     }
     .m-check-block,
+    .m-auto-suggest,
     .m-input-block,
     .m-input-file-block,
     .m-radio-block,
@@ -239,6 +240,7 @@
         z-index: 4;
       }
       .m-check-block-check-icon,
+      .m-auto-suggest-field,
       .m-input-block-field,
       .m-input-file-block-field,
       .m-radio-block-radio-icon,
@@ -251,6 +253,7 @@
     }
     &:hover {
       .m-check-block,
+      .m-auto-suggest,
       .m-input-block,
       .m-input-file-block,
       .m-radio-block,
@@ -279,6 +282,11 @@
       }
       .m-input-block {
         .m-input-block-field {
+          border-radius: $border-radius-large 0 0 $border-radius-large;
+        }
+      }
+      .m-auto-suggest {
+        .m-auto-suggest-field {
           border-radius: $border-radius-large 0 0 $border-radius-large;
         }
       }
@@ -312,6 +320,11 @@
           border-radius: 0 $border-radius-large $border-radius-large 0;
         }
       }
+      .m-auto-suggest {
+        .m-auto-suggest-field {
+          border-radius: 0 $border-radius-large $border-radius-large 0;
+        }
+      }
       .m-input-file-block {
         .m-input-file-block-label {
           border-radius: 0 $border-radius-large $border-radius-large 0;
@@ -339,6 +352,11 @@
       }
       .m-input-block {
         .m-input-block-field {
+          border-radius: $border-radius-large;
+        }
+      }
+      .m-auto-suggest {
+        .m-auto-suggest-field {
           border-radius: $border-radius-large;
         }
       }

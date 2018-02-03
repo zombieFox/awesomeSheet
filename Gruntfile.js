@@ -15,13 +15,13 @@ module.exports = function(grunt) {
     copy: {
       dev: {
         cwd: '<%= folders.src %>/',
-        src: ['{images,fonts,js}/**/*', 'bower_components/**/*.js', 'manifest.json'],
+        src: ['{images,fonts,js,db}/**/*', 'bower_components/**/*.js', 'manifest.json'],
         dest: '<%= folders.dev %>/',
         expand: true
       },
       build: {
         cwd: '<%= folders.src %>/',
-        src: ['{images,fonts,js}/**/*', 'bower_components/**/*.js', 'manifest.json'],
+        src: ['{images,fonts,js,db}/**/*', 'bower_components/**/*.js', 'manifest.json'],
         dest: '<%= folders.build %>/',
         expand: true
       },
@@ -59,6 +59,7 @@ module.exports = function(grunt) {
         src: [
           '<%= folders.build %>/js/strict.js',
           '<%= folders.build %>/js/helper.js',
+          '<%= folders.build %>/js/auto-suggest.js',
           '<%= folders.build %>/js/card.js',
           '<%= folders.build %>/js/characters/blank.js',
           '<%= folders.build %>/js/characters/izlara.js',
@@ -69,7 +70,7 @@ module.exports = function(grunt) {
           '<%= folders.build %>/js/characters/orrin.js',
           '<%= folders.build %>/js/characters/ro.js',
           '<%= folders.build %>/js/characters/vos.js',
-          '<%= folders.build %>/js/hardCodedCharacters.js',
+          '<%= folders.build %>/js/hard-coded-characters.js',
           '<%= folders.build %>/js/character-image.js',
           '<%= folders.build %>/js/character-select.js',
           '<%= folders.build %>/js/check-block.js',
@@ -103,6 +104,7 @@ module.exports = function(grunt) {
           '<%= folders.build %>/js/skills.js',
           '<%= folders.build %>/js/snack.js',
           '<%= folders.build %>/js/spells.js',
+          '<%= folders.build %>/js/spells-data.js',
           '<%= folders.build %>/js/stats.js',
           '<%= folders.build %>/js/tabs.js',
           '<%= folders.build %>/js/text-block.js',
@@ -209,7 +211,7 @@ module.exports = function(grunt) {
         }
       },
       assets: {
-        files: ['<%= folders.src %>/{images,fonts,js}/**/*', '<%= folders.src %>/manifest.json'],
+        files: ['<%= folders.src %>/{images,fonts,js,db}/**/*', '<%= folders.src %>/manifest.json'],
         tasks: ['copy:dev'],
         options: {
           livereload: true
@@ -299,6 +301,7 @@ module.exports = function(grunt) {
         staticFileGlobs: [
           '**/*.html',
           '**/*.json',
+          'db/**/*.csv',
           'css/**/*.css',
           'fonts/**/*.{woff,ttf,svg,eot,woff,woff2}',
           'images/**/*.{gif,png,jpg}',
