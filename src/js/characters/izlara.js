@@ -1626,129 +1626,129 @@ var izlara = (function() {
       book: [{
         level_0: [{
           name: "Acid Splash",
-          note: "",
           prepared: 0,
           active: false,
           cast: 0,
+          note: "",
           index: 23
         }, {
           name: "Arcane Mark",
-          note: "",
           prepared: 0,
           active: false,
           cast: 0,
+          note: "",
           index: 135
         }, {
           name: "Dancing Lights",
-          note: "",
           prepared: 1,
           active: false,
           cast: 0,
+          note: "",
           index: 608
         }, {
           name: "Detect Magic",
-          note: "",
           prepared: 1,
           active: false,
           cast: 0,
+          note: "",
           index: 691
         }, {
           name: "Detect Poison",
-          note: "",
           prepared: 0,
           active: false,
           cast: 0,
+          note: "",
           index: 695
         }, {
           name: "Flare",
-          note: "",
           prepared: 0,
           active: false,
           cast: 0,
+          note: "",
           index: 975
         }, {
           name: "Ghost Sound",
-          note: "",
           prepared: 0,
           active: false,
           cast: 0,
+          note: "",
           index: 1074
         }, {
           name: "Haunted Fey Aspect",
-          note: "",
           prepared: 0,
           active: false,
           cast: 0,
+          note: "",
           index: 1151
         }, {
           name: "Light",
-          note: "",
           prepared: 0,
           active: false,
           cast: 0,
+          note: "",
           index: 1431
         }, {
           name: "Mage Hand",
-          note: "",
           prepared: 0,
           active: false,
           cast: 0,
+          note: "",
           index: 1491
         }, {
           name: "Mending",
-          note: "",
           prepared: 0,
           active: false,
           cast: 0,
+          note: "",
           index: 1564
         }, {
           name: "Message",
-          note: "",
           prepared: 1,
           active: false,
           cast: 0,
+          note: "",
           index: 1572
         }, {
           name: "Open/Close",
-          note: "",
           prepared: 0,
           active: false,
           cast: 0,
+          note: "",
           index: 1696
         }, {
           name: "Prestidigitation",
-          note: "",
           prepared: 0,
           active: false,
           cast: 0,
+          note: "",
           index: 1835
         }, {
           name: "Ray of Frost",
-          note: "",
           prepared: 0,
           active: false,
           cast: 0,
+          note: "",
           index: 1916
         }, {
           name: "Read Magic",
-          note: "",
           prepared: 1,
           active: false,
           cast: 0,
+          note: "",
           index: 1918
         }, {
           name: "Resistance",
-          note: "",
           prepared: 0,
           active: false,
           cast: 0,
+          note: "",
           index: 1980
         }, {
           name: "Spark",
-          note: "",
           prepared: 0,
           active: false,
           cast: 0,
+          note: "",
           index: 2267
         }]
       }, {
@@ -1757,109 +1757,127 @@ var izlara = (function() {
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1851
         }, {
           name: "Protection From Evil",
           prepared: 2,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1855
         }, {
           name: "Protection From Good",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1857
         }, {
           name: "Protection From Law",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1859
         }, {
           name: "Hold Portal",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1208
         }, {
           name: "Grease",
           prepared: 2,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1117
         }, {
           name: "Mage Armor",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1490
         }, {
           name: "Mount",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1630
         }, {
           name: "Obscuring Mist",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1688
         }, {
           name: "Summon Monster I",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2408
         }, {
           name: "Unseen Servant",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2677
         }, {
           name: "Comprehend Languages",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 480
         }, {
           name: "Detect Secret Doors",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 700
         }, {
           name: "Detect Undead",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 704
         }, {
           name: "Color Spray",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 463
         }, {
           name: "Silent Image",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2216
         }, {
           name: "Enlarge Person",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 854
         }, {
           name: "Feather Fall",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 929
         }]
       }, {
         level_2: [{
@@ -1867,97 +1885,113 @@ var izlara = (function() {
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1977
         }, {
           name: "Glitterdust",
           prepared: 2,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1092
         }, {
           name: "Summon Monster II",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2409
         }, {
           name: "Web",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2781
         }, {
           name: "Detect Thoughts",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 703
         }, {
           name: "See Invisibility",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2107
         }, {
           name: "Flaming Sphere",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 973
         }, {
           name: "Invisibility",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1347
         }, {
           name: "Minor Image",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1601
         }, {
           name: "Mirror Image",
           prepared: 2,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1606
         }, {
           name: "Levitate",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1418
         }, {
           name: "Darkvision",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 613
         }, {
           name: "Make Whole",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1526
         }, {
           name: "Pyrotechnics",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1892
         }, {
           name: "Rope Trick",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2028
         }, {
           name: "Create Pit",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 550
         }]
       }, {
         level_3: [{
@@ -1965,109 +1999,127 @@ var izlara = (function() {
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 742
         }, {
           name: "Magic Circle Against Chaos",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1503
         }, {
           name: "Magic Circle Against Evil",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1504
         }, {
           name: "Magic Circle Against Good",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1505
         }, {
           name: "Magic Circle Against Law",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1506
         }, {
           name: "Phantom Steed",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1766
         }, {
           name: "Sleet Storm",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2236
         }, {
           name: "Stinking Cloud",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2344
         }, {
           name: "Summon Monster III",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2410
         }, {
           name: "Tiny Hut",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2563
         }, {
           name: "Wind Wall",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2799
         }, {
           name: "Fireball",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 961
         }, {
           name: "Fly",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 996
         }, {
           name: "Haste",
           prepared: 2,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1150
         }, {
-          name: "Magic Weapon Greater",
+          name: "Magic Weapon, Greater",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1518
         }, {
           name: "Shrink Item",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2204
         }, {
           name: "Slow",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2239
         }, {
           name: "Spiked Pit",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2306
         }]
       }, {
         level_4: [{
@@ -2075,195 +2127,227 @@ var izlara = (function() {
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 714
         }, {
           name: "Black Tentacles",
           prepared: 2,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 241
         }, {
           name: "Dimension Door",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 713
         }, {
           name: "Summon Monster IV",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2411
         }, {
           name: "Arcane Eye",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 133
         }, {
           name: "Confusion",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 488
         }, {
           name: "Resilient Sphere",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1975
         }, {
-          name: "Wall of Fire",
+          name: "Wall Of Fire",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2744
         }, {
-          name: "Wall of Ice",
+          name: "Wall Of Ice",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2746
         }, {
           name: "Enervation",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 852
         }, {
           name: "Stone Shape",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2350
         }, {
           name: "Acid Pit",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 22
         }]
       }, {
         level_5: [{
-          name: "Mages Private Sanctum",
+          name: "Mage's Private Sanctum",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1498
         }, {
-          name: "Planar Binding Lesser",
+          name: "Planar Binding, Lesser",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1791
         }, {
           name: "Secret Chest",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2097
         }, {
           name: "Summon Monster V",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2413
         }, {
           name: "Teleport",
           prepared: 2,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2517
         }, {
-          name: "Wall of Stone",
+          name: "Wall Of Stone",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2754
         }, {
           name: "Contact Other Plane",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 502
         }, {
           name: "Prying Eyes",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1868
         }, {
           name: "Telepathic Bond",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2514
         }, {
-          name: "Wall of Force",
+          name: "Wall Of Force",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2745
         }, {
           name: "Persistent Image",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1748
         }, {
           name: "Sending",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2118
         }, {
           name: "Animal Growth",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 88
         }, {
           name: "Beast Shape III",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 211
         }, {
           name: "Overland Flight",
           prepared: 1,
           active: true,
           cast: 1,
-          note: ""
+          note: "",
+          index: 1706
         }, {
           name: "Polymorph",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1814
         }, {
           name: "Telekinesis",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2504
         }, {
           name: "Transmute Rock to Mud",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2607
         }, {
           name: "Permanency",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1744
         }, {
           name: "Hungry Pit",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1237
         }]
       }, {
         level_6: [{
@@ -2271,49 +2355,57 @@ var izlara = (function() {
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1789
         }, {
           name: "Summon Monster VI",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2414
         }, {
           name: "Antimagic Field",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 109
         }, {
-          name: "Dispel Magic Greater",
+          name: "Dispel Magic, Greater",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 743
         }, {
           name: "Contingency",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 509
         }, {
           name: "Forceful Hand",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1016
         }, {
           name: "Programmed Image",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1845
         }, {
           name: "Form of the Dragon I",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1025
         }]
       }, {
         level_7: []
