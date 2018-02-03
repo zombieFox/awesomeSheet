@@ -37,7 +37,7 @@ var helper = (function() {
   };
 
   function selectText(element) {
-    var node = helper.e(element);
+    var node = e(element);
     if (document.selection) {
       var range = document.body.createTextRange();
       range.moveToElementText(node);
@@ -80,6 +80,16 @@ var helper = (function() {
     } else {
       return string.substring(0, index) + newCharacter + string.substring(index + 1);
     };
+  };
+
+  function toTitleCase(string) {
+    return string.replace(/\w\S*/g, function(text) {
+      return text.charAt(0).toUpperCase() + text.substr(1).toLowerCase();
+    });
+  };
+
+  function capFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.substr(1);
   };
 
   function makeObject(string) {
@@ -166,7 +176,7 @@ var helper = (function() {
       newValue: null
     };
     if (options) {
-      var defaultOptions = helper.applyOptions(defaultOptions, options);
+      var defaultOptions = applyOptions(defaultOptions, options);
     };
     var address = _makeAddress(defaultOptions.path);
     var _setData = function() {
@@ -201,7 +211,7 @@ var helper = (function() {
       path: null
     };
     if (options) {
-      var defaultOptions = helper.applyOptions(defaultOptions, options);
+      var defaultOptions = applyOptions(defaultOptions, options);
     };
     var address = _makeAddress(defaultOptions.path);
     var _getData = function() {
@@ -429,6 +439,52 @@ var helper = (function() {
     };
   };
 
+  function loadJSON(jsonPath, callback) {
+    var xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/json");
+    xobj.open("GET", jsonPath, true);
+    xobj.onreadystatechange = function() {
+      if (xobj.readyState == 4 && xobj.status == "200") {
+        // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+        callback(xobj.responseText);
+      };
+    };
+    xobj.send(null);
+  };
+
+  function loadCsv(csvPath, callback) {
+    var xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/csv");
+    xobj.open("GET", csvPath, true);
+    xobj.onreadystatechange = function() {
+      if (xobj.readyState == 4 && xobj.status == "200") {
+        // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+        callback(xobj.responseText);
+      };
+    };
+    xobj.send(null);
+  };
+
+  function csvToJSON(string) {
+    var lines = string.split("\n");
+    // remove trailing spaces at end of each line
+    for (var i = 0; i < lines.length; i++) {
+      lines[i] = lines[i].substr(0, (lines[i].length - 1));
+    };
+    var keys = lines[0].split(/\|(?=\S)/);
+    var result = [];
+    for (var i = 1; i < lines.length; i++) {
+      var object = {};
+      var currentline = lines[i].split(/\|(?=\S)/);
+      // var currentline = lines[i].substr(0, (lines[i].length - 1)).split(/\|(?=\S)/);
+      for (var j = 0; j < keys.length; j++) {
+        object[keys[j]] = currentline[j];
+      };
+      result.push(object);
+    };
+    return JSON.parse(JSON.stringify(result));
+  };
+
   // exposed methods
   return {
     store: store,
@@ -458,7 +514,253 @@ var helper = (function() {
     getDateTime: getDateTime,
     getAverageColor: getAverageColor,
     applyOptions: applyOptions,
-    replaceAt: replaceAt
+    replaceAt: replaceAt,
+    toTitleCase: toTitleCase,
+    capFirstLetter: capFirstLetter,
+    loadJSON: loadJSON,
+    loadCsv: loadCsv,
+    csvToJSON: csvToJSON
+  };
+
+})();
+
+var autoSuggest = (function() {
+
+  var _timer_autoSuggest = null;
+  var _cuurentInput;
+
+  function _delayRender(input) {
+    render(input);
+  };
+
+  function bind() {
+    var all_autoSuggest = helper.eA(".js-auto-suggest");
+    for (var i = 0; i < all_autoSuggest.length; i++) {
+      _bind_autoSuggest(all_autoSuggest[i]);
+    };
+  };
+
+  function _bind_autoSuggest(autoSuggest) {
+    var input = autoSuggest.querySelector(".js-auto-suggest-field");
+    if (input) {
+      input.addEventListener("input", function() {
+        clearTimeout(_timer_autoSuggest);
+        _timer_autoSuggest = setTimeout(_delayRender, 200, this);
+      }, false);
+      input.addEventListener("keydown", function(event) {
+        if (event.keyCode == 13) {
+          destroy(this);
+        };
+      }, false);
+    };
+  };
+
+  function _navigateResults(event) {
+    var elementToFocus;
+    var currentFocus = null;
+    var all_anchor = helper.eA(".js-auto-suggest-link");
+    var _findInput = function() {
+      if (event.target.classList.contains("js-auto-suggest-field")) {
+        _cuurentInput = event.target;
+      };
+    };
+    var _findFocus = function() {
+      for (var i = 0; i < all_anchor.length; i++) {
+        if (all_anchor[i] == document.activeElement) {
+          currentFocus = i;
+        };
+      };
+    };
+    _findInput();
+    _findFocus();
+    // down key or tab key
+    if (event.keyCode == 40 || event.keyCode == 9) {
+      event.preventDefault();
+      if (currentFocus == null) {
+        elementToFocus = all_anchor[0];
+      } else {
+        if (currentFocus < all_anchor.length - 1) {
+          elementToFocus = all_anchor[currentFocus + 1];
+        } else {
+          elementToFocus = all_anchor[currentFocus];
+        };
+      };
+      elementToFocus.focus();
+    };
+    // up key or tab and shift key
+    if (event.keyCode == 38 || event.keyCode == 9 && event.shiftKey) {
+      event.preventDefault();
+      if (currentFocus == null) {
+        elementToFocus = _cuurentInput;
+      } else {
+        if (currentFocus == 0) {
+          elementToFocus = _cuurentInput;
+        } else if (currentFocus > 0) {
+          elementToFocus = all_anchor[currentFocus - 1];
+        } else {
+          elementToFocus = all_anchor[0];
+        };
+      };
+      elementToFocus.focus();
+    };
+  };
+
+  function _addDocumentEvent() {
+    document.addEventListener("click", _checkClick, false);
+    document.addEventListener("keydown", _navigateResults, false);
+  };
+
+  function _removeDocumentEvent() {
+    document.removeEventListener("click", _checkClick, false);
+    document.removeEventListener("keydown", _navigateResults, false);
+  };
+
+  function _checkClick(event) {
+    if (!(event.target.classList.contains("js-auto-suggest-field"))) {
+      destroy();
+    };
+  };
+
+  function destroy() {
+    var autoSuggestList = helper.e(".js-auto-suggest-list");
+    if (autoSuggestList) {
+      autoSuggestList.remove();
+    };
+    _removeDocumentEvent();
+  };
+
+  function render(input) {
+    _cuurentInput = input;
+    var searchTerm = _cuurentInput.value.replace(/^\s+/, "").replace(/\s+$/, "");
+    var body = helper.e("body");
+    var autoSuggest = helper.getClosest(_cuurentInput, ".js-auto-suggest");
+    var autoSuggestOptions = helper.makeObject(autoSuggest.dataset.autoSuggestOptions);
+    var suggestItems;
+
+    var _populateList = function(list) {
+      var _populateSpells = function() {
+        suggestItems.forEach(function(arrayItem) {
+          var li = document.createElement("li");
+          li.setAttribute("class", "m-auto-suggest-list-item");
+
+          var anchor = document.createElement("a");
+          anchor.setAttribute("href", "javascript:void(0)");
+          anchor.setAttribute("tabindex", 1);
+          anchor.setAttribute("class", "m-auto-suggest-link js-auto-suggest-link");
+          anchor.setAttribute("data-spells-data", "index:#" + arrayItem.index);
+          anchor.addEventListener("click", function() {
+            if (autoSuggestOptions.type == "spells") {
+              spells.add(_cuurentInput, arrayItem.index);
+            };
+            destroy();
+            sheet.store();
+            _cuurentInput.focus();
+          }, false);
+
+          var string = arrayItem.name;
+
+          var text = document.createElement("span");
+          text.setAttribute("class", "m-auto-suggest-text");
+
+          var result = document.createElement("span");
+          result.setAttribute("class", "m-auto-suggest-result");
+
+          var resultPartOneString = string.substr(0, (string.toLowerCase().indexOf(searchTerm.toLowerCase())));
+          var resultPartHighlightString = string.substr((string.toLowerCase().indexOf(searchTerm.toLowerCase())), searchTerm.length);
+          var resultPartTwoString = string.substr(((string.toLowerCase().indexOf(searchTerm.toLowerCase())) + searchTerm.length));
+
+          if (resultPartOneString.length > 0) {
+            var resultPartOne = document.createElement("strong");
+            resultPartOne.setAttribute("class", "m-auto-suggest-part");
+            resultPartOne.textContent = resultPartOneString;
+            result.appendChild(resultPartOne);
+          };
+
+          if (resultPartHighlightString.length > 0) {
+            var resultPartHighlight = document.createElement("strong");
+            resultPartHighlight.setAttribute("class", "m-auto-suggest-highlight");
+            resultPartHighlight.textContent = resultPartHighlightString;
+            result.appendChild(resultPartHighlight);
+          };
+
+          if (resultPartTwoString.length > 0) {
+            var resultPartTwo = document.createElement("strong");
+            resultPartTwo.setAttribute("class", "m-auto-suggest-part");
+            resultPartTwo.textContent = resultPartTwoString;
+            result.appendChild(resultPartTwo);
+          };
+
+          if (resultPartOneString.length > 0 || resultPartHighlightString.length > 0 || resultPartTwoString.length > 0) {
+            text.appendChild(result);
+          };
+
+          if (arrayItem.school) {
+            var resultMeta = document.createElement("i");
+            resultMeta.setAttribute("class", "m-auto-suggest-result-meta");
+            resultMeta.textContent = helper.capFirstLetter(arrayItem.school);
+            text.appendChild(resultMeta);
+          };
+
+          anchor.appendChild(text);
+
+          if (arrayItem.description) {
+            var textSub = document.createElement("span");
+            textSub.setAttribute("class", "m-auto-suggest-text-sub");
+            textSub.textContent = arrayItem.description;
+            anchor.appendChild(textSub);
+          };
+
+          li.appendChild(anchor);
+          list.appendChild(li);
+
+        });
+      };
+      if (autoSuggestOptions.type == "spells") {
+        _populateSpells();
+      };
+    };
+
+    var _render_autoSuggestList = function() {
+      var autoSuggestList = helper.e(".js-auto-suggest-list");
+      if (autoSuggestList) {
+        while (autoSuggestList.lastChild) {
+          autoSuggestList.removeChild(autoSuggestList.lastChild);
+        };
+      } else {
+        var style = {
+          left: _cuurentInput.getBoundingClientRect().left,
+          top: _cuurentInput.getBoundingClientRect().bottom + window.scrollY,
+          width: _cuurentInput.getBoundingClientRect().width
+        };
+        var autoSuggestList = document.createElement("ul");
+        autoSuggestList.setAttribute("class", "m-auto-suggest-list u-list-unstyled js-auto-suggest-list");
+        body.appendChild(autoSuggestList);
+        autoSuggestList.setAttribute("style", "width: " + style.width + "px; top: " + style.top + "px; left: " + style.left + "px;");
+        _addDocumentEvent();
+      };
+      _populateList(autoSuggestList);
+    };
+
+    if (searchTerm != "") {
+      if (autoSuggestOptions.type == "spells") {
+        suggestItems = spellsData.get({
+          name: searchTerm
+        });
+      };
+      if (suggestItems) {
+        _render_autoSuggestList();
+      } else {
+        destroy();
+      };
+    } else {
+      destroy();
+    };
+  };
+
+  // exposed methods
+  return {
+    bind: bind,
+    destroy: destroy
   };
 
 })();
@@ -1824,6 +2126,10 @@ var blank = (function() {
           half_level: false
         }
       },
+      school: "",
+      opposition: "",
+      domains: "",
+      bloodline: "",
       spell_notes: "",
       per_day: {
         level_0: "",
@@ -2245,7 +2551,7 @@ var izlara = (function() {
       feats: "Improved Initiative, Combat Casting, Craft Wondrous Item, Spell Focus (Conjuration), Extend Spell, Quicken Spell, Spell Penetration, Eschew materials",
       traits: "Reactionary, Magical Lineage (Overland Flight)",
       languages: "Abyssal, Aklo, Aquan, Auran, Celestial, Common, Druidic, Dwarven, Elven, Giant, Goblin, Gnoll, Halfling, Ignan, Infernal, Orc, Sylvan, Terran, Undercommon",
-      special_abilities: "Low-Light Vision, Elven Immunities, Elven Magic, Keen Senses, Weapon Familiarity, Arcane bond (Rat), Arcane School (Divination [Foresight]), Opposition Arcane School: Enchantment, Necromancy, Cantrips, Scribe scroll, Forewarned, Prescience, Foretell",
+      special_abilities: "Low-Light Vision, Elven Immunities, Elven Magic, Keen Senses, Weapon Familiarity, Arcane bond (Rat), Arcane School, Cantrips, Scribe scroll, Forewarned, Prescience, Foretell",
       power: [{
         name: "Prescience",
         current: 6,
@@ -3483,6 +3789,10 @@ var izlara = (function() {
           half_level: false
         }
       },
+      school: "Divination - Foresight",
+      opposition: "Enchantment, Necromancy",
+      domains: "",
+      bloodline: "",
       spell_notes: "+2 on caster level checks to overcome spell resistance.",
       per_day: {
         level_0: 4,
@@ -3728,109 +4038,127 @@ var izlara = (function() {
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 23
         }, {
           name: "Arcane Mark",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 135
         }, {
           name: "Dancing Lights",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 608
         }, {
           name: "Detect Magic",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 691
         }, {
           name: "Detect Poison",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 695
         }, {
           name: "Flare",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 975
         }, {
           name: "Ghost Sound",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1074
         }, {
           name: "Haunted Fey Aspect",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1151
         }, {
           name: "Light",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1431
         }, {
           name: "Mage Hand",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1491
         }, {
           name: "Mending",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1564
         }, {
           name: "Message",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1572
         }, {
           name: "Open/Close",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1696
         }, {
           name: "Prestidigitation",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1835
         }, {
           name: "Ray of Frost",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1916
         }, {
           name: "Read Magic",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1918
         }, {
           name: "Resistance",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1980
         }, {
           name: "Spark",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2267
         }]
       }, {
         level_1: [{
@@ -3838,109 +4166,127 @@ var izlara = (function() {
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1851
         }, {
           name: "Protection From Evil",
           prepared: 2,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1855
         }, {
           name: "Protection From Good",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1857
         }, {
           name: "Protection From Law",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1859
         }, {
           name: "Hold Portal",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1208
         }, {
           name: "Grease",
           prepared: 2,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1117
         }, {
           name: "Mage Armor",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1490
         }, {
           name: "Mount",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1630
         }, {
           name: "Obscuring Mist",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1688
         }, {
           name: "Summon Monster I",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2408
         }, {
           name: "Unseen Servant",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2677
         }, {
           name: "Comprehend Languages",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 480
         }, {
           name: "Detect Secret Doors",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 700
         }, {
           name: "Detect Undead",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 704
         }, {
           name: "Color Spray",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 463
         }, {
           name: "Silent Image",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2216
         }, {
           name: "Enlarge Person",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 854
         }, {
           name: "Feather Fall",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 929
         }]
       }, {
         level_2: [{
@@ -3948,97 +4294,113 @@ var izlara = (function() {
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1977
         }, {
           name: "Glitterdust",
           prepared: 2,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1092
         }, {
           name: "Summon Monster II",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2409
         }, {
           name: "Web",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2781
         }, {
           name: "Detect Thoughts",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 703
         }, {
           name: "See Invisibility",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2107
         }, {
           name: "Flaming Sphere",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 973
         }, {
           name: "Invisibility",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1347
         }, {
           name: "Minor Image",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1601
         }, {
           name: "Mirror Image",
           prepared: 2,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1606
         }, {
           name: "Levitate",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1418
         }, {
           name: "Darkvision",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 613
         }, {
           name: "Make Whole",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1526
         }, {
           name: "Pyrotechnics",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1892
         }, {
           name: "Rope Trick",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2028
         }, {
           name: "Create Pit",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 550
         }]
       }, {
         level_3: [{
@@ -4046,109 +4408,127 @@ var izlara = (function() {
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 742
         }, {
           name: "Magic Circle Against Chaos",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1503
         }, {
           name: "Magic Circle Against Evil",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1504
         }, {
           name: "Magic Circle Against Good",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1505
         }, {
           name: "Magic Circle Against Law",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1506
         }, {
           name: "Phantom Steed",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1766
         }, {
           name: "Sleet Storm",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2236
         }, {
           name: "Stinking Cloud",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2344
         }, {
           name: "Summon Monster III",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2410
         }, {
           name: "Tiny Hut",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2563
         }, {
           name: "Wind Wall",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2799
         }, {
           name: "Fireball",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 961
         }, {
           name: "Fly",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 996
         }, {
           name: "Haste",
           prepared: 2,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1150
         }, {
-          name: "Magic Weapon Greater",
+          name: "Magic Weapon, Greater",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1518
         }, {
           name: "Shrink Item",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2204
         }, {
           name: "Slow",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2239
         }, {
           name: "Spiked Pit",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2306
         }]
       }, {
         level_4: [{
@@ -4156,195 +4536,227 @@ var izlara = (function() {
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 714
         }, {
           name: "Black Tentacles",
           prepared: 2,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 241
         }, {
           name: "Dimension Door",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 713
         }, {
           name: "Summon Monster IV",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2411
         }, {
           name: "Arcane Eye",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 133
         }, {
           name: "Confusion",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 488
         }, {
           name: "Resilient Sphere",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1975
         }, {
-          name: "Wall of Fire",
+          name: "Wall Of Fire",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2744
         }, {
-          name: "Wall of Ice",
+          name: "Wall Of Ice",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2746
         }, {
           name: "Enervation",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 852
         }, {
           name: "Stone Shape",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2350
         }, {
           name: "Acid Pit",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 22
         }]
       }, {
         level_5: [{
-          name: "Mages Private Sanctum",
+          name: "Mage's Private Sanctum",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1498
         }, {
-          name: "Planar Binding Lesser",
+          name: "Planar Binding, Lesser",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1791
         }, {
           name: "Secret Chest",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2097
         }, {
           name: "Summon Monster V",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2413
         }, {
           name: "Teleport",
           prepared: 2,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2517
         }, {
-          name: "Wall of Stone",
+          name: "Wall Of Stone",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2754
         }, {
           name: "Contact Other Plane",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 502
         }, {
           name: "Prying Eyes",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1868
         }, {
           name: "Telepathic Bond",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2514
         }, {
-          name: "Wall of Force",
+          name: "Wall Of Force",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2745
         }, {
           name: "Persistent Image",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1748
         }, {
           name: "Sending",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2118
         }, {
           name: "Animal Growth",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 88
         }, {
           name: "Beast Shape III",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 211
         }, {
           name: "Overland Flight",
           prepared: 1,
           active: true,
           cast: 1,
-          note: ""
+          note: "",
+          index: 1706
         }, {
           name: "Polymorph",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1814
         }, {
           name: "Telekinesis",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2504
         }, {
           name: "Transmute Rock to Mud",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2607
         }, {
           name: "Permanency",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1744
         }, {
           name: "Hungry Pit",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1237
         }]
       }, {
         level_6: [{
@@ -4352,49 +4764,57 @@ var izlara = (function() {
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1789
         }, {
           name: "Summon Monster VI",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 2414
         }, {
           name: "Antimagic Field",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 109
         }, {
-          name: "Dispel Magic Greater",
+          name: "Dispel Magic, Greater",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 743
         }, {
           name: "Contingency",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 509
         }, {
           name: "Forceful Hand",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1016
         }, {
           name: "Programmed Image",
           prepared: 0,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1845
         }, {
           name: "Form of the Dragon I",
           prepared: 1,
           active: false,
           cast: 0,
-          note: ""
+          note: "",
+          index: 1025
         }]
       }, {
         level_7: []
@@ -6255,6 +6675,10 @@ var ravich = (function() {
           half_level: false
         }
       },
+      school: "",
+      opposition: "",
+      domains: "",
+      bloodline: "",
       spell_notes: "",
       per_day: {
         level_0: "",
@@ -8357,6 +8781,10 @@ var marika = (function() {
           half_level: false
         }
       },
+      school: "",
+      opposition: "",
+      domains: "",
+      bloodline: "",
       spell_notes: "",
       per_day: {
         level_0: "",
@@ -9965,6 +10393,10 @@ var nefi = (function() {
           half_level: false
         }
       },
+      school: "",
+      opposition: "",
+      domains: "",
+      bloodline: "",
       spell_notes: "",
       per_day: {
         level_0: "",
@@ -10395,7 +10827,7 @@ var nif = (function() {
       feats: "Alertness, Augment Summoning, Craft Wondrous Item, Greater Spell Focus (Conjuration), Scribe Scroll, Spell Focus (Conjuration), Combat Casting",
       traits: "Resilient",
       languages: "Aquan, Auran, Azlanti, Celestial, Common, Draconic, Dwarven, Elven, Giant, Gnome, Goblin, Ignan, Orc, Sylvan, Undercommon",
-      special_abilities: "Arcane bond (Su), Bonus feats, Cantrips, Arcane schools, Teleportation sub school, Opposition arcane school, Elven Immunities (Ex), Elven Magic (Ex), Keen Senses (Ex), Low-Light Vision (Ex), Headband of Vast Intelligence skill (Use Magic Device, Fly), Linguistics Skill (Dwarven, Giant, Undercommon), Shift (Su), Summoner's Charm (Su), Weapon Familiarity (Ex)",
+      special_abilities: "Arcane bond (Su), Bonus feats, Cantrips, Arcane schools, Elven Immunities (Ex), Elven Magic (Ex), Keen Senses (Ex), Low-Light Vision (Ex), Headband of Vast Intelligence skill (Use Magic Device, Fly), Linguistics Skill (Dwarven, Giant, Undercommon), Shift (Su), Summoner's Charm (Su), Weapon Familiarity (Ex)",
       power: [{
         name: "Shift",
         current: "",
@@ -11632,7 +12064,11 @@ var nif = (function() {
           half_level: false
         }
       },
-      spell_notes: "<strong>Arcane school</strong> Conjuration (Teleportation).<br><strong>Opposition Arcane school</strong> Enchantment, Necromancy.<br>Conjuration spells +2 DC.<br>+2 on caster level checks to overcome spell resistance.",
+      school: "Conjuration - Teleportation",
+      opposition: "Enchantment, Necromancy",
+      domains: "",
+      bloodline: "",
+      spell_notes: "Conjuration spells +2 DC.<br>+2 on caster level checks to overcome spell resistance.",
       per_day: {
         level_0: 4,
         level_1: 4,
@@ -13759,6 +14195,10 @@ var orrin = (function() {
           half_level: false
         }
       },
+      school: "",
+      opposition: "",
+      domains: "",
+      bloodline: "",
       spell_notes: "",
       per_day: {
         level_0: "",
@@ -15403,6 +15843,10 @@ var ro = (function() {
           half_level: false
         }
       },
+      school: "",
+      opposition: "",
+      domains: "",
+      bloodline: "",
       spell_notes: "+2 on caster level checks to overcome spell resistance.",
       per_day: {
         level_0: 5,
@@ -17338,6 +17782,10 @@ var vos = (function() {
           half_level: false
         }
       },
+      school: "",
+      opposition: "",
+      domains: "",
+      bloodline: "",
       spell_notes: "",
       per_day: {
         level_0: "",
@@ -18376,28 +18824,11 @@ var characterSelect = (function() {
       sheet.export();
       page.update();
     }, false);
-  }
-
-  function _bind_shortcutKeys() {
-    window.addEventListener("keydown", function(event) {
-      // console.log(event.keyCode);
-      // esc
-      if (event.keyCode == 27) {
-        close();
-        page.update();
-      };
-      // ctrl+alt+c
-      if (event.ctrlKey && event.altKey && event.keyCode == 67) {
-        toggle();
-        page.update();
-      };
-    }, false);
   };
 
   function bind() {
     _bind_characterSelectToggle();
     _bind_characterSelectControls();
-    _bind_shortcutKeys();
   };
 
   function toggle() {
@@ -19084,60 +19515,58 @@ var clone = (function() {
     if (cloneType == "skill") {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
-        '  <div class="m-skill js-total-block" data-total-block-options="path:skills.custom[' + cloneIndex + '],addition:+ranks+misc+racial+feat+trait,bonuses:+str_bonus+dex_bonus+con_bonus+int_bonus+wis_bonus+cha_bonus+class_skill+level+half_level+check_penalty+size_modifier_stealth+size_modifier_fly,clone:true">' +
-        '    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels m-edit-box-guides">' +
-        '      <div class="m-edit-box-head">' +
-        '        <div class="m-skill-name m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']name,clone:true">' +
-        '          <input class="m-input-block-field u-full-width u-no-margin js-input-block-field" type="text" tabindex="1" placeholder="Custom skill">' +
-        '        </div>' +
+        '  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:skills.custom[' + cloneIndex + '],addition:+ranks+misc+racial+feat+trait,bonuses:+str_bonus+dex_bonus+con_bonus+int_bonus+wis_bonus+cha_bonus+class_skill+level+half_level+check_penalty+size_modifier_stealth+size_modifier_fly,clone:true">' +
+        '    <div class="m-edit-box-head">' +
+        '      <div class="m-skill-name m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']name,clone:true">' +
+        '        <input class="m-input-block-field u-full-width u-no-margin js-input-block-field" type="text" tabindex="1" placeholder="Custom skill">' +
         '      </div>' +
-        '      <div class="m-edit-box-body">' +
-        '        <div class="m-edit-box-content">' +
-        '          <div class="m-edit-box-item m-edit-box-group">' +
-        '            <div class="m-edit-box-item-total">' +
-        '              <p class="m-edit-box-label">Total</p>' +
-        '              <p class="m-edit-box-total js-text-block" data-text-block-options="path:skills.custom[' + cloneIndex + ']current,type:bonus,clone:true"></p>' +
+        '    </div>' +
+        '    <div class="m-edit-box-body">' +
+        '      <div class="m-edit-box-content m-edit-box-content-margin-large">' +
+        '        <div class="m-edit-box-item m-edit-box-group">' +
+        '          <div class="m-edit-box-item-total">' +
+        '            <p class="m-edit-box-label">Total</p>' +
+        '            <p class="m-edit-box-total js-text-block" data-text-block-options="path:skills.custom[' + cloneIndex + ']current,type:bonus,clone:true"></p>' +
+        '          </div>' +
+        '          <div class="m-edit-box-item-small m-edit-box-item-grow">' +
+        '            <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']ranks,type:integer,clone:true">' +
+        '              <label class="m-input-block-label js-input-block-label" for="skills-custom-' + cloneIndex + '-ranks">Ranks</label>' +
+        '              <input id="skills-custom-' + cloneIndex + '-ranks" class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-field-ranks" type="number" tabindex="1">' +
         '            </div>' +
-        '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
-        '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']ranks,type:integer,clone:true">' +
-        '                <label class="m-input-block-label js-input-block-label" for="skills-custom-' + cloneIndex + '-ranks">Ranks</label>' +
-        '                <input id="skills-custom-' + cloneIndex + '-ranks" class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-field-ranks" type="number" tabindex="1">' +
-        '              </div>' +
+        '          </div>' +
+        '          <div class="m-edit-box-item-small m-edit-box-item-grow">' +
+        '            <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']racial,type:integer,clone:true">' +
+        '              <label class="m-input-block-label js-input-block-label" for="skills-custom-' + cloneIndex + '-racial">Racial</label>' +
+        '              <input id="skills-custom-' + cloneIndex + '-racial" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '            </div>' +
-        '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
-        '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']racial,type:integer,clone:true">' +
-        '                <label class="m-input-block-label js-input-block-label" for="skills-custom-' + cloneIndex + '-racial">Racial</label>' +
-        '                <input id="skills-custom-' + cloneIndex + '-racial" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
-        '              </div>' +
+        '          </div>' +
+        '          <div class="m-edit-box-item-small m-edit-box-item-grow">' +
+        '            <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']feat,type:integer,clone:true">' +
+        '              <label class="m-input-block-label js-input-block-label" for="skills-custom-' + cloneIndex + '-feat">Feat</label>' +
+        '              <input id="skills-custom-' + cloneIndex + '-feat" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '            </div>' +
-        '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
-        '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']feat,type:integer,clone:true">' +
-        '                <label class="m-input-block-label js-input-block-label" for="skills-custom-' + cloneIndex + '-feat">Feat</label>' +
-        '                <input id="skills-custom-' + cloneIndex + '-feat" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
-        '              </div>' +
+        '          </div>' +
+        '          <div class="m-edit-box-item-small m-edit-box-item-grow">' +
+        '            <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']trait,type:integer,clone:true">' +
+        '              <label class="m-input-block-label js-input-block-label" for="skills-custom-' + cloneIndex + '-trait">Trait</label>' +
+        '              <input id="skills-custom-' + cloneIndex + '-trait" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '            </div>' +
-        '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
-        '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']trait,type:integer,clone:true">' +
-        '                <label class="m-input-block-label js-input-block-label" for="skills-custom-' + cloneIndex + '-trait">Trait</label>' +
-        '                <input id="skills-custom-' + cloneIndex + '-trait" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
-        '              </div>' +
+        '          </div>' +
+        '          <div class="m-edit-box-item-small m-edit-box-item-grow">' +
+        '            <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']misc,type:integer,clone:true">' +
+        '              <label class="m-input-block-label js-input-block-label" for="skills-custom-' + cloneIndex + '-misc">Misc</label>' +
+        '              <input id="skills-custom-' + cloneIndex + '-misc" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '            </div>' +
-        '            <div class="m-edit-box-item-small m-edit-box-item-grow">' +
-        '              <div class="m-input-block js-input-block" data-input-block-options="path:skills.custom[' + cloneIndex + ']misc,type:integer,clone:true">' +
-        '                <label class="m-input-block-label js-input-block-label" for="skills-custom-' + cloneIndex + '-misc">Misc</label>' +
-        '                <input id="skills-custom-' + cloneIndex + '-misc" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
-        '              </div>' +
+        '          </div>' +
+        '          <div class="m-edit-box-item-check">' +
+        '            <div class="m-check-block">' +
+        '              <p class="m-edit-box-label">Class <span class="hidden-xs hidden-sm hidden-md">Skill</span></p>' +
+        '              <input class="m-check-block-check js-total-block-check" data-total-block-check-options="path:skills.custom[' + cloneIndex + ']bonuses,type:class_skill,clone:true" type="checkbox" tabindex="1">' +
+        '              <span class="m-check-block-check-icon"></span>' +
         '            </div>' +
-        '            <div class="m-edit-box-item-check">' +
-        '              <div class="m-check-block">' +
-        '                <p class="m-edit-box-label">Class <span class="hidden-xs hidden-sm hidden-md">Skill</span></p>' +
-        '                <input class="m-check-block-check js-total-block-check" data-total-block-check-options="path:skills.custom[' + cloneIndex + ']bonuses,type:class_skill,clone:true" type="checkbox" tabindex="1">' +
-        '                <span class="m-check-block-check-icon"></span>' +
-        '              </div>' +
-        '            </div>' +
-        '            <div class="m-edit-box-item-button-small">' +
-        '              <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-total-block-bonuses-options="path:skills.custom[' + cloneIndex + ']bonuses,modalHeading:Custom Skill bonuses,clone:true" tabindex="1"><span class="icon-more-vertical"></span></a>' +
-        '            </div>' +
+        '          </div>' +
+        '          <div class="m-edit-box-item-button-small">' +
+        '            <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-total-block-bonuses-options="path:skills.custom[' + cloneIndex + ']bonuses,modalHeading:Custom Skill bonuses,clone:true" tabindex="1"><span class="icon-more-vertical"></span></a>' +
         '          </div>' +
         '        </div>' +
         '      </div>' +
@@ -20466,14 +20895,17 @@ var display = (function() {
       path: path
     });
     var displayListItem;
-    if (typeof object != "undefined" && object != "") {
+    if (typeof object != undefined && object != "") {
 
-      if (object.ranks != "undefined" && object.ranks != "") {
+      if (object.ranks != undefined && object.ranks != "") {
         displayListItem = document.createElement("li");
         displayListItem.setAttribute("class", "m-display-list-item");
         var value = document.createElement("span");
         value.setAttribute("class", "m-display-list-item-value");
-        value.textContent = "+" + object.current;
+        value.textContent = object.current;
+        if (object.current > 0) {
+          value.textContent = "+" + value.textContent;
+        };
         if (prefix || object["name"] || object["variant_name"]) {
           var displayListItemPrefix = document.createElement("span");
           displayListItemPrefix.setAttribute("class", "m-display-list-item-prefix");
@@ -20552,7 +20984,7 @@ var display = (function() {
         for (var i in object) {
           if (i == "classname") {
             var data = object[i];
-            if (typeof data != "undefined" && data != "") {
+            if (typeof data != undefined && data != "") {
               var displayListItemPrefix = document.createElement("span");
               displayListItemPrefix.setAttribute("class", "m-display-item-text-snippet-prefix");
               displayListItemPrefix.textContent = data;
@@ -20560,7 +20992,7 @@ var display = (function() {
             };
           } else if (i == "level") {
             var data = object[i];
-            if (typeof data != "undefined" && data != "" || data == 0) {
+            if (typeof data != undefined && data != "" || data == 0) {
               var displayListItemValue = document.createElement("span");
               displayListItemValue.setAttribute("class", "m-display-item-text-snippet-value");
               displayListItemValue.textContent = data;
@@ -20576,7 +21008,7 @@ var display = (function() {
         for (var i in object) {
           if (i == "item") {
             var data = object[i];
-            if (typeof data != "undefined" && data != "") {
+            if (typeof data != undefined && data != "") {
               var displayListItemPrefix = document.createElement("span");
               displayListItemPrefix.setAttribute("class", "m-display-list-item-prefix");
               displayListItemPrefix.textContent = data;
@@ -20584,10 +21016,10 @@ var display = (function() {
             };
           } else if (i == "current") {
             var data = object[i];
-            if (typeof data != "undefined" && data != "" || data == 0) {
+            if (typeof data != undefined && data != "" || data == 0) {
               var displayListItemValue = document.createElement("span");
               displayListItemValue.setAttribute("class", "m-display-list-item-value");
-              if (typeof object.total != "undefined" && object.total != "") {
+              if (typeof object.total != undefined && object.total != "") {
                 data = data + "/" + object.total;
               };
               displayListItemValue.textContent = data;
@@ -20612,7 +21044,7 @@ var display = (function() {
         for (var i in object) {
           if (i == "name") {
             var data = object[i];
-            if (typeof data != "undefined" && data != "") {
+            if (typeof data != undefined && data != "") {
               var displayListItemPrefix = document.createElement("span");
               displayListItemPrefix.setAttribute("class", "m-display-list-item-prefix");
               displayListItemPrefix.textContent = data;
@@ -20620,10 +21052,10 @@ var display = (function() {
             };
           } else if (i == "current") {
             var data = object[i];
-            if (typeof data != "undefined" && data != "" || data == 0) {
+            if (typeof data != undefined && data != "" || data == 0) {
               var displayListItemValue = document.createElement("span");
               displayListItemValue.setAttribute("class", "m-display-list-item-value");
-              if (typeof object.total != "undefined" && object.total != "") {
+              if (typeof object.total != undefined && object.total != "") {
                 data = data + "/" + object.total;
               };
               displayListItemValue.textContent = data;
@@ -20648,7 +21080,7 @@ var display = (function() {
         for (var i in object) {
           if (i == "name") {
             var data = object[i];
-            if (typeof data != "undefined" && data != "") {
+            if (typeof data != undefined && data != "") {
               var displayListItemPrefix = document.createElement("span");
               displayListItemPrefix.setAttribute("class", "m-display-list-item-prefix");
               displayListItemPrefix.textContent = data;
@@ -20656,7 +21088,7 @@ var display = (function() {
             };
           } else if (i == "quantity") {
             var data = object[i];
-            if (typeof data != "undefined" && data != "" || data == 0) {
+            if (typeof data != undefined && data != "" || data == 0) {
               var displayListItemValue = document.createElement("span");
               displayListItemValue.setAttribute("class", "m-display-list-item-value");
               displayListItemValue.textContent = data;
@@ -20667,12 +21099,15 @@ var display = (function() {
       };
 
       if (cloneType == "skill") {
-        if (object.ranks != "undefined" && object.ranks != "") {
+        if (object.ranks != undefined && object.ranks != "") {
           displayListItem = document.createElement("li");
           displayListItem.setAttribute("class", "m-display-list-item");
           var displayListItemValue = document.createElement("span");
           displayListItemValue.setAttribute("class", "m-display-list-item-value");
-          displayListItemValue.textContent = "+" + object.current;
+          displayListItemValue.textContent = object.current;
+          if (object.current > 0) {
+            displayListItemValue.textContent = "+" + displayListItemValue.textContent;
+          };
           if (object["name"]) {
             var displayListItemPrefix = document.createElement("span");
             displayListItemPrefix.setAttribute("class", "m-display-list-item-prefix");
@@ -20693,7 +21128,7 @@ var display = (function() {
         for (var i in object) {
           if (i == "weapon" || i == "damage" || i == "critical" || i == "range" || i == "type" || i == "ammo") {
             var data = object[i];
-            if (typeof data != "undefined" && data != "") {
+            if (typeof data != undefined && data != "") {
               var displayListItemPrefix = document.createElement("span");
               displayListItemPrefix.setAttribute("class", "m-display-list-item-" + cloneType + "-" + i);
               displayListItemPrefix.textContent = data;
@@ -20701,7 +21136,7 @@ var display = (function() {
             };
           } else if (i == "attack") {
             var data = object[i];
-            if (typeof data != "undefined" && data != "") {
+            if (typeof data != undefined && data != "") {
               var displayListItemValue = document.createElement("h2");
               displayListItemValue.setAttribute("class", "m-display-list-item-" + cloneType + "-" + i);
               displayListItemValue.textContent = data;
@@ -20716,7 +21151,7 @@ var display = (function() {
         displayListItem.setAttribute("class", "m-display-list-item");
         for (var i in object) {
           var data = object[i];
-          if (typeof data != "undefined" && data != "") {
+          if (typeof data != undefined && data != "") {
             displayListItem.innerHTML = data;
           };
         };
@@ -20728,7 +21163,7 @@ var display = (function() {
     for (var i in object) {
       var testForValues = false;
       for (var j in object[i]) {
-        if (typeof object[i][j] != "undefined" && object[i][j] != "") {
+        if (typeof object[i][j] != undefined && object[i][j] != "") {
           testForValues = true;
         };
       };
@@ -20768,7 +21203,7 @@ var display = (function() {
       path: path
     });
     var displayListItem;
-    if (typeof data != "undefined" && data != "") {
+    if (typeof data != undefined && data != "") {
       if (valueType == "bonus" && data > 0) {
         data = "+" + data;
       };
@@ -20817,7 +21252,7 @@ var display = (function() {
         path: path
       });
     };
-    if (typeof data != "undefined" && data != "") {
+    if (typeof data != undefined && data != "") {
       displayItem = document.createElement("span");
       if (all_displayValueType) {
         if (all_displayValueType == "bonus" && data > 0) {
@@ -20855,7 +21290,7 @@ var display = (function() {
         path: path
       });
     };
-    if (typeof data != "undefined" && data != "") {
+    if (typeof data != undefined && data != "") {
       displayItem = document.createElement("span");
       displayItem.textContent = data;
     } else if (typeof data == "number" && data == 0) {
@@ -20882,7 +21317,7 @@ var display = (function() {
       path: path
     });
     var displayItem;
-    if (typeof data != "undefined" && data != "") {
+    if (typeof data != undefined && data != "") {
       displayItem = document.createElement("span");
       displayItem.setAttribute("class", "m-display-item-text-block");
       var value = document.createElement("span");
@@ -20927,7 +21362,7 @@ var display = (function() {
       path: path
     });
     var displayItem;
-    if (typeof data != "undefined" && data != "") {
+    if (typeof data != undefined && data != "") {
       displayItem = document.createElement("span");
       displayItem.setAttribute("class", "m-display-item-text-snippet");
       var value = document.createElement("span");
@@ -21011,7 +21446,7 @@ var display = (function() {
       path: path
     });
     var displayImage;
-    if (typeof data != "undefined" && data != "") {
+    if (typeof data != undefined && data != "") {
       var displayImage = document.createElement("div");
       displayImage.setAttribute("class", "m-display-item-image-wrapper");
       var displayImageItem = new Image;
@@ -21790,9 +22225,10 @@ var header = (function() {
 
 var inputBlock = (function() {
 
-  var storeInputTimer = null;
-  var updateNavTimer = null;
-  var updateWealthTimer = null;
+  var _timer_store = null;
+  var _timer_updateNav = null;
+  var _timer_delayWealth = null;
+  var _timer_autoSuggest = null;
 
   function bind(inputBlock) {
     if (inputBlock) {
@@ -21822,8 +22258,8 @@ var inputBlock = (function() {
     var input = inputBlock.querySelector(".js-input-block-field");
     if (input) {
       input.addEventListener("input", function() {
-        clearTimeout(storeInputTimer);
-        storeInputTimer = setTimeout(delayUpdate, 300, this);
+        clearTimeout(_timer_store);
+        _timer_store = setTimeout(delayStoreUpdate, 300, this);
       }, false);
       input.addEventListener("focus", function() {
         _focus(this);
@@ -21846,7 +22282,7 @@ var inputBlock = (function() {
   };
 
   function bind_inputBlockIncrement(inputBlockIncrement) {
-    inputBlockIncrement.addEventListener("click", function() {
+    inputBlockIncrement.addEventListener("click", function(event) {
       _increment(this, event);
       xp.render();
       wealth.render();
@@ -21866,7 +22302,7 @@ var inputBlock = (function() {
   function _bind_inputBlockAggregate(inputBlockAggregate) {
     var input = inputBlockAggregate.querySelector(".js-input-block-field");
     if (input) {
-      input.addEventListener("keydown", function() {
+      input.addEventListener("keydown", function(event) {
         // if enter
         if (event.keyCode == 13) {
           _render_aggregate(this);
@@ -21935,24 +22371,24 @@ var inputBlock = (function() {
     var inputBlock = helper.e(".js-basics-name");
     var input = inputBlock.querySelector(".js-input-block-field");
     input.addEventListener("input", function() {
-      clearTimeout(updateNavTimer);
-      updateNavTimer = setTimeout(characterSelect.update, 300, this);
+      clearTimeout(_timer_updateNav);
+      _timer_updateNav = setTimeout(characterSelect.update, 300, this);
     }, false);
   };
 
   function bind_classLevel(inputBlock) {
     var input = inputBlock.querySelector(".js-input-block-field");
     input.addEventListener("input", function() {
-      clearTimeout(updateNavTimer);
-      updateNavTimer = setTimeout(characterSelect.update, 300, this);
+      clearTimeout(_timer_updateNav);
+      _timer_updateNav = setTimeout(characterSelect.update, 300, this);
     }, false);
   };
 
   function bind_wealth(inputBlock) {
     var input = inputBlock.querySelector(".js-input-block-field");
     input.addEventListener("input", function() {
-      clearTimeout(updateWealthTimer);
-      updateWealthTimer = setTimeout(function() {
+      clearTimeout(_timer_delayWealth);
+      _timer_delayWealth = setTimeout(function() {
         wealth.render();
         textBlock.render();
       }, 300, this);
@@ -21983,7 +22419,7 @@ var inputBlock = (function() {
     };
   };
 
-  function delayUpdate(element) {
+  function delayStoreUpdate(element) {
     _store(element);
     xp.render();
     wealth.render();
@@ -22618,14 +23054,6 @@ var log = (function() {
 
   var previousLog = null;
 
-  function bind() {
-    window.addEventListener("keydown", function(event) {
-      if (event.keyCode == 27) {
-        destroy();
-      };
-    }, false);
-  };
-
   function destroy() {
     var all_log = helper.eA(".js-log");
     if (all_log[0]) {
@@ -22891,7 +23319,6 @@ var log = (function() {
   return {
     changeLog: _render_fullChangeLog,
     render: render,
-    bind: bind,
     destroy: destroy
   };
 
@@ -23080,15 +23507,6 @@ var modal = (function() {
 
   var previousModal = null;
 
-  function bind() {
-    window.addEventListener("keydown", function(event) {
-      if (event.keyCode == 27) {
-        destroy();
-        page.update();
-      };
-    }, false);
-  };
-
   function destroy() {
     var all_modal = helper.eA(".js-modal");
     if (all_modal[0]) {
@@ -23211,7 +23629,6 @@ var modal = (function() {
 
   // exposed methods
   return {
-    bind: bind,
     destroy: destroy,
     render: render
   };
@@ -23552,15 +23969,6 @@ var prompt = (function() {
 
   var previousPrompt = null;
 
-  function bind() {
-    window.addEventListener("keydown", function(event) {
-      if (event.keyCode == 27) {
-        destroy();
-        page.update();
-      };
-    }, false);
-  };
-
   function destroy() {
     var all_prompt = helper.eA(".js-prompt");
     if (all_prompt[0]) {
@@ -23693,7 +24101,6 @@ var prompt = (function() {
 
   // exposed methods
   return {
-    bind: bind,
     destroy: destroy,
     render: render
   };
@@ -23803,7 +24210,6 @@ var registerServiceWorker = (function() {
             // The updatefound event implies that reg.installing is set; see
             // https://w3c.github.io/ServiceWorker/#service-worker-registration-updatefound-event
             var installingWorker = reg.installing;
-
             installingWorker.onstatechange = function() {
               switch (installingWorker.state) {
                 case "installed":
@@ -23858,9 +24264,6 @@ var repair = (function() {
               if (!("note" in characterObject.spells.book[i][j][k]) && typeof characterObject.spells.book[i][j][k].note != "string") {
                 if (debug) {
                   console.log("\trepair spell notes");
-                };
-                if (debug) {
-                  console.log("\tspell notes not found");
                 };
                 characterObject.spells.book[i][j][k].note = "";
               };
@@ -24691,6 +25094,34 @@ var repair = (function() {
       characterObject.basics.initiative.trait = "";
     };
     // --------------------------------------------------
+    if (!("school" in characterObject.spells)) {
+      if (debug) {
+        console.log("\trepair spell school");
+      };
+      characterObject.spells.school = "";
+    };
+    // --------------------------------------------------
+    if (!("opposition" in characterObject.spells)) {
+      if (debug) {
+        console.log("\trepair spell opposition");
+      };
+      characterObject.spells.opposition = "";
+    };
+    // --------------------------------------------------
+    if (!("domains" in characterObject.spells)) {
+      if (debug) {
+        console.log("\trepair spell domains");
+      };
+      characterObject.spells.domains = "";
+    };
+    // --------------------------------------------------
+    if (!("bloodline" in characterObject.spells)) {
+      if (debug) {
+        console.log("\trepair spell bloodline");
+      };
+      characterObject.spells.bloodline = "";
+    };
+    // --------------------------------------------------
     // sheet.store();
     return characterObject;
   };
@@ -25017,11 +25448,8 @@ var sheet = (function() {
     scroll();
     resize();
     characterSelect.bind();
-    prompt.bind();
-    modal.bind();
-    shade.bind();
-    snack.bind();
     stats.bind();
+    autoSuggest.bind();
     inputBlock.bind();
     inputRangeBlock.bind();
     selectBlock.bind();
@@ -25055,6 +25483,10 @@ var sheet = (function() {
     window.addEventListener("resize", function(event) {
       header.resize();
     }, false);
+  };
+
+  function load() {
+    spellsData.load();
   };
 
   function switcher(index) {
@@ -25290,6 +25722,18 @@ var sheet = (function() {
 
   function shortcuts() {
     window.addEventListener("keydown", function(event) {
+      //  esc
+      if (event.keyCode == 27) {
+        autoSuggest.destroy();
+        snack.destroy();
+        modal.destroy();
+        prompt.destroy();
+        characterSelect.close();
+        menu.close();
+        shade.destroy();
+        log.destroy();
+        page.update();
+      };
       // ctrl+alt+f
       if (event.ctrlKey && event.altKey && event.keyCode == 70) {
         fullscreen.toggle();
@@ -25325,9 +25769,10 @@ var sheet = (function() {
       if (event.ctrlKey && event.altKey && event.keyCode == 78) {
         night.toggle();
       };
-      // esc
-      if (event.keyCode == 27) {
-        menu.close();
+      // ctrl+alt+c
+      if (event.ctrlKey && event.altKey && event.keyCode == 67) {
+        characterSelect.toggle();
+        page.update();
       };
     }, false);
     // key debugging
@@ -25353,6 +25798,7 @@ var sheet = (function() {
     import: importJson,
     export: exportJson,
     render: render,
+    load: load,
     switcher: switcher,
     getIndex: getIndex,
     setIndex: setIndex,
@@ -25364,14 +25810,6 @@ var sheet = (function() {
 var shade = (function() {
 
   var previousShade = null;
-
-  function bind() {
-    window.addEventListener("keydown", function(event) {
-      if (event.keyCode == 27) {
-        destroy();
-      };
-    }, false);
-  };
 
   function destroy() {
     var all_shade = helper.eA(".js-shade");
@@ -25441,7 +25879,6 @@ var shade = (function() {
 
   // exposed methods
   return {
-    bind: bind,
     destroy: destroy,
     render: render
   };
@@ -25681,14 +26118,6 @@ var snack = (function() {
     _checkBodyForSnack();
   };
 
-  function bind() {
-    window.addEventListener("keydown", function(event) {
-      if (event.keyCode == 27) {
-        destroy();
-      };
-    }, false);
-  };
-
   function _checkBodyForSnack() {
     var body = helper.e("body");
     var snackBar = helper.e(".js-snack-bar");
@@ -25701,7 +26130,6 @@ var snack = (function() {
 
   // exposed methods
   return {
-    bind: bind,
     destroy: destroy,
     render: render
   };
@@ -25711,7 +26139,6 @@ var snack = (function() {
 var spells = (function() {
 
   var _spellState = (function() {
-
     var spellState = {
       level_0: null,
       level_1: null,
@@ -25724,31 +26151,26 @@ var spells = (function() {
       level_8: null,
       level_9: null
     };
-
-    function get(level) {
+    var get = function(level) {
       return spellState["level_" + level];
     };
-
-    function set(level, state) {
+    var set = function(level, state) {
       if (spellState["level_" + level] == null || spellState["level_" + level] != state) {
         spellState["level_" + level] = state;
       } else {
         spellState["level_" + level] = null;
       };
-      // console.log("spellState changed", spellState);
     };
-
     // exposed methods
     return {
       set: set,
       get: get
     };
-
   })();
 
   var addSpellTimer = null;
 
-  function delayUpdate(element, event) {
+  function _delayAddSpell(element, event) {
     _addNewSpellOnEnter(element, event);
     sheet.store();
   };
@@ -25810,7 +26232,7 @@ var spells = (function() {
     var all_addNewSpell = helper.eA(".js-add-new-spell");
     for (var i = 0; i < all_addNewSpell.length; i++) {
       all_addNewSpell[i].addEventListener("click", function() {
-        _addNewSpell(this);
+        addNewSpell(this);
         sheet.store();
       }, false);
     };
@@ -25819,9 +26241,9 @@ var spells = (function() {
   function _bind_all_addNewSpellField() {
     var addNewSpellField = helper.eA(".js-add-new-spell-field");
     for (var i = 0; i < addNewSpellField.length; i++) {
-      addNewSpellField[i].addEventListener("keypress", function() {
+      addNewSpellField[i].addEventListener("keypress", function(event) {
         clearTimeout(addSpellTimer);
-        addSpellTimer = setTimeout(delayUpdate, 300, this, event);
+        addSpellTimer = setTimeout(_delayAddSpell, 300, this, event);
       }, false);
     };
   };
@@ -25841,13 +26263,25 @@ var spells = (function() {
     }, false);
   };
 
-  function _addNewSpell(element) {
+  function add(element, spellIndex) {
+    var spellData = spellsData.get({
+      index: spellIndex
+    });
+    addNewSpell(element, spellIndex, spellData);
+  };
+
+  function addNewSpell(element, spellIndex, spellData) {
     var spellBook = helper.getClosest(element, ".js-spell-book");
     var spellBookOptions = helper.makeObject(spellBook.dataset.spellBookOptions);
     var addNewSpellField = spellBook.querySelector(".js-add-new-spell-field");
-    var spellName = addNewSpellField.value;
+    var spellName;
+    if (spellData) {
+      spellName = spellData.name;
+    } else {
+      spellName = addNewSpellField.value
+    };
     if (spellName != "") {
-      var newSpellObject = new _create_spellObject(spellName, 0, false, 0, "");
+      var newSpellObject = new _create_spellObject(spellName, 0, false, 0, "", spellIndex);
       var newIndex = _get_spellBookCount(spellBookOptions.level);
       helper.setObject({
         object: sheet.get(),
@@ -25856,23 +26290,24 @@ var spells = (function() {
       });
       _render_spell(newSpellObject, spellBookOptions.level, newIndex, true);
       addNewSpellField.value = "";
+      _render_spellPlaceholder(spellBookOptions.level);
     };
   };
 
   function _addNewSpellOnEnter(input, event) {
-    var keystroke = event.keyCode || event.which;
-    if (keystroke == 13) {
-      _addNewSpell(input);
+    if (event.keyCode == 13) {
+      addNewSpell(input);
     };
   };
 
-  function _create_spellObject(spellName, spellPrepared, spellActive, spellCast, spellNote) {
+  function _create_spellObject(spellName, spellPrepared, spellActive, spellCast, spellNote, spellIndex) {
     return {
       name: this.name = spellName || "",
+      note: this.note = spellNote || "",
       prepared: this.prepared = spellPrepared || 0,
       active: this.active = spellActive || false,
       cast: this.cast = spellCast || 0,
-      note: this.note = spellNote || ""
+      index: spellIndex || ""
     };
   };
 
@@ -25888,6 +26323,7 @@ var spells = (function() {
     } else {
       _spellState.set(spellBookOptions.level, null);
       _reset_stateSpellControl(spellBook);
+      _render_spellPlaceholder(spellBookOptions.level);
     };
   };
 
@@ -26071,227 +26507,417 @@ var spells = (function() {
         newValue: tempSpellObject
       });
     };
+    var _create_editBox = function(options) {
+      var defaultOptions = {
+        title: null,
+        textOnly: null,
+        guides: null,
+        boxSize: null,
+        content: null,
+        contentMargin: null
+      };
+      if (options) {
+        var defaultOptions = helper.applyOptions(defaultOptions, options);
+      };
+      var box = document.createElement("div");
+      box.setAttribute("class", "m-edit-box m-edit-box-indent");
+      if (options.textOnly != null) {
+        helper.addClass(box, "m-edit-box-text-only");
+      };
+      if (options.guides != null) {
+        helper.addClass(box, "m-edit-box-guides");
+      };
+      if (options.title != null) {
+        helper.addClass(box, "m-edit-box-head-small");
+        var head = document.createElement("div");
+        head.setAttribute("class", "m-edit-box-head");
+        var title = document.createElement("h2");
+        title.setAttribute("class", "m-edit-box-title");
+        title.textContent = options.title;
+        head.appendChild(title);
+        box.appendChild(head);
+      } else {
+        helper.addClass(box, "m-edit-box-no-head-small");
+      };
+      var body = document.createElement("div");
+      body.setAttribute("class", "m-edit-box-body");
+      var boxContent = document.createElement("div");
+      if (options.contentMargin != null) {
+        boxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-" + options.contentMargin + " m-edit-box-content-nowrap");
+      } else {
+        boxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-nowrap");
+      };
+      if (options.content != null) {
+        options.content.forEach(function(arrayItem) {
+          if (options.boxSize != null) {
+            boxContent.appendChild(_create_editBoxItem(options.boxSize, arrayItem));
+          } else {
+            boxContent.appendChild(arrayItem);
+          };
+        });
+      };
+      body.appendChild(boxContent);
+      box.appendChild(body);
+      return box;
+    };
     var _create_editBoxItem = function(size, child) {
       var editBoxItem = document.createElement("div");
-      editBoxItem.setAttribute("class", "m-edit-box-item-" + size);
+      editBoxItem.setAttribute("class", size);
       if (child) {
         editBoxItem.appendChild(child);
       };
       return editBoxItem;
     };
-    var _create_spellControlModal = function() {
+    var _create_spellModal = function() {
       var spellControl = document.createElement("div");
       spellControl.setAttribute("class", "m-spell-control js-spell-control");
 
-      var nameEditBox = document.createElement("div");
-      nameEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
-      var nameEditBoxHead = document.createElement("div");
-      nameEditBoxHead.setAttribute("class", "m-edit-box-head");
-      var nameEditBoxHeadTitle = document.createElement("h2");
-      nameEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
-      nameEditBoxHeadTitle.textContent = "Name";
-      var nameEditBoxBody = document.createElement("div");
-      nameEditBoxBody.setAttribute("class", "m-edit-box-body");
-      var nameEditBoxContent = document.createElement("div");
-      nameEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
-      var nameEditBoxBodyInput = document.createElement("input");
-      nameEditBoxBodyInput.setAttribute("class", "js-spell-control-input-name");
-      nameEditBoxBodyInput.setAttribute("type", "text");
-      nameEditBoxBodyInput.setAttribute("tabindex", "1");
-      nameEditBoxBodyInput.value = tempSpellObject.name;
+      var _create_controls = function() {
+        var preparedGroup = document.createElement("div");
+        preparedGroup.setAttribute("class", "m-edit-box-item m-edit-box-group-control-set");
+        var preparedCount = document.createElement("p");
+        preparedCount.setAttribute("class", "m-edit-box-total js-spell-control-prepared-count");
+        preparedCount.textContent = tempSpellObject.prepared;
+        var preparedPlus = document.createElement("button");
+        preparedPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
+        preparedPlus.setAttribute("tabindex", "1");
+        var preparedPlusIcon = document.createElement("span");
+        preparedPlusIcon.setAttribute("class", "icon-add");
+        preparedPlus.addEventListener("click", function() {
+          _hold_data("plus", "prepared");
+          _render_count(spellControl);
+        }, false);
+        var preparedMinus = document.createElement("button");
+        preparedMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
+        preparedMinus.setAttribute("tabindex", "1");
+        var preparedMinusIcon = document.createElement("span");
+        preparedMinusIcon.setAttribute("class", "icon-remove");
+        preparedMinus.addEventListener("click", function() {
+          _hold_data("minus", "prepared");
+          _render_count(spellControl);
+        }, false);
+        var preparedClear = document.createElement("button");
+        preparedClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
+        preparedClear.setAttribute("tabindex", "1");
+        var preparedClearIcon = document.createElement("span");
+        preparedClearIcon.setAttribute("class", "icon-close");
+        preparedClear.addEventListener("click", function() {
+          _hold_data("clear", "prepared");
+          _render_count(spellControl);
+        }, false);
+        preparedMinus.appendChild(preparedMinusIcon);
+        preparedPlus.appendChild(preparedPlusIcon);
+        preparedClear.appendChild(preparedClearIcon);
+        preparedGroup.appendChild(_create_editBoxItem("m-edit-box-item-button-large", preparedMinus));
+        preparedGroup.appendChild(_create_editBoxItem("m-edit-box-item-max", preparedCount));
+        preparedGroup.appendChild(_create_editBoxItem("m-edit-box-item-button-large", preparedPlus));
 
-      nameEditBoxContent.appendChild(_create_editBoxItem("max", nameEditBoxBodyInput));
-      nameEditBoxBody.appendChild(nameEditBoxContent);
-      nameEditBoxHead.appendChild(nameEditBoxHeadTitle);
-      nameEditBox.appendChild(nameEditBoxHead);
-      nameEditBox.appendChild(nameEditBoxBody);
+        var castGroup = document.createElement("div");
+        castGroup.setAttribute("class", "m-edit-box-item m-edit-box-group-control-set");
+        var castCount = document.createElement("p");
+        castCount.setAttribute("class", "m-edit-box-total js-spell-control-cast-count");
+        castCount.textContent = tempSpellObject.cast;
+        var castPlus = document.createElement("button");
+        castPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
+        castPlus.setAttribute("tabindex", "1");
+        var castPlusIcon = document.createElement("span");
+        castPlusIcon.setAttribute("class", "icon-add");
+        castPlus.addEventListener("click", function() {
+          _hold_data("plus", "cast");
+          _render_count(spellControl);
+        }, false);
+        var castMinus = document.createElement("button");
+        castMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
+        castMinus.setAttribute("tabindex", "1");
+        var castMinusIcon = document.createElement("span");
+        castMinusIcon.setAttribute("class", "icon-remove");
+        castMinus.addEventListener("click", function() {
+          _hold_data("minus", "cast");
+          _render_count(spellControl);
+        }, false);
+        var castClear = document.createElement("button");
+        castClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
+        castClear.setAttribute("tabindex", "1");
+        var castClearIcon = document.createElement("span");
+        castClearIcon.setAttribute("class", "icon-close");
+        castClear.addEventListener("click", function() {
+          _hold_data("clear", "cast");
+          _render_count(spellControl);
+        }, false);
+        castMinus.appendChild(castMinusIcon);
+        castPlus.appendChild(castPlusIcon);
+        castClear.appendChild(castClearIcon);
+        castGroup.appendChild(_create_editBoxItem("m-edit-box-item-button-large", castMinus));
+        castGroup.appendChild(_create_editBoxItem("m-edit-box-item-max", castCount));
+        castGroup.appendChild(_create_editBoxItem("m-edit-box-item-button-large", castPlus));
 
-      var preparedEditBox = document.createElement("div");
-      preparedEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
-      var preparedEditBoxHead = document.createElement("div");
-      preparedEditBoxHead.setAttribute("class", "m-edit-box-head");
-      var preparedEditBoxHeadTitle = document.createElement("h2");
-      preparedEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
-      preparedEditBoxHeadTitle.textContent = "Prepared";
-      var preparedEditBoxBody = document.createElement("div");
-      preparedEditBoxBody.setAttribute("class", "m-edit-box-body");
-      var preparedEditBoxContent = document.createElement("div");
-      preparedEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
-      var preparedEditBoxGroup = document.createElement("div");
-      preparedEditBoxGroup.setAttribute("class", "m-edit-box-item m-edit-box-group-control-set");
-      var preparedCount = document.createElement("p");
-      preparedCount.setAttribute("class", "m-edit-box-total js-spell-control-prepared-count");
-      preparedCount.textContent = tempSpellObject.prepared;
-      var preparedPlus = document.createElement("button");
-      preparedPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
-      preparedPlus.setAttribute("tabindex", "1");
-      var preparedPlusIcon = document.createElement("span");
-      preparedPlusIcon.setAttribute("class", "icon-add");
-      preparedPlus.addEventListener("click", function() {
-        _hold_data("plus", "prepared");
-        _render_count(spellControl);
-      }, false);
-      var preparedMinus = document.createElement("button");
-      preparedMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
-      preparedMinus.setAttribute("tabindex", "1");
-      var preparedMinusIcon = document.createElement("span");
-      preparedMinusIcon.setAttribute("class", "icon-remove");
-      preparedMinus.addEventListener("click", function() {
-        _hold_data("minus", "prepared");
-        _render_count(spellControl);
-      }, false);
-      var preparedClear = document.createElement("button");
-      preparedClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
-      preparedClear.setAttribute("tabindex", "1");
-      var preparedClearIcon = document.createElement("span");
-      preparedClearIcon.setAttribute("class", "icon-close");
-      preparedClear.addEventListener("click", function() {
-        _hold_data("clear", "prepared");
-        _render_count(spellControl);
-      }, false);
+        var activeCheck = document.createElement("div");
+        activeCheck.setAttribute("class", "m-check-block");
+        var activeInput = document.createElement("input");
+        activeInput.setAttribute("type", "checkbox");
+        activeInput.setAttribute("id", "spell-active");
+        activeInput.setAttribute("class", "m-check-block-check js-spell-control-active");
+        activeInput.setAttribute("tabindex", "1");
+        activeInput.checked = tempSpellObject.active;
+        activeInput.addEventListener("change", function() {
+          _hold_data("toggle", "active");
+          _render_count(spellControl);
+        }, false);
+        var activeIcon = document.createElement("span");
+        activeIcon.setAttribute("class", "m-check-block-check-icon");
+        activeCheck.appendChild(activeInput);
+        activeCheck.appendChild(activeIcon);
 
-      preparedMinus.appendChild(preparedMinusIcon);
-      preparedPlus.appendChild(preparedPlusIcon);
-      preparedClear.appendChild(preparedClearIcon);
+        var renameInput = document.createElement("input");
+        renameInput.setAttribute("class", "js-spell-control-input-name");
+        renameInput.setAttribute("type", "text");
+        renameInput.setAttribute("tabindex", "1");
+        renameInput.value = tempSpellObject.name;
 
-      preparedEditBoxGroup.appendChild(_create_editBoxItem("button-large", preparedMinus));
-      preparedEditBoxGroup.appendChild(_create_editBoxItem("max", preparedCount));
-      preparedEditBoxGroup.appendChild(_create_editBoxItem("button-large", preparedPlus));
-      preparedEditBoxContent.appendChild(preparedEditBoxGroup);
-      preparedEditBoxContent.appendChild(_create_editBoxItem("button-large", preparedClear));
-      preparedEditBoxBody.appendChild(preparedEditBoxContent);
-      preparedEditBoxHead.appendChild(preparedEditBoxHeadTitle);
-      preparedEditBox.appendChild(preparedEditBoxHead);
-      preparedEditBox.appendChild(preparedEditBoxBody);
+        var noteTextarea = document.createElement("div");
+        noteTextarea.setAttribute("class", "m-textarea-block-field textarea textarea-large u-full-width js-spell-control-textarea-note");
+        noteTextarea.setAttribute("contenteditable", "true");
+        noteTextarea.setAttribute("tabindex", "1");
+        noteTextarea.innerHTML = tempSpellObject.note;
+        noteTextarea.addEventListener("paste", function(event) {
+          helper.pasteStrip(event);
+        });
 
-      var castEditBox = document.createElement("div");
-      castEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
-      var castEditBoxHead = document.createElement("div");
-      castEditBoxHead.setAttribute("class", "m-edit-box-head");
-      var castEditBoxHeadTitle = document.createElement("h2");
-      castEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
-      castEditBoxHeadTitle.textContent = "Cast";
-      var castEditBoxBody = document.createElement("div");
-      castEditBoxBody.setAttribute("class", "m-edit-box-body");
-      var castEditBoxContent = document.createElement("div");
-      castEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
-      var castEditBoxGroup = document.createElement("div");
-      castEditBoxGroup.setAttribute("class", "m-edit-box-item m-edit-box-group-control-set");
-      var castCount = document.createElement("p");
-      castCount.setAttribute("class", "m-edit-box-total js-spell-control-cast-count");
-      castCount.textContent = tempSpellObject.cast;
-      var castPlus = document.createElement("button");
-      castPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
-      castPlus.setAttribute("tabindex", "1");
-      var castPlusIcon = document.createElement("span");
-      castPlusIcon.setAttribute("class", "icon-add");
-      castPlus.addEventListener("click", function() {
-        _hold_data("plus", "cast");
-        _render_count(spellControl);
-      }, false);
-      var castMinus = document.createElement("button");
-      castMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
-      castMinus.setAttribute("tabindex", "1");
-      var castMinusIcon = document.createElement("span");
-      castMinusIcon.setAttribute("class", "icon-remove");
-      castMinus.addEventListener("click", function() {
-        _hold_data("minus", "cast");
-        _render_count(spellControl);
-      }, false);
-      var castClear = document.createElement("button");
-      castClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
-      castClear.setAttribute("tabindex", "1");
-      var castClearIcon = document.createElement("span");
-      castClearIcon.setAttribute("class", "icon-close");
-      castClear.addEventListener("click", function() {
-        _hold_data("clear", "cast");
-        _render_count(spellControl);
-      }, false);
+        spellControl.appendChild(_create_editBox({
+          title: "Prepared",
+          guides: true,
+          content: [preparedGroup, _create_editBoxItem("m-edit-box-item-button-large", preparedClear)]
+        }));
+        spellControl.appendChild(_create_editBox({
+          title: "Cast",
+          guides: true,
+          content: [castGroup, _create_editBoxItem("m-edit-box-item-button-large", castClear)]
+        }));
+        spellControl.appendChild(_create_editBox({
+          title: "Active",
+          guides: true,
+          boxSize: "m-edit-box-item-check",
+          content: [activeCheck]
+        }));
+        spellControl.appendChild(_create_editBox({
+          title: "Rename",
+          guides: true,
+          boxSize: "m-edit-box-item-max",
+          content: [renameInput]
+        }));
+        spellControl.appendChild(_create_editBox({
+          title: "Spell notes",
+          guides: true,
+          boxSize: "m-edit-box-item-max",
+          content: [noteTextarea]
+        }));
+      };
 
-      castMinus.appendChild(castMinusIcon);
-      castPlus.appendChild(castPlusIcon);
-      castClear.appendChild(castClearIcon);
+      var _create_spellblock = function() {
 
-      castEditBoxGroup.appendChild(_create_editBoxItem("button-large", castMinus));
-      castEditBoxGroup.appendChild(_create_editBoxItem("max", castCount));
-      castEditBoxGroup.appendChild(_create_editBoxItem("button-large", castPlus));
-      castEditBoxContent.appendChild(castEditBoxGroup);
-      castEditBoxContent.appendChild(_create_editBoxItem("button-large", castClear));
-      castEditBoxBody.appendChild(castEditBoxContent);
-      castEditBoxHead.appendChild(castEditBoxHeadTitle);
-      castEditBox.appendChild(castEditBoxHead);
-      castEditBox.appendChild(castEditBoxBody);
+        var spellData = spellsData.get({
+          index: tempSpellObject.index
+        });
 
-      var activeEditBox = document.createElement("div");
-      activeEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
-      var activeEditBoxHead = document.createElement("div");
-      activeEditBoxHead.setAttribute("class", "m-edit-box-head");
-      var activeEditBoxHeadTitle = document.createElement("h2");
-      activeEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
-      activeEditBoxHeadTitle.textContent = "Active";
-      var activeEditBoxBody = document.createElement("div");
-      activeEditBoxBody.setAttribute("class", "m-edit-box-body");
-      var activeEditBoxContent = document.createElement("div");
-      activeEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
-      var activeCheck = document.createElement("div");
-      activeCheck.setAttribute("class", "m-check-block");
-      var activeInput = document.createElement("input");
-      activeInput.setAttribute("type", "checkbox");
-      activeInput.setAttribute("id", "spell-active");
-      activeInput.setAttribute("class", "m-check-block-check js-spell-control-active");
-      activeInput.setAttribute("tabindex", "1");
-      activeInput.checked = tempSpellObject.active;
-      activeInput.addEventListener("change", function() {
-        _hold_data("toggle", "active");
-        _render_count(spellControl);
-      }, false);
-      var activeIcon = document.createElement("span");
-      activeIcon.setAttribute("class", "m-check-block-check-icon");
+        if (spellData.school.base != "") {
+          var para = document.createElement("p");
+          var string = helper.capFirstLetter(spellData.school.base);
+          if (spellData.school.subschool != "") {
+            string = string + " (" + helper.capFirstLetter(spellData.school.subschool) + ")";
+          };
+          if (spellData.descriptor.string != "") {
+            string = string + " [" + helper.capFirstLetter(spellData.descriptor.string) + "]";
+          };
+          para.textContent = string;
+          spellControl.appendChild(_create_editBox({
+            title: "School",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
 
-      activeCheck.appendChild(activeInput);
-      activeCheck.appendChild(activeIcon);
-      activeEditBoxContent.appendChild(_create_editBoxItem("check", activeCheck));
-      activeEditBoxBody.appendChild(activeEditBoxContent);
-      activeEditBoxHead.appendChild(activeEditBoxHeadTitle);
-      activeEditBox.appendChild(activeEditBoxHead);
-      activeEditBox.appendChild(activeEditBoxBody);
+        if (spellData.level.string != "") {
+          var para = document.createElement("p");
+          var string = "";
+          for (var key in spellData.level) {
+            if (key != "string" && key != "sla" && spellData.level[key] != null) {
+              string = string + helper.capFirstLetter(key) + " " + spellData.level[key] + ", ";
+            };
+          };
+          string = string.replace(/,\s*$/, "");
+          para.textContent = string;
+          spellControl.appendChild(_create_editBox({
+            title: "Level",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
 
-      var noteEditBox = document.createElement("div");
-      noteEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
-      var noteEditBoxHead = document.createElement("div");
-      noteEditBoxHead.setAttribute("class", "m-edit-box-head");
-      var noteEditBoxHeadTitle = document.createElement("h2");
-      noteEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
-      noteEditBoxHeadTitle.textContent = "Spell Notes";
-      var noteEditBoxBody = document.createElement("div");
-      noteEditBoxBody.setAttribute("class", "m-edit-box-body");
-      var noteEditBoxContent = document.createElement("div");
-      noteEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
-      var noteTextarea = document.createElement("div");
-      noteTextarea.setAttribute("class", "m-textarea-block-field textarea textarea-large u-full-width js-spell-control-textarea-note");
-      noteTextarea.setAttribute("contenteditable", "true");
-      noteTextarea.setAttribute("tabindex", "1");
-      noteTextarea.innerHTML = tempSpellObject.note;
-      noteTextarea.addEventListener("paste", function(event) {
-        helper.pasteStrip(event);
-      });
+        if (spellData.casting.time != "") {
+          var para = document.createElement("p");
+          para.textContent = helper.capFirstLetter(spellData.casting.time);
+          spellControl.appendChild(_create_editBox({
+            title: "Casting time",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
 
-      noteEditBoxContent.appendChild(_create_editBoxItem("max", noteTextarea));
-      noteEditBoxBody.appendChild(noteEditBoxContent);
-      noteEditBoxHead.appendChild(noteEditBoxHeadTitle);
-      noteEditBox.appendChild(noteEditBoxHead);
-      noteEditBox.appendChild(noteEditBoxBody);
+        if (spellData.components.string != "") {
+          var para = document.createElement("p");
+          para.textContent = spellData.components.string;
+          spellControl.appendChild(_create_editBox({
+            title: "Components",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
 
-      spellControl.appendChild(nameEditBox);
-      spellControl.appendChild(preparedEditBox);
-      spellControl.appendChild(castEditBox);
-      spellControl.appendChild(activeEditBox);
-      spellControl.appendChild(noteEditBox);
+        if (spellData.casting.range != "") {
+          var para = document.createElement("p");
+          para.textContent = helper.capFirstLetter(spellData.casting.range);
+          spellControl.appendChild(_create_editBox({
+            title: "Range",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
 
+        if (spellData.casting.area != "") {
+          var para = document.createElement("p");
+          var string = helper.capFirstLetter(spellData.casting.area);
+          if (spellData.casting.shapeable) {
+            string = string + " (S)";
+          };
+          para.textContent = string;
+          spellControl.appendChild(_create_editBox({
+            title: "Area",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
+        if (spellData.casting.targets != "") {
+          var para = document.createElement("p");
+          para.textContent = helper.capFirstLetter(spellData.casting.targets);
+          spellControl.appendChild(_create_editBox({
+            title: "Targets",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
+        if (spellData.casting.duration != "") {
+          var para = document.createElement("p");
+          var string = helper.capFirstLetter(spellData.casting.duration);
+          if (spellData.casting.dismissible) {
+            string = string + " (D)";
+          };
+          para.textContent = string;
+          spellControl.appendChild(_create_editBox({
+            title: "Duration",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
+        if (spellData.casting.saving != "") {
+          var para = document.createElement("p");
+          para.textContent = helper.capFirstLetter(spellData.casting.saving);
+          spellControl.appendChild(_create_editBox({
+            title: "Saving Throw",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
+        if (spellData.casting.spell_resistence != "") {
+          var para = document.createElement("p");
+          para.textContent = helper.capFirstLetter(spellData.casting.spell_resistence);
+          spellControl.appendChild(_create_editBox({
+            title: "Spell Resistence",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
+        if (spellData.description.formated != "") {
+          var div = document.createElement("div");
+          div.innerHTML = spellData.description.formated;
+          spellControl.appendChild(_create_editBox({
+            title: "Description",
+            textOnly: true,
+            guides: true,
+            content: [div],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
+        if (spellData.mythic.mythic && spellData.mythic.text != "") {
+          var para = document.createElement("p");
+          para.textContent = spellData.mythic.text;
+          spellControl.appendChild(_create_editBox({
+            title: "Mythic",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
+        if (spellData.mythic.mythic && spellData.mythic.augmented != "") {
+          var para = document.createElement("p");
+          para.textContent = spellData.mythic.augmented;
+          spellControl.appendChild(_create_editBox({
+            content: [para],
+            textOnly: true,
+            guides: true,
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
+        if (spellData.source != "") {
+          var para = document.createElement("p");
+          para.textContent = spellData.source;
+          spellControl.appendChild(_create_editBox({
+            title: "Source",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+      };
+
+      if ("index" in tempSpellObject && tempSpellObject.index != "") {
+        _create_spellblock();
+      };
+
+      _create_controls();
       return spellControl;
     };
     if (_spellState.get(options.level) == null || force) {
-      var modalContent = _create_spellControlModal();
+      var modalContent = _create_spellModal();
       var modalAction = function() {
         _store_data(this);
         _update_spellButton(button, true);
@@ -26305,7 +26931,7 @@ var spells = (function() {
         content: modalContent,
         action: modalAction,
         actionText: "Save",
-        size: "medium"
+        size: "large"
       });
       page.update();
     };
@@ -26435,7 +27061,6 @@ var spells = (function() {
   };
 
   function _render_all_spells(array, level) {
-    // console.log(array, typeof level, level);
     // read spells and add them to spell lists
     for (var i = 0; i < array.length; i++) {
       var spellObject = array[i];
@@ -26449,6 +27074,7 @@ var spells = (function() {
       knownListToSaveTo.appendChild(spellButtonCol);
       _bind_spellKnownItem(spellButton);
     };
+    _render_spellPlaceholder(level);
   };
 
   function _render_spell(spellObject, level, spellIndex) {
@@ -26573,25 +27199,24 @@ var spells = (function() {
       for (var i = 0; i < all_spellControl.length; i++) {
         if (all_spellControl[i].classList.contains("button-primary")) {
           helper.removeClass(all_spellControl[i], "button-primary");
-          helper.addClass(all_spellControl[i], "button-secondary");
         };
-        if (all_spellControl[i].classList.contains("is-live")) {
-          helper.removeClass(all_spellControl[i], "is-live");
+        if (all_spellControl[i].classList.contains("button-secondary")) {
+          helper.removeClass(all_spellControl[i], "button-secondary");
         };
       };
     };
     var _activateControl = function() {
       if (_spellState.get(spellBookOptions.level) == "remove") {
-        helper.removeClass(button, "button-secondary");
         helper.addClass(button, "button-primary");
       } else if (_spellState.get(spellBookOptions.level) == null) {
-        helper.addClass(button, "button-secondary");
         helper.removeClass(button, "button-primary");
       };
       if (_spellState.get(spellBookOptions.level) == "prepare" || _spellState.get(spellBookOptions.level) == "unprepare" || _spellState.get(spellBookOptions.level) == "cast" || _spellState.get(spellBookOptions.level) == "active") {
-        helper.addClass(button, "is-live");
+        // helper.addClass(button, "is-live");
+        helper.addClass(button, "button-secondary");
       } else if (_spellState.get(spellBookOptions.level) == null) {
-        helper.removeClass(button, "is-live");
+        // helper.removeClass(button, "is-live");
+        helper.removeClass(button, "button-secondary");
       };
     };
     if (_spellState.get(spellBookOptions.level) != null) {
@@ -26609,12 +27234,22 @@ var spells = (function() {
       for (var i = 0; i < all_spellControl.length; i++) {
         if (all_spellControl[i].classList.contains("button-primary")) {
           helper.removeClass(all_spellControl[i], "button-primary");
-          helper.addClass(all_spellControl[i], "button-secondary");
+          helper.removeClass(all_spellControl[i], "button-secondary");
         };
-        if (all_spellControl[i].classList.contains("is-live")) {
-          helper.removeClass(all_spellControl[i], "is-live");
-        };
+        // if (all_spellControl[i].classList.contains("is-live")) {
+        //   helper.removeClass(all_spellControl[i], "is-live");
+        // };
       };
+      _render_stateSpellBook(spellBook, spellBookOptions.level);
+    };
+  };
+
+  function _render_spellPlaceholder(level) {
+    var placeholder = helper.e(".js-placeholder-spell-level-" + level);
+    if (_get_spellBookCount(level) > 0) {
+      helper.addClass(placeholder, "is-hidden");
+    } else {
+      helper.removeClass(placeholder, "is-hidden");
     };
   };
 
@@ -26623,7 +27258,3190 @@ var spells = (function() {
     clear: clear,
     bind: bind,
     render: render,
-    update: _render_quickSpellControl
+    update: _render_quickSpellControl,
+    add: add
+  };
+
+})();
+
+var spellsData = (function() {
+
+  var _all_spellsObject = null;
+
+  function get(options) {
+    var defaultOptions = {
+      all: null,
+      name: null,
+      index: null,
+      full: null
+    };
+    if (options) {
+      var defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
+    var all_spellName = [
+      "Abadar's Truthtelling",
+      "Abeyance",
+      "Ablative Barrier",
+      "Ablative Sphere",
+      "Aboleth's Lung",
+      "Absolution",
+      "Absorb Rune I",
+      "Absorb Rune II",
+      "Absorb Rune III",
+      "Absorb Toxicity",
+      "Absorbing Inhalation",
+      "Absorbing Touch",
+      "Abstemiousness",
+      "Absurdity",
+      "Abundant Ammunition",
+      "Abyssal Vermin",
+      "Accelerate Poison",
+      "Accept Affliction",
+      "Accursed Glare",
+      "Acid Arrow",
+      "Acid Fog",
+      "Acid Maw",
+      "Acid Pit",
+      "Acid Splash",
+      "Acidic Spray",
+      "Acute Senses",
+      "Adhesive Blood",
+      "Adhesive Spittle",
+      "Adjuring Step",
+      "Adjustable Disguise",
+      "Adjustable Polymorph",
+      "Adoration",
+      "Adroit Retrieval",
+      "Advanced Scurvy",
+      "Aerial Tracks",
+      "Age Resistance",
+      "Age Resistance, Greater",
+      "Age Resistance, Lesser",
+      "Aggravate Affliction",
+      "Aggressive Thundercloud",
+      "Aggressive Thundercloud, Greater",
+      "Agonize",
+      "Agonizing Rebuke",
+      "Aid",
+      "Air Breathing",
+      "Air Bubble",
+      "Air Geyser",
+      "Air Of Authority",
+      "Air Step",
+      "Air Walk",
+      "Air Walk, Communal",
+      "Akashic Communion",
+      "Akashic Form",
+      "Alarm",
+      "Alaznist's Jinx",
+      "Alchemical Allocation",
+      "Alchemical Tinkering",
+      "Aldori Alacrity",
+      "Align Weapon",
+      "Align Weapon, Communal",
+      "Allegro",
+      "Alleviate Addiction",
+      "Alleviate Corruption",
+      "Allfood",
+      "Allied Cloak",
+      "Alluring Spores",
+      "Ally Across Time",
+      "Alter Musical Instrument",
+      "Alter River",
+      "Alter Self",
+      "Alter Summoned Monster",
+      "Alter Winds",
+      "Amnesia",
+      "Amplify Elixir",
+      "Amplify Stench",
+      "Analyze Aura",
+      "Analyze Dweomer",
+      "Ancestral Communion",
+      "Ancestral Gift",
+      "Ancestral Memory",
+      "Ancestral Regression",
+      "Anchored Step",
+      "Angelic Aspect",
+      "Angelic Aspect, Greater",
+      "Angelic Aspect, Lesser",
+      "Animal Ambassador",
+      "Animal Aspect",
+      "Animal Aspect, Greater",
+      "Animal Growth",
+      "Animal Messenger",
+      "Animal Purpose Training",
+      "Animal Shapes",
+      "Animal Trance",
+      "Animate Dead",
+      "Animate Dead, Lesser",
+      "Animate Objects",
+      "Animate Plants",
+      "Animate Rope",
+      "Animus Mine",
+      "Animus Mine, Greater",
+      "Anonymous Interaction",
+      "Ant Haul",
+      "Ant Haul, Communal",
+      "Anthropomorphic Animal",
+      "Anti-Incorporeal Shell",
+      "Anti-Summoning Shield",
+      "Anticipate Peril",
+      "Anticipate Thoughts",
+      "Antilife Shell",
+      "Antimagic Field",
+      "Antipathy",
+      "Antiplant Shell",
+      "Antitech Field",
+      "Antithetical Constraint",
+      "Apathy",
+      "Ape Walk",
+      "Aphasia",
+      "Apparent Treachery",
+      "Appearance Of Life",
+      "Appearance Of Life, Greater",
+      "Apport Animal",
+      "Apport Object",
+      "Apsu's Shining Scales",
+      "Aquatic Trail",
+      "Aqueous Orb",
+      "Aram Zey's Focus",
+      "Aram Zey's Trap Ward",
+      "Arbitrament",
+      "Arboreal Hammer",
+      "Arcana Theft",
+      "Arcane Cannon",
+      "Arcane Concordance",
+      "Arcane Disruption",
+      "Arcane Eye",
+      "Arcane Lock",
+      "Arcane Mark",
+      "Arcane Pocket",
+      "Arcane Reinforcement",
+      "Arcane Sight",
+      "Arcane Sight, Greater",
+      "Archon's Aura",
+      "Archon's Trumpet",
+      "Ardor's Onslaught",
+      "Army Across Time",
+      "Aroden's Magic Army",
+      "Aroden's Spellbane",
+      "Aroden's Spellsword",
+      "Arrow Eruption",
+      "Arrow of Law",
+      "Artificer's Curse",
+      "Ascension",
+      "Ash Storm",
+      "Aspect of the Bear",
+      "Aspect of the Falcon",
+      "Aspect of the Nightingale",
+      "Aspect of the Stag",
+      "Aspect of the Wolf",
+      "Assume Appearance",
+      "Assume Appearance, Greater",
+      "Assumed Likeness",
+      "Astral Projection",
+      "Astral Projection, Lesser",
+      "Atavism",
+      "Atavism, Mass",
+      "Atonement",
+      "Audiovisual Hallucination",
+      "Auditory Hallucination",
+      "Augmenting Wall",
+      "Augury",
+      "Aura Alteration",
+      "Aura Of Cannibalism",
+      "Aura Of Distraction",
+      "Aura of Doom",
+      "Aura of Greater Courage",
+      "Aura Of Inviolate Ownership",
+      "Aura Of The Unremarkable",
+      "Aura Sight",
+      "Authenticating Gaze",
+      "Aversion",
+      "Awaken",
+      "Awaken Construct",
+      "Awaken the Devoured",
+      "Babble",
+      "Badger's Ferocity",
+      "Balance Of Suffering",
+      "Baleful Polymorph",
+      "Baleful Shadow Transmutation",
+      "Ball Lightning",
+      "Ban Corruption",
+      "Bane",
+      "Banish Seeming",
+      "Banishing Blade",
+      "Banishment",
+      "Banshee Blast",
+      "Baphomet's Blessing",
+      "Barbed Chains",
+      "Bard's Escape",
+      "Barghest Feast",
+      "Barkskin",
+      "Barrow Haze",
+      "Batrachian Surge",
+      "Battering Blast",
+      "Battle Trance",
+      "Battlemind Link",
+      "Beacon Of Guilt",
+      "Beacon Of Luck",
+      "Beanstalk",
+      "Bear's Endurance",
+      "Bear's Endurance, Mass",
+      "Beast Shape I",
+      "Beast Shape II",
+      "Beast Shape III",
+      "Beast Shape IV",
+      "Beastspeak",
+      "Bed Of Iron",
+      "Befuddled Combatant",
+      "Beguiling Gift",
+      "Beloved Of The Forge",
+      "Bereave",
+      "Besmara's Grasping Depths",
+      "Bestow Auras",
+      "Bestow Curse",
+      "Bestow Curse, Greater",
+      "Bestow Grace",
+      "Bestow Grace of the Champion",
+      "Bestow Insight",
+      "Bestow Weapon Proficiency",
+      "Betraying Sting",
+      "Billowing Skirt",
+      "Bilocation",
+      "Bind Sage",
+      "Binding",
+      "Binding Earth",
+      "Binding Earth, Mass",
+      "Bit Of Luck",
+      "Bite the Hand",
+      "Bite the Hand, Mass",
+      "Biting Words",
+      "Black Mark",
+      "Black Spot",
+      "Black Sword Of War",
+      "Black Tentacles",
+      "Blade Barrier",
+      "Blade Lash",
+      "Blade of Bright Victory",
+      "Blade of Dark Triumph",
+      "Blade Of Light",
+      "Blade Snare",
+      "Blade Tutor's Spirit",
+      "Bladed Dash",
+      "Bladed Dash, Greater",
+      "Blasphemy",
+      "Blast Barrier",
+      "Blaze of Glory",
+      "Blazing Rainbow",
+      "Bleaching Resistance",
+      "Bleed",
+      "Bleed For Your Master",
+      "Bleed Glory",
+      "Bleeding Strike",
+      "Blend",
+      "Blend With Surroundings",
+      "Bless",
+      "Bless Army",
+      "Bless Water",
+      "Bless Weapon",
+      "Blessed Fist",
+      "Blessing of Courage and Life",
+      "Blessing Of Fervor",
+      "Blessing Of Liberty",
+      "Blessing Of Luck And Resolve",
+      "Blessing Of Luck And Resolve, Mass",
+      "Blessing of the Mole",
+      "Blessing of the Salamander",
+      "Blessing Of The Watch",
+      "Blight",
+      "Blightburn Weapon",
+      "Blinding Ray",
+      "Blindness/Deafness",
+      "Blink",
+      "Blistering Invective",
+      "Bloatbomb",
+      "Blood Armor",
+      "Blood Biography",
+      "Blood Blaze",
+      "Blood Boil",
+      "Blood Crow Strike",
+      "Blood In The Water",
+      "Blood Mist",
+      "Blood Money",
+      "Blood Of The Martyr",
+      "Blood Rage",
+      "Blood Salvation",
+      "Blood Scent",
+      "Blood Sentinel",
+      "Blood Song",
+      "Blood Tentacles",
+      "Blood Ties",
+      "Blood Transcription",
+      "Bloodbath",
+      "Bloodhound",
+      "Bloody Arrows",
+      "Bloody Claws",
+      "Bloody Tears And Jagged Smile",
+      "Blot",
+      "Blur",
+      "Blurred Movement",
+      "Body Capacitance",
+      "Body Double",
+      "Boiling Blood",
+      "Bomber's Eye",
+      "Bone Fists",
+      "Bone Flense",
+      "Boneshaker",
+      "Boneshatter",
+      "Book Ward",
+      "Borrow Corruption",
+      "Borrow Fortune",
+      "Borrow Skill",
+      "Borrowed Time",
+      "Bouncing Bomb Admixture",
+      "Bouncy Body",
+      "Bountiful Banquet",
+      "Bow Spirit",
+      "Bowstaff",
+      "Brand",
+      "Brand Of Conformity",
+      "Brand Of Hobbling",
+      "Brand Of Tracking",
+      "Brand, Greater",
+      "Break",
+      "Break Enchantment",
+      "Break, Greater",
+      "Breath Of Life",
+      "Breeze",
+      "Brightest Light",
+      "Brilliant Inspiration",
+      "Bristle",
+      "Brittle Portal",
+      "Brow Gasher",
+      "Build Trust",
+      "Bull's Strength",
+      "Bull's Strength, Mass",
+      "Bullet Shield",
+      "Bullet Ward",
+      "Bungle",
+      "Buoyancy",
+      "Burdened Thoughts",
+      "Burn Corruption",
+      "Burning Arc",
+      "Burning Disarm",
+      "Burning Entanglement",
+      "Burning Gaze",
+      "Burning Hands",
+      "Burning Sands",
+      "Burrow",
+      "Burst Bonds",
+      "Burst Of Adrenaline",
+      "Burst Of Force",
+      "Burst Of Glory",
+      "Burst Of Insight",
+      "Burst of Nettles",
+      "Burst Of Radiance",
+      "Burst of Speed",
+      "Burst With Light",
+      "Business Booms",
+      "Cackling Skull",
+      "Cacophonous Call",
+      "Cacophonous Call, Mass",
+      "Caging Bomb Admixture",
+      "Calcific Touch",
+      "Calculated Luck",
+      "Calistria's Guardian Wasps",
+      "Call Animal",
+      "Call Construct",
+      "Call Lightning",
+      "Call Lightning Storm",
+      "Call Spirit",
+      "Call the Void",
+      "Call Weapon",
+      "Callback",
+      "Callback, Greater",
+      "Calm Air",
+      "Calm Animals",
+      "Calm Emotions",
+      "Calm Spirit",
+      "Campfire Wall",
+      "Canopic Conversion",
+      "Cape Of Wasps",
+      "Carrion Compass",
+      "Carry Companion",
+      "Cast Out",
+      "Castigate",
+      "Castigate, Mass",
+      "Cat's Grace",
+      "Cat's Grace, Mass",
+      "Catatonia",
+      "Cause Fear",
+      "Caustic Blood",
+      "Caustic Eruption",
+      "Caustic Safeguard",
+      "Cauterizing Weapon",
+      "Celestial Healing",
+      "Celestial Healing, Greater",
+      "Ceremony",
+      "Certain Grip",
+      "Chain Lightning",
+      "Chain of Perdition",
+      "Chains Of Fire",
+      "Chains Of Light",
+      "Challenge Evil",
+      "Chameleon Scales",
+      "Chameleon Stride",
+      "Chameleon Stride, Greater",
+      "Champion's Bout",
+      "Changestaff",
+      "Channel The Gift",
+      "Channel Vigor",
+      "Chaos Hammer",
+      "Charge Object",
+      "Charitable Impulse",
+      "Charm Animal",
+      "Charm Fey",
+      "Charm Monster",
+      "Charm Monster, Mass",
+      "Charm Person",
+      "Charm Person, Mass",
+      "Charnel House",
+      "Charon's Dispensation",
+      "Chastise",
+      "Cheetah's Sprint",
+      "Chill Metal",
+      "Chill Touch",
+      "Chord Of Shards",
+      "Circle Of Clarity",
+      "Circle Of Death",
+      "Claim Identity",
+      "Claim Identity, Greater",
+      "Clairaudience/Clairvoyance",
+      "Clarion Call",
+      "Clashing Rocks",
+      "Cleanse",
+      "Cleansing Fire",
+      "Clear Grove",
+      "Clenched Fist",
+      "Cleromancy",
+      "Climbing Beanstalk",
+      "Cloak of Chaos",
+      "Cloak of Dreams",
+      "Cloak Of Secrets",
+      "Cloak of Shade",
+      "Cloak Of Shadows",
+      "Cloak of Winds",
+      "Clone",
+      "Cloud Of Seasickness",
+      "Cloud Shape",
+      "Cloudkill",
+      "Codespeak",
+      "Cognitive Block",
+      "Coin Shot",
+      "Cold Ice Strike",
+      "Cold Iron Fetters",
+      "Collaborative Thaumaturgy",
+      "Color Spray",
+      "Command",
+      "Command Plants",
+      "Command Undead",
+      "Command, Greater",
+      "Commune",
+      "Commune With Birds",
+      "Commune with Nature",
+      "Commune With Texts",
+      "Companion Life Link",
+      "Companion Mind Link",
+      "Compassionate Ally",
+      "Compel Hostility",
+      "Compel Tongue",
+      "Compel Tongue, Mass",
+      "Compelling Rant",
+      "Complex Hallucination",
+      "Comprehend Languages",
+      "Compulsive Liar",
+      "Concealed Breath",
+      "Condensed Ether",
+      "Conditional Curse",
+      "Conditional Favor",
+      "Cone of Cold",
+      "Confess",
+      "Confusion",
+      "Confusion, Lesser",
+      "Conjuration Foil",
+      "Conjure Black Pudding",
+      "Conjure Carriage",
+      "Conjure Deadfall",
+      "Consecrate",
+      "Constricting Coils",
+      "Contact Entity I",
+      "Contact Entity II",
+      "Contact Entity III",
+      "Contact Entity IV",
+      "Contact High",
+      "Contact Nalfeshnee",
+      "Contact Other Plane",
+      "Contagion",
+      "Contagion, Greater",
+      "Contagious Flame",
+      "Contagious Suggestion",
+      "Contagious Zeal",
+      "Contest Of Skill",
+      "Contingency",
+      "Contingent Action",
+      "Contingent Scroll",
+      "Contingent Venom",
+      "Continual Flame",
+      "Control Construct",
+      "Control Plants",
+      "Control Summoned Creature",
+      "Control Undead",
+      "Control Vermin",
+      "Control Water",
+      "Control Weather",
+      "Control Winds",
+      "Controlled Fireball",
+      "Conversing Wind",
+      "Coordinated Effort",
+      "Corpse Hammer",
+      "Corpse Lanterns",
+      "Corrosive Consumption",
+      "Corrosive Touch",
+      "Corruption Resistance",
+      "Cosmic Ray",
+      "Counterbalancing Aura",
+      "Countless Eyes",
+      "Covetous Aura",
+      "Covetous Urge",
+      "Coward's Cowl",
+      "Coward's Lament",
+      "Crafter's Curse",
+      "Crafter's Fortune",
+      "Crafter's Nightmare",
+      "Create Armaments",
+      "Create Demiplane",
+      "Create Demiplane, Greater",
+      "Create Demiplane, Lesser",
+      "Create Drug",
+      "Create Food and Water",
+      "Create Greater Undead",
+      "Create Holds",
+      "Create Mindscape",
+      "Create Mindscape, Greater",
+      "Create Pit",
+      "Create Soul Gem",
+      "Create Treasure Map",
+      "Create Undead",
+      "Create Variant Mummy",
+      "Create Water",
+      "Creeping Doom",
+      "Creeping Ice",
+      "Crime Of Opportunity",
+      "Crime Wave",
+      "Crimson Breath",
+      "Crimson Confession",
+      "Cruel Jaunt",
+      "Crusader's Edge",
+      "Crushing Despair",
+      "Crushing Hand",
+      "Cultural Adaptation",
+      "Cup Of Dust",
+      "Curative Distillation",
+      "Cure Critical Wounds",
+      "Cure Critical Wounds, Mass",
+      "Cure Light Wounds",
+      "Cure Light Wounds, Mass",
+      "Cure Moderate Wounds",
+      "Cure Moderate Wounds, Mass",
+      "Cure Serious Wounds",
+      "Cure Serious Wounds, Mass",
+      "Curse Item",
+      "Curse Of Befouled Fortune",
+      "Curse Of Burning Sleep",
+      "Curse Of Disgust",
+      "Curse Of Fell Seasons",
+      "Curse Of Keeping",
+      "Curse of Magic Negation",
+      "Curse Of Night",
+      "Curse Of The Outcast",
+      "Curse Of Unexpected Death",
+      "Curse Terrain",
+      "Curse Terrain, Greater",
+      "Curse Terrain, Lesser",
+      "Curse Terrain, Supreme",
+      "Curse Water",
+      "Curse, Major",
+      "Cursed Earth",
+      "Cursed Treasure",
+      "Cushioning Bands",
+      "Cyclic Reincarnation",
+      "Daemon Ward",
+      "Daggermark's Exchange",
+      "Dahak's Release",
+      "Damnation",
+      "Damnation Of Memory",
+      "Damnation Stride",
+      "Damp Powder",
+      "Dance of a Hundred Cuts",
+      "Dance of a Thousand Cuts",
+      "Dancing Darkness",
+      "Dancing Lantern",
+      "Dancing Lights",
+      "Dark Whispers",
+      "Dark-Light",
+      "Darkness",
+      "Darkvault",
+      "Darkvision",
+      "Darkvision, Communal",
+      "Darkvision, Greater",
+      "Darting Duplicate",
+      "Daybreak Arrow",
+      "Daylight",
+      "Daywalker",
+      "Daze",
+      "Daze Monster",
+      "Daze, Mass",
+      "Dazzling Blade",
+      "Dazzling Blade, Mass",
+      "Dead Eye's Arrow",
+      "Deadeye's Lore",
+      "Deadly Finale",
+      "Deadly Juggernaut",
+      "Deadman's Contingency",
+      "Deafening Song Bolt",
+      "Death Candle",
+      "Death Clutch",
+      "Death From Below",
+      "Death Knell",
+      "Death Knell Aura",
+      "Death Knell Aura, Greater",
+      "Death Pact",
+      "Death Ward",
+      "Deathless",
+      "Deathwatch",
+      "Deathwine",
+      "Debilitating Pain",
+      "Debilitating Pain, Mass",
+      "Debilitating Portent",
+      "Decapitate",
+      "Deceitful Veneer",
+      "Deceptive Redundancy",
+      "Decollate",
+      "Decompose Corpse",
+      "Decrepit Disguise",
+      "Deep Slumber",
+      "Deeper Darkness",
+      "Defending Bone",
+      "Defensive Shock",
+      "Defile Armor",
+      "Deflect Blame",
+      "Deflection",
+      "Defoliate",
+      "Deft Digits",
+      "Deivon's Parry",
+      "Deja Vu",
+      "Delay Disease",
+      "Delay Pain",
+      "Delay Poison",
+      "Delay Poison, Communal",
+      "Delayed Blast Fireball",
+      "Delayed Consumption",
+      "Delusional Pride",
+      "Demand",
+      "Demand Offering",
+      "Demanding Message",
+      "Demanding Message, Mass",
+      "Denounce",
+      "Depilate",
+      "Desecrate",
+      "Desperate Weapon",
+      "Destabilize Powder",
+      "Destroy Robot",
+      "Destruction",
+      "Detect Aberration",
+      "Detect Animals or Plants",
+      "Detect Anxieties",
+      "Detect Chaos",
+      "Detect Charm",
+      "Detect Demon",
+      "Detect Desires",
+      "Detect Evil",
+      "Detect Fiendish Presence",
+      "Detect Good",
+      "Detect Law",
+      "Detect Magic",
+      "Detect Magic, Greater",
+      "Detect Metal",
+      "Detect Mindscape",
+      "Detect Poison",
+      "Detect Psychic Significance",
+      "Detect Radiation",
+      "Detect Relations",
+      "Detect Scrying",
+      "Detect Secret Doors",
+      "Detect Snares and Pits",
+      "Detect The Faithful",
+      "Detect Thoughts",
+      "Detect Undead",
+      "Determine Depth",
+      "Detonate",
+      "Detoxify",
+      "Devil Snare",
+      "Devolution",
+      "Diagnose Disease",
+      "Dictum",
+      "Die For Your Master",
+      "Dimension Door",
+      "Dimensional Anchor",
+      "Dimensional Blade",
+      "Dimensional Bounce",
+      "Dimensional Lock",
+      "Diminish Plants",
+      "Diminish Resistance",
+      "Diminished Detection",
+      "Dirge Of The Victorious Knights",
+      "Disable Construct",
+      "Discern Lies",
+      "Discern Location",
+      "Discern Next Of Kin",
+      "Discern Value",
+      "Discharge",
+      "Discharge, Greater",
+      "Discordant Blast",
+      "Discovery Torch",
+      "Disfiguring Touch",
+      "Disguise Other",
+      "Disguise Self",
+      "Disguise Weapon",
+      "Disintegrate",
+      "Dismissal",
+      "Dispel Balance",
+      "Dispel Chaos",
+      "Dispel Evil",
+      "Dispel Good",
+      "Dispel Law",
+      "Dispel Magic",
+      "Dispel Magic, Greater",
+      "Displacement",
+      "Display Aversion",
+      "Disrupt Link",
+      "Disrupt Silence",
+      "Disrupt Undead",
+      "Disrupting Weapon",
+      "Dissolution",
+      "Distracting Cacophony",
+      "Distressing Tone",
+      "Divide Mind",
+      "Divination",
+      "Divine Arrow",
+      "Divine Favor",
+      "Divine Power",
+      "Divine Pursuit",
+      "Divine Transfer",
+      "Divine Vessel",
+      "Dominate Animal",
+      "Dominate Monster",
+      "Dominate Person",
+      "Domination Link",
+      "Dongun Shaper's Touch",
+      "Doom",
+      "Dousing Rain",
+      "Draconic Ally",
+      "Draconic Malice",
+      "Draconic Reservoir",
+      "Draconic Suppression",
+      "Dragon Turtle Shell",
+      "Dragon's Breath",
+      "Dragonvoice",
+      "Drain Poison",
+      "Dread Bolt",
+      "Dreadscape",
+      "Dream",
+      "Dream Council",
+      "Dream Dalliance",
+      "Dream Feast",
+      "Dream Reality",
+      "Dream Scan",
+      "Dream Shield",
+      "Dream Travel",
+      "Dream Voyage",
+      "Drench",
+      "Dress Corpse",
+      "Dungeonsight",
+      "Duplicate Familiar",
+      "Dust Form",
+      "Dust Of Twilight",
+      "Dust Ward",
+      "Dweomer Retaliation",
+      "Eagle Aerie",
+      "Eagle Eye",
+      "Eagle's Splendor",
+      "Eagle's Splendor, Mass",
+      "Eaglesoul",
+      "Ear-Piercing Scream",
+      "Early Judgment",
+      "Ears Of The City",
+      "Earsend",
+      "Earth Glide",
+      "Earthquake",
+      "Echean's Excellent Enclosure",
+      "Echolocation",
+      "Ectoplasmic Eruption",
+      "Ectoplasmic Hand",
+      "Ectoplasmic Snare",
+      "Effortless Armor",
+      "Ego Whip I",
+      "Ego Whip II",
+      "Ego Whip III",
+      "Ego Whip IV",
+      "Ego Whip V",
+      "Egorian Diplomacy",
+      "Eldritch Conduit",
+      "Eldritch Conduit, Greater",
+      "Eldritch Fever",
+      "Elemental Assessor",
+      "Elemental Aura",
+      "Elemental Body I",
+      "Elemental Body II",
+      "Elemental Body III",
+      "Elemental Body IV",
+      "Elemental Bombardment",
+      "Elemental Mastery",
+      "Elemental Speech",
+      "Elemental Swarm",
+      "Elemental Touch",
+      "Elude Time",
+      "Emblazon Crest",
+      "Emblem Of Greed",
+      "Embrace Destiny",
+      "Emergency Force Sphere",
+      "Emotive Block",
+      "Empathy Conduit",
+      "Empower Holy Water",
+      "Enchantment Foil",
+      "Enchantment Sight",
+      "Endothermic Touch",
+      "Endure Elements",
+      "Endure Elements, Communal",
+      "Enemy Hammer",
+      "Enemy Insight",
+      "Enemy's Heart",
+      "Energy Drain",
+      "Energy Hack",
+      "Energy Siege Shot",
+      "Energy Siege Shot, Greater",
+      "Enervation",
+      "Enhance Water",
+      "Enlarge Person",
+      "Enlarge Person, Mass",
+      "Enlarge Tail",
+      "Enlightened Step",
+      "Enshroud Thoughts",
+      "Entangle",
+      "Enter Image",
+      "Enthrall",
+      "Entice Fey",
+      "Entice Fey, Greater",
+      "Entice Fey, Lesser",
+      "Enticing Adulation",
+      "Entomb",
+      "Entrap Spirit",
+      "Entropic Shield",
+      "Envious Urge",
+      "Epidemic",
+      "Erase",
+      "Erase Impressions",
+      "Erode Defenses",
+      "Eruptive Pustules",
+      "Escape Alarm",
+      "Escaping Ward",
+      "Ethereal Envelope",
+      "Ethereal Envelopment",
+      "Ethereal Fists",
+      "Ethereal Jaunt",
+      "Etherealness",
+      "Etheric Shards",
+      "Euphoric Cloud",
+      "Euphoric Tranquility",
+      "Evaluator's Lens",
+      "Evolution Surge",
+      "Evolution Surge, Greater",
+      "Evolution Surge, Lesser",
+      "Excruciating Deformation",
+      "Expeditious Construction",
+      "Expeditious Excavation",
+      "Expeditious Retreat",
+      "Expend",
+      "Explode Head",
+      "Explosion Of Rot",
+      "Explosive Runes",
+      "Exquisite Accompaniment",
+      "Extreme Buoyancy",
+      "Extreme Flexibility",
+      "Eyebite",
+      "Eyes Of The Void",
+      "Fable Tapestry",
+      "Fabricate",
+      "Fabricate Bullets",
+      "Fabricate Disguise",
+      "Face Of The Devourer",
+      "Faerie Fire",
+      "Fairness",
+      "Fairy Ring Retreat",
+      "Fallback Strategy",
+      "False Alibi",
+      "False Belief",
+      "False Face",
+      "False Future",
+      "False Life",
+      "False Life, Greater",
+      "False Resurrection",
+      "False Resurrection, Greater",
+      "False Vision",
+      "False Vision, Greater",
+      "Familiar Double",
+      "Familiar Figment",
+      "Familiar Melding",
+      "Fear",
+      "Fear The Sun",
+      "Fearsome Duplicate",
+      "Feast Of Ashes",
+      "Feast On Fear",
+      "Feather Fall",
+      "Feather Step",
+      "Feather Step, Mass",
+      "Feeblemind",
+      "Ferment",
+      "Fester",
+      "Fester, Mass",
+      "Fey Gate",
+      "Fickle Winds",
+      "Fiery Body",
+      "Fiery Runes",
+      "Fiery Shuriken",
+      "Film Of Filth",
+      "Final Sacrifice",
+      "Find Fault",
+      "Find Quarry",
+      "Find the Path",
+      "Find Traps",
+      "Finger Of Death",
+      "Fins To Feet",
+      "Fire Breath",
+      "Fire of Entanglement",
+      "Fire of Judgment",
+      "Fire of Vengeance",
+      "Fire Seeds",
+      "Fire Shield",
+      "Fire Snake",
+      "Fire Sneeze",
+      "Fire Storm",
+      "Fire Trail",
+      "Fire Trap",
+      "Fire's Friend",
+      "Fireball",
+      "Firebelly",
+      "Firebrand",
+      "Firefall",
+      "Firestream",
+      "Firewalker's Meditation",
+      "First World Revisions",
+      "Flame Arrow",
+      "Flame Blade",
+      "Flame Strike",
+      "Flames Of The Faithful",
+      "Flaming Aura",
+      "Flaming Sphere",
+      "Flaming Sphere, Greater",
+      "Flare",
+      "Flare Burst",
+      "Flash Fire",
+      "Flash Forward",
+      "Fleeting Defect",
+      "Fleeting Memory",
+      "Fleeting Memory, Mass",
+      "Flesh Puppet",
+      "Flesh Puppet Horde",
+      "Flesh to Stone",
+      "Flesh Wall",
+      "Fleshcurdle",
+      "Fleshwarping Swarm",
+      "Fleshworm Infestation",
+      "Fleshy Facade",
+      "Flexible Fury",
+      "Flexile Curse",
+      "Flickering Lights",
+      "Floating Disk",
+      "Fluid Form",
+      "Flurry Of Snowballs",
+      "Fly",
+      "Fly, Mass",
+      "Focused Scrutiny",
+      "Foe to Friend",
+      "Fog Cloud",
+      "Follow Aura",
+      "Font Of Spirit Magic",
+      "Fool's Forbiddance",
+      "Fool's Gold",
+      "Fool's Teleport",
+      "Forbid Action",
+      "Forbid Action, Greater",
+      "Forbiddance",
+      "Force Anchor",
+      "Force Hook Charge",
+      "Force Punch",
+      "Force Sword",
+      "Forcecage",
+      "Forced Quiet",
+      "Forced Repentance",
+      "Forceful Hand",
+      "Forceful Strike",
+      "Foresight",
+      "Forest Friend",
+      "Foretell Failure",
+      "Forgetful Slumber",
+      "Form Of The Alien Dragon I",
+      "Form Of The Alien Dragon II",
+      "Form Of The Alien Dragon III",
+      "Form of the Dragon I",
+      "Form of the Dragon II",
+      "Form of the Dragon III",
+      "Form Of The Exotic Dragon I",
+      "Form Of The Exotic Dragon II",
+      "Form Of The Exotic Dragon III",
+      "Foster Hatred",
+      "Fox's Cunning",
+      "Fox's Cunning, Mass",
+      "Fractions Of Heal And Harm",
+      "Free Spirit",
+      "Free Swim",
+      "Freedom",
+      "Freedom of Movement",
+      "Freedom's Toast",
+      "Freezing Sphere",
+      "Frightful Aspect",
+      "Frigid Souls",
+      "Frigid Touch",
+      "Frost Fall",
+      "Frost Mammoth",
+      "Frostbite",
+      "Frosthammer",
+      "Frosty Aura",
+      "Frozen Note",
+      "Full Pouch",
+      "Fumblestep",
+      "Fumbletongue",
+      "Funereal Weapon",
+      "Fungal Blisters",
+      "Fungal Infestation",
+      "Furious Fire Barrage",
+      "Fury Of The Sun",
+      "Gallant Inspiration",
+      "Garden Of Peril",
+      "Garrulous Grin",
+      "Gaseous Form",
+      "Gate",
+      "Geas, Lesser",
+      "Geas/Quest",
+      "Geb's Hammer",
+      "Geniekind",
+      "Genius Avaricious",
+      "Gentle Breeze",
+      "Gentle Repose",
+      "Geomessage",
+      "Getaway",
+      "Geyser",
+      "Ghost Brand",
+      "Ghost Sound",
+      "Ghost Whip",
+      "Ghost Wolf",
+      "Ghostbane Dirge",
+      "Ghostbane Dirge, Mass",
+      "Ghostly Disguise",
+      "Ghoul Hunger",
+      "Ghoul touch",
+      "Giant Form I",
+      "Giant Form II",
+      "Giant Vermin",
+      "Gift Of The Deep",
+      "Gilded Whispers",
+      "Gird Ally",
+      "Glibness",
+      "Glide",
+      "Glimpse Of The Akashic",
+      "Glimpse Of Truth",
+      "Glitterdust",
+      "Globe Of Invulnerability",
+      "Globe of Invulnerability, Lesser",
+      "Globe Of Tranquil Water",
+      "Gloomblind Bolts",
+      "Glue Seal",
+      "Glyph Of Warding",
+      "Glyph of Warding, Greater",
+      "Golden Guise",
+      "Good Hope",
+      "Goodberry",
+      "Gorum's Armor",
+      "Gozreh's Trident",
+      "Grace",
+      "Grand Destiny",
+      "Grappling Scarf",
+      "Grasp",
+      "Grasping Corpse",
+      "Grasping Hand",
+      "Grasping Tentacles",
+      "Grave Words",
+      "Gravel Vortex",
+      "Gravity Bow",
+      "Gravity Sphere",
+      "Gravity Well",
+      "Grease",
+      "Grease, Greater",
+      "Green Caress",
+      "Greensight",
+      "Grim Stalker",
+      "Groundswell",
+      "Grove of Respite",
+      "Guardian Armor",
+      "Guardian Monument, Greater",
+      "Guardian Monument, Lesser",
+      "Guardian Of Faith",
+      "Guarding Knowledge",
+      "Guards and Wards",
+      "Guidance",
+      "Guiding Star",
+      "Gullibility",
+      "Gust Of Wind",
+      "Gusting Sphere",
+      "Hairline Fractures",
+      "Half-Blood Extraction",
+      "Hallow",
+      "Hallucinatory Terrain",
+      "Hallucinogenic Smoke",
+      "Halt Undead",
+      "Hammer Of Mending",
+      "Handy Grapnel",
+      "Hanspur's Flotsam Vessel",
+      "Harm",
+      "Harmless Form",
+      "Harrowing",
+      "Harrowing, Greater",
+      "Harvest Knowledge",
+      "Harvest Season",
+      "Haste",
+      "Haunted Fey Aspect",
+      "Haunting Choir",
+      "Haunting Mists",
+      "Haunting Reminder",
+      "Haze Of Dreams",
+      "Heal",
+      "Heal Mount",
+      "Heal, Mass",
+      "Healing Flames",
+      "Healing Thief",
+      "Healing Token",
+      "Healing Warmth",
+      "Heart Of The Mammoth",
+      "Heart Of The Metal",
+      "Heat Metal",
+      "Heatstroke",
+      "Heavy Water",
+      "Heckle",
+      "Hedging Weapons",
+      "Heightened Awareness",
+      "Heightened Reflexes",
+      "Hellfire Ray",
+      "Hellmouth Lash",
+      "Helping Hand",
+      "Heretic's Tongue",
+      "Hermean Potential",
+      "Hero's Defiance",
+      "Heroes' Feast",
+      "Heroic Finale",
+      "Heroic Fortune",
+      "Heroic Fortune, Mass",
+      "Heroic Invocation",
+      "Heroism",
+      "Heroism, Greater",
+      "Hex Glyph",
+      "Hex Glyph, Greater",
+      "Hex Vulnerability",
+      "Hex Ward",
+      "Hibernate",
+      "Hidden Blades",
+      "Hidden Knowledge",
+      "Hidden Presence",
+      "Hidden Speech",
+      "Hide Bruises",
+      "Hide Campsite",
+      "Hide from Animals",
+      "Hide from Undead",
+      "Hide Weapon",
+      "Hideous Laughter",
+      "Hobble",
+      "Hobbling Bomb Admixture",
+      "Hold Animal",
+      "Hold Fey",
+      "Hold Monster",
+      "Hold Monster, Mass",
+      "Hold Person",
+      "Hold Person, Mass",
+      "Hold Portal",
+      "Hollow Blades",
+      "Hollow Heroism",
+      "Hollow Heroism, Greater",
+      "Holy Aura",
+      "Holy Ice",
+      "Holy Ice Weapon",
+      "Holy Javelin",
+      "Holy Shield",
+      "Holy Smite",
+      "Holy Sword",
+      "Holy Whisper",
+      "Holy Word",
+      "Honeyed Tongue",
+      "Hoodwink",
+      "Horn of Pursuit",
+      "Horrid Wilting",
+      "Horrific Doubles",
+      "Horrifying Visage",
+      "Hostile Juxtaposition",
+      "Hostile Juxtaposition, Greater",
+      "Hostile Levitation",
+      "Howling Agony",
+      "Human Potential",
+      "Human Potential, Mass",
+      "Hunger For Flesh",
+      "Hunger For Flesh, Mass",
+      "Hungry Darkness",
+      "Hungry Earth",
+      "Hungry Pit",
+      "Hunter's Blessing",
+      "Hunter's Eye",
+      "Hunter's Friend",
+      "Hunter's Howl",
+      "Hunter's Lore",
+      "Huntmaster's Spear",
+      "Hydraulic Push",
+      "Hydraulic Torrent",
+      "Hydrophobia",
+      "Hymn Of Mercy",
+      "Hymn Of Peace",
+      "Hypercognition",
+      "Hypnotic Pattern",
+      "Hypnotism",
+      "Hypnotism, Greater",
+      "Ice Armor",
+      "Ice Body",
+      "Ice Crystal Teleport",
+      "Ice Slick",
+      "Ice Spears",
+      "Ice Storm",
+      "Icicle Dagger",
+      "Icy Prison",
+      "Icy Prison, Mass",
+      "Id Insinuation I",
+      "Id Insinuation II",
+      "Id Insinuation III",
+      "Id Insinuation IV",
+      "Identify",
+      "Ignoble Form",
+      "Ill Omen",
+      "Illusion of Calm",
+      "Illusion Of Treachery",
+      "Illusion Of Treachery, Greater",
+      "Illusory Crowd",
+      "Illusory Hoard",
+      "Illusory Maze",
+      "Illusory Poison",
+      "Illusory Script",
+      "Illusory Wall",
+      "Imbue Army Special Ability",
+      "Imbue Hex",
+      "Imbue With Addiction",
+      "Imbue with Aura",
+      "Imbue With Elemental Might",
+      "Imbue With Flight",
+      "Imbue with Spell Ability",
+      "Impart Mind",
+      "Impenetrable Veil",
+      "Implant False Reading",
+      "Implant Urge",
+      "Implanted Projection",
+      "Implosion",
+      "Impossible Angles",
+      "Imprisonment",
+      "Improve Trap",
+      "Incendiary Cloud",
+      "Incendiary Runes",
+      "Incessant Buzzing",
+      "Incorporeal Chains",
+      "Infernal Challenger",
+      "Infernal Healing",
+      "Infernal Healing, Greater",
+      "Inflict Critical Wounds",
+      "Inflict Critical Wounds, Mass",
+      "Inflict Light Wounds",
+      "Inflict Light Wounds, Mass",
+      "Inflict Moderate Wounds",
+      "Inflict Moderate Wounds, Mass",
+      "Inflict Pain",
+      "Inflict Pain, Mass",
+      "Inflict Serious Wounds",
+      "Inflict Serious Wounds, Mass",
+      "Infuse Decay",
+      "Infuse Robot",
+      "Inheritor's Smite",
+      "Inner Focus",
+      "Innocence",
+      "Innocuous Shape",
+      "Insanity",
+      "Insect Plague",
+      "Insect Scouts",
+      "Insect Spies",
+      "Insect Spies, Greater",
+      "Inspiring Recovery",
+      "Instant Armor",
+      "Instant Enemy",
+      "Instant Fake",
+      "Instant Portrait",
+      "Instant Restoration",
+      "Instant Summons",
+      "Instant Summons, Greater",
+      "Instant Weapon",
+      "Instigate Psychic Duel",
+      "Instrument of Agony",
+      "Intellect Fortress I",
+      "Intellect Fortress II",
+      "Intellect Fortress III",
+      "Intensify Psyche",
+      "Interplanetary Teleport",
+      "Interposing Hand",
+      "Interrogation",
+      "Interrogation, Greater",
+      "Inveigle Monster",
+      "Inveigle Person",
+      "Investigative Mind",
+      "Invigorate",
+      "Invigorate, Mass",
+      "Invigorating Poison",
+      "Invisibility",
+      "Invisibility Alarm",
+      "Invisibility Bubble",
+      "Invisibility Bubble, Giant",
+      "Invisibility Bubble, Mass",
+      "Invisibility Purge",
+      "Invisibility Sphere",
+      "Invisibility, Greater",
+      "Invisibility, Mass",
+      "Invoke Primal Power",
+      "Iron Body",
+      "Iron Spine",
+      "Iron Stake",
+      "Ironbeard",
+      "Ironbloom Sprouts",
+      "Ironskin",
+      "Ironwood",
+      "Irradiate",
+      "Irregular Size",
+      "Irresistible Dance",
+      "Irriseni Mirror Sight",
+      "Isolate",
+      "Itching Curse",
+      "Ja Noi Aspect",
+      "Janni's Jaunt",
+      "Jatembe's Ire",
+      "Jealous Rage",
+      "Jester's Jaunt",
+      "Jitterbugs",
+      "Jolt",
+      "Jolting Portent",
+      "Joyful Rapture",
+      "Judgment Light",
+      "Jump",
+      "Jungle Mind",
+      "Jury-Rig",
+      "Kalistocrat's Nightmare",
+      "Karmic Blessing",
+      "Keen Edge",
+      "Keen Senses",
+      "Keep Watch",
+      "Khain's Army",
+      "Ki Arrow",
+      "Ki Leech",
+      "Ki Shout",
+      "Kinetic Reverberation",
+      "King's Castle",
+      "Kiss of the First World",
+      "Knight's Calling",
+      "Knock",
+      "Knock, Mass",
+      "Know Direction",
+      "Know Peerage",
+      "Know The Enemy",
+      "Kreighton's Perusal",
+      "Lament Of Summer's Last Breath",
+      "Languid Bomb Admixture",
+      "Languid Venom",
+      "Lash of the Astradaemon",
+      "Last Azlanti's Defending Sword",
+      "Last Azlanti's Defending Sword, Mass",
+      "Lay Of The Land",
+      "Lead Anchor",
+      "Lead Blades",
+      "Lead Plating",
+      "Leashed Shackles",
+      "Legend Lore",
+      "Legendary Proportions",
+      "Lend Judgment",
+      "Lend Judgment, Greater",
+      "Lend Path",
+      "Levitate",
+      "Liberating Comand",
+      "Liberating Command",
+      "Life Blast",
+      "Life Bubble",
+      "Life Channel",
+      "Life Conduit",
+      "Life Conduit, Greater",
+      "Life Conduit, Improved",
+      "Life Current",
+      "Life Of Crime",
+      "Life Pact",
+      "Life Shield",
+      "Light",
+      "Light Lance",
+      "Light of Iomedae",
+      "Light Prison",
+      "Lighten Object",
+      "Lighten Object, Mass",
+      "Lightfingers",
+      "Lightning Arc",
+      "Lightning Bolt",
+      "Lightning Lash",
+      "Lightning Lash Bomb Admixture",
+      "Lily Pad Stride",
+      "Limited Wish",
+      "Limp Lash",
+      "Line In The Sand",
+      "Linebreaker",
+      "Linked Legacy",
+      "Lipstitch",
+      "Liquefy",
+      "Lissalan Snake Sigil",
+      "Litany of Defense",
+      "Litany Of Eloquence",
+      "Litany of Entanglement",
+      "Litany Of Escape",
+      "Litany Of Madness",
+      "Litany Of Righteousness",
+      "Litany of Sight",
+      "Litany of Sloth",
+      "Litany of Thunder",
+      "Litany Of Truth",
+      "Litany Of Vengeance",
+      "Litany of Warding",
+      "Litany of Weakness",
+      "Liveoak",
+      "Loathsome Veil",
+      "Locate Creature",
+      "Locate Gate",
+      "Locate Object",
+      "Locate Portal",
+      "Locate Weakness",
+      "Lock Gaze",
+      "Lockjaw",
+      "Locksight",
+      "Long Arm",
+      "Longshot",
+      "Longstrider",
+      "Longstrider, Greater",
+      "Lose The Trail",
+      "Lost Legacy",
+      "Lost Locale",
+      "Lost Passage",
+      "Lover's Vengeance",
+      "Lucky Number",
+      "Lullaby",
+      "Lunar Veil",
+      "Mad Hallucination",
+      "Mad Monkeys",
+      "Mad Sultan's Melody",
+      "Maddening Oubliette",
+      "Mage Armor",
+      "Mage Hand",
+      "Mage's Crawl Space",
+      "Mage's Decree",
+      "Mage's Disjunction",
+      "Mage's Faithful Hound",
+      "Mage's Lucubration",
+      "Mage's Magnificent Mansion",
+      "Mage's Private Sanctum",
+      "Mage's Sword",
+      "Magic Aura",
+      "Magic Aura, Greater",
+      "Magic Boulder",
+      "Magic Circle against Chaos",
+      "Magic Circle against Evil",
+      "Magic Circle against Good",
+      "Magic Circle against Law",
+      "Magic Circle Against Technology",
+      "Magic Fang",
+      "Magic Fang, Greater",
+      "Magic Jar",
+      "Magic Missile",
+      "Magic Mouth",
+      "Magic Siege Engine",
+      "Magic Siege Engine, Greater",
+      "Magic Stone",
+      "Magic Vestment",
+      "Magic Weapon",
+      "Magic Weapon, Greater",
+      "Magnetic Field",
+      "Magnifying Chime",
+      "Majestic Image",
+      "Major Creation",
+      "Major Image",
+      "Major Phantom Object",
+      "Make Lost",
+      "Make Whole",
+      "Make Whole, Greater",
+      "Malediction",
+      "Malfunction",
+      "Malicious Spite",
+      "Mantle Of Calm",
+      "Mantle Of Doubt",
+      "Mantle Of The Magic Warriors",
+      "Marching Chant",
+      "Marid's Mastery",
+      "Marionette Possession",
+      "Mark Of Blood",
+      "Mark of Justice",
+      "Mark Of Obvious Ethics",
+      "Mark Of The Reptile God",
+      "Marks Of Forbiddance",
+      "Martial Marionette",
+      "Martial Telekinesis",
+      "Martyr's Bargain",
+      "Martyr's Last Blessing",
+      "Mask Dweomer",
+      "Mask Dweomer, Communal",
+      "Mask From Divination",
+      "Masochistic Shadow",
+      "Massacre",
+      "Master's Escape",
+      "Master's Mutation",
+      "Masterwork Transformation",
+      "Matchmaker",
+      "Mathematical Curse",
+      "Maw Of Chaos",
+      "Maze",
+      "Maze Of Madness And Suffering",
+      "Medusa's Bane",
+      "Meld into Stone",
+      "Memorize Page",
+      "Memory Lapse",
+      "Memory Of Function",
+      "Mending",
+      "Mental Barrier I",
+      "Mental Barrier II",
+      "Mental Barrier III",
+      "Mental Barrier IV",
+      "Mental Barrier V",
+      "Mental Block",
+      "Merge With Familiar",
+      "Message",
+      "Metabolic Molting",
+      "Meteor Swarm",
+      "Meticulous Match",
+      "Miasmal Dread",
+      "Miasmatic Form",
+      "Microcosm",
+      "Mighty Fist Of The Earth",
+      "Mind Blank",
+      "Mind Blank, Communal",
+      "Mind Fog",
+      "Mind Maze",
+      "Mind Over Matter",
+      "Mind Probe",
+      "Mind Swap",
+      "Mind Swap, Major",
+      "Mind Thrust I",
+      "Mind Thrust II",
+      "Mind Thrust III",
+      "Mind Thrust IV",
+      "Mind Thrust V",
+      "Mind Thrust VI",
+      "Mindlink",
+      "Mindlocked Messenger",
+      "Mindscape Door",
+      "Mindshock",
+      "Mindwipe",
+      "Minor Creation",
+      "Minor Dream",
+      "Minor Image",
+      "Minor Phantom Object",
+      "Miracle",
+      "Mirage Arcana",
+      "Mirror Hideaway",
+      "Mirror Image",
+      "Mirror Mantis",
+      "Mirror Polish",
+      "Mirror Strike",
+      "Mirror Transport",
+      "Mischievous Shadow",
+      "Misdirection",
+      "Miserable Pity",
+      "Mislead",
+      "Mnemonic Enhancer",
+      "Modify Memory",
+      "Molten Orb",
+      "Moment of Greatness",
+      "Moment of Prescience",
+      "Monkey Fish",
+      "Monstrous Extremities",
+      "Monstrous Physique I",
+      "Monstrous Physique II",
+      "Monstrous Physique III",
+      "Monstrous Physique IV",
+      "Moonstruck",
+      "Morning Sun",
+      "Mortal Terror",
+      "Motes Of Dusk And Dawn",
+      "Mount",
+      "Mount, Communal",
+      "Move Earth",
+      "Mud Buddy",
+      "Mudball",
+      "Muffle Sound",
+      "Murderous Command",
+      "Murderous Crow",
+      "Music of the Spheres",
+      "Mutagenic Touch",
+      "Mydriatic Spontaneity",
+      "Mydriatic Spontaneity, Mass",
+      "Mythic Severance",
+      "Naga Shape I",
+      "Naga Shape II",
+      "Naga Shape III",
+      "Named Bullet",
+      "Named Bullet, Greater",
+      "Nap Stack",
+      "Natural Rhythm",
+      "Nature's Exile",
+      "Nature's Paths",
+      "Nature's Ravages",
+      "Nature's Ravages, Greater",
+      "Nauseating Dart",
+      "Nauseating Trail",
+      "Necromantic Burden",
+      "Necrostasis",
+      "Negate Aroma",
+      "Negative Reaction",
+      "Nereid's Grace",
+      "Neutral Buoyancy",
+      "Neutralize Poison",
+      "Neutralize Poison, Greater",
+      "Nex's Secret Workshop",
+      "Night Blindness",
+      "Night Of Blades",
+      "Night Terrors",
+      "Nightmare",
+      "Nine Lives",
+      "Nixie's Lure",
+      "Node Of Blasting",
+      "Nondetection",
+      "Nondetection, Communal",
+      "Nondetection, Lesser",
+      "Numerological Evocation",
+      "Numerological Resistance",
+      "Oasis",
+      "Oath Of Anonymity",
+      "Oath Of Justice",
+      "Oath Of Peace",
+      "Object Possession",
+      "Object Possession, Greater",
+      "Object Possession, Lesser",
+      "Object Reading",
+      "Obscure Object",
+      "Obscure Poison",
+      "Obscured Script",
+      "Obscuring Mist",
+      "Obsidian Flow",
+      "Old Salt's Curse",
+      "Oneiric Horror",
+      "Oneiric Horror, Greater",
+      "Open And Shut",
+      "Open Arms",
+      "Open Book",
+      "Open/Close",
+      "Opportunistic Loyalty",
+      "Oppressive Boredom",
+      "Oracle's Burden",
+      "Oracle's Vessel",
+      "Orb Of The Void",
+      "Orchid's Drop",
+      "Order's Wrath",
+      "Out Of Sight",
+      "Outbreak",
+      "Overland Flight",
+      "Overlook",
+      "Overstimulate",
+      "Overwhelming Grief",
+      "Overwhelming Poison",
+      "Overwhelming Presence",
+      "Owl's Wisdom",
+      "Owl's Wisdom, Mass",
+      "Pack Empathy",
+      "Page-Bound Epiphany",
+      "Pain Strike",
+      "Pain Strike, Mass",
+      "Painful Revelation",
+      "Paladin's Sacrifice",
+      "Pale Flame",
+      "Paragon Surge",
+      "Paranoia",
+      "Parasitic Soul",
+      "Parchment Swarm",
+      "Particulate Form",
+      "Pass without Trace",
+      "Passing Fancy",
+      "Passing Fancy, Mass",
+      "Passwall",
+      "Path Of Glory",
+      "Path Of Glory, Greater",
+      "Path Of The Winds",
+      "Peace Bond",
+      "Peacebond",
+      "Peacebond, Greater",
+      "Peasant Armaments",
+      "Peerless Integrity",
+      "Pellet Blast",
+      "Penumbra",
+      "Penumbral Disguise",
+      "Perceive Betrayal",
+      "Perceive Cues",
+      "Perfect Placement",
+      "Permanency",
+      "Permanent Hallucination",
+      "Permanent Image",
+      "Pernicious Poison",
+      "Persistent Image",
+      "Persistent Vigor",
+      "Persuasive Goad",
+      "Pesh Vigor",
+      "Pessimism",
+      "Petulengro's Validation",
+      "Phantasmal Affliction",
+      "Phantasmal Asphyxiation",
+      "Phantasmal Killer",
+      "Phantasmal Putrefaction",
+      "Phantasmal Reminder",
+      "Phantasmal Revenge",
+      "Phantasmal Web",
+      "Phantom Blood",
+      "Phantom Chariot",
+      "Phantom Driver",
+      "Phantom Hunt",
+      "Phantom Limb",
+      "Phantom Steed",
+      "Phantom Steed, Communal",
+      "Phantom Trap",
+      "Phase Door",
+      "Phasic Challenge",
+      "Phobia",
+      "Pick Your Poison",
+      "Pied Piping",
+      "Pierce Disguise",
+      "Pierce Facade",
+      "Piercing Shriek",
+      "Pilfering Hand",
+      "Pillar Of Life",
+      "Pillow Talk",
+      "Placebo Effect",
+      "Plague Bearer",
+      "Plague Carrier",
+      "Plague Storm",
+      "Planar Adaptation",
+      "Planar Adaptation, Mass",
+      "Planar Ally",
+      "Planar Ally, Greater",
+      "Planar Ally, Lesser",
+      "Planar Binding",
+      "Planar Binding, Greater",
+      "Planar Binding, Lesser",
+      "Planar Inquiry",
+      "Planar Orientation",
+      "Planar Refuge",
+      "Plane Shift",
+      "Planeslayer's Call",
+      "Planetarium",
+      "Planetary Adaptation",
+      "Planetary Adaptation, Mass",
+      "Plant Growth",
+      "Plant Shape I",
+      "Plant Shape II",
+      "Plant Shape III",
+      "Plant Voice",
+      "Play Instrument",
+      "Plundered Power",
+      "Pocketful Of Vipers",
+      "Poison",
+      "Poison Breath",
+      "Poisoned Egg",
+      "Poisonous Balm",
+      "Polar Midnight",
+      "Polar Ray",
+      "Polymorph",
+      "Polymorph Any Object",
+      "Polymorph Familiar",
+      "Polymorph, Greater",
+      "Polypurpose Panacea",
+      "Possess Object",
+      "Possession",
+      "Possession Trap",
+      "Possession, Greater",
+      "Pouncing Fury",
+      "Power Word Blind",
+      "Power Word Kill",
+      "Power Word Stun",
+      "Pox Of Rumors",
+      "Pox Pustules",
+      "Prayer",
+      "Prediction of Failure",
+      "Prehensile Pilfer",
+      "Preserve",
+      "Preserve Grace",
+      "Pressure Adaptation",
+      "Prestidigitation",
+      "Primal Regression",
+      "Primal Scream",
+      "Prismatic Sphere",
+      "Prismatic Spray",
+      "Prismatic Wall",
+      "Probe History",
+      "Produce Flame",
+      "Profane Nimbus",
+      "Prognostication",
+      "Programmed Image",
+      "Project Image",
+      "Project Weakness",
+      "Prosperous Room",
+      "Protection From Arrows",
+      "Protection from Arrows, Communal",
+      "Protection From Chaos",
+      "Protection from Chaos, Communal",
+      "Protection from Energy",
+      "Protection from Energy, Communal",
+      "Protection From Evil",
+      "Protection from Evil, Communal",
+      "Protection From Good",
+      "Protection from Good, Communal",
+      "Protection From Law",
+      "Protection from Law, Communal",
+      "Protection From Natural Attacks",
+      "Protection From Outsiders",
+      "Protection from Spells",
+      "Protection From Spores",
+      "Protection From Technology",
+      "Protective Penumbra",
+      "Protective Spirit",
+      "Prying Eyes",
+      "Prying Eyes, Greater",
+      "Psychic Asylum",
+      "Psychic Crush I",
+      "Psychic Crush II",
+      "Psychic Crush III",
+      "Psychic Crush IV",
+      "Psychic Crush V",
+      "Psychic Image",
+      "Psychic Leech",
+      "Psychic Reading",
+      "Psychic Surgery",
+      "Psychonaut Manifestation",
+      "Pugwampi's Grace",
+      "Punishing Armor",
+      "Pup Shape",
+      "Purge Spirit",
+      "Purging Finale",
+      "Purified Calling",
+      "Purify Body",
+      "Purify Food and Drink",
+      "Putrefy Food and Drink",
+      "Puzzle Box",
+      "Pyrotechnic Eruption",
+      "Pyrotechnics",
+      "Qualm",
+      "Quell Energy",
+      "Quench",
+      "Questing Stone",
+      "Quick Change",
+      "Quick Throwing",
+      "Quieting Weapons",
+      "Quintessence",
+      "Radiation Ward",
+      "Rage",
+      "Raging Rubble",
+      "Rags To Riches",
+      "Rain Of Arrows",
+      "Rain of Frogs",
+      "Rainbow Pattern",
+      "Raise Animal Companion",
+      "Raise Dead",
+      "Rally Point",
+      "Rampart",
+      "Rapid Repair",
+      "Raven's Flight",
+      "Ray Of Enfeeblement",
+      "Ray of Exhaustion",
+      "Ray of Frost",
+      "Ray of Sickening",
+      "Read Magic",
+      "Read Weather",
+      "Reaper's Coterie",
+      "Reboot",
+      "Rebuke",
+      "Rebuke Technology",
+      "Recentering Drone",
+      "Recharge",
+      "Recharge Innate Magic",
+      "Reckless Infatuation",
+      "Recoil Fire",
+      "Recorporeal Incarnation",
+      "Red Hand Of The Killer",
+      "Reduce Animal",
+      "Reduce Person",
+      "Reduce Person, Mass",
+      "Refine Improvised Weapon",
+      "Reflexive Barrier",
+      "Refuge",
+      "Regenerate",
+      "Reincarnate",
+      "Reincarnate Spy",
+      "Reinforce Armaments",
+      "Reinforce Armaments, Communal",
+      "Reinvigorating Wind",
+      "Rejuvenate Eidolon",
+      "Rejuvenate Eidolon, Greater",
+      "Rejuvenate Eidolon, Lesser",
+      "Release The Hounds",
+      "Reloading Hands",
+      "Remarkable Legerdemain",
+      "Remote Viewing",
+      "Remove Blindness/Deafness",
+      "Remove Curse",
+      "Remove Disease",
+      "Remove Fear",
+      "Remove Paralysis",
+      "Remove Radioactivity",
+      "Remove Radioactivity, Greater",
+      "Remove Sickness",
+      "Rend Body I",
+      "Rend Body II",
+      "Rend Body III",
+      "Rend Body IV",
+      "Renovation",
+      "Repair Undead",
+      "Repair Undead, Mass",
+      "Repel Metal or Stone",
+      "Repel Vermin",
+      "Repel Wood",
+      "Replenish Ki",
+      "Repress Memory",
+      "Reprobation",
+      "Repugnant Taste",
+      "Repulsion",
+      "Residual Tracking",
+      "Resilient Reservoir",
+      "Resilient Sphere",
+      "Resinous Skin",
+      "Resist Energy",
+      "Resist Energy, Communal",
+      "Resist Starvation",
+      "Resistance",
+      "Resonating Word",
+      "Resounding Blow",
+      "Resounding Clang",
+      "Respectful Quiet",
+      "Resplendent Mansion",
+      "Rest Eternal",
+      "Restful Cloak",
+      "Restful Sleep",
+      "Restoration",
+      "Restoration, Greater",
+      "Restoration, Lesser",
+      "Restore Corpse",
+      "Restore Eidolon",
+      "Restore Eidolon, Lesser",
+      "Restore Mythic Power",
+      "Resurgent Transformation",
+      "Resurrection",
+      "Retribution",
+      "Retributive Reparations",
+      "Retrieve Item",
+      "Retrocognition",
+      "Returning Weapon",
+      "Returning Weapon, Communal",
+      "Reveal Emotions",
+      "Reveal Mirage",
+      "Reveal Secrets",
+      "Revelation",
+      "Revenant Armor",
+      "Reverse Gravity",
+      "Reviving Finale",
+      "Ricochet Shot",
+      "Ride the Lightning",
+      "Ride The Waves",
+      "Riding Possession",
+      "Rift of Ruin",
+      "Righteous Blood",
+      "Righteous Might",
+      "Righteous Vigor",
+      "Rigor Mortis",
+      "Rite Of Bodily Purity",
+      "Rite Of Centered Mind",
+      "River of Wind",
+      "River Whip",
+      "Riversight",
+      "Roaming Pit",
+      "Rock Whip",
+      "Root",
+      "Rope Trick",
+      "Rotgut",
+      "Rotting Alliance",
+      "Rovagug's Fury",
+      "Rubberskin",
+      "Rumormonger",
+      "Rune of Durability",
+      "Rune Of Jandelay",
+      "Rune Of Ruin",
+      "Rune Of Rule",
+      "Rune of Warding",
+      "Rune Trace",
+      "Runic Overload",
+      "Rusting Grasp",
+      "Sabotage Construct",
+      "Sacramental Seal",
+      "Sacred Bond",
+      "Sacred Nimbus",
+      "Sacred Space",
+      "Sacrifice",
+      "Sacrificial Oath",
+      "Saddle Surge",
+      "Sadomasochism",
+      "Salvage",
+      "Sanctify Armor",
+      "Sanctify Corpse",
+      "Sanctify Weapons",
+      "Sanctuary",
+      "Sand Table",
+      "Sands of Time",
+      "Sarzari Shadow Memory",
+      "Savage Maw",
+      "Saving Finale",
+      "Sawtooth Terrain",
+      "Scale Spikes",
+      "Scale Spikes, Greater",
+      "Scales Of Deflection",
+      "Scamper",
+      "Scare",
+      "Scarify",
+      "Scent Trail",
+      "Scintillating Pattern",
+      "Scoop",
+      "Scorching Ash Form",
+      "Scorching Ray",
+      "Scourge of the Horsemen",
+      "Scouring Winds",
+      "Screaming Flames",
+      "Screech",
+      "Screen",
+      "Scribe's Binding",
+      "Scripted Hallucination",
+      "Scrivener's Chant",
+      "Scrying",
+      "Scrying, Greater",
+      "Sculpt Corpse",
+      "Sculpt Simulacrum",
+      "Sculpt Sound",
+      "Sculpted Cape",
+      "Sea Stallion",
+      "Sea Steed",
+      "Sealed Life",
+      "Sealed Life, Greater",
+      "Sealed Sending",
+      "Seamantle",
+      "Searching Shadows",
+      "Searing Light",
+      "Sebaceous Twin",
+      "Secluded Grimoire",
+      "Secret Chest",
+      "Secret Coffer",
+      "Secret Page",
+      "Secret Sign",
+      "Secret Speech",
+      "Secret Vault",
+      "Secure Shelter",
+      "Seducer's Eyes",
+      "See Alignment",
+      "See Beyond",
+      "See Invisibility",
+      "See Through Stone",
+      "Seeds Of Influence",
+      "Seeds Of Influence, Greater",
+      "Seek Shelter",
+      "Seek Thoughts",
+      "Seeming",
+      "Seer's Bane",
+      "Selective Alarm",
+      "Selective Invisibility",
+      "Semblance Of Flesh",
+      "Sending",
+      "Sense Fear",
+      "Sense Madness",
+      "Sense Spirit Magic",
+      "Sense Vitals",
+      "Sensory Amplifier",
+      "Sensory Overload",
+      "Sentry Skull",
+      "Sepia Snake Sigil",
+      "Sequester",
+      "Sequester Thoughts",
+      "Serenity",
+      "Serren's Armor Lock",
+      "Serren's Swift Girding",
+      "Sessile Spirit",
+      "Severed Fate",
+      "Shackle",
+      "Shades",
+      "Shadow Anchor",
+      "Shadow Barbs",
+      "Shadow Body",
+      "Shadow Bomb Admixture",
+      "Shadow Claws",
+      "Shadow Conjuration",
+      "Shadow Conjuration, Greater",
+      "Shadow Dragon Aspect",
+      "Shadow Enchantment",
+      "Shadow Enchantment, Greater",
+      "Shadow Endurance",
+      "Shadow Evocation",
+      "Shadow Evocation, Greater",
+      "Shadow Jaunt",
+      "Shadow Of Doubt",
+      "Shadow Projection",
+      "Shadow Step",
+      "Shadow Transmutation",
+      "Shadow Transmutation, Greater",
+      "Shadow Trap",
+      "Shadow Walk",
+      "Shadow Weapon",
+      "Shadowbard",
+      "Shadowfade",
+      "Shadowform",
+      "Shadowmind",
+      "Shadowy Haven",
+      "Shambler",
+      "Shamefully Overdressed",
+      "Shapechange",
+      "Shard of Chaos",
+      "Share Glory",
+      "Share Language",
+      "Share Language, Communal",
+      "Share Memory",
+      "Share Senses",
+      "Share Shape",
+      "Share Skin",
+      "Share Skin, Greater",
+      "Shared Sacrifice",
+      "Shared Suffering",
+      "Shared Wrath",
+      "Sharesister",
+      "Shatter",
+      "Sheet Lightning",
+      "Shield",
+      "Shield Companion",
+      "Shield Of Darkness",
+      "Shield Of Faith",
+      "Shield Of Fortification",
+      "Shield Of Fortification, Greater",
+      "Shield of Law",
+      "Shield Of Shards",
+      "Shield Of The Dawnflower",
+      "Shield Of The Dawnflower, Greater",
+      "Shield Of Wings",
+      "Shield Other",
+      "Shield the Banner",
+      "Shifted Steps",
+      "Shifting Sand",
+      "Shifting Shadows",
+      "Shillelagh",
+      "Shining Cord",
+      "Shock Shield",
+      "Shocking Grasp",
+      "Shocking Image",
+      "Shout",
+      "Shout, Greater",
+      "Shrink Item",
+      "Shroud Of Darkness",
+      "Shroud Of Innocuity",
+      "Sickening Entanglement",
+      "Sickening Strikes",
+      "Siege Of Trees",
+      "Siege of Trees, Greater",
+      "Siege Scatter",
+      "Sift",
+      "Sign Of Wrath",
+      "Signifer's Rally",
+      "Silence",
+      "Silent Image",
+      "Silent Table",
+      "Silk To Steel",
+      "Silver Darts",
+      "Simulacrum",
+      "Simulacrum, Lesser",
+      "Siphon Magic",
+      "Siphon Might",
+      "Sirocco",
+      "Skeleton Crew",
+      "Skin Tag",
+      "Skinsend",
+      "Sky Steed",
+      "Sky Swim",
+      "Skyshroud",
+      "Slave To Sin",
+      "Slay Living",
+      "Sleep",
+      "Sleepwalk",
+      "Sleepwalking Suggestion",
+      "Sleet Storm",
+      "Slipstream",
+      "Slough",
+      "Slow",
+      "Slowing Mud",
+      "Smite Abomination",
+      "Smug Narcissism",
+      "Snake Staff",
+      "Snapdragon Fireworks",
+      "Snare",
+      "Snow Shape",
+      "Snowball",
+      "Soften Earth and Stone",
+      "Solid Fog",
+      "Solid Note",
+      "Song of Discord",
+      "Song of Kyonin",
+      "Sonic Form",
+      "Sonic Scream",
+      "Sonic Thrust",
+      "Soothe Construct",
+      "Soothing Word",
+      "Sotto Voce",
+      "Soul Bind",
+      "Soul Transfer",
+      "Soul Vault",
+      "Soulreaver",
+      "Soulswitch",
+      "Sound Burst",
+      "Source Severance",
+      "Sow Thought",
+      "Spark",
+      "Spawn Calling",
+      "Spawn Ward",
+      "Speak Local Language",
+      "Speak with Animals",
+      "Speak with Dead",
+      "Speak With Haunt",
+      "Speak with Plants",
+      "Spear Of Purity",
+      "Spectral Hand",
+      "Spectral Saluqi",
+      "Spectral Scout",
+      "Speechreader's Sight",
+      "Spell Absorption",
+      "Spell Absorption, Greater",
+      "Spell Gauge",
+      "Spell Immunity",
+      "Spell Immunity, Communal",
+      "Spell Immunity, Greater",
+      "Spell Immunity, Greater Communal",
+      "Spell Resistance",
+      "Spell Scourge",
+      "Spell Turning",
+      "Spellcasting Contract",
+      "Spellcasting Contract, Greater",
+      "Spellcasting Contract, Lesser",
+      "Spellcrash",
+      "Spellcrash, Greater",
+      "Spellcrash, Lesser",
+      "Spellcurse",
+      "Spellscar",
+      "Spellstaff",
+      "Spellsteal",
+      "Sphere Of Warding",
+      "Spherescry",
+      "Spider Climb",
+      "Spider Climb, Communal",
+      "Spike Growth",
+      "Spike Stones",
+      "Spiked Pit",
+      "Spiral Ascent",
+      "Spiral Descent",
+      "Spirit Bonds",
+      "Spirit Call",
+      "Spirit Share",
+      "Spirit-Bound Blade",
+      "Spiritual Ally",
+      "Spiritual Squire",
+      "Spiritual Weapon",
+      "Spit Venom",
+      "Spite",
+      "Splinter Spell Resistance",
+      "Spontaneous Immolation",
+      "Spore Burst",
+      "Spotlight",
+      "Squeeze",
+      "Stabilize",
+      "Stabilize Powder",
+      "Stabilize Pressure",
+      "Stage Fright",
+      "Staggering Fall",
+      "Stalwart Resolve",
+      "Starsight",
+      "Statue",
+      "Status",
+      "Stave Off Corruption",
+      "Stay the Hand",
+      "Steady Saddle",
+      "Steal Book",
+      "Steal Breath",
+      "Steal Power",
+      "Steal Size",
+      "Steal Voice",
+      "Steal Years",
+      "Steal Years, Greater",
+      "Steam Ray Fusillade",
+      "Stench Of Prey",
+      "Stinking Cloud",
+      "Stoke The Inner Fire",
+      "Stolen Light",
+      "Stone Call",
+      "Stone Discus",
+      "Stone Fist",
+      "Stone Shape",
+      "Stone Shield",
+      "Stone Tell",
+      "Stone Throwing",
+      "Stone to Flesh",
+      "Stoneskin",
+      "Stoneskin, Communal",
+      "Storm Of Blades",
+      "Storm Of Vengeance",
+      "Storm Sight",
+      "Storm Step",
+      "Stormbolts",
+      "Straitjacket",
+      "Strand Of The Tangled Knot",
+      "Strangling Hair",
+      "Stricken Heart",
+      "Strip Scales",
+      "Strong Jaw",
+      "Strong Wings",
+      "Stumble Gap",
+      "Stunning Barrier",
+      "Stunning Barrier, Greater",
+      "Stunning Finale",
+      "Subjective Reality",
+      "Submerge Ship",
+      "Substitute Trail",
+      "Suffocation",
+      "Suffocation, Mass",
+      "Suggestion",
+      "Suggestion, Mass",
+      "Summon Accuser",
+      "Summon Ancestral Guardian",
+      "Summon Cacodaemon",
+      "Summon Cacodaemon, Greater",
+      "Summon Ceustodaemon",
+      "Summon Derghodaemon",
+      "Summon Eidolon",
+      "Summon Elder Worm",
+      "Summon Elemental Steed",
+      "Summon Erodaemon",
+      "Summon Flight Of Eagles",
+      "Summon Froghemoth",
+      "Summon Genie",
+      "Summon Genie, Greater",
+      "Summon Genie, Lesser",
+      "Summon Giant Ally I",
+      "Summon Giant Ally II",
+      "Summon Giant Ally III",
+      "Summon Greater Demon",
+      "Summon Infernal Host",
+      "Summon Instrument",
+      "Summon Kami",
+      "Summon Laborers",
+      "Summon Lesser Demon",
+      "Summon Lesser Psychopomp",
+      "Summon Meladaemon",
+      "Summon Minor Ally",
+      "Summon Minor Monster",
+      "Summon Monster I",
+      "Summon Monster II",
+      "Summon Monster III",
+      "Summon Monster IV",
+      "Summon Monster IX",
+      "Summon Monster V",
+      "Summon Monster VI",
+      "Summon Monster VII",
+      "Summon Monster VIII",
+      "Summon Nature's Ally I",
+      "Summon Nature's Ally II",
+      "Summon Nature's Ally III",
+      "Summon Nature's Ally IV",
+      "Summon Nature's Ally IX",
+      "Summon Nature's Ally V",
+      "Summon Nature's Ally VI",
+      "Summon Nature's Ally VII",
+      "Summon Nature's Ally VIII",
+      "Summon Stampede",
+      "Summon Swarm",
+      "Summon Thanadaemon",
+      "Summon Totem Creature",
+      "Summon Vanth",
+      "Summoner Conduit",
+      "Sun Metal",
+      "Sun's Disdain",
+      "Sun's Disdain, Mass",
+      "Sunbeam",
+      "Sunburst",
+      "Sunder Breaker",
+      "Sundered Serpent Coil",
+      "Sundering Shards",
+      "Sunstalker",
+      "Suppres Charms and Compulsions",
+      "Suppress Charms And Compulsions",
+      "Suppress Primal Magic",
+      "Suppressing Stone",
+      "Sure Casting",
+      "Surefoot Boots",
+      "Surface Excursion",
+      "Surmount Affliction",
+      "Sustaining Legend",
+      "Swallow Poison",
+      "Swallow Your Fear",
+      "Swarm Of Fangs",
+      "Swarm Skin",
+      "Sweat Poison",
+      "Swipe",
+      "Sword To Snake",
+      "Sylvan Hideaway",
+      "Symbol of Death",
+      "Symbol Of Debauchery",
+      "Symbol Of Dispelling",
+      "Symbol Of Distraction",
+      "Symbol Of Exsanguination",
+      "Symbol of Fear",
+      "Symbol of Healing",
+      "Symbol of Insanity",
+      "Symbol Of Laughter",
+      "Symbol of Mirroring",
+      "Symbol of Pain",
+      "Symbol of Persuasion",
+      "Symbol of Revelation",
+      "Symbol of Scrying",
+      "Symbol of Sealing",
+      "Symbol of Sleep",
+      "Symbol of Slowing",
+      "Symbol of Strife",
+      "Symbol Of Striking",
+      "Symbol of Stunning",
+      "Symbol of Vulnerability",
+      "Symbol Of Weakness",
+      "Sympathetic Aura",
+      "Sympathetic Vibration",
+      "Sympathy",
+      "Synapse Overload",
+      "Synaptic Pulse",
+      "Synaptic Pulse, Greater",
+      "Synaptic Scramble",
+      "Synesthesia",
+      "Synesthesia, Mass",
+      "Tactical Acumen",
+      "Tactical Adaptation",
+      "Tactical Formation",
+      "Tactical Insight",
+      "Tactical Miscalculation",
+      "Tail Strike",
+      "Talismanic Implement",
+      "Tap Inner Beauty",
+      "Tar Ball",
+      "Tar Pool",
+      "Targeted Bomb Admixture",
+      "Tattoo Potion",
+      "Tears To Wine",
+      "Technomancy",
+      "Tectonic Communion",
+      "Telekinesis",
+      "Telekinetic Assembly",
+      "Telekinetic Charge",
+      "Telekinetic Maneuver",
+      "Telekinetic Projectile",
+      "Telekinetic Sphere",
+      "Telekinetic Storm",
+      "Telekinetic Strikes",
+      "Telekinetic Volley",
+      "Telempathic Projection",
+      "Telepathic Bond",
+      "Telepathic Censure",
+      "Telepathy",
+      "Teleport",
+      "Teleport Object",
+      "Teleport Structure",
+      "Teleport Trap",
+      "Teleport, Greater",
+      "Teleportation Circle",
+      "Temporal Divergence",
+      "Temporal Regression",
+      "Temporal Stasis",
+      "Temporary Graft",
+      "Temporary Resurrection",
+      "Terraform",
+      "Terrain Bond",
+      "Terrible Remorse",
+      "Thanatotic Fury",
+      "Thaumaturgic Circle",
+      "Theft Ward",
+      "They Know",
+      "Thirsting Entanglement",
+      "Thorn Body",
+      "Thorn Javelin",
+      "Thorny Entanglement",
+      "Thought Echo",
+      "Thought Shield I",
+      "Thought Shield II",
+      "Thought Shield III",
+      "Thought Shield IV",
+      "Thought Shield V",
+      "Thought Worm I",
+      "Thought Worm II",
+      "Thought Worm III",
+      "Thought Worm IV",
+      "Thoughtsense",
+      "Threefold Aspect",
+      "Threefold Face",
+      "Threefold Form",
+      "Threefold Sight",
+      "Thunder Fire",
+      "Thundering Drums",
+      "Thunderous Footfalls",
+      "Thunderstomp",
+      "Thunderstomp, Greater",
+      "Tieldlara's Feint",
+      "Time Shudder",
+      "Time Stop",
+      "Timely Inspiration",
+      "Tiny Hut",
+      "Tireless Pursuers",
+      "Tireless Pursuit",
+      "Titanic Anchoring",
+      "Toilsome Chant",
+      "Tomb Legion",
+      "Tongues",
+      "Tongues, Communal",
+      "Torpid Reanimation",
+      "Touch Injection",
+      "Touch Of Blindness",
+      "Touch Of Bloodletting",
+      "Touch Of Combustion",
+      "Touch of Fatigue",
+      "Touch of Gracelessness",
+      "Touch of Idiocy",
+      "Touch Of Mercy",
+      "Touch of Slime",
+      "Touch Of Slumber",
+      "Touch of the Sea",
+      "Tough Crowd",
+      "Tower Of Iron Will I",
+      "Tower Of Iron Will II",
+      "Tower Of Iron Will III",
+      "Tower Of Iron Will IV",
+      "Tower Of Iron Will V",
+      "Toxic Gift",
+      "Toxic Rupture",
+      "Trace Teleport",
+      "Track Ship",
+      "Tracking Mark",
+      "Trade Items",
+      "Trail of the Rose",
+      "Transfer Familiar",
+      "Transfer Regeneration",
+      "Transfer Tattoo",
+      "Transfiguring Touch",
+      "Transformation",
+      "Transmogrify",
+      "Transmute Blood To Acid",
+      "Transmute Golem",
+      "Transmute Metal to Wood",
+      "Transmute Mud to Rock",
+      "Transmute Potion to Poison",
+      "Transmute Rock to Mud",
+      "Transmute Wine To Blood",
+      "Transplant Visage",
+      "Transport via Plants",
+      "Trap the Soul",
+      "Treacherous Teleport",
+      "Treasure Stitching",
+      "Tree Shape",
+      "Tree Stride",
+      "Trial By Fire",
+      "Trial Of Fire And Acid",
+      "Triggered Hallucination",
+      "Triggered Suggestion",
+      "Tripvine",
+      "True Appraisal",
+      "True Form",
+      "True Prognostication",
+      "True Resurrection",
+      "True Seeing",
+      "True Skill",
+      "True Strike",
+      "Truespeak",
+      "Tsunami",
+      "Twilight Haze",
+      "Twilight Knife",
+      "Twin Form",
+      "Twine Double",
+      "Twisted Futures",
+      "Twisted Innards",
+      "Twisted Space",
+      "Umbral Infusion",
+      "Umbral Infusion, Mass",
+      "Umbral Strike",
+      "Umbral Weapon",
+      "Unadulterated Loathing",
+      "Unbearable Brightness",
+      "Unbreakable Construct",
+      "Unbreakable Heart",
+      "Unconscious Agenda",
+      "Undead Anatomy I",
+      "Undead Anatomy II",
+      "Undead Anatomy III",
+      "Undead Anatomy IV",
+      "Undeath Inversion",
+      "Undeath to Death",
+      "Undeath Ward",
+      "Underbrush Decoy",
+      "Undetectable Alignment",
+      "Undetectable Trap",
+      "Undine's Curse",
+      "Unerring Tracker",
+      "Unerring Weapon",
+      "Unfetter",
+      "Unhallow",
+      "Unholy Aura",
+      "Unholy Blight",
+      "Unholy Ice",
+      "Unholy Ice Weapon",
+      "Unholy Sword",
+      "Unholy Ward",
+      "Universal Formula",
+      "Unleash Pandemonium",
+      "Unlife Current",
+      "Unliving Rage",
+      "Unlock Flesh",
+      "Unnatural Lust",
+      "Unprepared Combatant",
+      "Unravel Destiny",
+      "Unseen Crew",
+      "Unseen Engineers",
+      "Unseen Servant",
+      "Unsettling Presence",
+      "Unshakable Chill",
+      "Unshakable Zeal",
+      "Unwelcome Halo",
+      "Unwilling Shield",
+      "Unwitting Ally",
+      "Urban Grace",
+      "Urban Step",
+      "Urgathoa's Beacon",
+      "Utter Contempt",
+      "Vacuous Vessel",
+      "Vampiric Hunger",
+      "Vampiric Shadow Shield",
+      "Vampiric Touch",
+      "Vanish",
+      "Veil",
+      "Veil Of Heaven",
+      "Veil of Positive Energy",
+      "Vengeful Comets",
+      "Vengeful Outrage",
+      "Vengeful Stinger",
+      "Venomous Bite",
+      "Venomous Bolt",
+      "Venomous Promise",
+      "Ventriloquism",
+      "Vermicious Assumption",
+      "Vermin Shape I",
+      "Vermin Shape II",
+      "Verminous Transformation",
+      "Versatile Weapon",
+      "Vestment of the Champion",
+      "Vex Giant",
+      "Vexing Miscalculation",
+      "Vicarious View",
+      "Vigor",
+      "Vile Dog Transformation",
+      "Village Veil",
+      "Vine Strike",
+      "Vinetrap",
+      "Violent Accident",
+      "Viper Bomb Admixture",
+      "Virtue",
+      "Virtuoso Performance",
+      "Virulence",
+      "Virulent Miasma",
+      "Vision",
+      "Vision of Hell",
+      "Vision of Lamashtu",
+      "Visualization Of The Body",
+      "Visualization Of The Mind",
+      "Vitriolic Mist",
+      "Vocal Alteration",
+      "Volcanic Storm",
+      "Voluminous Vocabulary",
+      "Vomit Swarm",
+      "Vomit Twin",
+      "Vortex",
+      "Wail of the Banshee",
+      "Wake of Light",
+      "Walk The Plank",
+      "Walk Through Space",
+      "Wall Of Blindness/Deafness",
+      "Wall Of Bone",
+      "Wall Of Brine",
+      "Wall Of Clockwork",
+      "Wall Of Ectoplasm",
+      "Wall Of Fire",
+      "Wall Of Force",
+      "Wall Of Ice",
+      "Wall of Iron",
+      "Wall of Lava",
+      "Wall Of Light",
+      "Wall Of Nausea",
+      "Wall Of Silver",
+      "Wall of Sound",
+      "Wall Of Split Illumination",
+      "Wall Of Stone",
+      "Wall of Suppression",
+      "Wall Of Thorns",
+      "Wandering Star Motes",
+      "Wandering Trail",
+      "Ward Of The Season",
+      "Ward Shield",
+      "Ward the Faithful",
+      "Warding Weapon",
+      "Warp Metal",
+      "Warp Wood",
+      "Wartrain Mount",
+      "Watchful Animal",
+      "Water Breathing",
+      "Water Walk",
+      "Water Walk, Communal",
+      "Waters Of Lamashtu",
+      "Wave Form",
+      "Wave Shield",
+      "Waves Of Blood",
+      "Waves of Ecstasy",
+      "Waves of Exhaustion",
+      "Waves of Fatigue",
+      "Weaken Powder",
+      "Weapon of Awe",
+      "Weapons Against Evil",
+      "Weaponwand",
+      "Web",
+      "Web Bolt",
+      "Web Cloud",
+      "Web Shelter",
+      "Weird",
+      "What Grows Within",
+      "Whip Of Ants",
+      "Whip Of Centipedes",
+      "Whip Of Spiders",
+      "Whirlwind",
+      "Whispering Lore",
+      "Whispering Wind",
+      "Wicker Horse",
+      "Widen Auras",
+      "Wild Instinct",
+      "Wilderness Soldiers",
+      "Wind Blades",
+      "Wind Walk",
+      "Wind Wall",
+      "Winds of Vengeance",
+      "Windy Escape",
+      "Winged Sword",
+      "Winter Feathers",
+      "Winter's Grasp",
+      "Wish",
+      "Withdraw Affliction",
+      "Wither Limb",
+      "Witness",
+      "Wizened Appearance",
+      "Wood Shape",
+      "Wooden Phalanx",
+      "Word Of Chaos",
+      "Word of Recall",
+      "Word of Resolve",
+      "World Wave",
+      "Wracking Ray",
+      "Wrath",
+      "Wrathful Mantle",
+      "Wrathful Weapon",
+      "Wreath of Blades",
+      "Yellow Sign",
+      "Youthful Appearance",
+      "Zephyr's Fleetness",
+      "Zone of Foul Flames",
+      "Zone of Silence",
+      "Zone of Truth"
+    ];
+    var mached = [];
+    var _checkForSepllName = function() {
+      all_spellName.forEach(function(arrayItem, index) {
+        if (arrayItem.toLowerCase().includes(options.name.toLowerCase())) {
+          var object = {
+            index: index,
+            description: _all_spellsObject[index].description.short,
+            school: _all_spellsObject[index].school.base,
+            name: arrayItem
+          };
+          mached.push(object);
+        };
+      });
+    };
+    if (options.name != null || options.index != null || options.all != null) {
+      if (options.name != null) {
+        _checkForSepllName();
+        if (mached.length > 0) {
+          if (options.full != null) {
+            return _get_spellsObject({
+              array: mached
+            });
+          } else {
+            return mached;
+          };
+        } else {
+          return false;
+        };
+      } else if (options.index != null) {
+        return _get_spellsObject({
+          index: options.index
+        });
+      } else if (options.all != null) {
+        return _all_spellsObject;
+      };
+    } else {
+      return false;
+    };
+  };
+
+
+  function _get_spellsObject(options) {
+    var defaultOptions = {
+      array: null,
+      index: null
+    };
+    if (options) {
+      var defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
+    var _findSpells = function() {
+      if (options.array != null) {
+        var spellsObject = [];
+        options.array.forEach(function(arrayItem) {
+          spellsObject.push(_all_spellsObject[arrayItem.index]);
+        });
+        return spellsObject;
+      } else if (options.index != null) {
+        return _all_spellsObject[options.index];
+      } else {
+        return false;
+      };
+    };
+    if (_all_spellsObject != null) {
+      return _findSpells();
+    } else {
+      return false;
+    };
+  };
+
+  function load() {
+    var _cleanUpSpellObject = function(arrayItem) {
+      // school
+      var tempSchool = {};
+      tempSchool.base = arrayItem.school;
+      tempSchool.subschool = arrayItem.subschool;
+      // add
+      arrayItem.school = tempSchool;
+      // remove
+      delete arrayItem.subschool;
+
+      // descriptors
+      var tempDescriptor = {};
+      tempDescriptor.acid = arrayItem.acid;
+      tempDescriptor.air = arrayItem.air;
+      tempDescriptor.chaotic = arrayItem.chaotic;
+      tempDescriptor.cold = arrayItem.cold;
+      tempDescriptor.curse = arrayItem.curse;
+      tempDescriptor.darkness = arrayItem.darkness;
+      tempDescriptor.death = arrayItem.death;
+      tempDescriptor.disease = arrayItem.disease;
+      tempDescriptor.earth = arrayItem.earth;
+      tempDescriptor.electricity = arrayItem.electricity;
+      tempDescriptor.emotion = arrayItem.emotion;
+      tempDescriptor.evil = arrayItem.evil;
+      tempDescriptor.fear = arrayItem.fear;
+      tempDescriptor.fire = arrayItem.fire;
+      tempDescriptor.force = arrayItem.force;
+      tempDescriptor.good = arrayItem.good;
+      tempDescriptor.language_dependent = arrayItem.language_dependent;
+      tempDescriptor.lawful = arrayItem.lawful;
+      tempDescriptor.light = arrayItem.light;
+      tempDescriptor.mind_affecting = arrayItem.mind_affecting;
+      tempDescriptor.pain = arrayItem.pain;
+      tempDescriptor.poison = arrayItem.poison;
+      tempDescriptor.shadow = arrayItem.shadow;
+      tempDescriptor.sonic = arrayItem.sonic;
+      tempDescriptor.water = arrayItem.water;
+      tempDescriptor.ruse = arrayItem.ruse;
+      tempDescriptor.meditative = arrayItem.meditative;
+      for (var key in tempDescriptor) {
+        if (tempDescriptor[key] == "1") {
+          tempDescriptor[key] = true;
+        } else {
+          tempDescriptor[key] = false;
+        };
+      };
+      tempDescriptor.string = arrayItem.descriptor;
+      // add
+      arrayItem.descriptor = tempDescriptor;
+      // remove
+      delete arrayItem.acid;
+      delete arrayItem.air;
+      delete arrayItem.chaotic;
+      delete arrayItem.cold;
+      delete arrayItem.curse;
+      delete arrayItem.darkness;
+      delete arrayItem.death;
+      delete arrayItem.disease;
+      delete arrayItem.earth;
+      delete arrayItem.electricity;
+      delete arrayItem.emotion;
+      delete arrayItem.evil;
+      delete arrayItem.fear;
+      delete arrayItem.fire;
+      delete arrayItem.force;
+      delete arrayItem.good;
+      delete arrayItem.language_dependent;
+      delete arrayItem.lawful;
+      delete arrayItem.light;
+      delete arrayItem.mind_affecting;
+      delete arrayItem.pain;
+      delete arrayItem.poison;
+      delete arrayItem.shadow;
+      delete arrayItem.sonic;
+      delete arrayItem.water;
+      delete arrayItem.ruse;
+      delete arrayItem.meditative;
+
+      // description
+      var tempDescription = {};
+      tempDescription.effect = arrayItem.effect;
+      tempDescription.short = arrayItem.short_description;
+      tempDescription.plain = arrayItem.description;
+      tempDescription.formated = arrayItem.description_formated;
+      // add
+      arrayItem.description = tempDescription;
+      // remove
+      delete arrayItem.effect;
+      delete arrayItem.description_formated;
+      delete arrayItem.short_description;
+
+      // mythic
+      var tempMythic = {};
+      if (arrayItem.mythic == "1") {
+        tempMythic.mythic = true;
+      } else {
+        tempMythic.mythic = false;
+      };
+      tempMythic.text = arrayItem.mythic_text;
+      tempMythic.augmented = arrayItem.augmented;
+      // add
+      arrayItem.mythic = tempMythic;
+      // remove
+      delete arrayItem.mythic_text;
+      delete arrayItem.augmented;
+
+      // level
+      var tempLevel = {};
+      tempLevel.sla = arrayItem.SLA_Level;
+      tempLevel.sorcerer = arrayItem.sorcerer;
+      tempLevel.wizard = arrayItem.wizard;
+      tempLevel.cleric = arrayItem.cleric;
+      tempLevel.druid = arrayItem.druid;
+      tempLevel.ranger = arrayItem.ranger;
+      tempLevel.bard = arrayItem.bard;
+      tempLevel.paladin = arrayItem.paladin;
+      tempLevel.alchemist = arrayItem.alchemist;
+      tempLevel.summoner = arrayItem.summoner;
+      tempLevel.witch = arrayItem.witch;
+      tempLevel.inquisitor = arrayItem.inquisitor;
+      tempLevel.oracle = arrayItem.oracle;
+      tempLevel.antipaladin = arrayItem.antipaladin;
+      tempLevel.magus = arrayItem.magus;
+      tempLevel.adept = arrayItem.adept;
+      tempLevel.bloodrager = arrayItem.bloodrager;
+      tempLevel.shaman = arrayItem.shaman;
+      tempLevel.psychic = arrayItem.psychic;
+      tempLevel.medium = arrayItem.medium;
+      tempLevel.mesmerist = arrayItem.mesmerist;
+      tempLevel.occultist = arrayItem.occultist;
+      tempLevel.spiritualist = arrayItem.spiritualist;
+      tempLevel.skald = arrayItem.skald;
+      tempLevel.investigator = arrayItem.investigator;
+      tempLevel.hunter = arrayItem.hunter;
+      for (var key in tempLevel) {
+        if (!isNaN(parseInt(tempLevel[key], 10))) {
+          tempLevel[key] = parseInt(tempLevel[key], 10);
+        } else {
+          tempLevel[key] = null;
+        };
+      };
+      tempLevel.string = arrayItem.spell_level;
+      // add
+      arrayItem.level = tempLevel;
+      // remove
+      delete arrayItem.spell_level;
+      delete arrayItem.SLA_Level;
+      delete arrayItem.sorcerer;
+      delete arrayItem.wizard;
+      delete arrayItem.cleric;
+      delete arrayItem.druid;
+      delete arrayItem.ranger;
+      delete arrayItem.bard;
+      delete arrayItem.paladin;
+      delete arrayItem.alchemist;
+      delete arrayItem.summoner;
+      delete arrayItem.witch;
+      delete arrayItem.inquisitor;
+      delete arrayItem.oracle;
+      delete arrayItem.antipaladin;
+      delete arrayItem.magus;
+      delete arrayItem.adept;
+      delete arrayItem.bloodrager;
+      delete arrayItem.shaman;
+      delete arrayItem.psychic;
+      delete arrayItem.medium;
+      delete arrayItem.mesmerist;
+      delete arrayItem.occultist;
+      delete arrayItem.spiritualist;
+      delete arrayItem.skald;
+      delete arrayItem.investigator;
+      delete arrayItem.hunter;
+
+      // components
+      var tempComponents = {};
+      tempComponents.verbal = arrayItem.verbal;
+      tempComponents.somatic = arrayItem.somatic;
+      tempComponents.material = arrayItem.material;
+      tempComponents.focus = arrayItem.focus;
+      tempComponents.divine_focus = arrayItem.divine_focus;
+      tempComponents.costly = arrayItem.costly_components;
+      for (var key in tempComponents) {
+        if (tempComponents[key] == "1") {
+          tempComponents[key] = true;
+        } else {
+          tempComponents[key] = false;
+        };
+      };
+      if (arrayItem.material_costs != "NULL") {
+        tempComponents.cost = parseInt(arrayItem.material_costs, 10);
+      } else {
+        tempComponents.cost = 0;
+      };
+      tempComponents.string = arrayItem.components;
+      // add
+      arrayItem.components = tempComponents
+      // remove
+      delete arrayItem.verbal;
+      delete arrayItem.somatic;
+      delete arrayItem.material;
+      delete arrayItem.focus;
+      delete arrayItem.divine_focus;
+      delete arrayItem.costly_components;
+      delete arrayItem.material_costs;
+
+      // casting
+      var tempCasting = {};
+      if (arrayItem.dismissible == "1") {
+        tempCasting.dismissible = true;
+      } else {
+        tempCasting.dismissible = false;
+      };
+      if (arrayItem.shapeable == "1") {
+        tempCasting.shapeable = true;
+      } else {
+        tempCasting.shapeable = false;
+      };
+      tempCasting.saving = arrayItem.saving_throw;
+      tempCasting.spell_resistence = arrayItem.spell_resistence;
+      tempCasting.targets = arrayItem.targets;
+      tempCasting.time = arrayItem.casting_time;
+      tempCasting.range = arrayItem.range;
+      tempCasting.area = arrayItem.area;
+      tempCasting.duration = arrayItem.duration;
+      // add
+      arrayItem.casting = tempCasting
+      // remove
+      delete arrayItem.spell_resistence;
+      delete arrayItem.targets;
+      delete arrayItem.shapeable;
+      delete arrayItem.dismissible;
+      delete arrayItem.saving_throw;
+      delete arrayItem.casting_time;
+      delete arrayItem.range;
+      delete arrayItem.area;
+      delete arrayItem.duration;
+
+      // groups
+      var tempGroups = {};
+      tempGroups.domain = arrayItem.domain;
+      tempGroups.patron = arrayItem.patron;
+      tempGroups.bloodline = arrayItem.bloodline;
+      // add
+      arrayItem.groups = tempGroups
+      // remove
+      delete arrayItem.domain;
+      delete arrayItem.patron;
+      delete arrayItem.bloodline;
+    };
+    var _get_allSpells = function(data) {
+      _all_spellsObject = helper.csvToJSON(data);
+      _all_spellsObject.forEach(function(arrayItem) {
+        _cleanUpSpellObject(arrayItem);
+      });
+      // console.log(_all_spellsObject);
+    };
+    helper.loadCsv("db/spells.csv", function(data) {
+      _get_allSpells(data);
+    });
+  };
+
+  // exposed methods
+  return {
+    load: load,
+    get: get
   };
 
 })();
@@ -27120,6 +30938,8 @@ var tip = (function() {
     if (options.state == "focus") {
       tip.addEventListener("focus", function() {
         render(tip);
+        clearTimeout(destroyTimer);
+        destroyTimer = setTimeout(destroy, 4000, this);
       }, false);
       tip.addEventListener("blur", function() {
         destroy();
@@ -27931,6 +31751,11 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "4.4.0",
+    list: [
+      "*Added Spell Search, newly added Spells will have a descriptions."
+    ]
+  }, {
     version: "4.3.0",
     list: [
       "Added Powers section to track character special abilities."
@@ -28411,8 +32236,8 @@ var xp = (function() {
   nav.bind();
   menu.bind();
   tabs.bind();
-  log.bind();
   log.render();
   checkUrl.render();
+  sheet.load();
 
 })();

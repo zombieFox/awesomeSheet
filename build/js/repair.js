@@ -17,9 +17,6 @@ var repair = (function() {
                 if (debug) {
                   console.log("\trepair spell notes");
                 };
-                if (debug) {
-                  console.log("\tspell notes not found");
-                };
                 characterObject.spells.book[i][j][k].note = "";
               };
             };
@@ -847,6 +844,34 @@ var repair = (function() {
         console.log("\trepair initiative trait");
       };
       characterObject.basics.initiative.trait = "";
+    };
+    // --------------------------------------------------
+    if (!("school" in characterObject.spells)) {
+      if (debug) {
+        console.log("\trepair spell school");
+      };
+      characterObject.spells.school = "";
+    };
+    // --------------------------------------------------
+    if (!("opposition" in characterObject.spells)) {
+      if (debug) {
+        console.log("\trepair spell opposition");
+      };
+      characterObject.spells.opposition = "";
+    };
+    // --------------------------------------------------
+    if (!("domains" in characterObject.spells)) {
+      if (debug) {
+        console.log("\trepair spell domains");
+      };
+      characterObject.spells.domains = "";
+    };
+    // --------------------------------------------------
+    if (!("bloodline" in characterObject.spells)) {
+      if (debug) {
+        console.log("\trepair spell bloodline");
+      };
+      characterObject.spells.bloodline = "";
     };
     // --------------------------------------------------
     // sheet.store();

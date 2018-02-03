@@ -1,7 +1,6 @@
 var spells = (function() {
 
   var _spellState = (function() {
-
     var spellState = {
       level_0: null,
       level_1: null,
@@ -14,31 +13,26 @@ var spells = (function() {
       level_8: null,
       level_9: null
     };
-
-    function get(level) {
+    var get = function(level) {
       return spellState["level_" + level];
     };
-
-    function set(level, state) {
+    var set = function(level, state) {
       if (spellState["level_" + level] == null || spellState["level_" + level] != state) {
         spellState["level_" + level] = state;
       } else {
         spellState["level_" + level] = null;
       };
-      // console.log("spellState changed", spellState);
     };
-
     // exposed methods
     return {
       set: set,
       get: get
     };
-
   })();
 
   var addSpellTimer = null;
 
-  function delayUpdate(element, event) {
+  function _delayAddSpell(element, event) {
     _addNewSpellOnEnter(element, event);
     sheet.store();
   };
@@ -100,7 +94,7 @@ var spells = (function() {
     var all_addNewSpell = helper.eA(".js-add-new-spell");
     for (var i = 0; i < all_addNewSpell.length; i++) {
       all_addNewSpell[i].addEventListener("click", function() {
-        _addNewSpell(this);
+        addNewSpell(this);
         sheet.store();
       }, false);
     };
@@ -109,9 +103,9 @@ var spells = (function() {
   function _bind_all_addNewSpellField() {
     var addNewSpellField = helper.eA(".js-add-new-spell-field");
     for (var i = 0; i < addNewSpellField.length; i++) {
-      addNewSpellField[i].addEventListener("keypress", function() {
+      addNewSpellField[i].addEventListener("keypress", function(event) {
         clearTimeout(addSpellTimer);
-        addSpellTimer = setTimeout(delayUpdate, 300, this, event);
+        addSpellTimer = setTimeout(_delayAddSpell, 300, this, event);
       }, false);
     };
   };
@@ -131,13 +125,25 @@ var spells = (function() {
     }, false);
   };
 
-  function _addNewSpell(element) {
+  function add(element, spellIndex) {
+    var spellData = spellsData.get({
+      index: spellIndex
+    });
+    addNewSpell(element, spellIndex, spellData);
+  };
+
+  function addNewSpell(element, spellIndex, spellData) {
     var spellBook = helper.getClosest(element, ".js-spell-book");
     var spellBookOptions = helper.makeObject(spellBook.dataset.spellBookOptions);
     var addNewSpellField = spellBook.querySelector(".js-add-new-spell-field");
-    var spellName = addNewSpellField.value;
+    var spellName;
+    if (spellData) {
+      spellName = spellData.name;
+    } else {
+      spellName = addNewSpellField.value
+    };
     if (spellName != "") {
-      var newSpellObject = new _create_spellObject(spellName, 0, false, 0, "");
+      var newSpellObject = new _create_spellObject(spellName, 0, false, 0, "", spellIndex);
       var newIndex = _get_spellBookCount(spellBookOptions.level);
       helper.setObject({
         object: sheet.get(),
@@ -146,23 +152,24 @@ var spells = (function() {
       });
       _render_spell(newSpellObject, spellBookOptions.level, newIndex, true);
       addNewSpellField.value = "";
+      _render_spellPlaceholder(spellBookOptions.level);
     };
   };
 
   function _addNewSpellOnEnter(input, event) {
-    var keystroke = event.keyCode || event.which;
-    if (keystroke == 13) {
-      _addNewSpell(input);
+    if (event.keyCode == 13) {
+      addNewSpell(input);
     };
   };
 
-  function _create_spellObject(spellName, spellPrepared, spellActive, spellCast, spellNote) {
+  function _create_spellObject(spellName, spellPrepared, spellActive, spellCast, spellNote, spellIndex) {
     return {
       name: this.name = spellName || "",
+      note: this.note = spellNote || "",
       prepared: this.prepared = spellPrepared || 0,
       active: this.active = spellActive || false,
       cast: this.cast = spellCast || 0,
-      note: this.note = spellNote || ""
+      index: spellIndex || ""
     };
   };
 
@@ -178,6 +185,7 @@ var spells = (function() {
     } else {
       _spellState.set(spellBookOptions.level, null);
       _reset_stateSpellControl(spellBook);
+      _render_spellPlaceholder(spellBookOptions.level);
     };
   };
 
@@ -361,227 +369,417 @@ var spells = (function() {
         newValue: tempSpellObject
       });
     };
+    var _create_editBox = function(options) {
+      var defaultOptions = {
+        title: null,
+        textOnly: null,
+        guides: null,
+        boxSize: null,
+        content: null,
+        contentMargin: null
+      };
+      if (options) {
+        var defaultOptions = helper.applyOptions(defaultOptions, options);
+      };
+      var box = document.createElement("div");
+      box.setAttribute("class", "m-edit-box m-edit-box-indent");
+      if (options.textOnly != null) {
+        helper.addClass(box, "m-edit-box-text-only");
+      };
+      if (options.guides != null) {
+        helper.addClass(box, "m-edit-box-guides");
+      };
+      if (options.title != null) {
+        helper.addClass(box, "m-edit-box-head-small");
+        var head = document.createElement("div");
+        head.setAttribute("class", "m-edit-box-head");
+        var title = document.createElement("h2");
+        title.setAttribute("class", "m-edit-box-title");
+        title.textContent = options.title;
+        head.appendChild(title);
+        box.appendChild(head);
+      } else {
+        helper.addClass(box, "m-edit-box-no-head-small");
+      };
+      var body = document.createElement("div");
+      body.setAttribute("class", "m-edit-box-body");
+      var boxContent = document.createElement("div");
+      if (options.contentMargin != null) {
+        boxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-" + options.contentMargin + " m-edit-box-content-nowrap");
+      } else {
+        boxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-nowrap");
+      };
+      if (options.content != null) {
+        options.content.forEach(function(arrayItem) {
+          if (options.boxSize != null) {
+            boxContent.appendChild(_create_editBoxItem(options.boxSize, arrayItem));
+          } else {
+            boxContent.appendChild(arrayItem);
+          };
+        });
+      };
+      body.appendChild(boxContent);
+      box.appendChild(body);
+      return box;
+    };
     var _create_editBoxItem = function(size, child) {
       var editBoxItem = document.createElement("div");
-      editBoxItem.setAttribute("class", "m-edit-box-item-" + size);
+      editBoxItem.setAttribute("class", size);
       if (child) {
         editBoxItem.appendChild(child);
       };
       return editBoxItem;
     };
-    var _create_spellControlModal = function() {
+    var _create_spellModal = function() {
       var spellControl = document.createElement("div");
       spellControl.setAttribute("class", "m-spell-control js-spell-control");
 
-      var nameEditBox = document.createElement("div");
-      nameEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
-      var nameEditBoxHead = document.createElement("div");
-      nameEditBoxHead.setAttribute("class", "m-edit-box-head");
-      var nameEditBoxHeadTitle = document.createElement("h2");
-      nameEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
-      nameEditBoxHeadTitle.textContent = "Name";
-      var nameEditBoxBody = document.createElement("div");
-      nameEditBoxBody.setAttribute("class", "m-edit-box-body");
-      var nameEditBoxContent = document.createElement("div");
-      nameEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
-      var nameEditBoxBodyInput = document.createElement("input");
-      nameEditBoxBodyInput.setAttribute("class", "js-spell-control-input-name");
-      nameEditBoxBodyInput.setAttribute("type", "text");
-      nameEditBoxBodyInput.setAttribute("tabindex", "1");
-      nameEditBoxBodyInput.value = tempSpellObject.name;
+      var _create_controls = function() {
+        var preparedGroup = document.createElement("div");
+        preparedGroup.setAttribute("class", "m-edit-box-item m-edit-box-group-control-set");
+        var preparedCount = document.createElement("p");
+        preparedCount.setAttribute("class", "m-edit-box-total js-spell-control-prepared-count");
+        preparedCount.textContent = tempSpellObject.prepared;
+        var preparedPlus = document.createElement("button");
+        preparedPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
+        preparedPlus.setAttribute("tabindex", "1");
+        var preparedPlusIcon = document.createElement("span");
+        preparedPlusIcon.setAttribute("class", "icon-add");
+        preparedPlus.addEventListener("click", function() {
+          _hold_data("plus", "prepared");
+          _render_count(spellControl);
+        }, false);
+        var preparedMinus = document.createElement("button");
+        preparedMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
+        preparedMinus.setAttribute("tabindex", "1");
+        var preparedMinusIcon = document.createElement("span");
+        preparedMinusIcon.setAttribute("class", "icon-remove");
+        preparedMinus.addEventListener("click", function() {
+          _hold_data("minus", "prepared");
+          _render_count(spellControl);
+        }, false);
+        var preparedClear = document.createElement("button");
+        preparedClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
+        preparedClear.setAttribute("tabindex", "1");
+        var preparedClearIcon = document.createElement("span");
+        preparedClearIcon.setAttribute("class", "icon-close");
+        preparedClear.addEventListener("click", function() {
+          _hold_data("clear", "prepared");
+          _render_count(spellControl);
+        }, false);
+        preparedMinus.appendChild(preparedMinusIcon);
+        preparedPlus.appendChild(preparedPlusIcon);
+        preparedClear.appendChild(preparedClearIcon);
+        preparedGroup.appendChild(_create_editBoxItem("m-edit-box-item-button-large", preparedMinus));
+        preparedGroup.appendChild(_create_editBoxItem("m-edit-box-item-max", preparedCount));
+        preparedGroup.appendChild(_create_editBoxItem("m-edit-box-item-button-large", preparedPlus));
 
-      nameEditBoxContent.appendChild(_create_editBoxItem("max", nameEditBoxBodyInput));
-      nameEditBoxBody.appendChild(nameEditBoxContent);
-      nameEditBoxHead.appendChild(nameEditBoxHeadTitle);
-      nameEditBox.appendChild(nameEditBoxHead);
-      nameEditBox.appendChild(nameEditBoxBody);
+        var castGroup = document.createElement("div");
+        castGroup.setAttribute("class", "m-edit-box-item m-edit-box-group-control-set");
+        var castCount = document.createElement("p");
+        castCount.setAttribute("class", "m-edit-box-total js-spell-control-cast-count");
+        castCount.textContent = tempSpellObject.cast;
+        var castPlus = document.createElement("button");
+        castPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
+        castPlus.setAttribute("tabindex", "1");
+        var castPlusIcon = document.createElement("span");
+        castPlusIcon.setAttribute("class", "icon-add");
+        castPlus.addEventListener("click", function() {
+          _hold_data("plus", "cast");
+          _render_count(spellControl);
+        }, false);
+        var castMinus = document.createElement("button");
+        castMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
+        castMinus.setAttribute("tabindex", "1");
+        var castMinusIcon = document.createElement("span");
+        castMinusIcon.setAttribute("class", "icon-remove");
+        castMinus.addEventListener("click", function() {
+          _hold_data("minus", "cast");
+          _render_count(spellControl);
+        }, false);
+        var castClear = document.createElement("button");
+        castClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
+        castClear.setAttribute("tabindex", "1");
+        var castClearIcon = document.createElement("span");
+        castClearIcon.setAttribute("class", "icon-close");
+        castClear.addEventListener("click", function() {
+          _hold_data("clear", "cast");
+          _render_count(spellControl);
+        }, false);
+        castMinus.appendChild(castMinusIcon);
+        castPlus.appendChild(castPlusIcon);
+        castClear.appendChild(castClearIcon);
+        castGroup.appendChild(_create_editBoxItem("m-edit-box-item-button-large", castMinus));
+        castGroup.appendChild(_create_editBoxItem("m-edit-box-item-max", castCount));
+        castGroup.appendChild(_create_editBoxItem("m-edit-box-item-button-large", castPlus));
 
-      var preparedEditBox = document.createElement("div");
-      preparedEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
-      var preparedEditBoxHead = document.createElement("div");
-      preparedEditBoxHead.setAttribute("class", "m-edit-box-head");
-      var preparedEditBoxHeadTitle = document.createElement("h2");
-      preparedEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
-      preparedEditBoxHeadTitle.textContent = "Prepared";
-      var preparedEditBoxBody = document.createElement("div");
-      preparedEditBoxBody.setAttribute("class", "m-edit-box-body");
-      var preparedEditBoxContent = document.createElement("div");
-      preparedEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
-      var preparedEditBoxGroup = document.createElement("div");
-      preparedEditBoxGroup.setAttribute("class", "m-edit-box-item m-edit-box-group-control-set");
-      var preparedCount = document.createElement("p");
-      preparedCount.setAttribute("class", "m-edit-box-total js-spell-control-prepared-count");
-      preparedCount.textContent = tempSpellObject.prepared;
-      var preparedPlus = document.createElement("button");
-      preparedPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
-      preparedPlus.setAttribute("tabindex", "1");
-      var preparedPlusIcon = document.createElement("span");
-      preparedPlusIcon.setAttribute("class", "icon-add");
-      preparedPlus.addEventListener("click", function() {
-        _hold_data("plus", "prepared");
-        _render_count(spellControl);
-      }, false);
-      var preparedMinus = document.createElement("button");
-      preparedMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
-      preparedMinus.setAttribute("tabindex", "1");
-      var preparedMinusIcon = document.createElement("span");
-      preparedMinusIcon.setAttribute("class", "icon-remove");
-      preparedMinus.addEventListener("click", function() {
-        _hold_data("minus", "prepared");
-        _render_count(spellControl);
-      }, false);
-      var preparedClear = document.createElement("button");
-      preparedClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
-      preparedClear.setAttribute("tabindex", "1");
-      var preparedClearIcon = document.createElement("span");
-      preparedClearIcon.setAttribute("class", "icon-close");
-      preparedClear.addEventListener("click", function() {
-        _hold_data("clear", "prepared");
-        _render_count(spellControl);
-      }, false);
+        var activeCheck = document.createElement("div");
+        activeCheck.setAttribute("class", "m-check-block");
+        var activeInput = document.createElement("input");
+        activeInput.setAttribute("type", "checkbox");
+        activeInput.setAttribute("id", "spell-active");
+        activeInput.setAttribute("class", "m-check-block-check js-spell-control-active");
+        activeInput.setAttribute("tabindex", "1");
+        activeInput.checked = tempSpellObject.active;
+        activeInput.addEventListener("change", function() {
+          _hold_data("toggle", "active");
+          _render_count(spellControl);
+        }, false);
+        var activeIcon = document.createElement("span");
+        activeIcon.setAttribute("class", "m-check-block-check-icon");
+        activeCheck.appendChild(activeInput);
+        activeCheck.appendChild(activeIcon);
 
-      preparedMinus.appendChild(preparedMinusIcon);
-      preparedPlus.appendChild(preparedPlusIcon);
-      preparedClear.appendChild(preparedClearIcon);
+        var renameInput = document.createElement("input");
+        renameInput.setAttribute("class", "js-spell-control-input-name");
+        renameInput.setAttribute("type", "text");
+        renameInput.setAttribute("tabindex", "1");
+        renameInput.value = tempSpellObject.name;
 
-      preparedEditBoxGroup.appendChild(_create_editBoxItem("button-large", preparedMinus));
-      preparedEditBoxGroup.appendChild(_create_editBoxItem("max", preparedCount));
-      preparedEditBoxGroup.appendChild(_create_editBoxItem("button-large", preparedPlus));
-      preparedEditBoxContent.appendChild(preparedEditBoxGroup);
-      preparedEditBoxContent.appendChild(_create_editBoxItem("button-large", preparedClear));
-      preparedEditBoxBody.appendChild(preparedEditBoxContent);
-      preparedEditBoxHead.appendChild(preparedEditBoxHeadTitle);
-      preparedEditBox.appendChild(preparedEditBoxHead);
-      preparedEditBox.appendChild(preparedEditBoxBody);
+        var noteTextarea = document.createElement("div");
+        noteTextarea.setAttribute("class", "m-textarea-block-field textarea textarea-large u-full-width js-spell-control-textarea-note");
+        noteTextarea.setAttribute("contenteditable", "true");
+        noteTextarea.setAttribute("tabindex", "1");
+        noteTextarea.innerHTML = tempSpellObject.note;
+        noteTextarea.addEventListener("paste", function(event) {
+          helper.pasteStrip(event);
+        });
 
-      var castEditBox = document.createElement("div");
-      castEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
-      var castEditBoxHead = document.createElement("div");
-      castEditBoxHead.setAttribute("class", "m-edit-box-head");
-      var castEditBoxHeadTitle = document.createElement("h2");
-      castEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
-      castEditBoxHeadTitle.textContent = "Cast";
-      var castEditBoxBody = document.createElement("div");
-      castEditBoxBody.setAttribute("class", "m-edit-box-body");
-      var castEditBoxContent = document.createElement("div");
-      castEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
-      var castEditBoxGroup = document.createElement("div");
-      castEditBoxGroup.setAttribute("class", "m-edit-box-item m-edit-box-group-control-set");
-      var castCount = document.createElement("p");
-      castCount.setAttribute("class", "m-edit-box-total js-spell-control-cast-count");
-      castCount.textContent = tempSpellObject.cast;
-      var castPlus = document.createElement("button");
-      castPlus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
-      castPlus.setAttribute("tabindex", "1");
-      var castPlusIcon = document.createElement("span");
-      castPlusIcon.setAttribute("class", "icon-add");
-      castPlus.addEventListener("click", function() {
-        _hold_data("plus", "cast");
-        _render_count(spellControl);
-      }, false);
-      var castMinus = document.createElement("button");
-      castMinus.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
-      castMinus.setAttribute("tabindex", "1");
-      var castMinusIcon = document.createElement("span");
-      castMinusIcon.setAttribute("class", "icon-remove");
-      castMinus.addEventListener("click", function() {
-        _hold_data("minus", "cast");
-        _render_count(spellControl);
-      }, false);
-      var castClear = document.createElement("button");
-      castClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
-      castClear.setAttribute("tabindex", "1");
-      var castClearIcon = document.createElement("span");
-      castClearIcon.setAttribute("class", "icon-close");
-      castClear.addEventListener("click", function() {
-        _hold_data("clear", "cast");
-        _render_count(spellControl);
-      }, false);
+        spellControl.appendChild(_create_editBox({
+          title: "Prepared",
+          guides: true,
+          content: [preparedGroup, _create_editBoxItem("m-edit-box-item-button-large", preparedClear)]
+        }));
+        spellControl.appendChild(_create_editBox({
+          title: "Cast",
+          guides: true,
+          content: [castGroup, _create_editBoxItem("m-edit-box-item-button-large", castClear)]
+        }));
+        spellControl.appendChild(_create_editBox({
+          title: "Active",
+          guides: true,
+          boxSize: "m-edit-box-item-check",
+          content: [activeCheck]
+        }));
+        spellControl.appendChild(_create_editBox({
+          title: "Rename",
+          guides: true,
+          boxSize: "m-edit-box-item-max",
+          content: [renameInput]
+        }));
+        spellControl.appendChild(_create_editBox({
+          title: "Spell notes",
+          guides: true,
+          boxSize: "m-edit-box-item-max",
+          content: [noteTextarea]
+        }));
+      };
 
-      castMinus.appendChild(castMinusIcon);
-      castPlus.appendChild(castPlusIcon);
-      castClear.appendChild(castClearIcon);
+      var _create_spellblock = function() {
 
-      castEditBoxGroup.appendChild(_create_editBoxItem("button-large", castMinus));
-      castEditBoxGroup.appendChild(_create_editBoxItem("max", castCount));
-      castEditBoxGroup.appendChild(_create_editBoxItem("button-large", castPlus));
-      castEditBoxContent.appendChild(castEditBoxGroup);
-      castEditBoxContent.appendChild(_create_editBoxItem("button-large", castClear));
-      castEditBoxBody.appendChild(castEditBoxContent);
-      castEditBoxHead.appendChild(castEditBoxHeadTitle);
-      castEditBox.appendChild(castEditBoxHead);
-      castEditBox.appendChild(castEditBoxBody);
+        var spellData = spellsData.get({
+          index: tempSpellObject.index
+        });
 
-      var activeEditBox = document.createElement("div");
-      activeEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
-      var activeEditBoxHead = document.createElement("div");
-      activeEditBoxHead.setAttribute("class", "m-edit-box-head");
-      var activeEditBoxHeadTitle = document.createElement("h2");
-      activeEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
-      activeEditBoxHeadTitle.textContent = "Active";
-      var activeEditBoxBody = document.createElement("div");
-      activeEditBoxBody.setAttribute("class", "m-edit-box-body");
-      var activeEditBoxContent = document.createElement("div");
-      activeEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
-      var activeCheck = document.createElement("div");
-      activeCheck.setAttribute("class", "m-check-block");
-      var activeInput = document.createElement("input");
-      activeInput.setAttribute("type", "checkbox");
-      activeInput.setAttribute("id", "spell-active");
-      activeInput.setAttribute("class", "m-check-block-check js-spell-control-active");
-      activeInput.setAttribute("tabindex", "1");
-      activeInput.checked = tempSpellObject.active;
-      activeInput.addEventListener("change", function() {
-        _hold_data("toggle", "active");
-        _render_count(spellControl);
-      }, false);
-      var activeIcon = document.createElement("span");
-      activeIcon.setAttribute("class", "m-check-block-check-icon");
+        if (spellData.school.base != "") {
+          var para = document.createElement("p");
+          var string = helper.capFirstLetter(spellData.school.base);
+          if (spellData.school.subschool != "") {
+            string = string + " (" + helper.capFirstLetter(spellData.school.subschool) + ")";
+          };
+          if (spellData.descriptor.string != "") {
+            string = string + " [" + helper.capFirstLetter(spellData.descriptor.string) + "]";
+          };
+          para.textContent = string;
+          spellControl.appendChild(_create_editBox({
+            title: "School",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
 
-      activeCheck.appendChild(activeInput);
-      activeCheck.appendChild(activeIcon);
-      activeEditBoxContent.appendChild(_create_editBoxItem("check", activeCheck));
-      activeEditBoxBody.appendChild(activeEditBoxContent);
-      activeEditBoxHead.appendChild(activeEditBoxHeadTitle);
-      activeEditBox.appendChild(activeEditBoxHead);
-      activeEditBox.appendChild(activeEditBoxBody);
+        if (spellData.level.string != "") {
+          var para = document.createElement("p");
+          var string = "";
+          for (var key in spellData.level) {
+            if (key != "string" && key != "sla" && spellData.level[key] != null) {
+              string = string + helper.capFirstLetter(key) + " " + spellData.level[key] + ", ";
+            };
+          };
+          string = string.replace(/,\s*$/, "");
+          para.textContent = string;
+          spellControl.appendChild(_create_editBox({
+            title: "Level",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
 
-      var noteEditBox = document.createElement("div");
-      noteEditBox.setAttribute("class", "m-edit-box m-edit-box-indent m-edit-box-head-small");
-      var noteEditBoxHead = document.createElement("div");
-      noteEditBoxHead.setAttribute("class", "m-edit-box-head");
-      var noteEditBoxHeadTitle = document.createElement("h2");
-      noteEditBoxHeadTitle.setAttribute("class", "m-edit-box-title");
-      noteEditBoxHeadTitle.textContent = "Spell Notes";
-      var noteEditBoxBody = document.createElement("div");
-      noteEditBoxBody.setAttribute("class", "m-edit-box-body");
-      var noteEditBoxContent = document.createElement("div");
-      noteEditBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-nowrap");
-      var noteTextarea = document.createElement("div");
-      noteTextarea.setAttribute("class", "m-textarea-block-field textarea textarea-large u-full-width js-spell-control-textarea-note");
-      noteTextarea.setAttribute("contenteditable", "true");
-      noteTextarea.setAttribute("tabindex", "1");
-      noteTextarea.innerHTML = tempSpellObject.note;
-      noteTextarea.addEventListener("paste", function(event) {
-        helper.pasteStrip(event);
-      });
+        if (spellData.casting.time != "") {
+          var para = document.createElement("p");
+          para.textContent = helper.capFirstLetter(spellData.casting.time);
+          spellControl.appendChild(_create_editBox({
+            title: "Casting time",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
 
-      noteEditBoxContent.appendChild(_create_editBoxItem("max", noteTextarea));
-      noteEditBoxBody.appendChild(noteEditBoxContent);
-      noteEditBoxHead.appendChild(noteEditBoxHeadTitle);
-      noteEditBox.appendChild(noteEditBoxHead);
-      noteEditBox.appendChild(noteEditBoxBody);
+        if (spellData.components.string != "") {
+          var para = document.createElement("p");
+          para.textContent = spellData.components.string;
+          spellControl.appendChild(_create_editBox({
+            title: "Components",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
 
-      spellControl.appendChild(nameEditBox);
-      spellControl.appendChild(preparedEditBox);
-      spellControl.appendChild(castEditBox);
-      spellControl.appendChild(activeEditBox);
-      spellControl.appendChild(noteEditBox);
+        if (spellData.casting.range != "") {
+          var para = document.createElement("p");
+          para.textContent = helper.capFirstLetter(spellData.casting.range);
+          spellControl.appendChild(_create_editBox({
+            title: "Range",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
 
+        if (spellData.casting.area != "") {
+          var para = document.createElement("p");
+          var string = helper.capFirstLetter(spellData.casting.area);
+          if (spellData.casting.shapeable) {
+            string = string + " (S)";
+          };
+          para.textContent = string;
+          spellControl.appendChild(_create_editBox({
+            title: "Area",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
+        if (spellData.casting.targets != "") {
+          var para = document.createElement("p");
+          para.textContent = helper.capFirstLetter(spellData.casting.targets);
+          spellControl.appendChild(_create_editBox({
+            title: "Targets",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
+        if (spellData.casting.duration != "") {
+          var para = document.createElement("p");
+          var string = helper.capFirstLetter(spellData.casting.duration);
+          if (spellData.casting.dismissible) {
+            string = string + " (D)";
+          };
+          para.textContent = string;
+          spellControl.appendChild(_create_editBox({
+            title: "Duration",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
+        if (spellData.casting.saving != "") {
+          var para = document.createElement("p");
+          para.textContent = helper.capFirstLetter(spellData.casting.saving);
+          spellControl.appendChild(_create_editBox({
+            title: "Saving Throw",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
+        if (spellData.casting.spell_resistence != "") {
+          var para = document.createElement("p");
+          para.textContent = helper.capFirstLetter(spellData.casting.spell_resistence);
+          spellControl.appendChild(_create_editBox({
+            title: "Spell Resistence",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
+        if (spellData.description.formated != "") {
+          var div = document.createElement("div");
+          div.innerHTML = spellData.description.formated;
+          spellControl.appendChild(_create_editBox({
+            title: "Description",
+            textOnly: true,
+            guides: true,
+            content: [div],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
+        if (spellData.mythic.mythic && spellData.mythic.text != "") {
+          var para = document.createElement("p");
+          para.textContent = spellData.mythic.text;
+          spellControl.appendChild(_create_editBox({
+            title: "Mythic",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
+        if (spellData.mythic.mythic && spellData.mythic.augmented != "") {
+          var para = document.createElement("p");
+          para.textContent = spellData.mythic.augmented;
+          spellControl.appendChild(_create_editBox({
+            content: [para],
+            textOnly: true,
+            guides: true,
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
+        if (spellData.source != "") {
+          var para = document.createElement("p");
+          para.textContent = spellData.source;
+          spellControl.appendChild(_create_editBox({
+            title: "Source",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+      };
+
+      if ("index" in tempSpellObject && tempSpellObject.index != "") {
+        _create_spellblock();
+      };
+
+      _create_controls();
       return spellControl;
     };
     if (_spellState.get(options.level) == null || force) {
-      var modalContent = _create_spellControlModal();
+      var modalContent = _create_spellModal();
       var modalAction = function() {
         _store_data(this);
         _update_spellButton(button, true);
@@ -595,7 +793,7 @@ var spells = (function() {
         content: modalContent,
         action: modalAction,
         actionText: "Save",
-        size: "medium"
+        size: "large"
       });
       page.update();
     };
@@ -725,7 +923,6 @@ var spells = (function() {
   };
 
   function _render_all_spells(array, level) {
-    // console.log(array, typeof level, level);
     // read spells and add them to spell lists
     for (var i = 0; i < array.length; i++) {
       var spellObject = array[i];
@@ -739,6 +936,7 @@ var spells = (function() {
       knownListToSaveTo.appendChild(spellButtonCol);
       _bind_spellKnownItem(spellButton);
     };
+    _render_spellPlaceholder(level);
   };
 
   function _render_spell(spellObject, level, spellIndex) {
@@ -863,25 +1061,24 @@ var spells = (function() {
       for (var i = 0; i < all_spellControl.length; i++) {
         if (all_spellControl[i].classList.contains("button-primary")) {
           helper.removeClass(all_spellControl[i], "button-primary");
-          helper.addClass(all_spellControl[i], "button-secondary");
         };
-        if (all_spellControl[i].classList.contains("is-live")) {
-          helper.removeClass(all_spellControl[i], "is-live");
+        if (all_spellControl[i].classList.contains("button-secondary")) {
+          helper.removeClass(all_spellControl[i], "button-secondary");
         };
       };
     };
     var _activateControl = function() {
       if (_spellState.get(spellBookOptions.level) == "remove") {
-        helper.removeClass(button, "button-secondary");
         helper.addClass(button, "button-primary");
       } else if (_spellState.get(spellBookOptions.level) == null) {
-        helper.addClass(button, "button-secondary");
         helper.removeClass(button, "button-primary");
       };
       if (_spellState.get(spellBookOptions.level) == "prepare" || _spellState.get(spellBookOptions.level) == "unprepare" || _spellState.get(spellBookOptions.level) == "cast" || _spellState.get(spellBookOptions.level) == "active") {
-        helper.addClass(button, "is-live");
+        // helper.addClass(button, "is-live");
+        helper.addClass(button, "button-secondary");
       } else if (_spellState.get(spellBookOptions.level) == null) {
-        helper.removeClass(button, "is-live");
+        // helper.removeClass(button, "is-live");
+        helper.removeClass(button, "button-secondary");
       };
     };
     if (_spellState.get(spellBookOptions.level) != null) {
@@ -899,12 +1096,22 @@ var spells = (function() {
       for (var i = 0; i < all_spellControl.length; i++) {
         if (all_spellControl[i].classList.contains("button-primary")) {
           helper.removeClass(all_spellControl[i], "button-primary");
-          helper.addClass(all_spellControl[i], "button-secondary");
+          helper.removeClass(all_spellControl[i], "button-secondary");
         };
-        if (all_spellControl[i].classList.contains("is-live")) {
-          helper.removeClass(all_spellControl[i], "is-live");
-        };
+        // if (all_spellControl[i].classList.contains("is-live")) {
+        //   helper.removeClass(all_spellControl[i], "is-live");
+        // };
       };
+      _render_stateSpellBook(spellBook, spellBookOptions.level);
+    };
+  };
+
+  function _render_spellPlaceholder(level) {
+    var placeholder = helper.e(".js-placeholder-spell-level-" + level);
+    if (_get_spellBookCount(level) > 0) {
+      helper.addClass(placeholder, "is-hidden");
+    } else {
+      helper.removeClass(placeholder, "is-hidden");
     };
   };
 
@@ -913,7 +1120,8 @@ var spells = (function() {
     clear: clear,
     bind: bind,
     render: render,
-    update: _render_quickSpellControl
+    update: _render_quickSpellControl,
+    add: add
   };
 
 })();

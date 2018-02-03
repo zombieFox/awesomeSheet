@@ -194,11 +194,8 @@ var sheet = (function() {
     scroll();
     resize();
     characterSelect.bind();
-    prompt.bind();
-    modal.bind();
-    shade.bind();
-    snack.bind();
     stats.bind();
+    autoSuggest.bind();
     inputBlock.bind();
     inputRangeBlock.bind();
     selectBlock.bind();
@@ -232,6 +229,10 @@ var sheet = (function() {
     window.addEventListener("resize", function(event) {
       header.resize();
     }, false);
+  };
+
+  function load() {
+    spellsData.load();
   };
 
   function switcher(index) {
@@ -467,6 +468,18 @@ var sheet = (function() {
 
   function shortcuts() {
     window.addEventListener("keydown", function(event) {
+      //  esc
+      if (event.keyCode == 27) {
+        autoSuggest.destroy();
+        snack.destroy();
+        modal.destroy();
+        prompt.destroy();
+        characterSelect.close();
+        menu.close();
+        shade.destroy();
+        log.destroy();
+        page.update();
+      };
       // ctrl+alt+f
       if (event.ctrlKey && event.altKey && event.keyCode == 70) {
         fullscreen.toggle();
@@ -502,9 +515,10 @@ var sheet = (function() {
       if (event.ctrlKey && event.altKey && event.keyCode == 78) {
         night.toggle();
       };
-      // esc
-      if (event.keyCode == 27) {
-        menu.close();
+      // ctrl+alt+c
+      if (event.ctrlKey && event.altKey && event.keyCode == 67) {
+        characterSelect.toggle();
+        page.update();
       };
     }, false);
     // key debugging
@@ -530,6 +544,7 @@ var sheet = (function() {
     import: importJson,
     export: exportJson,
     render: render,
+    load: load,
     switcher: switcher,
     getIndex: getIndex,
     setIndex: setIndex,

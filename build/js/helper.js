@@ -35,7 +35,7 @@ var helper = (function() {
   };
 
   function selectText(element) {
-    var node = helper.e(element);
+    var node = e(element);
     if (document.selection) {
       var range = document.body.createTextRange();
       range.moveToElementText(node);
@@ -78,6 +78,16 @@ var helper = (function() {
     } else {
       return string.substring(0, index) + newCharacter + string.substring(index + 1);
     };
+  };
+
+  function toTitleCase(string) {
+    return string.replace(/\w\S*/g, function(text) {
+      return text.charAt(0).toUpperCase() + text.substr(1).toLowerCase();
+    });
+  };
+
+  function capFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.substr(1);
   };
 
   function makeObject(string) {
@@ -164,7 +174,7 @@ var helper = (function() {
       newValue: null
     };
     if (options) {
-      var defaultOptions = helper.applyOptions(defaultOptions, options);
+      var defaultOptions = applyOptions(defaultOptions, options);
     };
     var address = _makeAddress(defaultOptions.path);
     var _setData = function() {
@@ -199,7 +209,7 @@ var helper = (function() {
       path: null
     };
     if (options) {
-      var defaultOptions = helper.applyOptions(defaultOptions, options);
+      var defaultOptions = applyOptions(defaultOptions, options);
     };
     var address = _makeAddress(defaultOptions.path);
     var _getData = function() {
@@ -427,6 +437,52 @@ var helper = (function() {
     };
   };
 
+  function loadJSON(jsonPath, callback) {
+    var xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/json");
+    xobj.open("GET", jsonPath, true);
+    xobj.onreadystatechange = function() {
+      if (xobj.readyState == 4 && xobj.status == "200") {
+        // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+        callback(xobj.responseText);
+      };
+    };
+    xobj.send(null);
+  };
+
+  function loadCsv(csvPath, callback) {
+    var xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/csv");
+    xobj.open("GET", csvPath, true);
+    xobj.onreadystatechange = function() {
+      if (xobj.readyState == 4 && xobj.status == "200") {
+        // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+        callback(xobj.responseText);
+      };
+    };
+    xobj.send(null);
+  };
+
+  function csvToJSON(string) {
+    var lines = string.split("\n");
+    // remove trailing spaces at end of each line
+    for (var i = 0; i < lines.length; i++) {
+      lines[i] = lines[i].substr(0, (lines[i].length - 1));
+    };
+    var keys = lines[0].split(/\|(?=\S)/);
+    var result = [];
+    for (var i = 1; i < lines.length; i++) {
+      var object = {};
+      var currentline = lines[i].split(/\|(?=\S)/);
+      // var currentline = lines[i].substr(0, (lines[i].length - 1)).split(/\|(?=\S)/);
+      for (var j = 0; j < keys.length; j++) {
+        object[keys[j]] = currentline[j];
+      };
+      result.push(object);
+    };
+    return JSON.parse(JSON.stringify(result));
+  };
+
   // exposed methods
   return {
     store: store,
@@ -456,7 +512,12 @@ var helper = (function() {
     getDateTime: getDateTime,
     getAverageColor: getAverageColor,
     applyOptions: applyOptions,
-    replaceAt: replaceAt
+    replaceAt: replaceAt,
+    toTitleCase: toTitleCase,
+    capFirstLetter: capFirstLetter,
+    loadJSON: loadJSON,
+    loadCsv: loadCsv,
+    csvToJSON: csvToJSON
   };
 
 })();

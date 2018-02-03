@@ -1398,6 +1398,10 @@ var ravich = (function() {
           half_level: false
         }
       },
+      school: "",
+      opposition: "",
+      domains: "",
+      bloodline: "",
       spell_notes: "",
       per_day: {
         level_0: "",

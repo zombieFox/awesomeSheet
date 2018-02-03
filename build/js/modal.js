@@ -2,15 +2,6 @@ var modal = (function() {
 
   var previousModal = null;
 
-  function bind() {
-    window.addEventListener("keydown", function(event) {
-      if (event.keyCode == 27) {
-        destroy();
-        page.update();
-      };
-    }, false);
-  };
-
   function destroy() {
     var all_modal = helper.eA(".js-modal");
     if (all_modal[0]) {
@@ -133,7 +124,6 @@ var modal = (function() {
 
   // exposed methods
   return {
-    bind: bind,
     destroy: destroy,
     render: render
   };

@@ -1189,6 +1189,7 @@ hr {
   clear: both; }
 
 b,
+caption,
 strong {
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
 
@@ -1219,14 +1220,14 @@ ul:not(:last-child) {
 
 li {
   margin: 0; }
-  li > ul,
-  li > ol {
+  li > ol,
+  li > ul {
     margin: 0; }
 
 li:not(:last-child) {
   margin-bottom: 0.5em; }
-  li:not(:last-child) > ul:not(:last-child),
-  li:not(:last-child) > ol:not(:last-child) {
+  li:not(:last-child) > ol:not(:last-child),
+  li:not(:last-child) > ul:not(:last-child) {
     margin-bottom: 0.5em; }
 
 table {
@@ -1235,7 +1236,8 @@ table {
   padding: 0;
   width: 100%;
   border-spacing: 0; }
-  table thead tr td {
+  table thead tr td,
+  table thead tr th {
     padding: 0.5em;
     margin: 0;
     border: 0;
@@ -1245,12 +1247,21 @@ table {
     font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif; }
   table tbody tr:nth-child(odd) {
     background-color: #fafafa; }
-  table tbody tr td {
+  table tbody tr td,
+  table tbody tr th {
     padding: 0.5em;
     margin: 0;
     border: 0;
     text-align: left;
     box-sizing: border-box; }
+  table tfoot tr td,
+  table tfoot tr th {
+    padding: 0.5em;
+    margin: 0;
+    border: 0;
+    text-align: left;
+    box-sizing: border-box;
+    font-size: 0.75em; }
 
 .is-display-mode hr {
   margin: 2em -2em; }
@@ -2520,6 +2531,133 @@ label {
   margin: 0.5em;
   display: inline-block; }
 
+.m-auto-suggest {
+  position: relative;
+  z-index: 1;
+  font-size: 1rem; }
+
+.m-auto-suggest-list {
+  background-color: #fafafa;
+  overflow-y: auto;
+  position: absolute;
+  padding: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-height: 40vh;
+  border-radius: 3px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 0 6px 30px rgba(0, 0, 0, 0.1);
+  z-index: 3000;
+  box-sizing: border-box; }
+
+.m-auto-suggest-list-item {
+  padding: 0; }
+  .m-auto-suggest-list-item:not(:only-child):not(:last-child) {
+    border-bottom: 1px solid transparent;
+    border-bottom-color: #ededed;
+    margin-bottom: 0; }
+
+.m-auto-suggest-link {
+  color: #000000;
+  padding: 0.5em 1em;
+  display: block;
+  text-decoration: none;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+  .m-auto-suggest-link:link, .m-auto-suggest-link:visited {
+    color: #000000;
+    text-decoration: none; }
+  .m-auto-suggest-link:focus, .m-auto-suggest-link:hover {
+    background-color: #ededed;
+    color: #000000;
+    text-decoration: none; }
+  .m-auto-suggest-link:active {
+    background-color: #1e4a76;
+    color: #ffffff; }
+    .m-auto-suggest-link:active .m-auto-suggest-highlight {
+      border-bottom-color: #ffffff; }
+    .m-auto-suggest-link:active .m-auto-suggest-highlight,
+    .m-auto-suggest-link:active .m-auto-suggest-result-meta,
+    .m-auto-suggest-link:active .m-auto-suggest-text-sub {
+      color: #ffffff; }
+  .m-auto-suggest-link .m-auto-suggest-text {
+    width: 100%;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row nowrap;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-align-items: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline; }
+  .m-auto-suggest-link .m-auto-suggest-highlight {
+    color: #1e7ddc;
+    border-bottom: 1px solid #1e7ddc; }
+  .m-auto-suggest-link .m-auto-suggest-result-meta {
+    margin-left: 0.5em;
+    color: #7a7a7a;
+    font-size: 0.75em; }
+  .m-auto-suggest-link .m-auto-suggest-text-sub {
+    display: none; }
+
+.m-auto-suggest-label {
+  margin: 0 1em 0 0;
+  padding: 0;
+  display: block;
+  z-index: 2;
+  color: #1e4a76;
+  font-size: 0.75em;
+  font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  white-space: nowrap; }
+  .m-auto-suggest-label:not(:only-child):not(:last-child) {
+    margin-bottom: 0; }
+
+.m-auto-suggest-field {
+  position: relative;
+  z-index: 1; }
+
+.is-night-mode .m-auto-suggest-label {
+  color: #94c9ff; }
+
+.is-night-mode .m-auto-suggest-list {
+  background-color: #212121; }
+
+.is-night-mode .m-auto-suggest-list-item:not(:only-child):not(:last-child) {
+  border-bottom-color: #2e2e2e; }
+
+.is-night-mode .m-auto-suggest-link {
+  color: #ffffff; }
+  .is-night-mode .m-auto-suggest-link:link, .is-night-mode .m-auto-suggest-link:visited {
+    color: #ffffff; }
+  .is-night-mode .m-auto-suggest-link:focus, .is-night-mode .m-auto-suggest-link:hover {
+    background-color: #2e2e2e;
+    color: #ffffff; }
+  .is-night-mode .m-auto-suggest-link:active {
+    background-color: #1e4a76;
+    color: #ffffff; }
+    .is-night-mode .m-auto-suggest-link:active .m-auto-suggest-highlight {
+      border-bottom-color: #ffffff; }
+    .is-night-mode .m-auto-suggest-link:active .m-auto-suggest-highlight,
+    .is-night-mode .m-auto-suggest-link:active .m-auto-suggest-result-meta,
+    .is-night-mode .m-auto-suggest-link:active .m-auto-suggest-text-sub {
+      color: #ffffff; }
+
+@media (min-width: 550px) {
+  .m-auto-suggest-link .m-auto-suggest-text-sub {
+    margin: 0.2em 0 0 1em;
+    display: block;
+    color: #7a7a7a;
+    font-size: 0.75em; } }
+
 .m-card {
   background-color: #ffffff;
   position: relative;
@@ -2668,7 +2806,7 @@ label {
   font-size: 1rem;
   overflow-y: auto;
   box-sizing: border-box;
-  z-index: 10000;
+  z-index: 11000;
   transition: -webkit-transform 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out;
   -webkit-transform: translate(calc(-100% - 1em), 0);
@@ -2982,6 +3120,10 @@ label {
       -ms-flex-align: stretch;
           align-items: stretch; }
 
+.m-edit-box-text-only .m-edit-box-title {
+  padding-top: 0;
+  padding-bottom: 0; }
+
 .m-edit-box-indent .m-edit-box-body {
   margin-left: 1em; }
 
@@ -3032,9 +3174,10 @@ label {
 .m-edit-box-guides {
   padding-top: 0.5em;
   padding-bottom: 0.5em;
-  border-bottom: 1px solid transparent;
-  border-bottom-color: #e0e0e0;
   transition: border-color 0.2s ease-in-out, margin 0.2s ease-in-out, padding 0.2s ease-in-out; }
+  .m-edit-box-guides:not(:only-child):not(:last-child) {
+    border-bottom: 1px solid transparent;
+    border-bottom-color: #ededed; }
 
 .m-edit-box-title {
   font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
@@ -3205,265 +3348,365 @@ label {
     [class^="m-edit-box-group"] [class*="m-edit-box-item"]:hover .button,
     [class^="m-edit-box-group"] [class^="m-edit-box-item"]:hover .button {
       z-index: 3; }
+    [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-auto-suggest,
     [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block,
     [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block,
     [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-file-block,
     [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-radio-block,
     [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block,
+    [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-auto-suggest,
     [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block,
     [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block,
     [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block,
     [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block,
     [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block,
+    [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-auto-suggest,
     [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block,
     [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block,
     [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-file-block,
     [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-radio-block,
     [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block,
+    [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-auto-suggest,
     [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block,
     [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block,
     [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block,
     [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block,
     [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block {
       z-index: 2; }
+      [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-auto-suggest.is-focus,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block.is-focus,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block.is-focus,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-file-block.is-focus,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-radio-block.is-focus,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block.is-focus,
+      [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-auto-suggest.is-focus,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block.is-focus,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block.is-focus,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block.is-focus,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block.is-focus,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block.is-focus,
+      [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-auto-suggest.is-focus,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block.is-focus,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block.is-focus,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-file-block.is-focus,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-radio-block.is-focus,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block.is-focus,
+      [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-auto-suggest.is-focus,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block.is-focus,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block.is-focus,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block.is-focus,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block.is-focus,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block.is-focus {
         z-index: 4; }
+      [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-auto-suggest .m-auto-suggest-field,
+      [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-auto-suggest .m-check-block-check-icon,
+      [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-auto-suggest .m-input-block-field,
+      [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-auto-suggest .m-input-file-block-field,
+      [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-auto-suggest .m-radio-block-radio-icon,
+      [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-auto-suggest .m-select-block-dropdown,
+      [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-auto-suggest-field,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-check-block-check-icon,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-input-block-field,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-input-file-block-field,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-radio-block-radio-icon,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-select-block-dropdown,
+      [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-auto-suggest-field,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-check-block-check-icon,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-input-block-field,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-input-file-block-field,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-radio-block-radio-icon,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-select-block-dropdown,
+      [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-file-block .m-auto-suggest-field,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-file-block .m-check-block-check-icon,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-file-block .m-input-block-field,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-file-block .m-input-file-block-field,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-file-block .m-radio-block-radio-icon,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-file-block .m-select-block-dropdown,
+      [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-radio-block .m-auto-suggest-field,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-radio-block .m-check-block-check-icon,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-radio-block .m-input-block-field,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-radio-block .m-input-file-block-field,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-radio-block .m-radio-block-radio-icon,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-radio-block .m-select-block-dropdown,
+      [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-auto-suggest-field,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-check-block-check-icon,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-input-block-field,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-input-file-block-field,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-radio-block-radio-icon,
       [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-select-block-dropdown,
+      [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-auto-suggest .m-auto-suggest-field,
+      [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-auto-suggest .m-check-block-check-icon,
+      [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-auto-suggest .m-input-block-field,
+      [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-auto-suggest .m-input-file-block-field,
+      [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-auto-suggest .m-radio-block-radio-icon,
+      [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-auto-suggest .m-select-block-dropdown,
+      [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-auto-suggest-field,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-check-block-check-icon,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-input-block-field,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-input-file-block-field,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-radio-block-radio-icon,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-select-block-dropdown,
+      [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-auto-suggest-field,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-check-block-check-icon,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-input-block-field,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-input-file-block-field,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-radio-block-radio-icon,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-select-block-dropdown,
+      [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block .m-auto-suggest-field,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block .m-check-block-check-icon,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block .m-input-block-field,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block .m-input-file-block-field,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block .m-radio-block-radio-icon,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block .m-select-block-dropdown,
+      [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block .m-auto-suggest-field,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block .m-check-block-check-icon,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block .m-input-block-field,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block .m-input-file-block-field,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block .m-radio-block-radio-icon,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block .m-select-block-dropdown,
+      [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-auto-suggest-field,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-check-block-check-icon,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-input-block-field,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-input-file-block-field,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-radio-block-radio-icon,
       [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-select-block-dropdown,
+      [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-auto-suggest .m-auto-suggest-field,
+      [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-auto-suggest .m-check-block-check-icon,
+      [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-auto-suggest .m-input-block-field,
+      [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-auto-suggest .m-input-file-block-field,
+      [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-auto-suggest .m-radio-block-radio-icon,
+      [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-auto-suggest .m-select-block-dropdown,
+      [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-auto-suggest-field,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-check-block-check-icon,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-input-block-field,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-input-file-block-field,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-radio-block-radio-icon,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-select-block-dropdown,
+      [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-auto-suggest-field,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-check-block-check-icon,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-input-block-field,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-input-file-block-field,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-radio-block-radio-icon,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-select-block-dropdown,
+      [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-file-block .m-auto-suggest-field,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-file-block .m-check-block-check-icon,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-file-block .m-input-block-field,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-file-block .m-input-file-block-field,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-file-block .m-radio-block-radio-icon,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-file-block .m-select-block-dropdown,
+      [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-radio-block .m-auto-suggest-field,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-radio-block .m-check-block-check-icon,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-radio-block .m-input-block-field,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-radio-block .m-input-file-block-field,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-radio-block .m-radio-block-radio-icon,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-radio-block .m-select-block-dropdown,
+      [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-auto-suggest-field,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-check-block-check-icon,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-input-block-field,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-input-file-block-field,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-radio-block-radio-icon,
       [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-select-block-dropdown,
+      [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-auto-suggest .m-auto-suggest-field,
+      [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-auto-suggest .m-check-block-check-icon,
+      [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-auto-suggest .m-input-block-field,
+      [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-auto-suggest .m-input-file-block-field,
+      [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-auto-suggest .m-radio-block-radio-icon,
+      [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-auto-suggest .m-select-block-dropdown,
+      [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-auto-suggest-field,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-check-block-check-icon,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-input-block-field,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-input-file-block-field,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-radio-block-radio-icon,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-select-block-dropdown,
+      [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-auto-suggest-field,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-check-block-check-icon,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-input-block-field,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-input-file-block-field,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-radio-block-radio-icon,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-select-block-dropdown,
+      [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block .m-auto-suggest-field,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block .m-check-block-check-icon,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block .m-input-block-field,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block .m-input-file-block-field,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block .m-radio-block-radio-icon,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block .m-select-block-dropdown,
+      [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block .m-auto-suggest-field,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block .m-check-block-check-icon,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block .m-input-block-field,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block .m-input-file-block-field,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block .m-radio-block-radio-icon,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block .m-select-block-dropdown,
+      [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-auto-suggest-field,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-check-block-check-icon,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-input-block-field,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-input-file-block-field,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-radio-block-radio-icon,
       [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-select-block-dropdown {
         border-radius: 0; }
+        [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-auto-suggest .m-auto-suggest-field:focus,
+        [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-auto-suggest .m-check-block-check-icon:focus,
+        [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-auto-suggest .m-input-block-field:focus,
+        [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-auto-suggest .m-input-file-block-field:focus,
+        [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-auto-suggest .m-radio-block-radio-icon:focus,
+        [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-auto-suggest .m-select-block-dropdown:focus,
+        [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-auto-suggest-field:focus,
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-check-block-check-icon:focus,
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-input-block-field:focus,
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-input-file-block-field:focus,
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-radio-block-radio-icon:focus,
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-select-block-dropdown:focus,
+        [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-auto-suggest-field:focus,
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-check-block-check-icon:focus,
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-input-block-field:focus,
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-input-file-block-field:focus,
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-radio-block-radio-icon:focus,
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-select-block-dropdown:focus,
+        [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-file-block .m-auto-suggest-field:focus,
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-file-block .m-check-block-check-icon:focus,
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-file-block .m-input-block-field:focus,
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-file-block .m-input-file-block-field:focus,
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-file-block .m-radio-block-radio-icon:focus,
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-file-block .m-select-block-dropdown:focus,
+        [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-radio-block .m-auto-suggest-field:focus,
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-radio-block .m-check-block-check-icon:focus,
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-radio-block .m-input-block-field:focus,
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-radio-block .m-input-file-block-field:focus,
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-radio-block .m-radio-block-radio-icon:focus,
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-radio-block .m-select-block-dropdown:focus,
+        [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-auto-suggest-field:focus,
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-check-block-check-icon:focus,
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-input-block-field:focus,
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-input-file-block-field:focus,
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-radio-block-radio-icon:focus,
         [class*="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-select-block-dropdown:focus,
+        [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-auto-suggest .m-auto-suggest-field:focus,
+        [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-auto-suggest .m-check-block-check-icon:focus,
+        [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-auto-suggest .m-input-block-field:focus,
+        [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-auto-suggest .m-input-file-block-field:focus,
+        [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-auto-suggest .m-radio-block-radio-icon:focus,
+        [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-auto-suggest .m-select-block-dropdown:focus,
+        [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-auto-suggest-field:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-check-block-check-icon:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-input-block-field:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-input-file-block-field:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-radio-block-radio-icon:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-select-block-dropdown:focus,
+        [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-auto-suggest-field:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-check-block-check-icon:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-input-block-field:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-input-file-block-field:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-radio-block-radio-icon:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-select-block-dropdown:focus,
+        [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block .m-auto-suggest-field:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block .m-check-block-check-icon:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block .m-input-block-field:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block .m-input-file-block-field:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block .m-radio-block-radio-icon:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block .m-select-block-dropdown:focus,
+        [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block .m-auto-suggest-field:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block .m-check-block-check-icon:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block .m-input-block-field:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block .m-input-file-block-field:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block .m-radio-block-radio-icon:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block .m-select-block-dropdown:focus,
+        [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-auto-suggest-field:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-check-block-check-icon:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-input-block-field:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-input-file-block-field:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-radio-block-radio-icon:focus,
         [class*="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-select-block-dropdown:focus,
+        [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-auto-suggest .m-auto-suggest-field:focus,
+        [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-auto-suggest .m-check-block-check-icon:focus,
+        [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-auto-suggest .m-input-block-field:focus,
+        [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-auto-suggest .m-input-file-block-field:focus,
+        [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-auto-suggest .m-radio-block-radio-icon:focus,
+        [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-auto-suggest .m-select-block-dropdown:focus,
+        [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-auto-suggest-field:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-check-block-check-icon:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-input-block-field:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-input-file-block-field:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-radio-block-radio-icon:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-check-block .m-select-block-dropdown:focus,
+        [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-auto-suggest-field:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-check-block-check-icon:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-input-block-field:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-input-file-block-field:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-radio-block-radio-icon:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-block .m-select-block-dropdown:focus,
+        [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-file-block .m-auto-suggest-field:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-file-block .m-check-block-check-icon:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-file-block .m-input-block-field:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-file-block .m-input-file-block-field:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-file-block .m-radio-block-radio-icon:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-input-file-block .m-select-block-dropdown:focus,
+        [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-radio-block .m-auto-suggest-field:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-radio-block .m-check-block-check-icon:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-radio-block .m-input-block-field:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-radio-block .m-input-file-block-field:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-radio-block .m-radio-block-radio-icon:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-radio-block .m-select-block-dropdown:focus,
+        [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-auto-suggest-field:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-check-block-check-icon:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-input-block-field:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-input-file-block-field:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-radio-block-radio-icon:focus,
         [class^="m-edit-box-group"] [class*="m-edit-box-item"] .m-select-block .m-select-block-dropdown:focus,
+        [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-auto-suggest .m-auto-suggest-field:focus,
+        [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-auto-suggest .m-check-block-check-icon:focus,
+        [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-auto-suggest .m-input-block-field:focus,
+        [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-auto-suggest .m-input-file-block-field:focus,
+        [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-auto-suggest .m-radio-block-radio-icon:focus,
+        [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-auto-suggest .m-select-block-dropdown:focus,
+        [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-auto-suggest-field:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-check-block-check-icon:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-input-block-field:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-input-file-block-field:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-radio-block-radio-icon:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-check-block .m-select-block-dropdown:focus,
+        [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-auto-suggest-field:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-check-block-check-icon:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-input-block-field:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-input-file-block-field:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-radio-block-radio-icon:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-block .m-select-block-dropdown:focus,
+        [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block .m-auto-suggest-field:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block .m-check-block-check-icon:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block .m-input-block-field:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block .m-input-file-block-field:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block .m-radio-block-radio-icon:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-input-file-block .m-select-block-dropdown:focus,
+        [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block .m-auto-suggest-field:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block .m-check-block-check-icon:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block .m-input-block-field:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block .m-input-file-block-field:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block .m-radio-block-radio-icon:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-radio-block .m-select-block-dropdown:focus,
+        [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-auto-suggest-field:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-check-block-check-icon:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-input-block-field:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-input-file-block-field:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-radio-block-radio-icon:focus,
         [class^="m-edit-box-group"] [class^="m-edit-box-item"] .m-select-block .m-select-block-dropdown:focus {
           z-index: 3; }
+    [class*="m-edit-box-group"] [class*="m-edit-box-item"]:hover .m-auto-suggest,
     [class*="m-edit-box-group"] [class*="m-edit-box-item"]:hover .m-check-block,
     [class*="m-edit-box-group"] [class*="m-edit-box-item"]:hover .m-input-block,
     [class*="m-edit-box-group"] [class*="m-edit-box-item"]:hover .m-input-file-block,
     [class*="m-edit-box-group"] [class*="m-edit-box-item"]:hover .m-radio-block,
     [class*="m-edit-box-group"] [class*="m-edit-box-item"]:hover .m-select-block,
+    [class*="m-edit-box-group"] [class^="m-edit-box-item"]:hover .m-auto-suggest,
     [class*="m-edit-box-group"] [class^="m-edit-box-item"]:hover .m-check-block,
     [class*="m-edit-box-group"] [class^="m-edit-box-item"]:hover .m-input-block,
     [class*="m-edit-box-group"] [class^="m-edit-box-item"]:hover .m-input-file-block,
     [class*="m-edit-box-group"] [class^="m-edit-box-item"]:hover .m-radio-block,
     [class*="m-edit-box-group"] [class^="m-edit-box-item"]:hover .m-select-block,
+    [class^="m-edit-box-group"] [class*="m-edit-box-item"]:hover .m-auto-suggest,
     [class^="m-edit-box-group"] [class*="m-edit-box-item"]:hover .m-check-block,
     [class^="m-edit-box-group"] [class*="m-edit-box-item"]:hover .m-input-block,
     [class^="m-edit-box-group"] [class*="m-edit-box-item"]:hover .m-input-file-block,
     [class^="m-edit-box-group"] [class*="m-edit-box-item"]:hover .m-radio-block,
     [class^="m-edit-box-group"] [class*="m-edit-box-item"]:hover .m-select-block,
+    [class^="m-edit-box-group"] [class^="m-edit-box-item"]:hover .m-auto-suggest,
     [class^="m-edit-box-group"] [class^="m-edit-box-item"]:hover .m-check-block,
     [class^="m-edit-box-group"] [class^="m-edit-box-item"]:hover .m-input-block,
     [class^="m-edit-box-group"] [class^="m-edit-box-item"]:hover .m-input-file-block,
@@ -3495,6 +3738,11 @@ label {
     [class^="m-edit-box-group"] [class*="m-edit-box-item"]:first-of-type .m-input-block .m-input-block-field,
     [class^="m-edit-box-group"] [class^="m-edit-box-item"]:first-of-type .m-input-block .m-input-block-field {
       border-radius: 5px 0 0 5px; }
+    [class*="m-edit-box-group"] [class*="m-edit-box-item"]:first-of-type .m-auto-suggest .m-auto-suggest-field,
+    [class*="m-edit-box-group"] [class^="m-edit-box-item"]:first-of-type .m-auto-suggest .m-auto-suggest-field,
+    [class^="m-edit-box-group"] [class*="m-edit-box-item"]:first-of-type .m-auto-suggest .m-auto-suggest-field,
+    [class^="m-edit-box-group"] [class^="m-edit-box-item"]:first-of-type .m-auto-suggest .m-auto-suggest-field {
+      border-radius: 5px 0 0 5px; }
     [class*="m-edit-box-group"] [class*="m-edit-box-item"]:first-of-type .m-input-file-block .m-input-file-block-label,
     [class*="m-edit-box-group"] [class^="m-edit-box-item"]:first-of-type .m-input-file-block .m-input-file-block-label,
     [class^="m-edit-box-group"] [class*="m-edit-box-item"]:first-of-type .m-input-file-block .m-input-file-block-label,
@@ -3525,6 +3773,11 @@ label {
     [class^="m-edit-box-group"] [class*="m-edit-box-item"]:last-of-type .m-input-block .m-input-block-field,
     [class^="m-edit-box-group"] [class^="m-edit-box-item"]:last-of-type .m-input-block .m-input-block-field {
       border-radius: 0 5px 5px 0; }
+    [class*="m-edit-box-group"] [class*="m-edit-box-item"]:last-of-type .m-auto-suggest .m-auto-suggest-field,
+    [class*="m-edit-box-group"] [class^="m-edit-box-item"]:last-of-type .m-auto-suggest .m-auto-suggest-field,
+    [class^="m-edit-box-group"] [class*="m-edit-box-item"]:last-of-type .m-auto-suggest .m-auto-suggest-field,
+    [class^="m-edit-box-group"] [class^="m-edit-box-item"]:last-of-type .m-auto-suggest .m-auto-suggest-field {
+      border-radius: 0 5px 5px 0; }
     [class*="m-edit-box-group"] [class*="m-edit-box-item"]:last-of-type .m-input-file-block .m-input-file-block-label,
     [class*="m-edit-box-group"] [class^="m-edit-box-item"]:last-of-type .m-input-file-block .m-input-file-block-label,
     [class^="m-edit-box-group"] [class*="m-edit-box-item"]:last-of-type .m-input-file-block .m-input-file-block-label,
@@ -3554,6 +3807,11 @@ label {
     [class*="m-edit-box-group"] [class^="m-edit-box-item"]:first-of-type:last-of-type .m-input-block .m-input-block-field,
     [class^="m-edit-box-group"] [class*="m-edit-box-item"]:first-of-type:last-of-type .m-input-block .m-input-block-field,
     [class^="m-edit-box-group"] [class^="m-edit-box-item"]:first-of-type:last-of-type .m-input-block .m-input-block-field {
+      border-radius: 5px; }
+    [class*="m-edit-box-group"] [class*="m-edit-box-item"]:first-of-type:last-of-type .m-auto-suggest .m-auto-suggest-field,
+    [class*="m-edit-box-group"] [class^="m-edit-box-item"]:first-of-type:last-of-type .m-auto-suggest .m-auto-suggest-field,
+    [class^="m-edit-box-group"] [class*="m-edit-box-item"]:first-of-type:last-of-type .m-auto-suggest .m-auto-suggest-field,
+    [class^="m-edit-box-group"] [class^="m-edit-box-item"]:first-of-type:last-of-type .m-auto-suggest .m-auto-suggest-field {
       border-radius: 5px; }
     [class*="m-edit-box-group"] [class*="m-edit-box-item"]:first-of-type:last-of-type .m-input-file-block .m-input-file-block-label,
     [class*="m-edit-box-group"] [class^="m-edit-box-item"]:first-of-type:last-of-type .m-input-file-block .m-input-file-block-label,
@@ -3665,7 +3923,7 @@ label {
 .is-header-pinned .m-edit-controls {
   top: 3.5em; }
 
-.is-night-mode .m-edit-box-guides {
+.is-night-mode .m-edit-box-guides:not(:only-child):not(:last-child) {
   border-bottom-color: #212121; }
 
 .is-night-mode .m-edit-heading {
@@ -3872,7 +4130,7 @@ label {
           transform: translate(-50%, calc(-100% - 1em));
   transition: -webkit-transform 0.2s ease-in-out;
   transition: transform 0.2s ease-in-out;
-  z-index: 11000;
+  z-index: 12000;
   box-sizing: border-box; }
   .m-character-select.is-open {
     -webkit-transform: translate(-50%, 0);
@@ -4660,7 +4918,7 @@ label {
   width: 100%;
   height: 3em;
   font-size: 1rem;
-  z-index: 12000;
+  z-index: 13000;
   -webkit-transform: translate(0, 0);
       -ms-transform: translate(0, 0);
           transform: translate(0, 0);
@@ -5455,7 +5713,7 @@ label {
   width: 100%;
   height: 3em;
   font-size: 1rem;
-  z-index: 7000;
+  z-index: 8000;
   -webkit-transform: translate(0, 0);
       -ms-transform: translate(0, 0);
           transform: translate(0, 0);
@@ -5684,7 +5942,7 @@ label {
   width: calc(100% + 2em);
   height: calc(100% + 2em);
   opacity: 0;
-  z-index: 9000;
+  z-index: 10000;
   transition: opacity 0.3s ease-in-out; }
   .m-shade.is-transition-end {
     transition: opacity 0.5s ease-in-out; }
@@ -5692,7 +5950,7 @@ label {
     background-color: rgba(23, 0, 6, 0.8); }
 
 .m-shade-top {
-  z-index: 13000; }
+  z-index: 14000; }
 
 @media print {
   .m-shade {
@@ -5856,12 +6114,16 @@ label {
     .m-spell .m-spell-remove [class^="icon-"] {
       float: right; }
 
+.m-spell-control hr {
+  margin-top: 2em;
+  margin-bottom: 2em; }
+
 .m-prompt {
   position: fixed;
   top: 50%;
   left: 50%;
   font-size: 1rem;
-  z-index: 14000;
+  z-index: 15000;
   width: 30em;
   max-width: calc(100% - 6em);
   min-width: 10em;
@@ -5912,20 +6174,9 @@ label {
     .m-prompt-controls .button:last-child {
       border-radius: 0 0 5px 0; }
 
-.m-prompt-code {
-  background-color: rgba(0, 0, 0, 0.75);
-  max-height: 300px;
-  overflow-y: scroll;
-  margin: 0;
-  padding: 20px 60px;
-  color: #ffffff;
-  box-sizing: border-box;
-  box-shadow: inset 0 3px 3px rgba(0, 0, 0, 0.15);
-  white-space: pre-wrap; }
-
 .is-night-mode .m-prompt-body {
-  background-color: #212121;
-  border-bottom-color: #212121; }
+  background-color: #141414;
+  border-bottom-color: #141414; }
 
 @media (min-width: 700px) {
   .m-prompt {
@@ -5940,7 +6191,7 @@ label {
   top: 50%;
   left: 50%;
   font-size: 1rem;
-  z-index: 15000;
+  z-index: 16000;
   width: 45em;
   max-width: calc(100% - 6em);
   min-width: 10em;
@@ -5955,7 +6206,8 @@ label {
     transition: opacity 0.3s ease-in-out; }
 
 .m-modal-large {
-  width: 65em; }
+  width: 65em;
+  max-width: calc(100% - 2em); }
 
 .m-modal-small {
   width: 25em; }
@@ -5976,7 +6228,7 @@ label {
   border-bottom: 1em solid transparent;
   border-bottom-color: #ffffff;
   padding: 2em;
-  max-height: calc(80vh - 3.6666666667em);
+  max-height: calc(90vh - 3.6666666667em);
   overflow: scroll;
   box-sizing: border-box;
   z-index: 1;
@@ -5999,11 +6251,14 @@ label {
     border-radius: 0 0 5px 5px; }
 
 .is-night-mode .m-modal-body {
-  background-color: #212121;
-  border-bottom-color: #212121; }
+  background-color: #141414;
+  border-bottom-color: #141414; }
 
 @media (min-width: 700px) {
   .m-modal {
+    max-width: calc(100% - 4em); }
+  .m-modal-large {
+    width: 55em;
     max-width: calc(100% - 4em); } }
 
 @media print {
@@ -6062,7 +6317,7 @@ label {
   overflow: hidden;
   transition: all 0.4s ease-in-out, background-color 0.3s ease-in-out;
   opacity: 1;
-  z-index: 8000;
+  z-index: 9000;
   font-size: 1rem;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6137,7 +6392,7 @@ label {
   top: 0;
   font-size: 1.25rem;
   opacity: 1;
-  z-index: 3000;
+  z-index: 4000;
   transition: opacity 0.3s ease-in-out;
   -webkit-transform-origin: bottom center;
       -ms-transform-origin: bottom center;
@@ -6253,7 +6508,7 @@ label {
           align-items: stretch; }
 
 .m-display-box-body-indent {
-  margin-left: 2em; }
+  margin-left: 1em; }
 
 .m-display-box-body-item-margin-large [class*="m-display-box-item"],
 .m-display-box-body-item-margin-large [class^="m-display-box-item"] {
@@ -6568,19 +6823,26 @@ label {
   margin-bottom: 2em; }
 
 .m-display-list-compact {
-  -webkit-columns: 10em 2;
-     -moz-columns: 10em 2;
-          columns: 10em 2;
-  -webkit-column-gap: 2em;
-     -moz-column-gap: 2em;
-          column-gap: 2em; }
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch; }
   .m-display-list-compact .m-display-list-item {
     padding-top: 4px;
     padding-bottom: 4px;
     border-bottom: 2px solid #e0e0e0;
-    -webkit-column-break-inside: avoid;
-       page-break-inside: avoid;
-            break-inside: avoid; }
+    -webkit-flex: 0 0 46%;
+        -ms-flex: 0 0 46%;
+            flex: 0 0 46%;
+    max-width: 46%; }
 
 .is-night-mode .m-display-list-item {
   border-color: rgba(255, 255, 255, 0.1); }
@@ -6991,10 +7253,10 @@ label {
 
 .m-placeholder {
   background-color: #fafafa;
-  border: 1px solid transparent;
+  border: 2px dashed transparent;
   border-color: #d4d4d4;
   border-radius: 5px;
-  margin: 1em 0;
+  margin: 0 0 1em 0;
   padding: 2em 4em;
   width: 100%;
   box-sizing: border-box;
@@ -7049,7 +7311,7 @@ label {
   bottom: 2em;
   right: 2em;
   font-size: 1rem;
-  z-index: 6000;
+  z-index: 7000;
   -webkit-transform: translate(0, 0);
       -ms-transform: translate(0, 0);
           transform: translate(0, 0);
@@ -7126,7 +7388,7 @@ label {
   -webkit-transform-origin: center bottom;
       -ms-transform-origin: center bottom;
           transform-origin: center bottom;
-  z-index: 4000;
+  z-index: 6000;
   -webkit-animation: fireball steps(30) 2s 1;
           animation: fireball steps(30) 2s 1;
   transition: all ease;

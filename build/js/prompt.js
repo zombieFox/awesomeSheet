@@ -2,15 +2,6 @@ var prompt = (function() {
 
   var previousPrompt = null;
 
-  function bind() {
-    window.addEventListener("keydown", function(event) {
-      if (event.keyCode == 27) {
-        destroy();
-        page.update();
-      };
-    }, false);
-  };
-
   function destroy() {
     var all_prompt = helper.eA(".js-prompt");
     if (all_prompt[0]) {
@@ -143,7 +134,6 @@ var prompt = (function() {
 
   // exposed methods
   return {
-    bind: bind,
     destroy: destroy,
     render: render
   };
