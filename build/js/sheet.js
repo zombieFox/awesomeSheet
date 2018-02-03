@@ -342,7 +342,7 @@ var sheet = (function() {
           add(data);
           var name = allCharacters[getIndex()].basics.name;
           snack.render({
-            message: helper.truncate(name, 40, true) + " updated with JSON file."
+            message: helper.truncate(name, 40, true) + " imported and back in the game."
           });
         } else {
           snack.render({
