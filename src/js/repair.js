@@ -846,7 +846,13 @@ var repair = (function() {
       characterObject.basics.initiative.trait = "";
     };
     // --------------------------------------------------
-    // repair spell specialty and opposition
+    if (!("school" in characterObject.spells)) {
+      if (debug) {
+        console.log("\trepair spell school");
+      };
+      characterObject.spells.school = "";
+    };
+    // --------------------------------------------------
     if (!("opposition" in characterObject.spells)) {
       if (debug) {
         console.log("\trepair spell opposition");
@@ -854,11 +860,18 @@ var repair = (function() {
       characterObject.spells.opposition = "";
     };
     // --------------------------------------------------
-    if (!("specialty" in characterObject.spells)) {
+    if (!("domains" in characterObject.spells)) {
       if (debug) {
-        console.log("\trepair spell specialty");
+        console.log("\trepair spell domains");
       };
-      characterObject.spells.specialty = "";
+      characterObject.spells.domains = "";
+    };
+    // --------------------------------------------------
+    if (!("bloodline" in characterObject.spells)) {
+      if (debug) {
+        console.log("\trepair spell bloodline");
+      };
+      characterObject.spells.bloodline = "";
     };
     // --------------------------------------------------
     // sheet.store();

@@ -1329,8 +1329,10 @@ var ro = (function() {
           half_level: false
         }
       },
-      specialty: "",
+      school: "",
       opposition: "",
+      domains: "",
+      bloodline: "",
       spell_notes: "+2 on caster level checks to overcome spell resistance.",
       per_day: {
         level_0: 5,

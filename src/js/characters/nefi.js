@@ -1315,8 +1315,10 @@ var nefi = (function() {
           half_level: false
         }
       },
-      specialty: "",
+      school: "",
       opposition: "",
+      domains: "",
+      bloodline: "",
       spell_notes: "",
       per_day: {
         level_0: "",

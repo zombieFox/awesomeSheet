@@ -1380,8 +1380,10 @@ var nif = (function() {
           half_level: false
         }
       },
-      specialty: "Conjuration - Teleportation",
+      school: "Conjuration - Teleportation",
       opposition: "Enchantment, Necromancy",
+      domains: "",
+      bloodline: "",
       spell_notes: "Conjuration spells +2 DC.<br>+2 on caster level checks to overcome spell resistance.",
       per_day: {
         level_0: 4,
