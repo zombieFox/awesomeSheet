@@ -57,10 +57,6 @@
           transition: opacity $transition-ease-fast, transform $transition-ease-fast, background-color $transition-ease-fast, border-color $transition-ease-fast, color $transition-ease-fast, padding $transition-ease-fast, box-shadow $transition-ease-fast;
         }
       }
-      .m-clone-block-delete-controls-skill {
-        margin-top: 1.75em;
-        margin-top: 0.5em;
-      }
       .m-clone-block-delete-controls-note {
         margin-top: 1.25em;
       }
@@ -107,7 +103,7 @@
     .m-clone-block-target {
       .m-clone {
         .m-clone-block-delete-controls-skill {
-          margin-top: 1.75em;
+          margin-top: 1.25em;
         }
       }
     }
