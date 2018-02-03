@@ -20,12 +20,13 @@
 .m-auto-suggest-list-item {
   padding: 0;
   &:not(:only-child):not(:last-child) {
-    border-bottom: 1px solid $gray-19;
+    border-bottom: 1px solid transparent;
+    border-bottom-color: $gray-19;
     margin-bottom: 0;
   }
 }
 .m-auto-suggest-link {
-  color: $gray-06;
+  color: $black;
   padding: 0.5em 1em;
   display: block;
   text-decoration: none;
@@ -33,17 +34,14 @@
   justify-content: space-between;
   &:link,
   &:visited {
-    color: $gray-06;
+    color: $black;
     text-decoration: none;
   }
   &:focus,
   &:hover {
     background-color: $gray-19;
-    color: $gray-06;
+    color: $black;
     text-decoration: none;
-    .m-auto-suggest-sub-text {
-      color: $gray-08;
-    }
   }
   &:active {
     background-color: $secondary-color-06;
@@ -66,11 +64,11 @@
   }
   .m-auto-suggest-highlight {
     color: $secondary-color-10;
-    border-bottom: 1px solid $secondary-color-14;
+    border-bottom: 1px solid $secondary-color-10;
   }
   .m-auto-suggest-result-meta {
     margin-left: 0.5em;
-    color: $gray-12;
+    color: $gray-10;
     font-size: $font-size-075;
   }
   .m-auto-suggest-text-sub {
@@ -99,6 +97,38 @@
   .m-auto-suggest-label {
     color: $secondary-color-16;
   }
+  .m-auto-suggest-list {
+    background-color: $gray-03;
+  }
+  .m-auto-suggest-list-item {
+    &:not(:only-child):not(:last-child) {
+      border-bottom-color: $gray-04;
+    }
+  }
+  .m-auto-suggest-link {
+    color: $white;
+    &:link,
+    &:visited {
+      color: $white;
+    }
+    &:focus,
+    &:hover {
+      background-color: $gray-04;
+      color: $white;
+    }
+    &:active {
+      background-color: $secondary-color-06;
+      color: $white;
+      .m-auto-suggest-highlight {
+        border-bottom-color: $white;
+      }
+      .m-auto-suggest-highlight,
+      .m-auto-suggest-result-meta,
+      .m-auto-suggest-text-sub {
+        color: $white;
+      }
+    }
+  }
 }
 // --------------------------------------------------
 // media queries
@@ -108,7 +138,7 @@
     .m-auto-suggest-text-sub {
       margin: 0.2em 0 0 1em;
       display: block;
-      color: $gray-12;
+      color: $gray-10;
       font-size: $font-size-075;
     }
   }

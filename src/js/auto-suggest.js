@@ -19,7 +19,7 @@ var autoSuggest = (function() {
     if (input) {
       input.addEventListener("input", function() {
         clearTimeout(_timer_autoSuggest);
-        _timer_autoSuggest = setTimeout(_delayRender, 150, this);
+        _timer_autoSuggest = setTimeout(_delayRender, 200, this);
       }, false);
       input.addEventListener("keydown", function(event) {
         if (event.keyCode == 13) {
@@ -124,9 +124,7 @@ var autoSuggest = (function() {
           anchor.setAttribute("data-spells-data", "index:#" + arrayItem.index);
           anchor.addEventListener("click", function() {
             if (autoSuggestOptions.type == "spells") {
-              spells.add(_cuurentInput, spellsData.get({
-                index: helper.makeObject(this.dataset.spellsData).index
-              }));
+              spells.add(_cuurentInput, arrayItem.index);
             };
             destroy();
             sheet.store();

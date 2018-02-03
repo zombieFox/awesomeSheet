@@ -215,18 +215,18 @@ var display = (function() {
     displayListItem.setAttribute("data-spell-level", level);
     displayListItem.setAttribute("data-spell-count", index);
     // prepared
-    if (spell.state.prepared > 0) {
+    if (spell.prepared > 0) {
       // var marks = document.createElement("span");
-      for (var j = 0; j < spell.state.prepared; j++) {
+      for (var j = 0; j < spell.prepared; j++) {
         var preparedIcon = document.createElement("span");
         preparedIcon.setAttribute("class", "icon-radio-button-checked");
         displayListItemValue.insertBefore(preparedIcon, displayListItemValue.firstChild);
       };
     };
     // cast
-    if (spell.state.cast > 0) {
+    if (spell.cast > 0) {
       var all_check = displayListItemValue.querySelectorAll(".icon-radio-button-checked");
-      for (var j = 0; j < spell.state.cast; j++) {
+      for (var j = 0; j < spell.cast; j++) {
         if (all_check[j]) {
           helper.toggleClass(all_check[j], "icon-radio-button-checked");
           helper.toggleClass(all_check[j], "icon-radio-button-unchecked");
@@ -234,7 +234,7 @@ var display = (function() {
       };
     };
     // active
-    if (spell.state.active) {
+    if (spell.active) {
       var spellActive = document.createElement("span");
       spellActive.setAttribute("class", "m-display-list-item-spell-active");
       var activeIcon = document.createElement("span");
