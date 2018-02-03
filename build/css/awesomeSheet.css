@@ -4825,9 +4825,6 @@ label {
                 transform: scale(0.4);
         transition: opacity 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out, padding 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out, padding 0.2s ease-in-out, box-shadow 0.2s ease-in-out; }
-    .m-clone-block .m-clone-block-target .m-clone .m-clone-block-delete-controls-skill {
-      margin-top: 1.75em;
-      margin-top: 0.5em; }
     .m-clone-block .m-clone-block-target .m-clone .m-clone-block-delete-controls-note {
       margin-top: 1.25em; }
 
@@ -4852,7 +4849,7 @@ label {
 
 @media (min-width: 550px) {
   .m-clone-block .m-clone-block-target .m-clone .m-clone-block-delete-controls-skill {
-    margin-top: 1.75em; } }
+    margin-top: 1.25em; } }
 
 .m-hamburger {
   position: relative;
