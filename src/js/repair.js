@@ -874,6 +874,13 @@ var repair = (function() {
       characterObject.spells.bloodline = "";
     };
     // --------------------------------------------------
+    if (!("power" in characterObject.statistics)) {
+      if (debug) {
+        console.log("\trepair power");
+      };
+      characterObject.statistics.power = "";
+    };
+    // --------------------------------------------------
     // sheet.store();
     return characterObject;
   };
