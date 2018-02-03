@@ -144,7 +144,7 @@ var izlara = (function() {
       feats: "Improved Initiative, Combat Casting, Craft Wondrous Item, Spell Focus (Conjuration), Extend Spell, Quicken Spell, Spell Penetration, Eschew materials",
       traits: "Reactionary, Magical Lineage (Overland Flight)",
       languages: "Abyssal, Aklo, Aquan, Auran, Celestial, Common, Druidic, Dwarven, Elven, Giant, Goblin, Gnoll, Halfling, Ignan, Infernal, Orc, Sylvan, Terran, Undercommon",
-      special_abilities: "Low-Light Vision, Elven Immunities, Elven Magic, Keen Senses, Weapon Familiarity, Arcane bond (Rat), Arcane School (Divination [Foresight]), Opposition Arcane School: Enchantment, Necromancy, Cantrips, Scribe scroll, Forewarned, Prescience, Foretell",
+      special_abilities: "Low-Light Vision, Elven Immunities, Elven Magic, Keen Senses, Weapon Familiarity, Arcane bond (Rat), Arcane School, Cantrips, Scribe scroll, Forewarned, Prescience, Foretell",
       power: [{
         name: "Prescience",
         current: 6,
@@ -1382,8 +1382,8 @@ var izlara = (function() {
           half_level: false
         }
       },
-      specialty: "",
-      opposition: "",
+      specialty: "Divination - Foresight",
+      opposition: "Enchantment, Necromancy",
       spell_notes: "+2 on caster level checks to overcome spell resistance.",
       per_day: {
         level_0: 4,
