@@ -23,7 +23,7 @@ var tip = (function() {
       tip.addEventListener("focus", function() {
         render(tip);
         clearTimeout(destroyTimer);
-        destroyTimer = setTimeout(destroy, 3000, this);
+        destroyTimer = setTimeout(destroy, 4000, this);
       }, false);
       tip.addEventListener("blur", function() {
         destroy();
