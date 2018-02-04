@@ -893,7 +893,8 @@ var repair = (function() {
     characterObject.awesomeSheet.awesome = true;
     characterObject.awesomeSheet.version = "5.0.0";
 
-    var basics = {
+    // basics
+    characterObject.basics = {
       character: {
         name: tempCharacterObject.basics.name,
         race: tempCharacterObject.basics.race,
@@ -932,12 +933,12 @@ var repair = (function() {
         trait: tempCharacterObject.basics.initiative.trait,
         current: "",
         bonuses: {
-          str: tempCharacterObject.basics.initiative.bonuses.str,
-          dex: tempCharacterObject.basics.initiative.bonuses.dex,
-          con: tempCharacterObject.basics.initiative.bonuses.con,
-          int: tempCharacterObject.basics.initiative.bonuses.int,
-          wis: tempCharacterObject.basics.initiative.bonuses.wis,
-          cha: tempCharacterObject.basics.initiative.bonuses.cha,
+          str: tempCharacterObject.basics.initiative.bonuses.str_bonus,
+          dex: tempCharacterObject.basics.initiative.bonuses.dex_bonus,
+          con: tempCharacterObject.basics.initiative.bonuses.con_bonus,
+          int: tempCharacterObject.basics.initiative.bonuses.int_bonus,
+          wis: tempCharacterObject.basics.initiative.bonuses.wis_bonus,
+          cha: tempCharacterObject.basics.initiative.bonuses.cha_bonus,
           level: tempCharacterObject.basics.initiative.bonuses.level,
           half_level: tempCharacterObject.basics.initiative.bonuses.half_level
         }
@@ -971,18 +972,75 @@ var repair = (function() {
         scale: tempCharacterObject.basics.character_image.scale
       }
     };
+    // statistics
+    characterObject.statistics = {
+      stats: {
+        str: {
+          current: tempCharacterObject.statistics.stats.str.current,
+          modifier: tempCharacterObject.statistics.stats.str.modifier,
+          base: tempCharacterObject.statistics.stats.str.base,
+          enhancement: tempCharacterObject.statistics.stats.str.enhancement,
+          misc: tempCharacterObject.statistics.stats.str.misc,
+          racial: tempCharacterObject.statistics.stats.str.racial,
+          temp: tempCharacterObject.statistics.stats.str.temp
+        },
+        dex: {
+          current: tempCharacterObject.statistics.stats.dex.current,
+          modifier: tempCharacterObject.statistics.stats.dex.modifier,
+          base: tempCharacterObject.statistics.stats.dex.base,
+          enhancement: tempCharacterObject.statistics.stats.dex.enhancement,
+          misc: tempCharacterObject.statistics.stats.dex.misc,
+          racial: tempCharacterObject.statistics.stats.dex.racial,
+          temp: tempCharacterObject.statistics.stats.dex.temp
+        },
+        con: {
+          current: tempCharacterObject.statistics.stats.con.current,
+          modifier: tempCharacterObject.statistics.stats.con.modifier,
+          base: tempCharacterObject.statistics.stats.con.base,
+          enhancement: tempCharacterObject.statistics.stats.con.enhancement,
+          misc: tempCharacterObject.statistics.stats.con.misc,
+          racial: tempCharacterObject.statistics.stats.con.racial,
+          temp: tempCharacterObject.statistics.stats.con.temp
+        },
+        int: {
+          current: tempCharacterObject.statistics.stats.int.current,
+          modifier: tempCharacterObject.statistics.stats.int.modifier,
+          base: tempCharacterObject.statistics.stats.int.base,
+          enhancement: tempCharacterObject.statistics.stats.int.enhancement,
+          misc: tempCharacterObject.statistics.stats.int.misc,
+          racial: tempCharacterObject.statistics.stats.int.racial,
+          temp: tempCharacterObject.statistics.stats.int.temp
+        },
+        wis: {
+          current: tempCharacterObject.statistics.stats.wis.current,
+          modifier: tempCharacterObject.statistics.stats.wis.modifier,
+          base: tempCharacterObject.statistics.stats.wis.base,
+          enhancement: tempCharacterObject.statistics.stats.wis.enhancement,
+          misc: tempCharacterObject.statistics.stats.wis.misc,
+          racial: tempCharacterObject.statistics.stats.wis.racial,
+          temp: tempCharacterObject.statistics.stats.wis.temp
+        },
+        cha: {
+          current: tempCharacterObject.statistics.stats.cha.current,
+          modifier: tempCharacterObject.statistics.stats.cha.modifier,
+          base: tempCharacterObject.statistics.stats.cha.base,
+          enhancement: tempCharacterObject.statistics.stats.cha.enhancement,
+          misc: tempCharacterObject.statistics.stats.cha.misc,
+          racial: tempCharacterObject.statistics.stats.cha.racial,
+          temp: tempCharacterObject.statistics.stats.cha.temp
+        }
+      },
+      abilities: {
+        feats: tempCharacterObject.statistics.feats,
+        traits: tempCharacterObject.statistics.traits,
+        languages: tempCharacterObject.statistics.languages,
+        special: tempCharacterObject.statistics.special_abilities
+      },
+      power: {
+        all: tempCharacterObject.statistics.power
+      }
+    };
 
-
-    // basics
-    characterObject.basics = basics;
-    // characterObject.basics.character = {};
-    // characterObject.basics.classes = {};
-    // characterObject.basics.experience = {};
-    // characterObject.basics.initiative = {};
-    // characterObject.basics.speed = {};
-    // characterObject.basics.image = {};
-    // // statistics
-    // characterObject.statistics = {};
     // characterObject.statistics.stats = {};
     // characterObject.statistics.abilities = {};
     // characterObject.statistics.power = {};
