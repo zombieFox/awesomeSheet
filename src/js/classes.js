@@ -68,7 +68,7 @@ var classes = (function() {
     var baseAttackBonuses = _makeBaseAttackBonuses(totalBab);
     helper.setObject({
       object: sheet.get(),
-      path: "basics.level",
+      path: "basics.experience.level",
       newValue: totalLevels
     });
     helper.setObject({

@@ -184,6 +184,7 @@ var display = (function() {
   };
 
   function _get_all_spell(all_displayPath) {
+    console.log(all_displayPath);
     var all_node = [];
     for (var i = 0; i < all_displayPath.length; i++) {
       var bookPath = all_displayPath[i].split(".");
@@ -976,8 +977,8 @@ var display = (function() {
   };
 
   function render(section) {
-    _render_displayBlock(section);
-    _update_displayPlaceholder(section);
+    // _render_displayBlock(section);
+    // _update_displayPlaceholder(section);
   };
 
   function _update_displayPlaceholder(section) {

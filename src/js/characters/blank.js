@@ -9,7 +9,6 @@ var blank = (function() {
       character: {
         name: "",
         race: "",
-        level: "",
         alignment: "",
         deity: "",
         height: "",
@@ -17,7 +16,7 @@ var blank = (function() {
         age: "",
         gender: "",
         hero_points: "",
-        character_description: "",
+        description: "",
         size: {
           category: "",
           size_modifier: "",
@@ -39,9 +38,10 @@ var blank = (function() {
         }]
       },
       experience: {
+        level: "",
+        next_level: "",
         total: "",
         advancement_speed: "",
-        next_level: "",
         needed: ""
       },
       initiative: {
@@ -1571,8 +1571,12 @@ var blank = (function() {
       }
     },
     notes: {
-      character: [],
-      story: []
+      character: {
+        all: []
+      },
+      story: {
+        all: []
+      }
     },
     events: {
       all: []

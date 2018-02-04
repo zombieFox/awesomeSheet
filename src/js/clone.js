@@ -26,7 +26,7 @@ var clone = (function() {
   function _get_cloneObjects(cloneType) {
     var object;
     if (cloneType == "class") {
-      object = sheet.get().basics.classes;
+      object = sheet.get().basics.classes.all;
     };
     if (cloneType == "consumable") {
       object = sheet.get().equipment.consumable;
@@ -63,13 +63,13 @@ var clone = (function() {
         '  <div class="m-edit-box-content m-edit-box-content-outline m-edit-box-content-margin-large">' +
         '    <div class="m-edit-box-item m-edit-box-group">' +
         '      <div class="m-edit-box-item-large">' +
-        '        <div class="m-input-block js-input-block js-basics-class-level" data-input-block-options="path:basics.classes[' + cloneIndex + ']classname,clone:true">' +
+        '        <div class="m-input-block js-input-block js-basics-class-level" data-input-block-options="path:basics.classes.all[' + cloneIndex + ']classname,clone:true">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-classname-' + cloneIndex + '">Class Name</label>' +
         '          <input id="class-classname-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item-small">' +
-        '        <div class="m-input-block js-input-block js-basics-class-level" data-input-block-options="path:basics.classes[' + cloneIndex + ']level,type:integer,clone:true">' +
+        '        <div class="m-input-block js-input-block js-basics-class-level" data-input-block-options="path:basics.classes.all[' + cloneIndex + ']level,type:integer,clone:true">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-level-' + cloneIndex + '">Levels</label>' +
         '          <input id="class-level-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field js-tip" data-tip-options="message:Total number of Levels in this Class.,state:focus,clone:true" type="number" tabindex="1">' +
         '        </div>' +
@@ -77,19 +77,19 @@ var clone = (function() {
         '    </div>' +
         '    <div class="m-edit-box-item m-edit-box-group">' +
         '      <div class="m-edit-box-item-medium">' +
-        '        <div class="m-input-block js-input-block" data-input-block-options="path:basics.classes[' + cloneIndex + ']hp,type:integer,clone:true">' +
+        '        <div class="m-input-block js-input-block" data-input-block-options="path:basics.classes.all[' + cloneIndex + ']hp,type:integer,clone:true">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-hp-' + cloneIndex + '">HP</label>' +
         '          <input id="class-hp-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field js-tip" data-tip-options="message:HP for all Levels in this Class, including favored class bonuses. CON bonuses will be automatically added.,state:focus,clone:true" type="number" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item-medium">' +
-        '        <div class="m-input-block js-input-block" data-input-block-options="path:basics.classes[' + cloneIndex + ']bab,type:integer,clone:true">' +
+        '        <div class="m-input-block js-input-block" data-input-block-options="path:basics.classes.all[' + cloneIndex + ']bab,type:integer,clone:true">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-bab-' + cloneIndex + '">BAB</label>' +
         '          <input id="class-bab-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field js-tip" data-tip-options="message:The highest BAB for this Class. Additional attacks will be automatically added.,state:focus,clone:true" type="number" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item-medium">' +
-        '        <div class="m-input-block js-input-block" data-input-block-options="path:basics.classes[' + cloneIndex + ']ranks,type:integer,clone:true">' +
+        '        <div class="m-input-block js-input-block" data-input-block-options="path:basics.classes.all[' + cloneIndex + ']ranks,type:integer,clone:true">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-ranks-' + cloneIndex + '">Ranks</label>' +
         '          <input id="class-ranks-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field js-tip" data-tip-options="message:Skill Ranks for all Levels in this Class, including favored class bonuses. INT bonuses will be automatically added.,state:focus,clone:true" type="number" tabindex="1">' +
         '        </div>' +
@@ -97,19 +97,19 @@ var clone = (function() {
         '    </div>' +
         '    <div class="m-edit-box-item m-edit-box-group">' +
         '      <div class="m-edit-box-item-medium">' +
-        '        <div class="m-input-block js-input-block" data-input-block-options="path:basics.classes[' + cloneIndex + ']fortitude,type:integer,clone:true">' +
+        '        <div class="m-input-block js-input-block" data-input-block-options="path:basics.classes.all[' + cloneIndex + ']fortitude,type:integer,clone:true">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-fortitude-' + cloneIndex + '">Base Fortitude</label>' +
         '          <input id="class-fortitude-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item-medium">' +
-        '        <div class="m-input-block js-input-block" data-input-block-options="path:basics.classes[' + cloneIndex + ']reflex,type:integer,clone:true">' +
+        '        <div class="m-input-block js-input-block" data-input-block-options="path:basics.classes.all[' + cloneIndex + ']reflex,type:integer,clone:true">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-reflex-' + cloneIndex + '">Base Reflex</label>' +
         '          <input id="class-reflex-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item-medium">' +
-        '        <div class="m-input-block js-input-block" data-input-block-options="path:basics.classes[' + cloneIndex + ']will,type:integer,clone:true">' +
+        '        <div class="m-input-block js-input-block" data-input-block-options="path:basics.classes.all[' + cloneIndex + ']will,type:integer,clone:true">' +
         '          <label class="m-input-block-label js-input-block-label" for="class-will-' + cloneIndex + '">Base Will</label>' +
         '          <input id="class-will-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '        </div>' +
@@ -530,80 +530,16 @@ var clone = (function() {
   };
 
   function _get_cloneCount(cloneType, mixed) {
-    var cloneCount;
-    if (cloneType == "class") {
-      cloneCount = helper.getObject({
-        object: sheet.get(),
-        path: "basics.classes"
-      }).length;
+    if (mixed) {
+      if (cloneType == "note" || cloneType == "note-character" && mixed || cloneType == "note-story" && mixed) {
+        return _get_cloneObjects("note-character").length + _get_cloneObjects("note-story").length;
+      };
+      if (cloneType == "attack" || cloneType == "attack-melee" && mixed || cloneType == "attack-ranged" && mixed) {
+        return _get_cloneObjects("attack-melee").length + _get_cloneObjects("attack-ranged").length;
+      };
+    } else {
+      return _get_cloneObjects(cloneType).length;
     };
-    if (cloneType == "attack-melee") {
-      cloneCount = helper.getObject({
-        object: sheet.get(),
-        path: "offense.attack.melee"
-      }).length;
-    };
-    if (cloneType == "attack-ranged") {
-      cloneCount = helper.getObject({
-        object: sheet.get(),
-        path: "offense.attack.ranged"
-      }).length;
-    };
-    if (cloneType == "consumable") {
-      cloneCount = helper.getObject({
-        object: sheet.get(),
-        path: "equipment.consumable"
-      }).length;
-    };
-    if (cloneType == "power") {
-      cloneCount = helper.getObject({
-        object: sheet.get(),
-        path: "statistics.power"
-      }).length;
-    };
-    if (cloneType == "item") {
-      cloneCount = helper.getObject({
-        object: sheet.get(),
-        path: "equipment.item.all"
-      }).length;
-    };
-    if (cloneType == "skill") {
-      cloneCount = helper.getObject({
-        object: sheet.get(),
-        path: "skills.custom"
-      }).length;
-    };
-    if (cloneType == "note-character") {
-      cloneCount = helper.getObject({
-        object: sheet.get(),
-        path: "notes.character"
-      }).length;
-    };
-    if (cloneType == "note-story") {
-      cloneCount = helper.getObject({
-        object: sheet.get(),
-        path: "notes.story"
-      }).length;
-    };
-    if (cloneType == "note" || cloneType == "note-character" && mixed || cloneType == "note-story" && mixed) {
-      (cloneCount = helper.getObject({
-        object: sheet.get(),
-        path: "notes.character"
-      }).length + helper.getObject({
-        object: sheet.get(),
-        path: "notes.story"
-      }).length)
-    };
-    if (cloneType == "attack" || cloneType == "attack-melee" && mixed || cloneType == "attack-ranged" && mixed) {
-      (cloneCount = helper.getObject({
-        object: sheet.get(),
-        path: "offense.attack.melee"
-      }).length + helper.getObject({
-        object: sheet.get(),
-        path: "offense.attack.ranged"
-      }).length)
-    };
-    return cloneCount;
   };
 
   function _get_placeholderClone(cloneType) {

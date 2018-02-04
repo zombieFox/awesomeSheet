@@ -143,7 +143,7 @@ var inputBlock = (function() {
   };
 
   function _bind_name() {
-    var inputBlock = helper.e(".js-basics-name");
+    var inputBlock = helper.e(".js-basics-character-name");
     var input = inputBlock.querySelector(".js-input-block-field");
     input.addEventListener("input", function() {
       clearTimeout(_timer_updateNav);

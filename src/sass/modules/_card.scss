@@ -4,17 +4,18 @@
   box-sizing: border-box;
   width: 100%;
   transition: background-color $transition-ease-medium;
-  &:hover {
-    .m-card-head {
-      background-color: $secondary-color-06;
-    }
-    .m-card-tabs {
-      background-color: $secondary-color-05;
-    }
-  }
+  // &:hover {
+  //   .m-card-head {
+  //     background-color: $secondary-color-06;
+  //   }
+  //   .m-card-tabs {
+  //     background-color: $secondary-color-05;
+  //   }
+  // }
 }
 .m-card-head {
-  background-color: $secondary-color-05;
+  // background-color: $secondary-color-05;
+  background-color: $secondary-color-04;
   position: relative;
   transition: background-color $transition-ease-medium;
 }
@@ -48,12 +49,13 @@
   .m-card {
     &:hover {
       .m-card-head {
-        background-color: $primary-color-06;
+        // background-color: $primary-color-06;
+        background-color: $primary-color-04;
       }
     }
   }
   .m-card-head {
-    background-color: $primary-color-05;
+    background-color: $primary-color-04;
   }
 }
 .is-minimise {

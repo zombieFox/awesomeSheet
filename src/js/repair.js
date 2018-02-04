@@ -2,20 +2,10 @@ var repair = (function() {
 
   var _debug = false;
 
-  function _repair(characterObject) {
-    if (characterObject.sheet_version != update.version()) {
-      console.log("\tversion not current");
-      // _repair.sheet_4_4_0_andBelow();
-      characterObject.sheet_version = update.version();
-    } else if (!("sheet_version" in characterObject)) {
-      console.log("\tno version found");
-      characterObject.sheet_version = update.version();
-    } else {
-      console.log("\tno version found");
-      characterObject.sheet_version = update.version();
-    };
+  // legacy sheet update
+  function _update_440andBelow(characterObject) {
     if (_debug) {
-      console.log("-- Repair fired -- >>", characterObject.basics.name);
+      console.log("\tlegacy repair");
     };
     // --------------------------------------------------
     // repair spell notes
@@ -891,32 +881,222 @@ var repair = (function() {
       };
       characterObject.statistics.power = [];
     };
-    // --------------------------------------------------
-    // sheet.store();
-    return characterObject;
   };
 
-  function render(options) {
+  function _update_500(characterObject) {
+    if (_debug) {
+      console.log("\tupgrade character to 5.0.0");
+    };
+    tempCharacterObject = JSON.parse(JSON.stringify(characterObject));
+
+    characterObject.awesomeSheet = {};
+    characterObject.awesomeSheet.awesome = true;
+    characterObject.awesomeSheet.version = "5.0.0";
+
+    var basics = {
+      character: {
+        name: tempCharacterObject.basics.name,
+        race: tempCharacterObject.basics.race,
+        alignment: tempCharacterObject.basics.alignment,
+        deity: tempCharacterObject.basics.deity,
+        height: tempCharacterObject.basics.height,
+        weight: tempCharacterObject.basics.weight,
+        age: tempCharacterObject.basics.age,
+        gender: tempCharacterObject.basics.gender,
+        hero_points: tempCharacterObject.basics.hero_points,
+        description: tempCharacterObject.basics.character_description,
+        size: {
+          category: tempCharacterObject.basics.size.category,
+          modifier: {
+            base: "",
+            special: "",
+            fly: "",
+            stealth: ""
+          }
+        }
+      },
+      classes: {
+        all: tempCharacterObject.basics.classes
+      },
+      experience: {
+        level: "",
+        next_level: "",
+        total: tempCharacterObject.basics.xp.total,
+        advancement_speed: tempCharacterObject.basics.xp.advancement_speed,
+        needed: ""
+      },
+      initiative: {
+        misc: tempCharacterObject.basics.initiative.misc,
+        temp: tempCharacterObject.basics.initiative.temp,
+        feat: tempCharacterObject.basics.initiative.feat,
+        trait: tempCharacterObject.basics.initiative.trait,
+        current: "",
+        bonuses: {
+          str: tempCharacterObject.basics.initiative.bonuses.str,
+          dex: tempCharacterObject.basics.initiative.bonuses.dex,
+          con: tempCharacterObject.basics.initiative.bonuses.con,
+          int: tempCharacterObject.basics.initiative.bonuses.int,
+          wis: tempCharacterObject.basics.initiative.bonuses.wis,
+          cha: tempCharacterObject.basics.initiative.bonuses.cha,
+          level: tempCharacterObject.basics.initiative.bonuses.level,
+          half_level: tempCharacterObject.basics.initiative.bonuses.half_level
+        }
+      },
+      speed: {
+        land: tempCharacterObject.basics.speed.land,
+        fly: tempCharacterObject.basics.speed.fly,
+        maneuverability: tempCharacterObject.basics.speed.maneuverability,
+        swim: tempCharacterObject.basics.speed.swim,
+        climb: tempCharacterObject.basics.speed.climb,
+        burrow: tempCharacterObject.basics.speed.burrow
+      },
+      image: {
+        uploaded: tempCharacterObject.basics.character_image.uploaded,
+        background: tempCharacterObject.basics.character_image.background,
+        color: {
+          r: tempCharacterObject.basics.character_image.color.r,
+          g: tempCharacterObject.basics.character_image.color.g,
+          b: tempCharacterObject.basics.character_image.color.b
+        },
+        image: tempCharacterObject.basics.character_image.image,
+        orientation: tempCharacterObject.basics.character_image.orientation,
+        position: {
+          x: tempCharacterObject.basics.character_image.position.x,
+          y: tempCharacterObject.basics.character_image.position.y
+        },
+        size: {
+          width: tempCharacterObject.basics.character_image.size.width,
+          height: tempCharacterObject.basics.character_image.size.height
+        },
+        scale: tempCharacterObject.basics.character_image.scale
+      }
+    };
+
+
+    // basics
+    characterObject.basics = basics;
+    // characterObject.basics.character = {};
+    // characterObject.basics.classes = {};
+    // characterObject.basics.experience = {};
+    // characterObject.basics.initiative = {};
+    // characterObject.basics.speed = {};
+    // characterObject.basics.image = {};
+    // // statistics
+    // characterObject.statistics = {};
+    // characterObject.statistics.stats = {};
+    // characterObject.statistics.abilities = {};
+    // characterObject.statistics.power = {};
+    // // equipment
+    // characterObject.equipment = {};
+    // characterObject.equipment.possessions = {};
+    // characterObject.equipment.armor = {};
+    // characterObject.equipment.body_slots = {};
+    // characterObject.equipment.item = {};
+    // characterObject.equipment.encumbrance = {};
+    // characterObject.equipment.consumable = {};
+    // characterObject.equipment.wealth = {};
+    // // defense
+    // characterObject.defense = {};
+    // characterObject.defense.hp = {};
+    // characterObject.defense.ac = {};
+    // characterObject.defense.saves = {};
+    // characterObject.defense.cmd = {};
+    // characterObject.defense.dr = {};
+    // characterObject.defense.resist = {};
+    // characterObject.defense.sr = {};
+    // // offense
+    // characterObject.offense = {};
+    // characterObject.offense.stats = {};
+    // characterObject.offense.cmb = {};
+    // characterObject.offense.attack = {};
+    // // skills
+    // characterObject.skills = {};
+    // characterObject.skills.ranks = {};
+    // characterObject.skills.custom = {};
+    // characterObject.skills.all = {};
+    // // spells
+    // characterObject.spells = {};
+    // characterObject.spells.stats = {};
+    // characterObject.spells.book = {};
+    // // notes
+    // characterObject.notes = {};
+    // characterObject.notes.character = {};
+    // characterObject.notes.story = {};
+    // // events
+    // characterObject.events = {};
+    // characterObject.events.all = {};
+    // console.log(characterObject);
+  };
+
+  function _update(options) {
     var defaultOptions = {
-      debug: null,
+      object: null,
+      bumpTo: null
+    };
+    if (options) {
+      var defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
+    var _bumpToVersion = function(version, updateAction) {
+      if (defaultOptions.object.awesomeSheet.version != version) {
+        updateAction(defaultOptions.object);
+      };
+    };
+    if (defaultOptions.object != null) {
+      if (defaultOptions.bumpTo == "5.0.0") {
+        _bumpToVersion("5.0.0", _update_500);
+      };
+    };
+  };
+
+  function _repair(options) {
+    var defaultOptions = {
       object: null
     };
     if (options) {
       var defaultOptions = helper.applyOptions(defaultOptions, options);
     };
-    if (defaultOptions.debug) {
-      _debug = true;
-    } else {
-      _debug = false
+    if (_debug) {
+      console.log("---------------------------------------");
+      console.log("Repair:", defaultOptions.object.basics.name);
     };
+    // if awesomeSheet check is a boolean
+    if (typeof defaultOptions.object.awesomeSheet == "boolean") {
+      _update_440andBelow(defaultOptions.object);
+    };
+    // version bump
+    if (defaultOptions.object.awesomeSheet.version != update.version()) {
+      _update({
+        object: defaultOptions.object,
+        bumpTo: update.version()
+      });
+    };
+  };
+
+  function render(options) {
+    var defaultOptions = {
+      debug: false,
+      object: null
+    };
+    if (options) {
+      var defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
+    _debug = defaultOptions.debug;
+    // check for character object
     if (defaultOptions.object) {
-      _repair(defaultOptions.object)
+      _repair({
+        object: defaultOptions.object
+      });
+      // if no object repair all characters
     } else {
       var allCharacters = sheet.getAll();
-      for (var i = 0; i < allCharacters.length; i++) {
-        _repair(allCharacters[i]);
-      };
+      allCharacters.forEach(function(arrayItem) {
+        _repair({
+          object: arrayItem
+        });
+      });
     };
+    // store characters
+    sheet.store();
   };
 
   // exposed methods

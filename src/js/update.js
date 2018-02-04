@@ -1,6 +1,11 @@
 var update = (function() {
 
   var history = [{
+    version: "5.0.0",
+    list: [
+      "Update and optimise the character data object."
+    ]
+  }, {
     version: "4.4.0",
     list: [
       "*Added Spell Search, newly added Spells will have a descriptions."
