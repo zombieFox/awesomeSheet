@@ -261,13 +261,13 @@ var update = (function() {
     ]
   }];
 
-  function currentVersion() {
+  function version() {
     return history[0].version;
   };
 
   // exposed methods
   return {
-    ver: currentVersion,
+    version: version,
     history: history
   };
 

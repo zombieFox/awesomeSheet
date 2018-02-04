@@ -1,34 +1,66 @@
 var blank = (function() {
 
   var data = {
-    awesomeSheet: true,
+    awesomeSheet: {
+      awesome: true,
+      version: ""
+    },
     basics: {
-      name: "",
-      race: "",
-      level: "",
-      classes: [{
-        classname: "",
+      character: {
+        name: "",
+        race: "",
         level: "",
-        hp: "",
-        fortitude: "",
-        reflex: "",
-        will: "",
-        ranks: "",
-        bab: ""
-      }],
-      size: {
-        category: "",
-        size_modifier: 0,
-        special_size_modifier: 0,
-        size_modifier_fly: 0,
-        size_modifier_stealth: 0
+        alignment: "",
+        deity: "",
+        height: "",
+        weight: "",
+        age: "",
+        gender: "",
+        hero_points: "",
+        character_description: "",
+        size: {
+          category: "",
+          size_modifier: "",
+          special_size_modifier: "",
+          size_modifier_fly: "",
+          size_modifier_stealth: ""
+        }
       },
-      alignment: "",
-      deity: "",
-      height: "",
-      weight: "",
-      age: "",
-      gender: "",
+      classes: {
+        all: [{
+          classname: "",
+          level: "",
+          hp: "",
+          fortitude: "",
+          reflex: "",
+          will: "",
+          ranks: "",
+          bab: ""
+        }]
+      },
+      experience: {
+        total: "",
+        advancement_speed: "",
+        next_level: "",
+        needed: ""
+      },
+      initiative: {
+        misc: "",
+        temp: "",
+        feat: "",
+        trait: "",
+        current: "",
+        bonuses: {
+          str: false,
+          dex: true,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
+          level: false,
+          half_level: false
+        }
+      },
       speed: {
         land: "",
         fly: "",
@@ -37,32 +69,7 @@ var blank = (function() {
         climb: "",
         burrow: ""
       },
-      hero_points: "",
-      character_description: "",
-      initiative: {
-        misc: "",
-        temp: "",
-        feat: "",
-        trait: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false
-        }
-      },
-      xp: {
-        total: "",
-        advancement_speed: "",
-        next_level: "",
-        needed: ""
-      },
-      character_image: {
+      image: {
         uploaded: false,
         background: "",
         color: {
@@ -140,35 +147,22 @@ var blank = (function() {
           temp: ""
         }
       },
-      feats: "",
-      traits: "",
-      languages: "",
-      special_abilities: "",
-      power: []
+      abilities: {
+        feats: "",
+        traits: "",
+        languages: "",
+        special_abilities: ""
+      },
+      power: {
+        all: []
+      }
     },
     equipment: {
-      gear: "",
-      magic_gear: "",
-      potion_viles_oils: "",
-      scrolls: "",
-      item: {
-        all: [],
-        weight: {
-          current: ""
-        },
-        value: {
-          current: ""
-        }
-      },
-      encumbrance: {
-        encumbrance_str: "",
-        carry_move: {
-          light: "",
-          medium: "",
-          heavy: "",
-          lift: "",
-          drag: ""
-        }
+      possessions: {
+        gear: "",
+        magic_gear: "",
+        potion_viles_oils: "",
+        scrolls: ""
       },
       armor: {
         armor: "",
@@ -191,14 +185,35 @@ var blank = (function() {
         shoulders: "",
         wrist: ""
       },
+      item: {
+        all: [],
+        weight: {
+          current: ""
+        },
+        value: {
+          current: ""
+        }
+      },
+      encumbrance: {
+        encumbrance_str: "",
+        carry_move: {
+          light: "",
+          medium: "",
+          heavy: "",
+          lift: "",
+          drag: ""
+        }
+      },
+      consumable: {
+        all: []
+      },
       wealth: {
         platinum: "",
         gold: "",
         silver: "",
         copper: "",
         total: ""
-      },
-      consumable: []
+      }
     },
     defense: {
       hp: {
@@ -209,241 +224,262 @@ var blank = (function() {
         current: ""
       },
       ac: {
-        misc: "",
+        armor_class: {
+          misc: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            plus_ten: true,
+            ac_armor: true,
+            ac_shield: true,
+            ac_deflect: true,
+            ac_dodge: true,
+            ac_natural: true,
+            size: true,
+            max_dex: true
+          }
+        },
+        flat_footed: {
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            plus_ten: true,
+            ac_armor: true,
+            ac_shield: true,
+            ac_deflect: true,
+            ac_natural: true,
+            size: true
+          }
+        },
+        touch: {
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            plus_ten: true,
+            ac_deflect: true,
+            ac_dodge: true,
+            size: true,
+            max_dex: true
+          }
+        },
         temp: "",
         armor: "",
         shield: "",
         deflect: "",
         dodge: "",
         natural: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          plus_ten: true,
-          ac_armor: true,
-          ac_shield: true,
-          ac_deflect: true,
-          ac_dodge: true,
-          ac_natural: true,
-          size: true,
-          max_dex: true
-        }
+        notes: ""
       },
-      flat_footed: {
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          plus_ten: true,
-          ac_armor: true,
-          ac_shield: true,
-          ac_deflect: true,
-          ac_natural: true,
-          size: true
-        }
-      },
-      touch: {
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          plus_ten: true,
-          ac_deflect: true,
-          ac_dodge: true,
-          size: true,
-          max_dex: true
-        }
-      },
-      ac_notes: "",
-      fortitude: {
-        base: "",
-        resistance: "",
-        feat: "",
-        trait: "",
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: true,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false
-        }
-      },
-      reflex: {
-        base: "",
-        resistance: "",
-        feat: "",
-        trait: "",
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false
-        }
-      },
-      will: {
-        base: "",
-        resistance: "",
-        feat: "",
-        trait: "",
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: true,
-          cha_bonus: false,
-          level: false,
-          half_level: false
-        }
-      },
-      save_notes: "",
-      dr: {
-        feat: "",
-        trait: "",
-        misc: "",
-        temp: "",
-        current: "",
-        overcome: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false
-        }
-      },
-      sr: {
-        feat: "",
-        trait: "",
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false
-        }
-      },
-      resist_notes: ""
-    },
-    offense: {
-      base_attack: "",
-      base_attack_bonuses: "",
-      cmb: {
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: true,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          bab: true,
-          special_size: true,
-          level: false,
-          half_level: false
-        }
+      saves: {
+        fortitude: {
+          base: "",
+          resistance: "",
+          feat: "",
+          trait: "",
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: false,
+            con: true,
+            int: false,
+            wis: false,
+            cha: false,
+            level: false,
+            half_level: false
+          }
+        },
+        reflex: {
+          base: "",
+          resistance: "",
+          feat: "",
+          trait: "",
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            level: false,
+            half_level: false
+          }
+        },
+        will: {
+          base: "",
+          resistance: "",
+          feat: "",
+          trait: "",
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
+            level: false,
+            half_level: false
+          }
+        },
+        notes: ""
       },
       cmd: {
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: true,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          bab: true,
-          special_size: true,
-          level: false,
-          half_level: false,
-          plus_ten: true
-        }
+        combat_maneuver_defense: {
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: true,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            bab: true,
+            special_size: true,
+            level: false,
+            half_level: false,
+            plus_ten: true
+          }
+        },
+        notes: ""
       },
-      melee_attack: {
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: true,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          bab: true,
-          size: true,
-          level: false,
-          half_level: false
-        }
+      dr: {
+        damage_reduction: {
+          feat: "",
+          trait: "",
+          misc: "",
+          temp: "",
+          current: "",
+          overcome: "",
+          bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            level: false,
+            half_level: false
+          }
+        },
+        notes: ""
       },
-      ranged_attack: {
-        misc: "",
-        temp: "",
+      resist: {
+        notes: ""
+      },
+      sr: {
+        spell_resistance: {
+          feat: "",
+          trait: "",
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            level: false,
+            half_level: false
+          }
+        },
+        notes: ""
+      }
+    },
+    offense: {
+      stats: {
+        base_attack: "",
         current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          bab: true,
-          size: true,
-          level: false,
-          half_level: false
-        }
+        melee_attack: {
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: true,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            bab: true,
+            size: true,
+            level: false,
+            half_level: false
+          }
+        },
+        ranged_attack: {
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            bab: true,
+            size: true,
+            level: false,
+            half_level: false
+          }
+        },
+      },
+      cmb: {
+        combat_maneuver_bonus: {
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: true,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            bab: true,
+            special_size: true,
+            level: false,
+            half_level: false,
+            plus_ten: true
+          }
+        },
+        notes: ""
       },
       attack: {
         melee: [],
-        ranged: []
-      },
-      attack_notes: ""
+        ranged: [],
+        notes: ""
+      }
     },
     skills: {
       ranks: {
@@ -453,7 +489,9 @@ var blank = (function() {
           current: ""
         }
       },
-      custom: [],
+      custom: {
+        all: []
+      },
       all: {
         acrobatics: {
           ranks: "",
@@ -463,12 +501,12 @@ var blank = (function() {
           feat: "",
           trait: "",
           bonuses: {
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: false,
             level: false,
             half_level: false,
@@ -484,12 +522,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -504,12 +542,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -524,12 +562,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: true,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: true,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -545,12 +583,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -566,12 +604,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -586,12 +624,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -606,12 +644,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -626,12 +664,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -646,12 +684,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -666,12 +704,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: true,
@@ -687,12 +725,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -707,12 +745,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -727,12 +765,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -747,12 +785,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -767,12 +805,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -787,12 +825,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -807,12 +845,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -827,12 +865,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -847,12 +885,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -867,12 +905,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -887,12 +925,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -907,12 +945,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -927,12 +965,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -947,12 +985,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -967,12 +1005,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -988,12 +1026,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1009,12 +1047,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1030,12 +1068,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1051,12 +1089,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1071,12 +1109,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -1091,12 +1129,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1111,12 +1149,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -1131,12 +1169,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1151,12 +1189,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: true,
@@ -1172,12 +1210,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1192,12 +1230,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: true,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: true,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -1212,12 +1250,12 @@ var blank = (function() {
           trait: "",
           bonuses: {
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1226,312 +1264,319 @@ var blank = (function() {
       }
     },
     spells: {
-      concentration: {
-        current: "",
-        misc: "",
-        temp: "",
-        racial: "",
-        feat: "",
-        trait: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false
-        }
-      },
-      caster_level_check: {
-        current: "",
-        misc: "",
-        temp: "",
-        racial: "",
-        feat: "",
-        trait: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false
-        }
-      },
-      school: "",
-      opposition: "",
-      domains: "",
-      bloodline: "",
-      spell_notes: "",
-      per_day: {
-        level_0: "",
-        level_1: "",
-        level_2: "",
-        level_3: "",
-        level_4: "",
-        level_5: "",
-        level_6: "",
-        level_7: "",
-        level_8: "",
-        level_9: ""
-      },
-      known: {
-        level_0: "",
-        level_1: "",
-        level_2: "",
-        level_3: "",
-        level_4: "",
-        level_5: "",
-        level_6: "",
-        level_7: "",
-        level_8: "",
-        level_9: ""
-      },
-      bonus: {
-        level_0: "",
-        level_1: "",
-        level_2: "",
-        level_3: "",
-        level_4: "",
-        level_5: "",
-        level_6: "",
-        level_7: "",
-        level_8: "",
-        level_9: ""
-      },
-      dc: {
-        level_0: {
-          spell_level: 0,
+      stats: {
+        concentration: {
+          current: "",
           misc: "",
           temp: "",
+          racial: "",
           feat: "",
           trait: "",
-          current: "",
           bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
+            half_level: false
           }
+        },
+        caster_level_check: {
+          current: "",
+          misc: "",
+          temp: "",
+          racial: "",
+          feat: "",
+          trait: "",
+          bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            level: false,
+            half_level: false
+          }
+        },
+        school: "",
+        opposition: "",
+        domains: "",
+        bloodline: "",
+        notes: ""
+      },
+      book: {
+        level_0: {
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 0,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_1: {
-          spell_level: 1,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 1,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_2: {
-          spell_level: 2,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 2,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_3: {
-          spell_level: 3,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 3,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_4: {
-          spell_level: 4,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 4,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_5: {
-          spell_level: 5,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 5,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_6: {
-          spell_level: 6,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 6,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_7: {
-          spell_level: 7,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 7,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_8: {
-          spell_level: 8,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 8,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_9: {
-          spell_level: 9,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 9,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         }
-      },
-      book: [{
-        level_0: []
-      }, {
-        level_1: []
-      }, {
-        level_2: []
-      }, {
-        level_3: []
-      }, {
-        level_4: []
-      }, {
-        level_5: []
-      }, {
-        level_6: []
-      }, {
-        level_7: []
-      }, {
-        level_8: []
-      }, {
-        level_9: []
-      }]
+      }
     },
     notes: {
       character: [],
       story: []
     },
-    events: []
+    events: {
+      all: []
+    }
   };
 
   // exposed methods

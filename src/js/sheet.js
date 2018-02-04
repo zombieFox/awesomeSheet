@@ -151,7 +151,10 @@ var sheet = (function() {
   };
 
   function render() {
-    repair.render(sheet.get());
+    repair.render(({
+      debug: true,
+      object: sheet.get()
+    }));
     characterSelect.render();
     stats.render();
     clone.render();
