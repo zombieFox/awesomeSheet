@@ -298,6 +298,7 @@ var blank = (function() {
         misc: "",
         temp: "",
         current: "",
+        notes: "",
         bonuses: {
           str: true,
           dex: true,
@@ -421,7 +422,6 @@ var blank = (function() {
       stats: {
         base_attack: "",
         base_attack_bonuses: "",
-        current: "",
         melee_attack: {
           misc: "",
           temp: "",
@@ -458,11 +458,11 @@ var blank = (function() {
         },
       },
       cmb: {
-        combat_maneuver_bonus: {
-          misc: "",
-          temp: "",
-          current: "",
-          bonuses: {
+        misc: "",
+        temp: "",
+        current: "",
+        notes: "",
+        bonuses: {
             str: true,
             dex: true,
             con: false,
@@ -475,8 +475,6 @@ var blank = (function() {
             half_level: false,
             plus_ten: true
           }
-        },
-        notes: ""
       },
       attack: {
         melee: [],

@@ -4,12 +4,9 @@ var repair = (function() {
 
   // legacy sheet update
   function _update_440andBelow(characterObject) {
-    if (_debug) {
-      console.log("----------------------------\n", "update to 440 && <:", characterObject.basics.name);
-    };
     // --------------------------------------------------
     if (_debug) {
-      console.log("\tlegacy repair");
+      console.log(characterObject.basics.name, "--> legacy repair");
     };
     // --------------------------------------------------
     // repair spell notes
@@ -889,7 +886,7 @@ var repair = (function() {
 
   function _update_500(characterObject) {
     if (_debug) {
-      console.log("----------------------------\n", "update to 500:", characterObject.basics.name);
+      console.log(characterObject.basics.name, "--> update to 5.0.0");
     };
     tempCharacterObject = JSON.parse(JSON.stringify(characterObject));
 
@@ -900,181 +897,181 @@ var repair = (function() {
     // basics
     characterObject.basics = {
       character: {
-        name: tempCharacterObject.basics.name,
-        race: tempCharacterObject.basics.race,
-        alignment: tempCharacterObject.basics.alignment,
-        deity: tempCharacterObject.basics.deity,
-        height: tempCharacterObject.basics.height,
-        weight: tempCharacterObject.basics.weight,
-        age: tempCharacterObject.basics.age,
-        gender: tempCharacterObject.basics.gender,
-        hero_points: tempCharacterObject.basics.hero_points,
-        description: tempCharacterObject.basics.character_description,
+        name: tempCharacterObject.basics.name || "",
+        race: tempCharacterObject.basics.race || "",
+        alignment: tempCharacterObject.basics.alignment || "",
+        deity: tempCharacterObject.basics.deity || "",
+        height: tempCharacterObject.basics.height || "",
+        weight: tempCharacterObject.basics.weight || "",
+        age: tempCharacterObject.basics.age || "",
+        gender: tempCharacterObject.basics.gender || "",
+        hero_points: tempCharacterObject.basics.hero_points || "",
+        description: tempCharacterObject.basics.character_description || "",
         size: {
-          category: tempCharacterObject.basics.size.category,
+          category: tempCharacterObject.basics.size.category || "",
           modifier: {
-            base: tempCharacterObject.basics.size.size_modifier,
-            special: tempCharacterObject.basics.size.special_size_modifier,
-            fly: tempCharacterObject.basics.size.size_modifier_fly,
-            stealth: tempCharacterObject.basics.size.size_modifier_stealth
+            base: tempCharacterObject.basics.size.size_modifier || "",
+            special: tempCharacterObject.basics.size.special_size_modifier || "",
+            fly: tempCharacterObject.basics.size.size_modifier_fly || "",
+            stealth: tempCharacterObject.basics.size.size_modifier_stealth || ""
           }
         }
       },
       classes: {
-        all: tempCharacterObject.basics.classes
+        all: tempCharacterObject.basics.classes || []
       },
       experience: {
         level: "",
         next_level: "",
-        total: tempCharacterObject.basics.xp.total,
-        advancement_speed: tempCharacterObject.basics.xp.advancement_speed,
+        total: tempCharacterObject.basics.xp.total || "",
+        advancement_speed: tempCharacterObject.basics.xp.advancement_speed || "",
         needed: ""
       },
       initiative: {
-        misc: tempCharacterObject.basics.initiative.misc,
-        temp: tempCharacterObject.basics.initiative.temp,
-        feat: tempCharacterObject.basics.initiative.feat,
-        trait: tempCharacterObject.basics.initiative.trait,
+        misc: tempCharacterObject.basics.initiative.misc || "",
+        temp: tempCharacterObject.basics.initiative.temp || "",
+        feat: tempCharacterObject.basics.initiative.feat || "",
+        trait: tempCharacterObject.basics.initiative.trait || "",
         current: "",
         bonuses: {
-          str: tempCharacterObject.basics.initiative.bonuses.str_bonus,
-          dex: tempCharacterObject.basics.initiative.bonuses.dex_bonus,
-          con: tempCharacterObject.basics.initiative.bonuses.con_bonus,
-          int: tempCharacterObject.basics.initiative.bonuses.int_bonus,
-          wis: tempCharacterObject.basics.initiative.bonuses.wis_bonus,
-          cha: tempCharacterObject.basics.initiative.bonuses.cha_bonus,
-          level: tempCharacterObject.basics.initiative.bonuses.level,
-          half_level: tempCharacterObject.basics.initiative.bonuses.half_level
+          str: tempCharacterObject.basics.initiative.bonuses.str_bonus || false,
+          dex: tempCharacterObject.basics.initiative.bonuses.dex_bonus || true,
+          con: tempCharacterObject.basics.initiative.bonuses.con_bonus || false,
+          int: tempCharacterObject.basics.initiative.bonuses.int_bonus || false,
+          wis: tempCharacterObject.basics.initiative.bonuses.wis_bonus || false,
+          cha: tempCharacterObject.basics.initiative.bonuses.cha_bonus || false,
+          level: tempCharacterObject.basics.initiative.bonuses.level || false,
+          half_level: tempCharacterObject.basics.initiative.bonuses.half_level || false
         }
       },
       speed: {
-        land: tempCharacterObject.basics.speed.land,
-        fly: tempCharacterObject.basics.speed.fly,
-        maneuverability: tempCharacterObject.basics.speed.maneuverability,
-        swim: tempCharacterObject.basics.speed.swim,
-        climb: tempCharacterObject.basics.speed.climb,
-        burrow: tempCharacterObject.basics.speed.burrow
+        land: tempCharacterObject.basics.speed.land || "",
+        fly: tempCharacterObject.basics.speed.fly || "",
+        maneuverability: tempCharacterObject.basics.speed.maneuverability || "",
+        swim: tempCharacterObject.basics.speed.swim || "",
+        climb: tempCharacterObject.basics.speed.climb || "",
+        burrow: tempCharacterObject.basics.speed.burrow || ""
       },
       image: {
-        uploaded: tempCharacterObject.basics.character_image.uploaded,
-        background: tempCharacterObject.basics.character_image.background,
+        uploaded: tempCharacterObject.basics.character_image.uploaded || "",
+        background: tempCharacterObject.basics.character_image.background || "",
         color: {
-          r: tempCharacterObject.basics.character_image.color.r,
-          g: tempCharacterObject.basics.character_image.color.g,
-          b: tempCharacterObject.basics.character_image.color.b
+          r: tempCharacterObject.basics.character_image.color.r || "",
+          g: tempCharacterObject.basics.character_image.color.g || "",
+          b: tempCharacterObject.basics.character_image.color.b || ""
         },
-        image: tempCharacterObject.basics.character_image.image,
-        orientation: tempCharacterObject.basics.character_image.orientation,
+        image: tempCharacterObject.basics.character_image.image || "",
+        orientation: tempCharacterObject.basics.character_image.orientation || "",
         position: {
-          x: tempCharacterObject.basics.character_image.position.x,
-          y: tempCharacterObject.basics.character_image.position.y
+          x: tempCharacterObject.basics.character_image.position.x || "",
+          y: tempCharacterObject.basics.character_image.position.y || ""
         },
         size: {
-          width: tempCharacterObject.basics.character_image.size.width,
-          height: tempCharacterObject.basics.character_image.size.height
+          width: tempCharacterObject.basics.character_image.size.width || "",
+          height: tempCharacterObject.basics.character_image.size.height || ""
         },
-        scale: tempCharacterObject.basics.character_image.scale
+        scale: tempCharacterObject.basics.character_image.scale || ""
       }
     };
     // statistics
     characterObject.statistics = {
       stats: {
         str: {
-          modifier: tempCharacterObject.statistics.stats.str.modifier,
-          base: tempCharacterObject.statistics.stats.str.base,
-          enhancement: tempCharacterObject.statistics.stats.str.enhancement,
-          misc: tempCharacterObject.statistics.stats.str.misc,
-          racial: tempCharacterObject.statistics.stats.str.racial,
-          temp: tempCharacterObject.statistics.stats.str.temp,
+          modifier: tempCharacterObject.statistics.stats.str.modifier || "",
+          base: tempCharacterObject.statistics.stats.str.base || "",
+          enhancement: tempCharacterObject.statistics.stats.str.enhancement || "",
+          misc: tempCharacterObject.statistics.stats.str.misc || "",
+          racial: tempCharacterObject.statistics.stats.str.racial || "",
+          temp: tempCharacterObject.statistics.stats.str.temp || "",
           current: ""
         },
         dex: {
-          modifier: tempCharacterObject.statistics.stats.dex.modifier,
-          base: tempCharacterObject.statistics.stats.dex.base,
-          enhancement: tempCharacterObject.statistics.stats.dex.enhancement,
-          misc: tempCharacterObject.statistics.stats.dex.misc,
-          racial: tempCharacterObject.statistics.stats.dex.racial,
-          temp: tempCharacterObject.statistics.stats.dex.temp,
+          modifier: tempCharacterObject.statistics.stats.dex.modifier || "",
+          base: tempCharacterObject.statistics.stats.dex.base || "",
+          enhancement: tempCharacterObject.statistics.stats.dex.enhancement || "",
+          misc: tempCharacterObject.statistics.stats.dex.misc || "",
+          racial: tempCharacterObject.statistics.stats.dex.racial || "",
+          temp: tempCharacterObject.statistics.stats.dex.temp || "",
           current: ""
         },
         con: {
-          modifier: tempCharacterObject.statistics.stats.con.modifier,
-          base: tempCharacterObject.statistics.stats.con.base,
-          enhancement: tempCharacterObject.statistics.stats.con.enhancement,
-          misc: tempCharacterObject.statistics.stats.con.misc,
-          racial: tempCharacterObject.statistics.stats.con.racial,
-          temp: tempCharacterObject.statistics.stats.con.temp,
+          modifier: tempCharacterObject.statistics.stats.con.modifier || "",
+          base: tempCharacterObject.statistics.stats.con.base || "",
+          enhancement: tempCharacterObject.statistics.stats.con.enhancement || "",
+          misc: tempCharacterObject.statistics.stats.con.misc || "",
+          racial: tempCharacterObject.statistics.stats.con.racial || "",
+          temp: tempCharacterObject.statistics.stats.con.temp || "",
           current: ""
         },
         int: {
-          modifier: tempCharacterObject.statistics.stats.int.modifier,
-          base: tempCharacterObject.statistics.stats.int.base,
-          enhancement: tempCharacterObject.statistics.stats.int.enhancement,
-          misc: tempCharacterObject.statistics.stats.int.misc,
-          racial: tempCharacterObject.statistics.stats.int.racial,
-          temp: tempCharacterObject.statistics.stats.int.temp,
+          modifier: tempCharacterObject.statistics.stats.int.modifier || "",
+          base: tempCharacterObject.statistics.stats.int.base || "",
+          enhancement: tempCharacterObject.statistics.stats.int.enhancement || "",
+          misc: tempCharacterObject.statistics.stats.int.misc || "",
+          racial: tempCharacterObject.statistics.stats.int.racial || "",
+          temp: tempCharacterObject.statistics.stats.int.temp || "",
           current: ""
         },
         wis: {
-          modifier: tempCharacterObject.statistics.stats.wis.modifier,
-          base: tempCharacterObject.statistics.stats.wis.base,
-          enhancement: tempCharacterObject.statistics.stats.wis.enhancement,
-          misc: tempCharacterObject.statistics.stats.wis.misc,
-          racial: tempCharacterObject.statistics.stats.wis.racial,
-          temp: tempCharacterObject.statistics.stats.wis.temp,
+          modifier: tempCharacterObject.statistics.stats.wis.modifier || "",
+          base: tempCharacterObject.statistics.stats.wis.base || "",
+          enhancement: tempCharacterObject.statistics.stats.wis.enhancement || "",
+          misc: tempCharacterObject.statistics.stats.wis.misc || "",
+          racial: tempCharacterObject.statistics.stats.wis.racial || "",
+          temp: tempCharacterObject.statistics.stats.wis.temp || "",
           current: ""
         },
         cha: {
-          modifier: tempCharacterObject.statistics.stats.cha.modifier,
-          base: tempCharacterObject.statistics.stats.cha.base,
-          enhancement: tempCharacterObject.statistics.stats.cha.enhancement,
-          misc: tempCharacterObject.statistics.stats.cha.misc,
-          racial: tempCharacterObject.statistics.stats.cha.racial,
-          temp: tempCharacterObject.statistics.stats.cha.temp,
+          modifier: tempCharacterObject.statistics.stats.cha.modifier || "",
+          base: tempCharacterObject.statistics.stats.cha.base || "",
+          enhancement: tempCharacterObject.statistics.stats.cha.enhancement || "",
+          misc: tempCharacterObject.statistics.stats.cha.misc || "",
+          racial: tempCharacterObject.statistics.stats.cha.racial || "",
+          temp: tempCharacterObject.statistics.stats.cha.temp || "",
           current: ""
         }
       },
       abilities: {
-        feats: tempCharacterObject.statistics.feats,
-        traits: tempCharacterObject.statistics.traits,
-        languages: tempCharacterObject.statistics.languages,
-        special: tempCharacterObject.statistics.special_abilities
+        feats: tempCharacterObject.statistics.feats || "",
+        traits: tempCharacterObject.statistics.traits || "",
+        languages: tempCharacterObject.statistics.languages || "",
+        special: tempCharacterObject.statistics.special_abilities || ""
       },
       power: {
-        all: tempCharacterObject.statistics.power
+        all: tempCharacterObject.statistics.power || []
       }
     };
     // equipment
     characterObject.equipment = {
       possessions: {
-        gear: characterObject.equipment.gear,
-        magic_gear: characterObject.equipment.magic_gear,
-        potion_viles_oils: characterObject.equipment.potion_viles_oils,
-        scrolls: characterObject.equipment.scrolls
+        gear: characterObject.equipment.gear || "",
+        magic_gear: characterObject.equipment.magic_gear || "",
+        potion_viles_oils: characterObject.equipment.potion_viles_oils || "",
+        scrolls: characterObject.equipment.scrolls || ""
       },
       armor: {
-        armor: characterObject.equipment.armor.armor,
-        check_penalty: characterObject.equipment.armor.check_penalty,
-        max_dex: characterObject.equipment.armor.max_dex,
-        shield: characterObject.equipment.armor.shield
+        armor: characterObject.equipment.armor.armor || "",
+        check_penalty: characterObject.equipment.armor.check_penalty || "",
+        max_dex: characterObject.equipment.armor.max_dex || "",
+        shield: characterObject.equipment.armor.shield || ""
       },
       body_slots: {
-        belts: characterObject.equipment.body_slots.belts,
-        body: characterObject.equipment.body_slots.body,
-        chest: characterObject.equipment.body_slots.chest,
-        eyes: characterObject.equipment.body_slots.eyes,
-        feet: characterObject.equipment.body_slots.feet,
-        hands: characterObject.equipment.body_slots.hands,
-        head: characterObject.equipment.body_slots.head,
-        headband: characterObject.equipment.body_slots.headband,
-        neck: characterObject.equipment.body_slots.neck,
-        ring_left_hand: characterObject.equipment.body_slots.ring_left_hand,
-        ring_right_hand: characterObject.equipment.body_slots.ring_right_hand,
-        shoulders: characterObject.equipment.body_slots.shoulders,
-        wrist: characterObject.equipment.body_slots.wrist
+        belts: characterObject.equipment.body_slots.belts || "",
+        body: characterObject.equipment.body_slots.body || "",
+        chest: characterObject.equipment.body_slots.chest || "",
+        eyes: characterObject.equipment.body_slots.eyes || "",
+        feet: characterObject.equipment.body_slots.feet || "",
+        hands: characterObject.equipment.body_slots.hands || "",
+        head: characterObject.equipment.body_slots.head || "",
+        headband: characterObject.equipment.body_slots.headband || "",
+        neck: characterObject.equipment.body_slots.neck || "",
+        ring_left_hand: characterObject.equipment.body_slots.ring_left_hand || "",
+        ring_right_hand: characterObject.equipment.body_slots.ring_right_hand || "",
+        shoulders: characterObject.equipment.body_slots.shoulders || "",
+        wrist: characterObject.equipment.body_slots.wrist || ""
       },
       item: {
-        all: characterObject.equipment.item.all,
+        all: characterObject.equipment.item.all || [],
         weight: {
           current: ""
         },
@@ -1083,217 +1080,217 @@ var repair = (function() {
         }
       },
       encumbrance: {
-        str: characterObject.equipment.encumbrance.encumbrance_str,
+        str: characterObject.equipment.encumbrance.encumbrance_str || "",
         carry_move: {
-          light: characterObject.equipment.encumbrance.carry_move.light,
-          medium: characterObject.equipment.encumbrance.carry_move.medium,
-          heavy: characterObject.equipment.encumbrance.carry_move.heavy,
-          lift: characterObject.equipment.encumbrance.carry_move.lift,
-          drag: characterObject.equipment.encumbrance.carry_move.drag
+          light: characterObject.equipment.encumbrance.carry_move.light || "",
+          medium: characterObject.equipment.encumbrance.carry_move.medium || "",
+          heavy: characterObject.equipment.encumbrance.carry_move.heavy || "",
+          lift: characterObject.equipment.encumbrance.carry_move.lift || "",
+          drag: characterObject.equipment.encumbrance.carry_move.drag || ""
         }
       },
       consumable: {
-        all: characterObject.equipment.consumable
+        all: characterObject.equipment.consumable || []
       },
       wealth: {
-        platinum: characterObject.equipment.wealth.platinum,
-        gold: characterObject.equipment.wealth.gold,
-        silver: characterObject.equipment.wealth.silver,
-        copper: characterObject.equipment.wealth.copper,
+        platinum: characterObject.equipment.wealth.platinum || "",
+        gold: characterObject.equipment.wealth.gold || "",
+        silver: characterObject.equipment.wealth.silver || "",
+        copper: characterObject.equipment.wealth.copper || "",
         total: ""
       }
     };
     // defense
     characterObject.defense = {
       hp: {
-        total: characterObject.defense.hp.total,
-        temp: characterObject.defense.hp.temp,
-        damage: characterObject.defense.hp.damage,
-        non_lethal_damage: characterObject.defense.hp.non_lethal_damage,
+        total: characterObject.defense.hp.total || "",
+        temp: characterObject.defense.hp.temp || "",
+        damage: characterObject.defense.hp.damage || "",
+        non_lethal_damage: characterObject.defense.hp.non_lethal_damage || "",
         current: "",
         notes: ""
       },
       ac: {
         armor_class: {
-          misc: characterObject.defense.ac.misc,
-          temp: characterObject.defense.ac.temp,
+          misc: characterObject.defense.ac.misc || "",
+          temp: characterObject.defense.ac.temp || "",
           current: "",
           bonuses: {
-            str: characterObject.defense.ac.bonuses.str_bonus,
-            dex: characterObject.defense.ac.bonuses.dex_bonus,
-            con: characterObject.defense.ac.bonuses.con_bonus,
-            int: characterObject.defense.ac.bonuses.int_bonus,
-            wis: characterObject.defense.ac.bonuses.wis_bonus,
-            cha: characterObject.defense.ac.bonuses.cha_bonus,
-            plus_ten: characterObject.defense.ac.bonuses.plus_ten,
-            armor: characterObject.defense.ac.bonuses.ac_armor,
-            shield: characterObject.defense.ac.bonuses.ac_shield,
-            deflect: characterObject.defense.ac.bonuses.ac_deflect,
-            dodge: characterObject.defense.ac.bonuses.ac_dodge,
-            natural: characterObject.defense.ac.bonuses.ac_natural,
-            size_base: characterObject.defense.ac.bonuses.size,
-            max_dex: characterObject.defense.ac.bonuses.max_dex
+            str: characterObject.defense.ac.bonuses.str_bonus || false,
+            dex: characterObject.defense.ac.bonuses.dex_bonus || true,
+            con: characterObject.defense.ac.bonuses.con_bonus || false,
+            int: characterObject.defense.ac.bonuses.int_bonus || false,
+            wis: characterObject.defense.ac.bonuses.wis_bonus || false,
+            cha: characterObject.defense.ac.bonuses.cha_bonus || false,
+            plus_ten: characterObject.defense.ac.bonuses.plus_ten || true,
+            armor: characterObject.defense.ac.bonuses.ac_armor || true,
+            shield: characterObject.defense.ac.bonuses.ac_shield || true,
+            deflect: characterObject.defense.ac.bonuses.ac_deflect || true,
+            dodge: characterObject.defense.ac.bonuses.ac_dodge || true,
+            natural: characterObject.defense.ac.bonuses.ac_natural || true,
+            size_base: characterObject.defense.ac.bonuses.size || true,
+            max_dex: characterObject.defense.ac.bonuses.max_dex || true
           }
         },
         flat_footed: {
-          misc: characterObject.defense.flat_footed.misc,
-          temp: characterObject.defense.flat_footed.temp,
+          misc: characterObject.defense.flat_footed.misc || "",
+          temp: characterObject.defense.flat_footed.temp || "",
           current: "",
           bonuses: {
-            str: characterObject.defense.flat_footed.bonuses.str_bonus,
-            dex: characterObject.defense.flat_footed.bonuses.dex_bonus,
-            con: characterObject.defense.flat_footed.bonuses.con_bonus,
-            int: characterObject.defense.flat_footed.bonuses.int_bonus,
-            wis: characterObject.defense.flat_footed.bonuses.wis_bonus,
-            cha: characterObject.defense.flat_footed.bonuses.cha_bonus,
-            plus_ten: characterObject.defense.flat_footed.bonuses.plus_ten,
-            armor: characterObject.defense.flat_footed.bonuses.ac_armor,
-            shield: characterObject.defense.flat_footed.bonuses.ac_shield,
-            deflect: characterObject.defense.flat_footed.bonuses.ac_deflect,
-            natural: characterObject.defense.flat_footed.bonuses.ac_natural,
-            size_base: characterObject.defense.flat_footed.bonuses.size
+            str: characterObject.defense.flat_footed.bonuses.str_bonus || false,
+            dex: characterObject.defense.flat_footed.bonuses.dex_bonus || false,
+            con: characterObject.defense.flat_footed.bonuses.con_bonus || false,
+            int: characterObject.defense.flat_footed.bonuses.int_bonus || false,
+            wis: characterObject.defense.flat_footed.bonuses.wis_bonus || false,
+            cha: characterObject.defense.flat_footed.bonuses.cha_bonus || false,
+            plus_ten: characterObject.defense.flat_footed.bonuses.plus_ten || true,
+            armor: characterObject.defense.flat_footed.bonuses.ac_armor || true,
+            shield: characterObject.defense.flat_footed.bonuses.ac_shield || true,
+            deflect: characterObject.defense.flat_footed.bonuses.ac_deflect || true,
+            natural: characterObject.defense.flat_footed.bonuses.ac_natural || true,
+            size_base: characterObject.defense.flat_footed.bonuses.size || true
           }
         },
         touch: {
-          misc: characterObject.defense.touch.misc,
-          temp: characterObject.defense.touch.temp,
+          misc: characterObject.defense.touch.misc || "",
+          temp: characterObject.defense.touch.temp || "",
           current: "",
           bonuses: {
-            str: characterObject.defense.touch.bonuses.str_bonus,
-            dex: characterObject.defense.touch.bonuses.dex_bonus,
-            con: characterObject.defense.touch.bonuses.con_bonus,
-            int: characterObject.defense.touch.bonuses.int_bonus,
-            wis: characterObject.defense.touch.bonuses.wis_bonus,
-            cha: characterObject.defense.touch.bonuses.cha_bonus,
-            plus_ten: characterObject.defense.touch.bonuses.plus_ten,
-            deflect: characterObject.defense.touch.bonuses.ac_deflect,
-            dodge: characterObject.defense.touch.bonuses.ac_dodge,
-            size_base: characterObject.defense.touch.bonuses.size,
-            max_dex: characterObject.defense.touch.bonuses.max_dex
+            str: characterObject.defense.touch.bonuses.str_bonus || false,
+            dex: characterObject.defense.touch.bonuses.dex_bonus || true,
+            con: characterObject.defense.touch.bonuses.con_bonus || false,
+            int: characterObject.defense.touch.bonuses.int_bonus || false,
+            wis: characterObject.defense.touch.bonuses.wis_bonus || false,
+            cha: characterObject.defense.touch.bonuses.cha_bonus || false,
+            plus_ten: characterObject.defense.touch.bonuses.plus_ten || true,
+            deflect: characterObject.defense.touch.bonuses.ac_deflect || true,
+            dodge: characterObject.defense.touch.bonuses.ac_dodge || true,
+            size_base: characterObject.defense.touch.bonuses.size || true,
+            max_dex: characterObject.defense.touch.bonuses.max_dex || true
           }
         },
         stats: {
-          armor: characterObject.defense.ac.armor,
-          shield: characterObject.defense.ac.shield,
-          deflect: characterObject.defense.ac.deflect,
-          dodge: characterObject.defense.ac.dodge,
-          natural: characterObject.defense.ac.natural
+          armor: characterObject.defense.ac.armor || "",
+          shield: characterObject.defense.ac.shield || "",
+          deflect: characterObject.defense.ac.deflect || "",
+          dodge: characterObject.defense.ac.dodge || "",
+          natural: characterObject.defense.ac.natural || ""
         },
-        notes: characterObject.defense.ac.notes
+        notes: characterObject.defense.ac.notes || ""
       },
       cmd: {
-        misc: characterObject.offense.cmd.misc,
-        temp: characterObject.offense.cmd.temp,
+        misc: characterObject.offense.cmd.misc || "",
+        temp: characterObject.offense.cmd.temp || "",
         current: "",
         bonuses: {
-          str: characterObject.offense.cmd.bonuses.str_bonus,
-          dex: characterObject.offense.cmd.bonuses.dex_bonus,
-          con: characterObject.offense.cmd.bonuses.con_bonus,
-          int: characterObject.offense.cmd.bonuses.int_bonus,
-          wis: characterObject.offense.cmd.bonuses.wis_bonus,
-          cha: characterObject.offense.cmd.bonuses.cha_bonus,
-          bab: characterObject.offense.cmd.bonuses.bab,
-          size_special: characterObject.offense.cmd.bonuses.special_size,
-          level: characterObject.offense.cmd.bonuseslevel,
-          half_level: characterObject.offense.cmd.bonuses.half_level,
-          plus_ten: characterObject.offense.cmd.bonuses.plus_ten
+          str: characterObject.offense.cmd.bonuses.str_bonus || true,
+          dex: characterObject.offense.cmd.bonuses.dex_bonus || true,
+          con: characterObject.offense.cmd.bonuses.con_bonus || false,
+          int: characterObject.offense.cmd.bonuses.int_bonus || false,
+          wis: characterObject.offense.cmd.bonuses.wis_bonus || false,
+          cha: characterObject.offense.cmd.bonuses.cha_bonus || false,
+          bab: characterObject.offense.cmd.bonuses.bab || true,
+          size_special: characterObject.offense.cmd.bonuses.special_size || true,
+          level: characterObject.offense.cmd.bonuses.level || false,
+          half_level: characterObject.offense.cmd.bonuses.half_level || false,
+          plus_ten: characterObject.offense.cmd.bonuses.plus_ten || true
         }
       },
       saves: {
         fortitude: {
-          base: characterObject.defense.fortitude.base,
-          resistance: characterObject.defense.fortitude.resistance,
-          feat: characterObject.defense.fortitude.feat,
-          trait: characterObject.defense.fortitude.trait,
-          misc: characterObject.defense.fortitude.misc,
-          temp: characterObject.defense.fortitude.temp,
+          base: characterObject.defense.fortitude.base || "",
+          resistance: characterObject.defense.fortitude.resistance || "",
+          feat: characterObject.defense.fortitude.feat || "",
+          trait: characterObject.defense.fortitude.trait || "",
+          misc: characterObject.defense.fortitude.misc || "",
+          temp: characterObject.defense.fortitude.temp || "",
           current: "",
           bonuses: {
-            str: characterObject.defense.fortitude.bonuses.str_bonus,
-            dex: characterObject.defense.fortitude.bonuses.dex_bonus,
-            con: characterObject.defense.fortitude.bonuses.con_bonus,
-            int: characterObject.defense.fortitude.bonuses.int_bonus,
-            wis: characterObject.defense.fortitude.bonuses.wis_bonus,
-            cha: characterObject.defense.fortitude.bonuses.cha_bonus,
-            level: characterObject.defense.fortitude.bonuses.level,
-            half_level: characterObject.defense.fortitude.bonuses.half_level
+            str: characterObject.defense.fortitude.bonuses.str_bonus || false,
+            dex: characterObject.defense.fortitude.bonuses.dex_bonus || false,
+            con: characterObject.defense.fortitude.bonuses.con_bonus || true,
+            int: characterObject.defense.fortitude.bonuses.int_bonus || false,
+            wis: characterObject.defense.fortitude.bonuses.wis_bonus || false,
+            cha: characterObject.defense.fortitude.bonuses.cha_bonus || false,
+            level: characterObject.defense.fortitude.bonuses.level || false,
+            half_level: characterObject.defense.fortitude.bonuses.half_level || false
           }
         },
         reflex: {
-          base: characterObject.defense.reflex.base,
-          resistance: characterObject.defense.reflex.resistance,
-          feat: characterObject.defense.reflex.feat,
-          trait: characterObject.defense.reflex.trait,
-          misc: characterObject.defense.reflex.misc,
-          temp: characterObject.defense.reflex.temp,
+          base: characterObject.defense.reflex.base || "",
+          resistance: characterObject.defense.reflex.resistance || "",
+          feat: characterObject.defense.reflex.feat || "",
+          trait: characterObject.defense.reflex.trait || "",
+          misc: characterObject.defense.reflex.misc || "",
+          temp: characterObject.defense.reflex.temp || "",
           current: "",
           bonuses: {
-            str: characterObject.defense.reflex.bonuses.str_bonus,
-            dex: characterObject.defense.reflex.bonuses.dex_bonus,
-            con: characterObject.defense.reflex.bonuses.con_bonus,
-            int: characterObject.defense.reflex.bonuses.int_bonus,
-            wis: characterObject.defense.reflex.bonuses.wis_bonus,
-            cha: characterObject.defense.reflex.bonuses.cha_bonus,
-            level: characterObject.defense.reflex.bonuses.level,
-            half_level: characterObject.defense.reflex.bonuses.half_level
+            str: characterObject.defense.reflex.bonuses.str_bonus || false,
+            dex: characterObject.defense.reflex.bonuses.dex_bonus || true,
+            con: characterObject.defense.reflex.bonuses.con_bonus || false,
+            int: characterObject.defense.reflex.bonuses.int_bonus || false,
+            wis: characterObject.defense.reflex.bonuses.wis_bonus || false,
+            cha: characterObject.defense.reflex.bonuses.cha_bonus || false,
+            level: characterObject.defense.reflex.bonuses.level || false,
+            half_level: characterObject.defense.reflex.bonuses.half_level || false
           }
         },
         will: {
-          base: characterObject.defense.will.base,
-          resistance: characterObject.defense.will.resistance,
-          feat: characterObject.defense.will.feat,
-          trait: characterObject.defense.will.trait,
-          misc: characterObject.defense.will.misc,
-          temp: characterObject.defense.will.temp,
+          base: characterObject.defense.will.base || "",
+          resistance: characterObject.defense.will.resistance || "",
+          feat: characterObject.defense.will.feat || "",
+          trait: characterObject.defense.will.trait || "",
+          misc: characterObject.defense.will.misc || "",
+          temp: characterObject.defense.will.temp || "",
           current: "",
           bonuses: {
-            str: characterObject.defense.will.bonuses.str_bonus,
-            dex: characterObject.defense.will.bonuses.dex_bonus,
-            con: characterObject.defense.will.bonuses.con_bonus,
-            int: characterObject.defense.will.bonuses.int_bonus,
-            wis: characterObject.defense.will.bonuses.wis_bonus,
-            cha: characterObject.defense.will.bonuses.cha_bonus,
-            level: characterObject.defense.will.bonuses.level,
-            half_level: characterObject.defense.will.bonuses.half_level
+            str: characterObject.defense.will.bonuses.str_bonus || false,
+            dex: characterObject.defense.will.bonuses.dex_bonus || false,
+            con: characterObject.defense.will.bonuses.con_bonus || false,
+            int: characterObject.defense.will.bonuses.int_bonus || false,
+            wis: characterObject.defense.will.bonuses.wis_bonus || true,
+            cha: characterObject.defense.will.bonuses.cha_bonus || false,
+            level: characterObject.defense.will.bonuses.level || false,
+            half_level: characterObject.defense.will.bonuses.half_level || false
           }
         },
         notes: ""
       },
       dr: {
-        feat: characterObject.defense.dr.feat,
-        trait: characterObject.defense.dr.trait,
-        misc: characterObject.defense.dr.misc,
-        temp: characterObject.defense.dr.temp,
-        current: characterObject.defense.dr.current,
-        overcome: characterObject.defense.dr.overcome,
+        feat: characterObject.defense.dr.feat || "",
+        trait: characterObject.defense.dr.trait || "",
+        misc: characterObject.defense.dr.misc || "",
+        temp: characterObject.defense.dr.temp || "",
+        current: characterObject.defense.dr.current || "",
+        overcome: characterObject.defense.dr.overcome || "",
         notes: "",
         bonuses: {
-          str: characterObject.defense.dr.bonuses.str_bonus,
-          dex: characterObject.defense.dr.bonuses.dex_bonus,
-          con: characterObject.defense.dr.bonuses.con_bonus,
-          int: characterObject.defense.dr.bonuses.int_bonus,
-          wis: characterObject.defense.dr.bonuses.wis_bonus,
-          cha: characterObject.defense.dr.bonuses.cha_bonus,
-          level: characterObject.defense.dr.bonuses.level,
-          half_level: characterObject.defense.dr.bonuses.half_level
+          str: characterObject.defense.dr.bonuses.str_bonus || false,
+          dex: characterObject.defense.dr.bonuses.dex_bonus || false,
+          con: characterObject.defense.dr.bonuses.con_bonus || false,
+          int: characterObject.defense.dr.bonuses.int_bonus || false,
+          wis: characterObject.defense.dr.bonuses.wis_bonus || false,
+          cha: characterObject.defense.dr.bonuses.cha_bonus || false,
+          level: characterObject.defense.dr.bonuses.level || false,
+          half_level: characterObject.defense.dr.bonuses.half_level || false
         }
       },
       sr: {
-        feat: characterObject.defense.sr.feat,
-        trait: characterObject.defense.sr.trait,
-        misc: characterObject.defense.sr.misc,
-        temp: characterObject.defense.sr.temp,
-        current: characterObject.defense.sr.current,
+        feat: characterObject.defense.sr.feat || "",
+        trait: characterObject.defense.sr.trait || "",
+        misc: characterObject.defense.sr.misc || "",
+        temp: characterObject.defense.sr.temp || "",
+        current: characterObject.defense.sr.current || "",
         notes: "",
         bonuses: {
-          str: characterObject.defense.sr.bonuses.str_bonus,
-          dex: characterObject.defense.sr.bonuses.dex_bonus,
-          con: characterObject.defense.sr.bonuses.con_bonus,
-          int: characterObject.defense.sr.bonuses.int_bonus,
-          wis: characterObject.defense.sr.bonuses.wis_bonus,
-          cha: characterObject.defense.sr.bonuses.cha_bonus,
-          level: characterObject.defense.sr.bonuses.level,
-          half_level: characterObject.defense.sr.bonuses.half_level
+          str: characterObject.defense.sr.bonuses.str_bonus || false,
+          dex: characterObject.defense.sr.bonuses.dex_bonus || false,
+          con: characterObject.defense.sr.bonuses.con_bonus || false,
+          int: characterObject.defense.sr.bonuses.int_bonus || false,
+          wis: characterObject.defense.sr.bonuses.wis_bonus || false,
+          cha: characterObject.defense.sr.bonuses.cha_bonus || false,
+          level: characterObject.defense.sr.bonuses.level || false,
+          half_level: characterObject.defense.sr.bonuses.half_level || false
         }
       },
       resistance: {
@@ -1315,9 +1312,74 @@ var repair = (function() {
         }
       }
     };
+    // offense
+    characterObject.offense = {
+      stats: {
+        base_attack: characterObject.offense.base_attack || "",
+        base_attack_bonuses: characterObject.offense.base_attack_bonuses || "",
+        melee: {
+          misc: characterObject.offense.melee_attack.misc || "",
+          temp: characterObject.offense.melee_attack.temp || "",
+          current: "",
+          bonuses: {
+            str: characterObject.offense.melee_attack.bonuses.str_bonus || true,
+            dex: characterObject.offense.melee_attack.bonuses.dex_bonus || false,
+            con: characterObject.offense.melee_attack.bonuses.con_bonus || false,
+            int: characterObject.offense.melee_attack.bonuses.int_bonus || false,
+            wis: characterObject.offense.melee_attack.bonuses.wis_bonus || false,
+            cha: characterObject.offense.melee_attack.bonuses.cha_bonus || false,
+            bab: characterObject.offense.melee_attack.bonuses.bab || true,
+            size_base: characterObject.offense.melee_attack.bonuses.special_size || true,
+            level: characterObject.offense.melee_attack.bonuses.level || false,
+            half_level: characterObject.offense.melee_attack.bonuses.half_level || false
+          }
+        },
+        ranged: {
+          misc: characterObject.offense.ranged_attack.misc || "",
+          temp: characterObject.offense.ranged_attack.temp || "",
+          current: "",
+          bonuses: {
+            str: characterObject.offense.ranged_attack.bonuses.str_bonus || false,
+            dex: characterObject.offense.ranged_attack.bonuses.dex_bonus || true,
+            con: characterObject.offense.ranged_attack.bonuses.con_bonus || false,
+            int: characterObject.offense.ranged_attack.bonuses.int_bonus || false,
+            wis: characterObject.offense.ranged_attack.bonuses.wis_bonus || false,
+            cha: characterObject.offense.ranged_attack.bonuses.cha_bonus || false,
+            bab: characterObject.offense.ranged_attack.bonuses.bab || true,
+            size_base: characterObject.offense.ranged_attack.bonuses.special_size || true,
+            level: characterObject.offense.ranged_attack.bonuses.level || false,
+            half_level: characterObject.offense.ranged_attack.bonuses.half_level || false
+          }
+        }
+      },
+      cmb: {
+        misc: characterObject.offense.cmb.misc || "",
+        temp: characterObject.offense.cmb.temp || "",
+        current: "",
+        bonuses: {
+          str: characterObject.offense.cmb.bonuses.str_bonus || true,
+          dex: characterObject.offense.cmb.bonuses.dex_bonus || false,
+          con: characterObject.offense.cmb.bonuses.con_bonus || false,
+          int: characterObject.offense.cmb.bonuses.int_bonus || false,
+          wis: characterObject.offense.cmb.bonuses.wis_bonus || false,
+          cha: characterObject.offense.cmb.bonuses.cha_bonus || false,
+          bab: characterObject.offense.cmb.bonuses.bab || true,
+          size_special: characterObject.offense.cmb.bonuses.special_size || true,
+          level: characterObject.offense.cmb.bonuses.level || false,
+          half_level: characterObject.offense.cmb.bonuses.half_level || false
+        }
+      },
+      attack: {
+        notes: characterObject.offense.attack.notes || "",
+        melee: {
+          all: characterObject.offense.attack.melee || []
+        },
+        ranged: {
+          all: characterObject.offense.attack.ranged || []
+        }
+      }
+    };
 
-
-    // // offense
     // characterObject.offense = {};
     // characterObject.offense.stats = {};
     // characterObject.offense.cmb = {};
@@ -1392,11 +1454,17 @@ var repair = (function() {
     _debug = defaultOptions.debug;
     // check for character object
     if (defaultOptions.object) {
+      if (_debug) {
+        console.log("______ repair ______");
+      };
       _repair({
         object: defaultOptions.object
       });
       // if no object repair all characters
     } else {
+      if (_debug) {
+        console.log("______ repair ______");
+      };
       var allCharacters = sheet.getAll();
       allCharacters.forEach(function(arrayItem) {
         _repair({
