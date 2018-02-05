@@ -105,7 +105,7 @@ var sheet = (function() {
     // helper.store("backupAllCharacters", JSON.stringify(allCharacters));
     allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.all()));
     repair.render({
-      debug: false
+      debug: true
     });
     setIndex(0);
     store();

@@ -56,7 +56,7 @@ var classes = (function() {
   function render() {
     var all_classes = helper.getObject({
       object: sheet.get(),
-      path: "basics.classes"
+      path: "basics.classes.all"
     });
     var totalLevels = _total(all_classes, "level");
     var totalHP = _total(all_classes, "hp") + (totalLevels * stats.getMod("con"));
@@ -78,12 +78,12 @@ var classes = (function() {
     });
     helper.setObject({
       object: sheet.get(),
-      path: "offense.base_attack",
+      path: "offense.stats.base_attack",
       newValue: totalBab
     });
     helper.setObject({
       object: sheet.get(),
-      path: "offense.base_attack_bonuses",
+      path: "offense.stats.base_attack_bonuses",
       newValue: baseAttackBonuses
     });
     helper.setObject({
@@ -93,24 +93,24 @@ var classes = (function() {
     });
     helper.setObject({
       object: sheet.get(),
-      path: "defense.fortitude.base",
+      path: "defense.saves.fortitude.base",
       newValue: totalFortitude
     });
     helper.setObject({
       object: sheet.get(),
-      path: "defense.reflex.base",
+      path: "defense.saves.reflex.base",
       newValue: totalReflex
     });
     helper.setObject({
       object: sheet.get(),
-      path: "defense.will.base",
+      path: "defense.saves.will.base",
       newValue: totalWill
     });
   };
 
   function get_classLevel(characterObject) {
     var classAndLevel = "";
-    var classes = characterObject.basics.classes;
+    var classes = characterObject.basics.classes.all;
     for (var i = 0; i < classes.length; i++) {
       var classname = classes[i].classname || "No class";
       var level = classes[i].level || "No level";

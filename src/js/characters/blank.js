@@ -19,10 +19,12 @@ var blank = (function() {
         description: "",
         size: {
           category: "",
-          size_modifier: "",
-          special_size_modifier: "",
-          size_modifier_fly: "",
-          size_modifier_stealth: ""
+          modifier: {
+            base: "",
+            fly: "",
+            stealth: "",
+            special: ""
+          }
         }
       },
       classes: {
@@ -221,11 +223,13 @@ var blank = (function() {
         temp: "",
         damage: "",
         non_lethal_damage: "",
-        current: ""
+        current: "",
+        notes: ""
       },
       ac: {
         armor_class: {
           misc: "",
+          temp: "",
           current: "",
           bonuses: {
             str: false,
@@ -235,12 +239,12 @@ var blank = (function() {
             wis: false,
             cha: false,
             plus_ten: true,
-            ac_armor: true,
-            ac_shield: true,
-            ac_deflect: true,
-            ac_dodge: true,
-            ac_natural: true,
-            size: true,
+            armor: true,
+            shield: true,
+            deflect: true,
+            dodge: true,
+            natural: true,
+            size_base: true,
             max_dex: true
           }
         },
@@ -256,11 +260,11 @@ var blank = (function() {
             wis: false,
             cha: false,
             plus_ten: true,
-            ac_armor: true,
-            ac_shield: true,
-            ac_deflect: true,
-            ac_natural: true,
-            size: true
+            armor: true,
+            shield: true,
+            deflect: true,
+            natural: true,
+            size_base: true
           }
         },
         touch: {
@@ -275,19 +279,38 @@ var blank = (function() {
             wis: false,
             cha: false,
             plus_ten: true,
-            ac_deflect: true,
-            ac_dodge: true,
-            size: true,
+            deflect: true,
+            dodge: true,
+            size_base: true,
             max_dex: true
           }
         },
-        temp: "",
-        armor: "",
-        shield: "",
-        deflect: "",
-        dodge: "",
-        natural: "",
+        stats: {
+          armor: "",
+          shield: "",
+          deflect: "",
+          dodge: "",
+          natural: ""
+        },
         notes: ""
+      },
+      cmd: {
+        misc: "",
+        temp: "",
+        current: "",
+        bonuses: {
+          str: true,
+          dex: true,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
+          bab: true,
+          special_size: true,
+          level: false,
+          half_level: false,
+          plus_ten: true
+        }
       },
       saves: {
         fortitude: {
@@ -349,27 +372,6 @@ var blank = (function() {
         },
         notes: ""
       },
-      cmd: {
-        combat_maneuver_defense: {
-          misc: "",
-          temp: "",
-          current: "",
-          bonuses: {
-            str: true,
-            dex: true,
-            con: false,
-            int: false,
-            wis: false,
-            cha: false,
-            bab: true,
-            special_size: true,
-            level: false,
-            half_level: false,
-            plus_ten: true
-          }
-        },
-        notes: ""
-      },
       dr: {
         damage_reduction: {
           feat: "",
@@ -418,6 +420,7 @@ var blank = (function() {
     offense: {
       stats: {
         base_attack: "",
+        base_attack_bonuses: "",
         current: "",
         melee_attack: {
           misc: "",
@@ -484,10 +487,8 @@ var blank = (function() {
     skills: {
       ranks: {
         total: "",
-        spent: {
-          include_custom: false,
-          current: ""
-        }
+        include_custom: false,
+        current: ""
       },
       custom: {
         all: []

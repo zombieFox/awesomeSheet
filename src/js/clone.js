@@ -533,9 +533,13 @@ var clone = (function() {
     if (mixed) {
       if (cloneType == "note" || cloneType == "note-character" && mixed || cloneType == "note-story" && mixed) {
         return _get_cloneObjects("note-character").length + _get_cloneObjects("note-story").length;
+      } else {
+        return _get_cloneObjects(cloneType).length;
       };
       if (cloneType == "attack" || cloneType == "attack-melee" && mixed || cloneType == "attack-ranged" && mixed) {
         return _get_cloneObjects("attack-melee").length + _get_cloneObjects("attack-ranged").length;
+      } else {
+        return _get_cloneObjects(cloneType).length;
       };
     } else {
       return _get_cloneObjects(cloneType).length;

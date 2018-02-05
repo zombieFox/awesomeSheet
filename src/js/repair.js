@@ -5,6 +5,10 @@ var repair = (function() {
   // legacy sheet update
   function _update_440andBelow(characterObject) {
     if (_debug) {
+      console.log("----------------------------\n", "update to 440 && <:", characterObject.basics.name);
+    };
+    // --------------------------------------------------
+    if (_debug) {
       console.log("\tlegacy repair");
     };
     // --------------------------------------------------
@@ -885,7 +889,7 @@ var repair = (function() {
 
   function _update_500(characterObject) {
     if (_debug) {
-      console.log("\tupgrade character to 5.0.0");
+      console.log("----------------------------\n", "update to 500:", characterObject.basics.name);
     };
     tempCharacterObject = JSON.parse(JSON.stringify(characterObject));
 
@@ -909,10 +913,10 @@ var repair = (function() {
         size: {
           category: tempCharacterObject.basics.size.category,
           modifier: {
-            base: "",
-            special: "",
-            fly: "",
-            stealth: ""
+            base: tempCharacterObject.basics.size.size_modifier,
+            special: tempCharacterObject.basics.size.special_size_modifier,
+            fly: tempCharacterObject.basics.size.size_modifier_fly,
+            stealth: tempCharacterObject.basics.size.size_modifier_stealth
           }
         }
       },
@@ -976,58 +980,58 @@ var repair = (function() {
     characterObject.statistics = {
       stats: {
         str: {
-          current: tempCharacterObject.statistics.stats.str.current,
           modifier: tempCharacterObject.statistics.stats.str.modifier,
           base: tempCharacterObject.statistics.stats.str.base,
           enhancement: tempCharacterObject.statistics.stats.str.enhancement,
           misc: tempCharacterObject.statistics.stats.str.misc,
           racial: tempCharacterObject.statistics.stats.str.racial,
-          temp: tempCharacterObject.statistics.stats.str.temp
+          temp: tempCharacterObject.statistics.stats.str.temp,
+          current: ""
         },
         dex: {
-          current: tempCharacterObject.statistics.stats.dex.current,
           modifier: tempCharacterObject.statistics.stats.dex.modifier,
           base: tempCharacterObject.statistics.stats.dex.base,
           enhancement: tempCharacterObject.statistics.stats.dex.enhancement,
           misc: tempCharacterObject.statistics.stats.dex.misc,
           racial: tempCharacterObject.statistics.stats.dex.racial,
-          temp: tempCharacterObject.statistics.stats.dex.temp
+          temp: tempCharacterObject.statistics.stats.dex.temp,
+          current: ""
         },
         con: {
-          current: tempCharacterObject.statistics.stats.con.current,
           modifier: tempCharacterObject.statistics.stats.con.modifier,
           base: tempCharacterObject.statistics.stats.con.base,
           enhancement: tempCharacterObject.statistics.stats.con.enhancement,
           misc: tempCharacterObject.statistics.stats.con.misc,
           racial: tempCharacterObject.statistics.stats.con.racial,
-          temp: tempCharacterObject.statistics.stats.con.temp
+          temp: tempCharacterObject.statistics.stats.con.temp,
+          current: ""
         },
         int: {
-          current: tempCharacterObject.statistics.stats.int.current,
           modifier: tempCharacterObject.statistics.stats.int.modifier,
           base: tempCharacterObject.statistics.stats.int.base,
           enhancement: tempCharacterObject.statistics.stats.int.enhancement,
           misc: tempCharacterObject.statistics.stats.int.misc,
           racial: tempCharacterObject.statistics.stats.int.racial,
-          temp: tempCharacterObject.statistics.stats.int.temp
+          temp: tempCharacterObject.statistics.stats.int.temp,
+          current: ""
         },
         wis: {
-          current: tempCharacterObject.statistics.stats.wis.current,
           modifier: tempCharacterObject.statistics.stats.wis.modifier,
           base: tempCharacterObject.statistics.stats.wis.base,
           enhancement: tempCharacterObject.statistics.stats.wis.enhancement,
           misc: tempCharacterObject.statistics.stats.wis.misc,
           racial: tempCharacterObject.statistics.stats.wis.racial,
-          temp: tempCharacterObject.statistics.stats.wis.temp
+          temp: tempCharacterObject.statistics.stats.wis.temp,
+          current: ""
         },
         cha: {
-          current: tempCharacterObject.statistics.stats.cha.current,
           modifier: tempCharacterObject.statistics.stats.cha.modifier,
           base: tempCharacterObject.statistics.stats.cha.base,
           enhancement: tempCharacterObject.statistics.stats.cha.enhancement,
           misc: tempCharacterObject.statistics.stats.cha.misc,
           racial: tempCharacterObject.statistics.stats.cha.racial,
-          temp: tempCharacterObject.statistics.stats.cha.temp
+          temp: tempCharacterObject.statistics.stats.cha.temp,
+          current: ""
         }
       },
       abilities: {
@@ -1100,33 +1104,200 @@ var repair = (function() {
       }
     };
     // defense
-    // characterObject.defense = {
-    //   hp: {
-    //     total: characterObject.defense.hp.total,
-    //     temp: characterObject.defense.hp.temp,
-    //     damage: characterObject.defense.hp.damage,
-    //     non_lethal_damage: characterObject.defense.hp.non_lethal_damage,
-    //     current: characterObject.defense.hp.current
-    //   },
-    //   ac: {
-    //     armor_class: {
-    //       temp: characterObject.defense.ac.temp
-    //     },
-    //     flat_footed: {},
-    //     touch: {},
-    //     armor: characterObject.defense.ac.armor,
-    //     shield: characterObject.defense.ac.shield,
-    //     deflect: characterObject.defense.ac.deflect,
-    //     dodge: characterObject.defense.ac.dodge,
-    //     natural: characterObject.defense.ac.natural,
-    //     notes: characterObject.defense.ac.notes
-    //   },
-    //   saves: {},
-    //   cmd: {},
-    //   dr: {},
-    //   sr: {},
-    //   resist: {}
-    // };
+    characterObject.defense = {
+      hp: {
+        total: characterObject.defense.hp.total,
+        temp: characterObject.defense.hp.temp,
+        damage: characterObject.defense.hp.damage,
+        non_lethal_damage: characterObject.defense.hp.non_lethal_damage,
+        current: "",
+        notes: ""
+      },
+      ac: {
+        armor_class: {
+          misc: characterObject.defense.ac.misc,
+          temp: characterObject.defense.ac.temp,
+          current: "",
+          bonuses: {
+            str: characterObject.defense.ac.bonuses.str_bonus,
+            dex: characterObject.defense.ac.bonuses.dex_bonus,
+            con: characterObject.defense.ac.bonuses.con_bonus,
+            int: characterObject.defense.ac.bonuses.int_bonus,
+            wis: characterObject.defense.ac.bonuses.wis_bonus,
+            cha: characterObject.defense.ac.bonuses.cha_bonus,
+            plus_ten: characterObject.defense.ac.bonuses.plus_ten,
+            armor: characterObject.defense.ac.bonuses.ac_armor,
+            shield: characterObject.defense.ac.bonuses.ac_shield,
+            deflect: characterObject.defense.ac.bonuses.ac_deflect,
+            dodge: characterObject.defense.ac.bonuses.ac_dodge,
+            natural: characterObject.defense.ac.bonuses.ac_natural,
+            size_base: characterObject.defense.ac.bonuses.size,
+            max_dex: characterObject.defense.ac.bonuses.max_dex
+          }
+        },
+        flat_footed: {
+          misc: characterObject.defense.flat_footed.misc,
+          temp: characterObject.defense.flat_footed.temp,
+          current: "",
+          bonuses: {
+            str: characterObject.defense.flat_footed.bonuses.str_bonus,
+            dex: characterObject.defense.flat_footed.bonuses.dex_bonus,
+            con: characterObject.defense.flat_footed.bonuses.con_bonus,
+            int: characterObject.defense.flat_footed.bonuses.int_bonus,
+            wis: characterObject.defense.flat_footed.bonuses.wis_bonus,
+            cha: characterObject.defense.flat_footed.bonuses.cha_bonus,
+            plus_ten: characterObject.defense.flat_footed.bonuses.plus_ten,
+            armor: characterObject.defense.flat_footed.bonuses.ac_armor,
+            shield: characterObject.defense.flat_footed.bonuses.ac_shield,
+            deflect: characterObject.defense.flat_footed.bonuses.ac_deflect,
+            natural: characterObject.defense.flat_footed.bonuses.ac_natural,
+            size_base: characterObject.defense.flat_footed.bonuses.size
+          }
+        },
+        touch: {
+          misc: characterObject.defense.touch.misc,
+          temp: characterObject.defense.touch.temp,
+          current: "",
+          bonuses: {
+            str: characterObject.defense.touch.bonuses.str_bonus,
+            dex: characterObject.defense.touch.bonuses.dex_bonus,
+            con: characterObject.defense.touch.bonuses.con_bonus,
+            int: characterObject.defense.touch.bonuses.int_bonus,
+            wis: characterObject.defense.touch.bonuses.wis_bonus,
+            cha: characterObject.defense.touch.bonuses.cha_bonus,
+            plus_ten: characterObject.defense.touch.bonuses.plus_ten,
+            deflect: characterObject.defense.touch.bonuses.ac_deflect,
+            dodge: characterObject.defense.touch.bonuses.ac_dodge,
+            size_base: characterObject.defense.touch.bonuses.size,
+            max_dex: characterObject.defense.touch.bonuses.max_dex
+          }
+        },
+        stats: {
+          armor: characterObject.defense.ac.armor,
+          shield: characterObject.defense.ac.shield,
+          deflect: characterObject.defense.ac.deflect,
+          dodge: characterObject.defense.ac.dodge,
+          natural: characterObject.defense.ac.natural
+        },
+        notes: characterObject.defense.ac.notes
+      },
+      cmd: {
+        misc: characterObject.offense.cmd.misc,
+        temp: characterObject.offense.cmd.temp,
+        current: "",
+        bonuses: {
+          str: characterObject.offense.cmd.bonuses.str_bonus,
+          dex: characterObject.offense.cmd.bonuses.dex_bonus,
+          con: characterObject.offense.cmd.bonuses.con_bonus,
+          int: characterObject.offense.cmd.bonuses.int_bonus,
+          wis: characterObject.offense.cmd.bonuses.wis_bonus,
+          cha: characterObject.offense.cmd.bonuses.cha_bonus,
+          bab: characterObject.offense.cmd.bonuses.bab,
+          size_special: characterObject.offense.cmd.bonuses.special_size,
+          level: characterObject.offense.cmd.bonuseslevel,
+          half_level: characterObject.offense.cmd.bonuses.half_level,
+          plus_ten: characterObject.offense.cmd.bonuses.plus_ten
+        }
+      },
+      saves: {
+        fortitude: {
+          base: characterObject.defense.fortitude.base,
+          resistance: characterObject.defense.fortitude.resistance,
+          feat: characterObject.defense.fortitude.feat,
+          trait: characterObject.defense.fortitude.trait,
+          misc: characterObject.defense.fortitude.misc,
+          temp: characterObject.defense.fortitude.temp,
+          current: "",
+          bonuses: {
+            str: characterObject.defense.fortitude.bonuses.str_bonus,
+            dex: characterObject.defense.fortitude.bonuses.dex_bonus,
+            con: characterObject.defense.fortitude.bonuses.con_bonus,
+            int: characterObject.defense.fortitude.bonuses.int_bonus,
+            wis: characterObject.defense.fortitude.bonuses.wis_bonus,
+            cha: characterObject.defense.fortitude.bonuses.cha_bonus,
+            level: characterObject.defense.fortitude.bonuses.level,
+            half_level: characterObject.defense.fortitude.bonuses.half_level
+          }
+        },
+        reflex: {
+          base: characterObject.defense.reflex.base,
+          resistance: characterObject.defense.reflex.resistance,
+          feat: characterObject.defense.reflex.feat,
+          trait: characterObject.defense.reflex.trait,
+          misc: characterObject.defense.reflex.misc,
+          temp: characterObject.defense.reflex.temp,
+          current: "",
+          bonuses: {
+            str: characterObject.defense.reflex.bonuses.str_bonus,
+            dex: characterObject.defense.reflex.bonuses.dex_bonus,
+            con: characterObject.defense.reflex.bonuses.con_bonus,
+            int: characterObject.defense.reflex.bonuses.int_bonus,
+            wis: characterObject.defense.reflex.bonuses.wis_bonus,
+            cha: characterObject.defense.reflex.bonuses.cha_bonus,
+            level: characterObject.defense.reflex.bonuses.level,
+            half_level: characterObject.defense.reflex.bonuses.half_level
+          }
+        },
+        will: {
+          base: characterObject.defense.will.base,
+          resistance: characterObject.defense.will.resistance,
+          feat: characterObject.defense.will.feat,
+          trait: characterObject.defense.will.trait,
+          misc: characterObject.defense.will.misc,
+          temp: characterObject.defense.will.temp,
+          current: "",
+          bonuses: {
+            str: characterObject.defense.will.bonuses.str_bonus,
+            dex: characterObject.defense.will.bonuses.dex_bonus,
+            con: characterObject.defense.will.bonuses.con_bonus,
+            int: characterObject.defense.will.bonuses.int_bonus,
+            wis: characterObject.defense.will.bonuses.wis_bonus,
+            cha: characterObject.defense.will.bonuses.cha_bonus,
+            level: characterObject.defense.will.bonuses.level,
+            half_level: characterObject.defense.will.bonuses.half_level
+          }
+        },
+        notes: ""
+      },
+      dr: {
+        feat: characterObject.defense.dr.feat,
+        trait: characterObject.defense.dr.trait,
+        misc: characterObject.defense.dr.misc,
+        temp: characterObject.defense.dr.temp,
+        current: characterObject.defense.dr.current,
+        overcome: characterObject.defense.dr.overcome,
+        bonuses: {
+          str: characterObject.defense.dr.bonuses.str_bonus,
+          dex: characterObject.defense.dr.bonuses.dex_bonus,
+          con: characterObject.defense.dr.bonuses.con_bonus,
+          int: characterObject.defense.dr.bonuses.int_bonus,
+          wis: characterObject.defense.dr.bonuses.wis_bonus,
+          cha: characterObject.defense.dr.bonuses.cha_bonus,
+          level: characterObject.defense.dr.bonuses.level,
+          half_level: characterObject.defense.dr.bonuses.half_level
+        }
+      },
+      sr: {
+        feat: characterObject.defense.sr.feat,
+        trait: characterObject.defense.sr.trait,
+        misc: characterObject.defense.sr.misc,
+        temp: characterObject.defense.sr.temp,
+        current: characterObject.defense.sr.current,
+        bonuses: {
+          str: characterObject.defense.sr.bonuses.str_bonus,
+          dex: characterObject.defense.sr.bonuses.dex_bonus,
+          con: characterObject.defense.sr.bonuses.con_bonus,
+          int: characterObject.defense.sr.bonuses.int_bonus,
+          wis: characterObject.defense.sr.bonuses.wis_bonus,
+          cha: characterObject.defense.sr.bonuses.cha_bonus,
+          level: characterObject.defense.sr.bonuses.level,
+          half_level: characterObject.defense.sr.bonuses.half_level
+        }
+      },
+      resist: {
+        notes: characterObject.defense.resist_notes
+      }
+    };
 
 
 
@@ -1180,10 +1351,6 @@ var repair = (function() {
     };
     if (options) {
       var defaultOptions = helper.applyOptions(defaultOptions, options);
-    };
-    if (_debug) {
-      console.log("---------------------------------------");
-      console.log("Repair:", defaultOptions.object.basics.name);
     };
     // if awesomeSheet check is a boolean
     if (typeof defaultOptions.object.awesomeSheet == "boolean") {

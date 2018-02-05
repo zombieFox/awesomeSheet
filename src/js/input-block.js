@@ -308,7 +308,7 @@ var inputBlock = (function() {
       var type = button.dataset.eventType;
       var note;
       if (inputBlockOptions.eventType == "xp") {
-        note = "XP cleared";
+        note = "EXP cleared";
       } else if (inputBlockOptions.eventType == "platinum") {
         note = "PP cleared";
       } else if (inputBlockOptions.eventType == "gold") {
