@@ -1266,6 +1266,7 @@ var repair = (function() {
         temp: characterObject.defense.dr.temp,
         current: characterObject.defense.dr.current,
         overcome: characterObject.defense.dr.overcome,
+        notes: "",
         bonuses: {
           str: characterObject.defense.dr.bonuses.str_bonus,
           dex: characterObject.defense.dr.bonuses.dex_bonus,
@@ -1283,6 +1284,7 @@ var repair = (function() {
         misc: characterObject.defense.sr.misc,
         temp: characterObject.defense.sr.temp,
         current: characterObject.defense.sr.current,
+        notes: "",
         bonuses: {
           str: characterObject.defense.sr.bonuses.str_bonus,
           dex: characterObject.defense.sr.bonuses.dex_bonus,
@@ -1294,11 +1296,25 @@ var repair = (function() {
           half_level: characterObject.defense.sr.bonuses.half_level
         }
       },
-      resist: {
-        notes: characterObject.defense.resist_notes
+      resistance: {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        notes: characterObject.defense.resist_notes,
+        bonuses: {
+          str: false,
+          dex: false,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
+          level: false,
+          half_level: false
+        }
       }
     };
-
 
 
     // // offense
