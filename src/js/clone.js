@@ -29,10 +29,10 @@ var clone = (function() {
       object = sheet.get().basics.classes.all;
     };
     if (cloneType == "consumable") {
-      object = sheet.get().equipment.consumable;
+      object = sheet.get().equipment.consumable.all;
     };
     if (cloneType == "power") {
-      object = sheet.get().statistics.power;
+      object = sheet.get().statistics.power.all;
     };
     if (cloneType == "item") {
       object = sheet.get().equipment.item.all;
@@ -124,18 +124,18 @@ var clone = (function() {
     if (cloneType == "consumable") {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
-        '  <div class="js-total-block" data-total-block-options="path:equipment.consumable[' + cloneIndex + '],addition:+total,subtraction:+used,clone:true">' +
+        '  <div class="js-total-block" data-total-block-options="path:equipment.consumable.all[' + cloneIndex + '],addition:+total,subtraction:+used,clone:true">' +
         '    <div class="m-edit-box-content m-edit-box-content-outline m-edit-box-content-margin-large">' +
         '      <div class="m-edit-box-item-max m-edit-box-group">' +
         '        <div class="m-edit-box-item-large">' +
-        '          <div class="m-input-block js-input-block" data-input-block-options="path:equipment.consumable[' + cloneIndex + ']item,clone:true">' +
+        '          <div class="m-input-block js-input-block" data-input-block-options="path:equipment.consumable.all[' + cloneIndex + ']item,clone:true">' +
         '            <label class="m-input-block-label js-input-block-label" for="consumable-item-' + cloneIndex + '">Consumables</label>' +
         '            <input id="consumable-item-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-total">' +
         '          <p class="m-edit-box-label">Remaining</p>' +
-        '          <p class="m-edit-box-total js-text-block" data-text-block-options="path:equipment.consumable[' + cloneIndex + ']current,clone:true"></p>' +
+        '          <p class="m-edit-box-total js-text-block" data-text-block-options="path:equipment.consumable.all[' + cloneIndex + ']current,clone:true"></p>' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item m-edit-box-group-control-set">' +
@@ -143,7 +143,7 @@ var clone = (function() {
         '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:consumable-total-' + cloneIndex + ',clone:true,action:subtraction" tabindex="1"><span class="icon-remove"></span></a>' +
         '        </div>' +
         '        <div class="m-edit-box-item-large">' +
-        '          <div class="m-input-block js-input-block" data-input-block-options="path:equipment.consumable[' + cloneIndex + ']total,type:integer,minimum:0,noZero:true,clone:true">' +
+        '          <div class="m-input-block js-input-block" data-input-block-options="path:equipment.consumable.all[' + cloneIndex + ']total,type:integer,minimum:0,noZero:true,clone:true">' +
         '            <label class="m-input-block-label js-input-block-label" for="consumable-total-' + cloneIndex + '">Total</label>' +
         '            <input id="consumable-total-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '          </div>' +
@@ -160,7 +160,7 @@ var clone = (function() {
         '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:consumable-used-' + cloneIndex + ',clone:true,action:subtraction" tabindex="1"><span class="icon-remove"></span></a>' +
         '        </div>' +
         '        <div class="m-edit-box-item-large">' +
-        '          <div class="m-input-block js-input-block" data-input-block-options="path:equipment.consumable[' + cloneIndex + ']used,type:integer,minimum:0,noZero:true,clone:true">' +
+        '          <div class="m-input-block js-input-block" data-input-block-options="path:equipment.consumable.all[' + cloneIndex + ']used,type:integer,minimum:0,noZero:true,clone:true">' +
         '            <label class="m-input-block-label js-input-block-label" for="consumable-used-' + cloneIndex + '">Used</label>' +
         '            <input id="consumable-used-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '          </div>' +
@@ -182,18 +182,18 @@ var clone = (function() {
     if (cloneType == "power") {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
-        '  <div class="js-total-block" data-total-block-options="path:statistics.power[' + cloneIndex + '],addition:+total,subtraction:+used,clone:true">' +
+        '  <div class="js-total-block" data-total-block-options="path:statistics.power.all[' + cloneIndex + '],addition:+total,subtraction:+used,clone:true">' +
         '    <div class="m-edit-box-content m-edit-box-content-outline m-edit-box-content-margin-large">' +
         '      <div class="m-edit-box-item-max m-edit-box-group">' +
         '        <div class="m-edit-box-item-large">' +
-        '          <div class="m-input-block js-input-block" data-input-block-options="path:statistics.power[' + cloneIndex + ']name,clone:true">' +
+        '          <div class="m-input-block js-input-block" data-input-block-options="path:statistics.power.all[' + cloneIndex + ']name,clone:true">' +
         '            <label class="m-input-block-label js-input-block-label" for="power-name-' + cloneIndex + '">Power</label>' +
         '            <input id="power-name-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">' +
         '          </div>' +
         '        </div>' +
         '        <div class="m-edit-box-item-total">' +
         '          <p class="m-edit-box-label">Remaining</p>' +
-        '          <p class="m-edit-box-total js-text-block" data-text-block-options="path:statistics.power[' + cloneIndex + ']current,clone:true"></p>' +
+        '          <p class="m-edit-box-total js-text-block" data-text-block-options="path:statistics.power.all[' + cloneIndex + ']current,clone:true"></p>' +
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item m-edit-box-group-control-set">' +
@@ -201,7 +201,7 @@ var clone = (function() {
         '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:power-total-' + cloneIndex + ',clone:true,action:subtraction" tabindex="1"><span class="icon-remove"></span></a>' +
         '        </div>' +
         '        <div class="m-edit-box-item-large">' +
-        '          <div class="m-input-block js-input-block" data-input-block-options="path:statistics.power[' + cloneIndex + ']total,type:integer,minimum:0,noZero:true,clone:true">' +
+        '          <div class="m-input-block js-input-block" data-input-block-options="path:statistics.power.all[' + cloneIndex + ']total,type:integer,minimum:0,noZero:true,clone:true">' +
         '            <label class="m-input-block-label js-input-block-label" for="power-total-' + cloneIndex + '">Total</label>' +
         '            <input id="power-total-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '          </div>' +
@@ -218,7 +218,7 @@ var clone = (function() {
         '          <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-thin js-input-block-increment" data-input-block-increment-options="target:power-used-' + cloneIndex + ',clone:true,action:subtraction" tabindex="1"><span class="icon-remove"></span></a>' +
         '        </div>' +
         '        <div class="m-edit-box-item-large">' +
-        '          <div class="m-input-block js-input-block" data-input-block-options="path:statistics.power[' + cloneIndex + ']used,type:integer,minimum:0,noZero:true,clone:true">' +
+        '          <div class="m-input-block js-input-block" data-input-block-options="path:statistics.power.all[' + cloneIndex + ']used,type:integer,minimum:0,noZero:true,clone:true">' +
         '            <label class="m-input-block-label js-input-block-label" for="power-used-' + cloneIndex + '">Used</label>' +
         '            <input id="power-used-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '          </div>' +

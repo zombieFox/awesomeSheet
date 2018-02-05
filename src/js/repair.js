@@ -1040,28 +1040,96 @@ var repair = (function() {
         all: tempCharacterObject.statistics.power
       }
     };
+    // equipment
+    characterObject.equipment = {
+      possessions: {
+        gear: characterObject.equipment.gear,
+        magic_gear: characterObject.equipment.magic_gear,
+        potion_viles_oils: characterObject.equipment.potion_viles_oils,
+        scrolls: characterObject.equipment.scrolls
+      },
+      armor: {
+        armor: characterObject.equipment.armor.armor,
+        check_penalty: characterObject.equipment.armor.check_penalty,
+        max_dex: characterObject.equipment.armor.max_dex,
+        shield: characterObject.equipment.armor.shield
+      },
+      body_slots: {
+        belts: characterObject.equipment.body_slots.belts,
+        body: characterObject.equipment.body_slots.body,
+        chest: characterObject.equipment.body_slots.chest,
+        eyes: characterObject.equipment.body_slots.eyes,
+        feet: characterObject.equipment.body_slots.feet,
+        hands: characterObject.equipment.body_slots.hands,
+        head: characterObject.equipment.body_slots.head,
+        headband: characterObject.equipment.body_slots.headband,
+        neck: characterObject.equipment.body_slots.neck,
+        ring_left_hand: characterObject.equipment.body_slots.ring_left_hand,
+        ring_right_hand: characterObject.equipment.body_slots.ring_right_hand,
+        shoulders: characterObject.equipment.body_slots.shoulders,
+        wrist: characterObject.equipment.body_slots.wrist
+      },
+      item: {
+        all: characterObject.equipment.item.all,
+        weight: {
+          current: ""
+        },
+        value: {
+          current: ""
+        }
+      },
+      encumbrance: {
+        str: characterObject.equipment.encumbrance.encumbrance_str,
+        carry_move: {
+          light: characterObject.equipment.encumbrance.carry_move.light,
+          medium: characterObject.equipment.encumbrance.carry_move.medium,
+          heavy: characterObject.equipment.encumbrance.carry_move.heavy,
+          lift: characterObject.equipment.encumbrance.carry_move.lift,
+          drag: characterObject.equipment.encumbrance.carry_move.drag
+        }
+      },
+      consumable: {
+        all: characterObject.equipment.consumable
+      },
+      wealth: {
+        platinum: characterObject.equipment.wealth.platinum,
+        gold: characterObject.equipment.wealth.gold,
+        silver: characterObject.equipment.wealth.silver,
+        copper: characterObject.equipment.wealth.copper,
+        total: ""
+      }
+    };
+    // defense
+    // characterObject.defense = {
+    //   hp: {
+    //     total: characterObject.defense.hp.total,
+    //     temp: characterObject.defense.hp.temp,
+    //     damage: characterObject.defense.hp.damage,
+    //     non_lethal_damage: characterObject.defense.hp.non_lethal_damage,
+    //     current: characterObject.defense.hp.current
+    //   },
+    //   ac: {
+    //     armor_class: {
+    //       temp: characterObject.defense.ac.temp
+    //     },
+    //     flat_footed: {},
+    //     touch: {},
+    //     armor: characterObject.defense.ac.armor,
+    //     shield: characterObject.defense.ac.shield,
+    //     deflect: characterObject.defense.ac.deflect,
+    //     dodge: characterObject.defense.ac.dodge,
+    //     natural: characterObject.defense.ac.natural,
+    //     notes: characterObject.defense.ac.notes
+    //   },
+    //   saves: {},
+    //   cmd: {},
+    //   dr: {},
+    //   sr: {},
+    //   resist: {}
+    // };
 
-    // characterObject.statistics.stats = {};
-    // characterObject.statistics.abilities = {};
-    // characterObject.statistics.power = {};
-    // // equipment
-    // characterObject.equipment = {};
-    // characterObject.equipment.possessions = {};
-    // characterObject.equipment.armor = {};
-    // characterObject.equipment.body_slots = {};
-    // characterObject.equipment.item = {};
-    // characterObject.equipment.encumbrance = {};
-    // characterObject.equipment.consumable = {};
-    // characterObject.equipment.wealth = {};
-    // // defense
-    // characterObject.defense = {};
-    // characterObject.defense.hp = {};
-    // characterObject.defense.ac = {};
-    // characterObject.defense.saves = {};
-    // characterObject.defense.cmd = {};
-    // characterObject.defense.dr = {};
-    // characterObject.defense.resist = {};
-    // characterObject.defense.sr = {};
+
+
     // // offense
     // characterObject.offense = {};
     // characterObject.offense.stats = {};
