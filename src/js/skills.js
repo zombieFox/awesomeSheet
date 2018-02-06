@@ -31,11 +31,11 @@ var skills = (function() {
     });
     var all_skills = helper.getObject({
       object: sheet.get(),
-      path: "skills.all"
+      path: "skills.default"
     });
     var all_customSkills = helper.getObject({
       object: sheet.get(),
-      path: "skills.custom"
+      path: "skills.custom.all"
     });
     var ranks = [];
     var ranksTotal;
