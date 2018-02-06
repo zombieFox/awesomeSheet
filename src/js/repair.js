@@ -889,11 +889,10 @@ var repair = (function() {
       console.log(characterObject.basics.name, "--> update to 5.0.0");
     };
     tempCharacterObject = JSON.parse(JSON.stringify(characterObject));
-
+    // awesome
     characterObject.awesomeSheet = {};
     characterObject.awesomeSheet.awesome = true;
     characterObject.awesomeSheet.version = "5.0.0";
-
     // basics
     characterObject.basics = {
       character: {
@@ -1389,10 +1388,777 @@ var repair = (function() {
       custom: {
         all: tempCharacterObject.skills.custom || []
       },
-      default: tempCharacterObject.skills.all
+      default: {
+        acrobatics: {
+          ranks: tempCharacterObject.skills.all.acrobatics.ranks || "",
+          misc: tempCharacterObject.skills.all.acrobatics.misc || "",
+          racial: tempCharacterObject.skills.all.acrobatics.racial || "",
+          feat: tempCharacterObject.skills.all.acrobatics.feat || "",
+          trait: tempCharacterObject.skills.all.acrobatics.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.acrobatics.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.acrobatics.bonuses.dex_bonus || true,
+            con: tempCharacterObject.skills.all.acrobatics.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.acrobatics.bonuses.int_bonus || false,
+            wis: tempCharacterObject.skills.all.acrobatics.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.acrobatics.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.acrobatics.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.acrobatics.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.acrobatics.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.acrobatics.bonuses.check_penalty || true
+          }
+        },
+        appraise: {
+          ranks: tempCharacterObject.skills.all.appraise.ranks || "",
+          misc: tempCharacterObject.skills.all.appraise.misc || "",
+          racial: tempCharacterObject.skills.all.appraise.racial || "",
+          feat: tempCharacterObject.skills.all.appraise.feat || "",
+          trait: tempCharacterObject.skills.all.appraise.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.appraise.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.appraise.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.appraise.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.appraise.bonuses.int_bonus || true,
+            wis: tempCharacterObject.skills.all.appraise.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.appraise.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.appraise.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.appraise.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.appraise.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.appraise.bonuses.check_penalty || false
+          }
+        },
+        bluff: {
+          ranks: tempCharacterObject.skills.all.bluff.ranks || "",
+          misc: tempCharacterObject.skills.all.bluff.misc || "",
+          racial: tempCharacterObject.skills.all.bluff.racial || "",
+          feat: tempCharacterObject.skills.all.bluff.feat || "",
+          trait: tempCharacterObject.skills.all.bluff.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.bluff.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.bluff.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.bluff.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.bluff.bonuses.int_bonus || false,
+            wis: tempCharacterObject.skills.all.bluff.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.bluff.bonuses.cha_bonus || true,
+            class_skill: tempCharacterObject.skills.all.bluff.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.bluff.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.bluff.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.bluff.bonuses.check_penalty || false
+          }
+        },
+        climb: {
+          ranks: tempCharacterObject.skills.all.climb.ranks || "",
+          misc: tempCharacterObject.skills.all.climb.misc || "",
+          racial: tempCharacterObject.skills.all.climb.racial || "",
+          feat: tempCharacterObject.skills.all.climb.feat || "",
+          trait: tempCharacterObject.skills.all.climb.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.climb.bonuses.str_bonus || true,
+            dex: tempCharacterObject.skills.all.climb.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.climb.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.climb.bonuses.int_bonus || false,
+            wis: tempCharacterObject.skills.all.climb.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.climb.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.climb.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.climb.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.climb.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.climb.bonuses.check_penalty || true
+          }
+        },
+        craft_1: {
+          variant_name: tempCharacterObject.skills.all.craft_1.variant_name || "",
+          ranks: tempCharacterObject.skills.all.craft_1.ranks || "",
+          misc: tempCharacterObject.skills.all.craft_1.misc || "",
+          racial: tempCharacterObject.skills.all.craft_1.racial || "",
+          feat: tempCharacterObject.skills.all.craft_1.feat || "",
+          trait: tempCharacterObject.skills.all.craft_1.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.craft_1.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.craft_1.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.craft_1.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.craft_1.bonuses.int_bonus || true,
+            wis: tempCharacterObject.skills.all.craft_1.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.craft_1.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.craft_1.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.craft_1.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.craft_1.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.craft_1.bonuses.check_penalty || false
+          }
+        },
+        craft_2: {
+          variant_name: tempCharacterObject.skills.all.craft_2.variant_name || "",
+          ranks: tempCharacterObject.skills.all.craft_2.ranks || "",
+          misc: tempCharacterObject.skills.all.craft_2.misc || "",
+          racial: tempCharacterObject.skills.all.craft_2.racial || "",
+          feat: tempCharacterObject.skills.all.craft_2.feat || "",
+          trait: tempCharacterObject.skills.all.craft_2.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.craft_2.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.craft_2.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.craft_2.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.craft_2.bonuses.int_bonus || true,
+            wis: tempCharacterObject.skills.all.craft_2.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.craft_2.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.craft_2.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.craft_2.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.craft_2.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.craft_2.bonuses.check_penalty || false
+          }
+        },
+        diplomacy: {
+          ranks: tempCharacterObject.skills.all.diplomacy.ranks || "",
+          misc: tempCharacterObject.skills.all.diplomacy.misc || "",
+          racial: tempCharacterObject.skills.all.diplomacy.racial || "",
+          feat: tempCharacterObject.skills.all.diplomacy.feat || "",
+          trait: tempCharacterObject.skills.all.diplomacy.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.diplomacy.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.diplomacy.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.diplomacy.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.diplomacy.bonuses.int_bonus || false,
+            wis: tempCharacterObject.skills.all.diplomacy.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.diplomacy.bonuses.cha_bonus || true,
+            class_skill: tempCharacterObject.skills.all.diplomacy.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.diplomacy.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.diplomacy.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.diplomacy.bonuses.check_penalty || false
+          }
+        },
+        disable_device: {
+          ranks: tempCharacterObject.skills.all.disable_device.ranks || "",
+          misc: tempCharacterObject.skills.all.disable_device.misc || "",
+          racial: tempCharacterObject.skills.all.disable_device.racial || "",
+          feat: tempCharacterObject.skills.all.disable_device.feat || "",
+          trait: tempCharacterObject.skills.all.disable_device.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.disable_device.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.disable_device.bonuses.dex_bonus || true,
+            con: tempCharacterObject.skills.all.disable_device.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.disable_device.bonuses.int_bonus || false,
+            wis: tempCharacterObject.skills.all.disable_device.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.disable_device.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.disable_device.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.disable_device.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.disable_device.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.disable_device.bonuses.check_penalty || true
+          }
+        },
+        disguise: {
+          ranks: tempCharacterObject.skills.all.disguise.ranks || "",
+          misc: tempCharacterObject.skills.all.disguise.misc || "",
+          racial: tempCharacterObject.skills.all.disguise.racial || "",
+          feat: tempCharacterObject.skills.all.disguise.feat || "",
+          trait: tempCharacterObject.skills.all.disguise.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.disguise.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.disguise.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.disguise.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.disguise.bonuses.int_bonus || false,
+            wis: tempCharacterObject.skills.all.disguise.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.disguise.bonuses.cha_bonus || true,
+            class_skill: tempCharacterObject.skills.all.disguise.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.disguise.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.disguise.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.disguise.bonuses.check_penalty || false
+          }
+        },
+        escape_artist: {
+          ranks: tempCharacterObject.skills.all.escape_artist.ranks || "",
+          misc: tempCharacterObject.skills.all.escape_artist.misc || "",
+          racial: tempCharacterObject.skills.all.escape_artist.racial || "",
+          feat: tempCharacterObject.skills.all.escape_artist.feat || "",
+          trait: tempCharacterObject.skills.all.escape_artist.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.escape_artist.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.escape_artist.bonuses.dex_bonus || true,
+            con: tempCharacterObject.skills.all.escape_artist.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.escape_artist.bonuses.int_bonus || false,
+            wis: tempCharacterObject.skills.all.escape_artist.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.escape_artist.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.escape_artist.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.escape_artist.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.escape_artist.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.escape_artist.bonuses.check_penalty || true
+          }
+        },
+        fly: {
+          ranks: tempCharacterObject.skills.all.fly.ranks || "",
+          misc: tempCharacterObject.skills.all.fly.misc || "",
+          racial: tempCharacterObject.skills.all.fly.racial || "",
+          feat: tempCharacterObject.skills.all.fly.feat || "",
+          trait: tempCharacterObject.skills.all.fly.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.fly.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.fly.bonuses.dex_bonus || true,
+            con: tempCharacterObject.skills.all.fly.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.fly.bonuses.int_bonus || false,
+            wis: tempCharacterObject.skills.all.fly.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.fly.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.fly.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.fly.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.fly.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.fly.bonuses.check_penalty || true,
+            size_fly: tempCharacterObject.skills.all.fly.bonuses.size_modifier_fly || true
+          }
+        },
+        handle_animal: {
+          ranks: tempCharacterObject.skills.all.handle_animal.ranks || "",
+          misc: tempCharacterObject.skills.all.handle_animal.misc || "",
+          racial: tempCharacterObject.skills.all.handle_animal.racial || "",
+          feat: tempCharacterObject.skills.all.handle_animal.feat || "",
+          trait: tempCharacterObject.skills.all.handle_animal.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.handle_animal.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.handle_animal.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.handle_animal.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.handle_animal.bonuses.int_bonus || false,
+            wis: tempCharacterObject.skills.all.handle_animal.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.handle_animal.bonuses.cha_bonus || true,
+            class_skill: tempCharacterObject.skills.all.handle_animal.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.handle_animal.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.handle_animal.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.handle_animal.bonuses.check_penalty || false
+          }
+        },
+        heal: {
+          ranks: tempCharacterObject.skills.all.heal.ranks || "",
+          misc: tempCharacterObject.skills.all.heal.misc || "",
+          racial: tempCharacterObject.skills.all.heal.racial || "",
+          feat: tempCharacterObject.skills.all.heal.feat || "",
+          trait: tempCharacterObject.skills.all.heal.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.heal.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.heal.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.heal.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.heal.bonuses.int_bonus || false,
+            wis: tempCharacterObject.skills.all.heal.bonuses.wis_bonus || true,
+            cha: tempCharacterObject.skills.all.heal.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.heal.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.heal.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.heal.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.heal.bonuses.check_penalty || false
+          }
+        },
+        intimidate: {
+          ranks: tempCharacterObject.skills.all.intimidate.ranks || "",
+          misc: tempCharacterObject.skills.all.intimidate.misc || "",
+          racial: tempCharacterObject.skills.all.intimidate.racial || "",
+          feat: tempCharacterObject.skills.all.intimidate.feat || "",
+          trait: tempCharacterObject.skills.all.intimidate.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.intimidate.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.intimidate.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.intimidate.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.intimidate.bonuses.int_bonus || false,
+            wis: tempCharacterObject.skills.all.intimidate.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.intimidate.bonuses.cha_bonus || true,
+            class_skill: tempCharacterObject.skills.all.intimidate.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.intimidate.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.intimidate.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.intimidate.bonuses.check_penalty || false
+          }
+        },
+        knowledge_arcana: {
+          ranks: tempCharacterObject.skills.all.knowledge_arcana.ranks || "",
+          misc: tempCharacterObject.skills.all.knowledge_arcana.misc || "",
+          racial: tempCharacterObject.skills.all.knowledge_arcana.racial || "",
+          feat: tempCharacterObject.skills.all.knowledge_arcana.feat || "",
+          trait: tempCharacterObject.skills.all.knowledge_arcana.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.knowledge_arcana.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.knowledge_arcana.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.knowledge_arcana.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.knowledge_arcana.bonuses.int_bonus || true,
+            wis: tempCharacterObject.skills.all.knowledge_arcana.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.knowledge_arcana.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.knowledge_arcana.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.knowledge_arcana.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.knowledge_arcana.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.knowledge_arcana.bonuses.check_penalty || false
+          }
+        },
+        knowledge_dungeoneering: {
+          ranks: tempCharacterObject.skills.all.knowledge_dungeoneering.ranks || "",
+          misc: tempCharacterObject.skills.all.knowledge_dungeoneering.misc || "",
+          racial: tempCharacterObject.skills.all.knowledge_dungeoneering.racial || "",
+          feat: tempCharacterObject.skills.all.knowledge_dungeoneering.feat || "",
+          trait: tempCharacterObject.skills.all.knowledge_dungeoneering.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.knowledge_dungeoneering.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.knowledge_dungeoneering.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.knowledge_dungeoneering.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.knowledge_dungeoneering.bonuses.int_bonus || true,
+            wis: tempCharacterObject.skills.all.knowledge_dungeoneering.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.knowledge_dungeoneering.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.knowledge_dungeoneering.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.knowledge_dungeoneering.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.knowledge_dungeoneering.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.knowledge_dungeoneering.bonuses.check_penalty || false
+          }
+        },
+        knowledge_engineering: {
+          ranks: tempCharacterObject.skills.all.knowledge_engineering.ranks || "",
+          misc: tempCharacterObject.skills.all.knowledge_engineering.misc || "",
+          racial: tempCharacterObject.skills.all.knowledge_engineering.racial || "",
+          feat: tempCharacterObject.skills.all.knowledge_engineering.feat || "",
+          trait: tempCharacterObject.skills.all.knowledge_engineering.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.knowledge_engineering.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.knowledge_engineering.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.knowledge_engineering.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.knowledge_engineering.bonuses.int_bonus || true,
+            wis: tempCharacterObject.skills.all.knowledge_engineering.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.knowledge_engineering.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.knowledge_engineering.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.knowledge_engineering.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.knowledge_engineering.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.knowledge_engineering.bonuses.check_penalty || false
+          }
+        },
+        knowledge_geography: {
+          ranks: tempCharacterObject.skills.all.knowledge_geography.ranks || "",
+          misc: tempCharacterObject.skills.all.knowledge_geography.misc || "",
+          racial: tempCharacterObject.skills.all.knowledge_geography.racial || "",
+          feat: tempCharacterObject.skills.all.knowledge_geography.feat || "",
+          trait: tempCharacterObject.skills.all.knowledge_geography.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.knowledge_geography.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.knowledge_geography.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.knowledge_geography.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.knowledge_geography.bonuses.int_bonus || true,
+            wis: tempCharacterObject.skills.all.knowledge_geography.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.knowledge_geography.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.knowledge_geography.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.knowledge_geography.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.knowledge_geography.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.knowledge_geography.bonuses.check_penalty || false
+          }
+        },
+        knowledge_history: {
+          ranks: tempCharacterObject.skills.all.knowledge_history.ranks || "",
+          misc: tempCharacterObject.skills.all.knowledge_history.misc || "",
+          racial: tempCharacterObject.skills.all.knowledge_history.racial || "",
+          feat: tempCharacterObject.skills.all.knowledge_history.feat || "",
+          trait: tempCharacterObject.skills.all.knowledge_history.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.knowledge_history.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.knowledge_history.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.knowledge_history.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.knowledge_history.bonuses.int_bonus || true,
+            wis: tempCharacterObject.skills.all.knowledge_history.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.knowledge_history.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.knowledge_history.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.knowledge_history.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.knowledge_history.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.knowledge_history.bonuses.check_penalty || false
+          }
+        },
+        knowledge_local: {
+          ranks: tempCharacterObject.skills.all.knowledge_local.ranks || "",
+          misc: tempCharacterObject.skills.all.knowledge_local.misc || "",
+          racial: tempCharacterObject.skills.all.knowledge_local.racial || "",
+          feat: tempCharacterObject.skills.all.knowledge_local.feat || "",
+          trait: tempCharacterObject.skills.all.knowledge_local.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.knowledge_local.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.knowledge_local.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.knowledge_local.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.knowledge_local.bonuses.int_bonus || true,
+            wis: tempCharacterObject.skills.all.knowledge_local.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.knowledge_local.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.knowledge_local.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.knowledge_local.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.knowledge_local.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.knowledge_local.bonuses.check_penalty || false
+          }
+        },
+        knowledge_nature: {
+          ranks: tempCharacterObject.skills.all.knowledge_nature.ranks || "",
+          misc: tempCharacterObject.skills.all.knowledge_nature.misc || "",
+          racial: tempCharacterObject.skills.all.knowledge_nature.racial || "",
+          feat: tempCharacterObject.skills.all.knowledge_nature.feat || "",
+          trait: tempCharacterObject.skills.all.knowledge_nature.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.knowledge_nature.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.knowledge_nature.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.knowledge_nature.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.knowledge_nature.bonuses.int_bonus || true,
+            wis: tempCharacterObject.skills.all.knowledge_nature.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.knowledge_nature.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.knowledge_nature.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.knowledge_nature.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.knowledge_nature.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.knowledge_nature.bonuses.check_penalty || false
+          }
+        },
+        knowledge_nobility: {
+          ranks: tempCharacterObject.skills.all.knowledge_nobility.ranks || "",
+          misc: tempCharacterObject.skills.all.knowledge_nobility.misc || "",
+          racial: tempCharacterObject.skills.all.knowledge_nobility.racial || "",
+          feat: tempCharacterObject.skills.all.knowledge_nobility.feat || "",
+          trait: tempCharacterObject.skills.all.knowledge_nobility.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.knowledge_nobility.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.knowledge_nobility.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.knowledge_nobility.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.knowledge_nobility.bonuses.int_bonus || true,
+            wis: tempCharacterObject.skills.all.knowledge_nobility.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.knowledge_nobility.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.knowledge_nobility.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.knowledge_nobility.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.knowledge_nobility.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.knowledge_nobility.bonuses.check_penalty || false
+          }
+        },
+        knowledge_planes: {
+          ranks: tempCharacterObject.skills.all.knowledge_planes.ranks || "",
+          misc: tempCharacterObject.skills.all.knowledge_planes.misc || "",
+          racial: tempCharacterObject.skills.all.knowledge_planes.racial || "",
+          feat: tempCharacterObject.skills.all.knowledge_planes.feat || "",
+          trait: tempCharacterObject.skills.all.knowledge_planes.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.knowledge_planes.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.knowledge_planes.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.knowledge_planes.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.knowledge_planes.bonuses.int_bonus || true,
+            wis: tempCharacterObject.skills.all.knowledge_planes.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.knowledge_planes.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.knowledge_planes.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.knowledge_planes.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.knowledge_planes.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.knowledge_planes.bonuses.check_penalty || false
+          }
+        },
+        knowledge_religion: {
+          ranks: tempCharacterObject.skills.all.knowledge_religion.ranks || "",
+          misc: tempCharacterObject.skills.all.knowledge_religion.misc || "",
+          racial: tempCharacterObject.skills.all.knowledge_religion.racial || "",
+          feat: tempCharacterObject.skills.all.knowledge_religion.feat || "",
+          trait: tempCharacterObject.skills.all.knowledge_religion.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.knowledge_religion.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.knowledge_religion.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.knowledge_religion.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.knowledge_religion.bonuses.int_bonus || true,
+            wis: tempCharacterObject.skills.all.knowledge_religion.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.knowledge_religion.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.knowledge_religion.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.knowledge_religion.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.knowledge_religion.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.knowledge_religion.bonuses.check_penalty || false
+          }
+        },
+        linguistics: {
+          ranks: tempCharacterObject.skills.all.linguistics.ranks || "",
+          misc: tempCharacterObject.skills.all.linguistics.misc || "",
+          racial: tempCharacterObject.skills.all.linguistics.racial || "",
+          feat: tempCharacterObject.skills.all.linguistics.feat || "",
+          trait: tempCharacterObject.skills.all.linguistics.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.linguistics.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.linguistics.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.linguistics.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.linguistics.bonuses.int_bonus || true,
+            wis: tempCharacterObject.skills.all.linguistics.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.linguistics.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.linguistics.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.linguistics.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.linguistics.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.linguistics.bonuses.check_penalty || false
+          }
+        },
+        perception: {
+          ranks: tempCharacterObject.skills.all.perception.ranks || "",
+          misc: tempCharacterObject.skills.all.perception.misc || "",
+          racial: tempCharacterObject.skills.all.perception.racial || "",
+          feat: tempCharacterObject.skills.all.perception.feat || "",
+          trait: tempCharacterObject.skills.all.perception.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.perception.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.perception.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.perception.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.perception.bonuses.int_bonus || false,
+            wis: tempCharacterObject.skills.all.perception.bonuses.wis_bonus || true,
+            cha: tempCharacterObject.skills.all.perception.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.perception.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.perception.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.perception.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.perception.bonuses.check_penalty || false
+          }
+        },
+        perform_1: {
+          variant_name: tempCharacterObject.skills.all.perform_1.variant_name || "",
+          ranks: tempCharacterObject.skills.all.perform_1.ranks || "",
+          misc: tempCharacterObject.skills.all.perform_1.misc || "",
+          racial: tempCharacterObject.skills.all.perform_1.racial || "",
+          feat: tempCharacterObject.skills.all.perform_1.feat || "",
+          trait: tempCharacterObject.skills.all.perform_1.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.perform_1.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.perform_1.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.perform_1.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.perform_1.bonuses.int_bonus || false,
+            wis: tempCharacterObject.skills.all.perform_1.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.perform_1.bonuses.cha_bonus || true,
+            class_skill: tempCharacterObject.skills.all.perform_1.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.perform_1.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.perform_1.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.perform_1.bonuses.check_penalty || false
+          }
+        },
+        perform_2: {
+          variant_name: tempCharacterObject.skills.all.perform_2.variant_name || "",
+          ranks: tempCharacterObject.skills.all.perform_2.ranks || "",
+          misc: tempCharacterObject.skills.all.perform_2.misc || "",
+          racial: tempCharacterObject.skills.all.perform_2.racial || "",
+          feat: tempCharacterObject.skills.all.perform_2.feat || "",
+          trait: tempCharacterObject.skills.all.perform_2.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.perform_2.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.perform_2.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.perform_2.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.perform_2.bonuses.int_bonus || false,
+            wis: tempCharacterObject.skills.all.perform_2.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.perform_2.bonuses.cha_bonus || true,
+            class_skill: tempCharacterObject.skills.all.perform_2.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.perform_2.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.perform_2.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.perform_2.bonuses.check_penalty || false
+          }
+        },
+        profession_1: {
+          variant_name: tempCharacterObject.skills.all.profession_1.variant_name || "",
+          ranks: tempCharacterObject.skills.all.profession_1.ranks || "",
+          misc: tempCharacterObject.skills.all.profession_1.misc || "",
+          racial: tempCharacterObject.skills.all.profession_1.racial || "",
+          feat: tempCharacterObject.skills.all.profession_1.feat || "",
+          trait: tempCharacterObject.skills.all.profession_1.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.profession_1.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.profession_1.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.profession_1.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.profession_1.bonuses.int_bonus || false,
+            wis: tempCharacterObject.skills.all.profession_1.bonuses.wis_bonus || true,
+            cha: tempCharacterObject.skills.all.profession_1.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.profession_1.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.profession_1.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.profession_1.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.profession_1.bonuses.check_penalty || false
+          }
+        },
+        profession_2: {
+          variant_name: tempCharacterObject.skills.all.profession_2.variant_name || "",
+          ranks: tempCharacterObject.skills.all.profession_2.ranks || "",
+          misc: tempCharacterObject.skills.all.profession_2.misc || "",
+          racial: tempCharacterObject.skills.all.profession_2.racial || "",
+          feat: tempCharacterObject.skills.all.profession_2.feat || "",
+          trait: tempCharacterObject.skills.all.profession_2.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.profession_2.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.profession_2.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.profession_2.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.profession_2.bonuses.int_bonus || false,
+            wis: tempCharacterObject.skills.all.profession_2.bonuses.wis_bonus || true,
+            cha: tempCharacterObject.skills.all.profession_2.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.profession_2.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.profession_2.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.profession_2.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.profession_2.bonuses.check_penalty || false
+          }
+        },
+        ride: {
+          ranks: tempCharacterObject.skills.all.ride.ranks || "",
+          misc: tempCharacterObject.skills.all.ride.misc || "",
+          racial: tempCharacterObject.skills.all.ride.racial || "",
+          feat: tempCharacterObject.skills.all.ride.feat || "",
+          trait: tempCharacterObject.skills.all.ride.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.ride.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.ride.bonuses.dex_bonus || true,
+            con: tempCharacterObject.skills.all.ride.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.ride.bonuses.int_bonus || false,
+            wis: tempCharacterObject.skills.all.ride.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.ride.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.ride.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.ride.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.ride.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.ride.bonuses.check_penalty || true
+          }
+        },
+        sense_motive: {
+          ranks: tempCharacterObject.skills.all.sense_motive.ranks || "",
+          misc: tempCharacterObject.skills.all.sense_motive.misc || "",
+          racial: tempCharacterObject.skills.all.sense_motive.racial || "",
+          feat: tempCharacterObject.skills.all.sense_motive.feat || "",
+          trait: tempCharacterObject.skills.all.sense_motive.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.sense_motive.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.sense_motive.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.sense_motive.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.sense_motive.bonuses.int_bonus || false,
+            wis: tempCharacterObject.skills.all.sense_motive.bonuses.wis_bonus || true,
+            cha: tempCharacterObject.skills.all.sense_motive.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.sense_motive.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.sense_motive.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.sense_motive.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.sense_motive.bonuses.check_penalty || false
+          }
+        },
+        sleight_of_hand: {
+          ranks: tempCharacterObject.skills.all.sleight_of_hand.ranks || "",
+          misc: tempCharacterObject.skills.all.sleight_of_hand.misc || "",
+          racial: tempCharacterObject.skills.all.sleight_of_hand.racial || "",
+          feat: tempCharacterObject.skills.all.sleight_of_hand.feat || "",
+          trait: tempCharacterObject.skills.all.sleight_of_hand.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.sleight_of_hand.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.sleight_of_hand.bonuses.dex_bonus || true,
+            con: tempCharacterObject.skills.all.sleight_of_hand.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.sleight_of_hand.bonuses.int_bonus || false,
+            wis: tempCharacterObject.skills.all.sleight_of_hand.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.sleight_of_hand.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.sleight_of_hand.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.sleight_of_hand.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.sleight_of_hand.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.sleight_of_hand.bonuses.check_penalty || true
+          }
+        },
+        spellcraft: {
+          ranks: tempCharacterObject.skills.all.spellcraft.ranks || "",
+          misc: tempCharacterObject.skills.all.spellcraft.misc || "",
+          racial: tempCharacterObject.skills.all.spellcraft.racial || "",
+          feat: tempCharacterObject.skills.all.spellcraft.feat || "",
+          trait: tempCharacterObject.skills.all.spellcraft.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.spellcraft.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.spellcraft.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.spellcraft.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.spellcraft.bonuses.int_bonus || true,
+            wis: tempCharacterObject.skills.all.spellcraft.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.spellcraft.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.spellcraft.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.spellcraft.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.spellcraft.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.spellcraft.bonuses.check_penalty || false
+          }
+        },
+        stealth: {
+          ranks: tempCharacterObject.skills.all.stealth.ranks || "",
+          misc: tempCharacterObject.skills.all.stealth.misc || "",
+          racial: tempCharacterObject.skills.all.stealth.racial || "",
+          feat: tempCharacterObject.skills.all.stealth.feat || "",
+          trait: tempCharacterObject.skills.all.stealth.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.stealth.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.stealth.bonuses.dex_bonus || true,
+            con: tempCharacterObject.skills.all.stealth.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.stealth.bonuses.int_bonus || false,
+            wis: tempCharacterObject.skills.all.stealth.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.stealth.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.stealth.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.stealth.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.stealth.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.stealth.bonuses.check_penalty || true,
+            size_stealth: tempCharacterObject.skills.all.stealth.bonuses.size_stealth || true
+          }
+        },
+        survival: {
+          ranks: tempCharacterObject.skills.all.survival.ranks || "",
+          misc: tempCharacterObject.skills.all.survival.misc || "",
+          racial: tempCharacterObject.skills.all.survival.racial || "",
+          feat: tempCharacterObject.skills.all.survival.feat || "",
+          trait: tempCharacterObject.skills.all.survival.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.survival.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.survival.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.survival.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.survival.bonuses.int_bonus || false,
+            wis: tempCharacterObject.skills.all.survival.bonuses.wis_bonus || true,
+            cha: tempCharacterObject.skills.all.survival.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.survival.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.survival.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.survival.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.survival.bonuses.check_penalty || false
+          }
+        },
+        swim: {
+          ranks: tempCharacterObject.skills.all.swim.ranks || "",
+          misc: tempCharacterObject.skills.all.swim.misc || "",
+          racial: tempCharacterObject.skills.all.swim.racial || "",
+          feat: tempCharacterObject.skills.all.swim.feat || "",
+          trait: tempCharacterObject.skills.all.swim.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.swim.bonuses.str_bonus || true,
+            dex: tempCharacterObject.skills.all.swim.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.swim.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.swim.bonuses.int_bonus || false,
+            wis: tempCharacterObject.skills.all.swim.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.swim.bonuses.cha_bonus || false,
+            class_skill: tempCharacterObject.skills.all.swim.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.swim.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.swim.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.swim.bonuses.check_penalty || true
+          }
+        },
+        use_magic_device: {
+          ranks: tempCharacterObject.skills.all.use_magic_device.ranks || "",
+          misc: tempCharacterObject.skills.all.use_magic_device.misc || "",
+          racial: tempCharacterObject.skills.all.use_magic_device.racial || "",
+          feat: tempCharacterObject.skills.all.use_magic_device.feat || "",
+          trait: tempCharacterObject.skills.all.use_magic_device.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.skills.all.use_magic_device.bonuses.str_bonus || false,
+            dex: tempCharacterObject.skills.all.use_magic_device.bonuses.dex_bonus || false,
+            con: tempCharacterObject.skills.all.use_magic_device.bonuses.con_bonus || false,
+            int: tempCharacterObject.skills.all.use_magic_device.bonuses.int_bonus || false,
+            wis: tempCharacterObject.skills.all.use_magic_device.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.skills.all.use_magic_device.bonuses.cha_bonus || true,
+            class_skill: tempCharacterObject.skills.all.use_magic_device.bonuses.class_skill || false,
+            level: tempCharacterObject.skills.all.use_magic_device.bonuses.level || false,
+            half_level: tempCharacterObject.skills.all.use_magic_device.bonuses.half_level || false,
+            check_penalty: tempCharacterObject.skills.all.use_magic_device.bonuses.check_penalty || false
+          }
+        }
+      }
     };
-    console.log(tempCharacterObject.skills);
-    console.log(characterObject.skills);
   };
 
   function _update(options) {
@@ -1422,16 +2188,27 @@ var repair = (function() {
     if (options) {
       var defaultOptions = helper.applyOptions(defaultOptions, options);
     };
-    // if awesomeSheet check is a boolean
-    if (typeof defaultOptions.object.awesomeSheet == "boolean") {
-      _update_440andBelow(defaultOptions.object);
-    };
-    // version bump
-    if (defaultOptions.object.awesomeSheet.version != update.version()) {
-      _update({
-        object: defaultOptions.object,
-        bumpTo: update.version()
-      });
+    if (defaultOptions.object) {
+      if (_debug) {
+        console.log("___________ repair ___________");
+      };
+      // if awesomeSheet check is a boolean
+      if (typeof defaultOptions.object.awesomeSheet == "boolean") {
+        if (_debug) {
+          console.log("\trepair: awesomeSheet boolean found, below 5.0.0");
+        };
+        _update_440andBelow(defaultOptions.object);
+      };
+      // version bump
+      if (defaultOptions.object.awesomeSheet.version != update.version()) {
+        if (_debug) {
+          console.log("\trepair: character not latest version, updating to,", update.version());
+        };
+        _update({
+          object: defaultOptions.object,
+          bumpTo: update.version()
+        });
+      };
     };
   };
 
@@ -1446,17 +2223,11 @@ var repair = (function() {
     _debug = defaultOptions.debug;
     // check for character object
     if (defaultOptions.object) {
-      if (_debug) {
-        console.log("______ repair ______");
-      };
       _repair({
         object: defaultOptions.object
       });
       // if no object repair all characters
     } else {
-      if (_debug) {
-        console.log("______ repair ______");
-      };
       var allCharacters = sheet.getAll();
       allCharacters.forEach(function(arrayItem) {
         _repair({

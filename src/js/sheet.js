@@ -345,13 +345,14 @@ var sheet = (function() {
             object: data,
             debug: true
           }));
-          var name = helper.getObject({
-            object: get(),
-            path: basics.name
-          }) || helper.getObject({
-            object: get(),
-            path: basics.character.name
-          }) || "New character";
+          var name = get().basics.name || get().basics.character.name || "New character";
+          // var name = helper.getObject({
+          //   object: get(),
+          //   path: basics.name
+          // }) || helper.getObject({
+          //   object: get(),
+          //   path: basics.character.name
+          // }) || "New character";
           snack.render({
             message: helper.truncate(name, 40, true) + " imported and back in the game."
           });
