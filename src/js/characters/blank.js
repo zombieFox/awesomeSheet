@@ -374,28 +374,23 @@ var blank = (function() {
         notes: ""
       },
       dr: {
-        damage_reduction: {
-          feat: "",
-          trait: "",
-          misc: "",
-          temp: "",
-          current: "",
-          overcome: "",
-          bonuses: {
-            str: false,
-            dex: false,
-            con: false,
-            int: false,
-            wis: false,
-            cha: false,
-            level: false,
-            half_level: false
-          }
-        },
-        notes: ""
-      },
-      resist: {
-        notes: ""
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        overcome: "",
+        notes: "",
+        bonuses: {
+          str: false,
+          dex: false,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
+          level: false,
+          half_level: false
+        }
       },
       sr: {
         spell_resistance: {
@@ -404,6 +399,7 @@ var blank = (function() {
           misc: "",
           temp: "",
           current: "",
+          notes: "",
           bonuses: {
             str: false,
             dex: false,
@@ -415,7 +411,24 @@ var blank = (function() {
             half_level: false
           }
         },
-        notes: ""
+      },
+      resistance: {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        notes: "",
+        bonuses: {
+          str: false,
+          dex: false,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
+          level: false,
+          half_level: false
+        }
       }
     },
     offense: {
@@ -463,18 +476,18 @@ var blank = (function() {
         current: "",
         notes: "",
         bonuses: {
-            str: true,
-            dex: true,
-            con: false,
-            int: false,
-            wis: false,
-            cha: false,
-            bab: true,
-            special_size: true,
-            level: false,
-            half_level: false,
-            plus_ten: true
-          }
+          str: true,
+          dex: true,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
+          bab: true,
+          special_size: true,
+          level: false,
+          half_level: false,
+          plus_ten: true
+        }
       },
       attack: {
         melee: [],
