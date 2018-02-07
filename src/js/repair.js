@@ -1070,12 +1070,13 @@ var repair = (function() {
           dodge: tempCharacterObject.defense.ac.dodge || "",
           natural: tempCharacterObject.defense.ac.natural || ""
         },
-        notes: tempCharacterObject.defense.ac.notes || ""
+        notes: tempCharacterObject.defense.ac_notes || ""
       },
       cmd: {
         misc: tempCharacterObject.offense.cmd.misc || "",
         temp: tempCharacterObject.offense.cmd.temp || "",
         current: "",
+        notes: "",
         bonuses: {
           str: tempCharacterObject.offense.cmd.bonuses.str_bonus || true,
           dex: tempCharacterObject.offense.cmd.bonuses.dex_bonus || true,
@@ -1148,15 +1149,15 @@ var repair = (function() {
             half_level: tempCharacterObject.defense.will.bonuses.half_level || false
           }
         },
-        notes: ""
+        notes: tempCharacterObject.defense.save_notes || ""
       },
       dr: {
         feat: tempCharacterObject.defense.dr.feat || "",
         trait: tempCharacterObject.defense.dr.trait || "",
         misc: tempCharacterObject.defense.dr.misc || "",
         temp: tempCharacterObject.defense.dr.temp || "",
-        current: tempCharacterObject.defense.dr.current || "",
         overcome: tempCharacterObject.defense.dr.overcome || "",
+        current: "",
         notes: "",
         bonuses: {
           str: tempCharacterObject.defense.dr.bonuses.str_bonus || false,
@@ -1174,7 +1175,7 @@ var repair = (function() {
         trait: tempCharacterObject.defense.sr.trait || "",
         misc: tempCharacterObject.defense.sr.misc || "",
         temp: tempCharacterObject.defense.sr.temp || "",
-        current: tempCharacterObject.defense.sr.current || "",
+        current: "",
         notes: "",
         bonuses: {
           str: tempCharacterObject.defense.sr.bonuses.str_bonus || false,
@@ -1250,6 +1251,7 @@ var repair = (function() {
         misc: tempCharacterObject.offense.cmb.misc || "",
         temp: tempCharacterObject.offense.cmb.temp || "",
         current: "",
+        notes: "",
         bonuses: {
           str: tempCharacterObject.offense.cmb.bonuses.str_bonus || true,
           dex: tempCharacterObject.offense.cmb.bonuses.dex_bonus || false,
@@ -1264,7 +1266,7 @@ var repair = (function() {
         }
       },
       attack: {
-        notes: tempCharacterObject.offense.attack.notes || "",
+        notes: tempCharacterObject.offense.attack_notes || "",
         melee: {
           all: tempCharacterObject.offense.attack.melee || []
         },
@@ -2054,26 +2056,24 @@ var repair = (function() {
         }
       }
     };
-    // if (characterObject.skills.custom.all.length > 0) {
-    //   for (var i = 0; i < characterObject.skills.custom.all.length; i++) {
-    //     characterObject.skills.custom.all[i].bonuses = {};
-    //     // console.log(characterObject.skills.custom.all[i].bonuses);
-    //     // characterObject.skills.custom.all[i].bonuses = {
-    //     //   str: tempCharacterObject.skills.custom.all[i].bonuses.str_bonus || false,
-    //     //   dex: tempCharacterObject.skills.custom.all[i].bonuses.dex_bonus || false,
-    //     //   con: tempCharacterObject.skills.custom.all[i].bonuses.con_bonus || false,
-    //     //   int: tempCharacterObject.skills.custom.all[i].bonuses.int_bonus || false,
-    //     //   wis: tempCharacterObject.skills.custom.all[i].bonuses.wis_bonus || false,
-    //     //   cha: tempCharacterObject.skills.custom.all[i].bonuses.cha_bonus || false,
-    //     //   class_skill: tempCharacterObject.skills.custom.all[i].bonuses.class_skill || false,
-    //     //   level: tempCharacterObject.skills.custom.all[i].bonuses.level || false,
-    //     //   half_level: tempCharacterObject.skills.custom.all[i].bonuses.half_level || false,
-    //     //   check_penalty: tempCharacterObject.skills.custom.all[i].bonuses.check_penalty || false,
-    //     //   size_stealth: tempCharacterObject.skills.custom.all[i].bonuses.size_modifier_stealth || false,
-    //     //   size_fly: tempCharacterObject.skills.custom.all[i].bonuses.size_modifier_fly || false
-    //     // };
-    //   };
-    // };
+    if (characterObject.skills.custom.all.length > 0) {
+      for (var i = 0; i < characterObject.skills.custom.all.length; i++) {
+        characterObject.skills.custom.all[i].bonuses = {
+          str: tempCharacterObject.skills.custom[i].bonuses.str_bonus || false,
+          dex: tempCharacterObject.skills.custom[i].bonuses.dex_bonus || false,
+          con: tempCharacterObject.skills.custom[i].bonuses.con_bonus || false,
+          int: tempCharacterObject.skills.custom[i].bonuses.int_bonus || false,
+          wis: tempCharacterObject.skills.custom[i].bonuses.wis_bonus || false,
+          cha: tempCharacterObject.skills.custom[i].bonuses.cha_bonus || false,
+          class_skill: tempCharacterObject.skills.custom[i].bonuses.class_skill || false,
+          level: tempCharacterObject.skills.custom[i].bonuses.level || false,
+          half_level: tempCharacterObject.skills.custom[i].bonuses.half_level || false,
+          check_penalty: tempCharacterObject.skills.custom[i].bonuses.check_penalty || false,
+          size_stealth: tempCharacterObject.skills.custom[i].bonuses.size_modifier_stealth || false,
+          size_fly: tempCharacterObject.skills.custom[i].bonuses.size_modifier_fly || false
+        };
+      };
+    };
     // spells
     characterObject.spells = {
       stats: {
@@ -2117,7 +2117,7 @@ var repair = (function() {
         opposition: tempCharacterObject.spells.opposition || "",
         domains: tempCharacterObject.spells.domains || "",
         bloodline: tempCharacterObject.spells.bloodline || "",
-        notes: tempCharacterObject.spells.notes || ""
+        notes: tempCharacterObject.spells.spell_notes || ""
       },
       book: {
         level_0: {
@@ -2130,7 +2130,7 @@ var repair = (function() {
             temp: tempCharacterObject.spells.dc.level_0.temp || "",
             feat: tempCharacterObject.spells.dc.level_0.feat || "",
             trait: tempCharacterObject.spells.dc.level_0.trait || "",
-            current: tempCharacterObject.spells.dc.level_0.current || "",
+            current: "",
             bonuses: {
               str: tempCharacterObject.spells.dc.level_0.bonuses.str_bonus || false,
               dex: tempCharacterObject.spells.dc.level_0.bonuses.dex_bonus || false,
@@ -2156,7 +2156,7 @@ var repair = (function() {
             temp: tempCharacterObject.spells.dc.level_1.temp || "",
             feat: tempCharacterObject.spells.dc.level_1.feat || "",
             trait: tempCharacterObject.spells.dc.level_1.trait || "",
-            current: tempCharacterObject.spells.dc.level_1.current || "",
+            current: "",
             bonuses: {
               str: tempCharacterObject.spells.dc.level_1.bonuses.str_bonus || false,
               dex: tempCharacterObject.spells.dc.level_1.bonuses.dex_bonus || false,
@@ -2182,7 +2182,7 @@ var repair = (function() {
             temp: tempCharacterObject.spells.dc.level_2.temp || "",
             feat: tempCharacterObject.spells.dc.level_2.feat || "",
             trait: tempCharacterObject.spells.dc.level_2.trait || "",
-            current: tempCharacterObject.spells.dc.level_2.current || "",
+            current: "",
             bonuses: {
               str: tempCharacterObject.spells.dc.level_2.bonuses.str_bonus || false,
               dex: tempCharacterObject.spells.dc.level_2.bonuses.dex_bonus || false,
@@ -2208,7 +2208,7 @@ var repair = (function() {
             temp: tempCharacterObject.spells.dc.level_3.temp || "",
             feat: tempCharacterObject.spells.dc.level_3.feat || "",
             trait: tempCharacterObject.spells.dc.level_3.trait || "",
-            current: tempCharacterObject.spells.dc.level_3.current || "",
+            current: "",
             bonuses: {
               str: tempCharacterObject.spells.dc.level_3.bonuses.str_bonus || false,
               dex: tempCharacterObject.spells.dc.level_3.bonuses.dex_bonus || false,
@@ -2234,7 +2234,7 @@ var repair = (function() {
             temp: tempCharacterObject.spells.dc.level_4.temp || "",
             feat: tempCharacterObject.spells.dc.level_4.feat || "",
             trait: tempCharacterObject.spells.dc.level_4.trait || "",
-            current: tempCharacterObject.spells.dc.level_4.current || "",
+            current: "",
             bonuses: {
               str: tempCharacterObject.spells.dc.level_4.bonuses.str_bonus || false,
               dex: tempCharacterObject.spells.dc.level_4.bonuses.dex_bonus || false,
@@ -2260,7 +2260,7 @@ var repair = (function() {
             temp: tempCharacterObject.spells.dc.level_5.temp || "",
             feat: tempCharacterObject.spells.dc.level_5.feat || "",
             trait: tempCharacterObject.spells.dc.level_5.trait || "",
-            current: tempCharacterObject.spells.dc.level_5.current || "",
+            current: "",
             bonuses: {
               str: tempCharacterObject.spells.dc.level_5.bonuses.str_bonus || false,
               dex: tempCharacterObject.spells.dc.level_5.bonuses.dex_bonus || false,
@@ -2286,7 +2286,7 @@ var repair = (function() {
             temp: tempCharacterObject.spells.dc.level_6.temp || "",
             feat: tempCharacterObject.spells.dc.level_6.feat || "",
             trait: tempCharacterObject.spells.dc.level_6.trait || "",
-            current: tempCharacterObject.spells.dc.level_6.current || "",
+            current: "",
             bonuses: {
               str: tempCharacterObject.spells.dc.level_6.bonuses.str_bonus || false,
               dex: tempCharacterObject.spells.dc.level_6.bonuses.dex_bonus || false,
@@ -2312,7 +2312,7 @@ var repair = (function() {
             temp: tempCharacterObject.spells.dc.level_7.temp || "",
             feat: tempCharacterObject.spells.dc.level_7.feat || "",
             trait: tempCharacterObject.spells.dc.level_7.trait || "",
-            current: tempCharacterObject.spells.dc.level_7.current || "",
+            current: "",
             bonuses: {
               str: tempCharacterObject.spells.dc.level_7.bonuses.str_bonus || false,
               dex: tempCharacterObject.spells.dc.level_7.bonuses.dex_bonus || false,
@@ -2338,7 +2338,7 @@ var repair = (function() {
             temp: tempCharacterObject.spells.dc.level_8.temp || "",
             feat: tempCharacterObject.spells.dc.level_8.feat || "",
             trait: tempCharacterObject.spells.dc.level_8.trait || "",
-            current: tempCharacterObject.spells.dc.level_8.current || "",
+            current: "",
             bonuses: {
               str: tempCharacterObject.spells.dc.level_8.bonuses.str_bonus || false,
               dex: tempCharacterObject.spells.dc.level_8.bonuses.dex_bonus || false,
@@ -2364,7 +2364,7 @@ var repair = (function() {
             temp: tempCharacterObject.spells.dc.level_9.temp || "",
             feat: tempCharacterObject.spells.dc.level_9.feat || "",
             trait: tempCharacterObject.spells.dc.level_9.trait || "",
-            current: tempCharacterObject.spells.dc.level_9.current || "",
+            current: "",
             bonuses: {
               str: tempCharacterObject.spells.dc.level_9.bonuses.str_bonus || false,
               dex: tempCharacterObject.spells.dc.level_9.bonuses.dex_bonus || false,
