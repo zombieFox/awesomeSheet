@@ -2159,6 +2159,325 @@ var repair = (function() {
         }
       }
     };
+    // spells
+    characterObject.spells = {
+      stats: {
+        concentration: {
+          misc: tempCharacterObject.spells.concentration.misc || "",
+          temp: tempCharacterObject.spells.concentration.temp || "",
+          racial: tempCharacterObject.spells.concentration.racial || "",
+          feat: tempCharacterObject.spells.concentration.feat || "",
+          trait: tempCharacterObject.spells.concentration.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.spells.concentration.bonuses.str_bonus || false,
+            dex: tempCharacterObject.spells.concentration.bonuses.dex_bonus || false,
+            con: tempCharacterObject.spells.concentration.bonuses.con_bonus || false,
+            int: tempCharacterObject.spells.concentration.bonuses.int_bonus || false,
+            wis: tempCharacterObject.spells.concentration.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.spells.concentration.bonuses.cha_bonus || false,
+            level: tempCharacterObject.spells.concentration.bonuses.level || false,
+            half_level: tempCharacterObject.spells.concentration.bonuses.half_level || false
+          }
+        },
+        caster_level_check: {
+          misc: tempCharacterObject.spells.caster_level_check.misc || "",
+          temp: tempCharacterObject.spells.caster_level_check.temp || "",
+          racial: tempCharacterObject.spells.caster_level_check.racial || "",
+          feat: tempCharacterObject.spells.caster_level_check.feat || "",
+          trait: tempCharacterObject.spells.caster_level_check.trait || "",
+          current: "",
+          bonuses: {
+            str: tempCharacterObject.spells.caster_level_check.bonuses.str_bonus || false,
+            dex: tempCharacterObject.spells.caster_level_check.bonuses.dex_bonus || false,
+            con: tempCharacterObject.spells.caster_level_check.bonuses.con_bonus || false,
+            int: tempCharacterObject.spells.caster_level_check.bonuses.int_bonus || false,
+            wis: tempCharacterObject.spells.caster_level_check.bonuses.wis_bonus || false,
+            cha: tempCharacterObject.spells.caster_level_check.bonuses.cha_bonus || false,
+            level: tempCharacterObject.spells.caster_level_check.bonuses.level || false,
+            half_level: tempCharacterObject.spells.caster_level_check.bonuses.half_level || false
+          }
+        },
+        school: tempCharacterObject.spells.school || "",
+        opposition: tempCharacterObject.spells.opposition || "",
+        domains: tempCharacterObject.spells.domains || "",
+        bloodline: tempCharacterObject.spells.bloodline || "",
+        notes: tempCharacterObject.spells.notes || ""
+      },
+      book: {
+
+        level_0: {
+          per_day: tempCharacterObject.spells.per_day.level_0 || "",
+          known: tempCharacterObject.spells.known.level_0 || "",
+          bonus: tempCharacterObject.spells.bonus.level_0 || "",
+          dc: {
+            spell_level: 0,
+            misc: tempCharacterObject.spells.dc.level_0.misc || "",
+            temp: tempCharacterObject.spells.dc.level_0.temp || "",
+            feat: tempCharacterObject.spells.dc.level_0.feat || "",
+            trait: tempCharacterObject.spells.dc.level_0.trait || "",
+            current: tempCharacterObject.spells.dc.level_0.current || "",
+            bonuses: {
+              str: tempCharacterObject.spells.dc.level_0.bonuses.str_bonus || false,
+              dex: tempCharacterObject.spells.dc.level_0.bonuses.dex_bonus || false,
+              con: tempCharacterObject.spells.dc.level_0.bonuses.con_bonus || false,
+              int: tempCharacterObject.spells.dc.level_0.bonuses.int_bonus || false,
+              wis: tempCharacterObject.spells.dc.level_0.bonuses.wis_bonus || false,
+              cha: tempCharacterObject.spells.dc.level_0.bonuses.cha_bonus || false,
+              level: tempCharacterObject.spells.dc.level_0.bonuses.level || false,
+              half_level: tempCharacterObject.spells.dc.level_0.bonuses.half_level || false,
+              spell_level: tempCharacterObject.spells.dc.level_0.bonuses.spell_level || false,
+              plus_ten: tempCharacterObject.spells.dc.level_0.bonuses.plus_ten || false
+            }
+          },
+          all: tempCharacterObject.spells.book[0].level_0
+        },
+
+        level_1: {
+          per_day: tempCharacterObject.spells.per_day.level_1 || "",
+          known: tempCharacterObject.spells.known.level_1 || "",
+          bonus: tempCharacterObject.spells.bonus.level_1 || "",
+          dc: {
+            spell_level: 1,
+            misc: tempCharacterObject.spells.dc.level_1.misc || "",
+            temp: tempCharacterObject.spells.dc.level_1.temp || "",
+            feat: tempCharacterObject.spells.dc.level_1.feat || "",
+            trait: tempCharacterObject.spells.dc.level_1.trait || "",
+            current: tempCharacterObject.spells.dc.level_1.current || "",
+            bonuses: {
+              str: tempCharacterObject.spells.dc.level_1.bonuses.str_bonus || false,
+              dex: tempCharacterObject.spells.dc.level_1.bonuses.dex_bonus || false,
+              con: tempCharacterObject.spells.dc.level_1.bonuses.con_bonus || false,
+              int: tempCharacterObject.spells.dc.level_1.bonuses.int_bonus || false,
+              wis: tempCharacterObject.spells.dc.level_1.bonuses.wis_bonus || false,
+              cha: tempCharacterObject.spells.dc.level_1.bonuses.cha_bonus || false,
+              level: tempCharacterObject.spells.dc.level_1.bonuses.level || false,
+              half_level: tempCharacterObject.spells.dc.level_1.bonuses.half_level || false,
+              spell_level: tempCharacterObject.spells.dc.level_1.bonuses.spell_level || false,
+              plus_ten: tempCharacterObject.spells.dc.level_1.bonuses.plus_ten || false
+            }
+          },
+          all: tempCharacterObject.spells.book[1].level_1
+        },
+
+        level_2: {
+          per_day: tempCharacterObject.spells.per_day.level_2 || "",
+          known: tempCharacterObject.spells.known.level_2 || "",
+          bonus: tempCharacterObject.spells.bonus.level_2 || "",
+          dc: {
+            spell_level: 2,
+            misc: tempCharacterObject.spells.dc.level_2.misc || "",
+            temp: tempCharacterObject.spells.dc.level_2.temp || "",
+            feat: tempCharacterObject.spells.dc.level_2.feat || "",
+            trait: tempCharacterObject.spells.dc.level_2.trait || "",
+            current: tempCharacterObject.spells.dc.level_2.current || "",
+            bonuses: {
+              str: tempCharacterObject.spells.dc.level_2.bonuses.str_bonus || false,
+              dex: tempCharacterObject.spells.dc.level_2.bonuses.dex_bonus || false,
+              con: tempCharacterObject.spells.dc.level_2.bonuses.con_bonus || false,
+              int: tempCharacterObject.spells.dc.level_2.bonuses.int_bonus || false,
+              wis: tempCharacterObject.spells.dc.level_2.bonuses.wis_bonus || false,
+              cha: tempCharacterObject.spells.dc.level_2.bonuses.cha_bonus || false,
+              level: tempCharacterObject.spells.dc.level_2.bonuses.level || false,
+              half_level: tempCharacterObject.spells.dc.level_2.bonuses.half_level || false,
+              spell_level: tempCharacterObject.spells.dc.level_2.bonuses.spell_level || false,
+              plus_ten: tempCharacterObject.spells.dc.level_2.bonuses.plus_ten || false
+            }
+          },
+          all: tempCharacterObject.spells.book[2].level_2
+        },
+
+        level_3: {
+          per_day: tempCharacterObject.spells.per_day.level_3 || "",
+          known: tempCharacterObject.spells.known.level_3 || "",
+          bonus: tempCharacterObject.spells.bonus.level_3 || "",
+          dc: {
+            spell_level: 3,
+            misc: tempCharacterObject.spells.dc.level_3.misc || "",
+            temp: tempCharacterObject.spells.dc.level_3.temp || "",
+            feat: tempCharacterObject.spells.dc.level_3.feat || "",
+            trait: tempCharacterObject.spells.dc.level_3.trait || "",
+            current: tempCharacterObject.spells.dc.level_3.current || "",
+            bonuses: {
+              str: tempCharacterObject.spells.dc.level_3.bonuses.str_bonus || false,
+              dex: tempCharacterObject.spells.dc.level_3.bonuses.dex_bonus || false,
+              con: tempCharacterObject.spells.dc.level_3.bonuses.con_bonus || false,
+              int: tempCharacterObject.spells.dc.level_3.bonuses.int_bonus || false,
+              wis: tempCharacterObject.spells.dc.level_3.bonuses.wis_bonus || false,
+              cha: tempCharacterObject.spells.dc.level_3.bonuses.cha_bonus || false,
+              level: tempCharacterObject.spells.dc.level_3.bonuses.level || false,
+              half_level: tempCharacterObject.spells.dc.level_3.bonuses.half_level || false,
+              spell_level: tempCharacterObject.spells.dc.level_3.bonuses.spell_level || false,
+              plus_ten: tempCharacterObject.spells.dc.level_3.bonuses.plus_ten || false
+            }
+          },
+          all: tempCharacterObject.spells.book[3].level_3
+        },
+
+        level_4: {
+          per_day: tempCharacterObject.spells.per_day.level_4 || "",
+          known: tempCharacterObject.spells.known.level_4 || "",
+          bonus: tempCharacterObject.spells.bonus.level_4 || "",
+          dc: {
+            spell_level: 4,
+            misc: tempCharacterObject.spells.dc.level_4.misc || "",
+            temp: tempCharacterObject.spells.dc.level_4.temp || "",
+            feat: tempCharacterObject.spells.dc.level_4.feat || "",
+            trait: tempCharacterObject.spells.dc.level_4.trait || "",
+            current: tempCharacterObject.spells.dc.level_4.current || "",
+            bonuses: {
+              str: tempCharacterObject.spells.dc.level_4.bonuses.str_bonus || false,
+              dex: tempCharacterObject.spells.dc.level_4.bonuses.dex_bonus || false,
+              con: tempCharacterObject.spells.dc.level_4.bonuses.con_bonus || false,
+              int: tempCharacterObject.spells.dc.level_4.bonuses.int_bonus || false,
+              wis: tempCharacterObject.spells.dc.level_4.bonuses.wis_bonus || false,
+              cha: tempCharacterObject.spells.dc.level_4.bonuses.cha_bonus || false,
+              level: tempCharacterObject.spells.dc.level_4.bonuses.level || false,
+              half_level: tempCharacterObject.spells.dc.level_4.bonuses.half_level || false,
+              spell_level: tempCharacterObject.spells.dc.level_4.bonuses.spell_level || false,
+              plus_ten: tempCharacterObject.spells.dc.level_4.bonuses.plus_ten || false
+            }
+          },
+          all: tempCharacterObject.spells.book[4].level_4
+        },
+
+        level_5: {
+          per_day: tempCharacterObject.spells.per_day.level_5 || "",
+          known: tempCharacterObject.spells.known.level_5 || "",
+          bonus: tempCharacterObject.spells.bonus.level_5 || "",
+          dc: {
+            spell_level: 5,
+            misc: tempCharacterObject.spells.dc.level_5.misc || "",
+            temp: tempCharacterObject.spells.dc.level_5.temp || "",
+            feat: tempCharacterObject.spells.dc.level_5.feat || "",
+            trait: tempCharacterObject.spells.dc.level_5.trait || "",
+            current: tempCharacterObject.spells.dc.level_5.current || "",
+            bonuses: {
+              str: tempCharacterObject.spells.dc.level_5.bonuses.str_bonus || false,
+              dex: tempCharacterObject.spells.dc.level_5.bonuses.dex_bonus || false,
+              con: tempCharacterObject.spells.dc.level_5.bonuses.con_bonus || false,
+              int: tempCharacterObject.spells.dc.level_5.bonuses.int_bonus || false,
+              wis: tempCharacterObject.spells.dc.level_5.bonuses.wis_bonus || false,
+              cha: tempCharacterObject.spells.dc.level_5.bonuses.cha_bonus || false,
+              level: tempCharacterObject.spells.dc.level_5.bonuses.level || false,
+              half_level: tempCharacterObject.spells.dc.level_5.bonuses.half_level || false,
+              spell_level: tempCharacterObject.spells.dc.level_5.bonuses.spell_level || false,
+              plus_ten: tempCharacterObject.spells.dc.level_5.bonuses.plus_ten || false
+            }
+          },
+          all: tempCharacterObject.spells.book[5].level_5
+        },
+
+        level_6: {
+          per_day: tempCharacterObject.spells.per_day.level_6 || "",
+          known: tempCharacterObject.spells.known.level_6 || "",
+          bonus: tempCharacterObject.spells.bonus.level_6 || "",
+          dc: {
+            spell_level: 6,
+            misc: tempCharacterObject.spells.dc.level_6.misc || "",
+            temp: tempCharacterObject.spells.dc.level_6.temp || "",
+            feat: tempCharacterObject.spells.dc.level_6.feat || "",
+            trait: tempCharacterObject.spells.dc.level_6.trait || "",
+            current: tempCharacterObject.spells.dc.level_6.current || "",
+            bonuses: {
+              str: tempCharacterObject.spells.dc.level_6.bonuses.str_bonus || false,
+              dex: tempCharacterObject.spells.dc.level_6.bonuses.dex_bonus || false,
+              con: tempCharacterObject.spells.dc.level_6.bonuses.con_bonus || false,
+              int: tempCharacterObject.spells.dc.level_6.bonuses.int_bonus || false,
+              wis: tempCharacterObject.spells.dc.level_6.bonuses.wis_bonus || false,
+              cha: tempCharacterObject.spells.dc.level_6.bonuses.cha_bonus || false,
+              level: tempCharacterObject.spells.dc.level_6.bonuses.level || false,
+              half_level: tempCharacterObject.spells.dc.level_6.bonuses.half_level || false,
+              spell_level: tempCharacterObject.spells.dc.level_6.bonuses.spell_level || false,
+              plus_ten: tempCharacterObject.spells.dc.level_6.bonuses.plus_ten || false
+            }
+          },
+          all: tempCharacterObject.spells.book[6].level_6
+        },
+
+        level_7: {
+          per_day: tempCharacterObject.spells.per_day.level_7 || "",
+          known: tempCharacterObject.spells.known.level_7 || "",
+          bonus: tempCharacterObject.spells.bonus.level_7 || "",
+          dc: {
+            spell_level: 7,
+            misc: tempCharacterObject.spells.dc.level_7.misc || "",
+            temp: tempCharacterObject.spells.dc.level_7.temp || "",
+            feat: tempCharacterObject.spells.dc.level_7.feat || "",
+            trait: tempCharacterObject.spells.dc.level_7.trait || "",
+            current: tempCharacterObject.spells.dc.level_7.current || "",
+            bonuses: {
+              str: tempCharacterObject.spells.dc.level_7.bonuses.str_bonus || false,
+              dex: tempCharacterObject.spells.dc.level_7.bonuses.dex_bonus || false,
+              con: tempCharacterObject.spells.dc.level_7.bonuses.con_bonus || false,
+              int: tempCharacterObject.spells.dc.level_7.bonuses.int_bonus || false,
+              wis: tempCharacterObject.spells.dc.level_7.bonuses.wis_bonus || false,
+              cha: tempCharacterObject.spells.dc.level_7.bonuses.cha_bonus || false,
+              level: tempCharacterObject.spells.dc.level_7.bonuses.level || false,
+              half_level: tempCharacterObject.spells.dc.level_7.bonuses.half_level || false,
+              spell_level: tempCharacterObject.spells.dc.level_7.bonuses.spell_level || false,
+              plus_ten: tempCharacterObject.spells.dc.level_7.bonuses.plus_ten || false
+            }
+          },
+          all: tempCharacterObject.spells.book[7].level_7
+        },
+
+        level_8: {
+          per_day: tempCharacterObject.spells.per_day.level_8 || "",
+          known: tempCharacterObject.spells.known.level_8 || "",
+          bonus: tempCharacterObject.spells.bonus.level_8 || "",
+          dc: {
+            spell_level: 8,
+            misc: tempCharacterObject.spells.dc.level_8.misc || "",
+            temp: tempCharacterObject.spells.dc.level_8.temp || "",
+            feat: tempCharacterObject.spells.dc.level_8.feat || "",
+            trait: tempCharacterObject.spells.dc.level_8.trait || "",
+            current: tempCharacterObject.spells.dc.level_8.current || "",
+            bonuses: {
+              str: tempCharacterObject.spells.dc.level_8.bonuses.str_bonus || false,
+              dex: tempCharacterObject.spells.dc.level_8.bonuses.dex_bonus || false,
+              con: tempCharacterObject.spells.dc.level_8.bonuses.con_bonus || false,
+              int: tempCharacterObject.spells.dc.level_8.bonuses.int_bonus || false,
+              wis: tempCharacterObject.spells.dc.level_8.bonuses.wis_bonus || false,
+              cha: tempCharacterObject.spells.dc.level_8.bonuses.cha_bonus || false,
+              level: tempCharacterObject.spells.dc.level_8.bonuses.level || false,
+              half_level: tempCharacterObject.spells.dc.level_8.bonuses.half_level || false,
+              spell_level: tempCharacterObject.spells.dc.level_8.bonuses.spell_level || false,
+              plus_ten: tempCharacterObject.spells.dc.level_8.bonuses.plus_ten || false
+            }
+          },
+          all: tempCharacterObject.spells.book[8].level_8
+        },
+
+        level_9: {
+          per_day: tempCharacterObject.spells.per_day.level_9 || "",
+          known: tempCharacterObject.spells.known.level_9 || "",
+          bonus: tempCharacterObject.spells.bonus.level_9 || "",
+          dc: {
+            spell_level: 9,
+            misc: tempCharacterObject.spells.dc.level_9.misc || "",
+            temp: tempCharacterObject.spells.dc.level_9.temp || "",
+            feat: tempCharacterObject.spells.dc.level_9.feat || "",
+            trait: tempCharacterObject.spells.dc.level_9.trait || "",
+            current: tempCharacterObject.spells.dc.level_9.current || "",
+            bonuses: {
+              str: tempCharacterObject.spells.dc.level_9.bonuses.str_bonus || false,
+              dex: tempCharacterObject.spells.dc.level_9.bonuses.dex_bonus || false,
+              con: tempCharacterObject.spells.dc.level_9.bonuses.con_bonus || false,
+              int: tempCharacterObject.spells.dc.level_9.bonuses.int_bonus || false,
+              wis: tempCharacterObject.spells.dc.level_9.bonuses.wis_bonus || false,
+              cha: tempCharacterObject.spells.dc.level_9.bonuses.cha_bonus || false,
+              level: tempCharacterObject.spells.dc.level_9.bonuses.level || false,
+              half_level: tempCharacterObject.spells.dc.level_9.bonuses.half_level || false,
+              spell_level: tempCharacterObject.spells.dc.level_9.bonuses.spell_level || false,
+              plus_ten: tempCharacterObject.spells.dc.level_9.bonuses.plus_ten || false
+            }
+          },
+          all: tempCharacterObject.spells.book[9].level_9
+        },
+
+      }
+    }
   };
 
   function _update(options) {
