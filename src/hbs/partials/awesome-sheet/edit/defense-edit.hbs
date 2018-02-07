@@ -245,7 +245,7 @@
 
     <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:defense.cmd,addition:+misc+temp,bonuses:+str+dex+con+int+wis+cha+bab+size_special+level+half_level">
       <div class="m-edit-box-head">
-        <h2 class="m-edit-box-title">CMD</h2>
+        <h2 class="m-edit-box-title">Combat Maneuver Defense</h2>
       </div>
       <div class="m-edit-box-body">
         <div class="m-edit-box-content m-edit-box-content-margin-large">
@@ -268,6 +268,12 @@
             </div>
             <div class="m-edit-box-item-button-small">
               <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-total-block-bonuses-options="path:defense.cmd.bonuses,modalHeading:CMD bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>
+            </div>
+          </div>
+          <div class="m-edit-box-item-max">
+            <div class="m-textarea-block js-textarea-block" data-textarea-block-options="path:defense.cmd.notes">
+              <label class="m-textarea-block-label js-textarea-block-label" for="defense-cmd-notes">Combat Maneuver Defense Notes</label>
+              <div id="defense-cmd-notes" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="1"></div>
             </div>
           </div>
         </div>
@@ -494,10 +500,16 @@
             <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-total-block-bonuses-options="path:defense.dr.bonuses,modalHeading:Damage Reduction bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>
           </div>
         </div>
-        <div class="m-edit-box-item-medium">
+        <div class="m-edit-box-item-max">
           <div class="m-input-block js-input-block" data-input-block-options="path:defense.dr.overcome">
-            <label class="m-input-block-label js-input-block-label" for="defense-dr-overcome">Overcoming DR</label>
+            <label class="m-input-block-label js-input-block-label" for="defense-dr-overcome">Overcoming Damage Reduction</label>
             <input id="defense-dr-overcome" class="m-input-block-field u-full-width js-input-block-field js-tip" data-tip-options="message:The special materials, type of magic weapons, types of weapons or alignments which overcome the damage reduction. (The part after the slash.),state:focus" type="text" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-max">
+          <div class="m-textarea-block js-textarea-block" data-textarea-block-options="path:defense.dr.notes">
+            <label class="m-textarea-block-label js-textarea-block-label" for="defense-dr-notes">Damage Reduction Notes</label>
+            <div id="defense-dr-notes" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="1"></div>
           </div>
         </div>
       </div>
@@ -547,6 +559,12 @@
             <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin js-total-block-bonuses" data-total-block-bonuses-options="path:defense.sr.bonuses,modalHeading:Spell Resistance bonuses" tabindex="1"><span class="icon-more-vertical"></span></a>
           </div>
         </div>
+        <div class="m-edit-box-item-max">
+          <div class="m-textarea-block js-textarea-block" data-textarea-block-options="path:defense.sr.notes">
+            <label class="m-textarea-block-label js-textarea-block-label" for="defense-sr-notes">Spell Resistance Notes</label>
+            <div id="defense-sr-notes" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="1"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -559,9 +577,9 @@
     <div class="m-edit-box-body">
       <div class="m-edit-box-content">
         <div class="m-edit-box-item-max">
-          <div class="m-textarea-block js-textarea-block" data-textarea-block-options="path:defense.resist_notes">
-            <label class="m-textarea-block-label js-textarea-block-label" for="defense-resists-notes">Resistance Notes</label>
-            <div id="defense-resists-notes" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="1"></div>
+          <div class="m-textarea-block js-textarea-block" data-textarea-block-options="path:defense.resistance.notes">
+            <label class="m-textarea-block-label js-textarea-block-label" for="defense-resistance-notes">Resistance Notes</label>
+            <div id="defense-resistance-notes" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="1"></div>
           </div>
         </div>
       </div>
