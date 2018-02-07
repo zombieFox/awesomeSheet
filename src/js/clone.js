@@ -70,13 +70,13 @@ var clone = (function() {
     if (cloneType == "note-character") {
       object = helper.getObject({
         object: sheet.get(),
-        path: "notes.character"
+        path: "notes.character.all"
       });
     };
     if (cloneType == "note-story") {
       object = helper.getObject({
         object: sheet.get(),
-        path: "notes.story"
+        path: "notes.story.all"
       });
     };
     return object;
@@ -468,7 +468,7 @@ var clone = (function() {
         '<div class="m-clone-block-content js-clone-block-content">' +
         '  <div class="m-edit-box-content m-edit-box-content-margin-large">' +
         '    <div class="m-edit-box-item-max">' +
-        '      <div class="m-textarea-block js-textarea-block" data-textarea-block-options="path:notes.character[' + cloneIndex + ']note,clone:true">' +
+        '      <div class="m-textarea-block js-textarea-block" data-textarea-block-options="path:notes.character.all[' + cloneIndex + ']note,clone:true">' +
         '        <label class="m-textarea-block-label js-textarea-block-label" for="note-character-' + cloneIndex + '">Note</label>' +
         '        <div id="note-character-' + cloneIndex + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="1"></div>' +
         '      </div>' +
@@ -484,7 +484,7 @@ var clone = (function() {
         '<div class="m-clone-block-content js-clone-block-content">' +
         '  <div class="m-edit-box-content m-edit-box-content-margin-large">' +
         '    <div class="m-edit-box-item-max">' +
-        '      <div class="m-textarea-block js-textarea-block" data-textarea-block-options="path:notes.story[' + cloneIndex + ']note,clone:true">' +
+        '      <div class="m-textarea-block js-textarea-block" data-textarea-block-options="path:notes.story.all[' + cloneIndex + ']note,clone:true">' +
         '        <label class="m-textarea-block-label js-textarea-block-label" for="note-story-' + cloneIndex + '">Note</label>' +
         '        <div id="note-story-' + cloneIndex + '" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="1"></div>' +
         '      </div>' +

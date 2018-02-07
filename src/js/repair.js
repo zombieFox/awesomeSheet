@@ -2205,7 +2205,6 @@ var repair = (function() {
         notes: tempCharacterObject.spells.notes || ""
       },
       book: {
-
         level_0: {
           per_day: tempCharacterObject.spells.per_day.level_0 || "",
           known: tempCharacterObject.spells.known.level_0 || "",
@@ -2232,7 +2231,6 @@ var repair = (function() {
           },
           all: tempCharacterObject.spells.book[0].level_0
         },
-
         level_1: {
           per_day: tempCharacterObject.spells.per_day.level_1 || "",
           known: tempCharacterObject.spells.known.level_1 || "",
@@ -2259,7 +2257,6 @@ var repair = (function() {
           },
           all: tempCharacterObject.spells.book[1].level_1
         },
-
         level_2: {
           per_day: tempCharacterObject.spells.per_day.level_2 || "",
           known: tempCharacterObject.spells.known.level_2 || "",
@@ -2286,7 +2283,6 @@ var repair = (function() {
           },
           all: tempCharacterObject.spells.book[2].level_2
         },
-
         level_3: {
           per_day: tempCharacterObject.spells.per_day.level_3 || "",
           known: tempCharacterObject.spells.known.level_3 || "",
@@ -2313,7 +2309,6 @@ var repair = (function() {
           },
           all: tempCharacterObject.spells.book[3].level_3
         },
-
         level_4: {
           per_day: tempCharacterObject.spells.per_day.level_4 || "",
           known: tempCharacterObject.spells.known.level_4 || "",
@@ -2340,7 +2335,6 @@ var repair = (function() {
           },
           all: tempCharacterObject.spells.book[4].level_4
         },
-
         level_5: {
           per_day: tempCharacterObject.spells.per_day.level_5 || "",
           known: tempCharacterObject.spells.known.level_5 || "",
@@ -2367,7 +2361,6 @@ var repair = (function() {
           },
           all: tempCharacterObject.spells.book[5].level_5
         },
-
         level_6: {
           per_day: tempCharacterObject.spells.per_day.level_6 || "",
           known: tempCharacterObject.spells.known.level_6 || "",
@@ -2394,7 +2387,6 @@ var repair = (function() {
           },
           all: tempCharacterObject.spells.book[6].level_6
         },
-
         level_7: {
           per_day: tempCharacterObject.spells.per_day.level_7 || "",
           known: tempCharacterObject.spells.known.level_7 || "",
@@ -2421,7 +2413,6 @@ var repair = (function() {
           },
           all: tempCharacterObject.spells.book[7].level_7
         },
-
         level_8: {
           per_day: tempCharacterObject.spells.per_day.level_8 || "",
           known: tempCharacterObject.spells.known.level_8 || "",
@@ -2448,7 +2439,6 @@ var repair = (function() {
           },
           all: tempCharacterObject.spells.book[8].level_8
         },
-
         level_9: {
           per_day: tempCharacterObject.spells.per_day.level_9 || "",
           known: tempCharacterObject.spells.known.level_9 || "",
@@ -2474,8 +2464,17 @@ var repair = (function() {
             }
           },
           all: tempCharacterObject.spells.book[9].level_9
-        },
-
+        }
+      }
+    };
+    // spells
+    console.log(tempCharacterObject.notes.character);
+    characterObject.notes = {
+      character: {
+        all: tempCharacterObject.notes.character || []
+      },
+      story: {
+        all: tempCharacterObject.notes.story || []
       }
     }
   };
