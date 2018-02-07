@@ -299,7 +299,7 @@ var clone = (function() {
     if (cloneType == "skill") {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
-        '  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:skills.custom.all[' + cloneIndex + '],addition:+ranks+misc+racial+feat+trait,bonuses:+str_bonus+dex_bonus+con_bonus+int_bonus+wis_bonus+cha_bonus+class_skill+level+half_level+check_penalty+size_modifier_stealth+size_modifier_fly,clone:true">' +
+        '  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:skills.custom.all[' + cloneIndex + '],addition:+ranks+misc+racial+feat+trait,bonuses:+str+dex+con+int+wis+cha+class_skill+level+half_level+check_penalty+size_stealth+size_fly,clone:true">' +
         '    <div class="m-edit-box-head">' +
         '      <div class="m-skill-name m-input-block js-input-block" data-input-block-options="path:skills.custom.all[' + cloneIndex + ']name,clone:true">' +
         '        <input class="m-input-block-field u-full-width u-no-margin js-input-block-field" type="text" tabindex="1" placeholder="Custom skill">' +
@@ -797,12 +797,12 @@ var clone = (function() {
         feat: "",
         trait: "",
         bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
+          str: false,
+          dex: false,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
           class_skill: false,
           level: false,
           half_level: false,

@@ -2054,6 +2054,26 @@ var repair = (function() {
         }
       }
     };
+    // if (characterObject.skills.custom.all.length > 0) {
+    //   for (var i = 0; i < characterObject.skills.custom.all.length; i++) {
+    //     characterObject.skills.custom.all[i].bonuses = {};
+    //     // console.log(characterObject.skills.custom.all[i].bonuses);
+    //     // characterObject.skills.custom.all[i].bonuses = {
+    //     //   str: tempCharacterObject.skills.custom.all[i].bonuses.str_bonus || false,
+    //     //   dex: tempCharacterObject.skills.custom.all[i].bonuses.dex_bonus || false,
+    //     //   con: tempCharacterObject.skills.custom.all[i].bonuses.con_bonus || false,
+    //     //   int: tempCharacterObject.skills.custom.all[i].bonuses.int_bonus || false,
+    //     //   wis: tempCharacterObject.skills.custom.all[i].bonuses.wis_bonus || false,
+    //     //   cha: tempCharacterObject.skills.custom.all[i].bonuses.cha_bonus || false,
+    //     //   class_skill: tempCharacterObject.skills.custom.all[i].bonuses.class_skill || false,
+    //     //   level: tempCharacterObject.skills.custom.all[i].bonuses.level || false,
+    //     //   half_level: tempCharacterObject.skills.custom.all[i].bonuses.half_level || false,
+    //     //   check_penalty: tempCharacterObject.skills.custom.all[i].bonuses.check_penalty || false,
+    //     //   size_stealth: tempCharacterObject.skills.custom.all[i].bonuses.size_modifier_stealth || false,
+    //     //   size_fly: tempCharacterObject.skills.custom.all[i].bonuses.size_modifier_fly || false
+    //     // };
+    //   };
+    // };
     // spells
     characterObject.spells = {
       stats: {
@@ -2408,7 +2428,7 @@ var repair = (function() {
       // if awesomeSheet check is a boolean
       if (typeof defaultOptions.object.awesomeSheet == "boolean") {
         _log("\trepair: below 5.0.0 running legacy update");
-          // --------------------------------------------------
+        // --------------------------------------------------
         _update_440andBelow(defaultOptions.object);
       };
 
