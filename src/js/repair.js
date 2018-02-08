@@ -12,7 +12,7 @@ var repair = (function() {
           if (characterObject.spells.book[i][j].length > 0) {
             for (var k in characterObject.spells.book[i][j]) {
               if (!("note" in characterObject.spells.book[i][j][k]) && typeof characterObject.spells.book[i][j][k].note != "string") {
-                _log("\trepair spell notes");
+                _log("\t\tlegacy update: spell notes");
                 characterObject.spells.book[i][j][k].note = "";
               };
             };
@@ -23,26 +23,26 @@ var repair = (function() {
     // --------------------------------------------------
     // repair item array
     if (typeof characterObject.equipment.item == "string" || !characterObject.equipment.item) {
-      _log("\trepair item array");
+      _log("\t\tlegacy update: item array");
       characterObject.equipment.item = [];
     };
     // --------------------------------------------------
     // repair note array
     if (typeof characterObject.notes.character == "string" || typeof characterObject.notes.story == "string") {
-      _log("\trepair note array");
+      _log("\t\tlegacy update: note array");
       characterObject.notes.character = [];
       characterObject.notes.story = [];
     };
     // --------------------------------------------------
     // repair custom skills array
     if (typeof characterObject.skills.custom == "string" || !characterObject.skills.custom) {
-      _log("\trepair custom skills array");
+      _log("\t\tlegacy update: custom skills array");
       characterObject.skills.custom = [];
     };
     // --------------------------------------------------
     // repair custom skills
     if ("custom_1" in characterObject.skills || "custom_2" in characterObject.skills || "custom_3" in characterObject.skills || "custom_4" in characterObject.skills || "custom_5" in characterObject.skills || "custom_6" in characterObject.skills || "custom_7" in characterObject.skills || "custom_8" in characterObject.skills) {
-      _log("\trepair custom skills");
+      _log("\t\tlegacy update: custom skills");
       var skillKeys = ["custom_1", "custom_2", "custom_3", "custom_4", "custom_5", "custom_6", "custom_7", "custom_8"];
       for (var i = 0; i < skillKeys.length; i++) {
         if (characterObject.skills[skillKeys[i]].name != "" || characterObject.skills[skillKeys[i]].ranks || characterObject.skills[skillKeys[i]].misc) {
@@ -55,7 +55,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair concentration bonus object
     if (typeof characterObject.spells.concentration.bonuses != "object" || !characterObject.spells.concentration.bonuses) {
-      _log("\trepair concentration bonus object");
+      _log("\t\tlegacy update: concentration bonus object");
       characterObject.spells.concentration.bonuses = {
         str_bonus: false,
         dex_bonus: false,
@@ -70,7 +70,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair initiative object
     if (typeof characterObject.basics.initiative != "object" || typeof characterObject.basics.initiative.bonuses != "object" || !characterObject.basics.initiative.bonuses) {
-      _log("\trepair initiative object");
+      _log("\t\tlegacy update: initiative object");
       characterObject.basics.initiative = {
         misc: "",
         temp: "",
@@ -91,7 +91,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair size object
     if (typeof characterObject.basics.size != "object" || "size_bonus" in characterObject.defense.ac) {
-      _log("\trepair size object");
+      _log("\t\tlegacy update: size object");
       var size = characterObject.basics.size;
       if (size == "M" || size == "m" || size == "medium" || size == "Medium" || size != "") {
         size = "Medium";
@@ -123,7 +123,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair alignment
     if (["Lawful Good", "Lawful Neutral", "Lawful Evil", "Neutral Good", "Neutral", "Neutral Evil", "Chaotic Good", "Chaotic Neutral", "Chaotic Evil", ""].indexOf(characterObject.basics.alignment) === -1) {
-      _log("\trepair alignment");
+      _log("\t\tlegacy update: alignment");
       if (["Lawful Good", "Lawful good", "lawful good", "LG", "Lg", "lg"].indexOf(characterObject.basics.alignment) > -1) {
         characterObject.basics.alignment = "Lawful Good";
       };
@@ -155,7 +155,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair armor
     if (typeof characterObject.equipment.armor != "object") {
-      _log("\trepair armor");
+      _log("\t\tlegacy update: armor");
       characterObject.equipment.armor = {
         armor: "",
         check_penalty: "",
@@ -185,7 +185,7 @@ var repair = (function() {
       if (key in object) {
         if (object.racial != "" && !isNaN(object.racial)) {
           if (object.misc != "" && !isNaN(object.misc)) {
-            _log("\trepair racial save bonuses");
+            _log("\t\tlegacy update: racial save bonuses");
             object.misc = object.misc + object.racial;
           } else {
             object.misc = object.racial;
@@ -200,7 +200,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair classes
     if (!characterObject.basics.classes || typeof characterObject.basics.class == "string") {
-      _log("\trepair classes");
+      _log("\t\tlegacy update: classes");
       characterObject.basics.classes = [{
         classname: "",
         level: "",
@@ -253,7 +253,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair caster level check
     if (!characterObject.spells.caster_level_check) {
-      _log("\trepair caster level check");
+      _log("\t\tlegacy update: caster level check");
       characterObject.spells.caster_level_check = {
         current: "",
         misc: "",
@@ -274,7 +274,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair encumbrance
     if ("light" in characterObject.equipment.encumbrance || "medium" in characterObject.equipment.encumbrance || "heavy" in characterObject.equipment.encumbrance || "lift" in characterObject.equipment.encumbrance || "drag" in characterObject.equipment.encumbrance) {
-      _log("\trepair encumbrance");
+      _log("\t\tlegacy update: encumbrance");
       delete characterObject.equipment.encumbrance.light;
       delete characterObject.equipment.encumbrance.medium;
       delete characterObject.equipment.encumbrance.heavy;
@@ -282,39 +282,54 @@ var repair = (function() {
       delete characterObject.equipment.encumbrance.drag;
     };
     // --------------------------------------------------
+    // repair encumbrance
+    if (!("carry_move" in characterObject.equipment.encumbrance)) {
+      _log("\t\tlegacy update: encumbrance");
+      characterObject.equipment.encumbrance = {
+        encumbrance_str: "",
+        carry_move: {
+          light: "",
+          medium: "",
+          heavy: "",
+          lift: "",
+          drag: ""
+        }
+      };
+    };
+    // --------------------------------------------------
     // repair xp
     if (typeof characterObject.basics.xp == "string" && !characterObject.basics.xp == "") {
-      _log("\trepair xp");
+      _log("\t\tlegacy update: xp");
       characterObject.basics.xp = parseInt(characterObject.basics.xp.replace(/,/g, ""), 10);
     };
     // --------------------------------------------------
     // repair wealth
     if (typeof characterObject.equipment.wealth.platinum == "string" && !characterObject.equipment.wealth.platinum == "") {
-      _log("\trepair wealth platinum");
+      _log("\t\tlegacy update: wealth platinum");
       characterObject.equipment.wealth.platinum = parseInt(characterObject.equipment.wealth.platinum.replace(/,/g, ""), 10);
     };
     if (typeof characterObject.equipment.wealth.gold == "string" && !characterObject.equipment.wealth.gold == "") {
-      _log("\trepair wealth gold");
+      _log("\t\tlegacy update: wealth gold");
       characterObject.equipment.wealth.gold = parseInt(characterObject.equipment.wealth.gold.replace(/,/g, ""), 10);
     };
     if (typeof characterObject.equipment.wealth.silver == "string" && !characterObject.equipment.wealth.silver == "") {
-      _log("\trepair wealth silver");
+      _log("\t\tlegacy update: wealth silver");
       characterObject.equipment.wealth.silver = parseInt(characterObject.equipment.wealth.silver.replace(/,/g, ""), 10);
     };
     if (typeof characterObject.equipment.wealth.copper == "string" && !characterObject.equipment.wealth.copper == "") {
-      _log("\trepair wealth copper");
+      _log("\t\tlegacy update: wealth copper");
       characterObject.equipment.wealth.copper = parseInt(characterObject.equipment.wealth.copper.replace(/,/g, ""), 10);
     };
     // --------------------------------------------------
     // repair events array
     if (!characterObject.hasOwnProperty("events")) {
-      _log("\trepair events array");
+      _log("\t\tlegacy update: events array");
       characterObject.events = [];
     };
     // --------------------------------------------------
     // repair xp and next level
     if (typeof characterObject.basics.xp == "string" || typeof characterObject.basics.xp == "number") {
-      _log("\trepair xp and next level");
+      _log("\t\tlegacy update: xp and next level");
       var oldXp;
       if (typeof characterObject.basics.xp == "number") {
         oldXp = characterObject.basics.xp;
@@ -330,7 +345,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair speed
     if (typeof characterObject.basics.speed == "string" || typeof characterObject.basics.speed == "number" || characterObject.basics.speed == "" || typeof characterObject.basics.speed != "object") {
-      _log("\trepair speed");
+      _log("\t\tlegacy update: speed");
       var oldSpeed = characterObject.basics.speed;
       characterObject.basics.speed = {};
       characterObject.basics.speed.land = oldSpeed;
@@ -338,7 +353,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair character image
     if (!characterObject.basics.character_image) {
-      _log("\trepair character image");
+      _log("\t\tlegacy update: character image");
       characterObject.basics.character_image = {
         uploaded: false,
         background: "",
@@ -365,7 +380,7 @@ var repair = (function() {
     if (characterObject.offense.attack.melee.length > 0) {
       for (var i = 0; i < characterObject.offense.attack.melee.length; i++) {
         if (!characterObject.offense.attack.melee[i].type && characterObject.offense.attack.melee[i].type != "") {
-          _log("\trepair attack types melee");
+          _log("\t\tlegacy update: attack types melee");
           characterObject.offense.attack.melee[i].type = "";
         };
       };
@@ -373,7 +388,7 @@ var repair = (function() {
     if (characterObject.offense.attack.ranged.length > 0) {
       for (var i = 0; i < characterObject.offense.attack.ranged.length; i++) {
         if (!characterObject.offense.attack.ranged[i].type && characterObject.offense.attack.ranged[i].type != "") {
-          _log("\trepair attack types ranged");
+          _log("\t\tlegacy update: attack types ranged");
           characterObject.offense.attack.ranged[i].type = "";
         };
       };
@@ -381,7 +396,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair stats
     if (!("enhancement" in characterObject.statistics.stats.str) || !("enhancement" in characterObject.statistics.stats.dex) || !("enhancement" in characterObject.statistics.stats.con) || !("enhancement" in characterObject.statistics.stats.int) || !("enhancement" in characterObject.statistics.stats.wis) || !("enhancement" in characterObject.statistics.stats.cha)) {
-      _log("\trepair stats");
+      _log("\t\tlegacy update: stats");
       for (var key in characterObject.statistics.stats) {
         characterObject.statistics.stats[key].current = "";
         characterObject.statistics.stats[key].modifier = "";
@@ -409,7 +424,7 @@ var repair = (function() {
       if (characterObject.events.length > 0) {
         for (var i = 0; i < characterObject.events.length; i++) {
           if (characterObject.events[i].event.aggregateValue) {
-            _log("\trepair events");
+            _log("\t\tlegacy update: events");
             characterObject.events[i].event.aggregate_value = characterObject.events[i].event.aggregateValue;
             delete characterObject.events[i].event.aggregateValue;
           };
@@ -421,14 +436,14 @@ var repair = (function() {
     // --------------------------------------------------
     // repair character image cover and contain
     if ("cover" in characterObject.basics.character_image || "contain" in characterObject.basics.character_image) {
-      _log("\trepair character image cover and contain");
+      _log("\t\tlegacy update: character image cover and contain");
       delete characterObject.basics.character_image.cover;
       delete characterObject.basics.character_image.contain;
     };
     // --------------------------------------------------
     // repair character image size
     if (!characterObject.basics.character_image.size) {
-      _log("\trepair character image size");
+      _log("\t\tlegacy update: character image size");
       characterObject.basics.character_image.size = {
         width: "",
         height: ""
@@ -447,7 +462,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair equipment
     if (!characterObject.equipment.potion_viles_oils && characterObject.equipment.potion_viles_oils != "") {
-      _log("\trepair equipment");
+      _log("\t\tlegacy update: equipment");
       characterObject.equipment.potion_viles_oils = "";
     };
     if (!characterObject.equipment.scrolls && characterObject.equipment.scrolls != "") {
@@ -456,7 +471,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair skills
     if (!("all" in characterObject.skills)) {
-      _log("\trepair skills");
+      _log("\t\tlegacy update: skills");
       characterObject.skills.all = {};
       if ("acrobatics" in characterObject.skills) {
         characterObject.skills.all.acrobatics = characterObject.skills.acrobatics;
@@ -616,15 +631,15 @@ var repair = (function() {
     if (characterObject.skills.custom.length > 0) {
       for (var i = 0; i < characterObject.skills.custom.length; i++) {
         if (!("racial" in characterObject.skills.custom[i])) {
-          _log("\t\t repair custom skills");
+          _log("\t\tlegacy update: custom skills");
           characterObject.skills.custom[i].racial = "";
         };
         if (!("trait" in characterObject.skills.custom[i])) {
-          _log("\t\t repair custom skills");
+          _log("\t\tlegacy update: custom skills");
           characterObject.skills.custom[i].trait = "";
         };
         if (!("feat" in characterObject.skills.custom[i])) {
-          _log("\t\t repair custom skills");
+          _log("\t\tlegacy update: custom skills");
           characterObject.skills.custom[i].feat = "";
         };
       };
@@ -632,36 +647,36 @@ var repair = (function() {
     // --------------------------------------------------
     // repair concentration stats
     if (!("trait" in characterObject.spells.concentration)) {
-      _log("\t\t repair spell stats");
+      _log("\t\tlegacy update: spell stats");
       characterObject.spells.concentration.trait = "";
     };
     // repair caster level stats
     if (!("trait" in characterObject.spells.caster_level_check)) {
-      _log("\t\t caster level stats");
+      _log("\t\tlegacy update: level stats");
       characterObject.spells.caster_level_check.trait = "";
     };
     // --------------------------------------------------
     // repair item
     if (Array.isArray(characterObject.equipment.item)) {
-      _log("\trepair item");
+      _log("\t\tlegacy update: item");
       var tempItems = characterObject.equipment.item.slice();
       characterObject.equipment.item = {};
       characterObject.equipment.item.all = tempItems;
     };
     if (!("weight" in characterObject.equipment.item)) {
-      _log("\trepair item weight");
+      _log("\t\tlegacy update: item weight");
       characterObject.equipment.item.weight = {};
       characterObject.equipment.item.weight.current = "";
     };
     if (!("value" in characterObject.equipment.item)) {
-      _log("\trepair item value");
+      _log("\t\tlegacy update: item value");
       characterObject.equipment.item.value = {};
       characterObject.equipment.item.value.current = "";
     };
     // --------------------------------------------------
     // repair spell bonus
     if (!("bonus" in characterObject.spells)) {
-      _log("\trepair spells bonus");
+      _log("\t\tlegacy update: spells bonus");
       characterObject.spells.bonus = {};
       characterObject.spells.bonus.level_0 = "";
       characterObject.spells.bonus.level_1 = "";
@@ -678,22 +693,22 @@ var repair = (function() {
     // repair skills
     for (var i in characterObject.skills.all) {
       if (!("racial" in characterObject.skills.all[i])) {
-        _log("\trepair skill " + i + " racial");
+        _log("\t\tlegacy update: skill " + i + " racial");
         characterObject.skills.all[i].racial = "";
       };
       if (!("feat" in characterObject.skills.all[i])) {
-        _log("\trepair skill " + i + " feat");
+        _log("\t\tlegacy update: skill " + i + " feat");
         characterObject.skills.all[i].feat = "";
       };
       if (!("trait" in characterObject.skills.all[i])) {
-        _log("\trepair skill " + i + " trait");
+        _log("\t\tlegacy update: skill " + i + " trait");
         characterObject.skills.all[i].trait = "";
       };
     };
     // --------------------------------------------------
     // repair spells
     if (typeof characterObject.spells.dc.level_0 != "object") {
-      _log("\trepair spell dc");
+      _log("\t\tlegacy update: spell dc");
       var dcObject = function(level, oldDc) {
         var object = {
           spell_level: level,
@@ -734,52 +749,52 @@ var repair = (function() {
     // --------------------------------------------------
     // repair caster level check and concentration
     if (!("racial" in characterObject.spells.concentration)) {
-      _log("\trepair concentration racial");
+      _log("\t\tlegacy update: concentration racial");
       characterObject.spells.concentration.racial = "";
     };
     if (!("racial" in characterObject.spells.caster_level_check)) {
-      _log("\trepair caster level check racial");
+      _log("\t\tlegacy update: caster level check racial");
       characterObject.spells.caster_level_check.racial = "";
     };
     // --------------------------------------------------
     // repair initiative trait
     if (!("trait" in characterObject.basics.initiative)) {
-      _log("\trepair initiative trait");
+      _log("\t\tlegacy update: initiative trait");
       characterObject.basics.initiative.trait = "";
     };
     // --------------------------------------------------
     if (!("school" in characterObject.spells)) {
-      _log("\trepair spell school");
+      _log("\t\tlegacy update: spell school");
       characterObject.spells.school = "";
     };
     // --------------------------------------------------
     if (!("opposition" in characterObject.spells)) {
-      _log("\trepair spell opposition");
+      _log("\t\tlegacy update: spell opposition");
       characterObject.spells.opposition = "";
     };
     // --------------------------------------------------
     if (!("domains" in characterObject.spells)) {
-      _log("\trepair spell domains");
+      _log("\t\tlegacy update: spell domains");
       characterObject.spells.domains = "";
     };
     // --------------------------------------------------
     if (!("bloodline" in characterObject.spells)) {
-      _log("\trepair spell bloodline");
+      _log("\t\tlegacy update: spell bloodline");
       characterObject.spells.bloodline = "";
     };
     // --------------------------------------------------
     if (!("power" in characterObject.statistics)) {
-      _log("\trepair power");
+      _log("\t\tlegacy update: power");
       characterObject.statistics.power = [];
     };
     // --------------------------------------------------
     if (typeof characterObject.awesomeSheet == "boolean") {
-      _log("\trepair awesome check");
+      _log("\t\tlegacy update: awesome check");
       characterObject.awesomeSheet = {};
       characterObject.awesomeSheet.awesome = true;
       characterObject.awesomeSheet.version = "4.4.0";
     };
-    _log("\tlegacy update complete");
+    _log("\t\tlegacy update: complete");
   };
 
   function _update_500(characterObject) {
@@ -818,7 +833,7 @@ var repair = (function() {
         level: "",
         next_level: "",
         total: tempCharacterObject.basics.xp.total || "",
-        advancement_speed: tempCharacterObject.basics.xp.advancement_speed || "",
+        advancement: tempCharacterObject.basics.xp.advancement_speed || "",
         needed: ""
       },
       initiative: {
@@ -2391,7 +2406,7 @@ var repair = (function() {
         all: tempCharacterObject.notes.story || []
       }
     }
-    _log("\t5.0.0 update complete");
+    _log("\tupdate complete 5.0.0");
   };
 
   function _update(options) {
@@ -2427,26 +2442,20 @@ var repair = (function() {
 
       // if awesomeSheet check is a boolean
       if (typeof defaultOptions.object.awesomeSheet == "boolean") {
-        _log("\trepair: below 5.0.0 running legacy update");
+        _log("\tlegacy update: 4.4.0 and below");
         // --------------------------------------------------
         _update_440andBelow(defaultOptions.object);
       };
 
       if (defaultOptions.object.awesomeSheet.version != update.version()) {
         // version bump
-        _log("\trepair: character current: " + defaultOptions.object.awesomeSheet.version + " --> bumping to, " + update.version());
+        _log("\tupdate: from " + defaultOptions.object.awesomeSheet.version + " to " + update.version());
         _update({
           object: defaultOptions.object,
           bumpTo: update.version()
         });
       };
 
-    };
-  };
-
-  function _log(message) {
-    if (_debug) {
-      console.log(message);
     };
   };
 
@@ -2475,6 +2484,12 @@ var repair = (function() {
     };
     // store characters
     sheet.store();
+  };
+
+  function _log(message) {
+    if (_debug) {
+      console.log(message);
+    };
   };
 
   // exposed methods

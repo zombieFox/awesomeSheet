@@ -43,7 +43,7 @@ var blank = (function() {
         level: "",
         next_level: "",
         total: "",
-        advancement_speed: "",
+        advancement: "",
         needed: ""
       },
       initiative: {
@@ -95,58 +95,58 @@ var blank = (function() {
     statistics: {
       stats: {
         str: {
-          current: "",
           modifier: "",
           base: "",
           enhancement: "",
           misc: "",
           racial: "",
-          temp: ""
+          temp: "",
+          current: ""
         },
         dex: {
-          current: "",
           modifier: "",
           base: "",
           enhancement: "",
           misc: "",
           racial: "",
-          temp: ""
+          temp: "",
+          current: ""
         },
         con: {
-          current: "",
           modifier: "",
           base: "",
           enhancement: "",
           misc: "",
           racial: "",
-          temp: ""
+          temp: "",
+          current: ""
         },
         int: {
-          current: "",
           modifier: "",
           base: "",
           enhancement: "",
           misc: "",
           racial: "",
-          temp: ""
+          temp: "",
+          current: ""
         },
         wis: {
-          current: "",
           modifier: "",
           base: "",
           enhancement: "",
           misc: "",
           racial: "",
-          temp: ""
+          temp: "",
+          current: ""
         },
         cha: {
-          current: "",
           modifier: "",
           base: "",
           enhancement: "",
           misc: "",
           racial: "",
-          temp: ""
+          temp: "",
+          current: ""
         }
       },
       abilities: {

@@ -111,13 +111,15 @@ var classes = (function() {
   function get_classLevel(characterObject) {
     var classAndLevel = "";
     var classes = characterObject.basics.classes.all;
-    for (var i = 0; i < classes.length; i++) {
-      var classname = classes[i].classname || "No class";
-      var level = classes[i].level || "No level";
-      classAndLevel = classAndLevel + classname + " " + level;
-      if (i < (classes.length - 1)) {
-        classAndLevel = classAndLevel + " / ";
-      };
+    if (classes.length > 0) {
+      classes.forEach(function(arrayItem, index) {
+        var classname = arrayItem.classname || "No class";
+        var level = arrayItem.level || "No level";
+        classAndLevel = classAndLevel + classname + " " + level;
+        if (index < (classes.length - 1)) {
+          classAndLevel = classAndLevel + " / ";
+        };
+      });
     };
     return classAndLevel;
   };
