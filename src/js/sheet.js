@@ -466,7 +466,10 @@ var sheet = (function() {
 
   function exportJson() {
     var fileName;
-    var characterName = get().basics.name;
+    var characterName = helper.getObject({
+      object: get(),
+      path: "basics.character.name"
+    });
     var classLevel = classes.getClassLevel(sheet.get());
     if (characterName != "") {
       fileName = characterName;
