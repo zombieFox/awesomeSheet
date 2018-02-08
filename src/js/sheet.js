@@ -1,49 +1,57 @@
 var sheet = (function() {
 
-  var allCharacters = JSON.parse(JSON.stringify([blank.data]));
+  var _all_characters = JSON.parse(JSON.stringify([blank.data]));
 
-  var currentCharacterIndex = 0;
-
-  var saveHardCodedCharacters = (function() {
-    if (helper.read("allCharacters")) {
-      allCharacters = JSON.parse(helper.read("allCharacters"));
-    } else if (typeof hardCodedCharacters !== "undefined") {
-      allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.demo())); // for demo load sample characters
-      // allCharacters = [blank.data]; // for production load blank character
-    };
-    store();
-  })();
+  var _currentCharacterIndex = 0;
 
   var setCurrentCharacterIndex = (function() {
     if (helper.read("charactersIndex")) {
-      currentCharacterIndex = parseInt(helper.read("charactersIndex"), 10);
+      _currentCharacterIndex = parseInt(helper.read("charactersIndex"), 10);
     };
   })();
 
+  function init() {
+    if (helper.read("allCharacters")) {
+      _all_characters = JSON.parse(helper.read("allCharacters"));
+    } else {
+      // load demo characters
+      _all_characters = JSON.parse(JSON.stringify(hardCodedCharacters.demo()));
+      // load blank character
+      // _all_characters = JSON.parse(JSON.stringify([blank.data])); // for production load blank character
+    };
+    _all_characters.forEach(function(item, index, array) {
+      array[index] = repair.render({
+        object: item,
+        debug: true
+      });
+    });
+    store();
+  };
+
   function store() {
-    helper.store("allCharacters", JSON.stringify(allCharacters));
+    helper.store("allCharacters", JSON.stringify(_all_characters));
   };
 
   function getAll() {
-    return allCharacters;
+    return _all_characters;
   };
 
   function get() {
-    return allCharacters[currentCharacterIndex];
+    return _all_characters[_currentCharacterIndex];
   };
 
   function getIndex() {
-    return currentCharacterIndex;
+    return _currentCharacterIndex;
   };
 
   function setIndex(index) {
-    currentCharacterIndex = index;
-    helper.store("charactersIndex", currentCharacterIndex);
+    _currentCharacterIndex = index;
+    helper.store("charactersIndex", _currentCharacterIndex);
   };
 
   function add(newCharacter) {
     var dataToAdd = newCharacter || JSON.parse(JSON.stringify(blank.data));
-    allCharacters.push(dataToAdd);
+    _all_characters.push(dataToAdd);
     setIndex(getAll().length - 1);
     clear();
     render();
@@ -56,8 +64,8 @@ var sheet = (function() {
 
   function replace(newCharacter) {
     var dataToAdd = newCharacter;
-    allCharacters.splice(getIndex(), 1);
-    allCharacters.splice(getIndex(), 0, dataToAdd);
+    _all_characters.splice(getIndex(), 1);
+    _all_characters.splice(getIndex(), 0, dataToAdd);
     clear();
     render();
     nav.scrollToTop();
@@ -66,9 +74,9 @@ var sheet = (function() {
 
   function remove() {
     var _destroy = function() {
-      allCharacters.splice(getIndex(), 1);
+      _all_characters.splice(getIndex(), 1);
       var message = helper.truncate(name, 50, true) + " removed.";
-      if (allCharacters.length == 0) {
+      if (_all_characters.length == 0) {
         add();
         message = message + " New character added.";
       };
@@ -102,10 +110,12 @@ var sheet = (function() {
     localStorage.clear();
     prompt.destroy();
     snack.destroy();
-    // helper.store("backupAllCharacters", JSON.stringify(allCharacters));
-    allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.all()));
-    repair.render({
-      debug: true
+    _all_characters = JSON.parse(JSON.stringify(hardCodedCharacters.all()));
+    _all_characters.forEach(function(item, index, array) {
+      array[index] = repair.render({
+        object: item,
+        debug: true
+      });
     });
     setIndex(0);
     store();
@@ -123,7 +133,7 @@ var sheet = (function() {
     localStorage.clear();
     prompt.destroy();
     snack.destroy();
-    allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.demo()));
+    _all_characters = JSON.parse(JSON.stringify(hardCodedCharacters.demo()));
     repair.render({
       debug: true
     })
@@ -143,7 +153,7 @@ var sheet = (function() {
     localStorage.clear();
     prompt.destroy();
     snack.destroy();
-    allCharacters = JSON.parse(JSON.stringify([blank.data]));
+    _all_characters = JSON.parse(JSON.stringify([blank.data]));
     setIndex(0);
     store();
     clear();
@@ -559,6 +569,7 @@ var sheet = (function() {
 
   // exposed methods
   return {
+    init: init,
     getAll: getAll,
     get: get,
     store: store,
