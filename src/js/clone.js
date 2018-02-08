@@ -518,8 +518,11 @@ var clone = (function() {
     if (cloneType == "skill") {
       cloneBlock = helper.e(".js-clone-block-skill");
     };
-    if (cloneType == "note-character" || cloneType == "note-story" || cloneType == "note") {
-      cloneBlock = helper.e(".js-clone-block-note");
+    if (cloneType == "note-character") {
+      cloneBlock = helper.e(".js-clone-block-note-character");
+    };
+    if (cloneType == "note-story") {
+      cloneBlock = helper.e(".js-clone-block-note-story");
     };
     return cloneBlock;
   };
@@ -557,10 +560,8 @@ var clone = (function() {
   };
 
   function _get_cloneCount(cloneType, mixed) {
-    if (mixed || cloneType == "note" || cloneType == "attack") {
-      if (cloneType == "note") {
-        return _get_cloneObjects("note-character").length + _get_cloneObjects("note-story").length;
-      } else if (cloneType == "attack") {
+    if (mixed || cloneType == "attack") {
+      if (cloneType == "attack") {
         return _get_cloneObjects("attack-melee").length + _get_cloneObjects("attack-ranged").length;
       } else {
         return _get_cloneObjects(cloneType).length;
@@ -853,7 +854,8 @@ var clone = (function() {
     var cloneBlockSkill = _get_cloneBlock("skill");
     var cloneBlockItem = _get_cloneBlock("item");
     var cloneBlockAttack = _get_cloneBlock("attack");
-    var cloneBlockNote = _get_cloneBlock("note");
+    var cloneBlockNoteCharacter = _get_cloneBlock("note-character");
+    var cloneBlockNoteStory = _get_cloneBlock("note-story");
 
     var cloneAddClass = cloneBlockClass.querySelector(".js-clone-add-class");
     var cloneRemoveClass = cloneBlockClass.querySelector(".js-clone-remove");
@@ -874,9 +876,11 @@ var clone = (function() {
     var cloneAddAttackRanged = cloneBlockAttack.querySelector(".js-clone-add-ranged");
     var cloneRemoveAttack = cloneBlockAttack.querySelector(".js-clone-remove");
 
-    var cloneAddCharacterNote = cloneBlockNote.querySelector(".js-clone-add-character-note");
-    var cloneAddStoryNote = cloneBlockNote.querySelector(".js-clone-add-story-note");
-    var cloneRemoveNote = cloneBlockNote.querySelector(".js-clone-remove");
+    var cloneAddNoteCharacter = cloneBlockNoteCharacter.querySelector(".js-clone-add-note-character");
+    var cloneRemoveNoteCharacter = cloneBlockNoteCharacter.querySelector(".js-clone-remove");
+
+    var cloneAddNoteStory = cloneBlockNoteStory.querySelector(".js-clone-add-note-story");
+    var cloneRemoveNoteStory = cloneBlockNoteStory.querySelector(".js-clone-remove");
 
     cloneAddClass.addEventListener("click", function() {
       _addNewClone("class");
@@ -914,14 +918,23 @@ var clone = (function() {
       sheet.store();
     }, false);
 
-    cloneAddCharacterNote.addEventListener("click", function() {
+    cloneAddNoteCharacter.addEventListener("click", function() {
       _addNewClone("note-character");
       sheet.store();
     }, false);
 
-    cloneAddStoryNote.addEventListener("click", function() {
+    cloneAddNoteStory.addEventListener("click", function() {
       _addNewClone("note-story");
       sheet.store();
+    }, false);
+
+    cloneRemoveNoteCharacter.addEventListener("click", function() {
+      _change_cloneState("note-character");
+      _update_removeButtonTab("note-character");
+    }, false);
+    cloneRemoveNoteStory.addEventListener("click", function() {
+      _change_cloneState("note-story");
+      _update_removeButtonTab("note-story");
     }, false);
 
     cloneRemoveClass.addEventListener("click", function() {
@@ -952,11 +965,6 @@ var clone = (function() {
     cloneRemoveSkill.addEventListener("click", function() {
       _change_cloneState("skill");
       _update_removeButtonTab("skill");
-    }, false);
-
-    cloneRemoveNote.addEventListener("click", function() {
-      _change_cloneState("note");
-      _update_removeButtonTab("note");
     }, false);
   };
 
