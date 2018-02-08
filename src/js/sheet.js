@@ -124,6 +124,9 @@ var sheet = (function() {
     prompt.destroy();
     snack.destroy();
     allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.demo()));
+    repair.render({
+      debug: true
+    })
     setIndex(0);
     store();
     clear();

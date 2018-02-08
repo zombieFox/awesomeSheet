@@ -232,31 +232,31 @@ var totalBlock = (function() {
           if (key == "armor") {
             externalBouns = _checkValue(helper.getObject({
               object: sheet.get(),
-              path: "defense.stats.armor"
+              path: "defense.ac.stats.armor"
             }));
           };
           if (key == "shield") {
             externalBouns = _checkValue(helper.getObject({
               object: sheet.get(),
-              path: "defense.stats.shield"
+              path: "defense.ac.stats.shield"
             }));
           };
           if (key == "deflect") {
             externalBouns = _checkValue(helper.getObject({
               object: sheet.get(),
-              path: "defense.stats.deflect"
+              path: "defense.ac.stats.deflect"
             }));
           };
           if (key == "dodge") {
             externalBouns = _checkValue(helper.getObject({
               object: sheet.get(),
-              path: "defense.stats.dodge"
+              path: "defense.ac.stats.dodge"
             }));
           };
           if (key == "natural") {
             externalBouns = _checkValue(helper.getObject({
               object: sheet.get(),
-              path: "defense.stats.natural"
+              path: "defense.ac.stats.natural"
             }));
           };
           if (key == "check_penalty") {
@@ -487,27 +487,27 @@ var totalBlock = (function() {
       } else if (label == "armor") {
         return "Armor Bonus (" + _addPrefix(helper.getObject({
           object: sheet.get(),
-          path: "defense.stats.armor"
+          path: "defense.ac.stats.armor"
         })) + ")";
       } else if (label == "shield") {
         return "Shield Bonus (" + _addPrefix(helper.getObject({
           object: sheet.get(),
-          path: "defense.stats.shield"
+          path: "defense.ac.stats.shield"
         })) + ")";
       } else if (label == "deflect") {
         return "Deflect Bonus (" + _addPrefix(helper.getObject({
           object: sheet.get(),
-          path: "defense.stats.deflect"
+          path: "defense.ac.stats.deflect"
         })) + ")";
       } else if (label == "dodge") {
         return "Dodge Bonus (" + _addPrefix(helper.getObject({
           object: sheet.get(),
-          path: "defense.stats.dodge"
+          path: "defense.ac.stats.dodge"
         })) + ")";
       } else if (label == "natural") {
         return "Natural Armor Bonus (" + _addPrefix(helper.getObject({
           object: sheet.get(),
-          path: "defense.stats.natural"
+          path: "defense.ac.stats.natural"
         })) + ")";
       } else if (label == "class_skill") {
         return "Class Skill (+3)";

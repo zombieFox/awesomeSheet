@@ -2438,7 +2438,8 @@ var repair = (function() {
     };
     if (defaultOptions.object) {
       var name = defaultOptions.object.basics.name || defaultOptions.object.basics.character.name;
-      _log("===================================== " + "\nrepair:\n" + name);
+      _log("_____________________________________________");
+      _log("REPAIR + UPDATE > > > " + name);
 
       // if awesomeSheet check is a boolean
       if (typeof defaultOptions.object.awesomeSheet == "boolean") {
