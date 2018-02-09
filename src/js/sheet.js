@@ -134,9 +134,12 @@ var sheet = (function() {
     prompt.destroy();
     snack.destroy();
     _all_characters = JSON.parse(JSON.stringify(hardCodedCharacters.demo()));
-    repair.render({
-      debug: true
-    })
+    _all_characters.forEach(function(item, index, array) {
+      array[index] = repair.render({
+        object: item,
+        debug: true
+      });
+    });
     setIndex(0);
     store();
     clear();

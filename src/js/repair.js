@@ -788,12 +788,36 @@ var repair = (function() {
       characterObject.statistics.power = [];
     };
     // --------------------------------------------------
+    if (!("dr" in characterObject.defense)) {
+      _log("\t\tupdate: dr");
+      characterObject.defense = {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        overcome: "",
+        notes: "",
+        bonuses: {
+          str: false,
+          dex: false,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
+          level: false,
+          half_level: false
+        }
+      }
+    };
+    // --------------------------------------------------
     if (typeof characterObject.awesomeSheet == "boolean") {
       _log("\t\tupdate: awesome check");
       characterObject.awesomeSheet = {};
       characterObject.awesomeSheet.awesome = true;
       characterObject.awesomeSheet.version = "4.4.0";
     };
+    // --------------------------------------------------
     _log("\tupdate complete: legacy");
     _log("\t-----");
     return characterObject;
