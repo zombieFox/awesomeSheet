@@ -310,31 +310,23 @@ var display = (function() {
       } else {
         for (var j = 0; j < all_clones.length; j++) {
           var cloneType;
-          if (all_displayPath[i] == "basics.classes") {
             cloneType = "class";
           };
-          if (all_displayPath[i] == "equipment.consumable") {
             cloneType = "consumable";
           };
-          if (all_displayPath[i] == "statistics.power") {
             cloneType = "power";
           };
           if (all_displayPath[i] == "equipment.item.all") {
             cloneType = "item";
           };
-          if (all_displayPath[i] == "skills.custom") {
             cloneType = "skill";
           };
-          if (all_displayPath[i] == "offense.attack.melee") {
             cloneType = "attack-melee";
           };
-          if (all_displayPath[i] == "offense.attack.ranged") {
             cloneType = "attack-ranged";
           };
-          if (all_displayPath[i] == "notes.character") {
             cloneType = "note-character";
           };
-          if (all_displayPath[i] == "notes.story") {
             cloneType = "note-story";
           };
           all_node.push(_get_clone(all_clones[j], cloneType));
@@ -950,19 +942,12 @@ var display = (function() {
           all_node = _get_all_spell(all_displayPath);
         };
 
-        // function for later use to check the element from node array for false or data
-        var _appendToTarget = function(element) {
-          if (element != false) {
             // append to target
-            target.appendChild(element);
           } else {
             // or increment the "no data found at path" count
             dataNotFoundAtPath++;
           };
-        };
 
-        // loop over each node in array and append to target
-        all_node.forEach(_appendToTarget);
         totalNodeLength = totalNodeLength + all_node.length;
       };
       // if the "no data found at path" count == total "path count" this display blocks target is empty so add a data vale to reflect this
@@ -977,8 +962,6 @@ var display = (function() {
   };
 
   function render(section) {
-    // _render_displayBlock(section);
-    // _update_displayPlaceholder(section);
   };
 
   function _update_displayPlaceholder(section) {

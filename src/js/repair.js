@@ -823,20 +823,19 @@ var repair = (function() {
     return characterObject;
   };
 
-  function _checkForValue(object, path, alt) {
-    var path = path.split(".");
-    while (path.length > 1) {
-      var currentKey = path.shift();
-      if (!(currentKey in object)) {
-        return alt;
-      };
-      object = object[currentKey];
-    };
-    var finalKey = path.shift();
-    return object[finalKey];
-  };
-
   function _update_500(characterObject) {
+    var _checkForValue = function(object, path, alt) {
+      var path = path.split(".");
+      while (path.length > 1) {
+        var currentKey = path.shift();
+        if (!(currentKey in object)) {
+          return alt;
+        };
+        object = object[currentKey];
+      };
+      var finalKey = path.shift();
+      return object[finalKey];
+    };
     tempCharacterObject = JSON.parse(JSON.stringify(characterObject));
     // awesome
     _log("\t\tupdate: awesome");
@@ -910,7 +909,7 @@ var repair = (function() {
           g: _checkForValue(tempCharacterObject, "basics.character_image.color.g"),
           b: _checkForValue(tempCharacterObject, "basics.character_image.color.b")
         },
-        image: _checkForValue(tempCharacterObject, "basics.character_image.image"),
+        data: _checkForValue(tempCharacterObject, "basics.character_image.image"),
         orientation: _checkForValue(tempCharacterObject, "basics.character_image.orientation"),
         position: {
           x: _checkForValue(tempCharacterObject, "basics.character_image.position.x"),

@@ -79,7 +79,7 @@ var blank = (function() {
           g: "",
           b: ""
         },
-        image: "",
+        data: "",
         orientation: "",
         position: {
           x: "",
