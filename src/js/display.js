@@ -183,18 +183,19 @@ var display = (function() {
     };
   };
 
-  function _get_all_spell(all_displayPath) {
-    console.log(all_displayPath);
+  function _get_all_spell(all_displayPath, all_displaySpellLevel) {
     var all_node = [];
     for (var i = 0; i < all_displayPath.length; i++) {
-      var bookPath = all_displayPath[i].split(".");
-      var all_spells = sheet.get()[bookPath[0]][bookPath[1]][bookPath[2]]["level_" + bookPath[2]];
+      var all_spells = helper.getObject({
+        object: sheet.get(),
+        path: all_displayPath[i]
+      });
       if (all_spells.length == 0) {
         all_node.push(false);
       } else {
         for (var j = 0; j < all_spells.length; j++) {
           var spell = all_spells[j];
-          all_node.push(_get_spell(spell, bookPath[2], j));
+          all_node.push(_get_spell(spell, all_displaySpellLevel[i], j));
         };
       };
     };
@@ -244,7 +245,7 @@ var display = (function() {
       spellName.insertBefore(spellActive, spellName.firstChild);
     };
     displayListItem.addEventListener("click", function() {
-      spells.update(helper.e(".js-spell-book-known-level-" + level).querySelectorAll(".js-spell-col")[index].querySelector(".js-spell"), true);
+      spells.update(helper.e(".js-spell-block-known-level-" + level).querySelectorAll(".js-spell-col")[index].querySelector(".js-spell"), true);
     }, false);
     return displayListItem;
   };
@@ -310,23 +311,31 @@ var display = (function() {
       } else {
         for (var j = 0; j < all_clones.length; j++) {
           var cloneType;
+          if (all_displayPath[i] == "basics.classes.all") {
             cloneType = "class";
           };
+          if (all_displayPath[i] == "equipment.consumable.all") {
             cloneType = "consumable";
           };
+          if (all_displayPath[i] == "statistics.power.all") {
             cloneType = "power";
           };
           if (all_displayPath[i] == "equipment.item.all") {
             cloneType = "item";
           };
+          if (all_displayPath[i] == "skills.custom.all") {
             cloneType = "skill";
           };
+          if (all_displayPath[i] == "offense.attack.melee.all") {
             cloneType = "attack-melee";
           };
+          if (all_displayPath[i] == "offense.attack.ranged.all") {
             cloneType = "attack-ranged";
           };
+          if (all_displayPath[i] == "notes.character.all") {
             cloneType = "note-character";
           };
+          if (all_displayPath[i] == "notes.story.all") {
             cloneType = "note-story";
           };
           all_node.push(_get_clone(all_clones[j], cloneType));
@@ -895,6 +904,7 @@ var display = (function() {
         var all_displayScale = false;
         var all_displayPosition = false;
         var all_displayColor = false;
+        var all_displaySpellLevel = false;
 
         if (all_displayBlockTarget[j].dataset.displayPath) {
           all_displayPath = all_displayBlockTarget[j].dataset.displayPath.split(",");
@@ -920,6 +930,9 @@ var display = (function() {
         if (all_displayBlockTarget[j].dataset.displayColor) {
           all_displayColor = all_displayBlockTarget[j].dataset.displayColor.split(",");
         };
+        if (all_displayBlockTarget[j].dataset.displaySpellLevel) {
+          all_displaySpellLevel = all_displayBlockTarget[j].dataset.displaySpellLevel.split(",");
+        };
 
         // get an array of nodes using the array of paths
         if (displayType == "stat") {
@@ -939,14 +952,19 @@ var display = (function() {
         } else if (displayType == "skill") {
           all_node = _get_all_skill(all_displayPath, all_displayPrefix);
         } else if (displayType == "spell") {
-          all_node = _get_all_spell(all_displayPath);
+          all_node = _get_all_spell(all_displayPath, all_displaySpellLevel);
         };
 
+        // loop over each node in array and append to target
+        all_node.forEach(function(arrayItem) {
+          if (arrayItem != false) {
             // append to target
+            target.appendChild(arrayItem);
           } else {
             // or increment the "no data found at path" count
             dataNotFoundAtPath++;
           };
+        });
 
         totalNodeLength = totalNodeLength + all_node.length;
       };
@@ -962,6 +980,8 @@ var display = (function() {
   };
 
   function render(section) {
+    _render_displayBlock(section);
+    _update_displayPlaceholder(section);
   };
 
   function _update_displayPlaceholder(section) {
