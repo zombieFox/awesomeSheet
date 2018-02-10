@@ -1,4 +1,4 @@
-var xp = (function() {
+var exp = (function() {
 
   var renderTimer = null;
 

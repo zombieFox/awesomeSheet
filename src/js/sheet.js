@@ -17,7 +17,7 @@ var sheet = (function() {
       // load demo characters
       _all_characters = JSON.parse(JSON.stringify(hardCodedCharacters.demo()));
       // load blank character
-      // _all_characters = JSON.parse(JSON.stringify([blank.data])); // for production load blank character
+      // _all_characters = JSON.parse(JSON.stringify([blank.data]));
     };
     _all_characters.forEach(function(item, index, array) {
       array[index] = repair.render({
@@ -184,7 +184,7 @@ var sheet = (function() {
     spells.render();
     encumbrance.render();
     size.render();
-    xp.render();
+    exp.render();
     wealth.render();
     totalBlock.render();
     textBlock.render();
@@ -231,7 +231,7 @@ var sheet = (function() {
     card.bind();
     tip.bind();
     events.bind();
-    xp.bind();
+    exp.bind();
     characterImage.bind();
     registerServiceWorker.bind();
   };

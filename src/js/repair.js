@@ -873,53 +873,53 @@ var repair = (function() {
         level: "",
         next_level: "",
         needed: "",
-        total: _checkForValue(tempCharacterObject, "basics.xp.total"),
-        advancement: _checkForValue(tempCharacterObject, "basics.xp.advancement_speed")
+        total: _checkForValue(tempCharacterObject, "basics.xp.total", ""),
+        advancement: _checkForValue(tempCharacterObject, "basics.xp.advancement_speed", "")
       },
       initiative: {
-        misc: _checkForValue(tempCharacterObject, "basics.initiative.misc"),
-        temp: _checkForValue(tempCharacterObject, "basics.initiative.temp"),
-        feat: _checkForValue(tempCharacterObject, "basics.initiative.feat"),
-        trait: _checkForValue(tempCharacterObject, "basics.initiative.trait"),
+        misc: _checkForValue(tempCharacterObject, "basics.initiative.misc", ""),
+        temp: _checkForValue(tempCharacterObject, "basics.initiative.temp", ""),
+        feat: _checkForValue(tempCharacterObject, "basics.initiative.feat", ""),
+        trait: _checkForValue(tempCharacterObject, "basics.initiative.trait", ""),
         current: "",
         bonuses: {
-          str: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.str_bonus"),
-          dex: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.dex_bonus"),
-          con: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.con_bonus"),
-          int: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.int_bonus"),
-          wis: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.wis_bonus"),
-          cha: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.cha_bonus"),
-          level: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.level"),
-          half_level: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.half_level")
+          str: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.str_bonus", false),
+          dex: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.dex_bonus", false),
+          con: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.con_bonus", false),
+          int: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.int_bonus", false),
+          wis: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.wis_bonus", false),
+          cha: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.cha_bonus", false),
+          level: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.level", false),
+          half_level: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.half_level", false)
         }
       },
       speed: {
-        land: _checkForValue(tempCharacterObject, "basics.speed.land"),
-        fly: _checkForValue(tempCharacterObject, "basics.speed.fly"),
-        maneuverability: _checkForValue(tempCharacterObject, "basics.speed.maneuverability"),
-        swim: _checkForValue(tempCharacterObject, "basics.speed.swim"),
-        climb: _checkForValue(tempCharacterObject, "basics.speed.climb"),
-        burrow: _checkForValue(tempCharacterObject, "basics.speed.burrow")
+        land: _checkForValue(tempCharacterObject, "basics.speed.land", ""),
+        fly: _checkForValue(tempCharacterObject, "basics.speed.fly", ""),
+        maneuverability: _checkForValue(tempCharacterObject, "basics.speed.maneuverability", ""),
+        swim: _checkForValue(tempCharacterObject, "basics.speed.swim", ""),
+        climb: _checkForValue(tempCharacterObject, "basics.speed.climb", ""),
+        burrow: _checkForValue(tempCharacterObject, "basics.speed.burrow", "")
       },
       image: {
-        uploaded: _checkForValue(tempCharacterObject, "basics.character_image.uploaded"),
-        background: _checkForValue(tempCharacterObject, "basics.character_image.background"),
+        uploaded: _checkForValue(tempCharacterObject, "basics.character_image.uploaded", false),
+        background: _checkForValue(tempCharacterObject, "basics.character_image.background", ""),
         color: {
-          r: _checkForValue(tempCharacterObject, "basics.character_image.color.r"),
-          g: _checkForValue(tempCharacterObject, "basics.character_image.color.g"),
-          b: _checkForValue(tempCharacterObject, "basics.character_image.color.b")
+          r: _checkForValue(tempCharacterObject, "basics.character_image.color.r", ""),
+          g: _checkForValue(tempCharacterObject, "basics.character_image.color.g", ""),
+          b: _checkForValue(tempCharacterObject, "basics.character_image.color.b", "")
         },
-        data: _checkForValue(tempCharacterObject, "basics.character_image.image"),
-        orientation: _checkForValue(tempCharacterObject, "basics.character_image.orientation"),
+        data: _checkForValue(tempCharacterObject, "basics.character_image.image", ""),
+        orientation: _checkForValue(tempCharacterObject, "basics.character_image.orientation", ""),
         position: {
-          x: _checkForValue(tempCharacterObject, "basics.character_image.position.x"),
-          y: _checkForValue(tempCharacterObject, "basics.character_image.position.y")
+          x: _checkForValue(tempCharacterObject, "basics.character_image.position.x", ""),
+          y: _checkForValue(tempCharacterObject, "basics.character_image.position.y", "")
         },
         size: {
-          width: _checkForValue(tempCharacterObject, "basics.character_image.size.width"),
-          height: _checkForValue(tempCharacterObject, "basics.character_image.size.height")
+          width: _checkForValue(tempCharacterObject, "basics.character_image.size.width", ""),
+          height: _checkForValue(tempCharacterObject, "basics.character_image.size.height", "")
         },
-        scale: _checkForValue(tempCharacterObject, "basics.character_image.scale")
+        scale: _checkForValue(tempCharacterObject, "basics.character_image.scale", "")
       }
     };
     // statistics
@@ -998,13 +998,13 @@ var repair = (function() {
         gear: _checkForValue(tempCharacterObject, "equipment.gear", ""),
         magic_gear: _checkForValue(tempCharacterObject, "equipment.magic_gear", ""),
         potion_viles_oils: _checkForValue(tempCharacterObject, "equipment.potion_viles_oils", ""),
-        scrolls: _checkForValue(tempCharacterObject, "equipment.scrolls", "") || ""
+        scrolls: _checkForValue(tempCharacterObject, "equipment.scrolls", "")
       },
       armor: {
         armor: _checkForValue(tempCharacterObject, "equipment.armor.armor", ""),
         check_penalty: _checkForValue(tempCharacterObject, "equipment.armor.check_penalty", ""),
         max_dex: _checkForValue(tempCharacterObject, "equipment.armor.max_dex", ""),
-        shield: _checkForValue(tempCharacterObject, "equipment.armor.shield", "") || ""
+        shield: _checkForValue(tempCharacterObject, "equipment.armor.shield", "")
       },
       body_slots: {
         belts: _checkForValue(tempCharacterObject, "equipment.body_slots.belts", ""),

@@ -59,7 +59,7 @@ var inputBlock = (function() {
   function bind_inputBlockIncrement(inputBlockIncrement) {
     inputBlockIncrement.addEventListener("click", function(event) {
       _increment(this, event);
-      xp.render();
+      exp.render();
       wealth.render();
       totalBlock.render();
       textBlock.render();
@@ -81,7 +81,7 @@ var inputBlock = (function() {
         // if enter
         if (event.keyCode == 13) {
           _render_aggregate(this);
-          xp.render();
+          exp.render();
           wealth.render();
           totalBlock.render();
           textBlock.render();
@@ -102,7 +102,7 @@ var inputBlock = (function() {
     if (inputBlockAggregateControl) {
       inputBlockAggregateControl.addEventListener("click", function() {
         _render_aggregateControl(this);
-        xp.render();
+        exp.render();
         wealth.render();
         totalBlock.render();
         textBlock.render();
@@ -196,7 +196,7 @@ var inputBlock = (function() {
 
   function delayStoreUpdate(element) {
     _store(element);
-    xp.render();
+    exp.render();
     wealth.render();
     totalBlock.render();
     textBlock.render();
@@ -331,7 +331,7 @@ var inputBlock = (function() {
       });
       inputBlockField.value = "";
       _makeEvent();
-      xp.render();
+      exp.render();
       wealth.render();
       totalBlock.render();
       textBlock.render();
@@ -398,7 +398,7 @@ var inputBlock = (function() {
         path: undoObject.path,
         newValue: undoObject.oldData
       });
-      xp.render();
+      exp.render();
       wealth.render();
       totalBlock.render();
       textBlock.render();
@@ -692,7 +692,7 @@ var inputBlock = (function() {
       };
       _store_data();
       render(inputBlock);
-      xp.render();
+      exp.render();
       wealth.render();
       totalBlock.render();
       textBlock.render();

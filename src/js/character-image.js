@@ -1,6 +1,6 @@
 var characterImage = (function() {
 
-  var backgroundTimer = null;
+  var _timer_background = null;
 
   function bind() {
     var imageInput = helper.e(".js-image-input");
@@ -66,13 +66,13 @@ var characterImage = (function() {
       _render_position();
     }, false);
     imageScaleAverage.addEventListener("click", function() {
-      backgroundTimer = setTimeout(_delay_bakcground, 350, this);
+      _timer_background = setTimeout(_delay_bakcground, 350, this);
     }, false);
     imageScaleBlack.addEventListener("click", function() {
-      backgroundTimer = setTimeout(_delay_bakcground, 350, this);
+      _timer_background = setTimeout(_delay_bakcground, 350, this);
     }, false);
     imageScaleWhite.addEventListener("click", function() {
-      backgroundTimer = setTimeout(_delay_bakcground, 350, this);
+      _timer_background = setTimeout(_delay_bakcground, 350, this);
     }, false);
   };
 
