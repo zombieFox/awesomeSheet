@@ -7,13 +7,15 @@ var themeColor = (function() {
       })) {
       for (var i = 0; i < themeMeta.length; i++) {
         if (themeMeta[i].getAttribute("name") == "theme-color") {
-          themeMeta[i].setAttribute("content", "#970027");
+          // display mode
+          themeMeta[i].setAttribute("content", "#7d0021");
         };
       };
     } else {
       for (var i = 0; i < themeMeta.length; i++) {
         if (themeMeta[i].getAttribute("name") == "theme-color") {
-          themeMeta[i].setAttribute("content", "#1e4a76");
+          // edit mode
+          themeMeta[i].setAttribute("content", "#1b3d5f");
         };
       };
     };

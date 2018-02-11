@@ -266,8 +266,9 @@ var update = (function() {
     ]
   }];
 
-  function version() {
-    return history[0].version;
+  var version = function() {
+    var number = history[0].version.split(".");
+    return parseFloat(number.shift() + "." + number.join(""));
   };
 
   // exposed methods

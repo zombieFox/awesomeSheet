@@ -841,7 +841,7 @@ var repair = (function() {
     _log("\t\tupdate: awesome");
     characterObject.awesomeSheet = {};
     characterObject.awesomeSheet.awesome = true;
-    characterObject.awesomeSheet.version = "5.0.0";
+    characterObject.awesomeSheet.version = 5;
     // basics
     _log("\t\tupdate: basics");
     characterObject.basics = {
@@ -2464,33 +2464,18 @@ var repair = (function() {
     return characterObject;
   };
 
-  // function _update(options) {
-  //   var defaultOptions = {
-  //     object: null,
-  //     bumpTo: null
-  //   };
-  //   if (options) {
-  //     var defaultOptions = helper.applyOptions(defaultOptions, options);
-  //   };
-  //   var _bumpToVersion = function(version, updateAction) {
-  //     if (defaultOptions.object.awesomeSheet.version != version) {
-  //       updateAction(defaultOptions.object);
-  //     };
-  //   };
-  //   if (defaultOptions.object != null) {
-  //     if (defaultOptions.bumpTo == "5.0.0") {
-  //       _bumpToVersion("5.0.0", _update_500);
-  //     };
-  //   };
-  // };
-
   function _repair(characterObject) {
-    if (characterObject.awesomeSheet.version != update.version()) {
+    if (!("version" in characterObject) || !("version" in characterObject.awesomeSheet)) {
+      // if no version is found
       if (typeof characterObject.awesomeSheet == "boolean") {
         _log("\tupdate: legacy");
         characterObject = _update_legacy(characterObject);
+        _log("\tupdate: 500");
+        characterObject = _update_500(characterObject);
       };
-      if (characterObject.awesomeSheet.version != "5.0.0") {
+    } else {
+      // if version is found
+      if (characterObject.awesomeSheet.version < update.version()) {
         _log("\tupdate: 500");
         characterObject = _update_500(characterObject);
       };
