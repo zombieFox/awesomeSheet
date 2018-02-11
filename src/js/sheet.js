@@ -51,6 +51,7 @@ var sheet = (function() {
 
   function add(newCharacter) {
     var dataToAdd = newCharacter || JSON.parse(JSON.stringify(blank.data));
+    dataToAdd.awesomeSheet.version = update.version();
     _all_characters.push(dataToAdd);
     setIndex(getAll().length - 1);
     clear();
