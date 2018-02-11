@@ -815,7 +815,7 @@ var repair = (function() {
       _log("\t\tupdate: awesome check");
       characterObject.awesomeSheet = {};
       characterObject.awesomeSheet.awesome = true;
-      characterObject.awesomeSheet.version = "4.4.0";
+      characterObject.awesomeSheet.version = 4;
     };
     // --------------------------------------------------
     _log("\tupdate complete: legacy");
@@ -834,7 +834,11 @@ var repair = (function() {
         object = object[currentKey];
       };
       var finalKey = path.shift();
-      return object[finalKey];
+      if (object[finalKey] == undefined) {
+        return alt;
+      } else {
+        return object[finalKey];
+      };
     };
     tempCharacterObject = JSON.parse(JSON.stringify(characterObject));
     // awesome
@@ -2464,20 +2468,38 @@ var repair = (function() {
     return characterObject;
   };
 
+  // function _update_600(characterObject) {
+  //   // awesome
+  //   _log("\t\tupdate: awesome");
+  //   characterObject.awesomeSheet.version = 6;
+  //   _log("\tupdate complete: 600");
+  //   _log("\t-----");
+  //   return characterObject;
+  // };
+
   function _repair(characterObject) {
-    if (!("version" in characterObject) || !("version" in characterObject.awesomeSheet)) {
+    // if version is found
+    if (typeof characterObject.awesomeSheet == "object" && "version" in characterObject.awesomeSheet) {
+      // if version number is below current version
+      if (characterObject.awesomeSheet.version < update.version()) {
+        if (characterObject.awesomeSheet.version < 5) {
+          _log("\tupdate: 500");
+          characterObject = _update_500(characterObject);
+        };
+        // if (characterObject.awesomeSheet.version < 6) {
+        //   _log("\tupdate: 600");
+        //   characterObject = _update_600(characterObject);
+        // };
+      };
+    } else {
       // if no version is found
       if (typeof characterObject.awesomeSheet == "boolean") {
         _log("\tupdate: legacy");
         characterObject = _update_legacy(characterObject);
         _log("\tupdate: 500");
         characterObject = _update_500(characterObject);
-      };
-    } else {
-      // if version is found
-      if (characterObject.awesomeSheet.version < update.version()) {
-        _log("\tupdate: 500");
-        characterObject = _update_500(characterObject);
+        // _log("\tupdate: 600");
+        // characterObject = _update_600(characterObject);
       };
     };
     return characterObject;
