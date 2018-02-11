@@ -790,7 +790,7 @@ var repair = (function() {
     // --------------------------------------------------
     if (!("dr" in characterObject.defense)) {
       _log("\t\tupdate: dr");
-      characterObject.defense = {
+      characterObject.defense.dr = {
         feat: "",
         trait: "",
         misc: "",
@@ -841,6 +841,7 @@ var repair = (function() {
       };
     };
     tempCharacterObject = JSON.parse(JSON.stringify(characterObject));
+    console.log(tempCharacterObject);
     // awesome
     _log("\t\tupdate: awesome");
     characterObject.awesomeSheet = {};
