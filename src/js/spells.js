@@ -129,6 +129,7 @@ var spells = (function() {
     var spellData = spellsData.get({
       index: spellIndex
     });
+    console.log(element, spellIndex, spellData);
     addNewSpell(element, spellIndex, spellData);
   };
 
@@ -163,13 +164,18 @@ var spells = (function() {
   };
 
   function _create_spellObject(spellName, spellPrepared, spellActive, spellCast, spellNote, spellIndex) {
+    if (spellIndex >= 0) {
+      spellIndex = spellIndex
+    } else {
+      spellIndex = false
+    };
     return {
       name: this.name = spellName || "",
       note: this.note = spellNote || "",
       prepared: this.prepared = spellPrepared || 0,
       active: this.active = spellActive || false,
       cast: this.cast = spellCast || 0,
-      index: spellIndex || ""
+      index: spellIndex
     };
   };
 
@@ -774,7 +780,7 @@ var spells = (function() {
         };
       };
 
-      if ("index" in tempSpellObject && tempSpellObject.index != "") {
+      if ("index" in tempSpellObject && (tempSpellObject.index) || typeof tempSpellObject.index == "number" && tempSpellObject.index >= 0) {
         _create_spellblock();
       };
 

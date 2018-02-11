@@ -3,7 +3,7 @@ var repair = (function() {
   var _debug = false;
 
   // legacy sheet update
-  function _update_440andBelow(characterObject) {
+  function _update_legacy(characterObject) {
     // --------------------------------------------------
     // repair spell notes
     if (characterObject.spells.book) {
@@ -2485,13 +2485,15 @@ var repair = (function() {
   // };
 
   function _repair(characterObject) {
-    if (typeof characterObject.awesomeSheet == "boolean") {
-      _log("\tupdate: legacy");
-      characterObject = _update_440andBelow(characterObject);
-    };
     if (characterObject.awesomeSheet.version != update.version()) {
-      _log("\tupdate: 500");
-      characterObject = _update_500(characterObject);
+      if (typeof characterObject.awesomeSheet == "boolean") {
+        _log("\tupdate: legacy");
+        characterObject = _update_legacy(characterObject);
+      };
+      if (characterObject.awesomeSheet.version != "5.0.0") {
+        _log("\tupdate: 500");
+        characterObject = _update_500(characterObject);
+      };
     };
     return characterObject;
   };
