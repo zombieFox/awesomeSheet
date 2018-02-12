@@ -301,7 +301,7 @@ var izlara = (function() {
         gold: 8405,
         silver: 102,
         copper: "",
-        total: 8865.2
+        total: ""
       }
     },
     defense: {
