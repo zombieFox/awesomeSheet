@@ -143,7 +143,6 @@ var characterSelect = (function() {
     var all_character = sheet.get({
       all: true
     });
-    console.log(all_character);
     var characterSelectList = helper.e(".js-character-select-list");
     all_character.forEach(function(arrayItem, index) {
       characterSelectList.appendChild(_createCharacterItem(arrayItem, index));
