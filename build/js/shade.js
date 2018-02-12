@@ -17,7 +17,7 @@ var shade = (function() {
       includeHeader: false
     };
     if (options) {
-      var defaultOptions = helper.applyOptions(defaultOptions, options);
+      defaultOptions = helper.applyOptions(defaultOptions, options);
     };
     var _destroy_previousShade = function() {
       if (previousShade != null) {

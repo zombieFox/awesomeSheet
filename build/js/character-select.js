@@ -140,13 +140,15 @@ var characterSelect = (function() {
   };
 
   function _render_allCharacterItems() {
-    var character = sheet.getAll();
+    var all_character = sheet.get({
+      all: true
+    });
     var characterSelectList = helper.e(".js-character-select-list");
-    for (var key in character) {
-      characterSelectList.appendChild(_createCharacterItem(character[key], key));
-    };
+    all_character.forEach(function(arrayItem, index) {
+      characterSelectList.appendChild(_createCharacterItem(arrayItem, index));
+    });
     var all_characterIndexInput = helper.eA(".js-character-select-list-item-input");
-    all_characterIndexInput[sheet.getIndex()].checked = true;
+    all_characterIndexInput[sheet.index.get()].checked = true;
   };
 
   function _render_currentCharacter() {
@@ -157,7 +159,7 @@ var characterSelect = (function() {
   };
 
   function _get_name(characterObject) {
-    var characterName = characterObject.basics.name;
+    var characterName = characterObject.basics.character.name;
     if (typeof characterName == "undefined" || characterName == "" || characterName == " ") {
       characterName = "New character";
     };

@@ -1,6 +1,6 @@
 (function() {
 
-  repair.render();
+  sheet.init();
   sheet.render();
   sheet.bind();
   onboarding.render();

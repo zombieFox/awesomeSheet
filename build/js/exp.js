@@ -1,4 +1,4 @@
-var xp = (function() {
+var exp = (function() {
 
   var renderTimer = null;
 
@@ -25,7 +25,7 @@ var xp = (function() {
     var selectedTrack = false;
     var speed = helper.getObject({
       object: sheet.get(),
-      path: "basics.xp.advancement_speed"
+      path: "basics.experience.advancement_speed"
     });
     var nextLevel;
     var nextLevelXpMileStone;
@@ -33,7 +33,7 @@ var xp = (function() {
     var nextLevelIndex;
     var currentXp = helper.getObject({
       object: sheet.get(),
-      path: "basics.xp.total"
+      path: "basics.experience.total"
     });
     if (speed == "Slow") {
       selectedTrack = trackSlow;
@@ -59,23 +59,23 @@ var xp = (function() {
         };
         helper.setObject({
           object: sheet.get(),
-          path: "basics.xp.next_level",
+          path: "basics.experience.next_level",
           newValue: nextLevelXpMileStone
         });
         helper.setObject({
           object: sheet.get(),
-          path: "basics.xp.needed",
+          path: "basics.experience.needed",
           newValue: nextLevelXpNeeded
         });
       } else {
         helper.setObject({
           object: sheet.get(),
-          path: "basics.xp.next_level",
+          path: "basics.experience.next_level",
           newValue: ""
         });
         helper.setObject({
           object: sheet.get(),
-          path: "basics.xp.needed",
+          path: "basics.experience.needed",
           newValue: ""
         });
       };
@@ -83,12 +83,12 @@ var xp = (function() {
     var _clear_nextXp = function() {
       helper.setObject({
         object: sheet.get(),
-        path: "basics.xp.next_level",
+        path: "basics.experience.next_level",
         newValue: ""
       });
       helper.setObject({
         object: sheet.get(),
-        path: "basics.xp.needed",
+        path: "basics.experience.needed",
         newValue: ""
       });
     };
