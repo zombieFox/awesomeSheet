@@ -859,7 +859,7 @@ var repair = (function() {
         return object[finalKey];
       };
     };
-    tempCharacterObject = JSON.parse(JSON.stringify(characterObject));
+    var tempCharacterObject = JSON.parse(JSON.stringify(characterObject));
     // awesome
     _report.repaired.push("update: awesome");
     characterObject.awesomeSheet = {};
