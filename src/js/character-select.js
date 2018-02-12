@@ -146,7 +146,6 @@ var characterSelect = (function() {
     console.log(all_character);
     var characterSelectList = helper.e(".js-character-select-list");
     all_character.forEach(function(arrayItem, index) {
-      console.log(arrayItem, index);
       characterSelectList.appendChild(_createCharacterItem(arrayItem, index));
     });
     var all_characterIndexInput = helper.eA(".js-character-select-list-item-input");
