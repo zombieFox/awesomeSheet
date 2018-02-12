@@ -481,7 +481,7 @@ var repair = (function() {
       };
       if (typeof characterObject.skills[key].misc == "string") {
         _report.repaired.push = "update: skills misc";
-        characterObject.skills[key].ranks = parseInt(characterObject.skills[key].ranks, 10);
+        characterObject.skills[key].ranks = parseInt(characterObject.skills[key].misc, 10);
       };
     };
     if (!("all" in characterObject.skills)) {
@@ -717,6 +717,12 @@ var repair = (function() {
       if (!("trait" in characterObject.skills.all[i])) {
         _report.repaired.push = "update: skill " + i + " trait";
         characterObject.skills.all[i].trait = "";
+      };
+      if (typeof characterObject.skills.all[i].misc == "string") {
+        characterObject.skills.all[i].misc = parseInt(characterObject.skills.all[i].misc, 10);
+      };
+      if (typeof characterObject.skills.all[i].ranks == "string") {
+        characterObject.skills.all[i].ranks = parseInt(characterObject.skills.all[i].ranks, 10);
       };
     };
     // --------------------------------------------------
