@@ -148,7 +148,7 @@ var characterSelect = (function() {
       characterSelectList.appendChild(_createCharacterItem(arrayItem, index));
     });
     var all_characterIndexInput = helper.eA(".js-character-select-list-item-input");
-    all_characterIndexInput[sheet.getIndex()].checked = true;
+    all_characterIndexInput[sheet.index.get()].checked = true;
   };
 
   function _render_currentCharacter() {
