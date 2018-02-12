@@ -364,4 +364,15 @@ module.exports = function(grunt) {
     'sw-precache:default'
   ]);
 
+  grunt.registerTask('beta', [
+    'clean:build',
+    'clean:tmp',
+    'assemble:build',
+    'copy:build',
+    'copy:webapp',
+    'sass:build',
+    'autoprefixer:build',
+    'sw-precache:default'
+  ]);
+
 };
