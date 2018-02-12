@@ -129,7 +129,6 @@ var spells = (function() {
     var spellData = spellsData.get({
       index: spellIndex
     });
-    console.log(element, spellIndex, spellData);
     addNewSpell(element, spellIndex, spellData);
   };
 
