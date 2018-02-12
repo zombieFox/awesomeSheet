@@ -19,7 +19,7 @@ var log = (function() {
       action: null
     };
     if (options) {
-      var defaultOptions = helper.applyOptions(defaultOptions, options);
+      defaultOptions = helper.applyOptions(defaultOptions, options);
     };
     var _makeLog = function() {
       var body = helper.e("body");

@@ -36,7 +36,7 @@ var sheet = (function() {
       all: false
     };
     if (options) {
-      var defaultOptions = helper.applyOptions(defaultOptions, options);
+      defaultOptions = helper.applyOptions(defaultOptions, options);
     };
     if (defaultOptions.all) {
       return _all_characters;
@@ -310,7 +310,7 @@ var sheet = (function() {
       action: null
     };
     if (options) {
-      var defaultOptions = helper.applyOptions(defaultOptions, options);
+      defaultOptions = helper.applyOptions(defaultOptions, options);
     };
     var container = document.createElement("div");
     container.setAttribute("class", "container");

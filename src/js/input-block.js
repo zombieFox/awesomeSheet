@@ -359,7 +359,7 @@ var inputBlock = (function() {
       snackMessage: null
     };
     if (options) {
-      var defaultOptions = helper.applyOptions(defaultOptions, options);
+      defaultOptions = helper.applyOptions(defaultOptions, options);
     };
     _aggregate({
       path: defaultOptions.path,
@@ -376,7 +376,7 @@ var inputBlock = (function() {
       snackMessage: null
     };
     if (options) {
-      var defaultOptions = helper.applyOptions(defaultOptions, options);
+      defaultOptions = helper.applyOptions(defaultOptions, options);
     };
     var oldData;
     var newData;

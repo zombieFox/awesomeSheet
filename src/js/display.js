@@ -1025,7 +1025,7 @@ var display = (function() {
       all: false
     };
     if (options) {
-      var defaultOptions = helper.applyOptions(defaultOptions, options);
+      defaultOptions = helper.applyOptions(defaultOptions, options);
     };
     var fab = helper.e(".js-fab");
     if (defaultOptions.all) {

@@ -2539,7 +2539,7 @@ var repair = (function() {
       object: null
     };
     if (options) {
-      var defaultOptions = helper.applyOptions(defaultOptions, options);
+      defaultOptions = helper.applyOptions(defaultOptions, options);
     };
     _debug = defaultOptions.debug;
     _log("################# REPAIR #################");
