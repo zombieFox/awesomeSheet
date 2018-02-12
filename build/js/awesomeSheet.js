@@ -24606,17 +24606,19 @@ var repair = (function() {
     };
     // --------------------------------------------------
     // repair concentration bonus object
-    if (typeof characterObject.spells.concentration.bonuses != "object" || !characterObject.spells.concentration.bonuses) {
-      _report.repaired.push = "update: concentration bonus object";
-      characterObject.spells.concentration.bonuses = {
-        str_bonus: false,
-        dex_bonus: false,
-        con_bonus: false,
-        int_bonus: false,
-        wis_bonus: false,
-        cha_bonus: false,
-        level: false,
-        half_level: false
+    if ("concentration" in characterObject.spells && "bonuses" in characterObject.spells.concentration) {
+      if (typeof characterObject.spells.concentration.bonuses != "object" || !characterObject.spells.concentration.bonuses) {
+        _report.repaired.push = "update: concentration bonus object";
+        characterObject.spells.concentration.bonuses = {
+          str_bonus: false,
+          dex_bonus: false,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          level: false,
+          half_level: false
+        };
       };
     };
     // --------------------------------------------------
