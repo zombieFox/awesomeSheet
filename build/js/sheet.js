@@ -1,50 +1,66 @@
 var sheet = (function() {
 
-  var allCharacters = JSON.parse(JSON.stringify([blank.data]));
+  var _all_characters = JSON.parse(JSON.stringify([blank.data]));
 
-  var currentCharacterIndex = 0;
-
-  var saveHardCodedCharacters = (function() {
-    if (helper.read("allCharacters")) {
-      allCharacters = JSON.parse(helper.read("allCharacters"));
-    } else if (typeof hardCodedCharacters !== "undefined") {
-      allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.demo())); // for demo load sample characters
-      // allCharacters = [blank.data]; // for production load blank character
-    };
-    store();
-  })();
+  var _currentCharacterIndex = 0;
 
   var setCurrentCharacterIndex = (function() {
     if (helper.read("charactersIndex")) {
-      currentCharacterIndex = parseInt(helper.read("charactersIndex"), 10);
+      _currentCharacterIndex = parseInt(helper.read("charactersIndex"), 10);
     };
   })();
 
+  function init() {
+    if (helper.read("allCharacters")) {
+      _all_characters = JSON.parse(helper.read("allCharacters"));
+    } else {
+      // load demo characters
+      _all_characters = JSON.parse(JSON.stringify(hardCodedCharacters.demo()));
+      // load blank character
+      // _all_characters = JSON.parse(JSON.stringify([blank.data]));
+    };
+    _all_characters.forEach(function(item, index, array) {
+      array[index] = repair.render({
+        object: item
+      });
+    });
+    store();
+  };
+
   function store() {
-    helper.store("allCharacters", JSON.stringify(allCharacters));
+    helper.store("allCharacters", JSON.stringify(_all_characters));
   };
 
-  function getAll() {
-    return allCharacters;
-  };
-
-  function get() {
-    return allCharacters[currentCharacterIndex];
+  function get(options) {
+    var defaultOptions = {
+      all: false
+    };
+    if (options) {
+      defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
+    if (defaultOptions.all) {
+      return _all_characters;
+    } else {
+      return _all_characters[_currentCharacterIndex];
+    };
   };
 
   function getIndex() {
-    return currentCharacterIndex;
+    return _currentCharacterIndex;
   };
 
   function setIndex(index) {
-    currentCharacterIndex = index;
-    helper.store("charactersIndex", currentCharacterIndex);
+    _currentCharacterIndex = index;
+    helper.store("charactersIndex", _currentCharacterIndex);
   };
 
   function add(newCharacter) {
     var dataToAdd = newCharacter || JSON.parse(JSON.stringify(blank.data));
-    allCharacters.push(dataToAdd);
-    setIndex(getAll().length - 1);
+    dataToAdd.awesomeSheet.version = update.version();
+    _all_characters.push(dataToAdd);
+    setIndex(sheet.get({
+      all: true
+    }).length - 1);
     clear();
     render();
     nav.scrollToTop();
@@ -56,8 +72,8 @@ var sheet = (function() {
 
   function replace(newCharacter) {
     var dataToAdd = newCharacter;
-    allCharacters.splice(getIndex(), 1);
-    allCharacters.splice(getIndex(), 0, dataToAdd);
+    _all_characters.splice(getIndex(), 1);
+    _all_characters.splice(getIndex(), 0, dataToAdd);
     clear();
     render();
     nav.scrollToTop();
@@ -66,9 +82,9 @@ var sheet = (function() {
 
   function remove() {
     var _destroy = function() {
-      allCharacters.splice(getIndex(), 1);
+      _all_characters.splice(getIndex(), 1);
       var message = helper.truncate(name, 50, true) + " removed.";
-      if (allCharacters.length == 0) {
+      if (_all_characters.length == 0) {
         add();
         message = message + " New character added.";
       };
@@ -102,8 +118,12 @@ var sheet = (function() {
     localStorage.clear();
     prompt.destroy();
     snack.destroy();
-    helper.store("backupAllCharacters", JSON.stringify(allCharacters));
-    allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.all()));
+    _all_characters = JSON.parse(JSON.stringify(hardCodedCharacters.all()));
+    _all_characters.forEach(function(item, index, array) {
+      array[index] = repair.render({
+        object: item
+      });
+    });
     setIndex(0);
     store();
     clear();
@@ -120,7 +140,12 @@ var sheet = (function() {
     localStorage.clear();
     prompt.destroy();
     snack.destroy();
-    allCharacters = JSON.parse(JSON.stringify(hardCodedCharacters.demo()));
+    _all_characters = JSON.parse(JSON.stringify(hardCodedCharacters.demo()));
+    _all_characters.forEach(function(item, index, array) {
+      array[index] = repair.render({
+        object: item
+      });
+    });
     setIndex(0);
     store();
     clear();
@@ -137,7 +162,7 @@ var sheet = (function() {
     localStorage.clear();
     prompt.destroy();
     snack.destroy();
-    allCharacters = JSON.parse(JSON.stringify([blank.data]));
+    _all_characters = JSON.parse(JSON.stringify([blank.data]));
     setIndex(0);
     store();
     clear();
@@ -151,7 +176,6 @@ var sheet = (function() {
   };
 
   function render() {
-    repair.render(sheet.get());
     characterSelect.render();
     stats.render();
     clone.render();
@@ -166,7 +190,7 @@ var sheet = (function() {
     spells.render();
     encumbrance.render();
     size.render();
-    xp.render();
+    exp.render();
     wealth.render();
     totalBlock.render();
     textBlock.render();
@@ -213,7 +237,7 @@ var sheet = (function() {
     card.bind();
     tip.bind();
     events.bind();
-    xp.bind();
+    exp.bind();
     characterImage.bind();
     registerServiceWorker.bind();
   };
@@ -243,17 +267,20 @@ var sheet = (function() {
       characterSelect.clear();
       characterSelect.render();
     };
-    if (index < 0 || index > getAll().length || typeof index != "number") {
+    if (index < 0 || index > sheet.get({
+      all: true
+    }).length || typeof index != "number") {
       index = 0;
     };
     switcheroo(index);
   };
 
   function replaceJson() {
-    var name = helper.getObject({
-      object: get(),
-      path: "basics.name"
-    });
+    // var name = helper.getObject({
+    //   object: get(),
+    //   path: "basics.character.name"
+    // });
+    var name = get().basics.name || get().basics.character.name || "New character";
     modal.render({
       heading: "Replace " + name,
       content: _importJsonModal({
@@ -283,7 +310,7 @@ var sheet = (function() {
       action: null
     };
     if (options) {
-      var defaultOptions = helper.applyOptions(defaultOptions, options);
+      defaultOptions = helper.applyOptions(defaultOptions, options);
     };
     var container = document.createElement("div");
     container.setAttribute("class", "container");
@@ -338,9 +365,18 @@ var sheet = (function() {
       // console.log(event);
       if (helper.isJsonString(event.target.result)) {
         var data = JSON.parse(event.target.result);
-        if (data.awesomeSheet) {
-          add(data);
-          var name = allCharacters[getIndex()].basics.name;
+        if (data.awesomeSheet || data.awesomeSheet.awesome) {
+          add(repair.render({
+            object: data
+          }));
+          var name = get().basics.name || get().basics.character.name || "New character";
+          // var name = helper.getObject({
+          //   object: get(),
+          //   path: basics.name
+          // }) || helper.getObject({
+          //   object: get(),
+          //   path: basics.character.name
+          // }) || "New character";
           snack.render({
             message: helper.truncate(name, 40, true) + " imported and back in the game."
           });
@@ -372,9 +408,18 @@ var sheet = (function() {
       // console.log(event);
       if (helper.isJsonString(event.target.result)) {
         var data = JSON.parse(event.target.result);
-        if (data.awesomeSheet) {
-          replace(data);
-          var name = allCharacters[getIndex()].basics.name || "New character";
+        if (data.awesomeSheet || data.awesomeSheet.awesome) {
+          replace(repair.render({
+            object: data
+          }));
+          var name = get().basics.name || get().basics.character.name || "New character";
+          // var name = helper.getObject({
+          //   object: get(),
+          //   path: basics.name
+          // }) || helper.getObject({
+          //   object: get(),
+          //   path: basics.character.name
+          // }) || "New character";
           snack.render({
             message: helper.truncate(name, 40, true) + " replaced and back in the game."
           });
@@ -407,8 +452,8 @@ var sheet = (function() {
     readFile.onload = function(event) {
       if (helper.isJsonString(event.target.result)) {
         // console.log("JSON true");
-        if (JSON.parse(event.target.result).awesomeSheet) {
-          // console.log("awesome key true");
+        if (JSON.parse(event.target.result).awesomeSheet || JSON.parse(event.target.result).awesomeSheet.awesome) {
+          // console.log("awesome true");
           importSelectLabelText.textContent = fileList[0].name;
           helper.addClass(importSelectLabel, "m-import-select-label-ok");
           helper.removeClass(importSelectLabel, "m-import-select-label-error");
@@ -416,7 +461,7 @@ var sheet = (function() {
           helper.removeClass(importSelectLabelIcon, "icon-error-outline");
           helper.addClass(importSelectLabelIcon, "icon-check");
         } else {
-          // console.log("awesome key false");
+          // console.log("awesome false");
           importSelectLabelText.textContent = "JSON file not recognised by awesomeSheet";
           helper.removeClass(importSelectLabel, "m-import-select-label-ok");
           helper.addClass(importSelectLabel, "m-import-select-label-error");
@@ -444,7 +489,10 @@ var sheet = (function() {
 
   function exportJson() {
     var fileName;
-    var characterName = get().basics.name;
+    var characterName = helper.getObject({
+      object: get(),
+      path: "basics.character.name"
+    });
     var classLevel = classes.getClassLevel(sheet.get());
     if (characterName != "") {
       fileName = characterName;
@@ -531,7 +579,7 @@ var sheet = (function() {
 
   // exposed methods
   return {
-    getAll: getAll,
+    init: init,
     get: get,
     store: store,
     add: add,

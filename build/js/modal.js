@@ -20,7 +20,7 @@ var modal = (function() {
       size: "medium"
     };
     if (options) {
-      var defaultOptions = helper.applyOptions(defaultOptions, options);
+      defaultOptions = helper.applyOptions(defaultOptions, options);
     };
     var makeModal = function() {
       var body = helper.e("body");

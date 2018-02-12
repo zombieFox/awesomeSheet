@@ -59,7 +59,7 @@ var inputBlock = (function() {
   function bind_inputBlockIncrement(inputBlockIncrement) {
     inputBlockIncrement.addEventListener("click", function(event) {
       _increment(this, event);
-      xp.render();
+      exp.render();
       wealth.render();
       totalBlock.render();
       textBlock.render();
@@ -81,7 +81,7 @@ var inputBlock = (function() {
         // if enter
         if (event.keyCode == 13) {
           _render_aggregate(this);
-          xp.render();
+          exp.render();
           wealth.render();
           totalBlock.render();
           textBlock.render();
@@ -102,7 +102,7 @@ var inputBlock = (function() {
     if (inputBlockAggregateControl) {
       inputBlockAggregateControl.addEventListener("click", function() {
         _render_aggregateControl(this);
-        xp.render();
+        exp.render();
         wealth.render();
         totalBlock.render();
         textBlock.render();
@@ -143,7 +143,7 @@ var inputBlock = (function() {
   };
 
   function _bind_name() {
-    var inputBlock = helper.e(".js-basics-name");
+    var inputBlock = helper.e(".js-basics-character-name");
     var input = inputBlock.querySelector(".js-input-block-field");
     input.addEventListener("input", function() {
       clearTimeout(_timer_updateNav);
@@ -196,7 +196,7 @@ var inputBlock = (function() {
 
   function delayStoreUpdate(element) {
     _store(element);
-    xp.render();
+    exp.render();
     wealth.render();
     totalBlock.render();
     textBlock.render();
@@ -308,7 +308,7 @@ var inputBlock = (function() {
       var type = button.dataset.eventType;
       var note;
       if (inputBlockOptions.eventType == "xp") {
-        note = "XP cleared";
+        note = "EXP cleared";
       } else if (inputBlockOptions.eventType == "platinum") {
         note = "PP cleared";
       } else if (inputBlockOptions.eventType == "gold") {
@@ -331,7 +331,7 @@ var inputBlock = (function() {
       });
       inputBlockField.value = "";
       _makeEvent();
-      xp.render();
+      exp.render();
       wealth.render();
       totalBlock.render();
       textBlock.render();
@@ -359,7 +359,7 @@ var inputBlock = (function() {
       snackMessage: null
     };
     if (options) {
-      var defaultOptions = helper.applyOptions(defaultOptions, options);
+      defaultOptions = helper.applyOptions(defaultOptions, options);
     };
     _aggregate({
       path: defaultOptions.path,
@@ -376,7 +376,7 @@ var inputBlock = (function() {
       snackMessage: null
     };
     if (options) {
-      var defaultOptions = helper.applyOptions(defaultOptions, options);
+      defaultOptions = helper.applyOptions(defaultOptions, options);
     };
     var oldData;
     var newData;
@@ -398,7 +398,7 @@ var inputBlock = (function() {
         path: undoObject.path,
         newValue: undoObject.oldData
       });
-      xp.render();
+      exp.render();
       wealth.render();
       totalBlock.render();
       textBlock.render();
@@ -692,7 +692,7 @@ var inputBlock = (function() {
       };
       _store_data();
       render(inputBlock);
-      xp.render();
+      exp.render();
       wealth.render();
       totalBlock.render();
       textBlock.render();

@@ -183,17 +183,19 @@ var display = (function() {
     };
   };
 
-  function _get_all_spell(all_displayPath) {
+  function _get_all_spell(all_displayPath, all_displaySpellLevel) {
     var all_node = [];
     for (var i = 0; i < all_displayPath.length; i++) {
-      var bookPath = all_displayPath[i].split(".");
-      var all_spells = sheet.get()[bookPath[0]][bookPath[1]][bookPath[2]]["level_" + bookPath[2]];
+      var all_spells = helper.getObject({
+        object: sheet.get(),
+        path: all_displayPath[i]
+      });
       if (all_spells.length == 0) {
         all_node.push(false);
       } else {
         for (var j = 0; j < all_spells.length; j++) {
           var spell = all_spells[j];
-          all_node.push(_get_spell(spell, bookPath[2], j));
+          all_node.push(_get_spell(spell, all_displaySpellLevel[i], j));
         };
       };
     };
@@ -243,7 +245,7 @@ var display = (function() {
       spellName.insertBefore(spellActive, spellName.firstChild);
     };
     displayListItem.addEventListener("click", function() {
-      spells.update(helper.e(".js-spell-book-known-level-" + level).querySelectorAll(".js-spell-col")[index].querySelector(".js-spell"), true);
+      spells.update(helper.e(".js-spell-block-known-level-" + level).querySelectorAll(".js-spell-col")[index].querySelector(".js-spell"), true);
     }, false);
     return displayListItem;
   };
@@ -309,31 +311,31 @@ var display = (function() {
       } else {
         for (var j = 0; j < all_clones.length; j++) {
           var cloneType;
-          if (all_displayPath[i] == "basics.classes") {
+          if (all_displayPath[i] == "basics.classes.all") {
             cloneType = "class";
           };
-          if (all_displayPath[i] == "equipment.consumable") {
+          if (all_displayPath[i] == "equipment.consumable.all") {
             cloneType = "consumable";
           };
-          if (all_displayPath[i] == "statistics.power") {
+          if (all_displayPath[i] == "statistics.power.all") {
             cloneType = "power";
           };
           if (all_displayPath[i] == "equipment.item.all") {
             cloneType = "item";
           };
-          if (all_displayPath[i] == "skills.custom") {
+          if (all_displayPath[i] == "skills.custom.all") {
             cloneType = "skill";
           };
-          if (all_displayPath[i] == "offense.attack.melee") {
+          if (all_displayPath[i] == "offense.attack.melee.all") {
             cloneType = "attack-melee";
           };
-          if (all_displayPath[i] == "offense.attack.ranged") {
+          if (all_displayPath[i] == "offense.attack.ranged.all") {
             cloneType = "attack-ranged";
           };
-          if (all_displayPath[i] == "notes.character") {
+          if (all_displayPath[i] == "notes.character.all") {
             cloneType = "note-character";
           };
-          if (all_displayPath[i] == "notes.story") {
+          if (all_displayPath[i] == "notes.story.all") {
             cloneType = "note-story";
           };
           all_node.push(_get_clone(all_clones[j], cloneType));
@@ -902,6 +904,7 @@ var display = (function() {
         var all_displayScale = false;
         var all_displayPosition = false;
         var all_displayColor = false;
+        var all_displaySpellLevel = false;
 
         if (all_displayBlockTarget[j].dataset.displayPath) {
           all_displayPath = all_displayBlockTarget[j].dataset.displayPath.split(",");
@@ -927,6 +930,9 @@ var display = (function() {
         if (all_displayBlockTarget[j].dataset.displayColor) {
           all_displayColor = all_displayBlockTarget[j].dataset.displayColor.split(",");
         };
+        if (all_displayBlockTarget[j].dataset.displaySpellLevel) {
+          all_displaySpellLevel = all_displayBlockTarget[j].dataset.displaySpellLevel.split(",");
+        };
 
         // get an array of nodes using the array of paths
         if (displayType == "stat") {
@@ -946,22 +952,20 @@ var display = (function() {
         } else if (displayType == "skill") {
           all_node = _get_all_skill(all_displayPath, all_displayPrefix);
         } else if (displayType == "spell") {
-          all_node = _get_all_spell(all_displayPath);
+          all_node = _get_all_spell(all_displayPath, all_displaySpellLevel);
         };
 
-        // function for later use to check the element from node array for false or data
-        var _appendToTarget = function(element) {
-          if (element != false) {
+        // loop over each node in array and append to target
+        all_node.forEach(function(arrayItem) {
+          if (arrayItem != false) {
             // append to target
-            target.appendChild(element);
+            target.appendChild(arrayItem);
           } else {
             // or increment the "no data found at path" count
             dataNotFoundAtPath++;
           };
-        };
+        });
 
-        // loop over each node in array and append to target
-        all_node.forEach(_appendToTarget);
         totalNodeLength = totalNodeLength + all_node.length;
       };
       // if the "no data found at path" count == total "path count" this display blocks target is empty so add a data vale to reflect this
@@ -1021,7 +1025,7 @@ var display = (function() {
       all: false
     };
     if (options) {
-      var defaultOptions = helper.applyOptions(defaultOptions, options);
+      defaultOptions = helper.applyOptions(defaultOptions, options);
     };
     var fab = helper.e(".js-fab");
     if (defaultOptions.all) {
