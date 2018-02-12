@@ -82,6 +82,7 @@ module.exports = function(grunt) {
           '<%= folders.build %>/js/encumbrance.js',
           '<%= folders.build %>/js/events.js',
           '<%= folders.build %>/js/exp.js',
+          '<%= folders.build %>/js/feats-data.js',
           '<%= folders.build %>/js/fireball.js',
           '<%= folders.build %>/js/fullscreen.js',
           '<%= folders.build %>/js/header.js',

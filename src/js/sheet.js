@@ -270,6 +270,7 @@ var sheet = (function() {
 
   function load() {
     spellsData.load();
+    featsData.load();
   };
 
   function switcher(newIndex) {
