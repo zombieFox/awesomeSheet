@@ -17,7 +17,7 @@ var onboarding = (function() {
   function render() {
     if (helper.getObject({
         object: sheet.get(),
-        path: "demo"
+        path: "awesomeSheet.demo"
       }) && (helper.read("onboarding") == undefined) || (helper.read("onboarding") == "false")) {
 
       var _render_onboardingModal = function() {

@@ -3,7 +3,7 @@ var skills = (function() {
   var renderTimer = null;
 
   function bind() {
-    var skillsRanksSpentIncludeCustom = helper.e(".js-skills-ranks-spent-include-custom");
+    var skillsRanksSpentIncludeCustom = helper.e(".js-skills-ranks-include-custom");
     var all_inputBlockFieldRanks = helper.eA(".js-input-block-field-ranks");
 
     skillsRanksSpentIncludeCustom.addEventListener("change", function() {
@@ -27,15 +27,15 @@ var skills = (function() {
   function render() {
     var includeCustom = helper.getObject({
       object: sheet.get(),
-      path: "skills.ranks.spent.include_custom"
+      path: "skills.ranks.include_custom"
     });
     var all_skills = helper.getObject({
       object: sheet.get(),
-      path: "skills.all"
+      path: "skills.default"
     });
     var all_customSkills = helper.getObject({
       object: sheet.get(),
-      path: "skills.custom"
+      path: "skills.custom.all"
     });
     var ranks = [];
     var ranksTotal;
@@ -52,7 +52,7 @@ var skills = (function() {
     });
     helper.setObject({
       object: sheet.get(),
-      path: "skills.ranks.spent.current",
+      path: "skills.ranks.current",
       newValue: ranksTotal
     });
   };

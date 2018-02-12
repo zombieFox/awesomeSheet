@@ -81,6 +81,7 @@ module.exports = function(grunt) {
           '<%= folders.build %>/js/edit.js',
           '<%= folders.build %>/js/encumbrance.js',
           '<%= folders.build %>/js/events.js',
+          '<%= folders.build %>/js/exp.js',
           '<%= folders.build %>/js/fireball.js',
           '<%= folders.build %>/js/fullscreen.js',
           '<%= folders.build %>/js/header.js',
@@ -114,7 +115,6 @@ module.exports = function(grunt) {
           '<%= folders.build %>/js/total-block.js',
           '<%= folders.build %>/js/update.js',
           '<%= folders.build %>/js/wealth.js',
-          '<%= folders.build %>/js/xp.js',
           '<%= folders.build %>/js/vendor-options.js',
           '<%= folders.build %>/js/init.js' // invoke calls
         ],
@@ -361,6 +361,17 @@ module.exports = function(grunt) {
     'usemin',
     'clean:buildCleanBower',
     'htmlmin',
+    'sw-precache:default'
+  ]);
+
+  grunt.registerTask('beta', [
+    'clean:build',
+    'clean:tmp',
+    'assemble:build',
+    'copy:build',
+    'copy:webapp',
+    'sass:build',
+    'autoprefixer:build',
     'sw-precache:default'
   ]);
 

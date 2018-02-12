@@ -13,7 +13,7 @@
   }
 }
 .m-header-bar {
-  background-color: $secondary-color-04;
+  background-color: $secondary-color-06;
   margin: 0;
   padding: 0;
   display: flex;
@@ -93,7 +93,7 @@
 }
 .is-display-mode {
   .m-header-bar {
-    background-color: $primary-color-04;
+    background-color: $primary-color-06;
   }
   .m-header-control {
     &:first-child {
