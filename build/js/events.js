@@ -78,6 +78,7 @@ var events = (function() {
           heading: options.promptHeading,
           message: options.promptMessage,
           actionText: "Clear",
+          cancelText: "Cancel",
           action: function() {
             _destroyXp();
             _store();
@@ -95,6 +96,7 @@ var events = (function() {
           heading: options.promptHeading,
           message: options.promptMessage,
           actionText: "Clear",
+          cancelText: "Cancel",
           action: function() {
             _destroyWealth();
             _store();
@@ -160,7 +162,7 @@ var events = (function() {
           data = "+" + data;
         };
         if (options.type == "xp") {
-          data = data + " EXP";
+          data = data + " XP";
         } else if (options.type == "wealth") {
           if (eventObject.type == "platinum") {
             data = data + " PP";

@@ -10,7 +10,7 @@ var spellsData = (function() {
       full: null
     };
     if (options) {
-      defaultOptions = helper.applyOptions(defaultOptions, options);
+      var defaultOptions = helper.applyOptions(defaultOptions, options);
     };
     var all_spellName = [
       "Abadar's Truthtelling",
@@ -2888,7 +2888,7 @@ var spellsData = (function() {
       index: null
     };
     if (options) {
-      defaultOptions = helper.applyOptions(defaultOptions, options);
+      var defaultOptions = helper.applyOptions(defaultOptions, options);
     };
     var _findSpells = function() {
       if (options.array != null) {

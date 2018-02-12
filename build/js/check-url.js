@@ -29,11 +29,8 @@ var checkUrl = (function() {
   function _loadCharacter() {
     var index;
     var characterParameter = helper.getUrlParameter("character");
-    var all_characters = sheet.get({
-      length: true
-    });
-    for (var i = 0; i < all_characters.length; i++) {
-      if (characterParameter == all_characters[i].basics.name.toLowerCase().split(" ")[0]) {
+    for (var i = 0; i < sheet.getAll().length; i++) {
+      if (characterParameter == sheet.getAll()[i].basics.name.toLowerCase().split(" ")[0]) {
         index = i;
       };
     };

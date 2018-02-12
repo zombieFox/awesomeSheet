@@ -20,7 +20,7 @@ var snack = (function() {
       postSnack: null
     };
     if (options) {
-      defaultOptions = helper.applyOptions(defaultOptions, options);
+      var defaultOptions = helper.applyOptions(defaultOptions, options);
     };
 
     var body = helper.e("body");

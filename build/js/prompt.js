@@ -25,7 +25,7 @@ var prompt = (function() {
       }
     };
     if (options) {
-      defaultOptions = helper.applyOptions(defaultOptions, options);
+      var defaultOptions = helper.applyOptions(defaultOptions, options);
     };
     var makePrompt = function() {
       var body = helper.e("body");

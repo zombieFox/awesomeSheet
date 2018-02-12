@@ -1,11 +1,6 @@
 var update = (function() {
 
   var history = [{
-    version: "5.0.0",
-    list: [
-      "Update and optimise the character data object."
-    ]
-  }, {
     version: "4.4.0",
     list: [
       "*Added Spell Search, newly added Spells will have a descriptions."
@@ -266,14 +261,13 @@ var update = (function() {
     ]
   }];
 
-  var version = function() {
-    var number = history[0].version.split(".");
-    return parseFloat(number.shift() + "." + number.join(""));
+  function currentVersion() {
+    return history[0].version;
   };
 
   // exposed methods
   return {
-    version: version,
+    ver: currentVersion,
     history: history
   };
 

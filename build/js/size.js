@@ -25,41 +25,41 @@ var size = (function() {
     var size = helper.e(".js-size");
     var selectBlockDropdown = size.querySelector(".js-select-block-dropdown");
     var index = selectBlockDropdown.selectedIndex;
-    var modifier = _create_sizeObject(index);
+    var object = _create_sizeObject(index);
     helper.setObject({
       object: sheet.get(),
-      path: "basics.character.size.modifier.base",
-      newValue: modifier.base
+      path: "basics.size.size_modifier",
+      newValue: object.size_modifier
     });
     helper.setObject({
       object: sheet.get(),
-      path: "basics.character.size.modifier.special",
-      newValue: modifier.special
+      path: "basics.size.special_size_modifier",
+      newValue: object.special_size_modifier
     });
     helper.setObject({
       object: sheet.get(),
-      path: "basics.character.size.modifier.fly",
-      newValue: modifier.fly
+      path: "basics.size.size_modifier_fly",
+      newValue: object.size_modifier_fly
     });
     helper.setObject({
       object: sheet.get(),
-      path: "basics.character.size.modifier.stealth",
-      newValue: modifier.stealth
+      path: "basics.size.size_modifier_stealth",
+      newValue: object.size_modifier_stealth
     });
     sheet.store();
   };
 
   function _create_sizeObject(index) {
-    var modifier = {};
-    var modifierBase = [0, 8, 4, 2, 1, 0, -1, -2, -4, -8];
-    var modifierSpecial = [0, -8, -4, -2, -1, 0, 1, 2, 4, 8];
-    var modifierFly = [0, 8, 6, 4, 2, 0, -2, -4, -6, -8];
-    var modifierStealth = [0, 16, 12, 8, 4, 0, -4, -8, -12, -16];
-    modifier.base = modifierBase[index];
-    modifier.special = modifierSpecial[index];
-    modifier.fly = modifierFly[index];
-    modifier.stealth = modifierStealth[index];
-    return modifier;
+    var allSize = {};
+    var all_size_modifier = [0, 8, 4, 2, 1, 0, -1, -2, -4, -8];
+    var all_special_size_modifier = [0, -8, -4, -2, -1, 0, 1, 2, 4, 8];
+    var all_size_modifier_fly = [0, 8, 6, 4, 2, 0, -2, -4, -6, -8];
+    var all_size_modifier_stealth = [0, 16, 12, 8, 4, 0, -4, -8, -12, -16];
+    allSize.size_modifier = all_size_modifier[index];
+    allSize.special_size_modifier = all_special_size_modifier[index];
+    allSize.size_modifier_fly = all_size_modifier_fly[index];
+    allSize.size_modifier_stealth = all_size_modifier_stealth[index];
+    return allSize;
   };
 
   function _create_encumbranceObject(str) {};

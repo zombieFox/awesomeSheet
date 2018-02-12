@@ -70,7 +70,7 @@ var menu = (function() {
       state: null
     };
     if (options) {
-      defaultOptions = helper.applyOptions(defaultOptions, options);
+      var defaultOptions = helper.applyOptions(defaultOptions, options);
     };
     if (defaultOptions.state != null) {
       if (defaultOptions.state == "active") {

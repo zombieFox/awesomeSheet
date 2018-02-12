@@ -524,27 +524,24 @@ var ro = (function() {
         }
       },
       custom: [],
+      acrobatics: {
+        ranks: 4,
+        misc: "",
+        current: "",
+        bonuses: {
+          str_bonus: false,
+          dex_bonus: true,
+          con_bonus: false,
+          int_bonus: false,
+          wis_bonus: false,
+          cha_bonus: false,
+          class_skill: false,
+          level: false,
+          half_level: false,
+          check_penalty: true
+        }
+      },
       all: {
-        acrobatics: {
-          ranks: 4,
-          misc: "",
-          current: "",
-          racial: "",
-          feat: "",
-          trait: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            class_skill: false,
-            level: false,
-            half_level: false,
-            check_penalty: true
-          }
-        },
         appraise: {
           ranks: "",
           misc: "",

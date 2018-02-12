@@ -48,7 +48,7 @@ var helper = (function() {
     }
   };
 
-  function truncate(string, length, dotDotDot) {
+  function truncateString(string, length, dotDotDot) {
     if (dotDotDot) {
       dotDotDot = "...";
     } else {
@@ -499,7 +499,7 @@ var helper = (function() {
     delayFunction: delayFunction,
     setObject: setObject,
     getObject: getObject,
-    truncate: truncate,
+    truncate: truncateString,
     setDropdown: setDropdown,
     randomString: randomString,
     randomNumber: randomNumber,
