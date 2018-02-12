@@ -13,7 +13,7 @@
   }
 }
 .m-nav-bar {
-  background-color: $secondary-color-05;
+  background-color: $secondary-color-06;
   padding: 0 1em;
   display: flex;
   flex-flow: row nowrap;
@@ -53,7 +53,7 @@
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  color: $light-alpha-16;
+  color: $secondary-color-01;
   width: 100%;
   height: 100%;
   text-align: center;
@@ -67,7 +67,7 @@
   }
   &:link,
   &:visited {
-    color: $light-alpha-16;
+    color: $secondary-color-01;
   }
   &:focus,
   &:hover {
@@ -89,7 +89,7 @@
 }
 .is-display-mode {
   .m-nav-bar {
-    background-color: $primary-color-05;
+    background-color: $primary-color-06;
   }
 }
 // --------------------------------------------------

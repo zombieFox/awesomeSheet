@@ -6,7 +6,7 @@
   transition: background-color $transition-ease-medium;
 }
 .m-card-head {
-  background-color: $secondary-color-06;
+  background-color: $secondary-color-04;
   position: relative;
   transition: background-color $transition-ease-medium;
 }
@@ -29,7 +29,7 @@
   }
 }
 .m-card-tabs {
-  background-color: $secondary-color-06;
+  background-color: $secondary-color-04;
 }
 .m-card-body {
   padding: 2em;
@@ -37,10 +37,10 @@
 }
 .is-display-mode {
   .m-card-head {
-    background-color: $primary-color-06;
+    background-color: $primary-color-04;
   }
   .m-card-tabs {
-    background-color: $primary-color-06;
+    background-color: $primary-color-04;
   }
 }
 .is-minimise {
@@ -56,11 +56,11 @@
     visibility: hidden;
   }
   .m-card-head {
-    background-color: $secondary-color-05;
+    background-color: $secondary-color-03;
   }
   &.is-display-mode {
     .m-card-head {
-      background-color: $primary-color-06;
+      background-color: $primary-color-03;
     }
   }
 }
