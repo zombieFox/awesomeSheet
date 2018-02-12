@@ -577,9 +577,14 @@ var sheet = (function() {
     // });
   };
 
+  function ver() {
+    return update.version();
+  };
+
   // exposed methods
   return {
     init: init,
+    ver: ver,
     get: get,
     store: store,
     add: add,
