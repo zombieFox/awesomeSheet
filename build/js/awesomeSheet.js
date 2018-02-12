@@ -19086,7 +19086,7 @@ var characterSelect = (function() {
       characterSelectList.appendChild(_createCharacterItem(arrayItem, index));
     });
     var all_characterIndexInput = helper.eA(".js-character-select-list-item-input");
-    all_characterIndexInput[sheet.getIndex()].checked = true;
+    all_characterIndexInput[sheet.index.get()].checked = true;
   };
 
   function _render_currentCharacter() {
@@ -27214,15 +27214,37 @@ var selectBlock = (function() {
 
 var sheet = (function() {
 
-  var _all_characters = JSON.parse(JSON.stringify([blank.data]));
+  var index = (function() {
 
-  var _currentCharacterIndex = 0;
+    var _characterIndex = 0;
 
-  var setCurrentCharacterIndex = (function() {
-    if (helper.read("charactersIndex")) {
-      _currentCharacterIndex = parseInt(helper.read("charactersIndex"), 10);
+    var _render = (function() {
+      if (helper.read("charactersIndex")) {
+        _characterIndex = parseInt(helper.read("charactersIndex"), 10);
+      };
+    })();
+
+    var get = function(level) {
+      return _characterIndex;
+    };
+
+    var set = function(index) {
+      if (typeof index == "number") {
+        _characterIndex = index;
+        helper.store("charactersIndex", _characterIndex);
+      } else {
+        return false;
+      };
+    };
+
+    // exposed methods
+    return {
+      set: set,
+      get: get
     };
   })();
+
+  var _all_characters = JSON.parse(JSON.stringify([blank.data]));
 
   function init() {
     if (helper.read("allCharacters")) {
@@ -27255,24 +27277,15 @@ var sheet = (function() {
     if (defaultOptions.all) {
       return _all_characters;
     } else {
-      return _all_characters[_currentCharacterIndex];
+      return _all_characters[index.get()];
     };
-  };
-
-  function getIndex() {
-    return _currentCharacterIndex;
-  };
-
-  function setIndex(index) {
-    _currentCharacterIndex = index;
-    helper.store("charactersIndex", _currentCharacterIndex);
   };
 
   function add(newCharacter) {
     var dataToAdd = newCharacter || JSON.parse(JSON.stringify(blank.data));
     dataToAdd.awesomeSheet.version = update.version();
     _all_characters.push(dataToAdd);
-    setIndex(sheet.get({
+    index.set(sheet.get({
       all: true
     }).length - 1);
     clear();
@@ -27286,8 +27299,8 @@ var sheet = (function() {
 
   function replace(newCharacter) {
     var dataToAdd = newCharacter;
-    _all_characters.splice(getIndex(), 1);
-    _all_characters.splice(getIndex(), 0, dataToAdd);
+    _all_characters.splice(index.get(), 1);
+    _all_characters.splice(index.get(), 0, dataToAdd);
     clear();
     render();
     nav.scrollToTop();
@@ -27296,13 +27309,13 @@ var sheet = (function() {
 
   function remove() {
     var _destroy = function() {
-      _all_characters.splice(getIndex(), 1);
+      _all_characters.splice(index.get(), 1);
       var message = helper.truncate(name, 50, true) + " removed.";
       if (_all_characters.length == 0) {
         add();
         message = message + " New character added.";
       };
-      setIndex(0);
+      index.set(0);
       clear();
       render();
       store();
@@ -27338,7 +27351,7 @@ var sheet = (function() {
         object: item
       });
     });
-    setIndex(0);
+    index.set(0);
     store();
     clear();
     render();
@@ -27360,7 +27373,7 @@ var sheet = (function() {
         object: item
       });
     });
-    setIndex(0);
+    index.set(0);
     store();
     clear();
     render();
@@ -27377,7 +27390,7 @@ var sheet = (function() {
     prompt.destroy();
     snack.destroy();
     _all_characters = JSON.parse(JSON.stringify([blank.data]));
-    setIndex(0);
+    index.set(0);
     store();
     clear();
     render();
@@ -27473,20 +27486,20 @@ var sheet = (function() {
     spellsData.load();
   };
 
-  function switcher(index) {
-    var switcheroo = function(index) {
-      setIndex(index);
+  function switcher(newIndex) {
+    var switcheroo = function(newIndex) {
+      index.set(newIndex);
       clear();
       render();
       characterSelect.clear();
       characterSelect.render();
     };
-    if (index < 0 || index > sheet.get({
-      all: true
-    }).length || typeof index != "number") {
-      index = 0;
+    if (newIndex < 0 || newIndex > sheet.get({
+        all: true
+      }).length || typeof newIndex != "number") {
+      newIndex = 0;
     };
-    switcheroo(index);
+    switcheroo(newIndex);
   };
 
   function replaceJson() {
@@ -27813,8 +27826,7 @@ var sheet = (function() {
     render: render,
     load: load,
     switcher: switcher,
-    getIndex: getIndex,
-    setIndex: setIndex,
+    index: index,
     bind: bind
   };
 

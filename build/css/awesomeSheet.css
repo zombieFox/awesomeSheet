@@ -2214,11 +2214,14 @@ label {
     margin: 0;
     display: block;
     -webkit-columns: 10em 2;
+       -moz-columns: 10em 2;
             columns: 10em 2;
     -webkit-column-gap: 2em;
+       -moz-column-gap: 2em;
             column-gap: 2em; }
     .l-section-wrapper > * {
       -webkit-column-break-inside: avoid;
+         page-break-inside: avoid;
               break-inside: avoid; }
   .l-section {
     margin: 0 0 1em;
@@ -7225,6 +7228,7 @@ label {
       border-bottom: 1px solid #adadad; }
   .m-display-list-compact {
     -webkit-columns: 1;
+       -moz-columns: 1;
             columns: 1; }
     .m-display-list-compact .m-display-list-item {
       padding-top: 2px;
