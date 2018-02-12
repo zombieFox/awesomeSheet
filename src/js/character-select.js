@@ -140,11 +140,15 @@ var characterSelect = (function() {
   };
 
   function _render_allCharacterItems() {
-    var character = sheet.getAll();
+    var all_character = sheet.get({
+      all: true
+    });
+    console.log(all_character);
     var characterSelectList = helper.e(".js-character-select-list");
-    for (var key in character) {
-      characterSelectList.appendChild(_createCharacterItem(character[key], key));
-    };
+    all_character.forEach(function(arrayItem, index) {
+      console.log(arrayItem, index);
+      characterSelectList.appendChild(_createCharacterItem(arrayItem, index));
+    });
     var all_characterIndexInput = helper.eA(".js-character-select-list-item-input");
     all_characterIndexInput[sheet.getIndex()].checked = true;
   };

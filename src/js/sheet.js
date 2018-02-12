@@ -31,12 +31,18 @@ var sheet = (function() {
     helper.store("allCharacters", JSON.stringify(_all_characters));
   };
 
-  function getAll() {
-    return _all_characters;
-  };
-
-  function get() {
-    return _all_characters[_currentCharacterIndex];
+  function get(options) {
+    var defaultOptions = {
+      all: false
+    };
+    if (options) {
+      var defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
+    if (defaultOptions.all) {
+      return _all_characters;
+    } else {
+      return _all_characters[_currentCharacterIndex];
+    };
   };
 
   function getIndex() {
@@ -52,7 +58,9 @@ var sheet = (function() {
     var dataToAdd = newCharacter || JSON.parse(JSON.stringify(blank.data));
     dataToAdd.awesomeSheet.version = update.version();
     _all_characters.push(dataToAdd);
-    setIndex(getAll().length - 1);
+    setIndex(sheet.get({
+      all: true
+    }).length - 1);
     clear();
     render();
     nav.scrollToTop();
@@ -259,7 +267,9 @@ var sheet = (function() {
       characterSelect.clear();
       characterSelect.render();
     };
-    if (index < 0 || index > getAll().length || typeof index != "number") {
+    if (index < 0 || index > sheet.get({
+      all: true
+    }).length || typeof index != "number") {
       index = 0;
     };
     switcheroo(index);
@@ -570,7 +580,6 @@ var sheet = (function() {
   // exposed methods
   return {
     init: init,
-    getAll: getAll,
     get: get,
     store: store,
     add: add,
