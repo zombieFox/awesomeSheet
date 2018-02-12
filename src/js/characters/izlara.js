@@ -152,7 +152,33 @@ var izlara = (function() {
         }
       },
       abilities: {
-        feats: "Improved Initiative, Combat Casting, Craft Wondrous Item, Spell Focus (Conjuration), Extend Spell, Quicken Spell, Spell Penetration, Eschew materials",
+        feats: {
+          all: [{
+            name: "Improved Initiative",
+            description: ""
+          }, {
+            name: "Combat Casting",
+            description: ""
+          }, {
+            name: "Craft Wondrous Item",
+            description: ""
+          }, {
+            name: "Spell Focus (Conjuration)",
+            description: ""
+          }, {
+            name: "Extend Spell",
+            description: ""
+          }, {
+            name: "Quicken Spell",
+            description: ""
+          }, {
+            name: "Spell Penetration",
+            description: ""
+          }, {
+            name: "Eschew materials",
+            description: ""
+          }]
+        },
         traits: "Reactionary, Magical Lineage (Overland Flight)",
         languages: "Abyssal, Aklo, Aquan, Auran, Celestial, Common, Druidic, Dwarven, Elven, Giant, Goblin, Gnoll, Halfling, Ignan, Infernal, Orc, Sylvan, Terran, Undercommon",
         special: "Low-Light Vision, Elven Immunities, Elven Magic, Keen Senses, Weapon Familiarity, Arcane bond (Rat), Arcane School, Cantrips, Scribe scroll, Forewarned, Prescience, Foretell"
