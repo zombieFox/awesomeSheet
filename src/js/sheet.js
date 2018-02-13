@@ -540,6 +540,7 @@ var sheet = (function() {
         menu.close();
         shade.destroy();
         log.destroy();
+        tip.destroy();
         page.update();
       };
       // ctrl+alt+f

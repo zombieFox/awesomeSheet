@@ -1354,8 +1354,12 @@ var blank = (function() {
         }
       },
       attack: {
-        melee: [],
-        ranged: [],
+        melee: {
+          all: []
+        },
+        ranged: {
+          all: []
+        },
         notes: ""
       }
     },
