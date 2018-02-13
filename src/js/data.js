@@ -66,6 +66,7 @@ var data = (function() {
               });
             } else {
               // or return array of matching names
+              console.log(results);
               return results;
             };
           } else {
@@ -388,7 +389,26 @@ var data = (function() {
   };
 
   function _orginiseFeatsObject(object) {
-    console.log(object);
+    // description
+    var tempDescription = {};
+    tempDescription.base = object.description;
+    tempDescription.normal = object.normal;
+    tempDescription.special = object.special;
+    tempDescription.note = object.note;
+    tempDescription.benefit = object.benefit;
+    tempDescription.goal = object.goal;
+    tempDescription.completion = object.completion_benefit;
+    // add
+    object.description = tempDescription;
+    // remove
+    delete object.normal;
+    delete object.benefit;
+    delete object.special;
+    delete object.note;
+    delete object.goal;
+    delete object.completion_benefit;
+
+    // console.log(object);
   };
 
   function load() {
@@ -396,15 +416,15 @@ var data = (function() {
       if (type == "spells") {
         _all_spellsObject = helper.csvToJSON(data);
         _all_spellsObject.forEach(function(arrayItem) {
-          _orginiseSpellsObject(arrayItem);
+          // _orginiseSpellsObject(arrayItem);
         });
-        // console.log(_all_spellsObject);
+        console.log(_all_spellsObject);
       } else if (type == "feats") {
         _all_featsObject = helper.csvToJSON(data);
         _all_featsObject.forEach(function(arrayItem) {
-          _orginiseFeatsObject(arrayItem);
+          // _orginiseFeatsObject(arrayItem);
         });
-        // console.log(_all_featsObject);
+        console.log(_all_featsObject);
       };
     };
     helper.loadCsv("db/feats.csv", function(data) {

@@ -112,7 +112,7 @@ var autoSuggest = (function() {
     var suggestItems;
 
     var _populateList = function(list) {
-      var _populateSpells = function() {
+      var _populate = function() {
         suggestItems.forEach(function(arrayItem) {
           var li = document.createElement("li");
           li.setAttribute("class", "m-auto-suggest-list-item");
@@ -125,6 +125,8 @@ var autoSuggest = (function() {
           anchor.addEventListener("click", function() {
             if (autoSuggestOptions.type == "spells") {
               spells.add(_cuurentInput, arrayItem.index);
+            } else {
+              console.log(_cuurentInput, arrayItem.index);
             };
             destroy();
             sheet.store();
@@ -168,20 +170,24 @@ var autoSuggest = (function() {
             text.appendChild(result);
           };
 
-          if (arrayItem.school) {
-            var resultMeta = document.createElement("i");
-            resultMeta.setAttribute("class", "m-auto-suggest-result-meta");
-            resultMeta.textContent = helper.capFirstLetter(arrayItem.school);
-            text.appendChild(resultMeta);
+          if (autoSuggestOptions.type == "spells") {
+            if (arrayItem.school) {
+              var resultMeta = document.createElement("i");
+              resultMeta.setAttribute("class", "m-auto-suggest-result-meta");
+              resultMeta.textContent = helper.capFirstLetter(arrayItem.school);
+              text.appendChild(resultMeta);
+            };
           };
 
           anchor.appendChild(text);
 
-          if (arrayItem.description) {
-            var textSub = document.createElement("span");
-            textSub.setAttribute("class", "m-auto-suggest-text-sub");
-            textSub.textContent = arrayItem.description;
-            anchor.appendChild(textSub);
+          if (autoSuggestOptions.type == "spells") {
+            if (arrayItem.description) {
+              var textSub = document.createElement("span");
+              textSub.setAttribute("class", "m-auto-suggest-text-sub");
+              textSub.textContent = arrayItem.description;
+              anchor.appendChild(textSub);
+            };
           };
 
           li.appendChild(anchor);
@@ -189,9 +195,7 @@ var autoSuggest = (function() {
 
         });
       };
-      if (autoSuggestOptions.type == "spells") {
-        _populateSpells();
-      };
+      _populate();
     };
 
     var _render_autoSuggestList = function() {
@@ -216,11 +220,10 @@ var autoSuggest = (function() {
     };
 
     if (searchTerm != "") {
-      if (autoSuggestOptions.type == "spells") {
-        suggestItems = spellsData.get({
-          name: searchTerm
-        });
-      };
+      suggestItems = data.get({
+        type: autoSuggestOptions.type,
+        name: searchTerm
+      });
       if (suggestItems) {
         _render_autoSuggestList();
       } else {

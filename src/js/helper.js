@@ -479,17 +479,14 @@ var helper = (function() {
     return result;
   };
 
-  // function xxx_csvToJSON(string) {
+  // function csvToJSON(string) {
   //   var lines = string.split("\n");
   //   // remove trailing spaces at end of each line
   //   for (var i = 0; i < lines.length; i++) {
-  //     console.log(lines[i].length);
-  //     lines[i] = lines[i].trim();
-  //     // lines[i] = lines[i].substr(0, (lines[i].length - 1));
-  //     console.log(lines[i].length);
+  //     // lines[i] = lines[i].trim();
+  //     lines[i] = lines[i].substr(0, (lines[i].length - 1));
   //   };
   //   var keys = lines[0].split(/\|(?=\S)/);
-  //   console.log(keys);
   //   var result = [];
   //   for (var i = 1; i < lines.length; i++) {
   //     var object = {};
@@ -500,7 +497,6 @@ var helper = (function() {
   //     };
   //     result.push(object);
   //   };
-  //   console.log(result);
   //   return JSON.parse(JSON.stringify(result));
   // };
 
