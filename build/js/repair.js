@@ -857,12 +857,14 @@ var repair = (function() {
         var currentKey = path.shift();
         if (!(currentKey in object)) {
           return alt;
+          console.log(path, alt);
         };
         object = object[currentKey];
       };
       var finalKey = path.shift();
       if (object[finalKey] == undefined) {
         return alt;
+        console.log(path, alt);
       } else {
         return object[finalKey];
       };
@@ -2514,14 +2516,19 @@ var repair = (function() {
     } else {
       characterObject.spells.book.level_9 = [];
     };
+    // events
+    _report.repaired.push("update: events");
+    characterObject.events = {
+      all: _checkForValue(tempCharacterObject, "events", [])
+    };
     // notes
     _report.repaired.push("update: spells");
     characterObject.notes = {
       character: {
-        all: tempCharacterObject.notes.character || []
+        all: _checkForValue(tempCharacterObject, "notes.character", [])
       },
       story: {
-        all: tempCharacterObject.notes.story || []
+        all: _checkForValue(tempCharacterObject, "notes.story", [])
       }
     };
     // demo

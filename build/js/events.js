@@ -70,6 +70,7 @@ var events = (function() {
         path: "events.all",
         newValue: newEvents
       });
+      sheet.store();
     };
     if (options.type == "xp") {
       _checkForXp();
