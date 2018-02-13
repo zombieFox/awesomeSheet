@@ -27025,54 +27025,54 @@ var repair = (function() {
       }
     };
     if (tempCharacterObject.spells.book[0] && tempCharacterObject.spells.book[0].level_0) {
-      characterObject.spells.book.level_0 = tempCharacterObject.spells.book[0].level_0;
+      characterObject.spells.book.level_0.all = tempCharacterObject.spells.book[0].level_0;
     } else {
-      characterObject.spells.book.level_0 = [];
+      characterObject.spells.book.level_0.all = [];
     };
     if (tempCharacterObject.spells.book[1] && tempCharacterObject.spells.book[1].level_1) {
-      characterObject.spells.book.level_1 = tempCharacterObject.spells.book[1].level_1;
+      characterObject.spells.book.level_1.all = tempCharacterObject.spells.book[1].level_1;
     } else {
-      characterObject.spells.book.level_1 = [];
+      characterObject.spells.book.level_1.all = [];
     };
     if (tempCharacterObject.spells.book[2] && tempCharacterObject.spells.book[2].level_2) {
-      characterObject.spells.book.level_2 = tempCharacterObject.spells.book[2].level_2;
+      characterObject.spells.book.level_2.all = tempCharacterObject.spells.book[2].level_2;
     } else {
-      characterObject.spells.book.level_2 = [];
+      characterObject.spells.book.level_2.all = [];
     };
     if (tempCharacterObject.spells.book[3] && tempCharacterObject.spells.book[3].level_3) {
-      characterObject.spells.book.level_3 = tempCharacterObject.spells.book[3].level_3;
+      characterObject.spells.book.level_3.all = tempCharacterObject.spells.book[3].level_3;
     } else {
-      characterObject.spells.book.level_3 = [];
+      characterObject.spells.book.level_3.all = [];
     };
     if (tempCharacterObject.spells.book[4] && tempCharacterObject.spells.book[4].level_4) {
-      characterObject.spells.book.level_4 = tempCharacterObject.spells.book[4].level_4;
+      characterObject.spells.book.level_4.all = tempCharacterObject.spells.book[4].level_4;
     } else {
-      characterObject.spells.book.level_4 = [];
+      characterObject.spells.book.level_4.all = [];
     };
     if (tempCharacterObject.spells.book[5] && tempCharacterObject.spells.book[5].level_5) {
-      characterObject.spells.book.level_5 = tempCharacterObject.spells.book[5].level_5;
+      characterObject.spells.book.level_5.all = tempCharacterObject.spells.book[5].level_5;
     } else {
-      characterObject.spells.book.level_5 = [];
+      characterObject.spells.book.level_5.all = [];
     };
     if (tempCharacterObject.spells.book[6] && tempCharacterObject.spells.book[6].level_6) {
-      characterObject.spells.book.level_6 = tempCharacterObject.spells.book[6].level_6;
+      characterObject.spells.book.level_6.all = tempCharacterObject.spells.book[6].level_6;
     } else {
-      characterObject.spells.book.level_6 = [];
+      characterObject.spells.book.level_6.all = [];
     };
     if (tempCharacterObject.spells.book[7] && tempCharacterObject.spells.book[7].level_7) {
-      characterObject.spells.book.level_7 = tempCharacterObject.spells.book[7].level_7;
+      characterObject.spells.book.level_7.all = tempCharacterObject.spells.book[7].level_7;
     } else {
-      characterObject.spells.book.level_7 = [];
+      characterObject.spells.book.level_7.all = [];
     };
     if (tempCharacterObject.spells.book[8] && tempCharacterObject.spells.book[8].level_8) {
-      characterObject.spells.book.level_8 = tempCharacterObject.spells.book[8].level_8;
+      characterObject.spells.book.level_8.all = tempCharacterObject.spells.book[8].level_8;
     } else {
-      characterObject.spells.book.level_8 = [];
+      characterObject.spells.book.level_8.all = [];
     };
     if (tempCharacterObject.spells.book[9] && tempCharacterObject.spells.book[9].level_9) {
-      characterObject.spells.book.level_9 = tempCharacterObject.spells.book[9].level_9;
+      characterObject.spells.book.level_9.all = tempCharacterObject.spells.book[9].level_9;
     } else {
-      characterObject.spells.book.level_9 = [];
+      characterObject.spells.book.level_9.all = [];
     };
     // events
     _report.repaired.push("update: events");
