@@ -915,7 +915,7 @@ var repair = (function() {
         current: "",
         bonuses: {
           str: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.str_bonus", false),
-          dex: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.dex_bonus", false),
+          dex: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.dex_bonus", true),
           con: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.con_bonus", false),
           int: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.int_bonus", false),
           wis: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.wis_bonus", false),
@@ -2235,8 +2235,7 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_0.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_0.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[0].level_0 || []
+          }
         },
         level_1: {
           per_day: _checkForValue(tempCharacterObject, "spells.per_day.level_1", ""),
@@ -2261,8 +2260,7 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_1.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_1.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[1].level_1 || []
+          }
         },
         level_2: {
           per_day: _checkForValue(tempCharacterObject, "spells.per_day.level_2", ""),
@@ -2287,8 +2285,7 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_2.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_2.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[2].level_2 || []
+          }
         },
         level_3: {
           per_day: _checkForValue(tempCharacterObject, "spells.per_day.level_3", ""),
@@ -2313,8 +2310,7 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_3.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_3.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[3].level_3 || []
+          }
         },
         level_4: {
           per_day: _checkForValue(tempCharacterObject, "spells.per_day.level_4", ""),
@@ -2339,8 +2335,7 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_4.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_4.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[4].level_4 || []
+          }
         },
         level_5: {
           per_day: _checkForValue(tempCharacterObject, "spells.per_day.level_5", ""),
@@ -2365,8 +2360,7 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_5.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_5.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[5].level_5 || []
+          }
         },
         level_6: {
           per_day: _checkForValue(tempCharacterObject, "spells.per_day.level_6", ""),
@@ -2391,8 +2385,7 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_6.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_6.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[6].level_6 || []
+          }
         },
         level_7: {
           per_day: _checkForValue(tempCharacterObject, "spells.per_day.level_7", ""),
@@ -2417,8 +2410,7 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_7.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_7.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[7].level_7 || []
+          }
         },
         level_8: {
           per_day: _checkForValue(tempCharacterObject, "spells.per_day.level_8", ""),
@@ -2443,8 +2435,7 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_8.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_8.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[8].level_8 || []
+          }
         },
         level_9: {
           per_day: _checkForValue(tempCharacterObject, "spells.per_day.level_9", ""),
@@ -2469,12 +2460,61 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_9.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_9.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[9].level_9 || []
+          }
         }
       }
     };
-    // spells
+    if (tempCharacterObject.spells.book[0] && tempCharacterObject.spells.book[0].level_0) {
+      characterObject.spells.book.level_0 = tempCharacterObject.spells.book[0].level_0;
+    } else {
+      characterObject.spells.book.level_0 = [];
+    };
+    if (tempCharacterObject.spells.book[1] && tempCharacterObject.spells.book[1].level_1) {
+      characterObject.spells.book.level_1 = tempCharacterObject.spells.book[1].level_1;
+    } else {
+      characterObject.spells.book.level_1 = [];
+    };
+    if (tempCharacterObject.spells.book[2] && tempCharacterObject.spells.book[2].level_2) {
+      characterObject.spells.book.level_2 = tempCharacterObject.spells.book[2].level_2;
+    } else {
+      characterObject.spells.book.level_2 = [];
+    };
+    if (tempCharacterObject.spells.book[3] && tempCharacterObject.spells.book[3].level_3) {
+      characterObject.spells.book.level_3 = tempCharacterObject.spells.book[3].level_3;
+    } else {
+      characterObject.spells.book.level_3 = [];
+    };
+    if (tempCharacterObject.spells.book[4] && tempCharacterObject.spells.book[4].level_4) {
+      characterObject.spells.book.level_4 = tempCharacterObject.spells.book[4].level_4;
+    } else {
+      characterObject.spells.book.level_4 = [];
+    };
+    if (tempCharacterObject.spells.book[5] && tempCharacterObject.spells.book[5].level_5) {
+      characterObject.spells.book.level_5 = tempCharacterObject.spells.book[5].level_5;
+    } else {
+      characterObject.spells.book.level_5 = [];
+    };
+    if (tempCharacterObject.spells.book[6] && tempCharacterObject.spells.book[6].level_6) {
+      characterObject.spells.book.level_6 = tempCharacterObject.spells.book[6].level_6;
+    } else {
+      characterObject.spells.book.level_6 = [];
+    };
+    if (tempCharacterObject.spells.book[7] && tempCharacterObject.spells.book[7].level_7) {
+      characterObject.spells.book.level_7 = tempCharacterObject.spells.book[7].level_7;
+    } else {
+      characterObject.spells.book.level_7 = [];
+    };
+    if (tempCharacterObject.spells.book[8] && tempCharacterObject.spells.book[8].level_8) {
+      characterObject.spells.book.level_8 = tempCharacterObject.spells.book[8].level_8;
+    } else {
+      characterObject.spells.book.level_8 = [];
+    };
+    if (tempCharacterObject.spells.book[9] && tempCharacterObject.spells.book[9].level_9) {
+      characterObject.spells.book.level_9 = tempCharacterObject.spells.book[9].level_9;
+    } else {
+      characterObject.spells.book.level_9 = [];
+    };
+    // notes
     _report.repaired.push("update: spells");
     characterObject.notes = {
       character: {

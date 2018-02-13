@@ -23,12 +23,12 @@ var tip = (function() {
       tip.addEventListener("focus", function() {
         render(tip);
         clearTimeout(destroyTimer);
-        destroyTimer = setTimeout(destroy, 4000, this);
+        // destroyTimer = setTimeout(destroy, 4000, this);
       }, false);
       tip.addEventListener("blur", function() {
         destroy();
         clearTimeout(destroyTimer);
-        destroyTimer = setTimeout(delayDestroy, 400, this);
+        // destroyTimer = setTimeout(delayDestroy, 400, this);
       }, false);
     };
     if (options.state == "hover") {
@@ -38,7 +38,7 @@ var tip = (function() {
       tip.addEventListener("mouseout", function() {
         destroy();
         clearTimeout(destroyTimer);
-        destroyTimer = setTimeout(delayDestroy, 400, this);
+        // destroyTimer = setTimeout(delayDestroy, 400, this);
       }, false);
     };
   };
@@ -122,6 +122,7 @@ var tip = (function() {
 
   // exposed methods
   return {
+    destroy: destroy,
     bind: bind
   };
 

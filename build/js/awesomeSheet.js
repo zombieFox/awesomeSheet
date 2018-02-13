@@ -885,30 +885,32 @@ var blank = (function() {
           category: "",
           modifier: {
             base: "",
+            special: "",
             fly: "",
-            stealth: "",
-            special: ""
+            stealth: ""
           }
         }
       },
       classes: {
-        all: [{
-          classname: "",
-          level: "",
-          hp: "",
-          fortitude: "",
-          reflex: "",
-          will: "",
-          ranks: "",
-          bab: ""
-        }]
+        all: {
+          all: [{
+            classname: "",
+            level: "",
+            hp: "",
+            fortitude: "",
+            reflex: "",
+            will: "",
+            ranks: "",
+            bab: ""
+          }]
+        }
       },
       experience: {
         level: "",
         next_level: "",
+        needed: "",
         total: "",
-        advancement: "",
-        needed: ""
+        advancement: ""
       },
       initiative: {
         misc: "",
@@ -1017,7 +1019,7 @@ var blank = (function() {
         feats: "",
         traits: "",
         languages: "",
-        special_abilities: ""
+        special: ""
       },
       power: {
         all: []
@@ -1061,7 +1063,7 @@ var blank = (function() {
         }
       },
       encumbrance: {
-        encumbrance_str: "",
+        str: "",
         carry_move: {
           light: "",
           medium: "",
@@ -1171,7 +1173,7 @@ var blank = (function() {
           wis: false,
           cha: false,
           bab: true,
-          special_size: true,
+          size_special: true,
           level: false,
           half_level: false,
           plus_ten: true
@@ -1242,8 +1244,8 @@ var blank = (function() {
         trait: "",
         misc: "",
         temp: "",
-        current: "",
         overcome: "",
+        current: "",
         notes: "",
         bonuses: {
           str: false,
@@ -1257,24 +1259,22 @@ var blank = (function() {
         }
       },
       sr: {
-        spell_resistance: {
-          feat: "",
-          trait: "",
-          misc: "",
-          temp: "",
-          current: "",
-          notes: "",
-          bonuses: {
-            str: false,
-            dex: false,
-            con: false,
-            int: false,
-            wis: false,
-            cha: false,
-            level: false,
-            half_level: false
-          }
-        },
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        notes: "",
+        bonuses: {
+          str: false,
+          dex: false,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
+          level: false,
+          half_level: false
+        }
       },
       resistance: {
         feat: "",
@@ -1299,7 +1299,7 @@ var blank = (function() {
       stats: {
         base_attack: "",
         base_attack_bonuses: "",
-        melee_attack: {
+        melee: {
           misc: "",
           temp: "",
           current: "",
@@ -1311,12 +1311,12 @@ var blank = (function() {
             wis: false,
             cha: false,
             bab: true,
-            size: true,
+            size_base: true,
             level: false,
             half_level: false
           }
         },
-        ranged_attack: {
+        ranged: {
           misc: "",
           temp: "",
           current: "",
@@ -1328,11 +1328,11 @@ var blank = (function() {
             wis: false,
             cha: false,
             bab: true,
-            size: true,
+            size_base: true,
             level: false,
             half_level: false
           }
-        },
+        }
       },
       cmb: {
         misc: "",
@@ -1341,26 +1341,25 @@ var blank = (function() {
         notes: "",
         bonuses: {
           str: true,
-          dex: true,
+          dex: false,
           con: false,
           int: false,
           wis: false,
           cha: false,
           bab: true,
-          special_size: true,
+          size_special: true,
           level: false,
-          half_level: false,
-          plus_ten: true
+          half_level: false
         }
       },
       attack: {
+        notes: "",
         melee: {
           all: []
         },
         ranged: {
           all: []
-        },
-        notes: ""
+        }
       }
     },
     skills: {
@@ -1372,14 +1371,14 @@ var blank = (function() {
       custom: {
         all: []
       },
-      all: {
+      default: {
         acrobatics: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
             str: false,
             dex: true,
@@ -1396,18 +1395,18 @@ var blank = (function() {
         appraise: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1416,18 +1415,18 @@ var blank = (function() {
         bluff: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: true,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1436,18 +1435,18 @@ var blank = (function() {
         climb: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: true,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -1457,18 +1456,18 @@ var blank = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1478,18 +1477,18 @@ var blank = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1498,18 +1497,18 @@ var blank = (function() {
         diplomacy: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: true,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1518,18 +1517,18 @@ var blank = (function() {
         disable_device: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: true,
             con: false,
             int: false,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -1538,18 +1537,18 @@ var blank = (function() {
         disguise: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: true,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1558,18 +1557,18 @@ var blank = (function() {
         escape_artist: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: true,
             con: false,
             int: false,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -1578,39 +1577,39 @@ var blank = (function() {
         fly: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: true,
             con: false,
             int: false,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: true,
-            size_modifier_fly: true
+            size_fly: true
           }
         },
         handle_animal: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: true,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1619,18 +1618,18 @@ var blank = (function() {
         heal: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: true,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1639,18 +1638,18 @@ var blank = (function() {
         intimidate: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: true,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1659,18 +1658,18 @@ var blank = (function() {
         knowledge_arcana: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1679,18 +1678,18 @@ var blank = (function() {
         knowledge_dungeoneering: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1699,18 +1698,18 @@ var blank = (function() {
         knowledge_engineering: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1719,18 +1718,18 @@ var blank = (function() {
         knowledge_geography: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1739,18 +1738,18 @@ var blank = (function() {
         knowledge_history: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1759,18 +1758,18 @@ var blank = (function() {
         knowledge_local: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1779,18 +1778,18 @@ var blank = (function() {
         knowledge_nature: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1799,18 +1798,18 @@ var blank = (function() {
         knowledge_nobility: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1819,18 +1818,18 @@ var blank = (function() {
         knowledge_planes: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1839,18 +1838,18 @@ var blank = (function() {
         knowledge_religion: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1859,18 +1858,18 @@ var blank = (function() {
         linguistics: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1879,18 +1878,18 @@ var blank = (function() {
         perception: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: true,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1900,18 +1899,18 @@ var blank = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: true,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1921,18 +1920,18 @@ var blank = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: true,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1942,18 +1941,18 @@ var blank = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: true,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1963,18 +1962,18 @@ var blank = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: true,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1983,18 +1982,18 @@ var blank = (function() {
         ride: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: true,
             con: false,
             int: false,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -2003,18 +2002,18 @@ var blank = (function() {
         sense_motive: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: true,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -2023,18 +2022,18 @@ var blank = (function() {
         sleight_of_hand: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: true,
             con: false,
             int: false,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -2043,18 +2042,18 @@ var blank = (function() {
         spellcraft: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -2063,39 +2062,39 @@ var blank = (function() {
         stealth: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: true,
             con: false,
             int: false,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: true,
-            size_modifier_stealth: true
+            size_stealth: true
           }
         },
         survival: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: true,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -2104,18 +2103,18 @@ var blank = (function() {
         swim: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: true,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -2124,18 +2123,18 @@ var blank = (function() {
         use_magic_device: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: true,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -2469,7 +2468,6 @@ var blank = (function() {
   };
 
 })();
-
 var izlara = (function() {
 
   var data = {
@@ -25467,7 +25465,7 @@ var repair = (function() {
         current: "",
         bonuses: {
           str: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.str_bonus", false),
-          dex: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.dex_bonus", false),
+          dex: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.dex_bonus", true),
           con: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.con_bonus", false),
           int: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.int_bonus", false),
           wis: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.wis_bonus", false),
@@ -26787,8 +26785,7 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_0.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_0.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[0].level_0 || []
+          }
         },
         level_1: {
           per_day: _checkForValue(tempCharacterObject, "spells.per_day.level_1", ""),
@@ -26813,8 +26810,7 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_1.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_1.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[1].level_1 || []
+          }
         },
         level_2: {
           per_day: _checkForValue(tempCharacterObject, "spells.per_day.level_2", ""),
@@ -26839,8 +26835,7 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_2.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_2.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[2].level_2 || []
+          }
         },
         level_3: {
           per_day: _checkForValue(tempCharacterObject, "spells.per_day.level_3", ""),
@@ -26865,8 +26860,7 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_3.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_3.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[3].level_3 || []
+          }
         },
         level_4: {
           per_day: _checkForValue(tempCharacterObject, "spells.per_day.level_4", ""),
@@ -26891,8 +26885,7 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_4.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_4.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[4].level_4 || []
+          }
         },
         level_5: {
           per_day: _checkForValue(tempCharacterObject, "spells.per_day.level_5", ""),
@@ -26917,8 +26910,7 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_5.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_5.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[5].level_5 || []
+          }
         },
         level_6: {
           per_day: _checkForValue(tempCharacterObject, "spells.per_day.level_6", ""),
@@ -26943,8 +26935,7 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_6.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_6.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[6].level_6 || []
+          }
         },
         level_7: {
           per_day: _checkForValue(tempCharacterObject, "spells.per_day.level_7", ""),
@@ -26969,8 +26960,7 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_7.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_7.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[7].level_7 || []
+          }
         },
         level_8: {
           per_day: _checkForValue(tempCharacterObject, "spells.per_day.level_8", ""),
@@ -26995,8 +26985,7 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_8.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_8.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[8].level_8 || []
+          }
         },
         level_9: {
           per_day: _checkForValue(tempCharacterObject, "spells.per_day.level_9", ""),
@@ -27021,12 +27010,61 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_9.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_9.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[9].level_9 || []
+          }
         }
       }
     };
-    // spells
+    if (tempCharacterObject.spells.book[0] && tempCharacterObject.spells.book[0].level_0) {
+      characterObject.spells.book.level_0 = tempCharacterObject.spells.book[0].level_0;
+    } else {
+      characterObject.spells.book.level_0 = [];
+    };
+    if (tempCharacterObject.spells.book[1] && tempCharacterObject.spells.book[1].level_1) {
+      characterObject.spells.book.level_1 = tempCharacterObject.spells.book[1].level_1;
+    } else {
+      characterObject.spells.book.level_1 = [];
+    };
+    if (tempCharacterObject.spells.book[2] && tempCharacterObject.spells.book[2].level_2) {
+      characterObject.spells.book.level_2 = tempCharacterObject.spells.book[2].level_2;
+    } else {
+      characterObject.spells.book.level_2 = [];
+    };
+    if (tempCharacterObject.spells.book[3] && tempCharacterObject.spells.book[3].level_3) {
+      characterObject.spells.book.level_3 = tempCharacterObject.spells.book[3].level_3;
+    } else {
+      characterObject.spells.book.level_3 = [];
+    };
+    if (tempCharacterObject.spells.book[4] && tempCharacterObject.spells.book[4].level_4) {
+      characterObject.spells.book.level_4 = tempCharacterObject.spells.book[4].level_4;
+    } else {
+      characterObject.spells.book.level_4 = [];
+    };
+    if (tempCharacterObject.spells.book[5] && tempCharacterObject.spells.book[5].level_5) {
+      characterObject.spells.book.level_5 = tempCharacterObject.spells.book[5].level_5;
+    } else {
+      characterObject.spells.book.level_5 = [];
+    };
+    if (tempCharacterObject.spells.book[6] && tempCharacterObject.spells.book[6].level_6) {
+      characterObject.spells.book.level_6 = tempCharacterObject.spells.book[6].level_6;
+    } else {
+      characterObject.spells.book.level_6 = [];
+    };
+    if (tempCharacterObject.spells.book[7] && tempCharacterObject.spells.book[7].level_7) {
+      characterObject.spells.book.level_7 = tempCharacterObject.spells.book[7].level_7;
+    } else {
+      characterObject.spells.book.level_7 = [];
+    };
+    if (tempCharacterObject.spells.book[8] && tempCharacterObject.spells.book[8].level_8) {
+      characterObject.spells.book.level_8 = tempCharacterObject.spells.book[8].level_8;
+    } else {
+      characterObject.spells.book.level_8 = [];
+    };
+    if (tempCharacterObject.spells.book[9] && tempCharacterObject.spells.book[9].level_9) {
+      characterObject.spells.book.level_9 = tempCharacterObject.spells.book[9].level_9;
+    } else {
+      characterObject.spells.book.level_9 = [];
+    };
+    // notes
     _report.repaired.push("update: spells");
     characterObject.notes = {
       character: {
@@ -27765,6 +27803,7 @@ var sheet = (function() {
         menu.close();
         shade.destroy();
         log.destroy();
+        tip.destroy();
         page.update();
       };
       // ctrl+alt+f
@@ -32995,12 +33034,12 @@ var tip = (function() {
       tip.addEventListener("focus", function() {
         render(tip);
         clearTimeout(destroyTimer);
-        destroyTimer = setTimeout(destroy, 4000, this);
+        // destroyTimer = setTimeout(destroy, 4000, this);
       }, false);
       tip.addEventListener("blur", function() {
         destroy();
         clearTimeout(destroyTimer);
-        destroyTimer = setTimeout(delayDestroy, 400, this);
+        // destroyTimer = setTimeout(delayDestroy, 400, this);
       }, false);
     };
     if (options.state == "hover") {
@@ -33010,7 +33049,7 @@ var tip = (function() {
       tip.addEventListener("mouseout", function() {
         destroy();
         clearTimeout(destroyTimer);
-        destroyTimer = setTimeout(delayDestroy, 400, this);
+        // destroyTimer = setTimeout(delayDestroy, 400, this);
       }, false);
     };
   };
@@ -33094,6 +33133,7 @@ var tip = (function() {
 
   // exposed methods
   return {
+    destroy: destroy,
     bind: bind
   };
 
