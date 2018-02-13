@@ -31,7 +31,7 @@ var events = (function() {
     var options = helper.makeObject(button.dataset.eventsOptions);
     var allEvents = helper.getObject({
       object: sheet.get(),
-      path: "events"
+      path: "events.all"
     });
     var foundXp = false;
     var foundWealth = false;
@@ -67,7 +67,7 @@ var events = (function() {
     var _store = function() {
       helper.setObject({
         object: sheet.get(),
-        path: "events",
+        path: "events.all",
         newValue: newEvents
       });
     };
@@ -118,7 +118,11 @@ var events = (function() {
   };
 
   function store(type, eventObject) {
-    sheet.get().events.unshift(_create_event(type, eventObject));
+    var all_events = helper.getObject({
+      object: sheet.get(),
+      path: "events.all"
+    });
+    all_events.unshift(_create_event(type, eventObject));
     sheet.store();
   };
 
@@ -190,7 +194,7 @@ var events = (function() {
       var body = document.createElement("div");
       var all_events = helper.getObject({
         object: sheet.get(),
-        path: "events"
+        path: "events.all"
       });
       var all_eventsToRender = [];
       var _collectAllEvents = function() {
@@ -237,7 +241,11 @@ var events = (function() {
   };
 
   function undo() {
-    sheet.get().events.shift();
+    var all_events = helper.getObject({
+      object: sheet.get(),
+      path: "events.all"
+    });
+    all_events.shift();
   };
 
   // exposed methods
