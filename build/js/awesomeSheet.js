@@ -892,18 +892,16 @@ var blank = (function() {
         }
       },
       classes: {
-        all: {
-          all: [{
-            classname: "",
-            level: "",
-            hp: "",
-            fortitude: "",
-            reflex: "",
-            will: "",
-            ranks: "",
-            bab: ""
-          }]
-        }
+        all: [{
+          classname: "",
+          level: "",
+          hp: "",
+          fortitude: "",
+          reflex: "",
+          will: "",
+          ranks: "",
+          bab: ""
+        }]
       },
       experience: {
         level: "",
