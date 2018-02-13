@@ -21,30 +21,32 @@ var blank = (function() {
           category: "",
           modifier: {
             base: "",
+            special: "",
             fly: "",
-            stealth: "",
-            special: ""
+            stealth: ""
           }
         }
       },
       classes: {
-        all: [{
-          classname: "",
-          level: "",
-          hp: "",
-          fortitude: "",
-          reflex: "",
-          will: "",
-          ranks: "",
-          bab: ""
-        }]
+        all: {
+          all: [{
+            classname: "",
+            level: "",
+            hp: "",
+            fortitude: "",
+            reflex: "",
+            will: "",
+            ranks: "",
+            bab: ""
+          }]
+        }
       },
       experience: {
         level: "",
         next_level: "",
+        needed: "",
         total: "",
-        advancement: "",
-        needed: ""
+        advancement: ""
       },
       initiative: {
         misc: "",
@@ -153,7 +155,7 @@ var blank = (function() {
         feats: "",
         traits: "",
         languages: "",
-        special_abilities: ""
+        special: ""
       },
       power: {
         all: []
@@ -197,7 +199,7 @@ var blank = (function() {
         }
       },
       encumbrance: {
-        encumbrance_str: "",
+        str: "",
         carry_move: {
           light: "",
           medium: "",
@@ -307,7 +309,7 @@ var blank = (function() {
           wis: false,
           cha: false,
           bab: true,
-          special_size: true,
+          size_special: true,
           level: false,
           half_level: false,
           plus_ten: true
@@ -378,8 +380,8 @@ var blank = (function() {
         trait: "",
         misc: "",
         temp: "",
-        current: "",
         overcome: "",
+        current: "",
         notes: "",
         bonuses: {
           str: false,
@@ -393,24 +395,22 @@ var blank = (function() {
         }
       },
       sr: {
-        spell_resistance: {
-          feat: "",
-          trait: "",
-          misc: "",
-          temp: "",
-          current: "",
-          notes: "",
-          bonuses: {
-            str: false,
-            dex: false,
-            con: false,
-            int: false,
-            wis: false,
-            cha: false,
-            level: false,
-            half_level: false
-          }
-        },
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        notes: "",
+        bonuses: {
+          str: false,
+          dex: false,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
+          level: false,
+          half_level: false
+        }
       },
       resistance: {
         feat: "",
@@ -435,7 +435,7 @@ var blank = (function() {
       stats: {
         base_attack: "",
         base_attack_bonuses: "",
-        melee_attack: {
+        melee: {
           misc: "",
           temp: "",
           current: "",
@@ -447,12 +447,12 @@ var blank = (function() {
             wis: false,
             cha: false,
             bab: true,
-            size: true,
+            size_base: true,
             level: false,
             half_level: false
           }
         },
-        ranged_attack: {
+        ranged: {
           misc: "",
           temp: "",
           current: "",
@@ -464,11 +464,11 @@ var blank = (function() {
             wis: false,
             cha: false,
             bab: true,
-            size: true,
+            size_base: true,
             level: false,
             half_level: false
           }
-        },
+        }
       },
       cmb: {
         misc: "",
@@ -477,26 +477,25 @@ var blank = (function() {
         notes: "",
         bonuses: {
           str: true,
-          dex: true,
+          dex: false,
           con: false,
           int: false,
           wis: false,
           cha: false,
           bab: true,
-          special_size: true,
+          size_special: true,
           level: false,
-          half_level: false,
-          plus_ten: true
+          half_level: false
         }
       },
       attack: {
+        notes: "",
         melee: {
           all: []
         },
         ranged: {
           all: []
-        },
-        notes: ""
+        }
       }
     },
     skills: {
@@ -508,14 +507,14 @@ var blank = (function() {
       custom: {
         all: []
       },
-      all: {
+      default: {
         acrobatics: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
             str: false,
             dex: true,
@@ -532,18 +531,18 @@ var blank = (function() {
         appraise: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -552,18 +551,18 @@ var blank = (function() {
         bluff: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: true,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -572,18 +571,18 @@ var blank = (function() {
         climb: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: true,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -593,18 +592,18 @@ var blank = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -614,18 +613,18 @@ var blank = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -634,18 +633,18 @@ var blank = (function() {
         diplomacy: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: true,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -654,18 +653,18 @@ var blank = (function() {
         disable_device: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: true,
             con: false,
             int: false,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -674,18 +673,18 @@ var blank = (function() {
         disguise: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: true,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -694,18 +693,18 @@ var blank = (function() {
         escape_artist: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: true,
             con: false,
             int: false,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -714,39 +713,39 @@ var blank = (function() {
         fly: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: true,
             con: false,
             int: false,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: true,
-            size_modifier_fly: true
+            size_fly: true
           }
         },
         handle_animal: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: true,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -755,18 +754,18 @@ var blank = (function() {
         heal: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: true,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -775,18 +774,18 @@ var blank = (function() {
         intimidate: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: true,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -795,18 +794,18 @@ var blank = (function() {
         knowledge_arcana: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -815,18 +814,18 @@ var blank = (function() {
         knowledge_dungeoneering: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -835,18 +834,18 @@ var blank = (function() {
         knowledge_engineering: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -855,18 +854,18 @@ var blank = (function() {
         knowledge_geography: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -875,18 +874,18 @@ var blank = (function() {
         knowledge_history: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -895,18 +894,18 @@ var blank = (function() {
         knowledge_local: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -915,18 +914,18 @@ var blank = (function() {
         knowledge_nature: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -935,18 +934,18 @@ var blank = (function() {
         knowledge_nobility: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -955,18 +954,18 @@ var blank = (function() {
         knowledge_planes: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -975,18 +974,18 @@ var blank = (function() {
         knowledge_religion: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -995,18 +994,18 @@ var blank = (function() {
         linguistics: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1015,18 +1014,18 @@ var blank = (function() {
         perception: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: true,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1036,18 +1035,18 @@ var blank = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: true,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1057,18 +1056,18 @@ var blank = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: true,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1078,18 +1077,18 @@ var blank = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: true,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1099,18 +1098,18 @@ var blank = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: true,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1119,18 +1118,18 @@ var blank = (function() {
         ride: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: true,
             con: false,
             int: false,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -1139,18 +1138,18 @@ var blank = (function() {
         sense_motive: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: true,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1159,18 +1158,18 @@ var blank = (function() {
         sleight_of_hand: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: true,
             con: false,
             int: false,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -1179,18 +1178,18 @@ var blank = (function() {
         spellcraft: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1199,39 +1198,39 @@ var blank = (function() {
         stealth: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: true,
             con: false,
             int: false,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: true,
-            size_modifier_stealth: true
+            size_stealth: true
           }
         },
         survival: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: true,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1240,18 +1239,18 @@ var blank = (function() {
         swim: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: true,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -1260,18 +1259,18 @@ var blank = (function() {
         use_magic_device: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: true,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
