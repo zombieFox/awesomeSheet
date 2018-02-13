@@ -885,9 +885,9 @@ var blank = (function() {
           category: "",
           modifier: {
             base: "",
+            special: "",
             fly: "",
-            stealth: "",
-            special: ""
+            stealth: ""
           }
         }
       },
@@ -906,9 +906,9 @@ var blank = (function() {
       experience: {
         level: "",
         next_level: "",
+        needed: "",
         total: "",
-        advancement: "",
-        needed: ""
+        advancement: ""
       },
       initiative: {
         misc: "",
@@ -1017,7 +1017,7 @@ var blank = (function() {
         feats: "",
         traits: "",
         languages: "",
-        special_abilities: ""
+        special: ""
       },
       power: {
         all: []
@@ -1061,7 +1061,7 @@ var blank = (function() {
         }
       },
       encumbrance: {
-        encumbrance_str: "",
+        str: "",
         carry_move: {
           light: "",
           medium: "",
@@ -1171,7 +1171,7 @@ var blank = (function() {
           wis: false,
           cha: false,
           bab: true,
-          special_size: true,
+          size_special: true,
           level: false,
           half_level: false,
           plus_ten: true
@@ -1242,8 +1242,8 @@ var blank = (function() {
         trait: "",
         misc: "",
         temp: "",
-        current: "",
         overcome: "",
+        current: "",
         notes: "",
         bonuses: {
           str: false,
@@ -1257,24 +1257,22 @@ var blank = (function() {
         }
       },
       sr: {
-        spell_resistance: {
-          feat: "",
-          trait: "",
-          misc: "",
-          temp: "",
-          current: "",
-          notes: "",
-          bonuses: {
-            str: false,
-            dex: false,
-            con: false,
-            int: false,
-            wis: false,
-            cha: false,
-            level: false,
-            half_level: false
-          }
-        },
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        notes: "",
+        bonuses: {
+          str: false,
+          dex: false,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
+          level: false,
+          half_level: false
+        }
       },
       resistance: {
         feat: "",
@@ -1299,7 +1297,7 @@ var blank = (function() {
       stats: {
         base_attack: "",
         base_attack_bonuses: "",
-        melee_attack: {
+        melee: {
           misc: "",
           temp: "",
           current: "",
@@ -1311,12 +1309,12 @@ var blank = (function() {
             wis: false,
             cha: false,
             bab: true,
-            size: true,
+            size_base: true,
             level: false,
             half_level: false
           }
         },
-        ranged_attack: {
+        ranged: {
           misc: "",
           temp: "",
           current: "",
@@ -1328,11 +1326,11 @@ var blank = (function() {
             wis: false,
             cha: false,
             bab: true,
-            size: true,
+            size_base: true,
             level: false,
             half_level: false
           }
-        },
+        }
       },
       cmb: {
         misc: "",
@@ -1341,26 +1339,25 @@ var blank = (function() {
         notes: "",
         bonuses: {
           str: true,
-          dex: true,
+          dex: false,
           con: false,
           int: false,
           wis: false,
           cha: false,
           bab: true,
-          special_size: true,
+          size_special: true,
           level: false,
-          half_level: false,
-          plus_ten: true
+          half_level: false
         }
       },
       attack: {
+        notes: "",
         melee: {
           all: []
         },
         ranged: {
           all: []
-        },
-        notes: ""
+        }
       }
     },
     skills: {
@@ -1372,14 +1369,14 @@ var blank = (function() {
       custom: {
         all: []
       },
-      all: {
+      default: {
         acrobatics: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
             str: false,
             dex: true,
@@ -1396,18 +1393,18 @@ var blank = (function() {
         appraise: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1416,18 +1413,18 @@ var blank = (function() {
         bluff: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: true,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1436,18 +1433,18 @@ var blank = (function() {
         climb: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: true,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -1457,18 +1454,18 @@ var blank = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1478,18 +1475,18 @@ var blank = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1498,18 +1495,18 @@ var blank = (function() {
         diplomacy: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: true,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1518,18 +1515,18 @@ var blank = (function() {
         disable_device: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: true,
             con: false,
             int: false,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -1538,18 +1535,18 @@ var blank = (function() {
         disguise: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: true,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1558,18 +1555,18 @@ var blank = (function() {
         escape_artist: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: true,
             con: false,
             int: false,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -1578,39 +1575,39 @@ var blank = (function() {
         fly: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: true,
             con: false,
             int: false,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: true,
-            size_modifier_fly: true
+            size_fly: true
           }
         },
         handle_animal: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: true,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1619,18 +1616,18 @@ var blank = (function() {
         heal: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: true,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1639,18 +1636,18 @@ var blank = (function() {
         intimidate: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: true,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1659,18 +1656,18 @@ var blank = (function() {
         knowledge_arcana: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1679,18 +1676,18 @@ var blank = (function() {
         knowledge_dungeoneering: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1699,18 +1696,18 @@ var blank = (function() {
         knowledge_engineering: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1719,18 +1716,18 @@ var blank = (function() {
         knowledge_geography: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1739,18 +1736,18 @@ var blank = (function() {
         knowledge_history: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1759,18 +1756,18 @@ var blank = (function() {
         knowledge_local: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1779,18 +1776,18 @@ var blank = (function() {
         knowledge_nature: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1799,18 +1796,18 @@ var blank = (function() {
         knowledge_nobility: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1819,18 +1816,18 @@ var blank = (function() {
         knowledge_planes: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1839,18 +1836,18 @@ var blank = (function() {
         knowledge_religion: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1859,18 +1856,18 @@ var blank = (function() {
         linguistics: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1879,18 +1876,18 @@ var blank = (function() {
         perception: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: true,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1900,18 +1897,18 @@ var blank = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: true,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1921,18 +1918,18 @@ var blank = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: true,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1942,18 +1939,18 @@ var blank = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: true,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1963,18 +1960,18 @@ var blank = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: true,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -1983,18 +1980,18 @@ var blank = (function() {
         ride: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: true,
             con: false,
             int: false,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -2003,18 +2000,18 @@ var blank = (function() {
         sense_motive: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: true,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -2023,18 +2020,18 @@ var blank = (function() {
         sleight_of_hand: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: true,
             con: false,
             int: false,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -2043,18 +2040,18 @@ var blank = (function() {
         spellcraft: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: true,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -2063,39 +2060,39 @@ var blank = (function() {
         stealth: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: true,
             con: false,
             int: false,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: true,
-            size_modifier_stealth: true
+            size_stealth: true
           }
         },
         survival: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: true,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -2104,18 +2101,18 @@ var blank = (function() {
         swim: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: true,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: false,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -2124,18 +2121,18 @@ var blank = (function() {
         use_magic_device: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            class_skill: false,
             str: false,
             dex: false,
             con: false,
             int: false,
             wis: false,
             cha: true,
+            class_skill: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -2469,7 +2466,6 @@ var blank = (function() {
   };
 
 })();
-
 var izlara = (function() {
 
   var data = {
@@ -4962,442 +4958,444 @@ var izlara = (function() {
         all: []
       }
     },
-    events: [{
-      type: "xp",
-      event: {
-        aggregate_value: 60000
-      },
-      timestamp: {
-        date: 13,
-        day: 6,
-        year: 2017,
-        hours: 14,
-        milliseconds: 200,
-        minutes: 6,
-        month: 4,
-        seconds: 51
-      }
-    }, {
-      type: "platinum",
-      event: {
-        aggregate_value: 35
-      },
-      timestamp: {
-        date: 6,
-        day: 6,
-        year: 2017,
-        hours: 22,
-        milliseconds: 200,
-        minutes: 20,
-        month: 4,
-        seconds: 37
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 40000
-      },
-      timestamp: {
-        date: 6,
-        day: 6,
-        year: 2017,
-        hours: 22,
-        milliseconds: 200,
-        minutes: 10,
-        month: 4,
-        seconds: 37
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: -1595
-      },
-      timestamp: {
-        date: 29,
-        day: 6,
-        year: 2017,
-        hours: 21,
-        milliseconds: 200,
-        minutes: 34,
-        month: 3,
-        seconds: 42
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 6000
-      },
-      timestamp: {
-        date: 29,
-        day: 6,
-        year: 2017,
-        hours: 21,
-        milliseconds: 200,
-        minutes: 44,
-        month: 3,
-        seconds: 42
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 9900
-      },
-      timestamp: {
-        date: 22,
-        day: 6,
-        year: 2017,
-        hours: 18,
-        milliseconds: 200,
-        minutes: 19,
-        month: 3,
-        seconds: 4
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 20050
-      },
-      timestamp: {
-        date: 15,
-        day: 6,
-        year: 2017,
-        hours: 14,
-        milliseconds: 200,
-        minutes: 27,
-        month: 3,
-        seconds: 11
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: 2000
-      },
-      timestamp: {
-        date: 8,
-        day: 6,
-        year: 2017,
-        hours: 18,
-        milliseconds: 200,
-        minutes: 48,
-        month: 3,
-        seconds: 55
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 8050
-      },
-      timestamp: {
-        date: 8,
-        day: 6,
-        year: 2017,
-        hours: 18,
-        milliseconds: 200,
-        minutes: 38,
-        month: 3,
-        seconds: 55
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 6000
-      },
-      timestamp: {
-        date: 1,
-        day: 6,
-        year: 2017,
-        hours: 20,
-        milliseconds: 200,
-        minutes: 9,
-        month: 3,
-        seconds: 52
-      }
-    }, {
-      type: "silver",
-      event: {
-        aggregate_value: -38
-      },
-      timestamp: {
-        date: 25,
-        day: 6,
-        year: 2017,
-        hours: 18,
-        milliseconds: 200,
-        minutes: 49,
-        month: 2,
-        seconds: 14
-      }
-    }, {
-      type: "silver",
-      event: {
-        aggregate_value: 40
-      },
-      timestamp: {
-        date: 25,
-        day: 6,
-        year: 2017,
-        hours: 18,
-        milliseconds: 200,
-        minutes: 39,
-        month: 2,
-        seconds: 14
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 2000
-      },
-      timestamp: {
-        date: 25,
-        day: 6,
-        year: 2017,
-        hours: 18,
-        milliseconds: 200,
-        minutes: 59,
-        month: 2,
-        seconds: 14
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 20100
-      },
-      timestamp: {
-        date: 18,
-        day: 6,
-        year: 2017,
-        hours: 13,
-        milliseconds: 200,
-        minutes: 40,
-        month: 2,
-        seconds: 23
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: 4500
-      },
-      timestamp: {
-        date: 11,
-        day: 6,
-        year: 2017,
-        hours: 16,
-        milliseconds: 200,
-        minutes: 40,
-        month: 2,
-        seconds: 45
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 10900
-      },
-      timestamp: {
-        date: 11,
-        day: 6,
-        year: 2017,
-        hours: 16,
-        milliseconds: 200,
-        minutes: 30,
-        month: 2,
-        seconds: 45
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 4000
-      },
-      timestamp: {
-        date: 4,
-        day: 6,
-        year: 2017,
-        hours: 23,
-        milliseconds: 200,
-        minutes: 4,
-        month: 2,
-        seconds: 11
-      }
-    }, {
-      type: "platinum",
-      event: {
-        aggregate_value: 20
-      },
-      timestamp: {
-        date: 25,
-        day: 6,
-        year: 2017,
-        hours: 19,
-        milliseconds: 200,
-        minutes: 40,
-        month: 1,
-        seconds: 33
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 9000
-      },
-      timestamp: {
-        date: 25,
-        day: 6,
-        year: 2017,
-        hours: 19,
-        milliseconds: 200,
-        minutes: 30,
-        month: 1,
-        seconds: 33
-      }
-    }, {
-      type: "silver",
-      event: {
-        aggregate_value: 100
-      },
-      timestamp: {
-        date: 18,
-        day: 6,
-        year: 2017,
-        hours: 12,
-        milliseconds: 200,
-        minutes: 31,
-        month: 1,
-        seconds: 59
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 5500
-      },
-      timestamp: {
-        date: 18,
-        day: 6,
-        year: 2017,
-        hours: 12,
-        milliseconds: 200,
-        minutes: 21,
-        month: 1,
-        seconds: 59
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 2500
-      },
-      timestamp: {
-        date: 11,
-        day: 6,
-        year: 2017,
-        hours: 22,
-        milliseconds: 200,
-        minutes: 55,
-        month: 1,
-        seconds: 44
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: 2500
-      },
-      timestamp: {
-        date: 4,
-        day: 6,
-        year: 2017,
-        hours: 18,
-        milliseconds: 200,
-        minutes: 40,
-        month: 1,
-        seconds: 1
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 6000
-      },
-      timestamp: {
-        date: 4,
-        day: 6,
-        year: 2017,
-        hours: 18,
-        milliseconds: 200,
-        minutes: 30,
-        month: 1,
-        seconds: 1
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: 1000
-      },
-      timestamp: {
-        date: 28,
-        day: 6,
-        year: 2017,
-        hours: 20,
-        milliseconds: 200,
-        minutes: 30,
-        month: 0,
-        seconds: 22
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 3000
-      },
-      timestamp: {
-        date: 28,
-        day: 6,
-        year: 2017,
-        hours: 20,
-        milliseconds: 200,
-        minutes: 20,
-        month: 0,
-        seconds: 22
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 4500
-      },
-      timestamp: {
-        date: 21,
-        day: 6,
-        year: 2017,
-        hours: 15,
-        milliseconds: 200,
-        minutes: 2,
-        month: 0,
-        seconds: 21
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 2000
-      },
-      timestamp: {
-        date: 14,
-        day: 6,
-        year: 2017,
-        hours: 12,
-        milliseconds: 200,
-        minutes: 11,
-        month: 0,
-        seconds: 34
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 500
-      },
-      timestamp: {
-        date: 7,
-        day: 6,
-        year: 2017,
-        hours: 18,
-        milliseconds: 200,
-        minutes: 32,
-        month: 0,
-        seconds: 15
-      }
-    }]
+    events: {
+      all: [{
+        type: "xp",
+        event: {
+          aggregate_value: 60000
+        },
+        timestamp: {
+          date: 13,
+          day: 6,
+          year: 2017,
+          hours: 14,
+          milliseconds: 200,
+          minutes: 6,
+          month: 4,
+          seconds: 51
+        }
+      }, {
+        type: "platinum",
+        event: {
+          aggregate_value: 35
+        },
+        timestamp: {
+          date: 6,
+          day: 6,
+          year: 2017,
+          hours: 22,
+          milliseconds: 200,
+          minutes: 20,
+          month: 4,
+          seconds: 37
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 40000
+        },
+        timestamp: {
+          date: 6,
+          day: 6,
+          year: 2017,
+          hours: 22,
+          milliseconds: 200,
+          minutes: 10,
+          month: 4,
+          seconds: 37
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: -1595
+        },
+        timestamp: {
+          date: 29,
+          day: 6,
+          year: 2017,
+          hours: 21,
+          milliseconds: 200,
+          minutes: 34,
+          month: 3,
+          seconds: 42
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 6000
+        },
+        timestamp: {
+          date: 29,
+          day: 6,
+          year: 2017,
+          hours: 21,
+          milliseconds: 200,
+          minutes: 44,
+          month: 3,
+          seconds: 42
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 9900
+        },
+        timestamp: {
+          date: 22,
+          day: 6,
+          year: 2017,
+          hours: 18,
+          milliseconds: 200,
+          minutes: 19,
+          month: 3,
+          seconds: 4
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 20050
+        },
+        timestamp: {
+          date: 15,
+          day: 6,
+          year: 2017,
+          hours: 14,
+          milliseconds: 200,
+          minutes: 27,
+          month: 3,
+          seconds: 11
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: 2000
+        },
+        timestamp: {
+          date: 8,
+          day: 6,
+          year: 2017,
+          hours: 18,
+          milliseconds: 200,
+          minutes: 48,
+          month: 3,
+          seconds: 55
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 8050
+        },
+        timestamp: {
+          date: 8,
+          day: 6,
+          year: 2017,
+          hours: 18,
+          milliseconds: 200,
+          minutes: 38,
+          month: 3,
+          seconds: 55
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 6000
+        },
+        timestamp: {
+          date: 1,
+          day: 6,
+          year: 2017,
+          hours: 20,
+          milliseconds: 200,
+          minutes: 9,
+          month: 3,
+          seconds: 52
+        }
+      }, {
+        type: "silver",
+        event: {
+          aggregate_value: -38
+        },
+        timestamp: {
+          date: 25,
+          day: 6,
+          year: 2017,
+          hours: 18,
+          milliseconds: 200,
+          minutes: 49,
+          month: 2,
+          seconds: 14
+        }
+      }, {
+        type: "silver",
+        event: {
+          aggregate_value: 40
+        },
+        timestamp: {
+          date: 25,
+          day: 6,
+          year: 2017,
+          hours: 18,
+          milliseconds: 200,
+          minutes: 39,
+          month: 2,
+          seconds: 14
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 2000
+        },
+        timestamp: {
+          date: 25,
+          day: 6,
+          year: 2017,
+          hours: 18,
+          milliseconds: 200,
+          minutes: 59,
+          month: 2,
+          seconds: 14
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 20100
+        },
+        timestamp: {
+          date: 18,
+          day: 6,
+          year: 2017,
+          hours: 13,
+          milliseconds: 200,
+          minutes: 40,
+          month: 2,
+          seconds: 23
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: 4500
+        },
+        timestamp: {
+          date: 11,
+          day: 6,
+          year: 2017,
+          hours: 16,
+          milliseconds: 200,
+          minutes: 40,
+          month: 2,
+          seconds: 45
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 10900
+        },
+        timestamp: {
+          date: 11,
+          day: 6,
+          year: 2017,
+          hours: 16,
+          milliseconds: 200,
+          minutes: 30,
+          month: 2,
+          seconds: 45
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 4000
+        },
+        timestamp: {
+          date: 4,
+          day: 6,
+          year: 2017,
+          hours: 23,
+          milliseconds: 200,
+          minutes: 4,
+          month: 2,
+          seconds: 11
+        }
+      }, {
+        type: "platinum",
+        event: {
+          aggregate_value: 20
+        },
+        timestamp: {
+          date: 25,
+          day: 6,
+          year: 2017,
+          hours: 19,
+          milliseconds: 200,
+          minutes: 40,
+          month: 1,
+          seconds: 33
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 9000
+        },
+        timestamp: {
+          date: 25,
+          day: 6,
+          year: 2017,
+          hours: 19,
+          milliseconds: 200,
+          minutes: 30,
+          month: 1,
+          seconds: 33
+        }
+      }, {
+        type: "silver",
+        event: {
+          aggregate_value: 100
+        },
+        timestamp: {
+          date: 18,
+          day: 6,
+          year: 2017,
+          hours: 12,
+          milliseconds: 200,
+          minutes: 31,
+          month: 1,
+          seconds: 59
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 5500
+        },
+        timestamp: {
+          date: 18,
+          day: 6,
+          year: 2017,
+          hours: 12,
+          milliseconds: 200,
+          minutes: 21,
+          month: 1,
+          seconds: 59
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 2500
+        },
+        timestamp: {
+          date: 11,
+          day: 6,
+          year: 2017,
+          hours: 22,
+          milliseconds: 200,
+          minutes: 55,
+          month: 1,
+          seconds: 44
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: 2500
+        },
+        timestamp: {
+          date: 4,
+          day: 6,
+          year: 2017,
+          hours: 18,
+          milliseconds: 200,
+          minutes: 40,
+          month: 1,
+          seconds: 1
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 6000
+        },
+        timestamp: {
+          date: 4,
+          day: 6,
+          year: 2017,
+          hours: 18,
+          milliseconds: 200,
+          minutes: 30,
+          month: 1,
+          seconds: 1
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: 1000
+        },
+        timestamp: {
+          date: 28,
+          day: 6,
+          year: 2017,
+          hours: 20,
+          milliseconds: 200,
+          minutes: 30,
+          month: 0,
+          seconds: 22
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 3000
+        },
+        timestamp: {
+          date: 28,
+          day: 6,
+          year: 2017,
+          hours: 20,
+          milliseconds: 200,
+          minutes: 20,
+          month: 0,
+          seconds: 22
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 4500
+        },
+        timestamp: {
+          date: 21,
+          day: 6,
+          year: 2017,
+          hours: 15,
+          milliseconds: 200,
+          minutes: 2,
+          month: 0,
+          seconds: 21
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 2000
+        },
+        timestamp: {
+          date: 14,
+          day: 6,
+          year: 2017,
+          hours: 12,
+          milliseconds: 200,
+          minutes: 11,
+          month: 0,
+          seconds: 34
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 500
+        },
+        timestamp: {
+          date: 7,
+          day: 6,
+          year: 2017,
+          hours: 18,
+          milliseconds: 200,
+          minutes: 32,
+          month: 0,
+          seconds: 15
+        }
+      }]
+    }
   };
 
   // exposed methods
@@ -5406,7 +5404,6 @@ var izlara = (function() {
   };
 
 })();
-
 var ravich = (function() {
 
   var data = {
@@ -7147,487 +7144,489 @@ var ravich = (function() {
         all: []
       }
     },
-    events: [{
-      type: "platinum",
-      event: {
-        aggregate_value: 90
-      },
-      timestamp: {
-        date: 13,
-        day: 4,
-        year: 2017,
-        hours: 14,
-        milliseconds: 700,
-        minutes: 16,
-        month: 6,
-        seconds: 32
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: 7655
-      },
-      timestamp: {
-        date: 13,
-        day: 4,
-        year: 2017,
-        hours: 14,
-        milliseconds: 671,
-        minutes: 16,
-        month: 6,
-        seconds: 19
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 1210
-      },
-      timestamp: {
-        date: 13,
-        day: 4,
-        year: 2017,
-        hours: 14,
-        milliseconds: 937,
-        minutes: 16,
-        month: 6,
-        seconds: 12
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: 5600
-      },
-      timestamp: {
-        date: 5,
-        day: 3,
-        year: 2017,
-        hours: 18,
-        milliseconds: 590,
-        minutes: 40,
-        month: 6,
-        seconds: 42
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: 8700
-      },
-      timestamp: {
-        date: 28,
-        day: 3,
-        year: 2017,
-        hours: 23,
-        milliseconds: 951,
-        minutes: 25,
-        month: 5,
-        seconds: 59
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 3000
-      },
-      timestamp: {
-        date: 28,
-        day: 3,
-        year: 2017,
-        hours: 21,
-        milliseconds: 738,
-        minutes: 1,
-        month: 5,
-        seconds: 41
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: -5000
-      },
-      timestamp: {
-        date: 21,
-        day: 3,
-        year: 2017,
-        hours: 6,
-        milliseconds: 633,
-        minutes: 31,
-        month: 5,
-        seconds: 54
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: 90
-      },
-      timestamp: {
-        date: 21,
-        day: 3,
-        year: 2017,
-        hours: 5,
-        milliseconds: 199,
-        minutes: 26,
-        month: 5,
-        seconds: 46
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 3600
-      },
-      timestamp: {
-        date: 21,
-        day: 3,
-        year: 2017,
-        hours: 5,
-        milliseconds: 134,
-        minutes: 26,
-        month: 5,
-        seconds: 31
-      }
-    }, {
-      type: "silver",
-      event: {
-        aggregate_value: 50
-      },
-      timestamp: {
-        date: 14,
-        day: 3,
-        year: 2017,
-        hours: 7,
-        milliseconds: 87,
-        minutes: 40,
-        month: 5,
-        seconds: 45
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: -3700
-      },
-      timestamp: {
-        date: 14,
-        day: 3,
-        year: 2017,
-        hours: 7,
-        milliseconds: 748,
-        minutes: 40,
-        month: 5,
-        seconds: 40
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 5440
-      },
-      timestamp: {
-        date: 14,
-        day: 3,
-        year: 2017,
-        hours: 18,
-        milliseconds: 921,
-        minutes: 20,
-        month: 5,
-        seconds: 28
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: 4430
-      },
-      timestamp: {
-        date: 14,
-        day: 3,
-        year: 2017,
-        hours: 18,
-        milliseconds: 923,
-        minutes: 20,
-        month: 5,
-        seconds: 16
-      }
-    }, {
-      type: "platinum",
-      event: {
-        aggregate_value: 20
-      },
-      timestamp: {
-        date: 14,
-        day: 3,
-        year: 2017,
-        hours: 18,
-        milliseconds: 426,
-        minutes: 20,
-        month: 5,
-        seconds: 11
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: -3500
-      },
-      timestamp: {
-        date: 31,
-        day: 3,
-        year: 2017,
-        hours: 18,
-        milliseconds: 802,
-        minutes: 53,
-        month: 4,
-        seconds: 23
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 3400
-      },
-      timestamp: {
-        date: 31,
-        day: 3,
-        year: 2017,
-        hours: 18,
-        milliseconds: 14,
-        minutes: 49,
-        month: 4,
-        seconds: 24
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: 5327
-      },
-      timestamp: {
-        date: 31,
-        day: 3,
-        year: 2017,
-        hours: 18,
-        milliseconds: 604,
-        minutes: 49,
-        month: 4,
-        seconds: 3
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: -400
-      },
-      timestamp: {
-        date: 24,
-        day: 3,
-        year: 2017,
-        hours: 16,
-        milliseconds: 193,
-        minutes: 9,
-        month: 4,
-        seconds: 2
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: -1000
-      },
-      timestamp: {
-        date: 24,
-        day: 3,
-        year: 2017,
-        hours: 16,
-        milliseconds: 450,
-        minutes: 8,
-        month: 4,
-        seconds: 58
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: 4500
-      },
-      timestamp: {
-        date: 24,
-        day: 3,
-        year: 2017,
-        hours: 15,
-        milliseconds: 939,
-        minutes: 59,
-        month: 4,
-        seconds: 48
-      }
-    }, {
-      type: "platinum",
-      event: {
-        aggregate_value: 10
-      },
-      timestamp: {
-        date: 24,
-        day: 3,
-        year: 2017,
-        hours: 15,
-        milliseconds: 521,
-        minutes: 59,
-        month: 4,
-        seconds: 41
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 3000
-      },
-      timestamp: {
-        date: 24,
-        day: 3,
-        year: 2017,
-        hours: 15,
-        milliseconds: 769,
-        minutes: 42,
-        month: 4,
-        seconds: 30
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: -50
-      },
-      timestamp: {
-        date: 17,
-        day: 3,
-        year: 2017,
-        hours: 18,
-        milliseconds: 476,
-        minutes: 23,
-        month: 4,
-        seconds: 58
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: -400
-      },
-      timestamp: {
-        date: 17,
-        day: 3,
-        year: 2017,
-        hours: 18,
-        milliseconds: 829,
-        minutes: 23,
-        month: 4,
-        seconds: 54
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: -1000
-      },
-      timestamp: {
-        date: 17,
-        day: 3,
-        year: 2017,
-        hours: 18,
-        milliseconds: 363,
-        minutes: 23,
-        month: 4,
-        seconds: 53
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: 3000
-      },
-      timestamp: {
-        date: 17,
-        day: 3,
-        year: 2017,
-        hours: 18,
-        milliseconds: 532,
-        minutes: 4,
-        month: 4,
-        seconds: 40
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 2000
-      },
-      timestamp: {
-        date: 17,
-        day: 3,
-        year: 2017,
-        hours: 17,
-        milliseconds: 668,
-        minutes: 55,
-        month: 4,
-        seconds: 31
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: -400
-      },
-      timestamp: {
-        date: 10,
-        day: 3,
-        year: 2017,
-        hours: 15,
-        milliseconds: 516,
-        minutes: 42,
-        month: 4,
-        seconds: 38
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 1050
-      },
-      timestamp: {
-        date: 10,
-        day: 3,
-        year: 2017,
-        hours: 15,
-        milliseconds: 941,
-        minutes: 40,
-        month: 4,
-        seconds: 27
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: 2000
-      },
-      timestamp: {
-        date: 10,
-        day: 3,
-        year: 2017,
-        hours: 15,
-        milliseconds: 112,
-        minutes: 33,
-        month: 4,
-        seconds: 18
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: 450
-      },
-      timestamp: {
-        date: 3,
-        day: 3,
-        year: 2017,
-        hours: 18,
-        milliseconds: 83,
-        minutes: 40,
-        month: 4,
-        seconds: 4
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 300
-      },
-      timestamp: {
-        date: 3,
-        day: 3,
-        year: 2017,
-        hours: 18,
-        milliseconds: 545,
-        minutes: 50,
-        month: 4,
-        seconds: 52
-      }
-    }]
+    events: {
+      all: [{
+        type: "platinum",
+        event: {
+          aggregate_value: 90
+        },
+        timestamp: {
+          date: 13,
+          day: 4,
+          year: 2017,
+          hours: 14,
+          milliseconds: 700,
+          minutes: 16,
+          month: 6,
+          seconds: 32
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: 7655
+        },
+        timestamp: {
+          date: 13,
+          day: 4,
+          year: 2017,
+          hours: 14,
+          milliseconds: 671,
+          minutes: 16,
+          month: 6,
+          seconds: 19
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 1210
+        },
+        timestamp: {
+          date: 13,
+          day: 4,
+          year: 2017,
+          hours: 14,
+          milliseconds: 937,
+          minutes: 16,
+          month: 6,
+          seconds: 12
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: 5600
+        },
+        timestamp: {
+          date: 5,
+          day: 3,
+          year: 2017,
+          hours: 18,
+          milliseconds: 590,
+          minutes: 40,
+          month: 6,
+          seconds: 42
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: 8700
+        },
+        timestamp: {
+          date: 28,
+          day: 3,
+          year: 2017,
+          hours: 23,
+          milliseconds: 951,
+          minutes: 25,
+          month: 5,
+          seconds: 59
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 3000
+        },
+        timestamp: {
+          date: 28,
+          day: 3,
+          year: 2017,
+          hours: 21,
+          milliseconds: 738,
+          minutes: 1,
+          month: 5,
+          seconds: 41
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: -5000
+        },
+        timestamp: {
+          date: 21,
+          day: 3,
+          year: 2017,
+          hours: 6,
+          milliseconds: 633,
+          minutes: 31,
+          month: 5,
+          seconds: 54
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: 90
+        },
+        timestamp: {
+          date: 21,
+          day: 3,
+          year: 2017,
+          hours: 5,
+          milliseconds: 199,
+          minutes: 26,
+          month: 5,
+          seconds: 46
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 3600
+        },
+        timestamp: {
+          date: 21,
+          day: 3,
+          year: 2017,
+          hours: 5,
+          milliseconds: 134,
+          minutes: 26,
+          month: 5,
+          seconds: 31
+        }
+      }, {
+        type: "silver",
+        event: {
+          aggregate_value: 50
+        },
+        timestamp: {
+          date: 14,
+          day: 3,
+          year: 2017,
+          hours: 7,
+          milliseconds: 87,
+          minutes: 40,
+          month: 5,
+          seconds: 45
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: -3700
+        },
+        timestamp: {
+          date: 14,
+          day: 3,
+          year: 2017,
+          hours: 7,
+          milliseconds: 748,
+          minutes: 40,
+          month: 5,
+          seconds: 40
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 5440
+        },
+        timestamp: {
+          date: 14,
+          day: 3,
+          year: 2017,
+          hours: 18,
+          milliseconds: 921,
+          minutes: 20,
+          month: 5,
+          seconds: 28
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: 4430
+        },
+        timestamp: {
+          date: 14,
+          day: 3,
+          year: 2017,
+          hours: 18,
+          milliseconds: 923,
+          minutes: 20,
+          month: 5,
+          seconds: 16
+        }
+      }, {
+        type: "platinum",
+        event: {
+          aggregate_value: 20
+        },
+        timestamp: {
+          date: 14,
+          day: 3,
+          year: 2017,
+          hours: 18,
+          milliseconds: 426,
+          minutes: 20,
+          month: 5,
+          seconds: 11
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: -3500
+        },
+        timestamp: {
+          date: 31,
+          day: 3,
+          year: 2017,
+          hours: 18,
+          milliseconds: 802,
+          minutes: 53,
+          month: 4,
+          seconds: 23
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 3400
+        },
+        timestamp: {
+          date: 31,
+          day: 3,
+          year: 2017,
+          hours: 18,
+          milliseconds: 14,
+          minutes: 49,
+          month: 4,
+          seconds: 24
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: 5327
+        },
+        timestamp: {
+          date: 31,
+          day: 3,
+          year: 2017,
+          hours: 18,
+          milliseconds: 604,
+          minutes: 49,
+          month: 4,
+          seconds: 3
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: -400
+        },
+        timestamp: {
+          date: 24,
+          day: 3,
+          year: 2017,
+          hours: 16,
+          milliseconds: 193,
+          minutes: 9,
+          month: 4,
+          seconds: 2
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: -1000
+        },
+        timestamp: {
+          date: 24,
+          day: 3,
+          year: 2017,
+          hours: 16,
+          milliseconds: 450,
+          minutes: 8,
+          month: 4,
+          seconds: 58
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: 4500
+        },
+        timestamp: {
+          date: 24,
+          day: 3,
+          year: 2017,
+          hours: 15,
+          milliseconds: 939,
+          minutes: 59,
+          month: 4,
+          seconds: 48
+        }
+      }, {
+        type: "platinum",
+        event: {
+          aggregate_value: 10
+        },
+        timestamp: {
+          date: 24,
+          day: 3,
+          year: 2017,
+          hours: 15,
+          milliseconds: 521,
+          minutes: 59,
+          month: 4,
+          seconds: 41
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 3000
+        },
+        timestamp: {
+          date: 24,
+          day: 3,
+          year: 2017,
+          hours: 15,
+          milliseconds: 769,
+          minutes: 42,
+          month: 4,
+          seconds: 30
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: -50
+        },
+        timestamp: {
+          date: 17,
+          day: 3,
+          year: 2017,
+          hours: 18,
+          milliseconds: 476,
+          minutes: 23,
+          month: 4,
+          seconds: 58
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: -400
+        },
+        timestamp: {
+          date: 17,
+          day: 3,
+          year: 2017,
+          hours: 18,
+          milliseconds: 829,
+          minutes: 23,
+          month: 4,
+          seconds: 54
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: -1000
+        },
+        timestamp: {
+          date: 17,
+          day: 3,
+          year: 2017,
+          hours: 18,
+          milliseconds: 363,
+          minutes: 23,
+          month: 4,
+          seconds: 53
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: 3000
+        },
+        timestamp: {
+          date: 17,
+          day: 3,
+          year: 2017,
+          hours: 18,
+          milliseconds: 532,
+          minutes: 4,
+          month: 4,
+          seconds: 40
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 2000
+        },
+        timestamp: {
+          date: 17,
+          day: 3,
+          year: 2017,
+          hours: 17,
+          milliseconds: 668,
+          minutes: 55,
+          month: 4,
+          seconds: 31
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: -400
+        },
+        timestamp: {
+          date: 10,
+          day: 3,
+          year: 2017,
+          hours: 15,
+          milliseconds: 516,
+          minutes: 42,
+          month: 4,
+          seconds: 38
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 1050
+        },
+        timestamp: {
+          date: 10,
+          day: 3,
+          year: 2017,
+          hours: 15,
+          milliseconds: 941,
+          minutes: 40,
+          month: 4,
+          seconds: 27
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: 2000
+        },
+        timestamp: {
+          date: 10,
+          day: 3,
+          year: 2017,
+          hours: 15,
+          milliseconds: 112,
+          minutes: 33,
+          month: 4,
+          seconds: 18
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: 450
+        },
+        timestamp: {
+          date: 3,
+          day: 3,
+          year: 2017,
+          hours: 18,
+          milliseconds: 83,
+          minutes: 40,
+          month: 4,
+          seconds: 4
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 300
+        },
+        timestamp: {
+          date: 3,
+          day: 3,
+          year: 2017,
+          hours: 18,
+          milliseconds: 545,
+          minutes: 50,
+          month: 4,
+          seconds: 52
+        }
+      }]
+    }
   };
 
   // exposed methods
@@ -7636,7 +7635,6 @@ var ravich = (function() {
   };
 
 })();
-
 var marika = (function() {
 
   var data = {
@@ -22055,7 +22053,7 @@ var events = (function() {
     var options = helper.makeObject(button.dataset.eventsOptions);
     var allEvents = helper.getObject({
       object: sheet.get(),
-      path: "events"
+      path: "events.all"
     });
     var foundXp = false;
     var foundWealth = false;
@@ -22091,9 +22089,10 @@ var events = (function() {
     var _store = function() {
       helper.setObject({
         object: sheet.get(),
-        path: "events",
+        path: "events.all",
         newValue: newEvents
       });
+      sheet.store();
     };
     if (options.type == "xp") {
       _checkForXp();
@@ -22142,7 +22141,11 @@ var events = (function() {
   };
 
   function store(type, eventObject) {
-    sheet.get().events.unshift(_create_event(type, eventObject));
+    var all_events = helper.getObject({
+      object: sheet.get(),
+      path: "events.all"
+    });
+    all_events.unshift(_create_event(type, eventObject));
     sheet.store();
   };
 
@@ -22214,7 +22217,7 @@ var events = (function() {
       var body = document.createElement("div");
       var all_events = helper.getObject({
         object: sheet.get(),
-        path: "events"
+        path: "events.all"
       });
       var all_eventsToRender = [];
       var _collectAllEvents = function() {
@@ -22261,7 +22264,11 @@ var events = (function() {
   };
 
   function undo() {
-    sheet.get().events.shift();
+    var all_events = helper.getObject({
+      object: sheet.get(),
+      path: "events.all"
+    });
+    all_events.shift();
   };
 
   // exposed methods
@@ -22273,7 +22280,6 @@ var events = (function() {
   };
 
 })();
-
 var exp = (function() {
 
   var renderTimer = null;
@@ -22301,7 +22307,7 @@ var exp = (function() {
     var selectedTrack = false;
     var speed = helper.getObject({
       object: sheet.get(),
-      path: "basics.experience.advancement_speed"
+      path: "basics.experience.advancement"
     });
     var nextLevel;
     var nextLevelXpMileStone;
@@ -24568,7 +24574,7 @@ var repair = (function() {
           if (characterObject.spells.book[i][j].length > 0) {
             for (var k in characterObject.spells.book[i][j]) {
               if (!("note" in characterObject.spells.book[i][j][k]) && typeof characterObject.spells.book[i][j][k].note != "string") {
-                _report.repaired.push = "update: spell notes";
+                _report.repaired.push("update: spell notes");
                 characterObject.spells.book[i][j][k].note = "";
               };
             };
@@ -24579,26 +24585,26 @@ var repair = (function() {
     // --------------------------------------------------
     // repair item array
     if (typeof characterObject.equipment.item == "string" || !characterObject.equipment.item) {
-      _report.repaired.push = "update: item array";
+      _report.repaired.push("update: item array");
       characterObject.equipment.item = [];
     };
     // --------------------------------------------------
     // repair note array
     if (typeof characterObject.notes.character == "string" || typeof characterObject.notes.story == "string") {
-      _report.repaired.push = "update: note array";
+      _report.repaired.push("update: note array");
       characterObject.notes.character = [];
       characterObject.notes.story = [];
     };
     // --------------------------------------------------
     // repair custom skills array
     if (typeof characterObject.skills.custom == "string" || !characterObject.skills.custom) {
-      _report.repaired.push = "update: custom skills array";
+      _report.repaired.push("update: custom skills array");
       characterObject.skills.custom = [];
     };
     // --------------------------------------------------
     // repair custom skills
     if ("custom_1" in characterObject.skills || "custom_2" in characterObject.skills || "custom_3" in characterObject.skills || "custom_4" in characterObject.skills || "custom_5" in characterObject.skills || "custom_6" in characterObject.skills || "custom_7" in characterObject.skills || "custom_8" in characterObject.skills) {
-      _report.repaired.push = "update: custom skills";
+      _report.repaired.push("update: custom skills");
       var skillKeys = ["custom_1", "custom_2", "custom_3", "custom_4", "custom_5", "custom_6", "custom_7", "custom_8"];
       for (var i = 0; i < skillKeys.length; i++) {
         if (characterObject.skills[skillKeys[i]].name != "" || characterObject.skills[skillKeys[i]].ranks || characterObject.skills[skillKeys[i]].misc) {
@@ -24612,7 +24618,7 @@ var repair = (function() {
     // repair concentration bonus object
     if ("concentration" in characterObject.spells && "bonuses" in characterObject.spells.concentration) {
       if (typeof characterObject.spells.concentration.bonuses != "object" || !characterObject.spells.concentration.bonuses) {
-        _report.repaired.push = "update: concentration bonus object";
+        _report.repaired.push("update: concentration bonus object");
         characterObject.spells.concentration.bonuses = {
           str_bonus: false,
           dex_bonus: false,
@@ -24628,7 +24634,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair initiative object
     if (typeof characterObject.basics.initiative != "object" || typeof characterObject.basics.initiative.bonuses != "object" || !characterObject.basics.initiative.bonuses) {
-      _report.repaired.push = "update: initiative object";
+      _report.repaired.push("update: initiative object");
       characterObject.basics.initiative = {
         misc: "",
         temp: "",
@@ -24649,7 +24655,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair size object
     if (typeof characterObject.basics.size != "object" || "size_bonus" in characterObject.defense.ac) {
-      _report.repaired.push = "update: size object";
+      _report.repaired.push("update: size object");
       var size = characterObject.basics.size;
       if (size == "M" || size == "m" || size == "medium" || size == "Medium" || size != "") {
         size = "Medium";
@@ -24681,7 +24687,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair alignment
     if (["Lawful Good", "Lawful Neutral", "Lawful Evil", "Neutral Good", "Neutral", "Neutral Evil", "Chaotic Good", "Chaotic Neutral", "Chaotic Evil", ""].indexOf(characterObject.basics.alignment) === -1) {
-      _report.repaired.push = "update: alignment";
+      _report.repaired.push("update: alignment");
       if (["Lawful Good", "Lawful good", "lawful good", "LG", "Lg", "lg"].indexOf(characterObject.basics.alignment) > -1) {
         characterObject.basics.alignment = "Lawful Good";
       };
@@ -24713,7 +24719,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair armor
     if (typeof characterObject.equipment.armor != "object") {
-      _report.repaired.push = "update: armor";
+      _report.repaired.push("update: armor");
       characterObject.equipment.armor = {
         armor: "",
         check_penalty: "",
@@ -24743,7 +24749,7 @@ var repair = (function() {
       if (key in object) {
         if (object.racial != "" && !isNaN(object.racial)) {
           if (object.misc != "" && !isNaN(object.misc)) {
-            _report.repaired.push = "update: racial save bonuses";
+            _report.repaired.push("update: racial save bonuses");
             object.misc = object.misc + object.racial;
           } else {
             object.misc = object.racial;
@@ -24758,7 +24764,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair classes
     if (!characterObject.basics.classes || typeof characterObject.basics.class == "string") {
-      _report.repaired.push = "update: classes";
+      _report.repaired.push("update: classes");
       characterObject.basics.classes = [{
         classname: "",
         level: "",
@@ -24811,7 +24817,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair caster level check
     if (!characterObject.spells.caster_level_check) {
-      _report.repaired.push = "update: caster level check";
+      _report.repaired.push("update: caster level check");
       characterObject.spells.caster_level_check = {
         current: "",
         misc: "",
@@ -24832,7 +24838,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair encumbrance
     if ("light" in characterObject.equipment.encumbrance || "medium" in characterObject.equipment.encumbrance || "heavy" in characterObject.equipment.encumbrance || "lift" in characterObject.equipment.encumbrance || "drag" in characterObject.equipment.encumbrance) {
-      _report.repaired.push = "update: encumbrance";
+      _report.repaired.push("update: encumbrance");
       delete characterObject.equipment.encumbrance.light;
       delete characterObject.equipment.encumbrance.medium;
       delete characterObject.equipment.encumbrance.heavy;
@@ -24842,7 +24848,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair encumbrance
     if (!("carry_move" in characterObject.equipment.encumbrance)) {
-      _report.repaired.push = "update: encumbrance";
+      _report.repaired.push("update: encumbrance");
       characterObject.equipment.encumbrance = {
         encumbrance_str: "",
         carry_move: {
@@ -24857,37 +24863,37 @@ var repair = (function() {
     // --------------------------------------------------
     // repair xp
     if (typeof characterObject.basics.xp == "string" && !characterObject.basics.xp == "") {
-      _report.repaired.push = "update: xp";
+      _report.repaired.push("update: xp");
       characterObject.basics.xp = parseInt(characterObject.basics.xp.replace(/,/g, ""), 10);
     };
     // --------------------------------------------------
     // repair wealth
     if (typeof characterObject.equipment.wealth.platinum == "string" && !characterObject.equipment.wealth.platinum == "") {
-      _report.repaired.push = "update: wealth platinum";
+      _report.repaired.push("update: wealth platinum");
       characterObject.equipment.wealth.platinum = parseInt(characterObject.equipment.wealth.platinum.replace(/,/g, ""), 10);
     };
     if (typeof characterObject.equipment.wealth.gold == "string" && !characterObject.equipment.wealth.gold == "") {
-      _report.repaired.push = "update: wealth gold";
+      _report.repaired.push("update: wealth gold");
       characterObject.equipment.wealth.gold = parseInt(characterObject.equipment.wealth.gold.replace(/,/g, ""), 10);
     };
     if (typeof characterObject.equipment.wealth.silver == "string" && !characterObject.equipment.wealth.silver == "") {
-      _report.repaired.push = "update: wealth silver";
+      _report.repaired.push("update: wealth silver");
       characterObject.equipment.wealth.silver = parseInt(characterObject.equipment.wealth.silver.replace(/,/g, ""), 10);
     };
     if (typeof characterObject.equipment.wealth.copper == "string" && !characterObject.equipment.wealth.copper == "") {
-      _report.repaired.push = "update: wealth copper";
+      _report.repaired.push("update: wealth copper");
       characterObject.equipment.wealth.copper = parseInt(characterObject.equipment.wealth.copper.replace(/,/g, ""), 10);
     };
     // --------------------------------------------------
     // repair events array
     if (!characterObject.hasOwnProperty("events")) {
-      _report.repaired.push = "update: events array";
+      _report.repaired.push("update: events array");
       characterObject.events = [];
     };
     // --------------------------------------------------
     // repair xp and next level
     if (typeof characterObject.basics.xp == "string" || typeof characterObject.basics.xp == "number") {
-      _report.repaired.push = "update: xp and next level";
+      _report.repaired.push("update: xp and next level");
       var oldXp;
       if (typeof characterObject.basics.xp == "number") {
         oldXp = characterObject.basics.xp;
@@ -24903,7 +24909,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair speed
     if (typeof characterObject.basics.speed == "string" || typeof characterObject.basics.speed == "number" || characterObject.basics.speed == "" || typeof characterObject.basics.speed != "object") {
-      _report.repaired.push = "update: speed";
+      _report.repaired.push("update: speed");
       var oldSpeed = characterObject.basics.speed;
       characterObject.basics.speed = {};
       characterObject.basics.speed.land = oldSpeed;
@@ -24911,7 +24917,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair character image
     if (!characterObject.basics.character_image) {
-      _report.repaired.push = "update: character image";
+      _report.repaired.push("update: character image");
       characterObject.basics.character_image = {
         uploaded: false,
         background: "",
@@ -24938,7 +24944,7 @@ var repair = (function() {
     if (characterObject.offense.attack.melee.length > 0) {
       for (var i = 0; i < characterObject.offense.attack.melee.length; i++) {
         if (!characterObject.offense.attack.melee[i].type && characterObject.offense.attack.melee[i].type != "") {
-          _report.repaired.push = "update: attack types melee";
+          _report.repaired.push("update: attack types melee");
           characterObject.offense.attack.melee[i].type = "";
         };
       };
@@ -24946,7 +24952,7 @@ var repair = (function() {
     if (characterObject.offense.attack.ranged.length > 0) {
       for (var i = 0; i < characterObject.offense.attack.ranged.length; i++) {
         if (!characterObject.offense.attack.ranged[i].type && characterObject.offense.attack.ranged[i].type != "") {
-          _report.repaired.push = "update: attack types ranged";
+          _report.repaired.push("update: attack types ranged");
           characterObject.offense.attack.ranged[i].type = "";
         };
       };
@@ -24954,7 +24960,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair stats
     if (!("enhancement" in characterObject.statistics.stats.str) || !("enhancement" in characterObject.statistics.stats.dex) || !("enhancement" in characterObject.statistics.stats.con) || !("enhancement" in characterObject.statistics.stats.int) || !("enhancement" in characterObject.statistics.stats.wis) || !("enhancement" in characterObject.statistics.stats.cha)) {
-      _report.repaired.push = "update: stats";
+      _report.repaired.push("update: stats");
       for (var key in characterObject.statistics.stats) {
         characterObject.statistics.stats[key].current = "";
         characterObject.statistics.stats[key].modifier = "";
@@ -24982,7 +24988,7 @@ var repair = (function() {
       if (characterObject.events.length > 0) {
         for (var i = 0; i < characterObject.events.length; i++) {
           if (characterObject.events[i].event.aggregateValue) {
-            _report.repaired.push = "update: events";
+            _report.repaired.push("update: events");
             characterObject.events[i].event.aggregate_value = characterObject.events[i].event.aggregateValue;
             delete characterObject.events[i].event.aggregateValue;
           };
@@ -24994,14 +25000,14 @@ var repair = (function() {
     // --------------------------------------------------
     // repair character image cover and contain
     if ("cover" in characterObject.basics.character_image || "contain" in characterObject.basics.character_image) {
-      _report.repaired.push = "update: character image cover and contain";
+      _report.repaired.push("update: character image cover and contain");
       delete characterObject.basics.character_image.cover;
       delete characterObject.basics.character_image.contain;
     };
     // --------------------------------------------------
     // repair character image size
     if (!characterObject.basics.character_image.size) {
-      _report.repaired.push = "update: character image size";
+      _report.repaired.push("update: character image size");
       characterObject.basics.character_image.size = {
         width: "",
         height: ""
@@ -25010,7 +25016,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair character image uploaded
     if (!("uploaded" in characterObject.basics.character_image)) {
-      _report.repaired.push = "repair character image uploaded";
+      _report.repaired.push("repair character image uploaded");
       if (characterObject.equipment.potion_viles_oils != "") {
         characterObject.basics.character_image.uploaded = true;
       } else {
@@ -25020,7 +25026,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair equipment
     if (!characterObject.equipment.potion_viles_oils && characterObject.equipment.potion_viles_oils != "") {
-      _report.repaired.push = "update: equipment";
+      _report.repaired.push("update: equipment");
       characterObject.equipment.potion_viles_oils = "";
     };
     if (!characterObject.equipment.scrolls && characterObject.equipment.scrolls != "") {
@@ -25030,16 +25036,16 @@ var repair = (function() {
     // repair skills
     for (var key in characterObject.skills) {
       if (typeof characterObject.skills[key].ranks == "string") {
-        _report.repaired.push = "update: skills ranks";
+        _report.repaired.push("update: skills ranks");
         characterObject.skills[key].ranks = parseInt(characterObject.skills[key].ranks, 10);
       };
       if (typeof characterObject.skills[key].misc == "string") {
-        _report.repaired.push = "update: skills misc";
+        _report.repaired.push("update: skills misc");
         characterObject.skills[key].ranks = parseInt(characterObject.skills[key].misc, 10);
       };
     };
     if (!("all" in characterObject.skills)) {
-      _report.repaired.push = "update: skills";
+      _report.repaired.push("update: skills");
       characterObject.skills.all = {};
       if ("acrobatics" in characterObject.skills) {
         characterObject.skills.all.acrobatics = characterObject.skills.acrobatics;
@@ -25199,15 +25205,15 @@ var repair = (function() {
     if (characterObject.skills.custom.length > 0) {
       for (var i = 0; i < characterObject.skills.custom.length; i++) {
         if (!("racial" in characterObject.skills.custom[i])) {
-          _report.repaired.push = "update: custom skills";
+          _report.repaired.push("update: custom skills");
           characterObject.skills.custom[i].racial = "";
         };
         if (!("trait" in characterObject.skills.custom[i])) {
-          _report.repaired.push = "update: custom skills";
+          _report.repaired.push("update: custom skills");
           characterObject.skills.custom[i].trait = "";
         };
         if (!("feat" in characterObject.skills.custom[i])) {
-          _report.repaired.push = "update: custom skills";
+          _report.repaired.push("update: custom skills");
           characterObject.skills.custom[i].feat = "";
         };
       };
@@ -25215,36 +25221,36 @@ var repair = (function() {
     // --------------------------------------------------
     // repair concentration stats
     if (!("trait" in characterObject.spells.concentration)) {
-      _report.repaired.push = "update: spell stats";
+      _report.repaired.push("update: spell stats");
       characterObject.spells.concentration.trait = "";
     };
     // repair caster level stats
     if (!("trait" in characterObject.spells.caster_level_check)) {
-      _report.repaired.push = "update: level stats";
+      _report.repaired.push("update: level stats");
       characterObject.spells.caster_level_check.trait = "";
     };
     // --------------------------------------------------
     // repair item
     if (Array.isArray(characterObject.equipment.item)) {
-      _report.repaired.push = "update: item";
+      _report.repaired.push("update: item");
       var tempItems = characterObject.equipment.item.slice();
       characterObject.equipment.item = {};
       characterObject.equipment.item.all = tempItems;
     };
     if (!("weight" in characterObject.equipment.item)) {
-      _report.repaired.push = "update: item weight";
+      _report.repaired.push("update: item weight");
       characterObject.equipment.item.weight = {};
       characterObject.equipment.item.weight.current = "";
     };
     if (!("value" in characterObject.equipment.item)) {
-      _report.repaired.push = "update: item value";
+      _report.repaired.push("update: item value");
       characterObject.equipment.item.value = {};
       characterObject.equipment.item.value.current = "";
     };
     // --------------------------------------------------
     // repair spell bonus
     if (!("bonus" in characterObject.spells)) {
-      _report.repaired.push = "update: spells bonus";
+      _report.repaired.push("update: spells bonus");
       characterObject.spells.bonus = {};
       characterObject.spells.bonus.level_0 = "";
       characterObject.spells.bonus.level_1 = "";
@@ -25261,15 +25267,15 @@ var repair = (function() {
     // repair skills
     for (var i in characterObject.skills.all) {
       if (!("racial" in characterObject.skills.all[i])) {
-        _report.repaired.push = "update: skill " + i + " racial";
+        _report.repaired.push("update: skill " + i + " racial");
         characterObject.skills.all[i].racial = "";
       };
       if (!("feat" in characterObject.skills.all[i])) {
-        _report.repaired.push = "update: skill " + i + " feat";
+        _report.repaired.push("update: skill " + i + " feat");
         characterObject.skills.all[i].feat = "";
       };
       if (!("trait" in characterObject.skills.all[i])) {
-        _report.repaired.push = "update: skill " + i + " trait";
+        _report.repaired.push("update: skill " + i + " trait");
         characterObject.skills.all[i].trait = "";
       };
       if (typeof characterObject.skills.all[i].misc == "string") {
@@ -25282,7 +25288,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair spells
     if (typeof characterObject.spells.dc.level_0 != "object") {
-      _report.repaired.push = "update: spell dc";
+      _report.repaired.push("update: spell dc");
       var dcObject = function(level, oldDc) {
         var object = {
           spell_level: level,
@@ -25323,47 +25329,47 @@ var repair = (function() {
     // --------------------------------------------------
     // repair caster level check and concentration
     if (!("racial" in characterObject.spells.concentration)) {
-      _report.repaired.push = "update: concentration racial";
+      _report.repaired.push("update: concentration racial");
       characterObject.spells.concentration.racial = "";
     };
     if (!("racial" in characterObject.spells.caster_level_check)) {
-      _report.repaired.push = "update: caster level check racial";
+      _report.repaired.push("update: caster level check racial");
       characterObject.spells.caster_level_check.racial = "";
     };
     // --------------------------------------------------
     // repair initiative trait
     if (!("trait" in characterObject.basics.initiative)) {
-      _report.repaired.push = "update: initiative trait";
+      _report.repaired.push("update: initiative trait");
       characterObject.basics.initiative.trait = "";
     };
     // --------------------------------------------------
     if (!("school" in characterObject.spells)) {
-      _report.repaired.push = "update: spell school";
+      _report.repaired.push("update: spell school");
       characterObject.spells.school = "";
     };
     // --------------------------------------------------
     if (!("opposition" in characterObject.spells)) {
-      _report.repaired.push = "update: spell opposition";
+      _report.repaired.push("update: spell opposition");
       characterObject.spells.opposition = "";
     };
     // --------------------------------------------------
     if (!("domains" in characterObject.spells)) {
-      _report.repaired.push = "update: spell domains";
+      _report.repaired.push("update: spell domains");
       characterObject.spells.domains = "";
     };
     // --------------------------------------------------
     if (!("bloodline" in characterObject.spells)) {
-      _report.repaired.push = "update: spell bloodline";
+      _report.repaired.push("update: spell bloodline");
       characterObject.spells.bloodline = "";
     };
     // --------------------------------------------------
     if (!("power" in characterObject.statistics)) {
-      _report.repaired.push = "update: power";
+      _report.repaired.push("update: power");
       characterObject.statistics.power = [];
     };
     // --------------------------------------------------
     if (!("dr" in characterObject.defense)) {
-      _report.repaired.push = "update: dr";
+      _report.repaired.push("update: dr");
       characterObject.defense.dr = {
         feat: "",
         trait: "",
@@ -25386,7 +25392,7 @@ var repair = (function() {
     };
     // --------------------------------------------------
     if (typeof characterObject.awesomeSheet == "boolean") {
-      _report.repaired.push = "update: awesome check";
+      _report.repaired.push("update: awesome check");
       characterObject.awesomeSheet = {};
       characterObject.awesomeSheet.awesome = true;
       characterObject.awesomeSheet.version = 4;
@@ -25409,12 +25415,14 @@ var repair = (function() {
         var currentKey = path.shift();
         if (!(currentKey in object)) {
           return alt;
+          console.log(path, alt);
         };
         object = object[currentKey];
       };
       var finalKey = path.shift();
       if (object[finalKey] == undefined) {
         return alt;
+        console.log(path, alt);
       } else {
         return object[finalKey];
       };
@@ -25467,7 +25475,7 @@ var repair = (function() {
         current: "",
         bonuses: {
           str: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.str_bonus", false),
-          dex: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.dex_bonus", false),
+          dex: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.dex_bonus", true),
           con: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.con_bonus", false),
           int: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.int_bonus", false),
           wis: _checkForValue(tempCharacterObject, "basics.initiative.bonuses.wis_bonus", false),
@@ -26787,8 +26795,7 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_0.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_0.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[0].level_0 || []
+          }
         },
         level_1: {
           per_day: _checkForValue(tempCharacterObject, "spells.per_day.level_1", ""),
@@ -26813,8 +26820,7 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_1.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_1.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[1].level_1 || []
+          }
         },
         level_2: {
           per_day: _checkForValue(tempCharacterObject, "spells.per_day.level_2", ""),
@@ -26839,8 +26845,7 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_2.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_2.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[2].level_2 || []
+          }
         },
         level_3: {
           per_day: _checkForValue(tempCharacterObject, "spells.per_day.level_3", ""),
@@ -26865,8 +26870,7 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_3.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_3.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[3].level_3 || []
+          }
         },
         level_4: {
           per_day: _checkForValue(tempCharacterObject, "spells.per_day.level_4", ""),
@@ -26891,8 +26895,7 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_4.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_4.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[4].level_4 || []
+          }
         },
         level_5: {
           per_day: _checkForValue(tempCharacterObject, "spells.per_day.level_5", ""),
@@ -26917,8 +26920,7 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_5.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_5.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[5].level_5 || []
+          }
         },
         level_6: {
           per_day: _checkForValue(tempCharacterObject, "spells.per_day.level_6", ""),
@@ -26943,8 +26945,7 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_6.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_6.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[6].level_6 || []
+          }
         },
         level_7: {
           per_day: _checkForValue(tempCharacterObject, "spells.per_day.level_7", ""),
@@ -26969,8 +26970,7 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_7.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_7.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[7].level_7 || []
+          }
         },
         level_8: {
           per_day: _checkForValue(tempCharacterObject, "spells.per_day.level_8", ""),
@@ -26995,8 +26995,7 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_8.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_8.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[8].level_8 || []
+          }
         },
         level_9: {
           per_day: _checkForValue(tempCharacterObject, "spells.per_day.level_9", ""),
@@ -27021,19 +27020,73 @@ var repair = (function() {
               spell_level: _checkForValue(tempCharacterObject, "spells.dc.level_9.bonuses.spell_level", false),
               plus_ten: _checkForValue(tempCharacterObject, "spells.dc.level_9.bonuses.plus_ten", false)
             }
-          },
-          all: tempCharacterObject.spells.book[9].level_9 || []
+          }
         }
       }
     };
-    // spells
+    if (tempCharacterObject.spells.book[0] && tempCharacterObject.spells.book[0].level_0) {
+      characterObject.spells.book.level_0.all = tempCharacterObject.spells.book[0].level_0;
+    } else {
+      characterObject.spells.book.level_0.all = [];
+    };
+    if (tempCharacterObject.spells.book[1] && tempCharacterObject.spells.book[1].level_1) {
+      characterObject.spells.book.level_1.all = tempCharacterObject.spells.book[1].level_1;
+    } else {
+      characterObject.spells.book.level_1.all = [];
+    };
+    if (tempCharacterObject.spells.book[2] && tempCharacterObject.spells.book[2].level_2) {
+      characterObject.spells.book.level_2.all = tempCharacterObject.spells.book[2].level_2;
+    } else {
+      characterObject.spells.book.level_2.all = [];
+    };
+    if (tempCharacterObject.spells.book[3] && tempCharacterObject.spells.book[3].level_3) {
+      characterObject.spells.book.level_3.all = tempCharacterObject.spells.book[3].level_3;
+    } else {
+      characterObject.spells.book.level_3.all = [];
+    };
+    if (tempCharacterObject.spells.book[4] && tempCharacterObject.spells.book[4].level_4) {
+      characterObject.spells.book.level_4.all = tempCharacterObject.spells.book[4].level_4;
+    } else {
+      characterObject.spells.book.level_4.all = [];
+    };
+    if (tempCharacterObject.spells.book[5] && tempCharacterObject.spells.book[5].level_5) {
+      characterObject.spells.book.level_5.all = tempCharacterObject.spells.book[5].level_5;
+    } else {
+      characterObject.spells.book.level_5.all = [];
+    };
+    if (tempCharacterObject.spells.book[6] && tempCharacterObject.spells.book[6].level_6) {
+      characterObject.spells.book.level_6.all = tempCharacterObject.spells.book[6].level_6;
+    } else {
+      characterObject.spells.book.level_6.all = [];
+    };
+    if (tempCharacterObject.spells.book[7] && tempCharacterObject.spells.book[7].level_7) {
+      characterObject.spells.book.level_7.all = tempCharacterObject.spells.book[7].level_7;
+    } else {
+      characterObject.spells.book.level_7.all = [];
+    };
+    if (tempCharacterObject.spells.book[8] && tempCharacterObject.spells.book[8].level_8) {
+      characterObject.spells.book.level_8.all = tempCharacterObject.spells.book[8].level_8;
+    } else {
+      characterObject.spells.book.level_8.all = [];
+    };
+    if (tempCharacterObject.spells.book[9] && tempCharacterObject.spells.book[9].level_9) {
+      characterObject.spells.book.level_9.all = tempCharacterObject.spells.book[9].level_9;
+    } else {
+      characterObject.spells.book.level_9.all = [];
+    };
+    // events
+    _report.repaired.push("update: events");
+    characterObject.events = {
+      all: _checkForValue(tempCharacterObject, "events", [])
+    };
+    // notes
     _report.repaired.push("update: spells");
     characterObject.notes = {
       character: {
-        all: tempCharacterObject.notes.character || []
+        all: _checkForValue(tempCharacterObject, "notes.character", [])
       },
       story: {
-        all: tempCharacterObject.notes.story || []
+        all: _checkForValue(tempCharacterObject, "notes.story", [])
       }
     };
     // demo
@@ -27115,7 +27168,6 @@ var repair = (function() {
   };
 
 })();
-
 var selectBlock = (function() {
 
   function _store(element) {
@@ -27269,7 +27321,8 @@ var sheet = (function() {
     };
     _all_characters.forEach(function(item, index, array) {
       array[index] = repair.render({
-        object: item
+        object: item,
+        debug: true
       });
     });
     store();
@@ -27360,7 +27413,8 @@ var sheet = (function() {
     _all_characters = JSON.parse(JSON.stringify(hardCodedCharacters.all()));
     _all_characters.forEach(function(item, index, array) {
       array[index] = repair.render({
-        object: item
+        object: item,
+        debug: true
       });
     });
     index.set(0);
@@ -27382,7 +27436,8 @@ var sheet = (function() {
     _all_characters = JSON.parse(JSON.stringify(hardCodedCharacters.demo()));
     _all_characters.forEach(function(item, index, array) {
       array[index] = repair.render({
-        object: item
+        object: item,
+        debug: true
       });
     });
     index.set(0);
@@ -27401,7 +27456,9 @@ var sheet = (function() {
     localStorage.clear();
     prompt.destroy();
     snack.destroy();
-    _all_characters = JSON.parse(JSON.stringify([blank.data]));
+    var dataToAdd = JSON.parse(JSON.stringify(blank.data));
+    dataToAdd.awesomeSheet.version = update.version();
+    _all_characters = [dataToAdd];
     index.set(0);
     store();
     clear();
@@ -27606,7 +27663,8 @@ var sheet = (function() {
         var data = JSON.parse(event.target.result);
         if (data.awesomeSheet || data.awesomeSheet.awesome) {
           add(repair.render({
-            object: data
+            object: data,
+            debug: true
           }));
           var name = get().basics.name || get().basics.character.name || "New character";
           // var name = helper.getObject({
@@ -27649,7 +27707,8 @@ var sheet = (function() {
         var data = JSON.parse(event.target.result);
         if (data.awesomeSheet || data.awesomeSheet.awesome) {
           replace(repair.render({
-            object: data
+            object: data,
+            debug: true
           }));
           var name = get().basics.name || get().basics.character.name || "New character";
           // var name = helper.getObject({
@@ -27765,6 +27824,7 @@ var sheet = (function() {
         menu.close();
         shade.destroy();
         log.destroy();
+        tip.destroy();
         page.update();
       };
       // ctrl+alt+f
@@ -32995,12 +33055,12 @@ var tip = (function() {
       tip.addEventListener("focus", function() {
         render(tip);
         clearTimeout(destroyTimer);
-        destroyTimer = setTimeout(destroy, 4000, this);
+        // destroyTimer = setTimeout(destroy, 4000, this);
       }, false);
       tip.addEventListener("blur", function() {
         destroy();
         clearTimeout(destroyTimer);
-        destroyTimer = setTimeout(delayDestroy, 400, this);
+        // destroyTimer = setTimeout(delayDestroy, 400, this);
       }, false);
     };
     if (options.state == "hover") {
@@ -33010,7 +33070,7 @@ var tip = (function() {
       tip.addEventListener("mouseout", function() {
         destroy();
         clearTimeout(destroyTimer);
-        destroyTimer = setTimeout(delayDestroy, 400, this);
+        // destroyTimer = setTimeout(delayDestroy, 400, this);
       }, false);
     };
   };
@@ -33094,6 +33154,7 @@ var tip = (function() {
 
   // exposed methods
   return {
+    destroy: destroy,
     bind: bind
   };
 

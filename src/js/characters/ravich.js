@@ -1738,487 +1738,489 @@ var ravich = (function() {
         all: []
       }
     },
-    events: [{
-      type: "platinum",
-      event: {
-        aggregate_value: 90
-      },
-      timestamp: {
-        date: 13,
-        day: 4,
-        year: 2017,
-        hours: 14,
-        milliseconds: 700,
-        minutes: 16,
-        month: 6,
-        seconds: 32
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: 7655
-      },
-      timestamp: {
-        date: 13,
-        day: 4,
-        year: 2017,
-        hours: 14,
-        milliseconds: 671,
-        minutes: 16,
-        month: 6,
-        seconds: 19
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 1210
-      },
-      timestamp: {
-        date: 13,
-        day: 4,
-        year: 2017,
-        hours: 14,
-        milliseconds: 937,
-        minutes: 16,
-        month: 6,
-        seconds: 12
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: 5600
-      },
-      timestamp: {
-        date: 5,
-        day: 3,
-        year: 2017,
-        hours: 18,
-        milliseconds: 590,
-        minutes: 40,
-        month: 6,
-        seconds: 42
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: 8700
-      },
-      timestamp: {
-        date: 28,
-        day: 3,
-        year: 2017,
-        hours: 23,
-        milliseconds: 951,
-        minutes: 25,
-        month: 5,
-        seconds: 59
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 3000
-      },
-      timestamp: {
-        date: 28,
-        day: 3,
-        year: 2017,
-        hours: 21,
-        milliseconds: 738,
-        minutes: 1,
-        month: 5,
-        seconds: 41
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: -5000
-      },
-      timestamp: {
-        date: 21,
-        day: 3,
-        year: 2017,
-        hours: 6,
-        milliseconds: 633,
-        minutes: 31,
-        month: 5,
-        seconds: 54
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: 90
-      },
-      timestamp: {
-        date: 21,
-        day: 3,
-        year: 2017,
-        hours: 5,
-        milliseconds: 199,
-        minutes: 26,
-        month: 5,
-        seconds: 46
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 3600
-      },
-      timestamp: {
-        date: 21,
-        day: 3,
-        year: 2017,
-        hours: 5,
-        milliseconds: 134,
-        minutes: 26,
-        month: 5,
-        seconds: 31
-      }
-    }, {
-      type: "silver",
-      event: {
-        aggregate_value: 50
-      },
-      timestamp: {
-        date: 14,
-        day: 3,
-        year: 2017,
-        hours: 7,
-        milliseconds: 87,
-        minutes: 40,
-        month: 5,
-        seconds: 45
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: -3700
-      },
-      timestamp: {
-        date: 14,
-        day: 3,
-        year: 2017,
-        hours: 7,
-        milliseconds: 748,
-        minutes: 40,
-        month: 5,
-        seconds: 40
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 5440
-      },
-      timestamp: {
-        date: 14,
-        day: 3,
-        year: 2017,
-        hours: 18,
-        milliseconds: 921,
-        minutes: 20,
-        month: 5,
-        seconds: 28
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: 4430
-      },
-      timestamp: {
-        date: 14,
-        day: 3,
-        year: 2017,
-        hours: 18,
-        milliseconds: 923,
-        minutes: 20,
-        month: 5,
-        seconds: 16
-      }
-    }, {
-      type: "platinum",
-      event: {
-        aggregate_value: 20
-      },
-      timestamp: {
-        date: 14,
-        day: 3,
-        year: 2017,
-        hours: 18,
-        milliseconds: 426,
-        minutes: 20,
-        month: 5,
-        seconds: 11
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: -3500
-      },
-      timestamp: {
-        date: 31,
-        day: 3,
-        year: 2017,
-        hours: 18,
-        milliseconds: 802,
-        minutes: 53,
-        month: 4,
-        seconds: 23
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 3400
-      },
-      timestamp: {
-        date: 31,
-        day: 3,
-        year: 2017,
-        hours: 18,
-        milliseconds: 14,
-        minutes: 49,
-        month: 4,
-        seconds: 24
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: 5327
-      },
-      timestamp: {
-        date: 31,
-        day: 3,
-        year: 2017,
-        hours: 18,
-        milliseconds: 604,
-        minutes: 49,
-        month: 4,
-        seconds: 3
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: -400
-      },
-      timestamp: {
-        date: 24,
-        day: 3,
-        year: 2017,
-        hours: 16,
-        milliseconds: 193,
-        minutes: 9,
-        month: 4,
-        seconds: 2
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: -1000
-      },
-      timestamp: {
-        date: 24,
-        day: 3,
-        year: 2017,
-        hours: 16,
-        milliseconds: 450,
-        minutes: 8,
-        month: 4,
-        seconds: 58
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: 4500
-      },
-      timestamp: {
-        date: 24,
-        day: 3,
-        year: 2017,
-        hours: 15,
-        milliseconds: 939,
-        minutes: 59,
-        month: 4,
-        seconds: 48
-      }
-    }, {
-      type: "platinum",
-      event: {
-        aggregate_value: 10
-      },
-      timestamp: {
-        date: 24,
-        day: 3,
-        year: 2017,
-        hours: 15,
-        milliseconds: 521,
-        minutes: 59,
-        month: 4,
-        seconds: 41
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 3000
-      },
-      timestamp: {
-        date: 24,
-        day: 3,
-        year: 2017,
-        hours: 15,
-        milliseconds: 769,
-        minutes: 42,
-        month: 4,
-        seconds: 30
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: -50
-      },
-      timestamp: {
-        date: 17,
-        day: 3,
-        year: 2017,
-        hours: 18,
-        milliseconds: 476,
-        minutes: 23,
-        month: 4,
-        seconds: 58
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: -400
-      },
-      timestamp: {
-        date: 17,
-        day: 3,
-        year: 2017,
-        hours: 18,
-        milliseconds: 829,
-        minutes: 23,
-        month: 4,
-        seconds: 54
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: -1000
-      },
-      timestamp: {
-        date: 17,
-        day: 3,
-        year: 2017,
-        hours: 18,
-        milliseconds: 363,
-        minutes: 23,
-        month: 4,
-        seconds: 53
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: 3000
-      },
-      timestamp: {
-        date: 17,
-        day: 3,
-        year: 2017,
-        hours: 18,
-        milliseconds: 532,
-        minutes: 4,
-        month: 4,
-        seconds: 40
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 2000
-      },
-      timestamp: {
-        date: 17,
-        day: 3,
-        year: 2017,
-        hours: 17,
-        milliseconds: 668,
-        minutes: 55,
-        month: 4,
-        seconds: 31
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: -400
-      },
-      timestamp: {
-        date: 10,
-        day: 3,
-        year: 2017,
-        hours: 15,
-        milliseconds: 516,
-        minutes: 42,
-        month: 4,
-        seconds: 38
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 1050
-      },
-      timestamp: {
-        date: 10,
-        day: 3,
-        year: 2017,
-        hours: 15,
-        milliseconds: 941,
-        minutes: 40,
-        month: 4,
-        seconds: 27
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: 2000
-      },
-      timestamp: {
-        date: 10,
-        day: 3,
-        year: 2017,
-        hours: 15,
-        milliseconds: 112,
-        minutes: 33,
-        month: 4,
-        seconds: 18
-      }
-    }, {
-      type: "gold",
-      event: {
-        aggregate_value: 450
-      },
-      timestamp: {
-        date: 3,
-        day: 3,
-        year: 2017,
-        hours: 18,
-        milliseconds: 83,
-        minutes: 40,
-        month: 4,
-        seconds: 4
-      }
-    }, {
-      type: "xp",
-      event: {
-        aggregate_value: 300
-      },
-      timestamp: {
-        date: 3,
-        day: 3,
-        year: 2017,
-        hours: 18,
-        milliseconds: 545,
-        minutes: 50,
-        month: 4,
-        seconds: 52
-      }
-    }]
+    events: {
+      all: [{
+        type: "platinum",
+        event: {
+          aggregate_value: 90
+        },
+        timestamp: {
+          date: 13,
+          day: 4,
+          year: 2017,
+          hours: 14,
+          milliseconds: 700,
+          minutes: 16,
+          month: 6,
+          seconds: 32
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: 7655
+        },
+        timestamp: {
+          date: 13,
+          day: 4,
+          year: 2017,
+          hours: 14,
+          milliseconds: 671,
+          minutes: 16,
+          month: 6,
+          seconds: 19
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 1210
+        },
+        timestamp: {
+          date: 13,
+          day: 4,
+          year: 2017,
+          hours: 14,
+          milliseconds: 937,
+          minutes: 16,
+          month: 6,
+          seconds: 12
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: 5600
+        },
+        timestamp: {
+          date: 5,
+          day: 3,
+          year: 2017,
+          hours: 18,
+          milliseconds: 590,
+          minutes: 40,
+          month: 6,
+          seconds: 42
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: 8700
+        },
+        timestamp: {
+          date: 28,
+          day: 3,
+          year: 2017,
+          hours: 23,
+          milliseconds: 951,
+          minutes: 25,
+          month: 5,
+          seconds: 59
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 3000
+        },
+        timestamp: {
+          date: 28,
+          day: 3,
+          year: 2017,
+          hours: 21,
+          milliseconds: 738,
+          minutes: 1,
+          month: 5,
+          seconds: 41
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: -5000
+        },
+        timestamp: {
+          date: 21,
+          day: 3,
+          year: 2017,
+          hours: 6,
+          milliseconds: 633,
+          minutes: 31,
+          month: 5,
+          seconds: 54
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: 90
+        },
+        timestamp: {
+          date: 21,
+          day: 3,
+          year: 2017,
+          hours: 5,
+          milliseconds: 199,
+          minutes: 26,
+          month: 5,
+          seconds: 46
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 3600
+        },
+        timestamp: {
+          date: 21,
+          day: 3,
+          year: 2017,
+          hours: 5,
+          milliseconds: 134,
+          minutes: 26,
+          month: 5,
+          seconds: 31
+        }
+      }, {
+        type: "silver",
+        event: {
+          aggregate_value: 50
+        },
+        timestamp: {
+          date: 14,
+          day: 3,
+          year: 2017,
+          hours: 7,
+          milliseconds: 87,
+          minutes: 40,
+          month: 5,
+          seconds: 45
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: -3700
+        },
+        timestamp: {
+          date: 14,
+          day: 3,
+          year: 2017,
+          hours: 7,
+          milliseconds: 748,
+          minutes: 40,
+          month: 5,
+          seconds: 40
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 5440
+        },
+        timestamp: {
+          date: 14,
+          day: 3,
+          year: 2017,
+          hours: 18,
+          milliseconds: 921,
+          minutes: 20,
+          month: 5,
+          seconds: 28
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: 4430
+        },
+        timestamp: {
+          date: 14,
+          day: 3,
+          year: 2017,
+          hours: 18,
+          milliseconds: 923,
+          minutes: 20,
+          month: 5,
+          seconds: 16
+        }
+      }, {
+        type: "platinum",
+        event: {
+          aggregate_value: 20
+        },
+        timestamp: {
+          date: 14,
+          day: 3,
+          year: 2017,
+          hours: 18,
+          milliseconds: 426,
+          minutes: 20,
+          month: 5,
+          seconds: 11
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: -3500
+        },
+        timestamp: {
+          date: 31,
+          day: 3,
+          year: 2017,
+          hours: 18,
+          milliseconds: 802,
+          minutes: 53,
+          month: 4,
+          seconds: 23
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 3400
+        },
+        timestamp: {
+          date: 31,
+          day: 3,
+          year: 2017,
+          hours: 18,
+          milliseconds: 14,
+          minutes: 49,
+          month: 4,
+          seconds: 24
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: 5327
+        },
+        timestamp: {
+          date: 31,
+          day: 3,
+          year: 2017,
+          hours: 18,
+          milliseconds: 604,
+          minutes: 49,
+          month: 4,
+          seconds: 3
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: -400
+        },
+        timestamp: {
+          date: 24,
+          day: 3,
+          year: 2017,
+          hours: 16,
+          milliseconds: 193,
+          minutes: 9,
+          month: 4,
+          seconds: 2
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: -1000
+        },
+        timestamp: {
+          date: 24,
+          day: 3,
+          year: 2017,
+          hours: 16,
+          milliseconds: 450,
+          minutes: 8,
+          month: 4,
+          seconds: 58
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: 4500
+        },
+        timestamp: {
+          date: 24,
+          day: 3,
+          year: 2017,
+          hours: 15,
+          milliseconds: 939,
+          minutes: 59,
+          month: 4,
+          seconds: 48
+        }
+      }, {
+        type: "platinum",
+        event: {
+          aggregate_value: 10
+        },
+        timestamp: {
+          date: 24,
+          day: 3,
+          year: 2017,
+          hours: 15,
+          milliseconds: 521,
+          minutes: 59,
+          month: 4,
+          seconds: 41
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 3000
+        },
+        timestamp: {
+          date: 24,
+          day: 3,
+          year: 2017,
+          hours: 15,
+          milliseconds: 769,
+          minutes: 42,
+          month: 4,
+          seconds: 30
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: -50
+        },
+        timestamp: {
+          date: 17,
+          day: 3,
+          year: 2017,
+          hours: 18,
+          milliseconds: 476,
+          minutes: 23,
+          month: 4,
+          seconds: 58
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: -400
+        },
+        timestamp: {
+          date: 17,
+          day: 3,
+          year: 2017,
+          hours: 18,
+          milliseconds: 829,
+          minutes: 23,
+          month: 4,
+          seconds: 54
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: -1000
+        },
+        timestamp: {
+          date: 17,
+          day: 3,
+          year: 2017,
+          hours: 18,
+          milliseconds: 363,
+          minutes: 23,
+          month: 4,
+          seconds: 53
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: 3000
+        },
+        timestamp: {
+          date: 17,
+          day: 3,
+          year: 2017,
+          hours: 18,
+          milliseconds: 532,
+          minutes: 4,
+          month: 4,
+          seconds: 40
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 2000
+        },
+        timestamp: {
+          date: 17,
+          day: 3,
+          year: 2017,
+          hours: 17,
+          milliseconds: 668,
+          minutes: 55,
+          month: 4,
+          seconds: 31
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: -400
+        },
+        timestamp: {
+          date: 10,
+          day: 3,
+          year: 2017,
+          hours: 15,
+          milliseconds: 516,
+          minutes: 42,
+          month: 4,
+          seconds: 38
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 1050
+        },
+        timestamp: {
+          date: 10,
+          day: 3,
+          year: 2017,
+          hours: 15,
+          milliseconds: 941,
+          minutes: 40,
+          month: 4,
+          seconds: 27
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: 2000
+        },
+        timestamp: {
+          date: 10,
+          day: 3,
+          year: 2017,
+          hours: 15,
+          milliseconds: 112,
+          minutes: 33,
+          month: 4,
+          seconds: 18
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: 450
+        },
+        timestamp: {
+          date: 3,
+          day: 3,
+          year: 2017,
+          hours: 18,
+          milliseconds: 83,
+          minutes: 40,
+          month: 4,
+          seconds: 4
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 300
+        },
+        timestamp: {
+          date: 3,
+          day: 3,
+          year: 2017,
+          hours: 18,
+          milliseconds: 545,
+          minutes: 50,
+          month: 4,
+          seconds: 52
+        }
+      }]
+    }
   };
 
   // exposed methods

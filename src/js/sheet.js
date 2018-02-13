@@ -43,7 +43,8 @@ var sheet = (function() {
     };
     _all_characters.forEach(function(item, index, array) {
       array[index] = repair.render({
-        object: item
+        object: item,
+        debug: true
       });
     });
     store();
@@ -134,7 +135,8 @@ var sheet = (function() {
     _all_characters = JSON.parse(JSON.stringify(hardCodedCharacters.all()));
     _all_characters.forEach(function(item, index, array) {
       array[index] = repair.render({
-        object: item
+        object: item,
+        debug: true
       });
     });
     index.set(0);
@@ -156,7 +158,8 @@ var sheet = (function() {
     _all_characters = JSON.parse(JSON.stringify(hardCodedCharacters.demo()));
     _all_characters.forEach(function(item, index, array) {
       array[index] = repair.render({
-        object: item
+        object: item,
+        debug: true
       });
     });
     index.set(0);
@@ -175,7 +178,9 @@ var sheet = (function() {
     localStorage.clear();
     prompt.destroy();
     snack.destroy();
-    _all_characters = JSON.parse(JSON.stringify([blank.data]));
+    var dataToAdd = JSON.parse(JSON.stringify(blank.data));
+    dataToAdd.awesomeSheet.version = update.version();
+    _all_characters = [dataToAdd];
     index.set(0);
     store();
     clear();
@@ -381,7 +386,8 @@ var sheet = (function() {
         var data = JSON.parse(event.target.result);
         if (data.awesomeSheet || data.awesomeSheet.awesome) {
           add(repair.render({
-            object: data
+            object: data,
+            debug: true
           }));
           var name = get().basics.name || get().basics.character.name || "New character";
           // var name = helper.getObject({
@@ -424,7 +430,8 @@ var sheet = (function() {
         var data = JSON.parse(event.target.result);
         if (data.awesomeSheet || data.awesomeSheet.awesome) {
           replace(repair.render({
-            object: data
+            object: data,
+            debug: true
           }));
           var name = get().basics.name || get().basics.character.name || "New character";
           // var name = helper.getObject({

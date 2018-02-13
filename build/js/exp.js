@@ -25,7 +25,7 @@ var exp = (function() {
     var selectedTrack = false;
     var speed = helper.getObject({
       object: sheet.get(),
-      path: "basics.experience.advancement_speed"
+      path: "basics.experience.advancement"
     });
     var nextLevel;
     var nextLevelXpMileStone;
