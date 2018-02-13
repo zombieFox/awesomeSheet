@@ -463,25 +463,46 @@ var helper = (function() {
     xobj.send(null);
   };
 
-  function csvToJSON(string) {
-    var lines = string.split("\n");
-    // remove trailing spaces at end of each line
-    for (var i = 0; i < lines.length; i++) {
-      lines[i] = lines[i].substr(0, (lines[i].length - 1));
-    };
-    var keys = lines[0].split(/\|(?=\S)/);
+  function csvToJSON(csvString) {
+    var lines = csvString.split("\n");
     var result = [];
-    for (var i = 1; i < lines.length; i++) {
+    var keys = lines[0].split("|");
+    lines.splice(0, 1);
+    lines.forEach(function(line) {
       var object = {};
-      var currentline = lines[i].split(/\|(?=\S)/);
-      // var currentline = lines[i].substr(0, (lines[i].length - 1)).split(/\|(?=\S)/);
-      for (var j = 0; j < keys.length; j++) {
-        object[keys[j]] = currentline[j];
-      };
+      var currentline = line.split("|");
+      keys.forEach(function(header, idex) {
+        object[header] = currentline[idex];
+      });
       result.push(object);
-    };
-    return JSON.parse(JSON.stringify(result));
+    });
+    return result;
   };
+
+  // function xxx_csvToJSON(string) {
+  //   var lines = string.split("\n");
+  //   // remove trailing spaces at end of each line
+  //   for (var i = 0; i < lines.length; i++) {
+  //     console.log(lines[i].length);
+  //     lines[i] = lines[i].trim();
+  //     // lines[i] = lines[i].substr(0, (lines[i].length - 1));
+  //     console.log(lines[i].length);
+  //   };
+  //   var keys = lines[0].split(/\|(?=\S)/);
+  //   console.log(keys);
+  //   var result = [];
+  //   for (var i = 1; i < lines.length; i++) {
+  //     var object = {};
+  //     var currentline = lines[i].split(/\|(?=\S)/);
+  //     // var currentline = lines[i].substr(0, (lines[i].length - 1)).split(/\|(?=\S)/);
+  //     for (var j = 0; j < keys.length; j++) {
+  //       object[keys[j]] = currentline[j];
+  //     };
+  //     result.push(object);
+  //   };
+  //   console.log(result);
+  //   return JSON.parse(JSON.stringify(result));
+  // };
 
   // exposed methods
   return {

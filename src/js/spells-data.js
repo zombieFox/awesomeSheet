@@ -2842,7 +2842,7 @@ var spellsData = (function() {
       "Zone of Truth"
     ];
     var mached = [];
-    var _checkForSepllName = function() {
+    var _checkForSpellsName = function() {
       all_spellName.forEach(function(arrayItem, index) {
         if (arrayItem.toLowerCase().includes(options.name.toLowerCase())) {
           var object = {
@@ -2857,7 +2857,7 @@ var spellsData = (function() {
     };
     if (options.name != null || options.index != null || options.all != null) {
       if (options.name != null) {
-        _checkForSepllName();
+        _checkForSpellsName();
         if (mached.length > 0) {
           if (options.full != null) {
             return _get_spellsObject({
@@ -2880,7 +2880,6 @@ var spellsData = (function() {
       return false;
     };
   };
-
 
   function _get_spellsObject(options) {
     var defaultOptions = {
