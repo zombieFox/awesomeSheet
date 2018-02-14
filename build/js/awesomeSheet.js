@@ -25035,11 +25035,11 @@ var repair = (function() {
     // --------------------------------------------------
     // repair skills
     for (var key in characterObject.skills) {
-      if (typeof characterObject.skills[key].ranks == "string") {
+      if (typeof characterObject.skills[key].ranks == "string" && characterObject.skills[key].ranks != "") {
         _report.repaired.push("update: skills ranks");
         characterObject.skills[key].ranks = parseInt(characterObject.skills[key].ranks, 10);
       };
-      if (typeof characterObject.skills[key].misc == "string") {
+      if (typeof characterObject.skills[key].misc == "string" && characterObject.skills[key].misc != "") {
         _report.repaired.push("update: skills misc");
         characterObject.skills[key].ranks = parseInt(characterObject.skills[key].misc, 10);
       };
