@@ -67,7 +67,6 @@ var data = (function() {
               });
             } else {
               // or return array of matching names
-              console.log(results);
               return results;
             };
           } else {
@@ -429,13 +428,13 @@ var data = (function() {
         _all_spellsObject.forEach(function(arrayItem) {
           _orginiseSpellsObject(arrayItem);
         });
-        console.log(_all_spellsObject);
+        // console.log(_all_spellsObject);
       } else if (type == "feats") {
         _all_featsObject = helper.csvToJSON(data);
         _all_featsObject.forEach(function(arrayItem) {
           _orginiseFeatsObject(arrayItem);
         });
-        console.log(_all_featsObject);
+        // console.log(_all_featsObject);
       };
     };
     helper.loadCsv("db/feats.csv", function(data) {

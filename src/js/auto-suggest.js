@@ -126,7 +126,11 @@ var autoSuggest = (function() {
             if (autoSuggestOptions.type == "spells") {
               spells.add(_cuurentInput, arrayItem.index);
             } else {
-              console.log(_cuurentInput, arrayItem.index);
+              console.log(data.get({
+                type: autoSuggestOptions.type,
+                index: arrayItem.index,
+                full: true
+              }));
             };
             destroy();
             sheet.store();

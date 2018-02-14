@@ -1,12 +1,27 @@
 var pill = (function() {
 
+  function bind() {
+
+  };
+
+  function clear() {
+
+  };
+
   function render() {
+
+  };
+
+  function add() {
 
   };
 
   // exposed methods
   return {
-    render: render
+    clear: clear,
+    bind: bind,
+    render: render,
+    add: add
   };
 
 })();

@@ -155,28 +155,36 @@ var izlara = (function() {
         feats: {
           all: [{
             name: "Improved Initiative",
-            description: ""
+            notes: "",
+            index: 722
           }, {
             name: "Combat Casting",
-            description: ""
+            notes: "",
+            index: 196
           }, {
             name: "Craft Wondrous Item",
-            description: ""
+            notes: "",
+            index: 232
           }, {
             name: "Spell Focus (Conjuration)",
-            description: ""
+            notes: "",
+            index: 1228
           }, {
             name: "Extend Spell",
-            description: ""
+            notes: "",
+            index: 450
           }, {
             name: "Quicken Spell",
-            description: ""
+            notes: "",
+            index: 1054
           }, {
             name: "Spell Penetration",
-            description: ""
+            notes: "",
+            index: 1233
           }, {
-            name: "Eschew materials",
-            description: ""
+            name: "Eschew Materials",
+            notes: "",
+            index: 435
           }]
         },
         traits: "Reactionary, Magical Lineage (Overland Flight)",
