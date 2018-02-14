@@ -416,13 +416,13 @@ var data = (function() {
       if (type == "spells") {
         _all_spellsObject = helper.csvToJSON(data);
         _all_spellsObject.forEach(function(arrayItem) {
-          // _orginiseSpellsObject(arrayItem);
+          _orginiseSpellsObject(arrayItem);
         });
         console.log(_all_spellsObject);
       } else if (type == "feats") {
         _all_featsObject = helper.csvToJSON(data);
         _all_featsObject.forEach(function(arrayItem) {
-          // _orginiseFeatsObject(arrayItem);
+          _orginiseFeatsObject(arrayItem);
         });
         console.log(_all_featsObject);
       };

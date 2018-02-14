@@ -464,15 +464,15 @@ var helper = (function() {
   };
 
   function csvToJSON(csvString) {
-    var lines = csvString.split("\n");
+    var lines = csvString.split(/\n|\r\n/);
     var result = [];
     var keys = lines[0].split("|");
     lines.splice(0, 1);
     lines.forEach(function(line) {
       var object = {};
       var currentline = line.split("|");
-      keys.forEach(function(header, idex) {
-        object[header] = currentline[idex];
+      keys.forEach(function(header, index) {
+        object[header] = currentline[index];
       });
       result.push(object);
     });
