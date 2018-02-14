@@ -1,4 +1,4 @@
-<div class="m-tab-panel js-tab-panel js-tab-panel-stats">
+<div class="m-tab-panel js-tab-panel js-tab-panel-stats is-hidden">
 
   <div class="m-edit-box m-edit-box-indent m-edit-box-no-head-small hidden-xs">
     <div class="m-edit-box-body">
@@ -358,29 +358,41 @@
 
 </div>
 
-<div class="m-tab-panel js-tab-panel js-tab-panel-abilities is-hidden">
+<div class="m-tab-panel js-tab-panel js-tab-panel-abilities">
 
   <div class="m-edit-box m-edit-box-indent m-edit-box-head-small js-pill-block" data-pill-block-options="path:statistics.abilities.feats.all">
     <div class="m-edit-box-head">
       <h2 class="m-edit-box-title">Feats</h2>
     </div>
     <div class="m-edit-box-body">
-      <div class="m-edit-box-content m-edit-box-content-margin-large">
 
+      <div class="m-edit-box-content m-edit-box-content-margin-large">
         <div class="m-edit-box-item m-edit-box-group">
           <div class="m-edit-box-item-large">
             <div class="m-auto-suggest js-auto-suggest" data-auto-suggest-options="type:feats">
               <label class="m-auto-suggest-label" for="---------">Add New Spell</label>
-              <input id="---------" class="m-auto-suggest-field u-full-width js-auto-suggest-field" type="text"
-                tabindex="1" placeholder="Feat search">
+              <input id="---------" class="m-auto-suggest-field u-full-width js-auto-suggest-field" type="text" tabindex="1" placeholder="Feat search">
             </div>
           </div>
           <div class="m-edit-box-item-button-small">
             <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-secondary button-large button-icon button-thin" tabindex="1"><span class="icon-add"></span></a>
           </div>
         </div>
-
       </div>
+
+      <div class="m-edit-box-content m-edit-box-content-margin-large">
+        <div class="m-edit-box-item-max">
+          <div class="button-group button-group">
+            <button type="button" class="button button-medium button-icon js-pill-control" data-pill-control-options="action:sort" tabindex="1"><span class="icon-sort-az"></span><span class="button-text">Sort</span></button>
+            <button type="button" class="button button-medium button-icon js-pill-control" data-pill-control-options="action:changeState,state:remove" tabindex="1"><span class="hidden-xs hidden-sm hidden-md icon-close"></span><span class="button-text">Remove</span></button>
+          </div>
+          <div class="m-pill-block-area js-pill-block-area"></div>
+          <div class="m-placeholder js-pill-block-placeholder">
+            <p class="m-placeholder-description u-muted-text">Add Feats using <strong class="m-placeholder-key">Feat search</strong>.</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
