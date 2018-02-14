@@ -179,6 +179,15 @@ var autoSuggest = (function() {
             };
           };
 
+          if (autoSuggestOptions.type == "feats") {
+            if (arrayItem.type) {
+              var resultMeta = document.createElement("i");
+              resultMeta.setAttribute("class", "m-auto-suggest-result-meta");
+              resultMeta.textContent = helper.capFirstLetter(arrayItem.type);
+              text.appendChild(resultMeta);
+            };
+          };
+
           anchor.appendChild(text);
 
           if (autoSuggestOptions.type == "spells") {

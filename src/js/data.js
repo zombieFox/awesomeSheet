@@ -40,6 +40,7 @@ var data = (function() {
           if (arrayItem.toLowerCase().includes(defaultOptions.name.toLowerCase())) {
             results.push({
               index: index,
+              type: _all_featsObject[index].type.string,
               name: arrayItem
             });
           };
@@ -150,40 +151,33 @@ var data = (function() {
 
     // descriptors
     var tempDescriptor = {};
-    tempDescriptor.acid = object.acid;
-    tempDescriptor.air = object.air;
-    tempDescriptor.chaotic = object.chaotic;
-    tempDescriptor.cold = object.cold;
-    tempDescriptor.curse = object.curse;
-    tempDescriptor.darkness = object.darkness;
-    tempDescriptor.death = object.death;
-    tempDescriptor.disease = object.disease;
-    tempDescriptor.earth = object.earth;
-    tempDescriptor.electricity = object.electricity;
-    tempDescriptor.emotion = object.emotion;
-    tempDescriptor.evil = object.evil;
-    tempDescriptor.fear = object.fear;
-    tempDescriptor.fire = object.fire;
-    tempDescriptor.force = object.force;
-    tempDescriptor.good = object.good;
-    tempDescriptor.language_dependent = object.language_dependent;
-    tempDescriptor.lawful = object.lawful;
-    tempDescriptor.light = object.light;
-    tempDescriptor.mind_affecting = object.mind_affecting;
-    tempDescriptor.pain = object.pain;
-    tempDescriptor.poison = object.poison;
-    tempDescriptor.shadow = object.shadow;
-    tempDescriptor.sonic = object.sonic;
-    tempDescriptor.water = object.water;
-    tempDescriptor.ruse = object.ruse;
-    tempDescriptor.meditative = object.meditative;
-    for (var key in tempDescriptor) {
-      if (tempDescriptor[key] == "1") {
-        tempDescriptor[key] = true;
-      } else {
-        tempDescriptor[key] = false;
-      };
-    };
+    tempDescriptor.acid = Boolean(Number(object.acid));
+    tempDescriptor.air = Boolean(Number(object.air));
+    tempDescriptor.chaotic = Boolean(Number(object.chaotic));
+    tempDescriptor.cold = Boolean(Number(object.cold));
+    tempDescriptor.curse = Boolean(Number(object.curse));
+    tempDescriptor.darkness = Boolean(Number(object.darkness));
+    tempDescriptor.death = Boolean(Number(object.death));
+    tempDescriptor.disease = Boolean(Number(object.disease));
+    tempDescriptor.earth = Boolean(Number(object.earth));
+    tempDescriptor.electricity = Boolean(Number(object.electricity));
+    tempDescriptor.emotion = Boolean(Number(object.emotion));
+    tempDescriptor.evil = Boolean(Number(object.evil));
+    tempDescriptor.fear = Boolean(Number(object.fear));
+    tempDescriptor.fire = Boolean(Number(object.fire));
+    tempDescriptor.force = Boolean(Number(object.force));
+    tempDescriptor.good = Boolean(Number(object.good));
+    tempDescriptor.language_dependent = Boolean(Number(object.language_dependent));
+    tempDescriptor.lawful = Boolean(Number(object.lawful));
+    tempDescriptor.light = Boolean(Number(object.light));
+    tempDescriptor.mind_affecting = Boolean(Number(object.mind_affecting));
+    tempDescriptor.pain = Boolean(Number(object.pain));
+    tempDescriptor.poison = Boolean(Number(object.poison));
+    tempDescriptor.shadow = Boolean(Number(object.shadow));
+    tempDescriptor.sonic = Boolean(Number(object.sonic));
+    tempDescriptor.water = Boolean(Number(object.water));
+    tempDescriptor.ruse = Boolean(Number(object.ruse));
+    tempDescriptor.meditative = Boolean(Number(object.meditative));
     tempDescriptor.string = object.descriptor;
     // add
     object.descriptor = tempDescriptor;
@@ -231,11 +225,7 @@ var data = (function() {
 
     // mythic
     var tempMythic = {};
-    if (object.mythic == "1") {
-      tempMythic.mythic = true;
-    } else {
-      tempMythic.mythic = false;
-    };
+    tempMythic.mythic = Boolean(Number(object.mythic));
     tempMythic.text = object.mythic_text;
     tempMythic.augmented = object.augmented;
     // add
@@ -313,19 +303,12 @@ var data = (function() {
 
     // components
     var tempComponents = {};
-    tempComponents.verbal = object.verbal;
-    tempComponents.somatic = object.somatic;
-    tempComponents.material = object.material;
-    tempComponents.focus = object.focus;
-    tempComponents.divine_focus = object.divine_focus;
-    tempComponents.costly = object.costly_components;
-    for (var key in tempComponents) {
-      if (tempComponents[key] == "1") {
-        tempComponents[key] = true;
-      } else {
-        tempComponents[key] = false;
-      };
-    };
+    tempComponents.verbal = Boolean(Number(object.verbal));
+    tempComponents.somatic = Boolean(Number(object.somatic));
+    tempComponents.material = Boolean(Number(object.material));
+    tempComponents.focus = Boolean(Number(object.focus));
+    tempComponents.divine_focus = Boolean(Number(object.divine_focus));
+    tempComponents.costly = Boolean(Number(object.costly_components));
     if (object.material_costs != "NULL") {
       tempComponents.cost = parseInt(object.material_costs, 10);
     } else {
@@ -345,16 +328,8 @@ var data = (function() {
 
     // casting
     var tempCasting = {};
-    if (object.dismissible == "1") {
-      tempCasting.dismissible = true;
-    } else {
-      tempCasting.dismissible = false;
-    };
-    if (object.shapeable == "1") {
-      tempCasting.shapeable = true;
-    } else {
-      tempCasting.shapeable = false;
-    };
+    tempCasting.dismissible = Boolean(Number(object.dismissible));
+    tempCasting.shapeable = Boolean(Number(object.shapeable));
     tempCasting.saving = object.saving_throw;
     tempCasting.spell_resistence = object.spell_resistence;
     tempCasting.targets = object.targets;
@@ -398,6 +373,7 @@ var data = (function() {
     tempDescription.benefit = object.benefit;
     tempDescription.goal = object.goal;
     tempDescription.completion = object.completion_benefit;
+    tempDescription.suggested_traits = object.suggested_traits;
     // add
     object.description = tempDescription;
     // remove
@@ -407,6 +383,41 @@ var data = (function() {
     delete object.note;
     delete object.goal;
     delete object.completion_benefit;
+    delete object.suggested_traits;
+    // type
+    var tempType = {};
+    tempType.string = object.type;
+    tempType.companion_familiar = Boolean(Number(object.companion_familiar));
+    tempType.critical = Boolean(Number(object.critical));
+    tempType.grit = Boolean(Number(object.grit));
+    tempType.multiples = Boolean(Number(object.multiples));
+    tempType.performance = Boolean(Number(object.performance));
+    tempType.style = Boolean(Number(object.style));
+    tempType.teamwork = Boolean(Number(object.teamwork));
+    tempType.racial = {};
+    tempType.racial.name = object.race_name;
+    tempType.racial.base = Boolean(Number(object.racial));
+    // add
+    object.type = tempType;
+    // remove
+    delete object.companion_familiar;
+    delete object.critical;
+    delete object.grit;
+    delete object.multiples;
+    delete object.performance;
+    delete object.racial;
+    delete object.race_name;
+    delete object.style;
+    delete object.teamwork;
+
+    // prerequisites
+    var tempPrerequisites = {};
+    tempPrerequisites.string = object.prerequisites;
+    tempPrerequisites.feats = object.prerequisite_feats;
+    // add
+    object.prerequisites = tempPrerequisites;
+    // remove
+    delete object.prerequisite_feats;
 
     // console.log(object);
   };
