@@ -108,7 +108,6 @@ module.exports = function(grunt) {
           '<%= folders.build %>/js/skills.js',
           '<%= folders.build %>/js/snack.js',
           '<%= folders.build %>/js/spells.js',
-          '<%= folders.build %>/js/spells-data.js',
           '<%= folders.build %>/js/stats.js',
           '<%= folders.build %>/js/tabs.js',
           '<%= folders.build %>/js/text-block.js',

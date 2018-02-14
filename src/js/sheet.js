@@ -278,8 +278,6 @@ var sheet = (function() {
 
   function load() {
     data.load();
-    // spellsData.load();
-    // featsData.load();
   };
 
   function switcher(newIndex) {

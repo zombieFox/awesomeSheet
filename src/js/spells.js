@@ -126,7 +126,8 @@ var spells = (function() {
   };
 
   function add(element, spellIndex) {
-    var spellData = spellsData.get({
+    var spellData = data.get({
+      type: "spells",
       index: spellIndex
     });
     addNewSpell(element, spellIndex, spellData);
@@ -585,7 +586,8 @@ var spells = (function() {
 
       var _create_spellblock = function() {
 
-        var spellData = spellsData.get({
+        var spellData = data.get({
+          type: "spells",
           index: tempSpellObject.index
         });
 

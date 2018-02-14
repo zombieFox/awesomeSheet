@@ -121,7 +121,7 @@ var autoSuggest = (function() {
           anchor.setAttribute("href", "javascript:void(0)");
           anchor.setAttribute("tabindex", 1);
           anchor.setAttribute("class", "m-auto-suggest-link js-auto-suggest-link");
-          anchor.setAttribute("data-spells-data", "index:#" + arrayItem.index);
+          // anchor.setAttribute("data-spells-data", "index:#" + arrayItem.index);
           anchor.addEventListener("click", function() {
             if (autoSuggestOptions.type == "spells") {
               spells.add(_cuurentInput, arrayItem.index);
