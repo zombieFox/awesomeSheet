@@ -126,7 +126,7 @@ var autoSuggest = (function() {
             if (autoSuggestOptions.type == "spells") {
               spells.add(_cuurentInput, arrayItem.index);
             } else {
-              console.log(_cuurentInput, data.get({
+              pill.add(_cuurentInput, data.get({
                 type: autoSuggestOptions.type,
                 index: arrayItem.index,
                 full: true

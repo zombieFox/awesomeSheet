@@ -16,14 +16,18 @@ var pill = (function() {
 
   function _create_spellButton(name) {
     var spellButton = document.createElement("button");
-    spellButton.setAttribute("class", " button button-medium js-spell");
+    spellButton.setAttribute("class", "m-pill-item button button-medium");
     spellButton.setAttribute("type", "button");
     spellButton.setAttribute("tabindex", "1");
-    if (_spellState.get(level) == "remove") {
-      helper.addClass(spellButton, "button-primary");
-    } else if (_spellState.get(level) == "prepare" || _spellState.get(level) == "unprepare" || _spellState.get(level) == "cast" || _spellState.get(level) == "active") {
-      helper.addClass(spellButton, "button-secondary");
-    };
+    // if (_spellState.get(level) == "remove") {
+    //   helper.addClass(spellButton, "button-primary");
+    // } else if (_spellState.get(level) == "prepare" || _spellState.get(level) == "unprepare" || _spellState.get(level) == "cast" || _spellState.get(level) == "active") {
+    //   helper.addClass(spellButton, "button-secondary");
+    // };
+    var nameSpan = document.createElement("span");
+    nameSpan.setAttribute("class", "button-text");
+    nameSpan.textContent = name;
+    spellButton.appendChild(nameSpan);
     return spellButton;
   };
 
@@ -39,20 +43,21 @@ var pill = (function() {
   };
 
   function _render_pillBlock(pillBlock) {
-    pillBlock.state = null;
-    console.log(pillBlock);
-    console.log(pillBlock.state);
-    // var options = helper.makeObject(pillBlock.dataset.pillBlockOptions);
-    // var pillBlockArea = pillBlock.querySelector(".js-pill-block-area");
-    // var all_pillObjects = helper.getObject({
-    //   object: sheet.get(),
-    //   path: options.path
-    // });
+    var options = helper.makeObject(pillBlock.dataset.pillBlockOptions);
+    var pillBlockArea = pillBlock.querySelector(".js-pill-block-area");
+    var all_pillObjects = helper.getObject({
+      object: sheet.get(),
+      path: options.path
+    });
+    all_pillObjects.forEach(function(arrayItem, index) {
+      pillBlockArea.appendChild(_create_spellButton(arrayItem.name));
+    });
     // console.log(all_pillObjects);
+    // console.log(pillBlockArea);
   };
 
-  function add() {
-
+  function add(input, data) {
+    console.log(input, data);
   };
 
   // exposed methods

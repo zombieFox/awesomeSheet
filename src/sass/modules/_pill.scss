@@ -1,0 +1,23 @@
+.m-pill-block-area {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.m-pill-item {
+  margin: 0 0 0.5em;
+  flex: 0 0 49%;
+  max-width: 49%;
+  text-align: left;
+  position: relative;
+  white-space: normal;
+  text-transform: none;
+  font-family: $open-sans-regular;
+}
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {}
+@media (min-width: $screen-md) {}
+@media (min-width: $screen-lg) {}
+@media (min-width: $screen-xl) {}
