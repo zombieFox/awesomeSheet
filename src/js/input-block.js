@@ -3,7 +3,6 @@ var inputBlock = (function() {
   var _timer_store = null;
   var _timer_updateNav = null;
   var _timer_delayWealth = null;
-  var _timer_autoSuggest = null;
 
   function bind(inputBlock) {
     if (inputBlock) {

@@ -125,11 +125,14 @@ var autoSuggest = (function() {
           anchor.addEventListener("click", function() {
             if (autoSuggestOptions.type == "spells") {
               spells.add(_cuurentInput, arrayItem.index);
-            } else {
-              pill.add(data.get({
-                type: autoSuggestOptions.type,
-                index: arrayItem.index,
-              }));
+            } else if (autoSuggestOptions.type == "feats") {
+              pill.add({
+                object: data.get({
+                  type: autoSuggestOptions.type,
+                  index: arrayItem.index,
+                }),
+                input: _cuurentInput
+              });
             };
             destroy();
             sheet.store();
