@@ -6,6 +6,20 @@ var pill = (function() {
     };
   };
 
+  function _create_featObject(options) {
+    var defaultOptions = {
+      name: null,
+      note: "",
+      index: false
+    };
+    if (options) {
+      defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
+    this.name = defaultOptions.name;
+    this.note = defaultOptions.note;
+    this.index = defaultOptions.index;
+  };
+
   function bind() {
 
   };
@@ -56,8 +70,12 @@ var pill = (function() {
     // console.log(pillBlockArea);
   };
 
-  function add(input, data) {
-    console.log(input, data);
+  function add(data) {
+    // console.log(data);
+    console.log(new _create_featObject({
+      name: data.name,
+      index: data.index
+    }));
   };
 
   // exposed methods
