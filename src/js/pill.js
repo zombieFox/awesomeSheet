@@ -9,12 +9,13 @@ var pill = (function() {
     var get = function(type) {
       return pillState[type];
     };
-    var set = function(state) {
+    var set = function(type, state) {
       if (pillState[type] == null || pillState[type] != state) {
         pillState[type] = state;
       } else {
         pillState[type] = null;
       };
+      console.log(type, pillState[type]);
     };
     // exposed methods
     return {
@@ -81,11 +82,47 @@ var pill = (function() {
   function _pillControl(button) {
     var options = helper.makeObject(button.dataset.pillControlOptions);
     if (options.action == "changeState") {
-      // _update_stateSpellEditMode(button);
+      _update_pillState(button);
+      _update_pillControl(button);
     } else if (options.action == "reset") {
       // _resetAllSpells(button);
     } else if (options.action == "sort") {
       // _sortAllSpells(button);
+    };
+  };
+
+  function _update_pillState(button) {
+    var options = helper.makeObject(button.dataset.pillControlOptions);
+    _pillState.set(options.type, options.state);
+  };
+
+  function _update_pillControl(button) {
+    var options = helper.makeObject(button.dataset.pillControlOptions);
+    var pillBlock = helper.getClosest(button, ".js-pill-block");
+    var all_pillControl = pillBlock.querySelectorAll(".js-pill-control");
+    // console.log(_pillState.get(options.type));
+    var _resetAllControl = function() {
+      for (var i = 0; i < all_pillControl.length; i++) {
+        if (all_pillControl[i].classList.contains("button-primary")) {
+          helper.removeClass(all_pillControl[i], "button-primary");
+        };
+        if (all_pillControl[i].classList.contains("button-secondary")) {
+          helper.removeClass(all_pillControl[i], "button-secondary");
+        };
+      };
+    };
+    var _activateControl = function() {
+      if (_pillState.get(options.type) == "remove") {
+        helper.addClass(button, "button-primary");
+      } else if (_pillState.get(options.type) == null) {
+        helper.removeClass(button, "button-primary");
+      };
+    };
+    if (_pillState.get(options.type) != null) {
+      _resetAllControl();
+      _activateControl();
+    } else {
+      _resetAllControl();
     };
   };
 
@@ -156,7 +193,6 @@ var pill = (function() {
       for (var i = 0; i < all_pillBlock.length; i++) {
         _render_pillBlock(all_pillBlock[i]);
         var state = _create_pillObecjtState(all_pillBlock[i]);
-        console.log(state);
       };
     };
   };
