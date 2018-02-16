@@ -84,6 +84,7 @@ var pill = (function() {
     if (options.action == "changeState") {
       _update_pillState(button);
       _update_pillControl(button);
+      _update_pillItem(button);
     } else if (options.action == "reset") {
       // _resetAllSpells(button);
     } else if (options.action == "sort") {
@@ -100,16 +101,15 @@ var pill = (function() {
     var options = helper.makeObject(button.dataset.pillControlOptions);
     var pillBlock = helper.getClosest(button, ".js-pill-block");
     var all_pillControl = pillBlock.querySelectorAll(".js-pill-control");
-    // console.log(_pillState.get(options.type));
     var _resetAllControl = function() {
-      for (var i = 0; i < all_pillControl.length; i++) {
-        if (all_pillControl[i].classList.contains("button-primary")) {
-          helper.removeClass(all_pillControl[i], "button-primary");
+      all_pillControl.forEach(function(arrayItem) {
+        if (arrayItem.classList.contains("button-primary")) {
+          helper.removeClass(arrayItem, "button-primary");
         };
-        if (all_pillControl[i].classList.contains("button-secondary")) {
-          helper.removeClass(all_pillControl[i], "button-secondary");
+        if (arrayItem.classList.contains("button-secondary")) {
+          helper.removeClass(arrayItem, "button-secondary");
         };
-      };
+      });
     };
     var _activateControl = function() {
       if (_pillState.get(options.type) == "remove") {
@@ -123,6 +123,29 @@ var pill = (function() {
       _activateControl();
     } else {
       _resetAllControl();
+    };
+  };
+
+  function _update_pillItem(button) {
+    var pillBlock = helper.getClosest(button, ".js-pill-block");
+    var pillBlockOptions = helper.makeObject(pillBlock.dataset.pillBlockOptions);
+    var all_pillItem = pillBlock.querySelectorAll(".js-pill-item");
+    var _resetAllPill = function() {
+      all_pillItem.forEach(function(arrayItem) {
+        if (arrayItem.classList.contains("button-primary")) {
+          helper.removeClass(arrayItem, "button-primary");
+        };
+      });
+    };
+    var _activateAllPill = function() {
+      all_pillItem.forEach(function(arrayItem) {
+        helper.addClass(arrayItem, "button-primary");
+      });
+    };
+    if (_pillState.get(pillBlockOptions.type) == "remove") {
+      _activateAllPill();
+    } else {
+      _resetAllPill();
     };
   };
 
@@ -161,6 +184,7 @@ var pill = (function() {
         _render_pillItem({
           pillBlockArea: pillBlockArea,
           pillObject: newPillObject,
+          type: pillBlockOptions.type,
           newPill: true
         });
       };
@@ -207,7 +231,8 @@ var pill = (function() {
     all_pillObjects.forEach(function(arrayItem) {
       _render_pillItem({
         pillBlockArea: pillBlockArea,
-        pillObject: arrayItem
+        pillObject: arrayItem,
+        type: options.type
       });
     });
   };
@@ -216,6 +241,7 @@ var pill = (function() {
     var defaultOptions = {
       pillBlockArea: null,
       pillObject: null,
+      type: null,
       newPill: false
     };
     if (options) {
@@ -224,6 +250,7 @@ var pill = (function() {
     var pillButton = _create_pillButton({
       name: defaultOptions.pillObject.name,
       index: defaultOptions.pillObject.index,
+      type: defaultOptions.type,
       newPill: defaultOptions.newPill
     });
     _bind_pillButton(pillButton);
@@ -234,28 +261,27 @@ var pill = (function() {
     var defaultOptions = {
       name: null,
       index: null,
+      type: null,
       newPill: false
     };
     if (options) {
       defaultOptions = helper.applyOptions(defaultOptions, options);
     };
     var pillButton = document.createElement("button");
-    pillButton.setAttribute("class", "m-pill-item button button-medium");
+    pillButton.setAttribute("class", "m-pill-item button button-medium js-pill-item");
     pillButton.setAttribute("type", "button");
     pillButton.setAttribute("tabindex", "1");
     pillButton.setAttribute("data-pill-button-options", "index:#" + defaultOptions.index);
-    // if (_pillState.get(level) == "remove") {
-    //   helper.addClass(pillButton, "button-primary");
-    // } else if (_pillState.get(level) == "prepare" || _pillState.get(level) == "unprepare" || _pillState.get(level) == "cast" || _pillState.get(level) == "active") {
-    //   helper.addClass(pillButton, "button-secondary");
-    // };
+    if (_pillState.get(options.type) == "remove") {
+      helper.addClass(pillButton, "button-primary");
+    };
     if (defaultOptions.newPill) {
-      var newPillFlash = document.createElement("span");
-      newPillFlash.setAttribute("class", "m-pill-item-flash");
-      newPillFlash.addEventListener("animationend", function(event, elapsed) {
+      var pillFlash = document.createElement("span");
+      pillFlash.setAttribute("class", "m-pill-flash");
+      pillFlash.addEventListener("animationend", function(event, elapsed) {
         this.remove();
-      }.bind(newPillFlash), false);
-      pillButton.appendChild(newPillFlash);
+      }.bind(pillFlash), false);
+      pillButton.appendChild(pillFlash);
     };
     var nameSpan = document.createElement("span");
     nameSpan.setAttribute("class", "button-text");

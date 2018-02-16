@@ -1,10 +1,30 @@
+.m-pill-block {}
 .m-pill-block-area {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: stretch;
+  &.is-state-remove {
+    .m-pill-item {
+      // .m-pill-name {
+      //   max-width: 80%;
+      // }
+      // .m-pill-marks {
+      //   display: none;
+      //   visibility: hidden;
+      // }
+      // .m-pill-active {
+      //   display: none;
+      //   visibility: hidden;
+      // }
+      .m-pill-remove {
+        display: block;
+        visibility: visible;
+      }
+    }
+  }
   &:not(.is-state-remove) {
-    .m-pill-item-flash {
+    .m-pill-flash {
       animation: new-flash-center ease 1.5s 1;
       &:before {
         animation: new-flash-pulse ease 1.5s 1;
@@ -21,7 +41,11 @@
   white-space: normal;
   text-transform: none;
   font-family: $open-sans-regular;
-  .m-pill-item-flash {
+  .m-pill-remove {
+    display: none;
+    visibility: hidden;
+  }
+  .m-pill-flash {
     background-color: $primary-color-10;
     position: absolute;
     display: block;
