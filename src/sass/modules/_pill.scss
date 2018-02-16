@@ -6,18 +6,10 @@
   align-items: stretch;
   &.is-state-remove {
     .m-pill-item {
-      // .m-pill-name {
-      //   max-width: 80%;
-      // }
-      // .m-pill-marks {
-      //   display: none;
-      //   visibility: hidden;
-      // }
-      // .m-pill-active {
-      //   display: none;
-      //   visibility: hidden;
-      // }
-      .m-pill-remove {
+      .m-pill-item-name {
+        max-width: 80%;
+      }
+      .m-pill-item-remove {
         display: block;
         visibility: visible;
       }
@@ -41,7 +33,19 @@
   white-space: normal;
   text-transform: none;
   font-family: $open-sans-regular;
-  .m-pill-remove {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  .m-pill-item-name {
+    flex: 1 1 auto;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+  .m-pill-item-remove {
     display: none;
     visibility: hidden;
   }

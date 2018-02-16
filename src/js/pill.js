@@ -85,6 +85,7 @@ var pill = (function() {
       _update_pillState(button);
       _update_pillControl(button);
       _update_pillItem(button);
+      _update_pillBlockArea(button);
     } else if (options.action == "reset") {
       // _resetAllSpells(button);
     } else if (options.action == "sort") {
@@ -149,6 +150,23 @@ var pill = (function() {
     };
   };
 
+  function _update_pillBlockArea(button) {
+    var pillBlock = helper.getClosest(button, ".js-pill-block");
+    var pillBlockOptions = helper.makeObject(pillBlock.dataset.pillBlockOptions);
+    var pillBlockArea = pillBlock.querySelector(".js-pill-block-area");
+    var _resetPillArea = function() {
+      helper.removeClass(pillBlockArea, "is-state-remove");
+    };
+    var _activatePillArea = function() {
+      helper.addClass(pillBlockArea, "is-state-remove");
+    };
+    if (_pillState.get(pillBlockOptions.type) == "remove") {
+      _activatePillArea();
+    } else {
+      _resetPillArea();
+    };
+  };
+
   function add(options) {
     var defaultOptions = {
       object: null,
@@ -202,11 +220,28 @@ var pill = (function() {
 
   function _bind_pillButton(button) {
     button.addEventListener("click", function() {
-      console.log(data.get({
-        type: "feats",
-        index: helper.makeObject(this.dataset.pillButtonOptions).index
-      }));
+      _pillItem(this);
     }, false);
+  };
+
+//
+//
+//
+// 
+// to refine
+  function _pillItem(button) {
+    var options = helper.makeObject(button.dataset.pillButtonOptions);
+    var pillBlock = helper.getClosest(button, ".js-pill-block");
+    var pillBlockOptions = helper.makeObject(pillBlock.dataset.spellBlockOptions);
+    // if (options.index) {
+    //
+    // };
+    console.log(data.get({
+      type: "feats",
+      index: options.index
+    }));
+    // _update_spellObject(button);
+    // _update_spellButton(button);
   };
 
   function render(pillBlock) {
@@ -267,13 +302,19 @@ var pill = (function() {
     if (options) {
       defaultOptions = helper.applyOptions(defaultOptions, options);
     };
-    var pillButton = document.createElement("button");
-    pillButton.setAttribute("class", "m-pill-item button button-medium js-pill-item");
-    pillButton.setAttribute("type", "button");
-    pillButton.setAttribute("tabindex", "1");
-    pillButton.setAttribute("data-pill-button-options", "index:#" + defaultOptions.index);
+    var pillitem = document.createElement("button");
+    pillitem.setAttribute("class", "m-pill-item button button-medium js-pill-item");
+    pillitem.setAttribute("type", "button");
+    pillitem.setAttribute("tabindex", "1");
+    pillitem.setAttribute("data-pill-button-options", "index:#" + defaultOptions.index);
+    var pillitemRemove = document.createElement("span");
+    pillitemRemove.setAttribute("class", "m-pill-item-remove");
+    var pillitemRemoveIcon = document.createElement("span");
+    pillitemRemoveIcon.setAttribute("class", "icon-close");
+    pillitemRemove.appendChild(pillitemRemoveIcon);
+
     if (_pillState.get(options.type) == "remove") {
-      helper.addClass(pillButton, "button-primary");
+      helper.addClass(pillitem, "button-primary");
     };
     if (defaultOptions.newPill) {
       var pillFlash = document.createElement("span");
@@ -281,13 +322,14 @@ var pill = (function() {
       pillFlash.addEventListener("animationend", function(event, elapsed) {
         this.remove();
       }.bind(pillFlash), false);
-      pillButton.appendChild(pillFlash);
+      pillitem.appendChild(pillFlash);
     };
-    var nameSpan = document.createElement("span");
-    nameSpan.setAttribute("class", "button-text");
-    nameSpan.textContent = defaultOptions.name;
-    pillButton.appendChild(nameSpan);
-    return pillButton;
+    var pillItemName = document.createElement("span");
+    pillItemName.setAttribute("class", "m-pill-item-name button-text");
+    pillItemName.textContent = defaultOptions.name;
+    pillitem.appendChild(pillItemName);
+    pillitem.appendChild(pillitemRemove);
+    return pillitem;
   };
 
   function _create_pillObject(options) {
