@@ -67,9 +67,9 @@
       .m-clone {
         .m-clone-block-content {
           .m-clone-flash {
-            animation: new-flash-center ease 3s 1;
+            animation: new-flash-center ease 1.5s 1;
             &:before {
-              animation: new-flash-pulse ease 3s 1;
+              animation: new-flash-pulse ease 1.5s 1;
             }
           }
         }

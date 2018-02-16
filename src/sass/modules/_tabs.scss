@@ -17,11 +17,14 @@
   align-items: stretch;
   position: relative;
   z-index: 1;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 .m-tab-item {
   background-color: transparent;
-  margin: 0.1em 0 0 0;
-  padding:  0.25em 2em 0.15em 2em;
+  margin: 0.1em 0 0;
+  padding: 0.25em 2em 0.15em;
   color: $white;
   border: 0;
   border-color: transparent;
