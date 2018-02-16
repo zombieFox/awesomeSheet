@@ -128,7 +128,10 @@ var pill = (function() {
 
   function _bind_pillButton(button) {
     button.addEventListener("click", function() {
-      console.log(this);
+      console.log(data.get({
+        type: "feats",
+        index: helper.makeObject(this.dataset.pillButtonOptions).index
+      }));
     }, false);
   };
 
