@@ -71,17 +71,22 @@ var pill = (function() {
     if (options) {
       defaultOptions = helper.applyOptions(defaultOptions, options);
     };
-    if (defaultOptions.object != null) {
-
-    } else {
-      if (defaultOptions.input) {
+    var pillBlock = helper.getClosest(defaultOptions.input, ".js-pill-block");
+    var pillBlockOptions = helper.makeObject(pillBlock.dataset.pillBlockOptions);
+    var newIndex = _get_pillCount(pillBlockOptions.path);
+    if (defaultOptions.input != null) {
+      if (defaultOptions.object != null) {
+        var newObject = _create_pillObject({
+          name: defaultOptions.object.name,
+          index: defaultOptions.object.index
+        });
+      } else {
         var name = defaultOptions.input.value;
-        var pillBlock = helper.getClosest(defaultOptions.input, ".js-pill-block");
-        var pillBlockOptions = helper.makeObject(pillBlock.dataset.pillBlockOptions);
-        var newIndex = _get_pillCount(pillBlockOptions.path);
         var newObject = _create_pillObject({
           name: defaultOptions.input.value
         });
+      };
+      if (newObject != undefined) {
         helper.setObject({
           object: sheet.get(),
           path: pillBlockOptions.path + "[" + newIndex + "]",
@@ -103,21 +108,28 @@ var pill = (function() {
     };
   };
 
-  function _create_spellButton(name) {
-    var spellButton = document.createElement("button");
-    spellButton.setAttribute("class", "m-pill-item button button-medium");
-    spellButton.setAttribute("type", "button");
-    spellButton.setAttribute("tabindex", "1");
-    // if (_spellState.get(level) == "remove") {
-    //   helper.addClass(spellButton, "button-primary");
-    // } else if (_spellState.get(level) == "prepare" || _spellState.get(level) == "unprepare" || _spellState.get(level) == "cast" || _spellState.get(level) == "active") {
-    //   helper.addClass(spellButton, "button-secondary");
+  function _create_pillButton(name, index) {
+    var pillButton = document.createElement("button");
+    pillButton.setAttribute("class", "m-pill-item button button-medium");
+    pillButton.setAttribute("type", "button");
+    pillButton.setAttribute("tabindex", "1");
+    pillButton.setAttribute("data-pill-button-options", "index:#" + index);
+    // if (_pillState.get(level) == "remove") {
+    //   helper.addClass(pillButton, "button-primary");
+    // } else if (_pillState.get(level) == "prepare" || _pillState.get(level) == "unprepare" || _pillState.get(level) == "cast" || _pillState.get(level) == "active") {
+    //   helper.addClass(pillButton, "button-secondary");
     // };
     var nameSpan = document.createElement("span");
     nameSpan.setAttribute("class", "button-text");
     nameSpan.textContent = name;
-    spellButton.appendChild(nameSpan);
-    return spellButton;
+    pillButton.appendChild(nameSpan);
+    return pillButton;
+  };
+
+  function _bind_pillButton(button) {
+    button.addEventListener("click", function() {
+      console.log(this);
+    }, false);
   };
 
   function render(pillBlock) {
@@ -139,7 +151,9 @@ var pill = (function() {
       path: options.path
     });
     all_pillObjects.forEach(function(arrayItem, index) {
-      pillBlockArea.appendChild(_create_spellButton(arrayItem.name));
+      var pillButton = _create_pillButton(arrayItem.name, arrayItem.index);
+      _bind_pillButton(pillButton);
+      pillBlockArea.appendChild(pillButton);
     });
   };
 
