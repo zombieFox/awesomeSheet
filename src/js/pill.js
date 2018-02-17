@@ -209,39 +209,146 @@ var pill = (function() {
     };
   };
 
-  function clear() {
-    var all_pillBlockArea = helper.eA(".js-pill-block-area");
-    for (var i = 0; i < all_pillBlockArea.length; i++) {
-      while (all_pillBlockArea[i].lastChild) {
-        all_pillBlockArea[i].removeChild(all_pillBlockArea[i].lastChild);
+  function clear(pillBlock) {
+    if (pillBlock) {
+      var pillBlockArea = pillBlock.querySelector(".js-pill-block-area");
+      while (pillBlockArea.lastChild) {
+        pillBlockArea.removeChild(pillBlockArea.lastChild);
+      };
+    } else {
+      var all_pillBlockArea = helper.eA(".js-pill-block-area");
+      for (var i = 0; i < all_pillBlockArea.length; i++) {
+        while (all_pillBlockArea[i].lastChild) {
+          all_pillBlockArea[i].removeChild(all_pillBlockArea[i].lastChild);
+        };
       };
     };
   };
 
   function _bind_pillButton(button) {
     button.addEventListener("click", function() {
+      // console.log(this);
+      // console.log(_pillState.get("feats"));
       _pillItem(this);
     }, false);
   };
 
-//
-//
-//
-// 
-// to refine
   function _pillItem(button) {
+    // var options = helper.makeObject(button.dataset.pillButtonOptions);
+    // var pillBlock = helper.getClosest(button, ".js-pill-block");
+    // var pillBlockOptions = helper.makeObject(pillBlock.dataset.spellBlockOptions);
+    // // if (options.index) {
+    // //
+    // // };
+    // console.log(data.get({
+    //   type: "feats",
+    //   index: options.index
+    // }));
+    _update_pillObjects(button);
+    // _update_spellButton(button);
+  };
+
+  function _update_pillObjects(button) {
     var options = helper.makeObject(button.dataset.pillButtonOptions);
     var pillBlock = helper.getClosest(button, ".js-pill-block");
-    var pillBlockOptions = helper.makeObject(pillBlock.dataset.spellBlockOptions);
-    // if (options.index) {
-    //
-    // };
-    console.log(data.get({
-      type: "feats",
-      index: options.index
-    }));
-    // _update_spellObject(button);
-    // _update_spellButton(button);
+    var pillBlockOptions = helper.makeObject(pillBlock.dataset.pillBlockOptions);
+    var all_pillObjects = helper.getObject({
+      object: sheet.get(),
+      path: pillBlockOptions.path
+    });
+    if (_pillState.get(pillBlockOptions.type) == null) {
+      console.log("null");
+
+      console.log(data.get({
+        type: pillBlockOptions.type,
+        index: options.index
+      }));
+      modal.render()
+
+    } else if (_pillState.get(pillBlockOptions.type) == "remove") {
+      console.log("remove");
+
+      var pillObject = helper.getObject({
+        object: sheet.get(),
+        path: pillBlockOptions.path + "[" + options.index + "]"
+      });
+
+      _store_lastRemovedPill({
+        type: pillBlockOptions.type,
+        path: pillBlockOptions.path,
+        index: options.index,
+        object: pillObject
+      });
+
+      helper.getObject({
+        object: sheet.get(),
+        path: pillBlockOptions.path
+      }).splice(options.index, 1);
+
+      snack.render({
+        message: helper.truncate(pillObject.name, 40, true) + " removed.",
+        button: "Undo",
+        action: _restore_lastRemovedSpell,
+        destroyDelay: 9999998000
+      });
+
+      sheet.store();
+      clear(pillBlock);
+      render(pillBlock);
+    };
+  };
+
+  function _store_lastRemovedPill(options) {
+    var defaultOptions = {
+      type: null,
+      path: null,
+      index: null,
+      object: null
+    };
+    if (options) {
+      defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
+    var object = {
+      type: defaultOptions.type,
+      path: defaultOptions.path,
+      index: defaultOptions.index,
+      object: defaultOptions.object
+    };
+    helper.store("lastRemovedPill", JSON.stringify(object));
+  };
+
+  function _restore_lastRemovedSpell() {
+    var undoData = JSON.parse(helper.read("lastRemovedPill"));
+    _restore_pillObject({
+      type: undoData.type,
+      path: undoData.path,
+      index: undoData.index,
+      object: undoData.object
+    });
+    _remove_lastRemovedPill();
+  };
+
+  function _restore_pillObject(options) {
+    var defaultOptions = {
+      type: null,
+      path: null,
+      index: null,
+      object: null
+    };
+    if (options) {
+      defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
+    helper.getObject({
+      object: sheet.get(),
+      path: defaultOptions.path
+    }).splice(defaultOptions.index, 0, defaultOptions.object);
+    clear(helper.e(".js-pill-block-feats-" + defaultOptions.type));
+    render(helper.e(".js-pill-block-feats-" + defaultOptions.type));
+    sheet.store();
+  };
+
+  function _remove_lastRemovedPill() {
+    helper.remove("lastRemovedPill");
   };
 
   function render(pillBlock) {
@@ -263,10 +370,11 @@ var pill = (function() {
       object: sheet.get(),
       path: options.path
     });
-    all_pillObjects.forEach(function(arrayItem) {
+    all_pillObjects.forEach(function(arrayItem, index) {
       _render_pillItem({
         pillBlockArea: pillBlockArea,
         pillObject: arrayItem,
+        index: index,
         type: options.type
       });
     });
@@ -276,6 +384,7 @@ var pill = (function() {
     var defaultOptions = {
       pillBlockArea: null,
       pillObject: null,
+      index: null,
       type: null,
       newPill: false
     };
@@ -284,7 +393,7 @@ var pill = (function() {
     };
     var pillButton = _create_pillButton({
       name: defaultOptions.pillObject.name,
-      index: defaultOptions.pillObject.index,
+      index: defaultOptions.index,
       type: defaultOptions.type,
       newPill: defaultOptions.newPill
     });
