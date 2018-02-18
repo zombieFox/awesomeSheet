@@ -72,24 +72,39 @@ var pill = (function() {
     sheet.store();
   };
 
-  function _get_pillCount(path) {
-    return helper.getObject({
-      object: sheet.get(),
-      path: path
-    }).length;
+  function _get_pillCount(type) {
+    if (type == "feats") {
+      return helper.getObject({
+        object: sheet.get(),
+        path: "statistics.abilities.feats.all"
+      }).length;
+    };
   };
 
   function _pillControl(button) {
     var options = helper.makeObject(button.dataset.pillControlOptions);
     if (options.action == "changeState") {
-      _update_pillState(button);
-      _update_pillControl(button);
-      _update_pillItem(button);
-      _update_pillBlockArea(button);
+      _pillMode(button);
     } else if (options.action == "reset") {
       // _resetAllSpells(button);
     } else if (options.action == "sort") {
       // _sortAllSpells(button);
+    };
+  };
+
+  function _pillMode(button) {
+    var options = helper.makeObject(button.dataset.pillControlOptions);
+    var pillBlock = helper.getClosest(button, ".js-pill-block");
+    var pillBlockOptions = helper.makeObject(pillBlock.dataset.pillBlockOptions);
+    if (_get_pillCount(pillBlockOptions.type) > 0) {
+      _update_pillState(button);
+      _update_pillControl(button);
+      _update_pillItem(button);
+      _update_pillBlockArea(button);
+    } else {
+      _pillState.set(options.type, null);
+      _update_pillControl(button);
+      _reset_pillControl(pillBlock);
     };
   };
 
@@ -167,6 +182,14 @@ var pill = (function() {
     };
   };
 
+  function _reset_pillControl(pillBlock) {
+    var spellBlockOptions = helper.makeObject(pillBlock.dataset.spellBlockOptions);
+    var all_pillControl = pillBlock.querySelectorAll(".js-pill-control");
+    for (var i = 0; i < all_pillControl.length; i++) {
+      helper.removeClass(all_pillControl[i], "button-primary");
+    };
+  };
+
   function add(options) {
     var defaultOptions = {
       object: null,
@@ -179,7 +202,7 @@ var pill = (function() {
       var pillBlock = helper.getClosest(defaultOptions.input, ".js-pill-block");
       var pillBlockArea = pillBlock.querySelector(".js-pill-block-area");
       var pillBlockOptions = helper.makeObject(pillBlock.dataset.pillBlockOptions);
-      var newIndex = _get_pillCount(pillBlockOptions.path);
+      var newIndex = _get_pillCount(pillBlockOptions.type);
       var newPillObject;
       if (defaultOptions.object != null) {
         newPillObject = _create_pillObject({
@@ -227,25 +250,20 @@ var pill = (function() {
 
   function _bind_pillButton(button) {
     button.addEventListener("click", function() {
-      // console.log(this);
-      // console.log(_pillState.get("feats"));
-      _pillItem(this);
+      _pillButton(this);
     }, false);
   };
 
-  function _pillItem(button) {
-    // var options = helper.makeObject(button.dataset.pillButtonOptions);
-    // var pillBlock = helper.getClosest(button, ".js-pill-block");
-    // var pillBlockOptions = helper.makeObject(pillBlock.dataset.spellBlockOptions);
-    // // if (options.index) {
-    // //
-    // // };
-    // console.log(data.get({
-    //   type: "feats",
-    //   index: options.index
-    // }));
+  function _pillButton(button) {
+    var options = helper.makeObject(button.dataset.pillButtonOptions);
+    var pillBlock = helper.getClosest(button, ".js-pill-block");
+    var pillBlockOptions = helper.makeObject(pillBlock.dataset.pillBlockOptions);
     _update_pillObjects(button);
-    // _update_spellButton(button);
+    if (_get_pillCount(pillBlockOptions.type) <= 0) {
+      _pillState.set(pillBlockOptions.type, null);
+      _reset_pillControl(pillBlock);
+      _update_pillBlockArea(pillBlock);
+    };
   };
 
   function _update_pillObjects(button) {
@@ -259,19 +277,23 @@ var pill = (function() {
     if (_pillState.get(pillBlockOptions.type) == null) {
       console.log("null");
 
-      console.log(data.get({
-        type: pillBlockOptions.type,
-        index: options.index
-      }));
-      modal.render()
-
-    } else if (_pillState.get(pillBlockOptions.type) == "remove") {
-      console.log("remove");
-
       var pillObject = helper.getObject({
         object: sheet.get(),
         path: pillBlockOptions.path + "[" + options.index + "]"
       });
+      console.log(data.get({
+        type: pillBlockOptions.type,
+        index: pillObject.index
+      }));
+      modal.render();
+
+    } else if (_pillState.get(pillBlockOptions.type) == "remove") {
+      console.log("remove");
+
+      var pillObject = JSON.parse(JSON.stringify(helper.getObject({
+        object: sheet.get(),
+        path: pillBlockOptions.path + "[" + options.index + "]"
+      })));
 
       _store_lastRemovedPill({
         type: pillBlockOptions.type,
