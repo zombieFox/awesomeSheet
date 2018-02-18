@@ -155,35 +155,35 @@ var izlara = (function() {
         feats: {
           all: [{
             name: "Improved Initiative",
-            notes: "",
+            note: "",
             index: 722
           }, {
             name: "Combat Casting",
-            notes: "",
+            note: "",
             index: 196
           }, {
             name: "Craft Wondrous Item",
-            notes: "",
+            note: "",
             index: 232
           }, {
             name: "Spell Focus (Conjuration)",
-            notes: "",
+            note: "",
             index: 1228
           }, {
             name: "Extend Spell",
-            notes: "",
+            note: "",
             index: 450
           }, {
             name: "Quicken Spell",
-            notes: "",
+            note: "",
             index: 1054
           }, {
             name: "Spell Penetration",
-            notes: "",
+            note: "",
             index: 1233
           }, {
             name: "Eschew Materials",
-            notes: "",
+            note: "",
             index: 435
           }]
         },

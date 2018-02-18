@@ -205,7 +205,7 @@ var pill = (function() {
       var newIndex = _get_pillCount(pillBlockOptions.type);
       var newPillObject;
       if (defaultOptions.object != null) {
-        newPillObject = _create_pillObject({
+        newPillObject = new _create_pillObject({
           name: defaultOptions.object.name,
           index: defaultOptions.object.index
         });
@@ -216,6 +216,7 @@ var pill = (function() {
         });
       };
       if (newPillObject != undefined) {
+        var newIndex = _get_pillCount(pillBlockOptions.type);
         helper.setObject({
           object: sheet.get(),
           path: pillBlockOptions.path + "[" + newIndex + "]",
@@ -225,6 +226,7 @@ var pill = (function() {
         _render_pillItem({
           pillBlockArea: pillBlockArea,
           pillObject: newPillObject,
+          index: newIndex,
           type: pillBlockOptions.type,
           newPill: true
         });
@@ -259,6 +261,7 @@ var pill = (function() {
     var pillBlock = helper.getClosest(button, ".js-pill-block");
     var pillBlockOptions = helper.makeObject(pillBlock.dataset.pillBlockOptions);
     _update_pillObjects(button);
+    _render_pillControl(button);
     if (_get_pillCount(pillBlockOptions.type) <= 0) {
       _pillState.set(pillBlockOptions.type, null);
       _reset_pillControl(pillBlock);
@@ -270,12 +273,12 @@ var pill = (function() {
     var options = helper.makeObject(button.dataset.pillButtonOptions);
     var pillBlock = helper.getClosest(button, ".js-pill-block");
     var pillBlockOptions = helper.makeObject(pillBlock.dataset.pillBlockOptions);
-    var all_pillObjects = helper.getObject({
-      object: sheet.get(),
-      path: pillBlockOptions.path
-    });
+    // var all_pillObjects = helper.getObject({
+    //   object: sheet.get(),
+    //   path: pillBlockOptions.path
+    // });
     if (_pillState.get(pillBlockOptions.type) == null) {
-      console.log("null");
+      console.log("null", options.index);
 
       var pillObject = helper.getObject({
         object: sheet.get(),
@@ -285,10 +288,9 @@ var pill = (function() {
         type: pillBlockOptions.type,
         index: pillObject.index
       }));
-      modal.render();
 
     } else if (_pillState.get(pillBlockOptions.type) == "remove") {
-      console.log("remove");
+      console.log("remove", options.index);
 
       var pillObject = JSON.parse(JSON.stringify(helper.getObject({
         object: sheet.get(),
@@ -306,6 +308,8 @@ var pill = (function() {
         object: sheet.get(),
         path: pillBlockOptions.path
       }).splice(options.index, 1);
+
+      console.log(pillObject);
 
       snack.render({
         message: helper.truncate(pillObject.name, 40, true) + " removed.",
@@ -364,13 +368,185 @@ var pill = (function() {
       object: sheet.get(),
       path: defaultOptions.path
     }).splice(defaultOptions.index, 0, defaultOptions.object);
-    clear(helper.e(".js-pill-block-feats-" + defaultOptions.type));
-    render(helper.e(".js-pill-block-feats-" + defaultOptions.type));
+    clear(helper.e(".js-pill-block-" + defaultOptions.type));
+    render(helper.e(".js-pill-block-" + defaultOptions.type));
     sheet.store();
   };
 
   function _remove_lastRemovedPill() {
     helper.remove("lastRemovedPill");
+  };
+
+  function _render_pillControl(button, force) {
+    var options = helper.makeObject(button.dataset.pillButtonOptions);
+    var pillBlock = helper.getClosest(button, ".js-pill-block");
+    var pillBlockOptions = helper.makeObject(pillBlock.dataset.pillBlockOptions);
+
+    var pillObject = helper.getObject({
+      object: sheet.get(),
+      path: pillBlockOptions.path + "[" + options.index + "]"
+    });
+
+    var tempPillObject = JSON.parse(JSON.stringify(pillObject));
+
+    var _create_editBox = function(options) {
+      var defaultOptions = {
+        title: null,
+        textOnly: null,
+        guides: null,
+        boxSize: null,
+        content: null,
+        contentMargin: null
+      };
+      if (options) {
+        defaultOptions = helper.applyOptions(defaultOptions, options);
+      };
+      var box = document.createElement("div");
+      box.setAttribute("class", "m-edit-box m-edit-box-indent");
+      if (options.textOnly != null) {
+        helper.addClass(box, "m-edit-box-text-only");
+      };
+      if (options.guides != null) {
+        helper.addClass(box, "m-edit-box-guides");
+      };
+      if (options.title != null) {
+        helper.addClass(box, "m-edit-box-head-small");
+        var head = document.createElement("div");
+        head.setAttribute("class", "m-edit-box-head");
+        var title = document.createElement("h2");
+        title.setAttribute("class", "m-edit-box-title");
+        title.textContent = options.title;
+        head.appendChild(title);
+        box.appendChild(head);
+      } else {
+        helper.addClass(box, "m-edit-box-no-head-small");
+      };
+      var body = document.createElement("div");
+      body.setAttribute("class", "m-edit-box-body");
+      var boxContent = document.createElement("div");
+      if (options.contentMargin != null) {
+        boxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-" + options.contentMargin + " m-edit-box-content-nowrap");
+      } else {
+        boxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-nowrap");
+      };
+      if (options.content != null) {
+        options.content.forEach(function(arrayItem) {
+          if (options.boxSize != null) {
+            boxContent.appendChild(_create_editBoxItem(options.boxSize, arrayItem));
+          } else {
+            boxContent.appendChild(arrayItem);
+          };
+        });
+      };
+      body.appendChild(boxContent);
+      box.appendChild(body);
+      return box;
+    };
+
+    var _create_editBoxItem = function(size, child) {
+      var editBoxItem = document.createElement("div");
+      editBoxItem.setAttribute("class", size);
+      if (child) {
+        editBoxItem.appendChild(child);
+      };
+      return editBoxItem;
+    };
+
+    var _create_pillModal = function() {
+      var pillControl = document.createElement("div");
+      pillControl.setAttribute("class", "m-pill-control js-pill-control");
+
+      var _create_controls = function() {
+        var renameInput = document.createElement("input");
+        renameInput.setAttribute("class", "js-pill-control-input-name");
+        renameInput.setAttribute("type", "text");
+        renameInput.setAttribute("tabindex", "1");
+        renameInput.value = tempPillObject.name;
+
+        var noteTextarea = document.createElement("div");
+        noteTextarea.setAttribute("class", "m-textarea-block-field textarea textarea-large u-full-width js-pill-control-textarea-note");
+        noteTextarea.setAttribute("contenteditable", "true");
+        noteTextarea.setAttribute("tabindex", "1");
+        noteTextarea.innerHTML = tempPillObject.note;
+        noteTextarea.addEventListener("paste", function(event) {
+          helper.pasteStrip(event);
+        });
+
+        pillControl.appendChild(_create_editBox({
+          title: "Rename",
+          guides: true,
+          boxSize: "m-edit-box-item-max",
+          content: [renameInput]
+        }));
+
+        pillControl.appendChild(_create_editBox({
+          title: "Feat notes",
+          guides: true,
+          boxSize: "m-edit-box-item-max",
+          content: [noteTextarea]
+        }));
+      };
+
+      var _create_dataBlock = function() {
+
+        var dataObject = data.get({
+          type: pillBlockOptions.type,
+          index: tempPillObject.index
+        });
+
+        if (dataObject.description.base != "") {
+          var para = document.createElement("p");
+          para.textContent = dataObject.description.base;
+          pillControl.appendChild(_create_editBox({
+            title: "Description",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
+        if (dataObject.description.benefit != "") {
+          var para = document.createElement("p");
+          para.textContent = dataObject.description.benefit;
+          pillControl.appendChild(_create_editBox({
+            title: "Benefit",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
+      };
+
+      if ("index" in tempPillObject && (tempPillObject.index) || typeof tempPillObject.index == "number" && tempPillObject.index >= 0) {
+        _create_dataBlock();
+      };
+
+      _create_controls();
+      return pillControl;
+    };
+
+    if (_pillState.get(pillBlockOptions.type) == null || force) {
+      var modalContent = _create_pillModal();
+      var modalAction = function() {
+        // _store_data(this);
+        // _update_spellButton(button, true);
+        sheet.store();
+        clear(helper.e(".js-pill-block-" + pillBlockOptions.type));
+        render(helper.e(".js-pill-block-" + pillBlockOptions.type));
+      }.bind(modalContent);
+
+      modal.render({
+        heading: pillObject.name,
+        content: modalContent,
+        action: modalAction,
+        actionText: "Save",
+        size: "large"
+      });
+      page.update();
+    };
   };
 
   function render(pillBlock) {

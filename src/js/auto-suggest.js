@@ -1,7 +1,7 @@
 var autoSuggest = (function() {
 
   var _timer_autoSuggest = null;
-  var _cuurentInput;
+  var _currentInput;
 
   function _delayRender(input) {
     render(input);
@@ -35,7 +35,7 @@ var autoSuggest = (function() {
     var all_anchor = helper.eA(".js-auto-suggest-link");
     var _findInput = function() {
       if (event.target.classList.contains("js-auto-suggest-field")) {
-        _cuurentInput = event.target;
+        _currentInput = event.target;
       };
     };
     var _findFocus = function() {
@@ -65,10 +65,10 @@ var autoSuggest = (function() {
     if (event.keyCode == 38 || event.keyCode == 9 && event.shiftKey) {
       event.preventDefault();
       if (currentFocus == null) {
-        elementToFocus = _cuurentInput;
+        elementToFocus = _currentInput;
       } else {
         if (currentFocus == 0) {
-          elementToFocus = _cuurentInput;
+          elementToFocus = _currentInput;
         } else if (currentFocus > 0) {
           elementToFocus = all_anchor[currentFocus - 1];
         } else {
@@ -104,10 +104,10 @@ var autoSuggest = (function() {
   };
 
   function render(input) {
-    _cuurentInput = input;
-    var searchTerm = _cuurentInput.value.replace(/^\s+/, "").replace(/\s+$/, "");
+    _currentInput = input;
+    var searchTerm = _currentInput.value.replace(/^\s+/, "").replace(/\s+$/, "");
     var body = helper.e("body");
-    var autoSuggest = helper.getClosest(_cuurentInput, ".js-auto-suggest");
+    var autoSuggest = helper.getClosest(_currentInput, ".js-auto-suggest");
     var autoSuggestOptions = helper.makeObject(autoSuggest.dataset.autoSuggestOptions);
     var suggestItems;
 
@@ -124,19 +124,19 @@ var autoSuggest = (function() {
           // anchor.setAttribute("data-spells-data", "index:#" + arrayItem.index);
           anchor.addEventListener("click", function() {
             if (autoSuggestOptions.type == "spells") {
-              spells.add(_cuurentInput, arrayItem.index);
+              spells.add(_currentInput, arrayItem.index);
             } else if (autoSuggestOptions.type == "feats") {
               pill.add({
                 object: data.get({
                   type: autoSuggestOptions.type,
                   index: arrayItem.index,
                 }),
-                input: _cuurentInput
+                input: _currentInput
               });
             };
             destroy();
             sheet.store();
-            _cuurentInput.focus();
+            _currentInput.focus();
           }, false);
 
           var string = arrayItem.name;
@@ -221,9 +221,9 @@ var autoSuggest = (function() {
         };
       } else {
         var style = {
-          left: _cuurentInput.getBoundingClientRect().left,
-          top: _cuurentInput.getBoundingClientRect().bottom + window.scrollY,
-          width: _cuurentInput.getBoundingClientRect().width
+          left: _currentInput.getBoundingClientRect().left,
+          top: _currentInput.getBoundingClientRect().bottom + window.scrollY,
+          width: _currentInput.getBoundingClientRect().width
         };
         var autoSuggestList = document.createElement("ul");
         autoSuggestList.setAttribute("class", "m-auto-suggest-list u-list-unstyled js-auto-suggest-list");
