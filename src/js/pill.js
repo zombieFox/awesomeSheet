@@ -88,7 +88,7 @@ var pill = (function() {
     } else if (options.action == "reset") {
       // _resetAllSpells(button);
     } else if (options.action == "sort") {
-      // _sortAllSpells(button);
+      _sortAllPills(button);
     };
   };
 
@@ -105,6 +105,42 @@ var pill = (function() {
       _pillState.set(options.type, null);
       _update_pillControl(button);
       _reset_pillControl(pillBlock);
+    };
+  };
+
+  function _sortAllPills(button) {
+    var options = helper.makeObject(button.dataset.pillControlOptions);
+    var pillBlock = helper.getClosest(button, ".js-pill-block");
+    var pillBlockOptions = helper.makeObject(pillBlock.dataset.pillBlockOptions);
+    var sort = function() {
+      var all_pill = helper.getObject({
+        object: sheet.get(),
+        path: pillBlockOptions.path
+      });
+      var newSpellBook = helper.sortObject(all_pill, "name");
+      helper.setObject({
+        object: sheet.get(),
+        path: pillBlockOptions.path,
+        newValue: newSpellBook
+      });
+    };
+    var promotAction = function() {
+      sort();
+      clear(pillBlock);
+      render(pillBlock);
+      sheet.store();
+      snack.render({
+        message: "All " + helper.capFirstLetter(pillBlockOptions.type) + " alphabetically sorted."
+      });
+    };
+    if (_get_pillCount(pillBlockOptions.type)) {
+      prompt.render({
+        heading: "Sort " + helper.capFirstLetter(pillBlockOptions.type),
+        message: "Sort all " + pillBlockOptions.type + " in alphabetical order?",
+        actionText: "Sort",
+        action: promotAction
+      });
+      page.update();
     };
   };
 
@@ -183,7 +219,6 @@ var pill = (function() {
   };
 
   function _reset_pillControl(pillBlock) {
-    var spellBlockOptions = helper.makeObject(pillBlock.dataset.spellBlockOptions);
     var all_pillControl = pillBlock.querySelectorAll(".js-pill-control");
     for (var i = 0; i < all_pillControl.length; i++) {
       helper.removeClass(all_pillControl[i], "button-primary");
