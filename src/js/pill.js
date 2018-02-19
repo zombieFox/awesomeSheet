@@ -389,12 +389,12 @@ var pill = (function() {
 
     var tempPillObject = JSON.parse(JSON.stringify(pillObject));
 
-    var _store_data = function(spellControl) {
-      tempPillObject.note = spellControl.querySelector(".js-pill-control-textarea-note").innerHTML;
+    var _store_data = function(pillControl) {
+      tempPillObject.note = pillControl.querySelector(".js-pill-control-textarea-note").innerHTML;
       if (tempPillObject.note == " " || tempPillObject.note == "&nbsp;" || tempPillObject.note == "<br/>" || tempPillObject.note == "<br>") {
         tempPillObject.note = "";
       };
-      tempPillObject.name = spellControl.querySelector(".js-pill-control-input-name").value;
+      tempPillObject.name = pillControl.querySelector(".js-pill-control-input-name").value;
       helper.setObject({
         object: sheet.get(),
         path: pillBlockOptions.path + "[" + options.index + "]",
@@ -518,6 +518,18 @@ var pill = (function() {
           }));
         };
 
+        if (dataObject.type.string != "") {
+          var para = document.createElement("p");
+          para.textContent = dataObject.type.string;
+          pillControl.appendChild(_create_editBox({
+            title: "Type",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
         if (dataObject.prerequisites.string != "") {
           var para = document.createElement("p");
           para.textContent = dataObject.prerequisites.string;
@@ -554,6 +566,30 @@ var pill = (function() {
           }));
         };
 
+        if (dataObject.description.goal != "") {
+          var para = document.createElement("p");
+          para.textContent = dataObject.description.goal;
+          pillControl.appendChild(_create_editBox({
+            title: "Goal",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
+        if (dataObject.description.completion != "") {
+          var para = document.createElement("p");
+          para.textContent = dataObject.description.completion;
+          pillControl.appendChild(_create_editBox({
+            title: "Completion benefit",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
         if (dataObject.description.special != "") {
           var para = document.createElement("p");
           para.textContent = dataObject.description.special;
@@ -583,6 +619,18 @@ var pill = (function() {
           para.textContent = dataObject.description.suggested_traits;
           pillControl.appendChild(_create_editBox({
             title: "Suggested traits",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
+        if (dataObject.source != "") {
+          var para = document.createElement("p");
+          para.textContent = dataObject.source;
+          pillControl.appendChild(_create_editBox({
+            title: "Source",
             textOnly: true,
             guides: true,
             content: [para],
