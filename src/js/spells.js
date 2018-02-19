@@ -665,6 +665,18 @@ var spells = (function() {
           }));
         };
 
+        if (spellData.description.effect != "") {
+          var para = document.createElement("p");
+          para.textContent = helper.capFirstLetter(spellData.description.effect);
+          spellControl.appendChild(_create_editBox({
+            title: "Effect",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
         if (spellData.casting.area != "") {
           var para = document.createElement("p");
           var string = helper.capFirstLetter(spellData.casting.area);
