@@ -15,7 +15,7 @@ var pill = (function() {
       } else {
         pillState[type] = null;
       };
-      console.log(type, pillState[type]);
+      console.log("states:", type, pillState[type]);
     };
     // exposed methods
     return {
@@ -295,8 +295,11 @@ var pill = (function() {
     var options = helper.makeObject(button.dataset.pillButtonOptions);
     var pillBlock = helper.getClosest(button, ".js-pill-block");
     var pillBlockOptions = helper.makeObject(pillBlock.dataset.pillBlockOptions);
-    _update_pillObjects(button);
-    _render_pillControl(button);
+    if (_pillState.get(pillBlockOptions.type) == null) {
+      _render_pillControl(button);
+    } else if (_pillState.get(pillBlockOptions.type) == "remove") {
+      _update_pillObjects(button);
+    };
     if (_get_pillCount(pillBlockOptions.type) <= 0) {
       _pillState.set(pillBlockOptions.type, null);
       _reset_pillControl(pillBlock);
@@ -308,51 +311,27 @@ var pill = (function() {
     var options = helper.makeObject(button.dataset.pillButtonOptions);
     var pillBlock = helper.getClosest(button, ".js-pill-block");
     var pillBlockOptions = helper.makeObject(pillBlock.dataset.pillBlockOptions);
-    // var all_pillObjects = helper.getObject({
-    //   object: sheet.get(),
-    //   path: pillBlockOptions.path
-    // });
-    if (_pillState.get(pillBlockOptions.type) == null) {
-      console.log("null", options.index);
-
-      var pillObject = helper.getObject({
-        object: sheet.get(),
-        path: pillBlockOptions.path + "[" + options.index + "]"
-      });
-      console.log(data.get({
-        type: pillBlockOptions.type,
-        index: pillObject.index
-      }));
-
-    } else if (_pillState.get(pillBlockOptions.type) == "remove") {
-      console.log("remove", options.index);
-
+    if (_pillState.get(pillBlockOptions.type) == "remove") {
       var pillObject = JSON.parse(JSON.stringify(helper.getObject({
         object: sheet.get(),
         path: pillBlockOptions.path + "[" + options.index + "]"
       })));
-
       _store_lastRemovedPill({
         type: pillBlockOptions.type,
         path: pillBlockOptions.path,
         index: options.index,
         object: pillObject
       });
-
       helper.getObject({
         object: sheet.get(),
         path: pillBlockOptions.path
       }).splice(options.index, 1);
-
-      console.log(pillObject);
-
       snack.render({
         message: helper.truncate(pillObject.name, 40, true) + " removed.",
         button: "Undo",
         action: _restore_lastRemovedSpell,
-        destroyDelay: 9999998000
+        destroyDelay: 8000
       });
-
       sheet.store();
       clear(pillBlock);
       render(pillBlock);
@@ -684,6 +663,9 @@ var pill = (function() {
     };
 
     if (_pillState.get(pillBlockOptions.type) == null || force) {
+      var options = helper.makeObject(button.dataset.pillButtonOptions);
+      var pillBlock = helper.getClosest(button, ".js-pill-block");
+      var pillBlockOptions = helper.makeObject(pillBlock.dataset.pillBlockOptions);
       var modalContent = _create_pillModal();
       var modalAction = function() {
         _store_data(this);

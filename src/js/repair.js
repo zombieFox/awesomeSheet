@@ -871,7 +871,7 @@ var repair = (function() {
     };
     var tempCharacterObject = JSON.parse(JSON.stringify(characterObject));
     // awesome
-    _report.repaired.push("update: awesome");
+    _report.repaired.push("update: awesome version");
     characterObject.awesomeSheet = {};
     characterObject.awesomeSheet.awesome = true;
     characterObject.awesomeSheet.version = 5;
@@ -2549,6 +2549,9 @@ var repair = (function() {
       repaired: []
     };
     // awesome
+    _report.repaired.push("update: awesome version");
+    characterObject.awesomeSheet.version = 5.1;
+    // feats
     if (typeof characterObject.statistics.abilities.feats != "object") {
       _report.repaired.push("update: feats");
       var oldFeats = characterObject.statistics.abilities.feats;
