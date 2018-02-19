@@ -389,6 +389,19 @@ var pill = (function() {
 
     var tempPillObject = JSON.parse(JSON.stringify(pillObject));
 
+    var _store_data = function(spellControl) {
+      tempPillObject.note = spellControl.querySelector(".js-pill-control-textarea-note").innerHTML;
+      if (tempPillObject.note == " " || tempPillObject.note == "&nbsp;" || tempPillObject.note == "<br/>" || tempPillObject.note == "<br>") {
+        tempPillObject.note = "";
+      };
+      tempPillObject.name = spellControl.querySelector(".js-pill-control-input-name").value;
+      helper.setObject({
+        object: sheet.get(),
+        path: pillBlockOptions.path + "[" + options.index + "]",
+        newValue: tempPillObject
+      });
+    };
+
     var _create_editBox = function(options) {
       var defaultOptions = {
         title: null,
@@ -498,7 +511,18 @@ var pill = (function() {
           var para = document.createElement("p");
           para.textContent = dataObject.description.base;
           pillControl.appendChild(_create_editBox({
-            title: "Description",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
+        if (dataObject.prerequisites.string != "") {
+          var para = document.createElement("p");
+          para.textContent = dataObject.prerequisites.string;
+          pillControl.appendChild(_create_editBox({
+            title: "Prerequisites",
             textOnly: true,
             guides: true,
             content: [para],
@@ -511,6 +535,54 @@ var pill = (function() {
           para.textContent = dataObject.description.benefit;
           pillControl.appendChild(_create_editBox({
             title: "Benefit",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
+        if (dataObject.description.normal != "") {
+          var para = document.createElement("p");
+          para.textContent = dataObject.description.normal;
+          pillControl.appendChild(_create_editBox({
+            title: "Normal",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
+        if (dataObject.description.special != "") {
+          var para = document.createElement("p");
+          para.textContent = dataObject.description.special;
+          pillControl.appendChild(_create_editBox({
+            title: "Special",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
+        if (dataObject.description.note != "") {
+          var para = document.createElement("p");
+          para.textContent = dataObject.description.note;
+          pillControl.appendChild(_create_editBox({
+            title: "Note",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
+        if (dataObject.description.suggested_traits != "") {
+          var para = document.createElement("p");
+          para.textContent = dataObject.description.suggested_traits;
+          pillControl.appendChild(_create_editBox({
+            title: "Suggested traits",
             textOnly: true,
             guides: true,
             content: [para],
@@ -531,8 +603,7 @@ var pill = (function() {
     if (_pillState.get(pillBlockOptions.type) == null || force) {
       var modalContent = _create_pillModal();
       var modalAction = function() {
-        // _store_data(this);
-        // _update_spellButton(button, true);
+        _store_data(this);
         sheet.store();
         clear(helper.e(".js-pill-block-" + pillBlockOptions.type));
         render(helper.e(".js-pill-block-" + pillBlockOptions.type));
