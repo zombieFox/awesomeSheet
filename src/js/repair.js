@@ -2551,15 +2551,33 @@ var repair = (function() {
     // awesome
     _report.repaired.push("update: awesome version");
     characterObject.awesomeSheet.version = 5.1;
-    // feats
-    if (typeof characterObject.statistics.abilities.feats != "object") {
+    // abilities
+    if (!("feats" in characterObject.statistics)) {
       _report.repaired.push("update: feats");
       var oldFeats = characterObject.statistics.abilities.feats;
       delete characterObject.statistics.abilities.feats;
-      characterObject.statistics.abilities.feats = {
+      characterObject.statistics.feats = {
         all: [],
         notes: oldFeats
       };
+    };
+    if (!("traits" in characterObject.statistics)) {
+      _report.repaired.push("update: traits");
+      var oldTraits = characterObject.statistics.abilities.traits;
+      delete characterObject.statistics.abilities.traits;
+      characterObject.statistics.traits = {
+        all: [],
+        notes: oldTraits
+      };
+    };
+    if (!("class" in characterObject.statistics.abilities)) {
+      _report.repaired.push("update: abilities class");
+      characterObject.statistics.abilities.class = "";
+    };
+    if (!("languages" in characterObject.statistics)) {
+      _report.repaired.push("update: abilities racial");
+      characterObject.statistics.languages = characterObject.statistics.abilities.languages;
+      delete characterObject.statistics.abilities.languages;
     };
     _log("update complete: 510");
     _log("report:", _report);

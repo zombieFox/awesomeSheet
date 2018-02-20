@@ -55,7 +55,7 @@ var data = (function() {
           if (arrayItem.toLowerCase().includes(defaultOptions.name.toLowerCase())) {
             results.push({
               index: index,
-              // type: _all_traitsObject[index].type.string,
+              type: _all_traitsObject[index].type,
               name: arrayItem
             });
           };
@@ -447,6 +447,36 @@ var data = (function() {
     // console.log(object);
   };
 
+  function _orginiseTraitsObject(object) {
+    // description
+    var tempDescription = {};
+    tempDescription.base = object.description;
+    tempDescription.list = object.description_list;
+    // add
+    object.description = tempDescription;
+    // remove
+    delete object.description_list;
+    // description
+    var tempRequirement = {};
+    tempRequirement.alignment = object.requirement_alignment;
+    tempRequirement.class = object.requirement_class;
+    tempRequirement.faith = object.requirement_faith;
+    tempRequirement.other = object.requirement_other;
+    tempRequirement.place = object.requirement_place;
+    tempRequirement.race = object.requirement_race;
+    tempRequirement.subrace = object.requirement_subrace;
+    // add
+    object.requirement = tempRequirement;
+    // remove
+    delete object.requirement_alignment
+    delete object.requirement_class
+    delete object.requirement_faith
+    delete object.requirement_other
+    delete object.requirement_place
+    delete object.requirement_race
+    delete object.requirement_subrace
+  };
+
   function load() {
     var _get_data = function(data, type) {
       if (type == "spells") {
@@ -466,7 +496,7 @@ var data = (function() {
       } else if (type == "traits") {
         _all_traitsObject = helper.csvToJSON(data);
         _all_traitsObject.forEach(function(arrayItem, index) {
-          // _orginiseFeatsObject(arrayItem);
+          _orginiseTraitsObject(arrayItem);
           arrayItem.index = index;
         });
         // console.log(_all_traitsObject);

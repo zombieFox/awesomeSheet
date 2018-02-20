@@ -76,7 +76,12 @@ var pill = (function() {
     if (type == "feats") {
       return helper.getObject({
         object: sheet.get(),
-        path: "statistics.abilities.feats.all"
+        path: "statistics.feats.all"
+      }).length;
+    } else if (type == "traits") {
+      return helper.getObject({
+        object: sheet.get(),
+        path: "statistics.traits.all"
       }).length;
     };
   };
@@ -515,141 +520,215 @@ var pill = (function() {
       };
 
       var _create_dataBlock = function() {
-
         var dataObject = data.get({
           type: pillBlockOptions.type,
           index: tempPillObject.index
         });
+        var _featsData = function() {
+          if (dataObject.description.base != "") {
+            var para = document.createElement("p");
+            para.textContent = dataObject.description.base;
+            pillControl.appendChild(_create_editBox({
+              textOnly: true,
+              guides: true,
+              content: [para],
+              boxSize: "m-edit-box-item-max"
+            }));
+          };
 
-        if (dataObject.description.base != "") {
-          var para = document.createElement("p");
-          para.textContent = dataObject.description.base;
-          pillControl.appendChild(_create_editBox({
-            textOnly: true,
-            guides: true,
-            content: [para],
-            boxSize: "m-edit-box-item-max"
-          }));
+          if (dataObject.type.string != "") {
+            var para = document.createElement("p");
+            para.textContent = dataObject.type.string;
+            pillControl.appendChild(_create_editBox({
+              title: "Type",
+              textOnly: true,
+              guides: true,
+              content: [para],
+              boxSize: "m-edit-box-item-max"
+            }));
+          };
+
+          if (dataObject.prerequisites.string != "") {
+            var para = document.createElement("p");
+            para.textContent = dataObject.prerequisites.string;
+            pillControl.appendChild(_create_editBox({
+              title: "Prerequisites",
+              textOnly: true,
+              guides: true,
+              content: [para],
+              boxSize: "m-edit-box-item-max"
+            }));
+          };
+
+          if (dataObject.description.benefit != "") {
+            var para = document.createElement("p");
+            para.textContent = dataObject.description.benefit;
+            pillControl.appendChild(_create_editBox({
+              title: "Benefit",
+              textOnly: true,
+              guides: true,
+              content: [para],
+              boxSize: "m-edit-box-item-max"
+            }));
+          };
+
+          if (dataObject.description.normal != "") {
+            var para = document.createElement("p");
+            para.textContent = dataObject.description.normal;
+            pillControl.appendChild(_create_editBox({
+              title: "Normal",
+              textOnly: true,
+              guides: true,
+              content: [para],
+              boxSize: "m-edit-box-item-max"
+            }));
+          };
+
+          if (dataObject.description.goal != "") {
+            var para = document.createElement("p");
+            para.textContent = dataObject.description.goal;
+            pillControl.appendChild(_create_editBox({
+              title: "Goal",
+              textOnly: true,
+              guides: true,
+              content: [para],
+              boxSize: "m-edit-box-item-max"
+            }));
+          };
+
+          if (dataObject.description.completion != "") {
+            var para = document.createElement("p");
+            para.textContent = dataObject.description.completion;
+            pillControl.appendChild(_create_editBox({
+              title: "Completion benefit",
+              textOnly: true,
+              guides: true,
+              content: [para],
+              boxSize: "m-edit-box-item-max"
+            }));
+          };
+
+          if (dataObject.description.special != "") {
+            var para = document.createElement("p");
+            para.textContent = dataObject.description.special;
+            pillControl.appendChild(_create_editBox({
+              title: "Special",
+              textOnly: true,
+              guides: true,
+              content: [para],
+              boxSize: "m-edit-box-item-max"
+            }));
+          };
+
+          if (dataObject.description.note != "") {
+            var para = document.createElement("p");
+            para.textContent = dataObject.description.note;
+            pillControl.appendChild(_create_editBox({
+              title: "Note",
+              textOnly: true,
+              guides: true,
+              content: [para],
+              boxSize: "m-edit-box-item-max"
+            }));
+          };
+
+          if (dataObject.description.suggested_traits != "") {
+            var para = document.createElement("p");
+            para.textContent = dataObject.description.suggested_traits;
+            pillControl.appendChild(_create_editBox({
+              title: "Suggested traits",
+              textOnly: true,
+              guides: true,
+              content: [para],
+              boxSize: "m-edit-box-item-max"
+            }));
+          };
+
+          if (dataObject.source != "") {
+            var para = document.createElement("p");
+            para.textContent = dataObject.source;
+            pillControl.appendChild(_create_editBox({
+              title: "Source",
+              textOnly: true,
+              guides: true,
+              content: [para],
+              boxSize: "m-edit-box-item-max"
+            }));
+          };
+        };
+        var _traitsData = function() {
+          if (dataObject.type != "") {
+            var para = document.createElement("p");
+            para.textContent = dataObject.type;
+            pillControl.appendChild(_create_editBox({
+              title: "Type",
+              textOnly: true,
+              guides: true,
+              content: [para],
+              boxSize: "m-edit-box-item-max"
+            }));
+          };
+
+          if (dataObject.category != "") {
+            var para = document.createElement("p");
+            para.textContent = dataObject.category;
+            pillControl.appendChild(_create_editBox({
+              title: "Category",
+              textOnly: true,
+              guides: true,
+              content: [para],
+              boxSize: "m-edit-box-item-max"
+            }));
+          };
+
+          if (dataObject.requirement.alignment != "" || dataObject.requirement.class != "" || dataObject.requirement.faith != "" || dataObject.requirement.other != "" || dataObject.requirement.place != "" || dataObject.requirement.race != "" || dataObject.requirement.subrace != "") {
+            var para = document.createElement("p");
+            var string = "";
+            for (var key in dataObject.requirement) {
+              if (dataObject.requirement[key] != "") {
+                string = string + helper.capFirstLetter(key) + ": " + helper.capFirstLetter(dataObject.requirement[key]) + ", ";
+              };
+            };
+            string = string.replace(/,\s*$/, "");
+            para.textContent = string;
+            pillControl.appendChild(_create_editBox({
+              title: "Requirement",
+              textOnly: true,
+              guides: true,
+              content: [para],
+              boxSize: "m-edit-box-item-max"
+            }));
+          };
+
+          if (dataObject.description.base != "") {
+            var para = document.createElement("p");
+            para.textContent = dataObject.description.base;
+            pillControl.appendChild(_create_editBox({
+              title: "Description",
+              textOnly: true,
+              guides: true,
+              content: [para],
+              boxSize: "m-edit-box-item-max"
+            }));
+          };
+
+          if (dataObject.source != "") {
+            var para = document.createElement("p");
+            para.textContent = dataObject.source;
+            pillControl.appendChild(_create_editBox({
+              title: "Source",
+              textOnly: true,
+              guides: true,
+              content: [para],
+              boxSize: "m-edit-box-item-max"
+            }));
+          };
         };
 
-        if (dataObject.type.string != "") {
-          var para = document.createElement("p");
-          para.textContent = dataObject.type.string;
-          pillControl.appendChild(_create_editBox({
-            title: "Type",
-            textOnly: true,
-            guides: true,
-            content: [para],
-            boxSize: "m-edit-box-item-max"
-          }));
-        };
-
-        if (dataObject.prerequisites.string != "") {
-          var para = document.createElement("p");
-          para.textContent = dataObject.prerequisites.string;
-          pillControl.appendChild(_create_editBox({
-            title: "Prerequisites",
-            textOnly: true,
-            guides: true,
-            content: [para],
-            boxSize: "m-edit-box-item-max"
-          }));
-        };
-
-        if (dataObject.description.benefit != "") {
-          var para = document.createElement("p");
-          para.textContent = dataObject.description.benefit;
-          pillControl.appendChild(_create_editBox({
-            title: "Benefit",
-            textOnly: true,
-            guides: true,
-            content: [para],
-            boxSize: "m-edit-box-item-max"
-          }));
-        };
-
-        if (dataObject.description.normal != "") {
-          var para = document.createElement("p");
-          para.textContent = dataObject.description.normal;
-          pillControl.appendChild(_create_editBox({
-            title: "Normal",
-            textOnly: true,
-            guides: true,
-            content: [para],
-            boxSize: "m-edit-box-item-max"
-          }));
-        };
-
-        if (dataObject.description.goal != "") {
-          var para = document.createElement("p");
-          para.textContent = dataObject.description.goal;
-          pillControl.appendChild(_create_editBox({
-            title: "Goal",
-            textOnly: true,
-            guides: true,
-            content: [para],
-            boxSize: "m-edit-box-item-max"
-          }));
-        };
-
-        if (dataObject.description.completion != "") {
-          var para = document.createElement("p");
-          para.textContent = dataObject.description.completion;
-          pillControl.appendChild(_create_editBox({
-            title: "Completion benefit",
-            textOnly: true,
-            guides: true,
-            content: [para],
-            boxSize: "m-edit-box-item-max"
-          }));
-        };
-
-        if (dataObject.description.special != "") {
-          var para = document.createElement("p");
-          para.textContent = dataObject.description.special;
-          pillControl.appendChild(_create_editBox({
-            title: "Special",
-            textOnly: true,
-            guides: true,
-            content: [para],
-            boxSize: "m-edit-box-item-max"
-          }));
-        };
-
-        if (dataObject.description.note != "") {
-          var para = document.createElement("p");
-          para.textContent = dataObject.description.note;
-          pillControl.appendChild(_create_editBox({
-            title: "Note",
-            textOnly: true,
-            guides: true,
-            content: [para],
-            boxSize: "m-edit-box-item-max"
-          }));
-        };
-
-        if (dataObject.description.suggested_traits != "") {
-          var para = document.createElement("p");
-          para.textContent = dataObject.description.suggested_traits;
-          pillControl.appendChild(_create_editBox({
-            title: "Suggested traits",
-            textOnly: true,
-            guides: true,
-            content: [para],
-            boxSize: "m-edit-box-item-max"
-          }));
-        };
-
-        if (dataObject.source != "") {
-          var para = document.createElement("p");
-          para.textContent = dataObject.source;
-          pillControl.appendChild(_create_editBox({
-            title: "Source",
-            textOnly: true,
-            guides: true,
-            content: [para],
-            boxSize: "m-edit-box-item-max"
-          }));
+        if (pillBlockOptions.type == "feats") {
+          _featsData();
+        } else if (pillBlockOptions.type == "traits") {
+          _traitsData();
         };
 
       };
