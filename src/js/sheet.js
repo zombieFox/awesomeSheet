@@ -213,6 +213,7 @@ var sheet = (function() {
     totalBlock.render();
     textBlock.render();
     characterImage.render();
+    pill.render();
     display.render();
   };
 
@@ -228,6 +229,7 @@ var sheet = (function() {
     textareaBlock.clear();
     characterImage.clear();
     spells.clear();
+    pill.clear();
     display.clear();
   };
 
@@ -257,6 +259,7 @@ var sheet = (function() {
     events.bind();
     exp.bind();
     characterImage.bind();
+    pill.bind();
     registerServiceWorker.bind();
   };
 
@@ -274,7 +277,7 @@ var sheet = (function() {
   };
 
   function load() {
-    spellsData.load();
+    data.load();
   };
 
   function switcher(newIndex) {

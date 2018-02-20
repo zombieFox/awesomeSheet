@@ -1698,17 +1698,47 @@ var orrin = (function() {
     events: [{
       type: "xp",
       event: {
-        aggregate_value: 12590
+        aggregate_value: 17280
       },
       timestamp: {
-        date: 6,
-        day: 3,
-        year: 2017,
+        date: 19,
+        day: 1,
+        year: 2018,
         hours: 23,
-        milliseconds: 741,
-        minutes: 55,
-        month: 11,
-        seconds: 18
+        milliseconds: 753,
+        minutes: 10,
+        month: 1,
+        seconds: 56
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregate_value: 12800
+      },
+      timestamp: {
+        date: 5,
+        day: 1,
+        year: 2018,
+        hours: 18,
+        milliseconds: 793,
+        minutes: 43,
+        month: 1,
+        seconds: 35
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregate_value: 2360
+      },
+      timestamp: {
+        date: 29,
+        day: 1,
+        year: 2018,
+        hours: 18,
+        milliseconds: 349,
+        minutes: 50,
+        month: 0,
+        seconds: 16
       }
     }, {
       type: "xp",
@@ -1724,6 +1754,21 @@ var orrin = (function() {
         minutes: 46,
         month: 0,
         seconds: 2
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregate_value: 12590
+      },
+      timestamp: {
+        date: 6,
+        day: 3,
+        year: 2017,
+        hours: 23,
+        milliseconds: 741,
+        minutes: 55,
+        month: 11,
+        seconds: 18
       }
     }]
   };

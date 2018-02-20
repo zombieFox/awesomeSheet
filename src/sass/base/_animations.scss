@@ -7,27 +7,11 @@
     width: 15px;
     height: 15px;
   }
-  25% {
-    width: 10px;
-    height: 10px;
-  }
-  27% {
-    width: 15px;
-    height: 15px;
-  }
   50% {
     width: 10px;
     height: 10px;
   }
   52% {
-    width: 15px;
-    height: 15px;
-  }
-  75% {
-    width: 10px;
-    height: 10px;
-  }
-  77% {
     width: 15px;
     height: 15px;
   }
@@ -42,32 +26,12 @@
     height: 0;
     background-color: $primary-color-alpha-01;
   }
-  25% {
-    width: 60px;
-    height: 60px;
-    background-color: transparent;
-  }
-  25.0000000001% {
-    width: 15px;
-    height: 15px;
-    background-color: $primary-color-alpha-01;
-  }
   50% {
     width: 60px;
     height: 60px;
     background-color: transparent;
   }
   50.0000000001% {
-    width: 15px;
-    height: 15px;
-    background-color: $primary-color-alpha-01;
-  }
-  75% {
-    width: 60px;
-    height: 60px;
-    background-color: transparent;
-  }
-  75.0000000001% {
     width: 15px;
     height: 15px;
     background-color: $primary-color-alpha-01;

@@ -151,12 +151,60 @@ var izlara = (function() {
           current: ""
         }
       },
+      feats: {
+        all: [{
+          name: "Improved Initiative",
+          note: "",
+          index: 722
+        }, {
+          name: "Combat Casting",
+          note: "",
+          index: 196
+        }, {
+          name: "Craft Wondrous Item",
+          note: "",
+          index: 232
+        }, {
+          name: "Spell Focus (Conjuration)",
+          note: "",
+          index: 1228
+        }, {
+          name: "Extend Spell",
+          note: "",
+          index: 450
+        }, {
+          name: "Quicken Spell",
+          note: "",
+          index: 1054
+        }, {
+          name: "Spell Penetration",
+          note: "",
+          index: 1233
+        }, {
+          name: "Eschew Materials",
+          note: "",
+          index: 435
+        }],
+        notes: ""
+      },
+      traits: {
+        all: [{
+          name: "Reactionary",
+          note: "",
+          index: 787
+        }, {
+          name: "Magical Lineage",
+          note: "Overland Flight",
+          index: 624
+        }],
+        notes: ""
+      },
       abilities: {
-        feats: "Improved Initiative, Combat Casting, Craft Wondrous Item, Spell Focus (Conjuration), Extend Spell, Quicken Spell, Spell Penetration, Eschew materials",
-        traits: "Reactionary, Magical Lineage (Overland Flight)",
-        languages: "Abyssal, Aklo, Aquan, Auran, Celestial, Common, Druidic, Dwarven, Elven, Giant, Goblin, Gnoll, Halfling, Ignan, Infernal, Orc, Sylvan, Terran, Undercommon",
+        class: "",
+        racial: "",
         special: "Low-Light Vision, Elven Immunities, Elven Magic, Keen Senses, Weapon Familiarity, Arcane bond (Rat), Arcane School, Cantrips, Scribe scroll, Forewarned, Prescience, Foretell"
       },
+      languages: "Abyssal, Aklo, Aquan, Auran, Celestial, Common, Druidic, Dwarven, Elven, Giant, Goblin, Gnoll, Halfling, Ignan, Infernal, Orc, Sylvan, Terran, Undercommon",
       power: {
         all: [{
           name: "Prescience",
