@@ -149,12 +149,20 @@ var blank = (function() {
           current: ""
         }
       },
+      feats: {
+        all: [],
+        notes: ""
+      },
+      traits: {
+        all: [],
+        notes: ""
+      },
       abilities: {
-        feats: "",
-        traits: "",
-        languages: "",
+        class: "",
+        racial: "",
         special: ""
       },
+      languages: "",
       power: {
         all: []
       }
