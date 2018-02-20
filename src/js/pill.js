@@ -270,6 +270,7 @@ var pill = (function() {
           type: pillBlockOptions.type,
           newPill: true
         });
+        _render_pillPlaceholder(pillBlockOptions.type);
       };
     };
   };
@@ -309,6 +310,7 @@ var pill = (function() {
       _pillState.set(pillBlockOptions.type, null);
       _reset_pillControl(pillBlock);
       _update_pillBlockArea(pillBlock);
+      _render_pillPlaceholder(pillBlockOptions.type);
     };
   };
 
@@ -821,6 +823,7 @@ var pill = (function() {
     });
     _bind_pillButton(pillButton);
     defaultOptions.pillBlockArea.appendChild(pillButton);
+    _render_pillPlaceholder(defaultOptions.type);
   };
 
   function _create_pillButton(options) {
@@ -876,6 +879,15 @@ var pill = (function() {
       name: defaultOptions.name,
       note: defaultOptions.note,
       index: defaultOptions.index
+    };
+  };
+
+  function _render_pillPlaceholder(type) {
+    var placeholder = helper.e(".js-pill-block-placeholder-" + type);
+    if (_get_pillCount(type) > 0) {
+      helper.addClass(placeholder, "is-hidden");
+    } else {
+      helper.removeClass(placeholder, "is-hidden");
     };
   };
 
