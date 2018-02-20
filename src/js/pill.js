@@ -22,12 +22,6 @@ var pill = (function() {
     };
   })();
 
-  function _create_pillObecjtState() {
-    return {
-      state: null
-    };
-  };
-
   function bind() {
     _bind_all_pillBlock();
     _bind_all_pillControl();
@@ -71,30 +65,24 @@ var pill = (function() {
   };
 
   function _get_pillCount(type) {
-    if (type == "feats") {
-      return helper.getObject({
-        object: sheet.get(),
-        path: "statistics.feats.all"
-      }).length;
-    } else if (type == "traits") {
-      return helper.getObject({
-        object: sheet.get(),
-        path: "statistics.traits.all"
-      }).length;
-    } else if (type == "languages") {
-      return helper.getObject({
-        object: sheet.get(),
-        path: "statistics.languages.all"
-      }).length;
+    var paths = {
+      feats: "statistics.feats.all",
+      traits: "statistics.traits.all",
+      languages: "statistics.languages.all"
     };
+    // console.log(paths[type]);
+    return helper.getObject({
+      object: sheet.get(),
+      path: paths[type]
+    }).length;
   };
 
   function _pillControl(button) {
     var options = helper.makeObject(button.dataset.pillControlOptions);
     if (options.action == "changeState") {
       _pillMode(button);
-    } else if (options.action == "reset") {
-      // _resetAllSpells(button);
+    // } else if (options.action == "reset") {
+    //   _resetAllSpells(button);
     } else if (options.action == "sort") {
       _sortAllPills(button);
     };
@@ -326,6 +314,11 @@ var pill = (function() {
         object: sheet.get(),
         path: pillBlockOptions.path + "[" + options.index + "]"
       })));
+      var snackMessage = {
+        feats: "Feat " + helper.truncate(pillObject.name, 40, true) + " removed.",
+        traits: "Trait " + helper.truncate(pillObject.name, 40, true) + " removed.",
+        languages: "Language " + helper.truncate(pillObject.name, 40, true) + " removed."
+      };
       _store_lastRemovedPill({
         type: pillBlockOptions.type,
         path: pillBlockOptions.path,
@@ -337,7 +330,7 @@ var pill = (function() {
         path: pillBlockOptions.path
       }).splice(options.index, 1);
       snack.render({
-        message: helper.truncate(pillObject.name, 40, true) + " removed.",
+        message: snackMessage[pillBlockOptions.type],
         button: "Undo",
         action: _restore_lastRemovedSpell,
         destroyDelay: 8000
@@ -808,7 +801,6 @@ var pill = (function() {
       var all_pillBlock = helper.eA(".js-pill-block");
       for (var i = 0; i < all_pillBlock.length; i++) {
         _render_pillBlock(all_pillBlock[i]);
-        var state = _create_pillObecjtState(all_pillBlock[i]);
       };
     };
   };
