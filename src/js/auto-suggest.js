@@ -125,7 +125,7 @@ var autoSuggest = (function() {
           anchor.addEventListener("click", function() {
             if (autoSuggestOptions.type == "spells") {
               spells.add(_currentInput, arrayItem.index);
-            } else if (autoSuggestOptions.type == "feats" || autoSuggestOptions.type == "traits") {
+            } else if (autoSuggestOptions.type == "feats" || autoSuggestOptions.type == "traits" || autoSuggestOptions.type == "languages") {
               pill.add({
                 object: data.get({
                   type: autoSuggestOptions.type,
@@ -199,6 +199,15 @@ var autoSuggest = (function() {
               var resultMeta = document.createElement("i");
               resultMeta.setAttribute("class", "m-auto-suggest-result-meta");
               resultMeta.textContent = helper.capFirstLetter(arrayItem.type);
+              text.appendChild(resultMeta);
+            };
+          };
+
+          if (autoSuggestOptions.type == "languages") {
+            if (arrayItem.race) {
+              var resultMeta = document.createElement("i");
+              resultMeta.setAttribute("class", "m-auto-suggest-result-meta");
+              resultMeta.textContent = helper.capFirstLetter(arrayItem.race);
               text.appendChild(resultMeta);
             };
           };

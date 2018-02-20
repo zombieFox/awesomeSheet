@@ -199,12 +199,91 @@ var izlara = (function() {
         }],
         notes: ""
       },
+      languages: {
+        "all": [{
+          name: "Abyssal",
+          note: "",
+          index: 0
+        }, {
+          name: "Aklo",
+          note: "",
+          index: 1
+        }, {
+          name: "Aquan",
+          note: "",
+          index: 2
+        }, {
+          name: "Auran",
+          note: "",
+          index: 3
+        }, {
+          name: "Celestial",
+          note: "",
+          index: 4
+        }, {
+          name: "Draconic",
+          note: "",
+          index: 6
+        }, {
+          name: "Dwarven",
+          note: "",
+          index: 8
+        }, {
+          name: "Elven",
+          note: "",
+          index: 9
+        }, {
+          name: "Giant",
+          note: "",
+          index: 10
+        }, {
+          name: "Gnoll",
+          note: "",
+          index: 13
+        }, {
+          name: "Goblin",
+          note: "",
+          index: 12
+        }, {
+          name: "Halfling",
+          note: "",
+          index: 14
+        }, {
+          name: "Ignan",
+          note: "",
+          index: 15
+        }, {
+          name: "Infernal",
+          note: "",
+          index: 16
+        }, {
+          name: "Orc",
+          note: "",
+          index: 17
+        }, {
+          name: "Sylvan",
+          note: "",
+          index: 18
+        }, {
+          name: "Terran",
+          note: "",
+          index: 19
+        }, {
+          name: "Undercommon",
+          note: "",
+          index: 20
+        }, {
+          name: "Common",
+          note: "",
+          index: 5
+        }],
+        notes: ""
+      },
       abilities: {
         class: "",
         racial: "",
         special: "Low-Light Vision, Elven Immunities, Elven Magic, Keen Senses, Weapon Familiarity, Arcane bond (Rat), Arcane School, Cantrips, Scribe scroll, Forewarned, Prescience, Foretell"
       },
-      languages: "Abyssal, Aklo, Aquan, Auran, Celestial, Common, Druidic, Dwarven, Elven, Giant, Goblin, Gnoll, Halfling, Ignan, Infernal, Orc, Sylvan, Terran, Undercommon",
       power: {
         all: [{
           name: "Prescience",

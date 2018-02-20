@@ -157,12 +157,15 @@ var blank = (function() {
         all: [],
         notes: ""
       },
+      languages: {
+        all: [],
+        notes: ""
+      },
       abilities: {
         class: "",
         racial: "",
         special: ""
       },
-      languages: "",
       power: {
         all: []
       }

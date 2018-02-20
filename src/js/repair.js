@@ -2570,14 +2570,22 @@ var repair = (function() {
         notes: oldTraits
       };
     };
+    if (!("languages" in characterObject.statistics)) {
+      _report.repaired.push("update: languages");
+      var oldLanguages = characterObject.statistics.abilities.languages;
+      delete characterObject.statistics.abilities.languages;
+      characterObject.statistics.languages = {
+        all: [],
+        notes: oldLanguages
+      };
+    };
+    if (!("racial" in characterObject.statistics.abilities)) {
+      _report.repaired.push("update: abilities racial");
+      characterObject.statistics.abilities.racial = "";
+    };
     if (!("class" in characterObject.statistics.abilities)) {
       _report.repaired.push("update: abilities class");
       characterObject.statistics.abilities.class = "";
-    };
-    if (!("languages" in characterObject.statistics)) {
-      _report.repaired.push("update: abilities racial");
-      characterObject.statistics.languages = characterObject.statistics.abilities.languages;
-      delete characterObject.statistics.abilities.languages;
     };
     _log("update complete: 510");
     _log("report:", _report);

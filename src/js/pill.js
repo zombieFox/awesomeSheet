@@ -81,6 +81,11 @@ var pill = (function() {
         object: sheet.get(),
         path: "statistics.traits.all"
       }).length;
+    } else if (type == "languages") {
+      return helper.getObject({
+        object: sheet.get(),
+        path: "statistics.languages.all"
+      }).length;
     };
   };
 
@@ -525,6 +530,13 @@ var pill = (function() {
             boxSize: "m-edit-box-item-max",
             content: [noteTextarea]
           }));
+        } else if (pillBlockOptions.type == "languages") {
+          pillControl.appendChild(_create_editBox({
+            title: "Languages notes",
+            guides: true,
+            boxSize: "m-edit-box-item-max",
+            content: [noteTextarea]
+          }));
         };
       };
 
@@ -733,11 +745,27 @@ var pill = (function() {
             }));
           };
         };
+        var _languagesData = function() {
+
+          if (dataObject.race != "") {
+            var para = document.createElement("p");
+            para.textContent = dataObject.race;
+            pillControl.appendChild(_create_editBox({
+              title: "Races",
+              textOnly: true,
+              guides: true,
+              content: [para],
+              boxSize: "m-edit-box-item-max"
+            }));
+          };
+        };
 
         if (pillBlockOptions.type == "feats") {
           _featsData();
         } else if (pillBlockOptions.type == "traits") {
           _traitsData();
+        } else if (pillBlockOptions.type == "languages") {
+          _languagesData();
         };
 
       };
