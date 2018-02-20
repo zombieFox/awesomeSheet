@@ -3,9 +3,7 @@ var pill = (function() {
   var _timer_onEnterAction = null;
 
   var _pillState = (function() {
-    var pillState = {
-      feats: null
-    };
+    var pillState = {};
     var get = function(type) {
       return pillState[type];
     };
@@ -15,7 +13,7 @@ var pill = (function() {
       } else {
         pillState[type] = null;
       };
-      console.log("states:", type, pillState[type]);
+      // console.log("states:", type, pillState);
     };
     // exposed methods
     return {
