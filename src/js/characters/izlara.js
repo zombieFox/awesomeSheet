@@ -280,9 +280,8 @@ var izlara = (function() {
         notes: ""
       },
       abilities: {
-        class: "",
-        racial: "",
-        special: "Low-Light Vision, Elven Immunities, Elven Magic, Keen Senses, Weapon Familiarity, Arcane bond (Rat), Arcane School, Cantrips, Scribe scroll, Forewarned, Prescience, Foretell"
+        all: [],
+        notes: "Low-Light Vision, Elven Immunities, Elven Magic, Keen Senses, Weapon Familiarity, Arcane bond (Rat), Arcane School, Cantrips, Scribe scroll, Forewarned, Prescience, Foretell"
       },
       power: {
         all: [{

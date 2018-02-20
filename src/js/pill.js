@@ -66,6 +66,7 @@ var pill = (function() {
 
   function _get_pillCount(type) {
     var paths = {
+      abilities: "statistics.abilities.all",
       feats: "statistics.feats.all",
       traits: "statistics.traits.all",
       languages: "statistics.languages.all"
@@ -81,8 +82,8 @@ var pill = (function() {
     var options = helper.makeObject(button.dataset.pillControlOptions);
     if (options.action == "changeState") {
       _pillMode(button);
-    // } else if (options.action == "reset") {
-    //   _resetAllSpells(button);
+      // } else if (options.action == "reset") {
+      //   _resetAllSpells(button);
     } else if (options.action == "sort") {
       _sortAllPills(button);
     };
@@ -268,15 +269,21 @@ var pill = (function() {
 
   function clear(pillBlock) {
     if (pillBlock) {
+      var pillBlock = helper.getClosest(defaultOptions.input, ".js-pill-block");
       var pillBlockArea = pillBlock.querySelector(".js-pill-block-area");
+      var pillBlockOptions = helper.makeObject(pillBlock.dataset.pillBlockOptions);
       while (pillBlockArea.lastChild) {
         pillBlockArea.removeChild(pillBlockArea.lastChild);
+        _render_pillPlaceholder(pillBlockOptions.type);
       };
     } else {
-      var all_pillBlockArea = helper.eA(".js-pill-block-area");
-      for (var i = 0; i < all_pillBlockArea.length; i++) {
-        while (all_pillBlockArea[i].lastChild) {
-          all_pillBlockArea[i].removeChild(all_pillBlockArea[i].lastChild);
+      var all_pillBlock = helper.eA(".js-pill-block");
+      for (var i = 0; i < all_pillBlock.length; i++) {
+        var pillBlockArea = all_pillBlock[i].querySelector(".js-pill-block-area");
+        var pillBlockOptions = helper.makeObject(all_pillBlock[i].dataset.pillBlockOptions);
+        while (pillBlockArea.lastChild) {
+          pillBlockArea.removeChild(pillBlockArea.lastChild);
+          _render_pillPlaceholder(pillBlockOptions.type);
         };
       };
     };
@@ -315,6 +322,7 @@ var pill = (function() {
         path: pillBlockOptions.path + "[" + options.index + "]"
       })));
       var snackMessage = {
+        abilities: "Abilities " + helper.truncate(pillObject.name, 40, true) + " removed.",
         feats: "Feat " + helper.truncate(pillObject.name, 40, true) + " removed.",
         traits: "Trait " + helper.truncate(pillObject.name, 40, true) + " removed.",
         languages: "Language " + helper.truncate(pillObject.name, 40, true) + " removed."
@@ -509,28 +517,20 @@ var pill = (function() {
           content: [renameInput]
         }));
 
-        if (pillBlockOptions.type == "feats") {
-          pillControl.appendChild(_create_editBox({
-            title: "Feat notes",
-            guides: true,
-            boxSize: "m-edit-box-item-max",
-            content: [noteTextarea]
-          }));
-        } else if (pillBlockOptions.type == "traits") {
-          pillControl.appendChild(_create_editBox({
-            title: "Trait notes",
-            guides: true,
-            boxSize: "m-edit-box-item-max",
-            content: [noteTextarea]
-          }));
-        } else if (pillBlockOptions.type == "languages") {
-          pillControl.appendChild(_create_editBox({
-            title: "Languages notes",
-            guides: true,
-            boxSize: "m-edit-box-item-max",
-            content: [noteTextarea]
-          }));
+        var snackTitle = {
+          abilities: "Abilities notes",
+          feats: "Feats notes",
+          traits: "Traits notes",
+          languages: "Languages notes"
         };
+
+        pillControl.appendChild(_create_editBox({
+          title: snackTitle[pillBlockOptions.type],
+          guides: true,
+          boxSize: "m-edit-box-item-max",
+          content: [noteTextarea]
+        }));
+
       };
 
       var _create_dataBlock = function() {

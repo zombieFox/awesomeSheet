@@ -162,9 +162,8 @@ var blank = (function() {
         notes: ""
       },
       abilities: {
-        class: "",
-        racial: "",
-        special: ""
+        all: [],
+        notes: ""
       },
       power: {
         all: []

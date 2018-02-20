@@ -2579,14 +2579,23 @@ var repair = (function() {
         notes: oldLanguages
       };
     };
-    if (!("racial" in characterObject.statistics.abilities)) {
-      _report.repaired.push("update: abilities racial");
-      characterObject.statistics.abilities.racial = "";
+    if ("special" in characterObject.statistics.abilities) {
+      _report.repaired.push("update: abilities");
+      var oldAbilities = characterObject.statistics.abilities.special;
+      delete characterObject.statistics.abilities.special;
+      characterObject.statistics.abilities = {
+        all: [],
+        notes: oldAbilities
+      };
     };
-    if (!("class" in characterObject.statistics.abilities)) {
-      _report.repaired.push("update: abilities class");
-      characterObject.statistics.abilities.class = "";
-    };
+    // if (!("racial" in characterObject.statistics.abilities)) {
+    //   _report.repaired.push("update: abilities racial");
+    //   characterObject.statistics.abilities.racial = "";
+    // };
+    // if (!("class" in characterObject.statistics.abilities)) {
+    //   _report.repaired.push("update: abilities class");
+    //   characterObject.statistics.abilities.class = "";
+    // };
     _log("update complete: 510");
     _log("report:", _report);
     _log("-----");
