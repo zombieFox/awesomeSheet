@@ -511,12 +511,21 @@ var pill = (function() {
           content: [renameInput]
         }));
 
-        pillControl.appendChild(_create_editBox({
-          title: "Feat notes",
-          guides: true,
-          boxSize: "m-edit-box-item-max",
-          content: [noteTextarea]
-        }));
+        if (pillBlockOptions.type == "feats") {
+          pillControl.appendChild(_create_editBox({
+            title: "Feat notes",
+            guides: true,
+            boxSize: "m-edit-box-item-max",
+            content: [noteTextarea]
+          }));
+        } else if (pillBlockOptions.type == "traits") {
+          pillControl.appendChild(_create_editBox({
+            title: "Trait notes",
+            guides: true,
+            boxSize: "m-edit-box-item-max",
+            content: [noteTextarea]
+          }));
+        };
       };
 
       var _create_dataBlock = function() {
