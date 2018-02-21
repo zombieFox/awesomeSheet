@@ -23,7 +23,7 @@
       <div class="m-edit-box-content m-edit-box-content-margin-large">
         <div class="m-edit-box-item-total">
           <p class="m-edit-box-label">Level</p>
-          <p class="m-edit-box-text js-text-block js-tip" data-text-block-options="path:basics.experience.level" data-tip-options="message:Total Level from all Classes.,state:hover"></p>
+          <p class="m-edit-box-total js-text-block js-tip" data-text-block-options="path:basics.experience.level" data-tip-options="message:Total Level from all Classes.,state:hover"></p>
         </div>
         <div class="m-edit-box-item-medium">
           <div class="m-select-block js-select-block" data-select-block-options="path:basics.character.alignment">
@@ -133,7 +133,7 @@
         <div class="m-edit-box-item m-edit-box-group-control-set">
           <div class="m-edit-box-item-total">
             <p class="m-edit-box-label">Total</p>
-            <p class="m-edit-box-text js-text-block" data-text-block-options="path:basics.experience.total,type:number"></p>
+            <p class="m-edit-box-total js-text-block" data-text-block-options="path:basics.experience.total,type:number"></p>
           </div>
           <div class="m-edit-box-item-button-small">
             <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-slim js-input-block-aggregate-clear" data-input-block-aggregate-options="target:basics-experience-total,action:clear,snackMessage:Experience cleared.,promptHeading:Clear Experience?,promptMessage:Are you sure you want to clear the current Experience total?"
@@ -144,7 +144,7 @@
           <div class="m-edit-box-item-large">
             <div class="m-input-block js-input-block js-input-block-aggregate" data-input-block-aggregate-options="path:basics.experience.total,action:aggregate,eventType:xp,snackMessage:Experience.">
               <label class="m-input-block-label js-input-block-label" for="basics-experience-total">Experience to add/remove</label>
-              <input id="basics-experience-total" class="m-input-block-field u-full-width u-text-center js-input-block-field js-tip" data-tip-options="message:Use negative numbers to remove Experience. Eg: Apply '-100' to remove 100 EXP.,state:focus" type="number" tabindex="1">
+              <input id="basics-experience-total" class="m-input-block-field u-full-width u-text-center js-input-block-field js-tip" data-tip-options="message:Use positive numbers to add Experience. Eg: Apply '100' to add 100 EXP. Use negative numbers to remove Experience. Apply '-100' to remove 100 EXP.,state:focus" type="number" tabindex="1">
             </div>
           </div>
           <div class="m-edit-box-item-button-large">
@@ -175,11 +175,11 @@
           </div>
           <div class="m-edit-box-item-small">
             <p class="m-edit-box-label">Next Level</p>
-            <p class="m-edit-box-text js-text-block js-tip" data-text-block-options="path:basics.experience.next_level,type:number" data-tip-options="message:The total Experience for the next level.,state:hover"></p>
+            <p class="m-edit-box-total js-text-block js-tip" data-text-block-options="path:basics.experience.next_level,type:number" data-tip-options="message:The total Experience for the next level.,state:hover"></p>
           </div>
           <div class="m-edit-box-item-small">
             <p class="m-edit-box-label">Experience Needed</p>
-            <p class="m-edit-box-text js-text-block js-tip" data-text-block-options="path:basics.experience.needed,type:number" data-tip-options="message:The Experience needed to level up.,state:hover"></p>
+            <p class="m-edit-box-total js-text-block js-tip" data-text-block-options="path:basics.experience.needed,type:number" data-tip-options="message:The Experience needed to level up.,state:hover"></p>
           </div>
         </div>
       </div>

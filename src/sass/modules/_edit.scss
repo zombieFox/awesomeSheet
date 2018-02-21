@@ -418,26 +418,6 @@
   padding: 0 1em;
   margin: 0;
   font-size: $font-size-100;
-  font-family: $open-sans-bold;
-  line-height: $line-height-250;
-  height: 2.5em;
-  box-sizing: border-box;
-  border-radius: $border-radius-large;
-  border: 0;
-  border: $border;
-  border-color: $gray-16;
-  color: $base-color;
-  text-align: center;
-  white-space: nowrap;
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 0;
-  }
-}
-.m-edit-box-text {
-  background-color: $white;
-  padding: 0 0.8em;
-  margin: 0;
-  font-size: $font-size-100;
   font-family: $open-sans-semi-bold;
   line-height: $line-height-250;
   height: 2.5em;
@@ -448,6 +428,7 @@
   border-color: $gray-16;
   color: $base-color;
   text-align: center;
+  white-space: nowrap;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
   }
@@ -511,8 +492,7 @@
     color: $gray-18;
   }
   .m-edit-box-check-label,
-  .m-edit-box-radio-label,
-  .m-edit-box-text {
+  .m-edit-box-radio-label {
     background-color: $gray-03;
     border-color: $gray-06;
     color: $gray-18;
@@ -579,10 +559,6 @@
   }
   .m-edit-box-no-head-large {
     padding-left: 40%;
-  }
-  .m-edit-box-text {
-    line-height: $line-height-250;
-    height: 2.5em;
   }
   .m-edit-box-check-label,
   .m-edit-box-radio-label {
