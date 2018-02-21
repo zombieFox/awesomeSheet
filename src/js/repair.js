@@ -2552,40 +2552,31 @@ var repair = (function() {
     _report.repaired.push("update: awesome version");
     characterObject.awesomeSheet.version = 5.1;
     // abilities
-    if (!("feats" in characterObject.statistics)) {
+    if (!("feats" in characterObject.statistics) || !("traits" in characterObject.statistics) || !("languages" in characterObject.statistics)) {
       _report.repaired.push("update: feats");
       var oldFeats = characterObject.statistics.abilities.feats;
-      delete characterObject.statistics.abilities.feats;
+      var oldTraits = characterObject.statistics.abilities.traits;
+      var oldLanguages = characterObject.statistics.abilities.languages;
+      var oldAbilities = characterObject.statistics.abilities.special;
       characterObject.statistics.feats = {
         all: [],
         notes: oldFeats
       };
-    };
-    if (!("traits" in characterObject.statistics)) {
       _report.repaired.push("update: traits");
-      var oldTraits = characterObject.statistics.abilities.traits;
-      delete characterObject.statistics.abilities.traits;
       characterObject.statistics.traits = {
         all: [],
         notes: oldTraits
       };
-    };
-    if (!("languages" in characterObject.statistics)) {
       _report.repaired.push("update: languages");
-      var oldLanguages = characterObject.statistics.abilities.languages;
-      delete characterObject.statistics.abilities.languages;
       characterObject.statistics.languages = {
         all: [],
         notes: oldLanguages
       };
-    };
-    if (!("racial" in characterObject.statistics.abilities)) {
-      _report.repaired.push("update: abilities racial");
-      characterObject.statistics.abilities.racial = "";
-    };
-    if (!("class" in characterObject.statistics.abilities)) {
-      _report.repaired.push("update: abilities class");
-      characterObject.statistics.abilities.class = "";
+      _report.repaired.push("update: abilities");
+      characterObject.statistics.abilities = {
+        all: [],
+        notes: oldAbilities
+      };
     };
     _log("update complete: 510");
     _log("report:", _report);
