@@ -255,8 +255,8 @@ var orrin = (function() {
         current: ""
       },
       ac: {
-        misc: "",
-        temp: "",
+        misc: 3,
+        temp: 4,
         armor: 6,
         shield: 3,
         deflect: 1,
@@ -281,8 +281,8 @@ var orrin = (function() {
         }
       },
       flat_footed: {
-        misc: "",
-        temp: "",
+        misc: 3,
+        temp: 4,
         current: "",
         bonuses: {
           str_bonus: false,
@@ -301,8 +301,8 @@ var orrin = (function() {
         }
       },
       touch: {
-        misc: "",
-        temp: "",
+        misc: 3,
+        temp: 4,
         current: "",
         bonuses: {
           str_bonus: false,
@@ -321,7 +321,7 @@ var orrin = (function() {
           ac_natural: false
         }
       },
-      ac_notes: "+3 dodge bonus to AC against attacks made by traps.<br>+2 AC against incorporeal attacks.<br>+6 Dodge to AC for 1 round after Sneak Attack.",
+      ac_notes: "+3 dodge bonus to AC against attacks made by traps.<br>+2 AC against incorporeal attacks.<br>+6 Dodge to AC for 1 round after Sneak Attack.<br>Spells active: Barkskin (+5), Magic Vestment (+4), Deathward, Stoneskin (DR 10/adamantine[46/120]), Heroism, Haste, Mirror Image (1)",
       fortitude: {
         base: "",
         resistance: 2,
