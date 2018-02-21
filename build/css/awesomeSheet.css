@@ -1911,22 +1911,10 @@ label {
   2% {
     width: 15px;
     height: 15px; }
-  25% {
-    width: 10px;
-    height: 10px; }
-  27% {
-    width: 15px;
-    height: 15px; }
   50% {
     width: 10px;
     height: 10px; }
   52% {
-    width: 15px;
-    height: 15px; }
-  75% {
-    width: 10px;
-    height: 10px; }
-  77% {
     width: 15px;
     height: 15px; }
   100% {
@@ -1940,22 +1928,10 @@ label {
   2% {
     width: 15px;
     height: 15px; }
-  25% {
-    width: 10px;
-    height: 10px; }
-  27% {
-    width: 15px;
-    height: 15px; }
   50% {
     width: 10px;
     height: 10px; }
   52% {
-    width: 15px;
-    height: 15px; }
-  75% {
-    width: 10px;
-    height: 10px; }
-  77% {
     width: 15px;
     height: 15px; }
   100% {
@@ -1967,27 +1943,11 @@ label {
     width: 0;
     height: 0;
     background-color: #fd0042; }
-  25% {
-    width: 60px;
-    height: 60px;
-    background-color: transparent; }
-  25.0000000001% {
-    width: 15px;
-    height: 15px;
-    background-color: #fd0042; }
   50% {
     width: 60px;
     height: 60px;
     background-color: transparent; }
   50.0000000001% {
-    width: 15px;
-    height: 15px;
-    background-color: #fd0042; }
-  75% {
-    width: 60px;
-    height: 60px;
-    background-color: transparent; }
-  75.0000000001% {
     width: 15px;
     height: 15px;
     background-color: #fd0042; }
@@ -2001,27 +1961,11 @@ label {
     width: 0;
     height: 0;
     background-color: #fd0042; }
-  25% {
-    width: 60px;
-    height: 60px;
-    background-color: transparent; }
-  25.0000000001% {
-    width: 15px;
-    height: 15px;
-    background-color: #fd0042; }
   50% {
     width: 60px;
     height: 60px;
     background-color: transparent; }
   50.0000000001% {
-    width: 15px;
-    height: 15px;
-    background-color: #fd0042; }
-  75% {
-    width: 60px;
-    height: 60px;
-    background-color: transparent; }
-  75.0000000001% {
     width: 15px;
     height: 15px;
     background-color: #fd0042; }
@@ -4821,11 +4765,11 @@ label {
       margin-top: 1.25em; }
 
 .m-clone-block:not(.is-delete-state) .m-clone-block-target .m-clone .m-clone-block-content .m-clone-flash {
-  -webkit-animation: new-flash-center ease 3s 1;
-          animation: new-flash-center ease 3s 1; }
+  -webkit-animation: new-flash-center ease 1.5s 1;
+          animation: new-flash-center ease 1.5s 1; }
   .m-clone-block:not(.is-delete-state) .m-clone-block-target .m-clone .m-clone-block-content .m-clone-flash:before {
-    -webkit-animation: new-flash-pulse ease 3s 1;
-            animation: new-flash-pulse ease 3s 1; }
+    -webkit-animation: new-flash-pulse ease 1.5s 1;
+            animation: new-flash-pulse ease 1.5s 1; }
 
 .m-clone-block.is-delete-state .m-clone-block-target .m-clone .m-clone-block-content {
   width: calc(100% - 3em);
@@ -5579,11 +5523,13 @@ label {
           align-items: stretch;
   position: relative;
   z-index: 1; }
+  .m-tab-row::-webkit-scrollbar {
+    display: none; }
 
 .m-tab-item {
   background-color: transparent;
-  margin: 0.1em 0 0 0;
-  padding: 0.25em 2em 0.15em 2em;
+  margin: 0.1em 0 0;
+  padding: 0.25em 2em 0.15em;
   color: #ffffff;
   border: 0;
   border-color: transparent;
@@ -6101,6 +6047,110 @@ label {
 .m-spell-control hr {
   margin-top: 2em;
   margin-bottom: 2em; }
+
+.m-pill-block-area {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch; }
+  .m-pill-block-area.is-state-remove .m-pill-item {
+    -webkit-flex-flow: row nowrap;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap; }
+    .m-pill-block-area.is-state-remove .m-pill-item .m-pill-item-remove {
+      display: block;
+      visibility: visible; }
+  .m-pill-block-area:not(.is-state-remove) .m-pill-flash {
+    -webkit-animation: new-flash-center ease 1.5s 1;
+            animation: new-flash-center ease 1.5s 1; }
+    .m-pill-block-area:not(.is-state-remove) .m-pill-flash:before {
+      -webkit-animation: new-flash-pulse ease 1.5s 1;
+              animation: new-flash-pulse ease 1.5s 1; }
+
+.m-pill-item {
+  margin: 0 0 0.5em;
+  -webkit-flex: 0 0 49%;
+      -ms-flex: 0 0 49%;
+          flex: 0 0 49%;
+  max-width: 49%;
+  width: 100%;
+  text-align: left;
+  position: relative;
+  white-space: normal;
+  text-transform: none;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Open Sans Regular", Helvetica, Arial, sans-serif; }
+  .m-pill-item .m-pill-item-name {
+    -webkit-flex: 1 1 auto;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%; }
+  .m-pill-item .m-pill-item-remove {
+    -webkit-flex: 1 1 auto;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+    display: none;
+    visibility: hidden; }
+    .m-pill-item .m-pill-item-remove [class*=" icon-"],
+    .m-pill-item .m-pill-item-remove [class^="icon-"] {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-justify-content: flex-end;
+          -ms-flex-pack: end;
+              justify-content: flex-end; }
+  .m-pill-item .m-pill-flash {
+    background-color: #fd0042;
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: -1em;
+    width: 0;
+    height: 0;
+    border-radius: 100%;
+    border: 0 solid transparent;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    z-index: 3; }
+    .m-pill-item .m-pill-flash:before {
+      content: "";
+      background-color: #fd0042;
+      display: block;
+      position: relative;
+      width: 0;
+      height: 0;
+      border-radius: 100%;
+      box-shadow: 0 0 0 60px transparent;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+      z-index: 2; }
 
 .m-prompt {
   position: fixed;

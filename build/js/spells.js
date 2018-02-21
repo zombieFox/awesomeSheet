@@ -94,7 +94,7 @@ var spells = (function() {
     var all_addNewSpell = helper.eA(".js-add-new-spell");
     for (var i = 0; i < all_addNewSpell.length; i++) {
       all_addNewSpell[i].addEventListener("click", function() {
-        addNewSpell(this);
+        _addNewSpell(this);
         sheet.store();
       }, false);
     };
@@ -126,13 +126,14 @@ var spells = (function() {
   };
 
   function add(element, spellIndex) {
-    var spellData = spellsData.get({
+    var spellData = data.get({
+      type: "spells",
       index: spellIndex
     });
-    addNewSpell(element, spellIndex, spellData);
+    _addNewSpell(element, spellIndex, spellData);
   };
 
-  function addNewSpell(element, spellIndex, spellData) {
+  function _addNewSpell(element, spellIndex, spellData) {
     var spellBlock = helper.getClosest(element, ".js-spell-block");
     var spellBlockOptions = helper.makeObject(spellBlock.dataset.spellBlockOptions);
     var addNewSpellField = spellBlock.querySelector(".js-add-new-spell-field");
@@ -140,7 +141,7 @@ var spells = (function() {
     if (spellData) {
       spellName = spellData.name;
     } else {
-      spellName = addNewSpellField.value
+      spellName = addNewSpellField.value;
     };
     if (spellName != "") {
       var newSpellObject = new _create_spellObject(spellName, 0, false, 0, "", spellIndex);
@@ -158,7 +159,7 @@ var spells = (function() {
 
   function _addNewSpellOnEnter(input, event) {
     if (event.keyCode == 13) {
-      addNewSpell(input);
+      _addNewSpell(input);
     };
   };
 
@@ -585,7 +586,8 @@ var spells = (function() {
 
       var _create_spellblock = function() {
 
-        var spellData = spellsData.get({
+        var spellData = data.get({
+          type: "spells",
           index: tempSpellObject.index
         });
 
@@ -656,6 +658,18 @@ var spells = (function() {
           para.textContent = helper.capFirstLetter(spellData.casting.range);
           spellControl.appendChild(_create_editBox({
             title: "Range",
+            textOnly: true,
+            guides: true,
+            content: [para],
+            boxSize: "m-edit-box-item-max"
+          }));
+        };
+
+        if (spellData.description.effect != "") {
+          var para = document.createElement("p");
+          para.textContent = helper.capFirstLetter(spellData.description.effect);
+          spellControl.appendChild(_create_editBox({
+            title: "Effect",
             textOnly: true,
             guides: true,
             content: [para],

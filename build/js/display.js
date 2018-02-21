@@ -183,6 +183,33 @@ var display = (function() {
     };
   };
 
+  function _get_all_pill(all_displayPath) {
+    var all_node = [];
+    for (var i = 0; i < all_displayPath.length; i++) {
+      var all_pill = helper.getObject({
+        object: sheet.get(),
+        path: all_displayPath[i]
+      });
+      if (all_pill.length == 0) {
+        all_node.push(false);
+      } else {
+        for (var j = 0; j < all_pill.length; j++) {
+          all_node.push(_get_pill(all_pill[j]));
+        };
+      };
+    };
+    return all_node;
+  };
+
+  function _get_pill(pill) {
+    var displayListItem = document.createElement("li");
+    displayListItem.setAttribute("class", "m-display-list-item m-display-list-item-pill");
+    var pillName = document.createElement("span");
+    pillName.textContent = pill.name;
+    displayListItem.appendChild(pillName);
+    return displayListItem;
+  };
+
   function _get_all_spell(all_displayPath, all_displaySpellLevel) {
     var all_node = [];
     for (var i = 0; i < all_displayPath.length; i++) {
@@ -953,6 +980,8 @@ var display = (function() {
           all_node = _get_all_skill(all_displayPath, all_displayPrefix);
         } else if (displayType == "spell") {
           all_node = _get_all_spell(all_displayPath, all_displaySpellLevel);
+        } else if (displayType == "pill") {
+          all_node = _get_all_pill(all_displayPath);
         };
 
         // loop over each node in array and append to target
