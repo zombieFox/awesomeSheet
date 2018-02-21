@@ -23,8 +23,51 @@ var pill = (function() {
   })();
 
   function bind() {
-    _bind_all_pillBlock();
+    _bind_all_pillBlockField();
+    _bind_all_pillBlockAdd();
     _bind_all_pillControl();
+  };
+
+  // var pillBlockAdd = pillBlock.querySelector(".js-pill-block-add");
+
+  function _bind_all_pillBlockField(pillBlockField) {
+    if (pillBlockField) {
+      _bind_pillBlockField(pillBlockField);
+    } else {
+      var all_pillBlockField = helper.eA(".js-pill-block-field");
+      for (var i = 0; i < all_pillBlockField.length; i++) {
+        _bind_pillBlockField(all_pillBlockField[i]);
+      };
+    };
+  };
+
+  function _bind_pillBlockField(pillBlockField) {
+    pillBlockField.addEventListener("keypress", function(event) {
+      if (event.keyCode == 13) {
+        clearTimeout(_timer_onEnterAction);
+        _timer_onEnterAction = setTimeout(_onEnterAction, 100, this, event);
+      };
+    }, false);
+  };
+
+  function _bind_all_pillBlockAdd(pillBlockAdd) {
+    if (pillBlockAdd) {
+      _bind_pillBlockAdd(pillBlockAdd);
+    } else {
+      var all_pillBlockAdd = helper.eA(".js-pill-block-add");
+      for (var i = 0; i < all_pillBlockAdd.length; i++) {
+        _bind_pillBlockAdd(all_pillBlockAdd[i]);
+      };
+    };
+  };
+
+  function _bind_pillBlockAdd(pillBlockAdd) {
+    pillBlockAdd.addEventListener("click", function(event) {
+      var pillBlock = helper.getClosest(this, ".js-pill-block");
+      var all_pillBlockField = pillBlock.querySelector(".js-pill-block-field");
+      clearTimeout(_timer_onEnterAction);
+      _timer_onEnterAction = setTimeout(_onEnterAction, 100, all_pillBlockField, event);
+    }, false);
   };
 
   function _bind_all_pillControl() {
@@ -34,27 +77,6 @@ var pill = (function() {
         _pillControl(this);
       }, false);
     };
-  };
-
-  function _bind_all_pillBlock(pillBlock) {
-    if (pillBlock) {
-      _bind_pillBlock(pillBlock);
-    } else {
-      var all_pillBlock = helper.eA(".js-pill-block");
-      for (var i = 0; i < all_pillBlock.length; i++) {
-        _bind_pillBlock(all_pillBlock[i]);
-      };
-    };
-  };
-
-  function _bind_pillBlock(pillBlock) {
-    var pillBlockField = pillBlock.querySelector(".js-pill-block-field");
-    pillBlockField.addEventListener("keypress", function(event) {
-      if (event.keyCode == 13) {
-        clearTimeout(_timer_onEnterAction);
-        _timer_onEnterAction = setTimeout(_onEnterAction, 100, this, event);
-      };
-    }, false);
   };
 
   function _onEnterAction(input, event) {
@@ -231,45 +253,48 @@ var pill = (function() {
       defaultOptions = helper.applyOptions(defaultOptions, options);
     };
     if (defaultOptions.input != null) {
-      var pillBlock = helper.getClosest(defaultOptions.input, ".js-pill-block");
-      var pillBlockArea = pillBlock.querySelector(".js-pill-block-area");
-      var pillBlockOptions = helper.makeObject(pillBlock.dataset.pillBlockOptions);
-      var newIndex = _get_pillCount(pillBlockOptions.type);
-      var newPillObject;
+      var pillName;
+      var dataIndex;
       if (defaultOptions.object != null) {
-        newPillObject = new _create_pillObject({
-          name: defaultOptions.object.name,
-          index: defaultOptions.object.index
-        });
+        pillName = defaultOptions.object.name;
+        dataIndex = defaultOptions.object.index;
       } else {
-        newPillObject = _create_pillObject({
-          name: defaultOptions.input.value,
-          index: false
-        });
+        pillName = defaultOptions.input.value;
+        dataIndex = false;
       };
-      if (newPillObject != undefined) {
+      if (pillName != "") {
+        var pillBlock = helper.getClosest(defaultOptions.input, ".js-pill-block");
+        var pillBlockArea = pillBlock.querySelector(".js-pill-block-area");
+        var pillBlockOptions = helper.makeObject(pillBlock.dataset.pillBlockOptions);
         var newIndex = _get_pillCount(pillBlockOptions.type);
-        helper.setObject({
-          object: sheet.get(),
-          path: pillBlockOptions.path + "[" + newIndex + "]",
-          newValue: newPillObject
+        var newPillObject;
+        newPillObject = new _create_pillObject({
+          name: pillName,
+          index: dataIndex
         });
-        defaultOptions.input.value = "";
-        _render_pillItem({
-          pillBlockArea: pillBlockArea,
-          pillObject: newPillObject,
-          index: newIndex,
-          type: pillBlockOptions.type,
-          newPill: true
-        });
-        _render_pillPlaceholder(pillBlockOptions.type);
+        if (newPillObject != undefined) {
+          var newIndex = _get_pillCount(pillBlockOptions.type);
+          helper.setObject({
+            object: sheet.get(),
+            path: pillBlockOptions.path + "[" + newIndex + "]",
+            newValue: newPillObject
+          });
+          defaultOptions.input.value = "";
+          _render_pillItem({
+            pillBlockArea: pillBlockArea,
+            pillObject: newPillObject,
+            index: newIndex,
+            type: pillBlockOptions.type,
+            newPill: true
+          });
+          _render_pillPlaceholder(pillBlockOptions.type);
+        };
       };
     };
   };
 
   function clear(pillBlock) {
     if (pillBlock) {
-      var pillBlock = helper.getClosest(defaultOptions.input, ".js-pill-block");
       var pillBlockArea = pillBlock.querySelector(".js-pill-block-area");
       var pillBlockOptions = helper.makeObject(pillBlock.dataset.pillBlockOptions);
       while (pillBlockArea.lastChild) {
