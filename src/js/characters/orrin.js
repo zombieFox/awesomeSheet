@@ -57,8 +57,8 @@ var orrin = (function() {
         }
       },
       xp: {
-        total: 105348,
-        advancement_speed: "Medium",
+        total: 131320,
+        advancement_speed: "Fast",
         next_level: "",
         needed: ""
       },
@@ -1758,17 +1758,47 @@ var orrin = (function() {
     }, {
       type: "xp",
       event: {
+        aggregate_value: 930
+      },
+      timestamp: {
+        date: 10,
+        day: 4,
+        year: 2018,
+        hours: 19,
+        milliseconds: 10,
+        minutes: 40,
+        month: 0,
+        seconds: 0
+      }
+    }, {
+      type: "xp",
+      event: {
         aggregate_value: 12590
       },
       timestamp: {
-        date: 6,
-        day: 3,
-        year: 2017,
-        hours: 23,
-        milliseconds: 741,
-        minutes: 55,
-        month: 11,
-        seconds: 18
+        date: 10,
+        day: 4,
+        year: 2018,
+        hours: 19,
+        milliseconds: 10,
+        minutes: 40,
+        month: 0,
+        seconds: 0
+      }
+    }, {
+      type: "xp",
+      event: {
+        aggregate_value: 70160
+      },
+      timestamp: {
+        date: 10,
+        day: 4,
+        year: 2018,
+        hours: 19,
+        milliseconds: 10,
+        minutes: 40,
+        month: 0,
+        seconds: 0
       }
     }]
   };
