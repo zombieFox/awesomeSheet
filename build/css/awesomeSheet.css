@@ -2158,11 +2158,14 @@ label {
     margin: 0;
     display: block;
     -webkit-columns: 10em 2;
+       -moz-columns: 10em 2;
             columns: 10em 2;
     -webkit-column-gap: 2em;
+       -moz-column-gap: 2em;
             column-gap: 2em; }
     .l-section-wrapper > * {
       -webkit-column-break-inside: avoid;
+         page-break-inside: avoid;
               break-inside: avoid; }
   .l-section {
     margin: 0 0 1em;
@@ -3794,7 +3797,7 @@ label {
   padding: 0 1em;
   margin: 0;
   font-size: 1em;
-  font-family: "Open Sans Bold", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
   line-height: 2.5;
   height: 2.5em;
   box-sizing: border-box;
@@ -3806,24 +3809,6 @@ label {
   text-align: center;
   white-space: nowrap; }
   .m-edit-box-total:not(:only-child):not(:last-child) {
-    margin-bottom: 0; }
-
-.m-edit-box-text {
-  background-color: #ffffff;
-  padding: 0 0.8em;
-  margin: 0;
-  font-size: 1em;
-  font-family: "Open Sans Semi Bold", Helvetica, Arial, sans-serif;
-  line-height: 2.5;
-  height: 2.5em;
-  box-sizing: border-box;
-  border-radius: 5px;
-  border: 0;
-  border: 1px solid transparent;
-  border-color: #c7c7c7;
-  color: #2e2e2e;
-  text-align: center; }
-  .m-edit-box-text:not(:only-child):not(:last-child) {
     margin-bottom: 0; }
 
 .m-edit-box-check-label,
@@ -3874,8 +3859,7 @@ label {
   color: #e0e0e0; }
 
 .is-night-mode .m-edit-box-check-label,
-.is-night-mode .m-edit-box-radio-label,
-.is-night-mode .m-edit-box-text {
+.is-night-mode .m-edit-box-radio-label {
   background-color: #212121;
   border-color: #474747;
   color: #e0e0e0; }
@@ -3932,9 +3916,6 @@ label {
     padding-left: 30%; }
   .m-edit-box-no-head-large {
     padding-left: 40%; }
-  .m-edit-box-text {
-    line-height: 2.5;
-    height: 2.5em; }
   .m-edit-box-check-label,
   .m-edit-box-radio-label {
     line-height: 2.5;
@@ -7275,6 +7256,7 @@ label {
       border-bottom: 1px solid #adadad; }
   .m-display-list-compact {
     -webkit-columns: 1;
+       -moz-columns: 1;
             columns: 1; }
     .m-display-list-compact .m-display-list-item {
       padding-top: 2px;

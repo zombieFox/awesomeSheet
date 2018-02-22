@@ -149,6 +149,10 @@ var blank = (function() {
           current: ""
         }
       },
+      abilities: {
+        all: [],
+        notes: ""
+      },
       feats: {
         all: [],
         notes: ""
@@ -158,10 +162,6 @@ var blank = (function() {
         notes: ""
       },
       languages: {
-        all: [],
-        notes: ""
-      },
-      abilities: {
         all: [],
         notes: ""
       },
