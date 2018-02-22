@@ -183,6 +183,27 @@ var display = (function() {
     };
   };
 
+  function state(options) {
+    var defaultOptions = {
+      all: false
+    };
+    if (options) {
+      defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
+    var fab = helper.e(".js-fab");
+    if (defaultOptions.all) {
+      return (fab.dataset.displayModeAll == "true");
+    } else {
+      return (fab.dataset.displayMode == "true");
+    };
+  };
+
+
+
+
+
+
+
   function _get_all_pill(all_displayPath) {
     var all_node = [];
     for (var i = 0; i < all_displayPath.length; i++) {
@@ -899,7 +920,167 @@ var display = (function() {
     return displayImage;
   };
 
-  function _render_displayBlock(section) {
+
+  function render(displayBlock) {
+    _render_all_displayBlock(displayBlock);
+  };
+
+  function _render_all_displayBlock(displayBlock) {
+    if (displayBlock) {
+      _render_displayBlock(displayBlock);
+    } else {
+      var all_displayBlock = helper.eA(".js-display-block");
+      for (var i = 0; i < all_displayBlock.length; i++) {
+        _render_displayBlock(all_displayBlock[i]);
+      };
+    };
+  };
+
+  function _render_displayBlock(displayBlock) {
+    var options = helper.makeObject(displayBlock.dataset.displayOptions);
+    if (options) {
+      console.log(options);
+      var all_element = [];
+      var getElements = {
+        snippet: function() {
+          options.path.forEach(function(arrayItem) {
+            all_element.push(arrayItem);
+          });
+        },
+        block: function() {
+          all_element.push("add a block");
+        }
+      };
+      getElements[options.type]();
+      console.log(all_element);
+      // var all_displayTarget = displayBlock.querySelectorAll(".js-display-target");
+      // all_displayTarget.forEach(function(arrayItem, index) {
+      //   _render_displayTarget(arrayItem);
+      // });
+
+    };
+  };
+
+  function _create_element() {
+
+    function snippet() {
+
+    };
+
+    return {
+      snippet: snippet
+    }
+  }
+
+  function _render_displayTarget(displayTarget) {
+    // var options = helper.makeObject(displayTarget.dataset.displayOptions);
+    // console.log("fire");
+    // console.log(options);
+    // console.log(getElements);
+    // console.log(getElements[options.type]);
+
+
+    // find all targets in this display blocks
+    // var all_displayBlockTarget = all_displayBlock[i].querySelectorAll(".js-display-block-target");
+    // // start a "no data found at path" count
+    // var dataNotFoundAtPath = 0;
+    // var totalNodeLength = 0;
+    // var all_node = [];
+    //
+    // // loop over each target in this display blocks
+    // for (var j = 0; j < all_displayBlockTarget.length; j++) {
+    //
+    //   // get all data from display blocks target
+    //   var target = all_displayBlockTarget[j];
+    //   // var display = helper.getClosest(all_displayBlockTarget[j], ".js-display");
+    //   var displayType = all_displayBlockTarget[j].dataset.displayType;
+    //   var all_displayPath;
+    //   var all_displayDependency = false;
+    //   var all_displayPrefix = false;
+    //   var all_displaySuffix = false;
+    //   var all_displayValueType = false;
+    //   var all_displayScale = false;
+    //   var all_displayPosition = false;
+    //   var all_displayColor = false;
+    //   var all_displaySpellLevel = false;
+    //
+    //   if (all_displayBlockTarget[j].dataset.displayPath) {
+    //     all_displayPath = all_displayBlockTarget[j].dataset.displayPath.split(",");
+    //   };
+    //   if (all_displayBlockTarget[j].dataset.displayDependency) {
+    //     all_displayDependency = all_displayBlockTarget[j].dataset.displayDependency.split(",");
+    //   };
+    //   if (all_displayBlockTarget[j].dataset.displayPrefix) {
+    //     all_displayPrefix = all_displayBlockTarget[j].dataset.displayPrefix.split(",");
+    //   };
+    //   if (all_displayBlockTarget[j].dataset.displaySuffix) {
+    //     all_displaySuffix = all_displayBlockTarget[j].dataset.displaySuffix.split(",");
+    //   };
+    //   if (all_displayBlockTarget[j].dataset.displayValueType) {
+    //     all_displayValueType = all_displayBlockTarget[j].dataset.displayValueType.split(",");
+    //   };
+    //   if (all_displayBlockTarget[j].dataset.displayScale) {
+    //     all_displayScale = all_displayBlockTarget[j].dataset.displayScale.split(",");
+    //   };
+    //   if (all_displayBlockTarget[j].dataset.displayPosition) {
+    //     all_displayPosition = all_displayBlockTarget[j].dataset.displayPosition.split(",");
+    //   };
+    //   if (all_displayBlockTarget[j].dataset.displayColor) {
+    //     all_displayColor = all_displayBlockTarget[j].dataset.displayColor.split(",");
+    //   };
+    //   if (all_displayBlockTarget[j].dataset.displaySpellLevel) {
+    //     all_displaySpellLevel = all_displayBlockTarget[j].dataset.displaySpellLevel.split(",");
+    //   };
+    //
+    //   // get an array of nodes using the array of paths
+    //   if (displayType == "stat") {
+    //     all_node = _get_all_stat(all_displayPath);
+    //   } else if (displayType == "modifier") {
+    //     all_node = _get_all_modifier(all_displayPath, all_displayValueType);
+    //   } else if (displayType == "image") {
+    //     all_node = _get_all_image(all_displayPath, all_displayScale, all_displayPosition, all_displayColor);
+    //   } else if (displayType == "text-snippet") {
+    //     all_node = _get_all_textSnippet(all_displayPath, all_displayPrefix, all_displaySuffix, all_displayDependency, all_displayValueType);
+    //   } else if (displayType == "text-block") {
+    //     all_node = _get_all_textBlock(all_displayPath);
+    //   } else if (displayType == "list") {
+    //     all_node = _get_all_list(all_displayPath, all_displayPrefix, all_displaySuffix, all_displayValueType);
+    //   } else if (displayType == "clone") {
+    //     all_node = _get_all_clone(all_displayPath);
+    //   } else if (displayType == "skill") {
+    //     all_node = _get_all_skill(all_displayPath, all_displayPrefix);
+    //   } else if (displayType == "spell") {
+    //     all_node = _get_all_spell(all_displayPath, all_displaySpellLevel);
+    //   } else if (displayType == "pill") {
+    //     all_node = _get_all_pill(all_displayPath);
+    //   };
+    //
+    //   // loop over each node in array and append to target
+    //   all_node.forEach(function(arrayItem) {
+    //     if (arrayItem != false) {
+    //       // append to target
+    //       target.appendChild(arrayItem);
+    //     } else {
+    //       // or increment the "no data found at path" count
+    //       dataNotFoundAtPath++;
+    //     };
+    //   });
+    //
+    //   totalNodeLength = totalNodeLength + all_node.length;
+    // };
+    // // if the "no data found at path" count == total "path count" this display blocks target is empty so add a data vale to reflect this
+    // if (totalNodeLength > dataNotFoundAtPath) {
+    //   all_displayBlock[i].dataset.displayContent = true;
+    // } else {
+    //   all_displayBlock[i].dataset.displayContent = false;
+    // };
+  };
+
+
+
+
+
+  function _____render_displayBlock(section) {
     // find all display blocks
     var all_displayBlock;
     if (section) {
@@ -1008,7 +1189,7 @@ var display = (function() {
 
   };
 
-  function render(section) {
+  function ____render(section) {
     _render_displayBlock(section);
     _update_displayPlaceholder(section);
   };
@@ -1049,21 +1230,6 @@ var display = (function() {
     };
   };
 
-  function _get_displayState(options) {
-    var defaultOptions = {
-      all: false
-    };
-    if (options) {
-      defaultOptions = helper.applyOptions(defaultOptions, options);
-    };
-    var fab = helper.e(".js-fab");
-    if (defaultOptions.all) {
-      return (fab.dataset.displayModeAll == "true");
-    } else {
-      return (fab.dataset.displayMode == "true");
-    };
-  };
-
   // exposed methods
   return {
     toggle: toggle,
@@ -1071,7 +1237,7 @@ var display = (function() {
     update: update,
     render: render,
     clear: clear,
-    state: _get_displayState
+    state: state
   };
 
 })();
