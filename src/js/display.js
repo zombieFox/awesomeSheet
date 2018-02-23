@@ -939,38 +939,117 @@ var display = (function() {
   function _render_displayBlock(displayBlock) {
     var options = helper.makeObject(displayBlock.dataset.displayOptions);
     if (options) {
-      console.log(options);
       var all_element = [];
       var getElements = {
-        snippet: function() {
-          options.path.forEach(function(arrayItem) {
-            all_element.push(arrayItem);
+        snippet: function(options) {
+          console.log("snippet ----------------");
+          console.log(options);
+          options.path.forEach(function(arrayItem, index) {
+            var config = {
+              path: arrayItem
+            };
+            if ("prefix" in options) {
+              if (options.prefix[index]) {
+                config.prefix = options.prefix[index];
+              } else {
+                config.prefix = false;
+              };
+            };
+            if ("suffix" in options) {
+              if (options.suffix[index]) {
+                config.suffix = options.suffix[index];
+              } else {
+                config.suffix = false;
+              };
+            };
+            all_element.push(_create_element().snippet(config));
           });
         },
         block: function() {
-          all_element.push("add a block");
+          console.log("block ----------------");
+          options.path.forEach(function(arrayItem) {
+            all_element.push(_create_element().block(options));
+          });
         }
       };
-      getElements[options.type]();
+      getElements[options.type](options);
       console.log(all_element);
-      // var all_displayTarget = displayBlock.querySelectorAll(".js-display-target");
-      // all_displayTarget.forEach(function(arrayItem, index) {
-      //   _render_displayTarget(arrayItem);
-      // });
-
     };
   };
 
   function _create_element() {
 
-    function snippet() {
+    function snippet(config) {
+      var data = helper.getObject({
+        object: sheet.get(),
+        path: config.path
+      });
+      var displayItem;
+      if (typeof data != undefined && data != "") {
+        displayItem = document.createElement("span");
+        displayItem.setAttribute("class", "m-display-item-text-snippet");
+        var value = document.createElement("span");
+        value.setAttribute("class", "m-display-item-text-snippet-value");
+        if (config.valueType == "bonus" && data > 0) {
+          data = "+" + data;
+        } else if (config.valueType == "currency" && data > 0) {
+          data = parseFloat(data).toLocaleString(undefined, {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+          });
+          if (data.indexOf(".00") !== -1) {
+            data = data.substr(0, data.indexOf("."));
+          };
+        } else if (config.valueType == "number" && data > 0) {
+          data = parseFloat(data).toLocaleString(undefined, {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+          });
+        } else if (config.valueType == "weight" && data > 0) {
+          data = parseFloat(data).toLocaleString(undefined, {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+          });
+          if (data.indexOf(".00") !== -1) {
+            data = data.substr(0, data.indexOf("."));
+          };
+        };
+        if (config.dependency) {
+          data = data + " / " + helper.getObject({
+            object: sheet.get(),
+            path: config.dependency
+          });
+        };
+        value.innerHTML = data;
+        if (config.prefix) {
+          var spanPrefix = document.createElement("span");
+          spanPrefix.setAttribute("class", "m-display-item-text-snippet-prefix");
+          spanPrefix.textContent = config.prefix;
+          displayItem.appendChild(spanPrefix);
+        };
+        displayItem.appendChild(value);
+        if (config.suffix) {
+          var spanSuffix = document.createElement("span");
+          spanSuffix.setAttribute("class", "m-display-item-text-snippet-suffix");
+          spanSuffix.textContent = config.suffix;
+          displayItem.appendChild(spanSuffix);
+        };
+      } else {
+        displayItem = false;
+      };
+      console.log(config.path, displayItem);
+      return displayItem;
+    };
 
+    function block(path) {
+      console.log("path", path);
     };
 
     return {
-      snippet: snippet
-    }
-  }
+      snippet: snippet,
+      block: block
+    };
+  };
 
   function _render_displayTarget(displayTarget) {
     // var options = helper.makeObject(displayTarget.dataset.displayOptions);
