@@ -35,7 +35,6 @@ var card = (function() {
         event.stopPropagation();
         event.preventDefault();
         _displayToggle(this);
-        // _unminimise(this);
       }, false);
     };
   };
@@ -48,10 +47,11 @@ var card = (function() {
 
   function _displayToggle(element) {
     var section = helper.getClosest(element, ".js-section");
+    var displaySection = section.querySelector(".js-display");
     display.clear(section);
     display.render(section);
     display.toggle(section);
-    display.update();
+    // display.update(section);
     themeColor.update();
   };
 
