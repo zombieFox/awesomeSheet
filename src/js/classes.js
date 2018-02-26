@@ -106,11 +106,15 @@ var classes = (function() {
       path: "defense.saves.will.base",
       newValue: totalWill
     });
+    _classLevel();
   };
 
-  function get_classLevel(characterObject) {
+  function _classLevel() {
     var classAndLevel = "";
-    var classes = characterObject.basics.classes.all;
+    var classes = helper.getObject({
+      object: sheet.get(),
+      path: "basics.classes.all"
+    });
     if (classes.length > 0) {
       classes.forEach(function(arrayItem, index) {
         var classname = arrayItem.classname || "No class";
@@ -121,14 +125,17 @@ var classes = (function() {
         };
       });
     };
-    return classAndLevel;
+    helper.setObject({
+      object: sheet.get(),
+      path: "basics.classes.string",
+      newValue: classAndLevel
+    });
   };
 
   // exposed methods
   return {
     bind: bind,
-    render: render,
-    getClassLevel: get_classLevel
+    render: render
   };
 
 })();

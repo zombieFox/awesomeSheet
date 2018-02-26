@@ -91,8 +91,7 @@ var izlara = (function() {
           height: 500
         },
         scale: 100
-      },
-      character_image: {}
+      }
     },
     statistics: {
       stats: {
