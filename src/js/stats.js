@@ -74,10 +74,8 @@ var stats = (function() {
     classes.render();
     totalBlock.render();
     textBlock.render();
-    if (display.state()) {
-      display.clear();
-      display.render();
-    };
+    display.clear();
+    display.render();
   };
 
   function bind() {

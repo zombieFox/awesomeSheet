@@ -200,10 +200,8 @@ var inputBlock = (function() {
     totalBlock.render();
     textBlock.render();
     sheet.store();
-    if (display.state()) {
-      display.clear();
-      display.render();
-    };
+    display.clear();
+    display.render();
   };
 
   function _focus(element) {

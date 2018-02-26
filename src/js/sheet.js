@@ -580,7 +580,9 @@ var sheet = (function() {
       if (event.ctrlKey && event.altKey && event.keyCode == 68) {
         display.clear();
         display.render();
-        display.toggle();
+        display.toggle({
+          all: true
+        });
         themeColor.update();
       };
       // ctrl+alt+n

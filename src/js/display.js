@@ -20,19 +20,27 @@ var display = (function() {
         defaultOptions = helper.applyOptions(defaultOptions, options);
       };
       if (defaultOptions.all != null && defaultOptions.all) {
-        var allCount = 0;
+        var displayOnCount = 0;
         var sectionCount = 0;
         for (var key in displayState) {
           sectionCount++;
           if (displayState[key]) {
-            allCount++;
+            displayOnCount++;
           };
         };
-        if (allCount == sectionCount) {
+        // if no sections are in display mode
+        if (displayOnCount == 0) {
+          return false;
+          // if all sections are in display mode
+        } else if (displayOnCount == sectionCount) {
+          return true;
+          // if more than half the number of sections are in display mode
+        } else if (displayOnCount >= (sectionCount / 2)) {
           return true;
         } else {
+          // else restore to edit mode
           return false;
-        }
+        };
       } else if (defaultOptions.section != null) {
         return displayState[defaultOptions.section.id];
       } else {
@@ -121,20 +129,22 @@ var display = (function() {
       state.set({
         all: true
       });
-      _render_all_section({
+      _toggle_all_section({
         all: true
       });
+      _toggle_chrome();
     } else if (defaultOptions.section != null) {
       state.set({
         section: defaultOptions.section
       });
-      _render_section({
+      _toggle_section({
         section: defaultOptions.section
       });
+      _toggle_chrome();
     };
   };
 
-  function _render_all_section(options) {
+  function _toggle_all_section(options) {
     var defaultOptions = {
       section: null,
       all: null
@@ -145,18 +155,18 @@ var display = (function() {
     if (defaultOptions.all != null && defaultOptions.all) {
       var all_section = helper.eA(".js-section");
       all_section.forEach(function(arrayItem) {
-        _render_section({
+        _toggle_section({
           section: arrayItem
         });
       });
     } else if (defaultOptions.section != null) {
-      _render_section({
+      _toggle_section({
         section: defaultOptions.section
       });
     };
   };
 
-  function _render_section(options) {
+  function _toggle_section(options) {
     var defaultOptions = {
       section: null
     };
@@ -200,45 +210,60 @@ var display = (function() {
     };
   };
 
-  function update() {
-    // _render_displayState();
-    // _render_all_placeholderDisplay();
-  };
-
-  // function toggle(section) {
-  //   if (section) {
-  //     _toggle_section(section);
-  //   } else {
-  //     _toggle_all_section();
-  //     // var all_section = helper.eA(".js-section");
-  //     // all_section.forEach(function(arrayItem) {
-  //     //   _toggle_section(arrayItem);
-  //     // });
-  //   };
-  // };
-
-
-  function ________toggle_all_section() {
+  function _toggle_chrome() {
+    var header = helper.e(".js-header");
+    var nav = helper.e(".js-nav");
+    var menuElement = helper.e(".js-menu");
+    var menuItem = helper.e(".js-menu-link-display-mode");
+    var characterSelect = helper.e(".js-character-select");
+    var shade = helper.e(".js-shade");
     var fab = helper.e(".js-fab");
-    var all_display = helper.eA(".js-display");
-
-    all_display.forEach(function(arrayItem) {
-      console.log(arrayItem);
-    });
-
-    if (fab.dataset.displayMode == "true") {
-      fab.dataset.displayMode = false;
-      for (var i = 0; i < all_display.length; i++) {
-        _toggle_section(all_display[i], false);
+    var fabButton = helper.e(".js-fab-button");
+    var fabIcon = helper.e(".js-fab-icon");
+    var all_section = helper.eA(".js-section");
+    var anySectionDisplay = false;
+    var allSectionDisplay = 0;
+    var _toggle_on = function() {
+      helper.addClass(fabIcon, "icon-edit");
+      helper.removeClass(fabIcon, "icon-reader");
+      helper.removeClass(fabButton, "button-primary");
+      helper.addClass(fabButton, "button-secondary");
+      helper.addClass(nav, "is-display-mode");
+      helper.addClass(menuElement, "is-display-mode");
+      helper.addClass(header, "is-display-mode");
+      helper.addClass(characterSelect, "is-display-mode");
+      if (shade) {
+        helper.addClass(shade, "is-display-mode");
       };
-    } else if (fab.dataset.displayMode == "false" || !fab.dataset.displayMode) {
-      fab.dataset.displayMode = true;
-      for (var i = 0; i < all_display.length; i++) {
-        _toggle_section(all_display[i], true);
-      };
+      menu.toggleMenuItem({
+        menuItem: menuItem,
+        state: "active"
+      });
     };
-    _render_displayState();
-    _render_all_placeholderDisplay();
+    var _toggle_off = function() {
+      helper.removeClass(fabIcon, "icon-edit");
+      helper.addClass(fabIcon, "icon-reader");
+      helper.addClass(fabButton, "button-primary");
+      helper.removeClass(fabButton, "button-secondary");
+      helper.removeClass(nav, "is-display-mode");
+      helper.removeClass(menuElement, "is-display-mode");
+      helper.removeClass(header, "is-display-mode");
+      helper.removeClass(characterSelect, "is-display-mode");
+      if (shade) {
+        helper.removeClass(shade, "is-display-mode");
+      };
+      menu.toggleMenuItem({
+        menuItem: menuItem,
+        state: "inactive"
+      });
+    };
+    if (state.get({
+        all: true
+      })) {
+      _toggle_on();
+    } else {
+      _toggle_off();
+    };
   };
 
   function clear(display) {
@@ -268,7 +293,7 @@ var display = (function() {
   function render(display) {
     _render_all_display(display);
     _render_all_placeholderDisplay(display);
-    _render_displayState();
+    // _render_displayState();
   };
 
   function _render_all_display(display) {
@@ -505,80 +530,6 @@ var display = (function() {
     };
   };
 
-  function _render_displayState() {
-    var header = helper.e(".js-header");
-    var nav = helper.e(".js-nav");
-    var menuElement = helper.e(".js-menu");
-    var menuItem = helper.e(".js-menu-link-display-mode");
-    var characterSelect = helper.e(".js-character-select");
-    var shade = helper.e(".js-shade");
-    var fab = helper.e(".js-fab");
-    var fabButton = helper.e(".js-fab-button");
-    var fabIcon = helper.e(".js-fab-icon");
-    var all_section = helper.eA(".js-section");
-    var anySectionDisplay = false;
-    var allSectionDisplay = 0;
-    var _displayOn = function() {
-      helper.addClass(fabIcon, "icon-edit");
-      helper.removeClass(fabIcon, "icon-reader");
-      helper.removeClass(fabButton, "button-primary");
-      helper.addClass(fabButton, "button-secondary");
-      helper.addClass(nav, "is-display-mode");
-      helper.addClass(menuElement, "is-display-mode");
-      helper.addClass(header, "is-display-mode");
-      helper.addClass(characterSelect, "is-display-mode");
-      if (shade) {
-        helper.addClass(shade, "is-display-mode");
-      };
-    };
-    var _displayOff = function() {
-      helper.removeClass(fabIcon, "icon-edit");
-      helper.addClass(fabIcon, "icon-reader");
-      helper.addClass(fabButton, "button-primary");
-      helper.removeClass(fabButton, "button-secondary");
-      helper.removeClass(nav, "is-display-mode");
-      helper.removeClass(menuElement, "is-display-mode");
-      helper.removeClass(header, "is-display-mode");
-      helper.removeClass(characterSelect, "is-display-mode");
-      if (shade) {
-        helper.removeClass(shade, "is-display-mode");
-      };
-    };
-    all_section.forEach(function(arrayItem) {
-      if (arrayItem.dataset.displayMode == "true") {
-        anySectionDisplay = true;
-        allSectionDisplay++;
-      };
-    });
-    if (anySectionDisplay) {
-      if (allSectionDisplay == all_section.length) {
-        fab.dataset.displayMode = true;
-        fab.dataset.displayModeAll = true;
-        _displayOn();
-        menu.toggleMenuItem({
-          menuItem: menuItem,
-          state: "active"
-        });
-      } else {
-        fab.dataset.displayMode = true;
-        fab.dataset.displayModeAll = false;
-        _displayOff();
-        menu.toggleMenuItem({
-          menuItem: menuItem,
-          state: "inactive"
-        });
-      };
-    } else {
-      fab.dataset.displayMode = false;
-      fab.dataset.displayModeAll = false;
-      _displayOff();
-      menu.toggleMenuItem({
-        menuItem: menuItem,
-        state: "inactive"
-      });
-    };
-  };
-
 
 
 
@@ -805,7 +756,6 @@ var display = (function() {
   return {
     toggle: toggle,
     bind: bind,
-    update: update,
     render: render,
     clear: clear,
     state: state
