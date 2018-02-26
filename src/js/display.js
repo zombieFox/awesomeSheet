@@ -327,7 +327,7 @@ var display = (function() {
 
     var getElements = {
       image: function(options) {
-        console.log("display block image");
+        // console.log("display block image");
         options.path.forEach(function(arrayItem, index) {
           var config = {
             path: arrayItem
@@ -336,7 +336,7 @@ var display = (function() {
         });
       },
       snippet: function(options) {
-        console.log("display block snippet");
+        // console.log("display block snippet");
         options.path.forEach(function(arrayItem, index) {
           var config = {
             path: arrayItem
@@ -373,7 +373,7 @@ var display = (function() {
         });
       },
       block: function(options) {
-        console.log("display block block");
+        // console.log("display block block");
         options.path.forEach(function(arrayItem, index) {
           var config = {
             path: arrayItem
@@ -393,6 +393,19 @@ var display = (function() {
             };
           };
           all_element.push(_create_element().block(config));
+        });
+      },
+      pill: function(options) {
+        console.log("display block pill");
+        console.log(options);
+        options.path.forEach(function(arrayItem, index, options) {
+          var array = helper.getObject({
+            object: sheet.get(),
+            path: arrayItem
+          });
+          array.forEach(function(arrayItem) {
+            all_element.push(_create_element().pill(arrayItem));
+          });
         });
       }
     };
@@ -418,6 +431,7 @@ var display = (function() {
   };
 
   function _create_element() {
+
     function image(config) {
       var data = helper.getObject({
         object: sheet.get(),
@@ -561,10 +575,20 @@ var display = (function() {
       return displayBlock;
     };
 
+    function pill(object) {
+      var displayListItem = document.createElement("li");
+      displayListItem.setAttribute("class", "m-display-list-item m-display-list-item-pill");
+      var pillName = document.createElement("span");
+      pillName.textContent = object.name;
+      displayListItem.appendChild(pillName);
+      return displayListItem;
+    };
+
     return {
       image: image,
       snippet: snippet,
-      block: block
+      block: block,
+      pill: pill
     };
   };
 
