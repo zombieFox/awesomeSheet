@@ -2,7 +2,7 @@ var themeColor = (function() {
 
   function update() {
     var themeMeta = document.getElementsByTagName("meta");
-    if (display.state({
+    if (display.state.get({
         all: true
       })) {
       for (var i = 0; i < themeMeta.length; i++) {

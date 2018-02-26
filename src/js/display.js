@@ -1,6 +1,6 @@
 var display = (function() {
 
-  var _displayState = (function() {
+  var state = (function() {
     var displayState = {
       basics: false,
       statistics: false,
@@ -19,10 +19,10 @@ var display = (function() {
       if (options) {
         defaultOptions = helper.applyOptions(defaultOptions, options);
       };
-      if (defaultOptions.all != null) {
+      if (defaultOptions.all != null && defaultOptions.all) {
         var allCount = 0;
         var sectionCount = 0;
-        for (key in displayState) {
+        for (var key in displayState) {
           sectionCount++;
           if (displayState[key]) {
             allCount++;
@@ -35,6 +35,8 @@ var display = (function() {
         }
       } else if (defaultOptions.section != null) {
         return displayState[defaultOptions.section.id];
+      } else {
+        return displayState;
       };
     };
     var set = function(options) {
@@ -45,10 +47,34 @@ var display = (function() {
       if (options) {
         defaultOptions = helper.applyOptions(defaultOptions, options);
       };
-      if (defaultOptions.all != null) {
-        for (key in displayState) {
+      if (defaultOptions.all != null && defaultOptions.all) {
+        var displayOnCount = 0;
+        var sectionCount = 0;
+        for (var key in displayState) {
+          sectionCount++;
           if (displayState[key]) {
+            displayOnCount++;
+          };
+        };
+        // if no sections are in display mode
+        if (displayOnCount == 0) {
+          for (var key in displayState) {
             displayState[key] = true;
+          };
+          // if all sections are in display mode
+        } else if (displayOnCount == sectionCount) {
+          for (var key in displayState) {
+            displayState[key] = false;
+          };
+          // if more than half the number of sections are in display mode
+        } else if (displayOnCount >= (sectionCount / 2)) {
+          for (var key in displayState) {
+            displayState[key] = true;
+          };
+        } else {
+          // else restore to edit mode
+          for (var key in displayState) {
+            displayState[key] = false;
           };
         };
       } else if (defaultOptions.section != null) {
@@ -58,7 +84,6 @@ var display = (function() {
           displayState[defaultOptions.section.id] = true;
         };
       };
-      console.log("displayState = ", displayState);
     };
     // exposed methods
     return {
@@ -74,15 +99,105 @@ var display = (function() {
   function _bind_fab() {
     var fabButton = helper.e(".js-fab-button");
     fabButton.addEventListener("click", function() {
-      _displayState.set({
-        all: true
-      });
       totalBlock.render();
       clear();
       render();
-      toggle();
+      toggle({
+        all: true
+      });
       themeColor.update();
     }, false);
+  };
+
+  function toggle(options) {
+    var defaultOptions = {
+      section: null,
+      all: null
+    };
+    if (options) {
+      defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
+    if (defaultOptions.all != null && defaultOptions.all) {
+      state.set({
+        all: true
+      });
+      _render_all_section({
+        all: true
+      });
+    } else if (defaultOptions.section != null) {
+      state.set({
+        section: defaultOptions.section
+      });
+      _render_section({
+        section: defaultOptions.section
+      });
+    };
+  };
+
+  function _render_all_section(options) {
+    var defaultOptions = {
+      section: null,
+      all: null
+    };
+    if (options) {
+      defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
+    if (defaultOptions.all != null && defaultOptions.all) {
+      var all_section = helper.eA(".js-section");
+      all_section.forEach(function(arrayItem) {
+        _render_section({
+          section: arrayItem
+        });
+      });
+    } else if (defaultOptions.section != null) {
+      _render_section({
+        section: defaultOptions.section
+      });
+    };
+  };
+
+  function _render_section(options) {
+    var defaultOptions = {
+      section: null
+    };
+    if (options) {
+      defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
+    var display = defaultOptions.section.querySelector(".js-display");
+    var icon = defaultOptions.section.querySelector(".js-card-toggle-icon");
+    var edit = defaultOptions.section.querySelector(".js-edit");
+    var cardTabs = defaultOptions.section.querySelector(".js-card-tabs");
+    var minimise = (defaultOptions.section.dataset.minimise == "true");
+    var _toggle_on = function() {
+      helper.addClass(defaultOptions.section, "is-display-mode");
+      helper.addClass(edit, "is-hidden");
+      helper.removeClass(display, "is-hidden");
+      helper.addClass(icon, "icon-edit");
+      helper.removeClass(icon, "icon-reader");
+      if (cardTabs && !minimise) {
+        helper.addClass(cardTabs, "is-hidden");
+      };
+    };
+    var _toggle_off = function() {
+      helper.removeClass(defaultOptions.section, "is-display-mode");
+      helper.removeClass(edit, "is-hidden");
+      helper.addClass(display, "is-hidden");
+      helper.removeClass(icon, "icon-edit");
+      helper.addClass(icon, "icon-reader");
+      if (cardTabs && !minimise) {
+        helper.removeClass(cardTabs, "is-hidden");
+      };
+    };
+
+    if (defaultOptions.section != null) {
+      if (state.get({
+          section: defaultOptions.section
+        })) {
+        _toggle_on();
+      } else {
+        _toggle_off();
+      };
+    };
   };
 
   function update() {
@@ -90,66 +205,20 @@ var display = (function() {
     // _render_all_placeholderDisplay();
   };
 
-  function toggle(section) {
-    if (section) {
-      _toggle_section(section);
-    } else {
-      // _toggle_all_section();
-      var all_section = helper.eA(".js-section");
-      all_section.forEach(function(arrayItem) {
-        _toggle_section(arrayItem);
-      });
-    };
-  };
+  // function toggle(section) {
+  //   if (section) {
+  //     _toggle_section(section);
+  //   } else {
+  //     _toggle_all_section();
+  //     // var all_section = helper.eA(".js-section");
+  //     // all_section.forEach(function(arrayItem) {
+  //     //   _toggle_section(arrayItem);
+  //     // });
+  //   };
+  // };
 
-  function _toggle_section(section) {
-    var icon = section.querySelector(".js-card-toggle-icon");
-    var minimise = (section.dataset.minimise == "true");
-    var edit = section.querySelector(".js-edit");
-    var cardTabs = section.querySelector(".js-card-tabs");
-    var all_display = section.querySelectorAll(".js-display");
-    var _displayOn = function() {
-      section.dataset.displayMode = true;
-      helper.addClass(section, "is-display-mode");
-      helper.addClass(edit, "is-hidden");
-      helper.addClass(icon, "icon-edit");
-      helper.removeClass(icon, "icon-reader");
-      if (cardTabs && !minimise) {
-        helper.addClass(cardTabs, "is-hidden");
-      };
-      for (var i = 0; i < all_display.length; i++) {
-        helper.removeClass(all_display[i], "is-hidden");
-      };
-    };
-    var _displayOff = function() {
-      section.dataset.displayMode = false;
-      helper.removeClass(section, "is-display-mode");
-      helper.removeClass(edit, "is-hidden");
-      helper.removeClass(icon, "icon-edit");
-      helper.addClass(icon, "icon-reader");
-      if (cardTabs && !minimise) {
-        helper.removeClass(cardTabs, "is-hidden");
-      };
-      for (var i = 0; i < all_display.length; i++) {
-        helper.addClass(all_display[i], "is-hidden");
-      };
-    };
-    _displayState.set({
-      section: section
-    });
-    if (_displayState.get({
-        section: section
-      })) {
-      _displayOn();
-      console.log("toggle on");
-    } else {
-      _displayOff();
-      console.log("toggle off");
-    };
-    // _render_displayState();
-  };
 
-  function _toggle_all_section() {
+  function ________toggle_all_section() {
     var fab = helper.e(".js-fab");
     var all_display = helper.eA(".js-display");
 
@@ -186,21 +255,6 @@ var display = (function() {
     for (var i = 0; i < all_displayBlock.length; i++) {
       all_displayBlock[i].dataset.displayContent = false;
       _removeAllChildren(all_displayBlock[i]);
-    };
-  };
-
-  function state(options) {
-    var defaultOptions = {
-      all: false
-    };
-    if (options) {
-      defaultOptions = helper.applyOptions(defaultOptions, options);
-    };
-    var fab = helper.e(".js-fab");
-    if (defaultOptions.all) {
-      return (fab.dataset.displayModeAll == "true");
-    } else {
-      return (fab.dataset.displayMode == "true");
     };
   };
 
