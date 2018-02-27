@@ -329,10 +329,11 @@ var display = (function() {
     var displayArea = helper.getClosest(displayBlock, ".js-display-area");
     var elementCount = 0;
     var all_element = [];
+    console.log(options);
 
     var getElements = {
       image: function(options) {
-        // console.log("display block image");
+        console.log("------ image");
         options.path.forEach(function(arrayItem, index) {
           var config = {
             path: arrayItem
@@ -341,7 +342,7 @@ var display = (function() {
         });
       },
       snippet: function(options) {
-        // console.log("display block snippet");
+        console.log("------ snippet");
         options.path.forEach(function(arrayItem, index) {
           var config = {
             path: arrayItem
@@ -378,7 +379,7 @@ var display = (function() {
         });
       },
       block: function(options) {
-        // console.log("display block block");
+        console.log("------ block");
         options.path.forEach(function(arrayItem, index) {
           var config = {
             path: arrayItem
@@ -401,21 +402,25 @@ var display = (function() {
         });
       },
       pill: function(options) {
-        // console.log("display block pill");
-        options.path.forEach(function(arrayItem, index, options) {
-          var array = helper.getObject({
-            object: sheet.get(),
+        console.log("------ pill");
+        options.path.forEach(function(arrayItem, index) {
+          var config = {
             path: arrayItem
-          });
-          array.forEach(function(arrayItem) {
-            all_element.push(_create_element().pill(arrayItem));
-          });
+          };
+          if ("prefix" in options) {
+            if (options.prefix[index]) {
+              config.prefix = options.prefix[index];
+            } else {
+              config.prefix = false;
+            };
+          };
+          all_element.push(_create_element().pill(config));
         });
       }
     };
 
     getElements[options.type](options);
-
+    console.log(all_element);
     if (all_element.length > 0) {
       all_element.forEach(function(arrayItem, index) {
         if (arrayItem) {
@@ -583,13 +588,36 @@ var display = (function() {
       return displayBlock;
     };
 
-    function pill(object) {
-      var displayListItem = document.createElement("li");
-      displayListItem.setAttribute("class", "m-display-list-item m-display-list-item-pill");
-      var pillName = document.createElement("span");
-      pillName.textContent = object.name;
-      displayListItem.appendChild(pillName);
-      return displayListItem;
+    function pill(config) {
+      var all_data = helper.getObject({
+        object: sheet.get(),
+        path: config.path
+      });
+      var displayPill;
+      if (all_data.length > 0) {
+        displayPill = document.createElement("span");
+        displayPill.setAttribute("class", "m-display-item-pill");
+        if (config.prefix) {
+          var displayPrefix = document.createElement("span");
+          displayPrefix.setAttribute("class", "m-display-item-prefix");
+          displayPrefix.textContent = config.prefix;
+          displayPill.appendChild(displayPrefix);
+        };
+        var displayPillList = document.createElement("ul");
+        displayPillList.setAttribute("class", "m-display-list m-display-list-inline u-list-unstyled");
+        all_data.forEach(function(arrayItem, index) {
+          var displayListItem = document.createElement("li");
+          displayListItem.setAttribute("class", "m-display-list-item m-display-list-item-pill");
+          var pillName = document.createElement("span");
+          pillName.textContent = arrayItem.name;
+          displayListItem.appendChild(pillName);
+          displayPillList.appendChild(displayListItem);
+        });
+        displayPill.appendChild(displayPillList);
+        return displayPill;
+      } else {
+        return false;
+      };
     };
 
     return {

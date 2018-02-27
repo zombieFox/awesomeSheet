@@ -364,7 +364,7 @@
 .m-display-list-item {
   padding-top: 0.75em;
   padding-bottom: 0.75em;
-  border-bottom: 2px solid $gray-18;
+  border-bottom: 1px solid $gray-18;
   position: relative;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
@@ -389,6 +389,29 @@
   left: 0;
   height: 2px;
   background: $secondary-color-10;
+}
+.m-display-list-inline {
+  .m-display-list-item {
+    margin: 0 0.8em 0 0;
+    padding: 0 0.8em 0 0;
+    border-bottom: none;
+    display: inline-block;
+    position: relative;
+    &:not(:only-child):not(:last-child) {
+      &:after {
+        content: "";
+        background-color: $gray-16;
+        display: block;
+        width: 1px;
+        height: calc(100% - 0.6em);
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform-origin: 0 0;
+        transform: rotate(10deg) translate(0, -50%);
+      }
+    }
+  }
 }
 .m-display-list-line {
   .m-display-list-item {
@@ -430,7 +453,7 @@
   .m-display-list-item {
     padding-top: 4px;
     padding-bottom: 4px;
-    border-bottom: 2px solid $gray-18;
+    border-bottom: 1px solid $gray-18;
     flex: 0 0 46%;
     max-width: 46%;
   }
@@ -452,7 +475,7 @@
   justify-content: flex-end;
   padding-top: 0.75em;
   padding-bottom: 0.75em;
-  border-bottom: 2px solid $gray-18;
+  border-bottom: 1px solid $gray-18;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
   }
@@ -502,7 +525,7 @@
   justify-content: flex-end;
   padding-top: 0.75em;
   padding-bottom: 0.75em;
-  border-bottom: 2px solid $gray-18;
+  border-bottom: 1px solid $gray-18;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
   }
