@@ -173,27 +173,29 @@
 // --------------------------------------------------
 .m-display-area {
   font-size: $font-size-root-100;
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 1em;
-    padding-bottom: 1em;
-    position: relative;
-    &:after {
-      content: "";
-      background-color: $gray-19;
-      width: calc(100% + 4em);
-      height: 1px;
-      display: block;
-      position: absolute;
-      bottom: 0;
-      left: -2em;
-    }
+}
+// --------------------------------------------------
+// display area
+// --------------------------------------------------
+.m-display-guide {
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  position: relative;
+  &:after {
+    content: "";
+    background-color: $gray-19;
+    width: calc(100% + 4em);
+    height: 1px;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: -2em;
   }
 }
 // --------------------------------------------------
 // display body
 // --------------------------------------------------
-.m-display-block {
-}
+.m-display-block {}
 .m-display-block-last {
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;

@@ -310,6 +310,11 @@ var display = (function() {
     all_displayArea.forEach(function(arrayItem) {
       _render_all_displayArea(arrayItem);
     });
+    var all_displayGuide = display.querySelectorAll(".js-display-guide");
+    if (all_displayGuide.length > 0) {
+      helper.removeClass(all_displayGuide[all_displayGuide.length - 1], "m-display-guide");
+      helper.removeClass(all_displayGuide[all_displayGuide.length - 1], "js-display-guide");
+    };
   };
 
   function _render_all_displayArea(displayArea) {
@@ -396,8 +401,7 @@ var display = (function() {
         });
       },
       pill: function(options) {
-        console.log("display block pill");
-        console.log(options);
+        // console.log("display block pill");
         options.path.forEach(function(arrayItem, index, options) {
           var array = helper.getObject({
             object: sheet.get(),
@@ -424,9 +428,13 @@ var display = (function() {
     if (elementCount > 0) {
       displayArea.dataset.displayContent = true;
       helper.removeClass(displayArea, "is-hidden");
+      helper.addClass(displayArea, "m-display-guide");
+      helper.addClass(displayArea, "js-display-guide");
     } else {
       displayArea.dataset.displayContent = false;
       helper.addClass(displayArea, "is-hidden");
+      helper.removeClass(displayArea, "m-display-guide");
+      helper.removeClass(displayArea, "js-display-guide");
     };
   };
 
