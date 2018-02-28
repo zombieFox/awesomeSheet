@@ -47,9 +47,8 @@ var card = (function() {
 
   function _displayToggle(element) {
     var section = helper.getClosest(element, ".js-section");
-    var displaySection = section.querySelector(".js-display");
-    display.clear(section);
-    display.render(section);
+    display.clear();
+    display.render();
     display.toggle({
       section: section
     });

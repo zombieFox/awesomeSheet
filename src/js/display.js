@@ -1,5 +1,47 @@
 var display = (function() {
 
+  var _displayConten = {
+    basics: [{
+      type: "snippet",
+      content: [{
+        path: "basics.character.name"
+      }],
+      element: "h1"
+    }, {
+      type: "snippet",
+      content: [{
+        path: "basics.classes.string",
+        prefix: "Class & Level"
+      }, {
+        path: "basics.initiative.current",
+        prefix: "Initiative",
+        valueType: "bonus"
+      }, {
+        path: "skills.default.perception.current",
+        prefix: "Perception",
+        valueType: "bonus"
+      }, {
+        path: "basics.speed.land",
+        prefix: "Land Speed"
+      }, {
+        path: "basics.speed.swim",
+        prefix: "Swim Speed"
+      }, {
+        path: "basics.speed.climb",
+        prefix: "Climb Speed"
+      }, {
+        path: "basics.speed.burrow",
+        prefix: "Burrow Speed"
+      }, {
+        path: "basics.speed.fly",
+        prefix: "Fly Speed",
+        dependency: "basics.speed.maneuverability"
+      }],
+      element: "p"
+    }]
+  };
+
+
   var state = (function() {
     var displayState = {
       basics: false,
@@ -266,12 +308,6 @@ var display = (function() {
     };
   };
 
-
-
-
-
-
-
   function clear(display) {
     var _removeAllChildren = function(parent) {
       while (parent.lastChild) {
@@ -280,388 +316,467 @@ var display = (function() {
     };
     if (display) {
       var all_displayBlock = display.querySelectorAll(".js-display-block");
-      var all_areaBlock = display.querySelectorAll(".js-display-area");
     } else {
       var all_displayBlock = helper.eA(".js-display-block");
-      var all_areaBlock = helper.eA(".js-display-area");
     };
-    var displayInsert = helper.eA(".js-display-insert");
     all_displayBlock.forEach(function(arrayItem) {
       _removeAllChildren(arrayItem);
     });
-    all_areaBlock.forEach(function(arrayItem) {
-      arrayItem.dataset.displayContent = false;
-    });
-    displayInsert.forEach(function(arrayItem) {
-      arrayItem.remove();
-    });
   };
 
-  function render(display) {
-    _render_all_display(display);
-    _render_all_placeholderDisplay(display);
+  function render(displayBlock) {
+    _render_all_displayBlock(displayBlock);
+    _render_all_placeholderDisplay();
   };
 
-  function _render_all_display(display) {
-    if (display) {
-      _render_display(display);
+  function _render_all_displayBlock(displayBlock) {
+    if (displayBlock) {
+      _render_displayBlock(displayBlock);
     } else {
-      var all_display = helper.eA(".js-display");
-      all_display.forEach(function(arrayItem) {
-        _render_display(arrayItem);
+      var all_displayBlock = helper.eA(".js-display-block");
+      all_displayBlock.forEach(function(arrayItem) {
+        _render_displayBlock(arrayItem);
       });
     };
-  };
-
-  function _render_display(display) {
-    var all_displayArea = display.querySelectorAll(".js-display-area");
-    all_displayArea.forEach(function(arrayItem) {
-      _render_all_displayArea(arrayItem);
-    });
-    all_displayArea.forEach(function(arrayItem, index, displayArea) {
-      var contentFound = false;
-      var all_displayBlock = arrayItem.querySelectorAll(".js-display-block");
-      all_displayBlock.forEach(function(arrayItem, index, displayArea) {
-        if ((arrayItem.dataset.displayContent == "true")) {
-          contentFound = true;
-        };
-      });
-      if (contentFound) {
-        arrayItem.dataset.displayContent = true;
-        helper.removeClass(arrayItem, "is-hidden");
-        helper.addClass(arrayItem, "m-display-guide");
-        helper.addClass(arrayItem, "js-display-guide");
-      } else {
-        arrayItem.dataset.displayContent = false;
-        helper.addClass(arrayItem, "is-hidden");
-        helper.removeClass(arrayItem, "m-display-guide");
-        helper.removeClass(arrayItem, "js-display-guide");
-      };
-    });
-    var all_displayGuide = display.querySelectorAll(".js-display-guide");
-    if (all_displayGuide.length > 0) {
-      helper.removeClass(all_displayGuide[all_displayGuide.length - 1], "m-display-guide");
-      helper.removeClass(all_displayGuide[all_displayGuide.length - 1], "js-display-guide");
-    };
-  };
-
-  function _render_all_displayArea(displayArea) {
-    var all_displayBlock = displayArea.querySelectorAll(".js-display-block");
-    all_displayBlock.forEach(function(arrayItem) {
-      _render_displayBlock(arrayItem);
-    });
   };
 
   function _render_displayBlock(displayBlock) {
     var options = helper.makeObject(displayBlock.dataset.displayOptions);
-    // var displayArea = helper.getClosest(displayBlock, ".js-display-area");
-    var elementCount = 0;
-    var all_element = [];
+    if (options) {
+      _displayConten[options.section].forEach(function(arrayItem, index) {
+        var elementToAdd = _render_content(arrayItem);
+        if (elementToAdd) {
+          displayBlock.appendChild(elementToAdd);
+        };
+      });
+    };
+  };
 
-    var getElements = {
-      image: function(options) {
-        // console.log("------ image");
-        options.path.forEach(function(arrayItem, index) {
-          var config = {
-            path: arrayItem
-          };
-          all_element.push(_create_element().image(config));
-        });
-      },
-      snippet: function(options) {
-        // console.log("------ snippet");
-        options.path.forEach(function(arrayItem, index) {
-          var config = {
-            path: arrayItem
-          };
-          if ("dependency" in options) {
-            if (options.dependency[index]) {
-              config.dependency = options.dependency[index];
-            } else {
-              config.dependency = false;
-            };
-          };
-          if ("valueType" in options) {
-            if (options.valueType[index]) {
-              config.valueType = options.valueType[index];
-            } else {
-              config.valueType = false;
-            };
-          };
-          if ("prefix" in options) {
-            if (options.prefix[index]) {
-              config.prefix = options.prefix[index];
-            } else {
-              config.prefix = false;
-            };
-          };
-          if ("suffix" in options) {
-            if (options.suffix[index]) {
-              config.suffix = options.suffix[index];
-            } else {
-              config.suffix = false;
-            };
-          };
-          all_element.push(_create_element().snippet(config));
-        });
-      },
-      block: function(options) {
-        // console.log("------ block");
-        options.path.forEach(function(arrayItem, index) {
-          var config = {
-            path: arrayItem
-          };
-          if ("prefix" in options) {
-            if (options.prefix[index]) {
-              config.prefix = options.prefix[index];
-            } else {
-              config.prefix = false;
-            };
-          };
-          if ("suffix" in options) {
-            if (options.suffix[index]) {
-              config.suffix = options.suffix[index];
-            } else {
-              config.suffix = false;
-            };
-          };
-          all_element.push(_create_element().block(config));
-        });
-      },
-      pill: function(options) {
-        // console.log("------ pill");
-        options.path.forEach(function(arrayItem, index) {
-          var all_data = helper.getObject({
+  function _render_content(displayObject) {
+    var createElement = {
+      snippet: function(displayObject) {
+        var element = document.createElement(displayObject.element);
+        var contentFound = 0;
+        displayObject.content.forEach(function(arrayItem, index) {
+          var data = helper.getObject({
             object: sheet.get(),
-            path: arrayItem
+            path: arrayItem.path
           });
-          all_data.forEach(function(arrayItem) {
-            all_element.push(_create_element().pill(arrayItem));
-          });
-          if (all_element.length > 0) {
-            if ("prefix" in options) {
-              if (options.prefix[index]) {
-                var displayPrefix = document.createElement("span");
-                displayPrefix.setAttribute("class", "m-display-item-prefix js-display-insert");
-                displayPrefix.textContent = options.prefix[index];
-                displayBlock.parentNode.insertBefore(displayPrefix, displayBlock);
-              };
+          if (data != "") {
+            contentFound++;
+            var snippet = document.createElement("span");
+            snippet.setAttribute("class", "m-display-item-snippet");
+            if (arrayItem.prefix) {
+              var prefix = document.createElement("span");
+              prefix.setAttribute("class", "m-display-item-prefix");
+              prefix.textContent = arrayItem.prefix;
+              snippet.appendChild(prefix);
             };
+            var value = document.createElement("span");
+            value.setAttribute("class", "m-display-item-value");
+            value.textContent = data;
+            snippet.appendChild(value);
+            if (arrayItem.suffix) {
+              var suffix = document.createElement("span");
+              suffix.setAttribute("class", "m-display-item-suffix");
+              suffix.textContent = arrayItem.suffix;
+              snippet.appendChild(suffix);
+            };
+            element.appendChild(snippet);
           };
         });
+        if (contentFound > 0) {
+          return element;
+        } else {
+          return false;
+        };
       }
     };
-
-    getElements[options.type](options);
-
-    if (all_element.length > 0) {
-      all_element.forEach(function(arrayItem, index) {
-        if (arrayItem) {
-          elementCount++;
-          displayBlock.appendChild(arrayItem);
-        };
-      });
-    };
-
-    if (elementCount > 0) {
-      displayBlock.dataset.displayContent = true;
-      helper.removeClass(displayBlock, "is-hidden");
-      // helper.addClass(displayBlock, "m-display-guide");
-      // helper.addClass(displayBlock, "js-display-guide");
-    } else {
-      displayBlock.dataset.displayContent = false;
-      helper.addClass(displayBlock, "is-hidden");
-      // helper.removeClass(displayBlock, "m-display-guide");
-      // helper.removeClass(displayBlock, "js-display-guide");
-    };
+    return createElement[displayObject.type](displayObject)
   };
 
-  function _create_element() {
+  // function clear(display) {
+  //   var _removeAllChildren = function(parent) {
+  //     while (parent.lastChild) {
+  //       parent.removeChild(parent.lastChild);
+  //     };
+  //   };
+  //   if (display) {
+  //     var all_displayBlock = display.querySelectorAll(".js-display-block");
+  //     var all_areaBlock = display.querySelectorAll(".js-display-area");
+  //   } else {
+  //     var all_displayBlock = helper.eA(".js-display-block");
+  //     var all_areaBlock = helper.eA(".js-display-area");
+  //   };
+  //   var displayInsert = helper.eA(".js-display-insert");
+  //   all_displayBlock.forEach(function(arrayItem) {
+  //     _removeAllChildren(arrayItem);
+  //   });
+  //   all_areaBlock.forEach(function(arrayItem) {
+  //     arrayItem.dataset.displayContent = false;
+  //   });
+  //   displayInsert.forEach(function(arrayItem) {
+  //     arrayItem.remove();
+  //   });
+  // };
+  //
+  // function render(display) {
+  //   _render_all_display(display);
+  //   _render_all_placeholderDisplay(display);
+  // };
+  //
+  // function _render_all_display(display) {
+  //   if (display) {
+  //     _render_display(display);
+  //   } else {
+  //     var all_display = helper.eA(".js-display");
+  //     all_display.forEach(function(arrayItem) {
+  //       _render_display(arrayItem);
+  //     });
+  //   };
+  // };
+  //
+  // function _render_display(display) {
+  //   var all_displayArea = display.querySelectorAll(".js-display-area");
+  //   all_displayArea.forEach(function(arrayItem) {
+  //     _render_all_displayArea(arrayItem);
+  //   });
+  //   all_displayArea.forEach(function(arrayItem, index, displayArea) {
+  //     var contentFound = false;
+  //     var all_displayBlock = arrayItem.querySelectorAll(".js-display-block");
+  //     all_displayBlock.forEach(function(arrayItem, index, displayArea) {
+  //       if ((arrayItem.dataset.displayContent == "true")) {
+  //         contentFound = true;
+  //       };
+  //     });
+  //     if (contentFound) {
+  //       arrayItem.dataset.displayContent = true;
+  //       helper.removeClass(arrayItem, "is-hidden");
+  //       helper.addClass(arrayItem, "m-display-guide");
+  //       helper.addClass(arrayItem, "js-display-guide");
+  //     } else {
+  //       arrayItem.dataset.displayContent = false;
+  //       helper.addClass(arrayItem, "is-hidden");
+  //       helper.removeClass(arrayItem, "m-display-guide");
+  //       helper.removeClass(arrayItem, "js-display-guide");
+  //     };
+  //   });
+  //   var all_displayGuide = display.querySelectorAll(".js-display-guide");
+  //   if (all_displayGuide.length > 0) {
+  //     helper.removeClass(all_displayGuide[all_displayGuide.length - 1], "m-display-guide");
+  //     helper.removeClass(all_displayGuide[all_displayGuide.length - 1], "js-display-guide");
+  //   };
+  // };
+  //
+  // function _render_all_displayArea(displayArea) {
+  //   var all_displayBlock = displayArea.querySelectorAll(".js-display-block");
+  //   all_displayBlock.forEach(function(arrayItem) {
+  //     _render_displayBlock(arrayItem);
+  //   });
+  // };
+  //
+  // function _render_displayBlock(displayBlock) {
+  //   var options = helper.makeObject(displayBlock.dataset.displayOptions);
+  //   // var displayArea = helper.getClosest(displayBlock, ".js-display-area");
+  //   var elementCount = 0;
+  //   var all_element = [];
+  //
+  //   var getElements = {
+  //     image: function(options) {
+  //       // console.log("------ image");
+  //       options.path.forEach(function(arrayItem, index) {
+  //         var config = {
+  //           path: arrayItem
+  //         };
+  //         all_element.push(_create_element().image(config));
+  //       });
+  //     },
+  //     snippet: function(options) {
+  //       // console.log("------ snippet");
+  //       options.path.forEach(function(arrayItem, index) {
+  //         var config = {
+  //           path: arrayItem
+  //         };
+  //         if ("dependency" in options) {
+  //           if (options.dependency[index]) {
+  //             config.dependency = options.dependency[index];
+  //           } else {
+  //             config.dependency = false;
+  //           };
+  //         };
+  //         if ("valueType" in options) {
+  //           if (options.valueType[index]) {
+  //             config.valueType = options.valueType[index];
+  //           } else {
+  //             config.valueType = false;
+  //           };
+  //         };
+  //         if ("prefix" in options) {
+  //           if (options.prefix[index]) {
+  //             config.prefix = options.prefix[index];
+  //           } else {
+  //             config.prefix = false;
+  //           };
+  //         };
+  //         if ("suffix" in options) {
+  //           if (options.suffix[index]) {
+  //             config.suffix = options.suffix[index];
+  //           } else {
+  //             config.suffix = false;
+  //           };
+  //         };
+  //         all_element.push(_create_element().snippet(config));
+  //       });
+  //     },
+  //     block: function(options) {
+  //       // console.log("------ block");
+  //       options.path.forEach(function(arrayItem, index) {
+  //         var config = {
+  //           path: arrayItem
+  //         };
+  //         if ("prefix" in options) {
+  //           if (options.prefix[index]) {
+  //             config.prefix = options.prefix[index];
+  //           } else {
+  //             config.prefix = false;
+  //           };
+  //         };
+  //         if ("suffix" in options) {
+  //           if (options.suffix[index]) {
+  //             config.suffix = options.suffix[index];
+  //           } else {
+  //             config.suffix = false;
+  //           };
+  //         };
+  //         all_element.push(_create_element().block(config));
+  //       });
+  //     },
+  //     pill: function(options) {
+  //       // console.log("------ pill");
+  //       options.path.forEach(function(arrayItem, index) {
+  //         var all_data = helper.getObject({
+  //           object: sheet.get(),
+  //           path: arrayItem
+  //         });
+  //         all_data.forEach(function(arrayItem) {
+  //           all_element.push(_create_element().pill(arrayItem));
+  //         });
+  //         if (all_element.length > 0) {
+  //           if ("prefix" in options) {
+  //             if (options.prefix[index]) {
+  //               var displayPrefix = document.createElement("span");
+  //               displayPrefix.setAttribute("class", "m-display-item-prefix js-display-insert");
+  //               displayPrefix.textContent = options.prefix[index];
+  //               displayBlock.parentNode.insertBefore(displayPrefix, displayBlock);
+  //             };
+  //           };
+  //         };
+  //       });
+  //     }
+  //   };
+  //
+  //   getElements[options.type](options);
+  //
+  //   if (all_element.length > 0) {
+  //     all_element.forEach(function(arrayItem, index) {
+  //       if (arrayItem) {
+  //         elementCount++;
+  //         displayBlock.appendChild(arrayItem);
+  //       };
+  //     });
+  //   };
+  //
+  //   if (elementCount > 0) {
+  //     displayBlock.dataset.displayContent = true;
+  //     helper.removeClass(displayBlock, "is-hidden");
+  //     // helper.addClass(displayBlock, "m-display-guide");
+  //     // helper.addClass(displayBlock, "js-display-guide");
+  //   } else {
+  //     displayBlock.dataset.displayContent = false;
+  //     helper.addClass(displayBlock, "is-hidden");
+  //     // helper.removeClass(displayBlock, "m-display-guide");
+  //     // helper.removeClass(displayBlock, "js-display-guide");
+  //   };
+  // };
+  //
+  // function _create_element() {
+  //
+  //   function image(config) {
+  //     var data = helper.getObject({
+  //       object: sheet.get(),
+  //       path: config.path + ".data"
+  //     });
+  //     var displayImage;
+  //     if (typeof data != undefined && data != "") {
+  //       var displayImage = document.createElement("div");
+  //       displayImage.setAttribute("class", "m-display-item-image-wrapper");
+  //       var displayImageItem = new Image;
+  //       // displayImage.setAttribute("class", "m-character-image js-character-image");
+  //       displayImageItem.setAttribute("class", "m-display-item-image");
+  //       displayImageItem.src = data;
+  //       var scale = helper.getObject({
+  //         object: sheet.get(),
+  //         path: config.path + ".scale"
+  //       });
+  //       var position = helper.getObject({
+  //         object: sheet.get(),
+  //         path: config.path + ".position"
+  //       });
+  //       var background = helper.getObject({
+  //         object: sheet.get(),
+  //         path: config.path + ".background"
+  //       });
+  //       var color;
+  //       if (background == "black") {
+  //         color = "rgb(0,0,0)";
+  //       } else if (background == "white") {
+  //         color = "rgb(255,255,255)";
+  //       } else if (background == "average") {
+  //         color = helper.getObject({
+  //           object: sheet.get(),
+  //           path: config.path + ".color"
+  //         });
+  //         color = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
+  //       };
+  //       displayImage.style.backgroundColor = color;
+  //       displayImageItem.style.width = scale + "%";
+  //       displayImageItem.style.left = position.x + "%";
+  //       displayImageItem.style.top = position.y + "%";
+  //       displayImage.appendChild(displayImageItem);
+  //     } else {
+  //       displayImage = false;
+  //     };
+  //     return displayImage;
+  //   };
+  //
+  //   function snippet(config) {
+  //     var data = helper.getObject({
+  //       object: sheet.get(),
+  //       path: config.path
+  //     });
+  //     var displaySnippet;
+  //     if (typeof data != undefined && data != "") {
+  //       displaySnippet = document.createElement("span");
+  //       displaySnippet.setAttribute("class", "m-display-item-snippet");
+  //       var displayValue = document.createElement("span");
+  //       displayValue.setAttribute("class", "m-display-item-value");
+  //       if (config.valueType == "bonus" && data > 0) {
+  //         data = "+" + data;
+  //       } else if (config.valueType == "currency" && data > 0) {
+  //         data = parseFloat(data).toLocaleString(undefined, {
+  //           minimumFractionDigits: 2,
+  //           maximumFractionDigits: 2
+  //         });
+  //         if (data.indexOf(".00") !== -1) {
+  //           data = data.substr(0, data.indexOf("."));
+  //         };
+  //       } else if (config.valueType == "number" && data > 0) {
+  //         data = parseFloat(data).toLocaleString(undefined, {
+  //           minimumFractionDigits: 0,
+  //           maximumFractionDigits: 0
+  //         });
+  //       } else if (config.valueType == "weight" && data > 0) {
+  //         data = parseFloat(data).toLocaleString(undefined, {
+  //           minimumFractionDigits: 2,
+  //           maximumFractionDigits: 2
+  //         });
+  //         if (data.indexOf(".00") !== -1) {
+  //           data = data.substr(0, data.indexOf("."));
+  //         };
+  //       };
+  //       if (config.dependency) {
+  //         var dependencyData = helper.getObject({
+  //           object: sheet.get(),
+  //           path: config.dependency
+  //         });
+  //         if (dependencyData != "") {
+  //           data = data + " / " + dependencyData;
+  //         };
+  //       };
+  //       displayValue.textContent = data;
+  //       if (config.prefix) {
+  //         var displayPrefix = document.createElement("span");
+  //         displayPrefix.setAttribute("class", "m-display-item-prefix");
+  //         displayPrefix.textContent = config.prefix;
+  //         displaySnippet.appendChild(displayPrefix);
+  //       };
+  //       displaySnippet.appendChild(displayValue);
+  //       if (config.suffix) {
+  //         var displaySuffix = document.createElement("span");
+  //         displaySuffix.setAttribute("class", "m-display-item-suffix");
+  //         displaySuffix.textContent = config.suffix;
+  //         displaySnippet.appendChild(displaySuffix);
+  //       };
+  //     } else {
+  //       displaySnippet = false;
+  //     };
+  //     return displaySnippet;
+  //   };
+  //
+  //   function block(config) {
+  //     var data = helper.getObject({
+  //       object: sheet.get(),
+  //       path: config.path
+  //     });
+  //     var displayBlock;
+  //     if (typeof data != undefined && data != "") {
+  //       displayBlock = document.createElement("span");
+  //       displayBlock.setAttribute("class", "m-display-item-block");
+  //       var displayValue = document.createElement("span");
+  //       displayValue.setAttribute("class", "m-display-value");
+  //       displayValue.innerHTML = data;
+  //       if (config.prefix) {
+  //         var displayPrefix = document.createElement("span");
+  //         displayPrefix.setAttribute("class", "m-display-item-prefix");
+  //         displayPrefix.textContent = config.prefix;
+  //         displayBlock.appendChild(displayPrefix);
+  //       };
+  //       displayBlock.appendChild(displayValue);
+  //       if (config.suffix) {
+  //         var displaySuffix = document.createElement("span");
+  //         displaySuffix.setAttribute("class", "m-display-item-suffix");
+  //         displaySuffix.textContent = config.suffix;
+  //         displayBlock.appendChild(displaySuffix);
+  //       };
+  //     } else {
+  //       displayBlock = false;
+  //     };
+  //     return displayBlock;
+  //   };
+  //
+  //   function pill(object) {
+  //     var displayListItem = document.createElement("li");
+  //     displayListItem.setAttribute("class", "m-display-list-item m-display-list-item-pill");
+  //     var pillName = document.createElement("span");
+  //     pillName.textContent = object.name;
+  //     displayListItem.appendChild(pillName);
+  //     return displayListItem;
+  //   };
+  //
+  //   return {
+  //     image: image,
+  //     snippet: snippet,
+  //     block: block,
+  //     pill: pill
+  //   };
+  // };
 
-    function image(config) {
-      var data = helper.getObject({
-        object: sheet.get(),
-        path: config.path + ".data"
-      });
-      var displayImage;
-      if (typeof data != undefined && data != "") {
-        var displayImage = document.createElement("div");
-        displayImage.setAttribute("class", "m-display-item-image-wrapper");
-        var displayImageItem = new Image;
-        // displayImage.setAttribute("class", "m-character-image js-character-image");
-        displayImageItem.setAttribute("class", "m-display-item-image");
-        displayImageItem.src = data;
-        var scale = helper.getObject({
-          object: sheet.get(),
-          path: config.path + ".scale"
-        });
-        var position = helper.getObject({
-          object: sheet.get(),
-          path: config.path + ".position"
-        });
-        var background = helper.getObject({
-          object: sheet.get(),
-          path: config.path + ".background"
-        });
-        var color;
-        if (background == "black") {
-          color = "rgb(0,0,0)";
-        } else if (background == "white") {
-          color = "rgb(255,255,255)";
-        } else if (background == "average") {
-          color = helper.getObject({
-            object: sheet.get(),
-            path: config.path + ".color"
-          });
-          color = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
-        };
-        displayImage.style.backgroundColor = color;
-        displayImageItem.style.width = scale + "%";
-        displayImageItem.style.left = position.x + "%";
-        displayImageItem.style.top = position.y + "%";
-        displayImage.appendChild(displayImageItem);
-      } else {
-        displayImage = false;
-      };
-      return displayImage;
-    };
-
-    function snippet(config) {
-      var data = helper.getObject({
-        object: sheet.get(),
-        path: config.path
-      });
-      var displaySnippet;
-      if (typeof data != undefined && data != "") {
-        displaySnippet = document.createElement("span");
-        displaySnippet.setAttribute("class", "m-display-item-snippet");
-        var displayValue = document.createElement("span");
-        displayValue.setAttribute("class", "m-display-item-value");
-        if (config.valueType == "bonus" && data > 0) {
-          data = "+" + data;
-        } else if (config.valueType == "currency" && data > 0) {
-          data = parseFloat(data).toLocaleString(undefined, {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-          });
-          if (data.indexOf(".00") !== -1) {
-            data = data.substr(0, data.indexOf("."));
-          };
-        } else if (config.valueType == "number" && data > 0) {
-          data = parseFloat(data).toLocaleString(undefined, {
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0
-          });
-        } else if (config.valueType == "weight" && data > 0) {
-          data = parseFloat(data).toLocaleString(undefined, {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-          });
-          if (data.indexOf(".00") !== -1) {
-            data = data.substr(0, data.indexOf("."));
-          };
-        };
-        if (config.dependency) {
-          var dependencyData = helper.getObject({
-            object: sheet.get(),
-            path: config.dependency
-          });
-          if (dependencyData != "") {
-            data = data + " / " + dependencyData;
-          };
-        };
-        displayValue.textContent = data;
-        if (config.prefix) {
-          var displayPrefix = document.createElement("span");
-          displayPrefix.setAttribute("class", "m-display-item-prefix");
-          displayPrefix.textContent = config.prefix;
-          displaySnippet.appendChild(displayPrefix);
-        };
-        displaySnippet.appendChild(displayValue);
-        if (config.suffix) {
-          var displaySuffix = document.createElement("span");
-          displaySuffix.setAttribute("class", "m-display-item-suffix");
-          displaySuffix.textContent = config.suffix;
-          displaySnippet.appendChild(displaySuffix);
-        };
-      } else {
-        displaySnippet = false;
-      };
-      return displaySnippet;
-    };
-
-    function block(config) {
-      var data = helper.getObject({
-        object: sheet.get(),
-        path: config.path
-      });
-      var displayBlock;
-      if (typeof data != undefined && data != "") {
-        displayBlock = document.createElement("span");
-        displayBlock.setAttribute("class", "m-display-item-block");
-        var displayValue = document.createElement("span");
-        displayValue.setAttribute("class", "m-display-value");
-        displayValue.innerHTML = data;
-        if (config.prefix) {
-          var displayPrefix = document.createElement("span");
-          displayPrefix.setAttribute("class", "m-display-item-prefix");
-          displayPrefix.textContent = config.prefix;
-          displayBlock.appendChild(displayPrefix);
-        };
-        displayBlock.appendChild(displayValue);
-        if (config.suffix) {
-          var displaySuffix = document.createElement("span");
-          displaySuffix.setAttribute("class", "m-display-item-suffix");
-          displaySuffix.textContent = config.suffix;
-          displayBlock.appendChild(displaySuffix);
-        };
-      } else {
-        displayBlock = false;
-      };
-      return displayBlock;
-    };
-
-    function pill(object) {
-      var displayListItem = document.createElement("li");
-      displayListItem.setAttribute("class", "m-display-list-item m-display-list-item-pill");
-      var pillName = document.createElement("span");
-      pillName.textContent = object.name;
-      displayListItem.appendChild(pillName);
-      return displayListItem;
-    };
-
-    return {
-      image: image,
-      snippet: snippet,
-      block: block,
-      pill: pill
-    };
-  };
-
-  function _render_all_placeholderDisplay(display) {
-    if (display) {
-      _render_displayPlaceholder(display);
-    } else {
-      var all_display = helper.eA(".js-display");
-      all_display.forEach(function(arrayItem) {
-        _render_displayPlaceholder(arrayItem);
-      });
-    };
-  };
-
-  function _render_displayPlaceholder(display) {
-    var placeholderDisplay = display.querySelector(".js-placeholder-display");
-    var all_displayArea = display.querySelectorAll(".js-display-area");
-    var contentFound = false;
-    all_displayArea.forEach(function(arrayItem) {
-      if (arrayItem.dataset.displayContent == "true") {
-        contentFound = true;
-      };
+  function _render_all_placeholderDisplay() {
+    var all_display = helper.eA(".js-display");
+    all_display.forEach(function(arrayItem) {
+      _render_placeholderDisplay(arrayItem);
     });
-    if (contentFound) {
-      helper.addClass(placeholderDisplay, "is-hidden")
-    } else {
-      helper.removeClass(placeholderDisplay, "is-hidden")
+  };
+
+  function _render_placeholderDisplay(displayElement) {
+    var placeholderDisplay = displayElement.querySelector(".js-placeholder-display");
+    var displayBlock = displayElement.querySelector(".js-display-block");
+    if (displayBlock) {
+      if (displayBlock.hasChildNodes()) {
+        helper.addClass(placeholderDisplay, "is-hidden")
+      } else {
+        helper.removeClass(placeholderDisplay, "is-hidden")
+      };
     };
   };
 
