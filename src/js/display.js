@@ -38,6 +38,41 @@ var display = (function() {
         dependency: "basics.speed.maneuverability"
       }],
       element: "p"
+    }, {
+      type: "snippet",
+      content: [{
+        path: "basics.character.deity",
+        prefix: "Deity"
+      }, {
+        path: "basics.character.gender",
+        prefix: "Gender"
+      }, {
+        path: "basics.character.race",
+        prefix: "Race"
+      }, {
+        path: "basics.experience.total",
+        prefix: "EXP",
+        valueType: "number"
+      }, {
+        path: "basics.character.alignment",
+        prefix: "Alignment"
+      }, {
+        path: "basics.character.size.category",
+        prefix: "Size"
+      }, {
+        path: "basics.character.height",
+        prefix: "Height"
+      }, {
+        path: "basics.character.weight",
+        prefix: "Weight"
+      }, {
+        path: "basics.character.age",
+        prefix: "Age"
+      }, {
+        path: "basics.character.hero_points",
+        prefix: "Hero Points"
+      }],
+      element: "p"
     }]
   };
 
@@ -353,6 +388,44 @@ var display = (function() {
   };
 
   function _render_content(displayObject) {
+    var dataFormat = {
+      number: function(data) {
+        if (data > 0) {
+          data = parseFloat(data).toLocaleString(undefined, {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+          });
+        };
+        return data;
+      },
+      bonus: function(data) {
+        if (data > 0) {
+          data = "+" + data;
+        };
+        return data;
+      },
+      currency: function(data) {
+        data = parseFloat(data).toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
+        if (data.indexOf(".00") !== -1) {
+          data = data.substr(0, data.indexOf("."));
+        };
+        return data;
+      },
+      weight: function(data) {
+        data = parseFloat(data).toLocaleString(undefined, {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
+        if (data.indexOf(".00") !== -1) {
+          data = data.substr(0, data.indexOf("."));
+        };
+        return data;
+      }
+    };
+    console.log(dataFormat["number"](""));
     var createElement = {
       snippet: function(displayObject) {
         var element = document.createElement(displayObject.element);
@@ -363,6 +436,9 @@ var display = (function() {
             path: arrayItem.path
           });
           if (data != "") {
+            if (arrayItem.valueType) {
+              data = dataFormat[arrayItem.valueType](data);
+            };
             contentFound++;
             var snippet = document.createElement("span");
             snippet.setAttribute("class", "m-display-item-snippet");
