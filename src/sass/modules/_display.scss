@@ -346,7 +346,7 @@
 // --------------------------------------------------
 .m-display-list {
   &:not(:only-child):not(:last-child) {
-    margin-bottom: 2em;
+    margin-bottom: 0.5em;
   }
 }
 .m-display-block {

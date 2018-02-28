@@ -280,13 +280,21 @@ var display = (function() {
     };
     if (display) {
       var all_displayBlock = display.querySelectorAll(".js-display-block");
+      var all_areaBlock = display.querySelectorAll(".js-display-area");
     } else {
       var all_displayBlock = helper.eA(".js-display-block");
+      var all_areaBlock = helper.eA(".js-display-area");
     };
-    for (var i = 0; i < all_displayBlock.length; i++) {
-      all_displayBlock[i].dataset.displayContent = false;
-      _removeAllChildren(all_displayBlock[i]);
-    };
+    var displayInsert = helper.eA(".js-display-insert");
+    all_displayBlock.forEach(function(arrayItem) {
+      _removeAllChildren(arrayItem);
+    });
+    all_areaBlock.forEach(function(arrayItem) {
+      arrayItem.dataset.displayContent = false;
+    });
+    displayInsert.forEach(function(arrayItem) {
+      arrayItem.remove();
+    });
   };
 
   function render(display) {
@@ -310,6 +318,26 @@ var display = (function() {
     all_displayArea.forEach(function(arrayItem) {
       _render_all_displayArea(arrayItem);
     });
+    all_displayArea.forEach(function(arrayItem, index, displayArea) {
+      var contentFound = false;
+      var all_displayBlock = arrayItem.querySelectorAll(".js-display-block");
+      all_displayBlock.forEach(function(arrayItem, index, displayArea) {
+        if ((arrayItem.dataset.displayContent == "true")) {
+          contentFound = true;
+        };
+      });
+      if (contentFound) {
+        arrayItem.dataset.displayContent = true;
+        helper.removeClass(arrayItem, "is-hidden");
+        helper.addClass(arrayItem, "m-display-guide");
+        helper.addClass(arrayItem, "js-display-guide");
+      } else {
+        arrayItem.dataset.displayContent = false;
+        helper.addClass(arrayItem, "is-hidden");
+        helper.removeClass(arrayItem, "m-display-guide");
+        helper.removeClass(arrayItem, "js-display-guide");
+      };
+    });
     var all_displayGuide = display.querySelectorAll(".js-display-guide");
     if (all_displayGuide.length > 0) {
       helper.removeClass(all_displayGuide[all_displayGuide.length - 1], "m-display-guide");
@@ -326,14 +354,13 @@ var display = (function() {
 
   function _render_displayBlock(displayBlock) {
     var options = helper.makeObject(displayBlock.dataset.displayOptions);
-    var displayArea = helper.getClosest(displayBlock, ".js-display-area");
+    // var displayArea = helper.getClosest(displayBlock, ".js-display-area");
     var elementCount = 0;
     var all_element = [];
-    console.log(options);
 
     var getElements = {
       image: function(options) {
-        console.log("------ image");
+        // console.log("------ image");
         options.path.forEach(function(arrayItem, index) {
           var config = {
             path: arrayItem
@@ -342,7 +369,7 @@ var display = (function() {
         });
       },
       snippet: function(options) {
-        console.log("------ snippet");
+        // console.log("------ snippet");
         options.path.forEach(function(arrayItem, index) {
           var config = {
             path: arrayItem
@@ -379,7 +406,7 @@ var display = (function() {
         });
       },
       block: function(options) {
-        console.log("------ block");
+        // console.log("------ block");
         options.path.forEach(function(arrayItem, index) {
           var config = {
             path: arrayItem
@@ -402,25 +429,31 @@ var display = (function() {
         });
       },
       pill: function(options) {
-        console.log("------ pill");
+        // console.log("------ pill");
         options.path.forEach(function(arrayItem, index) {
-          var config = {
+          var all_data = helper.getObject({
+            object: sheet.get(),
             path: arrayItem
-          };
-          if ("prefix" in options) {
-            if (options.prefix[index]) {
-              config.prefix = options.prefix[index];
-            } else {
-              config.prefix = false;
+          });
+          all_data.forEach(function(arrayItem) {
+            all_element.push(_create_element().pill(arrayItem));
+          });
+          if (all_element.length > 0) {
+            if ("prefix" in options) {
+              if (options.prefix[index]) {
+                var displayPrefix = document.createElement("span");
+                displayPrefix.setAttribute("class", "m-display-item-prefix js-display-insert");
+                displayPrefix.textContent = options.prefix[index];
+                displayBlock.parentNode.insertBefore(displayPrefix, displayBlock);
+              };
             };
           };
-          all_element.push(_create_element().pill(config));
         });
       }
     };
 
     getElements[options.type](options);
-    console.log(all_element);
+
     if (all_element.length > 0) {
       all_element.forEach(function(arrayItem, index) {
         if (arrayItem) {
@@ -431,15 +464,15 @@ var display = (function() {
     };
 
     if (elementCount > 0) {
-      displayArea.dataset.displayContent = true;
-      helper.removeClass(displayArea, "is-hidden");
-      helper.addClass(displayArea, "m-display-guide");
-      helper.addClass(displayArea, "js-display-guide");
+      displayBlock.dataset.displayContent = true;
+      helper.removeClass(displayBlock, "is-hidden");
+      // helper.addClass(displayBlock, "m-display-guide");
+      // helper.addClass(displayBlock, "js-display-guide");
     } else {
-      displayArea.dataset.displayContent = false;
-      helper.addClass(displayArea, "is-hidden");
-      helper.removeClass(displayArea, "m-display-guide");
-      helper.removeClass(displayArea, "js-display-guide");
+      displayBlock.dataset.displayContent = false;
+      helper.addClass(displayBlock, "is-hidden");
+      // helper.removeClass(displayBlock, "m-display-guide");
+      // helper.removeClass(displayBlock, "js-display-guide");
     };
   };
 
@@ -588,36 +621,13 @@ var display = (function() {
       return displayBlock;
     };
 
-    function pill(config) {
-      var all_data = helper.getObject({
-        object: sheet.get(),
-        path: config.path
-      });
-      var displayPill;
-      if (all_data.length > 0) {
-        displayPill = document.createElement("span");
-        displayPill.setAttribute("class", "m-display-item-pill");
-        if (config.prefix) {
-          var displayPrefix = document.createElement("span");
-          displayPrefix.setAttribute("class", "m-display-item-prefix");
-          displayPrefix.textContent = config.prefix;
-          displayPill.appendChild(displayPrefix);
-        };
-        var displayPillList = document.createElement("ul");
-        displayPillList.setAttribute("class", "m-display-list m-display-list-inline u-list-unstyled");
-        all_data.forEach(function(arrayItem, index) {
-          var displayListItem = document.createElement("li");
-          displayListItem.setAttribute("class", "m-display-list-item m-display-list-item-pill");
-          var pillName = document.createElement("span");
-          pillName.textContent = arrayItem.name;
-          displayListItem.appendChild(pillName);
-          displayPillList.appendChild(displayListItem);
-        });
-        displayPill.appendChild(displayPillList);
-        return displayPill;
-      } else {
-        return false;
-      };
+    function pill(object) {
+      var displayListItem = document.createElement("li");
+      displayListItem.setAttribute("class", "m-display-list-item m-display-list-item-pill");
+      var pillName = document.createElement("span");
+      pillName.textContent = object.name;
+      displayListItem.appendChild(pillName);
+      return displayListItem;
     };
 
     return {
