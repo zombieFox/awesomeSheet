@@ -71,7 +71,6 @@
 .m-display-stat-name {
   margin-right: $font-size-050;
 }
-
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
@@ -120,15 +119,8 @@
   }
 }
 @media (min-width: $screen-md) {}
-@media (min-width: $screen-lg) {
-}
+@media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}
-
-
-
-
-
-
 .m-display-box {
   display: flex;
   flex-flow: column nowrap;

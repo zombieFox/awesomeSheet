@@ -122,31 +122,31 @@ var display = (function() {
     }, {
       type: "pill",
       content: [{
-        path: "basics.statistics.abilities",
+        path: "statistics.abilities.all",
         prefix: "Abilities"
       }],
-      element: "p"
+      element: "ul"
     }, {
       type: "pill",
       content: [{
-        path: "basics.statistics.feats",
+        path: "statistics.feats.all",
         prefix: "Feats"
       }],
-      element: "p"
+      element: "ul"
     }, {
       type: "pill",
       content: [{
-        path: "basics.statistics.traits",
+        path: "statistics.traits.all",
         prefix: "Traits"
       }],
-      element: "p"
+      element: "ul"
     }, {
       type: "pill",
       content: [{
-        path: "basics.statistics.languages",
+        path: "statistics.languages.all",
         prefix: "languages"
       }],
-      element: "p"
+      element: "ul"
     }]
   };
 
@@ -550,6 +550,7 @@ var display = (function() {
       },
       block: function(displayObject) {
         var element = document.createElement(displayObject.element);
+        element.setAttribute("class", "m-display-item-block");
         var contentFound = 0;
         displayObject.content.forEach(function(arrayItem, index) {
           var data = helper.getObject({
@@ -561,25 +562,22 @@ var display = (function() {
             if (arrayItem.valueType) {
               data = dataFormat[arrayItem.valueType](data);
             };
-            var snippet = document.createElement("span");
-            snippet.setAttribute("class", "m-display-item-snippet");
             if (arrayItem.prefix) {
               var prefix = document.createElement("span");
               prefix.setAttribute("class", "m-display-item-prefix");
               prefix.textContent = arrayItem.prefix;
-              snippet.appendChild(prefix);
+              element.appendChild(prefix);
             };
             var value = document.createElement("span");
             value.setAttribute("class", "m-display-item-value");
             value.innerHTML = data;
-            snippet.appendChild(value);
+            element.appendChild(value);
             if (arrayItem.suffix) {
               var suffix = document.createElement("span");
               suffix.setAttribute("class", "m-display-item-suffix");
               suffix.textContent = arrayItem.suffix;
-              snippet.appendChild(suffix);
+              element.appendChild(suffix);
             };
-            element.appendChild(snippet);
           };
         });
         if (contentFound > 0) {
@@ -672,6 +670,41 @@ var display = (function() {
           listItem.appendChild(stat);
           listItem.appendChild(mod);
           element.appendChild(listItem);
+        });
+        if (contentFound > 0) {
+          return element;
+        } else {
+          return false;
+        };
+      },
+      pill: function(displayObject) {
+        var element = document.createElement(displayObject.element);
+        element.setAttribute("class", "m-display-pills u-list-unstyled");
+        var contentFound = 0;
+        displayObject.content.forEach(function(arrayItem, index) {
+          var all_pills = helper.getObject({
+            object: sheet.get(),
+            path: arrayItem.path
+          });
+          if (all_pills.length > 0) {
+            if (arrayItem.prefix) {
+              var prefix = document.createElement("span");
+              prefix.setAttribute("class", "m-display-item-prefix");
+              prefix.textContent = arrayItem.prefix;
+              // element.parentNode.insertBefore(prefix, element);
+              element.appendChild(prefix);
+            };
+            all_pills.forEach(function(arrayItem) {
+              contentFound++;
+              var listItem = document.createElement("li");
+              listItem.setAttribute("class", "m-display-pills-item");
+              var pillName = document.createElement("span");
+              pillName.setAttribute("class", "m-display-pills-name");
+              pillName.textContent = arrayItem.name;
+              listItem.appendChild(pillName);
+              element.appendChild(listItem);
+            });
+          };
         });
         if (contentFound > 0) {
           return element;
