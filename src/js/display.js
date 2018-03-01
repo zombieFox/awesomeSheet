@@ -121,30 +121,30 @@ var display = (function() {
       element: "ul"
     }, {
       type: "pill",
+      head: "Abilities",
       content: [{
         path: "statistics.abilities.all",
-        prefix: "Abilities"
       }],
       element: "ul"
     }, {
       type: "pill",
+      head: "Feats",
       content: [{
         path: "statistics.feats.all",
-        prefix: "Feats"
       }],
       element: "ul"
     }, {
       type: "pill",
+      head: "Traits",
       content: [{
         path: "statistics.traits.all",
-        prefix: "Traits"
       }],
       element: "ul"
     }, {
       type: "pill",
+      head: "languages",
       content: [{
         path: "statistics.languages.all",
-        prefix: "languages"
       }],
       element: "ul"
     }]
@@ -452,10 +452,17 @@ var display = (function() {
     var options = helper.makeObject(displayBlock.dataset.displayOptions);
     if (options) {
       _displayContent[options.section].forEach(function(arrayItem, index) {
+
         var elementToAdd = _render_content(arrayItem);
-        if (elementToAdd) {
-          displayBlock.appendChild(elementToAdd);
+        console.log(elementToAdd);
+        if (elementToAdd.length > 0) {
+          elementToAdd.forEach(function(arrayItem) {
+            if (arrayItem) {
+              displayBlock.appendChild(arrayItem);
+            };
+          });
         };
+
       });
     };
   };
@@ -500,6 +507,7 @@ var display = (function() {
     };
     var createElement = {
       snippet: function(displayObject) {
+        var all_element = [];
         var element = document.createElement(displayObject.element);
         var contentFound = 0;
         displayObject.content.forEach(function(arrayItem, index) {
@@ -543,12 +551,14 @@ var display = (function() {
           };
         });
         if (contentFound > 0) {
-          return element;
+          all_element.push(element);
         } else {
-          return false;
+          all_element.push(false);
         };
+        return all_element;
       },
       block: function(displayObject) {
+        var all_element = [];
         var element = document.createElement(displayObject.element);
         element.setAttribute("class", "m-display-item-block");
         var contentFound = 0;
@@ -581,12 +591,14 @@ var display = (function() {
           };
         });
         if (contentFound > 0) {
-          return element;
+          all_element.push(element);
         } else {
-          return false;
+          all_element.push(false);
         };
+        return all_element;
       },
       image: function(displayObject) {
+        var all_element = [];
         var element = document.createElement(displayObject.element);
         var contentFound = 0;
         displayObject.content.forEach(function(arrayItem, index) {
@@ -633,12 +645,14 @@ var display = (function() {
           };
         });
         if (contentFound > 0) {
-          return element;
+          all_element.push(element);
         } else {
-          return false;
+          all_element.push(false);
         };
+        return all_element;
       },
       stat: function(displayObject) {
+        var all_element = [];
         var element = document.createElement(displayObject.element);
         element.setAttribute("class", "m-display-stats u-list-unstyled");
         var contentFound = 0;
@@ -672,28 +686,29 @@ var display = (function() {
           element.appendChild(listItem);
         });
         if (contentFound > 0) {
-          return element;
+          all_element.push(element);
         } else {
-          return false;
+          all_element.push(false);
         };
+        return all_element;
       },
       pill: function(displayObject) {
+        var all_element = [];
         var element = document.createElement(displayObject.element);
         element.setAttribute("class", "m-display-pills u-list-unstyled");
         var contentFound = 0;
+        if (displayObject.head) {
+          var head = document.createElement("p");
+          head.setAttribute("class", "m-display-item-prefix");
+          head.textContent = displayObject.head;
+          all_element.push(head);
+        };
         displayObject.content.forEach(function(arrayItem, index) {
           var all_pills = helper.getObject({
             object: sheet.get(),
             path: arrayItem.path
           });
           if (all_pills.length > 0) {
-            if (arrayItem.prefix) {
-              var prefix = document.createElement("span");
-              prefix.setAttribute("class", "m-display-item-prefix");
-              prefix.textContent = arrayItem.prefix;
-              // element.parentNode.insertBefore(prefix, element);
-              element.appendChild(prefix);
-            };
             all_pills.forEach(function(arrayItem) {
               contentFound++;
               var listItem = document.createElement("li");
@@ -707,10 +722,11 @@ var display = (function() {
           };
         });
         if (contentFound > 0) {
-          return element;
+          all_element.push(element);
         } else {
-          return false;
+          all_element.push(false);
         };
+        return all_element;
       }
     };
     if (displayObject.type in createElement) {

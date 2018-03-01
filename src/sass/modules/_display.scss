@@ -72,6 +72,23 @@
   margin-right: $font-size-050;
 }
 // --------------------------------------------------
+// pills
+// --------------------------------------------------
+.m-display-pills {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+}
+.m-display-pills-item {
+  display: inline-block;
+  &:not(:last-child):not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+// --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
