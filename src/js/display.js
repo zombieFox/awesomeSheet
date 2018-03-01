@@ -1,10 +1,14 @@
 var display = (function() {
 
-  var _displayConten = {
+  var _displayContent = {
     basics: [{
       type: "image",
       content: [{
-        path: "basics.image"
+        path: "basics.image.data",
+        scale: "basics.image.scale",
+        position: "basics.image.position",
+        background: "basics.image.background",
+        color: "basics.image.color"
       }],
       element: "div"
     }, {
@@ -84,6 +88,63 @@ var display = (function() {
       content: [{
         path: "basics.character.description",
         prefix: "Description"
+      }],
+      element: "p"
+    }],
+    statistics: [{
+      type: "stat",
+      content: [{
+        statPath: "statistics.stats.str.current",
+        modPath: "statistics.stats.str.modifier",
+        prefix: "STR"
+      }, {
+        statPath: "statistics.stats.dex.current",
+        modPath: "statistics.stats.dex.modifier",
+        prefix: "DEX"
+      }, {
+        statPath: "statistics.stats.con.current",
+        modPath: "statistics.stats.con.modifier",
+        prefix: "CON"
+      }, {
+        statPath: "statistics.stats.int.current",
+        modPath: "statistics.stats.int.modifier",
+        prefix: "INT"
+      }, {
+        statPath: "statistics.stats.wis.current",
+        modPath: "statistics.stats.wis.modifier",
+        prefix: "WIS"
+      }, {
+        statPath: "statistics.stats.con.current",
+        modPath: "statistics.stats.con.modifier",
+        prefix: "CHA"
+      }],
+      element: "ul"
+    }, {
+      type: "pill",
+      content: [{
+        path: "basics.statistics.abilities",
+        prefix: "Abilities"
+      }],
+      element: "p"
+    }, {
+      type: "pill",
+      content: [{
+        path: "basics.statistics.feats",
+        prefix: "Feats"
+      }],
+      element: "p"
+    }, {
+      type: "pill",
+      content: [{
+        path: "basics.statistics.traits",
+        prefix: "Traits"
+      }],
+      element: "p"
+    }, {
+      type: "pill",
+      content: [{
+        path: "basics.statistics.languages",
+        prefix: "languages"
       }],
       element: "p"
     }]
@@ -390,7 +451,7 @@ var display = (function() {
   function _render_displayBlock(displayBlock) {
     var options = helper.makeObject(displayBlock.dataset.displayOptions);
     if (options) {
-      _displayConten[options.section].forEach(function(arrayItem, index) {
+      _displayContent[options.section].forEach(function(arrayItem, index) {
         var elementToAdd = _render_content(arrayItem);
         if (elementToAdd) {
           displayBlock.appendChild(elementToAdd);
@@ -533,9 +594,8 @@ var display = (function() {
         displayObject.content.forEach(function(arrayItem, index) {
           var data = helper.getObject({
             object: sheet.get(),
-            path: arrayItem.path + ".data"
+            path: arrayItem.path
           });
-
           if (data != "") {
             contentFound++;
             element.setAttribute("class", "m-display-item-image-wrapper");
@@ -545,15 +605,15 @@ var display = (function() {
             displayImageItem.src = data;
             var scale = helper.getObject({
               object: sheet.get(),
-              path: arrayItem.path + ".scale"
+              path: arrayItem.scale
             });
             var position = helper.getObject({
               object: sheet.get(),
-              path: arrayItem.path + ".position"
+              path: arrayItem.position
             });
             var background = helper.getObject({
               object: sheet.get(),
-              path: arrayItem.path + ".background"
+              path: arrayItem.background
             });
             var color;
             if (background == "black") {
@@ -563,7 +623,7 @@ var display = (function() {
             } else if (background == "average") {
               color = helper.getObject({
                 object: sheet.get(),
-                path: arrayItem.path + ".color"
+                path: arrayItem.color
               });
               color = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
             };
@@ -573,7 +633,45 @@ var display = (function() {
             displayImageItem.style.top = position.y + "%";
             element.appendChild(displayImageItem);
           };
-
+        });
+        if (contentFound > 0) {
+          return element;
+        } else {
+          return false;
+        };
+      },
+      stat: function(displayObject) {
+        var element = document.createElement(displayObject.element);
+        element.setAttribute("class", "m-display-stats u-list-unstyled");
+        var contentFound = 0;
+        displayObject.content.forEach(function(arrayItem, index) {
+          contentFound++;
+          var listItem = document.createElement("li");
+          listItem.setAttribute("class", "m-display-stats-item");
+          var stat = document.createElement("span");
+          stat.setAttribute("class", "m-display-stat");
+          var statName = document.createElement("span");
+          statName.setAttribute("class", "m-display-stat-name");
+          var statValue = document.createElement("strong");
+          statValue.setAttribute("class", "m-display-stat-value");
+          var mod = document.createElement("h1");
+          mod.setAttribute("class", "m-display-mod");
+          var statData = helper.getObject({
+            object: sheet.get(),
+            path: arrayItem.modPath
+          });
+          var modData = dataFormat.bonus(helper.getObject({
+            object: sheet.get(),
+            path: arrayItem.statPath
+          }));
+          statName.textContent = arrayItem.prefix;
+          statValue.textContent = statData;
+          mod.textContent = modData;
+          stat.appendChild(statName);
+          stat.appendChild(statValue);
+          listItem.appendChild(stat);
+          listItem.appendChild(mod);
+          element.appendChild(listItem);
         });
         if (contentFound > 0) {
           return element;

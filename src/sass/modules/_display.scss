@@ -1,3 +1,134 @@
+// --------------------------------------------------
+// stats
+// --------------------------------------------------
+.m-display-stats {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+}
+.m-display-stats-item {
+  flex: 1 1 33%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  box-sizing: border-box;
+  position: relative;
+  &:not(:last-child):not(:last-child) {
+    margin-bottom: 0;
+  }
+  &:nth-child(1),
+  &:nth-child(2),
+  &:nth-child(3) {
+    padding: 0 0.5em 0.5em;
+  }
+  &:nth-child(4),
+  &:nth-child(5),
+  &:nth-child(6) {
+    padding: 0.5em 0.5em 0;
+  }
+  &:nth-child(1),
+  &:nth-child(2),
+  &:nth-child(3) {
+    &:before {
+      content: "";
+      background-color: $gray-16;
+      display: block;
+      width: 80%;
+      height: 1px;
+      position: absolute;
+      bottom: 0;
+      right: 50%;
+      transform: translate(50%, 0);
+    }
+  }
+  &:nth-child(3n+1),
+  &:nth-child(3n+2) {
+    &:after {
+      content: "";
+      background-color: $gray-16;
+      display: block;
+      width: 1px;
+      height: 80%;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translate(0, -50%);
+    }
+  }
+}
+.m-display-mod,
+.m-display-stat {
+  text-align: center;
+}
+.m-display-stat {
+  color: $gray-10;
+  color: $primary-color-08;
+  font-family: $open-sans-light-italic;
+}
+.m-display-stat-name {
+  margin-right: $font-size-050;
+}
+
+// --------------------------------------------------
+// media queries
+// --------------------------------------------------
+@media (min-width: $screen-sm) {
+  .m-display-stats {
+    flex-flow: row nowrap;
+  }
+  .m-display-stats-item {
+    flex: 1 1 15%;
+    box-sizing: border-box;
+    position: relative;
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4),
+    &:nth-child(5),
+    &:nth-child(6) {
+      padding: 0;
+    }
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3) {
+      &:before {
+        content: none;
+      }
+    }
+    &:nth-child(3n+1),
+    &:nth-child(3n+2) {
+      &:after {
+        content: none;
+      }
+    }
+    &:not(:only-child):not(:last-child) {
+      &:after {
+        content: "";
+        background-color: $gray-16;
+        display: block;
+        width: 1px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: rotate(10deg);
+      }
+    }
+  }
+}
+@media (min-width: $screen-md) {}
+@media (min-width: $screen-lg) {
+}
+@media (min-width: $screen-xl) {}
+
+
+
+
+
+
 .m-display-box {
   display: flex;
   flex-flow: column nowrap;
