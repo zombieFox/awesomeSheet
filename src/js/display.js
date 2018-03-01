@@ -2,6 +2,12 @@ var display = (function() {
 
   var _displayConten = {
     basics: [{
+      type: "image",
+      content: [{
+        path: "basics.image"
+      }],
+      element: "div"
+    }, {
       type: "snippet",
       content: [{
         path: "basics.character.name"
@@ -73,9 +79,15 @@ var display = (function() {
         prefix: "Hero Points"
       }],
       element: "p"
+    }, {
+      type: "block",
+      content: [{
+        path: "basics.character.description",
+        prefix: "Description"
+      }],
+      element: "p"
     }]
   };
-
 
   var state = (function() {
     var displayState = {
@@ -425,7 +437,6 @@ var display = (function() {
         return data;
       }
     };
-    console.log(dataFormat["number"](""));
     var createElement = {
       snippet: function(displayObject) {
         var element = document.createElement(displayObject.element);
@@ -438,6 +449,15 @@ var display = (function() {
           if (data != "") {
             if (arrayItem.valueType) {
               data = dataFormat[arrayItem.valueType](data);
+            };
+            if (arrayItem.dependency) {
+              var dependencyData = helper.getObject({
+                object: sheet.get(),
+                path: arrayItem.dependency
+              });
+              if (dependencyData != "") {
+                data = data + " / " + dependencyData;
+              };
             };
             contentFound++;
             var snippet = document.createElement("span");
@@ -466,9 +486,107 @@ var display = (function() {
         } else {
           return false;
         };
+      },
+      block: function(displayObject) {
+        var element = document.createElement(displayObject.element);
+        var contentFound = 0;
+        displayObject.content.forEach(function(arrayItem, index) {
+          var data = helper.getObject({
+            object: sheet.get(),
+            path: arrayItem.path
+          });
+          if (data != "") {
+            contentFound++;
+            if (arrayItem.valueType) {
+              data = dataFormat[arrayItem.valueType](data);
+            };
+            var snippet = document.createElement("span");
+            snippet.setAttribute("class", "m-display-item-snippet");
+            if (arrayItem.prefix) {
+              var prefix = document.createElement("span");
+              prefix.setAttribute("class", "m-display-item-prefix");
+              prefix.textContent = arrayItem.prefix;
+              snippet.appendChild(prefix);
+            };
+            var value = document.createElement("span");
+            value.setAttribute("class", "m-display-item-value");
+            value.innerHTML = data;
+            snippet.appendChild(value);
+            if (arrayItem.suffix) {
+              var suffix = document.createElement("span");
+              suffix.setAttribute("class", "m-display-item-suffix");
+              suffix.textContent = arrayItem.suffix;
+              snippet.appendChild(suffix);
+            };
+            element.appendChild(snippet);
+          };
+        });
+        if (contentFound > 0) {
+          return element;
+        } else {
+          return false;
+        };
+      },
+      image: function(displayObject) {
+        var element = document.createElement(displayObject.element);
+        var contentFound = 0;
+        displayObject.content.forEach(function(arrayItem, index) {
+          var data = helper.getObject({
+            object: sheet.get(),
+            path: arrayItem.path + ".data"
+          });
+
+          if (data != "") {
+            contentFound++;
+            element.setAttribute("class", "m-display-item-image-wrapper");
+            // var displayImageItem = document.createElement("img");
+            var displayImageItem = new Image;
+            displayImageItem.setAttribute("class", "m-display-item-image");
+            displayImageItem.src = data;
+            var scale = helper.getObject({
+              object: sheet.get(),
+              path: arrayItem.path + ".scale"
+            });
+            var position = helper.getObject({
+              object: sheet.get(),
+              path: arrayItem.path + ".position"
+            });
+            var background = helper.getObject({
+              object: sheet.get(),
+              path: arrayItem.path + ".background"
+            });
+            var color;
+            if (background == "black") {
+              color = "rgb(0,0,0)";
+            } else if (background == "white") {
+              color = "rgb(255,255,255)";
+            } else if (background == "average") {
+              color = helper.getObject({
+                object: sheet.get(),
+                path: arrayItem.path + ".color"
+              });
+              color = "rgb(" + color.r + "," + color.g + "," + color.b + ")";
+            };
+            element.style.backgroundColor = color;
+            displayImageItem.style.width = scale + "%";
+            displayImageItem.style.left = position.x + "%";
+            displayImageItem.style.top = position.y + "%";
+            element.appendChild(displayImageItem);
+          };
+
+        });
+        if (contentFound > 0) {
+          return element;
+        } else {
+          return false;
+        };
       }
     };
-    return createElement[displayObject.type](displayObject)
+    if (displayObject.type in createElement) {
+      return createElement[displayObject.type](displayObject);
+    } else {
+      return false;
+    };
   };
 
   // function clear(display) {
