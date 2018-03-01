@@ -452,9 +452,7 @@ var display = (function() {
     var options = helper.makeObject(displayBlock.dataset.displayOptions);
     if (options) {
       _displayContent[options.section].forEach(function(arrayItem, index) {
-
         var elementToAdd = _render_content(arrayItem);
-        console.log(elementToAdd);
         if (elementToAdd.length > 0) {
           elementToAdd.forEach(function(arrayItem) {
             if (arrayItem) {
@@ -462,7 +460,6 @@ var display = (function() {
             };
           });
         };
-
       });
     };
   };
