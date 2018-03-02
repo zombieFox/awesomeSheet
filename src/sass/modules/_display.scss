@@ -34,12 +34,10 @@
 .m-display-snippet-item {
   display: inline-block;
   position: relative;
-  margin-bottom: 1em;
-  .m-display-suffix,
-  .m-display-value {
-    &:not(:only-child) {
-      margin-left: 0.4em;
-    }
+  margin-bottom: 0.5em;
+  .m-display-prefix {
+    margin-right: 0.8em;
+    display: inline-block;
   }
   &:not(:only-child):not(:last-child) {
     padding-right: 1em;
@@ -49,7 +47,7 @@
       background-color: $gray-18;
       display: block;
       width: 1px;
-      height: 100%;
+      height: 1em;
       position: absolute;
       top: 50%;
       right: 0;
@@ -103,28 +101,40 @@
   &:nth-child(3) {
     &:before {
       content: "";
-      background-color: $gray-16;
+      background-color: $gray-18;
       display: block;
       width: 80%;
       height: 1px;
       position: absolute;
       bottom: 0;
       right: 50%;
-      transform: translate(50%, 0);
+      transform: translate(50%, 50%);
     }
   }
   &:nth-child(3n+1),
   &:nth-child(3n+2) {
     &:after {
       content: "";
-      background-color: $gray-16;
+      background-color: $gray-18;
       display: block;
       width: 1px;
       height: 80%;
       position: absolute;
       top: 50%;
-      right: 0;
-      transform: translate(0, -50%);
+      right: 3%;
+      transform: rotate(10deg) translate(-50%, -50%);
+    }
+  }
+  &:nth-child(1),
+  &:nth-child(2) {
+    &:after {
+      transform-origin: bottom;
+    }
+  }
+  &:nth-child(4),
+  &:nth-child(5) {
+    &:after {
+      transform-origin: top;
     }
   }
 }
@@ -144,11 +154,10 @@
 // pills
 // --------------------------------------------------
 .m-display-pills {
-  margin-left: 1em;
+  margin: 0 0 0.5em 1em;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
-  width: 100%;
   position: relative;
   box-sizing: border-box;
 }
@@ -156,18 +165,19 @@
   display: inline-block;
   position: relative;
   &:not(:last-child):not(:last-child) {
-    margin: 0 0.6em 0 0;
-    padding: 0 0.6em 0 0;
+    margin: 0 1em 0 0;
+    padding: 0 1em 0 0;
     &:after {
       content: "";
-      background-color: $gray-16;
+      background-color: $gray-18;
       display: block;
       width: 1px;
-      height: 0.8em;
+      height: 1em;
       position: absolute;
       top: 50%;
       right: 0;
-      transform: rotate(10deg) translate(0, -50%);
+      transform: rotate(10deg) translate(-50%, -50%);
+      transform-origin: top;
     }
   }
 }
@@ -206,19 +216,43 @@
     &:not(:only-child):not(:last-child) {
       &:after {
         content: "";
-        background-color: $gray-16;
+        background-color: $gray-18;
         display: block;
         width: 1px;
         height: 100%;
         position: absolute;
         top: 0;
         right: 0;
-        transform: rotate(10deg);
+        transform: rotate(10deg) translate(-50%, 0);
+        transform-origin: center;
       }
     }
   }
 }
-@media (min-width: $screen-md) {}
+@media (min-width: $screen-md) {
+  // --------------------------------------------------
+  // snippet
+  // --------------------------------------------------
+  .m-display-snippet-item {
+    margin-bottom: 1em;
+    .m-display-prefix {
+      display: block;
+    }
+    .m-display-suffix,
+    .m-display-value {
+      &:not(:only-child) {
+        margin-left: 0.4em;
+      }
+    }
+    &:not(:only-child):not(:last-child) {
+      padding-right: 1em;
+      margin-right: 1em;
+      &:after {
+        height: 100%;
+      }
+    }
+  }
+}
 @media (min-width: $screen-lg) {
   .m-display-stats {
     margin: 0 -2em 1em;
@@ -316,7 +350,7 @@
   &:nth-child(3) {
     &:before {
       content: "";
-      background-color: $gray-16;
+      background-color: $gray-18;
       display: block;
       width: 80%;
       height: 1px;
@@ -330,7 +364,7 @@
   &:nth-child(3n+2) {
     &:after {
       content: "";
-      background-color: $gray-16;
+      background-color: $gray-18;
       display: block;
       width: 1px;
       height: 80%;
@@ -443,7 +477,7 @@
 .m-display-item-image-wrapper {
   background-color: $white;
   border-radius: 50%;
-  margin: -3em 0 0;
+  margin: -3em auto 0;
   width: 20em;
   height: 20em;
   box-sizing: border-box;
@@ -467,7 +501,7 @@
     margin-right: 0.6em;
     &:after {
       content: "";
-      background-color: $gray-16;
+      background-color: $gray-18;
       display: block;
       width: 1px;
       height: 1.2em;
@@ -561,7 +595,7 @@
     &:not(:only-child):not(:last-child) {
       &:after {
         content: "";
-        background-color: $gray-16;
+        background-color: $gray-18;
         display: block;
         width: 1px;
         height: calc(100% - 0.6em);
@@ -794,7 +828,7 @@
     &:not(:only-child):not(:last-child) {
       &:after {
         content: "";
-        background-color: $gray-16;
+        background-color: $gray-18;
         display: block;
         width: 1px;
         height: 100%;
@@ -951,7 +985,7 @@
     &:not(:only-child):not(:last-child) {
       &:after {
         content: "";
-        background-color: $gray-16;
+        background-color: $gray-18;
         display: block;
         width: 1px;
         height: 100%;

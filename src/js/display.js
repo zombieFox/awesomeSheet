@@ -452,13 +452,16 @@ var display = (function() {
     var options = helper.makeObject(displayBlock.dataset.displayOptions);
     if (options) {
       _displayContent[options.section].forEach(function(arrayItem, index) {
+        var displayGridItem = document.createElement("div");
+        displayGridItem.setAttribute("class", "m-display-grid-item");
         var elementToAdd = _render_content(arrayItem);
         if (elementToAdd.length > 0) {
           elementToAdd.forEach(function(arrayItem) {
             if (arrayItem) {
-              displayBlock.appendChild(arrayItem);
+              displayGridItem.appendChild(arrayItem);
             };
           });
+          displayBlock.appendChild(displayGridItem);
         };
       });
     };
