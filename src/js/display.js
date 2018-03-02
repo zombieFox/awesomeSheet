@@ -667,11 +667,11 @@ var display = (function() {
           mod.setAttribute("class", "m-display-mod");
           var statData = helper.getObject({
             object: sheet.get(),
-            path: arrayItem.modPath
+            path: arrayItem.statPath
           });
           var modData = dataFormat.bonus(helper.getObject({
             object: sheet.get(),
-            path: arrayItem.statPath
+            path: arrayItem.modPath
           }));
           statName.textContent = arrayItem.prefix;
           statValue.textContent = statData;

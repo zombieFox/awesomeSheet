@@ -8,6 +8,7 @@
   width: 100%;
   position: relative;
   box-sizing: border-box;
+  font-size: $font-size-root-100;
 }
 .m-display-stats-item {
   flex: 1 1 33%;
@@ -75,17 +76,32 @@
 // pills
 // --------------------------------------------------
 .m-display-pills {
+  margin-left: 1em;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
   width: 100%;
   position: relative;
   box-sizing: border-box;
+  font-size: $font-size-root-100;
 }
 .m-display-pills-item {
   display: inline-block;
+  position: relative;
   &:not(:last-child):not(:last-child) {
-    margin-bottom: 0;
+    margin: 0 0.6em 0 0;
+    padding: 0 0.6em 0 0;
+    &:after {
+      content: "";
+      background-color: $gray-16;
+      display: block;
+      width: 1px;
+      height: 0.8em;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: rotate(10deg) translate(0, -50%);
+    }
   }
 }
 // --------------------------------------------------
