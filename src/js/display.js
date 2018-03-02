@@ -3,22 +3,23 @@ var display = (function() {
   var _displayContent = {
     basics: [{
       type: "image",
+      element: "div",
       content: [{
         path: "basics.image.data",
         scale: "basics.image.scale",
         position: "basics.image.position",
         background: "basics.image.background",
         color: "basics.image.color"
-      }],
-      element: "div"
+      }]
     }, {
       type: "snippet",
+      element: "h1",
       content: [{
         path: "basics.character.name"
-      }],
-      element: "h1"
+      }]
     }, {
       type: "snippet",
+      element: "p",
       content: [{
         path: "basics.classes.string",
         prefix: "Class & Level"
@@ -46,10 +47,10 @@ var display = (function() {
         path: "basics.speed.fly",
         prefix: "Fly Speed",
         dependency: "basics.speed.maneuverability"
-      }],
-      element: "p"
+      }]
     }, {
       type: "snippet",
+      element: "p",
       content: [{
         path: "basics.character.deity",
         prefix: "Deity"
@@ -81,18 +82,18 @@ var display = (function() {
       }, {
         path: "basics.character.hero_points",
         prefix: "Hero Points"
-      }],
-      element: "p"
+      }]
     }, {
       type: "block",
+      element: "p",
+      head: "Description",
       content: [{
-        path: "basics.character.description",
-        prefix: "Description"
-      }],
-      element: "p"
+        path: "basics.character.description"
+      }]
     }],
     statistics: [{
       type: "stat",
+      element: "ul",
       content: [{
         statPath: "statistics.stats.str.current",
         modPath: "statistics.stats.str.modifier",
@@ -117,36 +118,35 @@ var display = (function() {
         statPath: "statistics.stats.con.current",
         modPath: "statistics.stats.con.modifier",
         prefix: "CHA"
-      }],
-      element: "ul"
+      }]
     }, {
       type: "pill",
+      element: "ul",
       head: "Abilities",
       content: [{
         path: "statistics.abilities.all",
-      }],
-      element: "ul"
+      }]
     }, {
       type: "pill",
       head: "Feats",
+      element: "ul",
       content: [{
         path: "statistics.feats.all",
-      }],
-      element: "ul"
+      }]
     }, {
       type: "pill",
       head: "Traits",
+      element: "ul",
       content: [{
         path: "statistics.traits.all",
-      }],
-      element: "ul"
+      }]
     }, {
       type: "pill",
       head: "languages",
+      element: "ul",
       content: [{
         path: "statistics.languages.all",
-      }],
-      element: "ul"
+      }]
     }]
   };
 
@@ -503,97 +503,6 @@ var display = (function() {
       }
     };
     var createElement = {
-      snippet: function(displayObject) {
-        var all_element = [];
-        var element = document.createElement(displayObject.element);
-        var contentFound = 0;
-        displayObject.content.forEach(function(arrayItem, index) {
-          var data = helper.getObject({
-            object: sheet.get(),
-            path: arrayItem.path
-          });
-          if (data != "") {
-            if (arrayItem.valueType) {
-              data = dataFormat[arrayItem.valueType](data);
-            };
-            if (arrayItem.dependency) {
-              var dependencyData = helper.getObject({
-                object: sheet.get(),
-                path: arrayItem.dependency
-              });
-              if (dependencyData != "") {
-                data = data + " / " + dependencyData;
-              };
-            };
-            contentFound++;
-            var snippet = document.createElement("span");
-            snippet.setAttribute("class", "m-display-item-snippet");
-            if (arrayItem.prefix) {
-              var prefix = document.createElement("span");
-              prefix.setAttribute("class", "m-display-item-prefix");
-              prefix.textContent = arrayItem.prefix;
-              snippet.appendChild(prefix);
-            };
-            var value = document.createElement("span");
-            value.setAttribute("class", "m-display-item-value");
-            value.textContent = data;
-            snippet.appendChild(value);
-            if (arrayItem.suffix) {
-              var suffix = document.createElement("span");
-              suffix.setAttribute("class", "m-display-item-suffix");
-              suffix.textContent = arrayItem.suffix;
-              snippet.appendChild(suffix);
-            };
-            element.appendChild(snippet);
-          };
-        });
-        if (contentFound > 0) {
-          all_element.push(element);
-        } else {
-          all_element.push(false);
-        };
-        return all_element;
-      },
-      block: function(displayObject) {
-        var all_element = [];
-        var element = document.createElement(displayObject.element);
-        element.setAttribute("class", "m-display-item-block");
-        var contentFound = 0;
-        displayObject.content.forEach(function(arrayItem, index) {
-          var data = helper.getObject({
-            object: sheet.get(),
-            path: arrayItem.path
-          });
-          if (data != "") {
-            contentFound++;
-            if (arrayItem.valueType) {
-              data = dataFormat[arrayItem.valueType](data);
-            };
-            if (arrayItem.prefix) {
-              var prefix = document.createElement("span");
-              prefix.setAttribute("class", "m-display-item-prefix");
-              prefix.textContent = arrayItem.prefix;
-              element.appendChild(prefix);
-            };
-            var value = document.createElement("span");
-            value.setAttribute("class", "m-display-item-value");
-            value.innerHTML = data;
-            element.appendChild(value);
-            if (arrayItem.suffix) {
-              var suffix = document.createElement("span");
-              suffix.setAttribute("class", "m-display-item-suffix");
-              suffix.textContent = arrayItem.suffix;
-              element.appendChild(suffix);
-            };
-          };
-        });
-        if (contentFound > 0) {
-          all_element.push(element);
-        } else {
-          all_element.push(false);
-        };
-        return all_element;
-      },
       image: function(displayObject) {
         var all_element = [];
         var element = document.createElement(displayObject.element);
@@ -639,6 +548,98 @@ var display = (function() {
             displayImageItem.style.left = position.x + "%";
             displayImageItem.style.top = position.y + "%";
             element.appendChild(displayImageItem);
+          };
+        });
+        if (contentFound > 0) {
+          all_element.push(element);
+        } else {
+          all_element.push(false);
+        };
+        return all_element;
+      },
+      snippet: function(displayObject) {
+        var all_element = [];
+        var element = document.createElement(displayObject.element);
+        element.setAttribute("class", "m-display-snippet");
+        var contentFound = 0;
+        displayObject.content.forEach(function(arrayItem, index) {
+          var data = helper.getObject({
+            object: sheet.get(),
+            path: arrayItem.path
+          });
+          if (data != "") {
+            if (arrayItem.valueType) {
+              data = dataFormat[arrayItem.valueType](data);
+            };
+            if (arrayItem.dependency) {
+              var dependencyData = helper.getObject({
+                object: sheet.get(),
+                path: arrayItem.dependency
+              });
+              if (dependencyData != "") {
+                data = data + " / " + dependencyData;
+              };
+            };
+            contentFound++;
+            var snippet = document.createElement("span");
+            snippet.setAttribute("class", "m-display-snippet-item");
+            if (arrayItem.prefix) {
+              var prefix = document.createElement("span");
+              prefix.setAttribute("class", "m-display-prefix");
+              prefix.textContent = arrayItem.prefix;
+              snippet.appendChild(prefix);
+            };
+            var value = document.createElement("span");
+            value.setAttribute("class", "m-display-value");
+            value.textContent = data;
+            snippet.appendChild(value);
+            if (arrayItem.suffix) {
+              var suffix = document.createElement("span");
+              suffix.setAttribute("class", "m-display-suffix");
+              suffix.textContent = arrayItem.suffix;
+              snippet.appendChild(suffix);
+            };
+            element.appendChild(snippet);
+          };
+        });
+        if (contentFound > 0) {
+          all_element.push(element);
+        } else {
+          all_element.push(false);
+        };
+        return all_element;
+      },
+      block: function(displayObject) {
+        var all_element = [];
+        var element = document.createElement(displayObject.element);
+        element.setAttribute("class", "m-display-text-block");
+        var contentFound = 0;
+        if (displayObject.head) {
+          var head = document.createElement("p");
+          head.setAttribute("class", "m-display-prefix");
+          head.textContent = displayObject.head;
+          all_element.push(head);
+        };
+        displayObject.content.forEach(function(arrayItem, index) {
+          var data = helper.getObject({
+            object: sheet.get(),
+            path: arrayItem.path
+          });
+          if (data != "") {
+            contentFound++;
+            if (arrayItem.valueType) {
+              data = dataFormat[arrayItem.valueType](data);
+            };
+            var value = document.createElement("span");
+            value.setAttribute("class", "m-display-value");
+            value.innerHTML = data;
+            element.appendChild(value);
+            if (arrayItem.suffix) {
+              var suffix = document.createElement("span");
+              suffix.setAttribute("class", "m-display-suffix");
+              suffix.textContent = arrayItem.suffix;
+              element.appendChild(suffix);
+            };
           };
         });
         if (contentFound > 0) {
@@ -696,7 +697,7 @@ var display = (function() {
         var contentFound = 0;
         if (displayObject.head) {
           var head = document.createElement("p");
-          head.setAttribute("class", "m-display-item-prefix");
+          head.setAttribute("class", "m-display-prefix");
           head.textContent = displayObject.head;
           all_element.push(head);
         };
