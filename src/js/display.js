@@ -1,7 +1,7 @@
 var display = (function() {
 
   var _displayContent = {
-    basics: [{
+    image: [{
       type: "image",
       element: "div",
       content: [{
@@ -11,7 +11,8 @@ var display = (function() {
         background: "basics.image.background",
         color: "basics.image.color"
       }]
-    }, {
+    }],
+    name_class: [{
       type: "snippet",
       element: "h1",
       content: [{
@@ -23,13 +24,14 @@ var display = (function() {
       content: [{
         path: "basics.classes.string",
         prefix: "Class & Level"
-      }, {
+      }]
+    }],
+    basics: [{
+      type: "snippet",
+      element: "p",
+      content: [{
         path: "basics.initiative.current",
         prefix: "Initiative",
-        valueType: "bonus"
-      }, {
-        path: "skills.default.perception.current",
-        prefix: "Perception",
         valueType: "bonus"
       }, {
         path: "basics.speed.land",
@@ -47,11 +49,7 @@ var display = (function() {
         path: "basics.speed.fly",
         prefix: "Fly Speed",
         dependency: "basics.speed.maneuverability"
-      }]
-    }, {
-      type: "snippet",
-      element: "p",
-      content: [{
+      }, {
         path: "basics.character.deity",
         prefix: "Deity"
       }, {
@@ -451,17 +449,21 @@ var display = (function() {
   function _render_displayBlock(displayBlock) {
     var options = helper.makeObject(displayBlock.dataset.displayOptions);
     if (options) {
-      _displayContent[options.section].forEach(function(arrayItem, index) {
-        var displayGridItem = document.createElement("div");
-        displayGridItem.setAttribute("class", "m-display-grid-item");
+      var content = helper.getObject({
+        object: _displayContent,
+        path: options.section
+      });
+      content.forEach(function(arrayItem, index) {
         var elementToAdd = _render_content(arrayItem);
         if (elementToAdd.length > 0) {
           elementToAdd.forEach(function(arrayItem) {
             if (arrayItem) {
-              displayGridItem.appendChild(arrayItem);
+              displayBlock.appendChild(arrayItem);
+              helper.removeClass(displayBlock, "is-hidden");
+            } else {
+              helper.addClass(displayBlock, "is-hidden");
             };
           });
-          displayBlock.appendChild(displayGridItem);
         };
       });
     };
@@ -617,11 +619,11 @@ var display = (function() {
         var element = document.createElement(displayObject.element);
         element.setAttribute("class", "m-display-text-block");
         var contentFound = 0;
+        var head;
         if (displayObject.head) {
-          var head = document.createElement("p");
+          head = document.createElement("p");
           head.setAttribute("class", "m-display-prefix");
           head.textContent = displayObject.head;
-          all_element.push(head);
         };
         displayObject.content.forEach(function(arrayItem, index) {
           var data = helper.getObject({
@@ -630,6 +632,9 @@ var display = (function() {
           });
           if (data != "") {
             contentFound++;
+            if (head) {
+              all_element.push(head);
+            };
             if (arrayItem.valueType) {
               data = dataFormat[arrayItem.valueType](data);
             };
@@ -698,11 +703,11 @@ var display = (function() {
         var element = document.createElement(displayObject.element);
         element.setAttribute("class", "m-display-pills u-list-unstyled");
         var contentFound = 0;
+        var head;
         if (displayObject.head) {
-          var head = document.createElement("p");
+          head = document.createElement("p");
           head.setAttribute("class", "m-display-prefix");
           head.textContent = displayObject.head;
-          all_element.push(head);
         };
         displayObject.content.forEach(function(arrayItem, index) {
           var all_pills = helper.getObject({
@@ -712,6 +717,9 @@ var display = (function() {
           if (all_pills.length > 0) {
             all_pills.forEach(function(arrayItem) {
               contentFound++;
+              if (head) {
+                all_element.push(head);
+              };
               var listItem = document.createElement("li");
               listItem.setAttribute("class", "m-display-pills-item");
               var pillName = document.createElement("span");
@@ -1113,7 +1121,7 @@ var display = (function() {
   function _render_placeholderDisplay(displayElement) {
     var placeholderDisplay = displayElement.querySelector(".js-placeholder-display");
     var displayBlock = displayElement.querySelector(".js-display-block");
-    if (displayBlock) {
+    if (displayBlock && placeholderDisplay) {
       if (displayBlock.hasChildNodes()) {
         helper.addClass(placeholderDisplay, "is-hidden")
       } else {

@@ -1,9 +1,16 @@
 // --------------------------------------------------
-// display block
+// display grid
 // --------------------------------------------------
-.m-display-block {
+.m-display-grid {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
   position: relative;
   font-size: $font-size-root-100;
+}
+.m-display-grid-item {
+  flex: 0 1 auto;
 }
 // --------------------------------------------------
 // prefix suffix
@@ -73,7 +80,8 @@
   flex-flow: row wrap;
   justify-content: flex-start;
   position: relative;
-  margin: 0 -1em 1em;
+  margin-left: -1em;
+  margin-right: -1em;
   box-sizing: border-box;
 }
 .m-display-stats-item {
@@ -154,12 +162,15 @@
 // pills
 // --------------------------------------------------
 .m-display-pills {
-  margin: 0 0 0.5em 1em;
+  margin-left: 1em;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
   position: relative;
   box-sizing: border-box;
+  &:not(:last-child):not(:last-child) {
+    margin-bottom: 0.5em;
+  }
 }
 .m-display-pills-item {
   display: inline-block;
@@ -230,6 +241,12 @@
   }
 }
 @media (min-width: $screen-md) {
+  // --------------------------------------------------
+  // display grid
+  // --------------------------------------------------
+  .m-display-grid {
+    flex-flow: row nowrap;
+  }
   // --------------------------------------------------
   // snippet
   // --------------------------------------------------
@@ -477,7 +494,7 @@
 .m-display-item-image-wrapper {
   background-color: $white;
   border-radius: 50%;
-  margin: -3em auto 0;
+  margin: -3em auto 1em;
   width: 20em;
   height: 20em;
   box-sizing: border-box;
@@ -908,10 +925,11 @@
     width: initial;
   }
   .m-display-item-image-wrapper {
-    margin: 0 -1em 0 0;
+    // margin: 0 -1em 0 0;
+    margin: 0;
     width: 15em;
     height: 15em;
-    left: -3em;
+    // left: -3em;
   }
   .m-display-item-image {
     // box-shadow: 0 0 0 0.5em $primary-color-alpha-16, 0 0 0 1em $primary-color-alpha-18;
