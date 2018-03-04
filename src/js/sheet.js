@@ -531,7 +531,7 @@ var sheet = (function() {
       fileName = "New character";
     };
     if (classLevel != "") {
-      fileName = fileName + ", " + classLevel;
+      fileName = fileName + " - " + classLevel;
     };
     prompt.render({
       heading: "Export " + characterName,

@@ -121,7 +121,7 @@ var classes = (function() {
         var level = arrayItem.level || "No level";
         classAndLevel = classAndLevel + classname + " " + level;
         if (index < (classes.length - 1)) {
-          classAndLevel = classAndLevel + " / ";
+          classAndLevel = classAndLevel + ", ";
         };
       });
     };

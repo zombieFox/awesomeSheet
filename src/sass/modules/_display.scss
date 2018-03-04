@@ -5,7 +5,7 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
-  align-items: center;
+  align-items: stretch;
   position: relative;
   font-size: $font-size-root-100;
 }
@@ -67,10 +67,12 @@
 // text block
 // --------------------------------------------------
 .m-display-text-block {
-  margin-left: 0.4em;
-  width: 100%;
   position: relative;
   box-sizing: border-box;
+  .m-display-prefix {
+    margin-right: 0.8em;
+    display: inline-block;
+  }
 }
 // --------------------------------------------------
 // stats
@@ -162,7 +164,7 @@
 // pills
 // --------------------------------------------------
 .m-display-pills {
-  margin-left: 1em;
+  margin-left: 0.4em;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
@@ -190,6 +192,19 @@
       transform: rotate(10deg) translate(-50%, -50%);
       transform-origin: top;
     }
+  }
+}
+// --------------------------------------------------
+// class name
+// --------------------------------------------------
+.m-display-name {
+  .m-display-snippet-item {
+    margin-bottom: 0;
+  }
+}
+.m-display-class {
+  .m-display-snippet-item {
+    margin-bottom: 1em;
   }
 }
 // --------------------------------------------------
@@ -253,6 +268,7 @@
   .m-display-snippet-item {
     margin-bottom: 1em;
     .m-display-prefix {
+      margin-right: 0;
       display: block;
     }
     .m-display-suffix,
@@ -267,6 +283,19 @@
       &:after {
         height: 100%;
       }
+    }
+  }
+  // --------------------------------------------------
+  // text block
+  // --------------------------------------------------
+  .m-display-text-block {
+    .m-display-value {
+      margin-left: 0.4em;
+      display: block;
+    }
+    .m-display-prefix {
+      margin-right: 0;
+      display: block;
     }
   }
 }

@@ -12,18 +12,26 @@ var display = (function() {
         color: "basics.image.color"
       }]
     }],
-    name_class: [{
+    name: [{
       type: "snippet",
       element: "h1",
+      classname: "m-display-name",
       content: [{
         path: "basics.character.name"
       }]
     }, {
       type: "snippet",
       element: "p",
+      classname: "m-display-class",
       content: [{
-        path: "basics.classes.string",
-        prefix: "Class & Level"
+        path: "basics.classes.string"
+      }]
+    }],
+    class: [{
+      type: "snippet",
+      element: "p",
+      content: [{
+        path: "basics.classes.string"
       }]
     }],
     basics: [{
@@ -84,9 +92,9 @@ var display = (function() {
     }, {
       type: "block",
       element: "p",
-      head: "Description",
       content: [{
-        path: "basics.character.description"
+        path: "basics.character.description",
+        prefix: "Description"
       }]
     }],
     statistics: [{
@@ -125,11 +133,25 @@ var display = (function() {
         path: "statistics.abilities.all",
       }]
     }, {
+      type: "block",
+      element: "p",
+      content: [{
+        path: "statistics.abilities.notes",
+        prefix: "Abilities Notes"
+      }]
+    }, {
       type: "pill",
       head: "Feats",
       element: "ul",
       content: [{
         path: "statistics.feats.all",
+      }]
+    }, {
+      type: "block",
+      element: "p",
+      content: [{
+        path: "statistics.feats.notes",
+        prefix: "Feats Notes"
       }]
     }, {
       type: "pill",
@@ -139,11 +161,25 @@ var display = (function() {
         path: "statistics.traits.all",
       }]
     }, {
+      type: "block",
+      element: "p",
+      content: [{
+        path: "statistics.traits.notes",
+        prefix: "Traits Notes"
+      }]
+    }, {
       type: "pill",
       head: "languages",
       element: "ul",
       content: [{
         path: "statistics.languages.all",
+      }]
+    }, {
+      type: "block",
+      element: "p",
+      content: [{
+        path: "statistics.languages.notes",
+        prefix: "languages Notes"
       }]
     }]
   };
@@ -459,9 +495,6 @@ var display = (function() {
           elementToAdd.forEach(function(arrayItem) {
             if (arrayItem) {
               displayBlock.appendChild(arrayItem);
-              helper.removeClass(displayBlock, "is-hidden");
-            } else {
-              helper.addClass(displayBlock, "is-hidden");
             };
           });
         };
@@ -566,6 +599,9 @@ var display = (function() {
         var all_element = [];
         var element = document.createElement(displayObject.element);
         element.setAttribute("class", "m-display-snippet");
+        if (displayObject.classname) {
+          helper.addClass(element, displayObject.classname);
+        };
         var contentFound = 0;
         displayObject.content.forEach(function(arrayItem, index) {
           var data = helper.getObject({
@@ -618,6 +654,9 @@ var display = (function() {
         var all_element = [];
         var element = document.createElement(displayObject.element);
         element.setAttribute("class", "m-display-text-block");
+        if (displayObject.classname) {
+          helper.addClass(element, displayObject.classname);
+        };
         var contentFound = 0;
         var head;
         if (displayObject.head) {
@@ -635,8 +674,11 @@ var display = (function() {
             if (head) {
               all_element.push(head);
             };
-            if (arrayItem.valueType) {
-              data = dataFormat[arrayItem.valueType](data);
+            if (arrayItem.prefix) {
+              var prefix = document.createElement("span");
+              prefix.setAttribute("class", "m-display-prefix");
+              prefix.textContent = arrayItem.prefix;
+              element.appendChild(prefix);
             };
             var value = document.createElement("span");
             value.setAttribute("class", "m-display-value");
