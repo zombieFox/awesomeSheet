@@ -24,7 +24,6 @@
 // --------------------------------------------------
 .m-display-prefix,
 .m-display-suffix {
-  display: block;
   font-size: $font-size-075;
   font-family: $open-sans-light-italic;
   &:not(:last-child):not(:last-child) {
@@ -32,6 +31,7 @@
   }
 }
 .m-display-prefix {
+  display: block;
   color: $primary-color-08;
 }
 .m-display-suffix {
@@ -182,6 +182,11 @@
     justify-content: flex-start;
     position: relative;
     box-sizing: border-box;
+    .m-display-prefix {
+      flex: 1 0 100%;
+      margin-right: 0;
+      display: block;
+    }
     .m-display-list-item-name {
       margin: 0;
       padding: 0;
@@ -251,10 +256,6 @@
 .m-display-list-stack {
   .m-display-list-item {
     display: block;
-    .m-display-list-item-prefix {
-      margin-right: 0;
-      display: block;
-    }
     .m-display-list-item-value {
       display: block;
     }

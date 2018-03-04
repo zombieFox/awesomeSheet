@@ -123,8 +123,9 @@ var display = (function() {
         }]
       }],
       abilities: [{
-        type: "pill",
+        type: "list",
         element: "ul",
+        classname: "m-display-list-dash",
         head: "Abilities",
         content: [{
           path: "statistics.abilities.all",
@@ -138,9 +139,10 @@ var display = (function() {
         }]
       }],
       feats: [{
-        type: "pill",
-        head: "Feats",
+        type: "list",
         element: "ul",
+        classname: "m-display-list-dash",
+        head: "Feats",
         content: [{
           path: "statistics.feats.all",
         }]
@@ -153,9 +155,10 @@ var display = (function() {
         }]
       }],
       traits: [{
-        type: "pill",
-        head: "Traits",
+        type: "list",
         element: "ul",
+        classname: "m-display-list-dash",
+        head: "Traits",
         content: [{
           path: "statistics.traits.all",
         }]
@@ -168,9 +171,10 @@ var display = (function() {
         }]
       }],
       languages: [{
-        type: "pill",
-        head: "languages",
+        type: "list",
         element: "ul",
+        classname: "m-display-list-dash",
+        head: "languages",
         content: [{
           path: "statistics.languages.all",
         }]
@@ -184,9 +188,9 @@ var display = (function() {
       }],
       power: [{
         type: "clone",
-        head: "Powers",
         element: "ul",
         cloneType: "power",
+        head: "Powers",
         content: [{
           path: "statistics.power.all",
         }]
@@ -195,36 +199,143 @@ var display = (function() {
     equipment: {
       gear: [{
         type: "block",
-        head: "Gear",
         element: "p",
+        head: "Gear",
         content: [{
           path: "equipment.possessions.gear",
         }]
       }],
       magic_gear: [{
         type: "block",
-        head: "Magic Gear",
         element: "p",
+        head: "Magic Gear",
         content: [{
           path: "equipment.possessions.magic_gear",
         }]
       }],
       potion_viles_oils: [{
         type: "block",
-        head: "Potions/Viles/Oils",
         element: "p",
+        head: "Potions/Viles/Oils",
         content: [{
           path: "equipment.possessions.potion_viles_oils",
         }]
       }],
       scrolls: [{
         type: "block",
-        head: "Scrolls",
         element: "p",
+        head: "Scrolls",
         content: [{
           path: "equipment.possessions.scrolls",
         }]
-      }]
+      }],
+      armor_body_item: [{
+        type: "group",
+        element: "ul",
+        classname: "m-display-list-responsive",
+        head: "Armor",
+        content: [{
+          path: "equipment.armor.armor",
+          prefix: "Armor"
+        }, {
+          path: "equipment.armor.shield",
+          prefix: "Shield"
+        }]
+      }, {
+        type: "group",
+        element: "ul",
+        classname: "m-display-list-responsive",
+        head: "Body Slots",
+        content: [{
+          path: "equipment.body_slots.belts",
+          prefix: "Belts"
+        }, {
+          path: "equipment.body_slots.body",
+          prefix: "Body"
+        }, {
+          path: "equipment.body_slots.chest",
+          prefix: "Chest"
+        }, {
+          path: "equipment.body_slots.eyes",
+          prefix: "Eyes"
+        }, {
+          path: "equipment.body_slots.feet",
+          prefix: "Feet"
+        }, {
+          path: "equipment.body_slots.hands",
+          prefix: "Hands"
+        }, {
+          path: "equipment.body_slots.head",
+          prefix: "Head"
+        }, {
+          path: "equipment.body_slots.headband",
+          prefix: "Headband"
+        }, {
+          path: "equipment.body_slots.neck",
+          prefix: "Neck"
+        }, {
+          path: "equipment.body_slots.ring_left_hand",
+          prefix: "Ring (Left Hand)"
+        }, {
+          path: "equipment.body_slots.ring_right_hand",
+          prefix: "Ring (Right Hand)"
+        }, {
+          path: "equipment.body_slots.shoulders",
+          prefix: "Shoulders"
+        }, {
+          path: "equipment.body_slots.wrist",
+          prefix: "Wrist"
+        }]
+      }, {
+        type: "clone",
+        element: "ul",
+        cloneType: "item",
+        head: "Items",
+        content: [{
+          path: "equipment.item.all",
+        }]
+      }, {
+        type: "group",
+        element: "ul",
+        classname: "m-display-list-responsive",
+        head: "Encumbrance",
+        content: [{
+          path: "equipment.encumbrance.carry_move.light",
+          prefix: "Light"
+        }, {
+          path: "equipment.encumbrance.carry_move.medium",
+          prefix: "Medium"
+        }, {
+          path: "equipment.encumbrance.carry_move.heavy",
+          prefix: "Heavy"
+        }, {
+          path: "equipment.encumbrance.carry_move.lift",
+          prefix: "Lift"
+        }, {
+          path: "equipment.encumbrance.carry_move.drag",
+          prefix: "Drag"
+        }]
+      }, {
+        type: "clone",
+        element: "p",
+        cloneType: "consumable",
+        head: "Consumables",
+        content: [{
+          path: "equipment.consumable.all",
+          prefix: "Light"
+        }]
+      }, {
+        type: "snippet",
+        element: "p",
+        valueType: "currency",
+        content: [{
+          path: "equipment.wealth.total",
+          prefix: "Wealth",
+          suffix: "GP",
+        }]
+      }],
+      consumable: [],
+      wealth: []
     }
   };
 
@@ -801,6 +912,94 @@ var display = (function() {
         };
         return all_element;
       },
+      list: function(displayObject) {
+        var all_element = [];
+        var element = document.createElement(displayObject.element);
+        element.setAttribute("class", "u-list-unstyled");
+        if (displayObject.classname) {
+          helper.addClass(element, displayObject.classname);
+        };
+        var contentFound = 0;
+        var head;
+        if (displayObject.head) {
+          head = document.createElement("p");
+          head.setAttribute("class", "m-display-prefix");
+          head.textContent = displayObject.head;
+        };
+        displayObject.content.forEach(function(arrayItem, index) {
+          var all_listItem = helper.getObject({
+            object: sheet.get(),
+            path: arrayItem.path
+          });
+          if (all_listItem.length > 0) {
+            all_listItem.forEach(function(arrayItem) {
+              contentFound++;
+              if (head) {
+                all_element.push(head);
+              };
+              var listItem = document.createElement("li");
+              listItem.setAttribute("class", "m-display-list-item");
+              var listItemName = document.createElement("span");
+              listItemName.setAttribute("class", "m-display-list-item-name");
+              listItemName.textContent = arrayItem.name;
+              listItem.appendChild(listItemName);
+              element.appendChild(listItem);
+            });
+          };
+        });
+        if (contentFound > 0) {
+          all_element.push(element);
+        } else {
+          all_element.push(false);
+        };
+        return all_element;
+      },
+      group: function(displayObject) {
+        var all_element = [];
+        var element = document.createElement(displayObject.element);
+        element.setAttribute("class", "u-list-unstyled");
+        if (displayObject.classname) {
+          helper.addClass(element, displayObject.classname);
+        };
+        var contentFound = 0;
+        var head;
+        if (displayObject.head) {
+          head = document.createElement("p");
+          head.setAttribute("class", "m-display-prefix");
+          head.textContent = displayObject.head;
+        };
+        displayObject.content.forEach(function(arrayItem, index) {
+          var data = helper.getObject({
+            object: sheet.get(),
+            path: arrayItem.path
+          });
+          if (data != "") {
+            contentFound++;
+            if (head) {
+              all_element.push(head);
+            };
+            var listItem = document.createElement("li");
+            listItem.setAttribute("class", "m-display-list-item");
+            if (arrayItem.prefix) {
+              var prefix = document.createElement("span");
+              prefix.setAttribute("class", "m-display-prefix");
+              prefix.textContent = arrayItem.prefix;
+              listItem.appendChild(prefix);
+            };
+            var listItemName = document.createElement("span");
+            listItemName.setAttribute("class", "m-display-list-item-name");
+            listItemName.textContent = data;
+            listItem.appendChild(listItemName);
+            element.appendChild(listItem);
+          };
+        });
+        if (contentFound > 0) {
+          all_element.push(element);
+        } else {
+          all_element.push(false);
+        };
+        return all_element;
+      },
       pill: function(displayObject) {
         var all_element = [];
         var element = document.createElement(displayObject.element);
@@ -825,10 +1024,10 @@ var display = (function() {
               };
               var listItem = document.createElement("li");
               listItem.setAttribute("class", "m-display-list-item");
-              var pillName = document.createElement("span");
-              pillName.setAttribute("class", "m-display-list-item-name");
-              pillName.textContent = arrayItem.name;
-              listItem.appendChild(pillName);
+              var listItemName = document.createElement("span");
+              listItemName.setAttribute("class", "m-display-list-item-name");
+              listItemName.textContent = arrayItem.name;
+              listItem.appendChild(listItemName);
               element.appendChild(listItem);
             });
           };
@@ -853,7 +1052,42 @@ var display = (function() {
         };
         var cloneVariant = {
           class: function() {},
-          consumable: function() {},
+          consumable: function() {
+            displayObject.content.forEach(function(arrayItem, index) {
+              var all_clone = helper.getObject({
+                object: sheet.get(),
+                path: arrayItem.path
+              });
+              if (all_clone.length > 0) {
+                all_clone.forEach(function(arrayItem) {
+                  helper.addClass(element, "m-display-list-responsive");
+                  contentFound++;
+                  if (head) {
+                    all_element.push(head);
+                  };
+                  var listItem = document.createElement("li");
+                  listItem.setAttribute("class", "m-display-list-item");
+                  var listItemName = document.createElement("span");
+                  listItemName.setAttribute("class", "m-display-list-item-name");
+                  listItemName.textContent = arrayItem.name;
+                  var listItemValue = document.createElement("span");
+                  listItemValue.setAttribute("class", "m-display-list-item-value");
+                  listItemValue.textContent = (arrayItem.current || 0) + "/" + (arrayItem.total || 0);
+                  var percentage = parseFloat(((arrayItem.total - arrayItem.used) / arrayItem.total) * 100).toFixed(2);
+                  if (percentage < 0) {
+                    percentage = 0;
+                  };
+                  var percentageBar = document.createElement("span");
+                  percentageBar.setAttribute("class", "m-display-list-item-percentage");
+                  percentageBar.setAttribute("style", "width: " + percentage + "%;");
+                  listItem.appendChild(listItemName);
+                  listItem.appendChild(listItemValue);
+                  listItem.appendChild(percentageBar);
+                  element.appendChild(listItem);
+                });
+              };
+            })
+          },
           power: function() {
             displayObject.content.forEach(function(arrayItem, index) {
               var all_clone = helper.getObject({
@@ -890,7 +1124,35 @@ var display = (function() {
               };
             })
           },
-          item: function() {},
+          item: function() {
+            displayObject.content.forEach(function(arrayItem, index) {
+              var all_clone = helper.getObject({
+                object: sheet.get(),
+                path: arrayItem.path
+              });
+              if (all_clone.length > 0) {
+                all_clone.forEach(function(arrayItem) {
+                  helper.addClass(element, "m-display-list-responsive");
+                  helper.addClass(element, "m-display-list-compact");
+                  contentFound++;
+                  if (head) {
+                    all_element.push(head);
+                  };
+                  var listItem = document.createElement("li");
+                  listItem.setAttribute("class", "m-display-list-item");
+                  var listItemName = document.createElement("span");
+                  listItemName.setAttribute("class", "m-display-list-item-name");
+                  listItemName.textContent = arrayItem.name;
+                  var listItemValue = document.createElement("span");
+                  listItemValue.setAttribute("class", "m-display-list-item-value");
+                  listItemValue.textContent = arrayItem.quantity;
+                  listItem.appendChild(listItemName);
+                  listItem.appendChild(listItemValue);
+                  element.appendChild(listItem);
+                });
+              };
+            })
+          },
           skill: function() {},
           attack_melee: function() {},
           attack_ranged: function() {},
@@ -908,6 +1170,7 @@ var display = (function() {
         return all_element;
       }
     };
+
     if (displayObject.type in createElement) {
       return createElement[displayObject.type](displayObject);
     } else {
