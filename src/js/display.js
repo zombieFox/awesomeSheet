@@ -1,187 +1,187 @@
 var display = (function() {
 
   var _displayContent = {
-    image: [{
-      type: "image",
-      element: "div",
-      content: [{
-        path: "basics.image.data",
-        scale: "basics.image.scale",
-        position: "basics.image.position",
-        background: "basics.image.background",
-        color: "basics.image.color"
+    basics: {
+      intro: [{
+        type: "image",
+        element: "div",
+        content: [{
+          path: "basics.image.data",
+          scale: "basics.image.scale",
+          position: "basics.image.position",
+          background: "basics.image.background",
+          color: "basics.image.color"
+        }]
+      }, {
+        type: "snippet",
+        element: "h1",
+        classname: "m-display-name",
+        content: [{
+          path: "basics.character.name"
+        }]
+      }, {
+        type: "snippet",
+        element: "p",
+        classname: "m-display-class",
+        content: [{
+          path: "basics.classes.string"
+        }]
+      }],
+      all: [{
+        type: "snippet",
+        element: "p",
+        content: [{
+          path: "basics.initiative.current",
+          prefix: "Initiative",
+          valueType: "bonus"
+        }, {
+          path: "basics.speed.land",
+          prefix: "Land Speed"
+        }, {
+          path: "basics.speed.swim",
+          prefix: "Swim Speed"
+        }, {
+          path: "basics.speed.climb",
+          prefix: "Climb Speed"
+        }, {
+          path: "basics.speed.burrow",
+          prefix: "Burrow Speed"
+        }, {
+          path: "basics.speed.fly",
+          prefix: "Fly Speed",
+          dependency: "basics.speed.maneuverability"
+        }, {
+          path: "basics.character.deity",
+          prefix: "Deity"
+        }, {
+          path: "basics.character.gender",
+          prefix: "Gender"
+        }, {
+          path: "basics.character.race",
+          prefix: "Race"
+        }, {
+          path: "basics.experience.total",
+          prefix: "EXP",
+          valueType: "number"
+        }, {
+          path: "basics.character.alignment",
+          prefix: "Alignment"
+        }, {
+          path: "basics.character.size.category",
+          prefix: "Size"
+        }, {
+          path: "basics.character.height",
+          prefix: "Height"
+        }, {
+          path: "basics.character.weight",
+          prefix: "Weight"
+        }, {
+          path: "basics.character.age",
+          prefix: "Age"
+        }, {
+          path: "basics.character.hero_points",
+          prefix: "Hero Points"
+        }]
+      }, {
+        type: "block",
+        element: "p",
+        content: [{
+          path: "basics.character.description",
+          prefix: "Description"
+        }]
       }]
-    }],
-    name: [{
-      type: "snippet",
-      element: "h1",
-      classname: "m-display-name",
-      content: [{
-        path: "basics.character.name"
+    },
+    statistics: {
+      stats: [{
+        type: "stat",
+        element: "ul",
+        content: [{
+          statPath: "statistics.stats.str.current",
+          modPath: "statistics.stats.str.modifier",
+          prefix: "STR"
+        }, {
+          statPath: "statistics.stats.dex.current",
+          modPath: "statistics.stats.dex.modifier",
+          prefix: "DEX"
+        }, {
+          statPath: "statistics.stats.con.current",
+          modPath: "statistics.stats.con.modifier",
+          prefix: "CON"
+        }, {
+          statPath: "statistics.stats.int.current",
+          modPath: "statistics.stats.int.modifier",
+          prefix: "INT"
+        }, {
+          statPath: "statistics.stats.wis.current",
+          modPath: "statistics.stats.wis.modifier",
+          prefix: "WIS"
+        }, {
+          statPath: "statistics.stats.con.current",
+          modPath: "statistics.stats.con.modifier",
+          prefix: "CHA"
+        }]
+      }],
+      abilities: [{
+        type: "pill",
+        element: "ul",
+        head: "Abilities",
+        content: [{
+          path: "statistics.abilities.all",
+        }]
+      }, {
+        type: "block",
+        element: "p",
+        content: [{
+          path: "statistics.abilities.notes",
+          prefix: "Abilities Notes"
+        }]
+      }],
+      feats: [{
+        type: "pill",
+        head: "Feats",
+        element: "ul",
+        content: [{
+          path: "statistics.feats.all",
+        }]
+      }, {
+        type: "block",
+        element: "p",
+        content: [{
+          path: "statistics.feats.notes",
+          prefix: "Feats Notes"
+        }]
+      }],
+      traits: [{
+        type: "pill",
+        head: "Traits",
+        element: "ul",
+        content: [{
+          path: "statistics.traits.all",
+        }]
+      }, {
+        type: "block",
+        element: "p",
+        content: [{
+          path: "statistics.traits.notes",
+          prefix: "Traits Notes"
+        }]
+      }],
+      languages: [{
+        type: "pill",
+        head: "languages",
+        element: "ul",
+        content: [{
+          path: "statistics.languages.all",
+        }]
+      }, {
+        type: "block",
+        element: "p",
+        content: [{
+          path: "statistics.languages.notes",
+          prefix: "languages Notes"
+        }]
       }]
-    }, {
-      type: "snippet",
-      element: "p",
-      classname: "m-display-class",
-      content: [{
-        path: "basics.classes.string"
-      }]
-    }],
-    class: [{
-      type: "snippet",
-      element: "p",
-      content: [{
-        path: "basics.classes.string"
-      }]
-    }],
-    basics: [{
-      type: "snippet",
-      element: "p",
-      content: [{
-        path: "basics.initiative.current",
-        prefix: "Initiative",
-        valueType: "bonus"
-      }, {
-        path: "basics.speed.land",
-        prefix: "Land Speed"
-      }, {
-        path: "basics.speed.swim",
-        prefix: "Swim Speed"
-      }, {
-        path: "basics.speed.climb",
-        prefix: "Climb Speed"
-      }, {
-        path: "basics.speed.burrow",
-        prefix: "Burrow Speed"
-      }, {
-        path: "basics.speed.fly",
-        prefix: "Fly Speed",
-        dependency: "basics.speed.maneuverability"
-      }, {
-        path: "basics.character.deity",
-        prefix: "Deity"
-      }, {
-        path: "basics.character.gender",
-        prefix: "Gender"
-      }, {
-        path: "basics.character.race",
-        prefix: "Race"
-      }, {
-        path: "basics.experience.total",
-        prefix: "EXP",
-        valueType: "number"
-      }, {
-        path: "basics.character.alignment",
-        prefix: "Alignment"
-      }, {
-        path: "basics.character.size.category",
-        prefix: "Size"
-      }, {
-        path: "basics.character.height",
-        prefix: "Height"
-      }, {
-        path: "basics.character.weight",
-        prefix: "Weight"
-      }, {
-        path: "basics.character.age",
-        prefix: "Age"
-      }, {
-        path: "basics.character.hero_points",
-        prefix: "Hero Points"
-      }]
-    }, {
-      type: "block",
-      element: "p",
-      content: [{
-        path: "basics.character.description",
-        prefix: "Description"
-      }]
-    }],
-    statistics: [{
-      type: "stat",
-      element: "ul",
-      content: [{
-        statPath: "statistics.stats.str.current",
-        modPath: "statistics.stats.str.modifier",
-        prefix: "STR"
-      }, {
-        statPath: "statistics.stats.dex.current",
-        modPath: "statistics.stats.dex.modifier",
-        prefix: "DEX"
-      }, {
-        statPath: "statistics.stats.con.current",
-        modPath: "statistics.stats.con.modifier",
-        prefix: "CON"
-      }, {
-        statPath: "statistics.stats.int.current",
-        modPath: "statistics.stats.int.modifier",
-        prefix: "INT"
-      }, {
-        statPath: "statistics.stats.wis.current",
-        modPath: "statistics.stats.wis.modifier",
-        prefix: "WIS"
-      }, {
-        statPath: "statistics.stats.con.current",
-        modPath: "statistics.stats.con.modifier",
-        prefix: "CHA"
-      }]
-    }, {
-      type: "pill",
-      element: "ul",
-      head: "Abilities",
-      content: [{
-        path: "statistics.abilities.all",
-      }]
-    }, {
-      type: "block",
-      element: "p",
-      content: [{
-        path: "statistics.abilities.notes",
-        prefix: "Abilities Notes"
-      }]
-    }, {
-      type: "pill",
-      head: "Feats",
-      element: "ul",
-      content: [{
-        path: "statistics.feats.all",
-      }]
-    }, {
-      type: "block",
-      element: "p",
-      content: [{
-        path: "statistics.feats.notes",
-        prefix: "Feats Notes"
-      }]
-    }, {
-      type: "pill",
-      head: "Traits",
-      element: "ul",
-      content: [{
-        path: "statistics.traits.all",
-      }]
-    }, {
-      type: "block",
-      element: "p",
-      content: [{
-        path: "statistics.traits.notes",
-        prefix: "Traits Notes"
-      }]
-    }, {
-      type: "pill",
-      head: "languages",
-      element: "ul",
-      content: [{
-        path: "statistics.languages.all",
-      }]
-    }, {
-      type: "block",
-      element: "p",
-      content: [{
-        path: "statistics.languages.notes",
-        prefix: "languages Notes"
-      }]
-    }]
+    }
   };
 
   var state = (function() {
@@ -485,19 +485,32 @@ var display = (function() {
   function _render_displayBlock(displayBlock) {
     var options = helper.makeObject(displayBlock.dataset.displayOptions);
     if (options) {
-      var content = helper.getObject({
-        object: _displayContent,
-        path: options.section
-      });
-      content.forEach(function(arrayItem, index) {
-        var elementToAdd = _render_content(arrayItem);
-        if (elementToAdd.length > 0) {
-          elementToAdd.forEach(function(arrayItem) {
-            if (arrayItem) {
-              displayBlock.appendChild(arrayItem);
-            };
-          });
+      options.sections.forEach(function(arrayItem) {
+
+        var content = helper.getObject({
+          object: _displayContent,
+          path: arrayItem
+        });
+        var displayArea = document.createElement("div");
+        displayArea.setAttribute("class", "m-display-area");
+        var displayAreaContent = false;
+
+        content.forEach(function(arrayItem, index) {
+          var elementToAdd = _render_content(arrayItem);
+          if (elementToAdd.length > 0) {
+            elementToAdd.forEach(function(arrayItem) {
+              if (arrayItem) {
+                displayAreaContent = true;
+                displayArea.appendChild(arrayItem);
+              };
+            });
+          };
+        });
+
+        if (displayAreaContent) {
+          displayBlock.appendChild(displayArea);
         };
+
       });
     };
   };
