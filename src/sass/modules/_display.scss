@@ -183,7 +183,7 @@
 // --------------------------------------------------
 // pills
 // --------------------------------------------------
-.m-display-pills {
+.m-display-pill {
   margin-left: 0.4em;
   display: flex;
   flex-flow: row wrap;
@@ -194,7 +194,7 @@
     margin-bottom: 0.5em;
   }
 }
-.m-display-pills-item {
+.m-display-pill-item {
   display: inline-block;
   position: relative;
   &:not(:last-child):not(:last-child) {
