@@ -191,12 +191,40 @@ var display = (function() {
           path: "statistics.power.all",
         }]
       }]
-    // },
-    // equipment: {
-    //   gear: [],
-    //   magic_gear: [],
-    //   potion_viles_oils: [],
-    //   scrolls: []
+    },
+    equipment: {
+      gear: [{
+        type: "block",
+        head: "Gear",
+        element: "p",
+        content: [{
+          path: "equipment.possessions.gear",
+        }]
+      }],
+      magic_gear: [{
+        type: "block",
+        head: "Magic Gear",
+        element: "p",
+        content: [{
+          path: "equipment.possessions.magic_gear",
+        }]
+      }],
+      potion_viles_oils: [{
+        type: "block",
+        head: "Potions/Viles/Oils",
+        element: "p",
+        content: [{
+          path: "equipment.possessions.potion_viles_oils",
+        }]
+      }],
+      scrolls: [{
+        type: "block",
+        head: "Scrolls",
+        element: "p",
+        content: [{
+          path: "equipment.possessions.scrolls",
+        }]
+      }]
     }
   };
 
