@@ -5,6 +5,7 @@ var display = (function() {
       intro: [{
         type: "image",
         element: "div",
+        classname: "m-display-image-wrapper",
         content: [{
           path: "basics.image.data",
           scale: "basics.image.scale",
@@ -190,6 +191,12 @@ var display = (function() {
           path: "statistics.power.all",
         }]
       }]
+    // },
+    // equipment: {
+    //   gear: [],
+    //   magic_gear: [],
+    //   potion_viles_oils: [],
+    //   scrolls: []
     }
   };
 
@@ -506,7 +513,7 @@ var display = (function() {
 
         content.forEach(function(arrayItem, index) {
           var elementToAdd = _render_content(arrayItem);
-          console.log(options.sections, elementToAdd);
+          // console.log(options.sections, elementToAdd);
           if (elementToAdd) {
             if (elementToAdd.length > 0) {
               elementToAdd.forEach(function(arrayItem) {
@@ -569,6 +576,9 @@ var display = (function() {
       image: function(displayObject) {
         var all_element = [];
         var element = document.createElement(displayObject.element);
+        if (displayObject.classname) {
+          helper.addClass(element, displayObject.classname);
+        };
         var contentFound = 0;
         displayObject.content.forEach(function(arrayItem, index) {
           var data = helper.getObject({
@@ -577,10 +587,8 @@ var display = (function() {
           });
           if (data != "") {
             contentFound++;
-            element.setAttribute("class", "m-display-item-image-wrapper");
-            // var displayImageItem = document.createElement("img");
             var displayImageItem = new Image;
-            displayImageItem.setAttribute("class", "m-display-item-image");
+            displayImageItem.setAttribute("class", "m-display-image");
             displayImageItem.src = data;
             var scale = helper.getObject({
               object: sheet.get(),
@@ -768,7 +776,7 @@ var display = (function() {
       pill: function(displayObject) {
         var all_element = [];
         var element = document.createElement(displayObject.element);
-        element.setAttribute("class", "m-display-pill u-list-unstyled");
+        element.setAttribute("class", "m-display-list-dash u-list-unstyled");
         var contentFound = 0;
         var head;
         if (displayObject.head) {
@@ -788,9 +796,9 @@ var display = (function() {
                 all_element.push(head);
               };
               var listItem = document.createElement("li");
-              listItem.setAttribute("class", "m-display-pills-item");
+              listItem.setAttribute("class", "m-display-list-item");
               var pillName = document.createElement("span");
-              pillName.setAttribute("class", "m-display-pills-name");
+              pillName.setAttribute("class", "m-display-list-item-name");
               pillName.textContent = arrayItem.name;
               listItem.appendChild(pillName);
               element.appendChild(listItem);
@@ -807,7 +815,7 @@ var display = (function() {
       clone: function(displayObject) {
         var all_element = [];
         var element = document.createElement(displayObject.element);
-        element.setAttribute("class", "m-display-clone u-list-unstyled");
+        element.setAttribute("class", "m-display-list u-list-unstyled");
         var contentFound = 0;
         var head;
         if (displayObject.head) {
@@ -815,18 +823,55 @@ var display = (function() {
           head.setAttribute("class", "m-display-prefix");
           head.textContent = displayObject.head;
         };
-        var cloneItem = {
+        var cloneVariant = {
+          class: function() {},
+          consumable: function() {},
           power: function() {
+            displayObject.content.forEach(function(arrayItem, index) {
+              var all_clone = helper.getObject({
+                object: sheet.get(),
+                path: arrayItem.path
+              });
+              if (all_clone.length > 0) {
+                all_clone.forEach(function(arrayItem) {
+                  helper.addClass(element, "m-display-list-responsive");
+                  contentFound++;
+                  if (head) {
+                    all_element.push(head);
+                  };
+                  var listItem = document.createElement("li");
+                  listItem.setAttribute("class", "m-display-list-item");
+                  var listItemName = document.createElement("span");
+                  listItemName.setAttribute("class", "m-display-list-item-name");
+                  listItemName.textContent = arrayItem.name;
+                  var listItemValue = document.createElement("span");
+                  listItemValue.setAttribute("class", "m-display-list-item-value");
+                  listItemValue.textContent = arrayItem.current + "/" + arrayItem.total;
+                  var percentage = parseFloat(((arrayItem.total - arrayItem.used) / arrayItem.total) * 100).toFixed(2);
+                  if (percentage < 0) {
+                    percentage = 0;
+                  };
+                  var percentageBar = document.createElement("span");
+                  percentageBar.setAttribute("class", "m-display-list-item-percentage");
+                  percentageBar.setAttribute("style", "width: " + percentage + "%;");
+                  listItem.appendChild(listItemName);
+                  listItem.appendChild(listItemValue);
+                  listItem.appendChild(percentageBar);
+                  element.appendChild(listItem);
+                });
+              };
+            })
+          },
+          item: function() {},
+          skill: function() {},
+          attack_melee: function() {},
+          attack_ranged: function() {},
+          note_character: function() {},
+          note_story: function() {}
+        };
 
-          }
-        }
-        console.log(cloneItem[displayObject.cloneType]);
-        displayObject.content.forEach(function(arrayItem, index) {
-          var all_clone = helper.getObject({
-            object: sheet.get(),
-            path: arrayItem.path
-          });
-        });
+        cloneVariant[displayObject.cloneType]();
+
         if (contentFound > 0) {
           all_element.push(element);
         } else {
