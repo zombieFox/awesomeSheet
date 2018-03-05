@@ -67,7 +67,7 @@
       background-color: $gray-18;
       display: block;
       width: 1px;
-      height: 1em;
+      height: 70%;
       position: absolute;
       top: 50%;
       right: 0;
@@ -193,6 +193,9 @@
     justify-content: space-between;
     position: relative;
     box-sizing: border-box;
+    .m-display-snippet-item {
+      flex: 1 1 auto;
+    }
     .m-display-list-item-name,
     .m-display-list-item-prefix,
     .m-display-list-item-suffix,
@@ -337,6 +340,15 @@
   left: 50%;
   transform: translate(-50%, -50%);
   transform-origin: center center;
+}
+// --------------------------------------------------
+// attack
+// --------------------------------------------------
+.m-display-list-melee-attack,
+.m-display-list-melee-name {
+  flex: 0 0 auto;
+  display: block;
+  margin: 0;
 }
 // --------------------------------------------------
 // media queries

@@ -365,19 +365,14 @@ var display = (function() {
       }]
     },
     defense: {
-      hp: [{
+      all: [{
         type: "snippet",
         element: "h2",
         content: [{
           path: "defense.hp.current",
           prefix: "HP",
           dependency: "defense.hp.total"
-        }]
-      }],
-      all: [{
-        type: "snippet",
-        element: "h2",
-        content: [{
+        }, {
           path: "defense.ac.armor_class.current",
           prefix: "AC"
         }, {
@@ -472,6 +467,16 @@ var display = (function() {
         content: [{
           path: "offense.attack.notes",
           prefix: "Attack Notes"
+        }]
+      }],
+      melee: [{
+        type: "clone",
+        element: "ul",
+        cloneType: "attack_melee",
+        classname: ["m-display-list"],
+        head: "Melee",
+        content: [{
+          path: "offense.attack.melee.all",
         }]
       }]
     }
@@ -1308,7 +1313,59 @@ var display = (function() {
             })
           },
           skill: function() {},
-          attack_melee: function() {},
+          attack_melee: function() {
+            displayObject.content.forEach(function(arrayItem, index) {
+              var all_clone = helper.getObject({
+                object: sheet.get(),
+                path: arrayItem.path
+              });
+              if (all_clone.length > 0) {
+                all_clone.forEach(function(arrayItem) {
+                  if (arrayItem.weapon != "") {
+                    contentFound++;
+                    var listItem = document.createElement("li");
+                    listItem.setAttribute("class", "m-display-list-item");
+
+                    function _createSnippet(object) {
+                      var snippet = document.createElement("span");
+                      snippet.setAttribute("class", "m-display-snippet-item");
+                      var prefix = document.createElement("span");
+                      prefix.setAttribute("class", "m-display-prefix");
+                      prefix.textContent = object.prefix;
+                      var value = document.createElement("span");
+                      value.setAttribute("class", "m-display-value");
+                      value.textContent = object.value;
+                      snippet.appendChild(prefix);
+                      snippet.appendChild(value);
+                      return snippet;
+                    };
+
+                    listItem.appendChild(_createSnippet({
+                      prefix: "Weapon",
+                      value: arrayItem.weapon
+                    }));
+                    listItem.appendChild(_createSnippet({
+                      prefix: "Attack",
+                      value: arrayItem.attack
+                    }));
+                    listItem.appendChild(_createSnippet({
+                      prefix: "Damage",
+                      value: arrayItem.damage
+                    }));
+                    listItem.appendChild(_createSnippet({
+                      prefix: "Critical",
+                      value: arrayItem.critical
+                    }));
+                    listItem.appendChild(_createSnippet({
+                      prefix: "Type",
+                      value: arrayItem.type
+                    }));
+                    element.appendChild(listItem);
+                  };
+                });
+              };
+            })
+          },
           attack_ranged: function() {},
           note_character: function() {},
           note_story: function() {}
