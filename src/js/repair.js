@@ -2578,12 +2578,6 @@ var repair = (function() {
         notes: oldAbilities
       };
     };
-    if (characterObject.equipment.consumable.all.length > 0) {
-      characterObject.equipment.consumable.all.forEach(function(arrayItem) {
-        arrayItem.name = arrayItem.item;
-        delete arrayItem.item;
-      });
-    };
     _log("update complete: 510");
     _log("report:", _report);
     _log("-----");
@@ -2614,6 +2608,14 @@ var repair = (function() {
         });
       };
       characterObject.basics.classes.string = classAndLevel;
+    };
+    // consumable
+    if (characterObject.equipment.consumable.all.length > 0) {
+      _report.repaired.push("update: consumable name");
+      characterObject.equipment.consumable.all.forEach(function(arrayItem) {
+        arrayItem.name = arrayItem.item;
+        delete arrayItem.item;
+      });
     };
     _log("update complete: 520");
     _log("report:", _report);

@@ -5,7 +5,7 @@ var display = (function() {
       intro: [{
         type: "image",
         element: "div",
-        classname: "m-display-image-wrapper",
+        classname: ["m-display-image-wrapper"],
         content: [{
           path: "basics.image.data",
           scale: "basics.image.scale",
@@ -16,19 +16,19 @@ var display = (function() {
       }, {
         type: "snippet",
         element: "h1",
-        classname: "m-display-name",
+        classname: ["m-display-name"],
         content: [{
           path: "basics.character.name"
         }]
       }, {
         type: "snippet",
         element: "p",
-        classname: "m-display-class",
+        classname: ["m-display-class"],
         content: [{
           path: "basics.classes.string"
         }]
       }],
-      all: [{
+      character: [{
         type: "snippet",
         element: "p",
         content: [{
@@ -83,7 +83,8 @@ var display = (function() {
           path: "basics.character.hero_points",
           prefix: "Hero Points"
         }]
-      }, {
+      }],
+      description: [{
         type: "block",
         element: "p",
         content: [{
@@ -125,7 +126,7 @@ var display = (function() {
       abilities: [{
         type: "list",
         element: "ul",
-        classname: "m-display-list-dash",
+        classname: ["m-display-list-dash"],
         head: "Abilities",
         content: [{
           path: "statistics.abilities.all",
@@ -135,13 +136,13 @@ var display = (function() {
         element: "p",
         content: [{
           path: "statistics.abilities.notes",
-          prefix: "Notes"
+          prefix: "Abilities Notes"
         }]
       }],
       feats: [{
         type: "list",
         element: "ul",
-        classname: "m-display-list-dash",
+        classname: ["m-display-list-dash"],
         head: "Feats",
         content: [{
           path: "statistics.feats.all",
@@ -151,13 +152,13 @@ var display = (function() {
         element: "p",
         content: [{
           path: "statistics.feats.notes",
-          prefix: "Notes"
+          prefix: "Feats Notes"
         }]
       }],
       traits: [{
         type: "list",
         element: "ul",
-        classname: "m-display-list-dash",
+        classname: ["m-display-list-dash"],
         head: "Traits",
         content: [{
           path: "statistics.traits.all",
@@ -167,13 +168,13 @@ var display = (function() {
         element: "p",
         content: [{
           path: "statistics.traits.notes",
-          prefix: "Notes"
+          prefix: "Traits Notes"
         }]
       }],
       languages: [{
         type: "list",
         element: "ul",
-        classname: "m-display-list-dash",
+        classname: ["m-display-list-dash"],
         head: "languages",
         content: [{
           path: "statistics.languages.all",
@@ -183,13 +184,14 @@ var display = (function() {
         element: "p",
         content: [{
           path: "statistics.languages.notes",
-          prefix: "Notes"
+          prefix: "Languages Notes"
         }]
       }],
       power: [{
         type: "clone",
         element: "ul",
         cloneType: "power",
+        classname: ["m-display-list-responsive"],
         head: "Powers",
         content: [{
           path: "statistics.power.all",
@@ -229,10 +231,10 @@ var display = (function() {
           path: "equipment.possessions.scrolls",
         }]
       }],
-      armor_body_item: [{
+      armor: [{
         type: "group",
         element: "ul",
-        classname: "m-display-list-responsive",
+        classname: ["m-display-list-responsive", "m-display-list-stack"],
         head: "Armor",
         content: [{
           path: "equipment.armor.armor",
@@ -241,10 +243,11 @@ var display = (function() {
           path: "equipment.armor.shield",
           prefix: "Shield"
         }]
-      }, {
+      }],
+      body_slots: [{
         type: "group",
         element: "ul",
-        classname: "m-display-list-responsive",
+        classname: ["m-display-list-stack", "m-display-list-responsive"],
         head: "Body Slots",
         content: [{
           path: "equipment.body_slots.belts",
@@ -286,18 +289,20 @@ var display = (function() {
           path: "equipment.body_slots.wrist",
           prefix: "Wrist"
         }]
-      }, {
+      }],
+      item: [{
         type: "clone",
         element: "ul",
         cloneType: "item",
+        classname: ["m-display-list-responsive", "m-display-list-compact"],
         head: "Items",
         content: [{
           path: "equipment.item.all",
         }]
-      }, {
-        type: "group",
-        element: "ul",
-        classname: "m-display-list-responsive",
+      }],
+      encumbrance: [{
+        type: "snippet",
+        element: "p",
         head: "Encumbrance",
         content: [{
           path: "equipment.encumbrance.carry_move.light",
@@ -315,27 +320,160 @@ var display = (function() {
           path: "equipment.encumbrance.carry_move.drag",
           prefix: "Drag"
         }]
-      }, {
+      }],
+      consumable: [{
         type: "clone",
         element: "p",
         cloneType: "consumable",
+        classname: ["m-display-list-responsive"],
         head: "Consumables",
         content: [{
           path: "equipment.consumable.all",
           prefix: "Light"
         }]
-      }, {
+      }],
+      wealth: [{
         type: "snippet",
         element: "p",
-        valueType: "currency",
+        head: "Wealth",
+        content: [{
+          path: "equipment.wealth.platinum",
+          suffix: "PP",
+          valueType: "currency"
+        }, {
+          path: "equipment.wealth.gold",
+          suffix: "GP",
+          valueType: "currency"
+        }, {
+          path: "equipment.wealth.silver",
+          suffix: "SP",
+          valueType: "currency"
+        }, {
+          path: "equipment.wealth.copper",
+          suffix: "CP",
+          valueType: "currency"
+        }]
+      }, {
+        type: "snippet",
+        element: "h2",
+        head: "Total",
         content: [{
           path: "equipment.wealth.total",
-          prefix: "Wealth",
           suffix: "GP",
+          valueType: "currency"
+        }]
+      }]
+    },
+    defense: {
+      hp: [{
+        type: "snippet",
+        element: "h2",
+        content: [{
+          path: "defense.hp.current",
+          prefix: "HP",
+          dependency: "defense.hp.total"
         }]
       }],
-      consumable: [],
-      wealth: []
+      all: [{
+        type: "snippet",
+        element: "h2",
+        content: [{
+          path: "defense.ac.armor_class.current",
+          prefix: "AC"
+        }, {
+          path: "defense.ac.touch.current",
+          prefix: "Touch"
+        }, {
+          path: "defense.ac.flat_footed.current",
+          prefix: "Flat Footed"
+        }, {
+          path: "defense.cmd.current",
+          prefix: "CMD",
+          valueType: "bonus"
+        }, {
+          path: "defense.dr.current",
+          prefix: "DR",
+          dependency: "defense.dr.overcome"
+        }, {
+          path: "defense.sr.current",
+          prefix: "SR"
+        }, {
+          path: "defense.saves.fortitude.current",
+          prefix: "Fortitude",
+          valueType: "bonus"
+        }, {
+          path: "defense.saves.reflex.current",
+          prefix: "Reflex",
+          valueType: "bonus"
+        }, {
+          path: "defense.saves.will.current",
+          prefix: "Will",
+          valueType: "bonus"
+        }]
+      }],
+      notes: [{
+        type: "block",
+        element: "p",
+        content: [{
+          path: "defense.ac.notes",
+          prefix: "AC Notes"
+        }]
+      }, {
+        type: "block",
+        element: "p",
+        content: [{
+          path: "defense.cmd.notes",
+          prefix: "CMD Notes"
+        }]
+      }, {
+        type: "block",
+        element: "p",
+        content: [{
+          path: "defense.dr.notes",
+          prefix: "Notes"
+        }]
+      }, {
+        type: "block",
+        element: "p",
+        content: [{
+          path: "defense.sr.notes",
+          prefix: "Notes"
+        }]
+      }, {
+        type: "block",
+        element: "p",
+        content: [{
+          path: "defense.saves.notes",
+          prefix: "Saves Notes"
+        }]
+      }]
+    },
+    offense: {
+      all: [{
+        type: "snippet",
+        element: "h2",
+        content: [{
+          path: "offense.stats.melee.current",
+          prefix: "Melee",
+          valueType: "bonus"
+        }, {
+          path: "offense.stats.ranged.current",
+          prefix: "Ranged",
+          valueType: "bonus"
+        }, {
+          path: "offense.cmb.current",
+          prefix: "CMB",
+          valueType: "bonus"
+        }]
+      }],
+      notes: [{
+        type: "block",
+        element: "p",
+        content: [{
+          path: "offense.attack.notes",
+          prefix: "Attack Notes"
+        }]
+      }]
     }
   };
 
@@ -716,7 +854,9 @@ var display = (function() {
         var all_element = [];
         var element = document.createElement(displayObject.element);
         if (displayObject.classname) {
-          helper.addClass(element, displayObject.classname);
+          displayObject.classname.forEach(function(arrayItem) {
+            helper.addClass(element, arrayItem);
+          });
         };
         var contentFound = 0;
         displayObject.content.forEach(function(arrayItem, index) {
@@ -772,9 +912,16 @@ var display = (function() {
         var element = document.createElement(displayObject.element);
         element.setAttribute("class", "m-display-snippet");
         if (displayObject.classname) {
-          helper.addClass(element, displayObject.classname);
+          displayObject.classname.forEach(function(arrayItem) {
+            helper.addClass(element, arrayItem);
+          });
         };
         var contentFound = 0;
+        if (displayObject.head) {
+          var head = document.createElement("p");
+          head.setAttribute("class", "m-display-head");
+          head.textContent = displayObject.head;
+        };
         displayObject.content.forEach(function(arrayItem, index) {
           var data = helper.getObject({
             object: sheet.get(),
@@ -816,6 +963,9 @@ var display = (function() {
           };
         });
         if (contentFound > 0) {
+          if (head) {
+            all_element.push(head);
+          };
           all_element.push(element);
         } else {
           all_element.push(false);
@@ -827,13 +977,14 @@ var display = (function() {
         var element = document.createElement(displayObject.element);
         element.setAttribute("class", "m-display-text-block");
         if (displayObject.classname) {
-          helper.addClass(element, displayObject.classname);
+          displayObject.classname.forEach(function(arrayItem) {
+            helper.addClass(element, arrayItem);
+          });
         };
         var contentFound = 0;
-        var head;
         if (displayObject.head) {
-          head = document.createElement("p");
-          head.setAttribute("class", "m-display-prefix");
+          var head = document.createElement("p");
+          head.setAttribute("class", "m-display-head");
           head.textContent = displayObject.head;
         };
         displayObject.content.forEach(function(arrayItem, index) {
@@ -843,9 +994,6 @@ var display = (function() {
           });
           if (data != "") {
             contentFound++;
-            if (head) {
-              all_element.push(head);
-            };
             if (arrayItem.prefix) {
               var prefix = document.createElement("span");
               prefix.setAttribute("class", "m-display-prefix");
@@ -865,6 +1013,9 @@ var display = (function() {
           };
         });
         if (contentFound > 0) {
+          if (head) {
+            all_element.push(head);
+          };
           all_element.push(element);
         } else {
           all_element.push(false);
@@ -917,13 +1068,14 @@ var display = (function() {
         var element = document.createElement(displayObject.element);
         element.setAttribute("class", "u-list-unstyled");
         if (displayObject.classname) {
-          helper.addClass(element, displayObject.classname);
+          displayObject.classname.forEach(function(arrayItem) {
+            helper.addClass(element, arrayItem);
+          });
         };
         var contentFound = 0;
-        var head;
         if (displayObject.head) {
-          head = document.createElement("p");
-          head.setAttribute("class", "m-display-prefix");
+          var head = document.createElement("p");
+          head.setAttribute("class", "m-display-head");
           head.textContent = displayObject.head;
         };
         displayObject.content.forEach(function(arrayItem, index) {
@@ -934,9 +1086,6 @@ var display = (function() {
           if (all_listItem.length > 0) {
             all_listItem.forEach(function(arrayItem) {
               contentFound++;
-              if (head) {
-                all_element.push(head);
-              };
               var listItem = document.createElement("li");
               listItem.setAttribute("class", "m-display-list-item");
               var listItemName = document.createElement("span");
@@ -948,6 +1097,9 @@ var display = (function() {
           };
         });
         if (contentFound > 0) {
+          if (head) {
+            all_element.push(head);
+          };
           all_element.push(element);
         } else {
           all_element.push(false);
@@ -959,13 +1111,14 @@ var display = (function() {
         var element = document.createElement(displayObject.element);
         element.setAttribute("class", "u-list-unstyled");
         if (displayObject.classname) {
-          helper.addClass(element, displayObject.classname);
+          displayObject.classname.forEach(function(arrayItem) {
+            helper.addClass(element, arrayItem);
+          });
         };
         var contentFound = 0;
-        var head;
         if (displayObject.head) {
-          head = document.createElement("p");
-          head.setAttribute("class", "m-display-prefix");
+          var head = document.createElement("p");
+          head.setAttribute("class", "m-display-head");
           head.textContent = displayObject.head;
         };
         displayObject.content.forEach(function(arrayItem, index) {
@@ -975,16 +1128,19 @@ var display = (function() {
           });
           if (data != "") {
             contentFound++;
-            if (head) {
-              all_element.push(head);
-            };
             var listItem = document.createElement("li");
             listItem.setAttribute("class", "m-display-list-item");
             if (arrayItem.prefix) {
               var prefix = document.createElement("span");
-              prefix.setAttribute("class", "m-display-prefix");
+              prefix.setAttribute("class", "m-display-list-item-prefix");
               prefix.textContent = arrayItem.prefix;
               listItem.appendChild(prefix);
+            };
+            if (arrayItem.suffix) {
+              var suffix = document.createElement("span");
+              suffix.setAttribute("class", "m-display-list-item-suffix");
+              suffix.textContent = arrayItem.suffix;
+              listItem.appendChild(suffix);
             };
             var listItemName = document.createElement("span");
             listItemName.setAttribute("class", "m-display-list-item-name");
@@ -994,6 +1150,9 @@ var display = (function() {
           };
         });
         if (contentFound > 0) {
+          if (head) {
+            all_element.push(head);
+          };
           all_element.push(element);
         } else {
           all_element.push(false);
@@ -1003,12 +1162,11 @@ var display = (function() {
       pill: function(displayObject) {
         var all_element = [];
         var element = document.createElement(displayObject.element);
-        element.setAttribute("class", "m-display-list-dash u-list-unstyled");
+        element.setAttribute("class", "u-list-unstyled");
         var contentFound = 0;
-        var head;
         if (displayObject.head) {
-          head = document.createElement("p");
-          head.setAttribute("class", "m-display-prefix");
+          var head = document.createElement("p");
+          head.setAttribute("class", "m-display-head");
           head.textContent = displayObject.head;
         };
         displayObject.content.forEach(function(arrayItem, index) {
@@ -1019,9 +1177,6 @@ var display = (function() {
           if (all_pill.length > 0) {
             all_pill.forEach(function(arrayItem) {
               contentFound++;
-              if (head) {
-                all_element.push(head);
-              };
               var listItem = document.createElement("li");
               listItem.setAttribute("class", "m-display-list-item");
               var listItemName = document.createElement("span");
@@ -1033,6 +1188,9 @@ var display = (function() {
           };
         });
         if (contentFound > 0) {
+          if (head) {
+            all_element.push(head);
+          };
           all_element.push(element);
         } else {
           all_element.push(false);
@@ -1042,16 +1200,19 @@ var display = (function() {
       clone: function(displayObject) {
         var all_element = [];
         var element = document.createElement(displayObject.element);
-        element.setAttribute("class", "m-display-list u-list-unstyled");
-        var contentFound = 0;
-        var head;
+        element.setAttribute("class", "u-list-unstyled");
+        if (displayObject.classname) {
+          displayObject.classname.forEach(function(arrayItem) {
+            helper.addClass(element, arrayItem);
+          });
+        };
         if (displayObject.head) {
-          head = document.createElement("p");
-          head.setAttribute("class", "m-display-prefix");
+          var head = document.createElement("p");
+          head.setAttribute("class", "m-display-head");
           head.textContent = displayObject.head;
         };
+        var contentFound = 0;
         var cloneVariant = {
-          class: function() {},
           consumable: function() {
             displayObject.content.forEach(function(arrayItem, index) {
               var all_clone = helper.getObject({
@@ -1060,30 +1221,28 @@ var display = (function() {
               });
               if (all_clone.length > 0) {
                 all_clone.forEach(function(arrayItem) {
-                  helper.addClass(element, "m-display-list-responsive");
-                  contentFound++;
-                  if (head) {
-                    all_element.push(head);
+                  if (arrayItem.name != "") {
+                    contentFound++;
+                    var listItem = document.createElement("li");
+                    listItem.setAttribute("class", "m-display-list-item");
+                    var listItemName = document.createElement("span");
+                    listItemName.setAttribute("class", "m-display-list-item-name");
+                    listItemName.textContent = arrayItem.name;
+                    var listItemValue = document.createElement("span");
+                    listItemValue.setAttribute("class", "m-display-list-item-value");
+                    listItemValue.textContent = (arrayItem.current || 0) + "/" + (arrayItem.total || 0);
+                    var percentage = parseFloat(((arrayItem.total - arrayItem.used) / arrayItem.total) * 100).toFixed(2);
+                    if (percentage < 0) {
+                      percentage = 0;
+                    };
+                    var percentageBar = document.createElement("span");
+                    percentageBar.setAttribute("class", "m-display-list-item-percentage");
+                    percentageBar.setAttribute("style", "width: " + percentage + "%;");
+                    listItem.appendChild(listItemName);
+                    listItem.appendChild(listItemValue);
+                    listItem.appendChild(percentageBar);
+                    element.appendChild(listItem);
                   };
-                  var listItem = document.createElement("li");
-                  listItem.setAttribute("class", "m-display-list-item");
-                  var listItemName = document.createElement("span");
-                  listItemName.setAttribute("class", "m-display-list-item-name");
-                  listItemName.textContent = arrayItem.name;
-                  var listItemValue = document.createElement("span");
-                  listItemValue.setAttribute("class", "m-display-list-item-value");
-                  listItemValue.textContent = (arrayItem.current || 0) + "/" + (arrayItem.total || 0);
-                  var percentage = parseFloat(((arrayItem.total - arrayItem.used) / arrayItem.total) * 100).toFixed(2);
-                  if (percentage < 0) {
-                    percentage = 0;
-                  };
-                  var percentageBar = document.createElement("span");
-                  percentageBar.setAttribute("class", "m-display-list-item-percentage");
-                  percentageBar.setAttribute("style", "width: " + percentage + "%;");
-                  listItem.appendChild(listItemName);
-                  listItem.appendChild(listItemValue);
-                  listItem.appendChild(percentageBar);
-                  element.appendChild(listItem);
                 });
               };
             })
@@ -1096,30 +1255,28 @@ var display = (function() {
               });
               if (all_clone.length > 0) {
                 all_clone.forEach(function(arrayItem) {
-                  helper.addClass(element, "m-display-list-responsive");
-                  contentFound++;
-                  if (head) {
-                    all_element.push(head);
+                  if (arrayItem.name != "") {
+                    contentFound++;
+                    var listItem = document.createElement("li");
+                    listItem.setAttribute("class", "m-display-list-item");
+                    var listItemName = document.createElement("span");
+                    listItemName.setAttribute("class", "m-display-list-item-name");
+                    listItemName.textContent = arrayItem.name;
+                    var listItemValue = document.createElement("span");
+                    listItemValue.setAttribute("class", "m-display-list-item-value");
+                    listItemValue.textContent = arrayItem.current + "/" + arrayItem.total;
+                    var percentage = parseFloat(((arrayItem.total - arrayItem.used) / arrayItem.total) * 100).toFixed(2);
+                    if (percentage < 0) {
+                      percentage = 0;
+                    };
+                    var percentageBar = document.createElement("span");
+                    percentageBar.setAttribute("class", "m-display-list-item-percentage");
+                    percentageBar.setAttribute("style", "width: " + percentage + "%;");
+                    listItem.appendChild(listItemName);
+                    listItem.appendChild(listItemValue);
+                    listItem.appendChild(percentageBar);
+                    element.appendChild(listItem);
                   };
-                  var listItem = document.createElement("li");
-                  listItem.setAttribute("class", "m-display-list-item");
-                  var listItemName = document.createElement("span");
-                  listItemName.setAttribute("class", "m-display-list-item-name");
-                  listItemName.textContent = arrayItem.name;
-                  var listItemValue = document.createElement("span");
-                  listItemValue.setAttribute("class", "m-display-list-item-value");
-                  listItemValue.textContent = arrayItem.current + "/" + arrayItem.total;
-                  var percentage = parseFloat(((arrayItem.total - arrayItem.used) / arrayItem.total) * 100).toFixed(2);
-                  if (percentage < 0) {
-                    percentage = 0;
-                  };
-                  var percentageBar = document.createElement("span");
-                  percentageBar.setAttribute("class", "m-display-list-item-percentage");
-                  percentageBar.setAttribute("style", "width: " + percentage + "%;");
-                  listItem.appendChild(listItemName);
-                  listItem.appendChild(listItemValue);
-                  listItem.appendChild(percentageBar);
-                  element.appendChild(listItem);
                 });
               };
             })
@@ -1132,23 +1289,20 @@ var display = (function() {
               });
               if (all_clone.length > 0) {
                 all_clone.forEach(function(arrayItem) {
-                  helper.addClass(element, "m-display-list-responsive");
-                  helper.addClass(element, "m-display-list-compact");
-                  contentFound++;
-                  if (head) {
-                    all_element.push(head);
+                  if (arrayItem.name != "") {
+                    contentFound++;
+                    var listItem = document.createElement("li");
+                    listItem.setAttribute("class", "m-display-list-item");
+                    var listItemName = document.createElement("span");
+                    listItemName.setAttribute("class", "m-display-list-item-name");
+                    listItemName.textContent = arrayItem.name;
+                    var listItemValue = document.createElement("span");
+                    listItemValue.setAttribute("class", "m-display-list-item-value");
+                    listItemValue.textContent = arrayItem.quantity;
+                    listItem.appendChild(listItemName);
+                    listItem.appendChild(listItemValue);
+                    element.appendChild(listItem);
                   };
-                  var listItem = document.createElement("li");
-                  listItem.setAttribute("class", "m-display-list-item");
-                  var listItemName = document.createElement("span");
-                  listItemName.setAttribute("class", "m-display-list-item-name");
-                  listItemName.textContent = arrayItem.name;
-                  var listItemValue = document.createElement("span");
-                  listItemValue.setAttribute("class", "m-display-list-item-value");
-                  listItemValue.textContent = arrayItem.quantity;
-                  listItem.appendChild(listItemName);
-                  listItem.appendChild(listItemValue);
-                  element.appendChild(listItem);
                 });
               };
             })
@@ -1163,6 +1317,9 @@ var display = (function() {
         cloneVariant[displayObject.cloneType]();
 
         if (contentFound > 0) {
+          if (head) {
+            all_element.push(head);
+          };
           all_element.push(element);
         } else {
           all_element.push(false);
