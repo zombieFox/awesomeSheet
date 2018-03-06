@@ -6,7 +6,7 @@
   display: block;
   font-size: $font-size-root-100;
   &:not(:only-child):not(:last-child) {
-    margin-bottom: 2em;
+    margin-bottom: 1.5em;
     // margin-bottom: 0.8em;
     // padding-bottom: 0.8em;
     // &:after {
@@ -519,13 +519,13 @@ h3 {
     }
   }
   .m-display-list-item-attack-weapon {
-      flex: 1 0 auto;
-    &:not(:only-child):not(:last-child) {
-      padding-right: 1em;
+    flex: 1 0 auto;
+    .m-display-list-item-attack-prefix {
+      display: block;
     }
-  }
-  .m-display-list-item-attack-attack {
-    // flex: 0 0 auto;
+    &:not(:only-child):not(:last-child) {
+      margin-right: 1em;
+    }
   }
   .m-display-list-item-attack-ammo,
   .m-display-list-item-attack-attack,
@@ -533,17 +533,25 @@ h3 {
   .m-display-list-item-attack-damage,
   .m-display-list-item-attack-range,
   .m-display-list-item-attack-type {
-    // flex: 0 1 auto;
-  }
-  .m-display-list-item-attack-ammo,
-  .m-display-list-item-attack-attack,
-  .m-display-list-item-attack-critical,
-  .m-display-list-item-attack-damage,
-  .m-display-list-item-attack-range,
-  .m-display-list-item-attack-type,
-  .m-display-list-item-attack-weapon {
+    flex: 0 0 auto;
     .m-display-list-item-attack-prefix {
       display: block;
+    }
+    &:not(:only-child):not(:last-child) {
+      padding-right: 1em;
+      margin-right: 1em;
+      &:after {
+        content: "";
+        background-color: $gray-18;
+        display: block;
+        width: 1px;
+        height: 80%;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: rotate(10deg) translate(-50%, -50%);
+        transform-origin: top;
+      }
     }
   }
 }
@@ -563,7 +571,50 @@ h3 {
     }
   }
 }
-@media (min-width: $screen-xl) {}
+@media (min-width: $screen-xl) {
+  // attack
+  .m-display-list-attack {
+    .m-display-list-item-attack {
+      justify-content: flex-end;
+    }
+  }
+  .m-display-list-item-attack-weapon {
+    flex: 0 0 40%;
+    &:not(:only-child):not(:last-child) {
+      padding-right: 1em;
+    }
+  }
+  .m-display-list-item-attack-attack {
+    flex: 1 0 auto;
+  }
+  .m-display-list-item-attack-ammo,
+  .m-display-list-item-attack-critical,
+  .m-display-list-item-attack-damage,
+  .m-display-list-item-attack-range,
+  .m-display-list-item-attack-type {
+    flex: 0 1 auto;
+  }
+  .m-display-list-item-attack-ammo,
+  .m-display-list-item-attack-attack,
+  .m-display-list-item-attack-critical,
+  .m-display-list-item-attack-damage,
+  .m-display-list-item-attack-range,
+  .m-display-list-item-attack-type,
+  .m-display-list-item-attack-weapon {
+    .m-display-list-item-attack-prefix {
+      display: block;
+    }
+  }
+  .m-display-list-item-attack-attack,
+  .m-display-list-item-attack-weapon {
+    &:not(:only-child):not(:last-child) {
+      margin-right: 1em;
+      &:after {
+        content: none;
+      }
+    }
+  }
+}
 //
 //
 //
@@ -846,107 +897,107 @@ h3 {
 // --------------------------------------------------
 // display attack melee
 // --------------------------------------------------
-.m-display-list-item-attack-melee {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-end;
-  padding-top: 0.75em;
-  padding-bottom: 0.75em;
-  border-bottom: 1px solid $gray-18;
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 0;
-  }
-}
-.m-display-list-item-attack-melee-attack,
-.m-display-list-item-attack-melee-critical,
-.m-display-list-item-attack-melee-damage,
-.m-display-list-item-attack-melee-type,
-.m-display-list-item-attack-melee-weapon {
-  box-sizing: border-box;
-  &:not(:only-child):not(:first-child) {
-    padding-left: 1.5em;
-    margin-bottom: 0;
-  }
-}
-.m-display-list-item-attack-melee-weapon {
-  font-family: $open-sans-semi-bold;
-  flex: 1 1 100%;
-}
-.m-display-list-item-attack-melee-attack {
-  flex: 1 0 auto;
-  line-height: 1;
-  margin: 0;
-  color: $primary-color-06;
-  &:not(:only-child):not(:first-child) {
-    padding-left: 1em;
-  }
-}
-.m-display-list-item-attack-melee-critical,
-.m-display-list-item-attack-melee-damage {
-  flex: 0 1 auto;
-}
-.is-night-mode {
-  .m-display-list-item-attack-melee {
-    border-color: $light-alpha-19;
-  }
-  .m-display-list-item-attack-melee-attack {
-    color: $primary-color-16;
-  }
-}
+// .m-display-list-item-attack-melee {
+//   display: flex;
+//   flex-flow: row wrap;
+//   justify-content: flex-end;
+//   padding-top: 0.75em;
+//   padding-bottom: 0.75em;
+//   border-bottom: 1px solid $gray-18;
+//   &:not(:only-child):not(:last-child) {
+//     margin-bottom: 0;
+//   }
+// }
+// .m-display-list-item-attack-melee-attack,
+// .m-display-list-item-attack-melee-critical,
+// .m-display-list-item-attack-melee-damage,
+// .m-display-list-item-attack-melee-type,
+// .m-display-list-item-attack-melee-weapon {
+//   box-sizing: border-box;
+//   &:not(:only-child):not(:first-child) {
+//     padding-left: 1.5em;
+//     margin-bottom: 0;
+//   }
+// }
+// .m-display-list-item-attack-melee-weapon {
+//   font-family: $open-sans-semi-bold;
+//   flex: 1 1 100%;
+// }
+// .m-display-list-item-attack-melee-attack {
+//   flex: 1 0 auto;
+//   line-height: 1;
+//   margin: 0;
+//   color: $primary-color-06;
+//   &:not(:only-child):not(:first-child) {
+//     padding-left: 1em;
+//   }
+// }
+// .m-display-list-item-attack-melee-critical,
+// .m-display-list-item-attack-melee-damage {
+//   flex: 0 1 auto;
+// }
+// .is-night-mode {
+//   .m-display-list-item-attack-melee {
+//     border-color: $light-alpha-19;
+//   }
+//   .m-display-list-item-attack-melee-attack {
+//     color: $primary-color-16;
+//   }
+// }
 // --------------------------------------------------
 // display attack ranged
 // --------------------------------------------------
-.m-display-list-item-attack-ranged {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-end;
-  padding-top: 0.75em;
-  padding-bottom: 0.75em;
-  border-bottom: 1px solid $gray-18;
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 0;
-  }
-}
-.m-display-list-item-attack-ranged-ammo,
-.m-display-list-item-attack-ranged-attack,
-.m-display-list-item-attack-ranged-critical,
-.m-display-list-item-attack-ranged-damage,
-.m-display-list-item-attack-ranged-range,
-.m-display-list-item-attack-ranged-type,
-.m-display-list-item-attack-ranged-weapon {
-  box-sizing: border-box;
-  &:not(:only-child):not(:first-child) {
-    padding-left: 1.5em;
-    margin-bottom: 0;
-  }
-}
-.m-display-list-item-attack-ranged-weapon {
-  font-family: $open-sans-semi-bold;
-  flex: 1 1 100%;
-}
-.m-display-list-item-attack-ranged-attack {
-  flex: 1 0 auto;
-  line-height: 1;
-  margin: 0;
-  color: $primary-color-06;
-  &:not(:only-child):not(:first-child) {
-    padding-left: 1em;
-  }
-}
-.m-display-list-item-attack-ranged-ammo,
-.m-display-list-item-attack-ranged-critical,
-.m-display-list-item-attack-ranged-damage,
-.m-display-list-item-attack-ranged-range {
-  flex: 0 1 auto;
-}
-.is-night-mode {
-  .m-display-list-item-attack-ranged {
-    border-color: $light-alpha-19;
-  }
-  .m-display-list-item-attack-ranged-attack {
-    color: $primary-color-16;
-  }
-}
+// .m-display-list-item-attack-ranged {
+//   display: flex;
+//   flex-flow: row wrap;
+//   justify-content: flex-end;
+//   padding-top: 0.75em;
+//   padding-bottom: 0.75em;
+//   border-bottom: 1px solid $gray-18;
+//   &:not(:only-child):not(:last-child) {
+//     margin-bottom: 0;
+//   }
+// }
+// .m-display-list-item-attack-ranged-ammo,
+// .m-display-list-item-attack-ranged-attack,
+// .m-display-list-item-attack-ranged-critical,
+// .m-display-list-item-attack-ranged-damage,
+// .m-display-list-item-attack-ranged-range,
+// .m-display-list-item-attack-ranged-type,
+// .m-display-list-item-attack-ranged-weapon {
+//   box-sizing: border-box;
+//   &:not(:only-child):not(:first-child) {
+//     padding-left: 1.5em;
+//     margin-bottom: 0;
+//   }
+// }
+// .m-display-list-item-attack-ranged-weapon {
+//   font-family: $open-sans-semi-bold;
+//   flex: 1 1 100%;
+// }
+// .m-display-list-item-attack-ranged-attack {
+//   flex: 1 0 auto;
+//   line-height: 1;
+//   margin: 0;
+//   color: $primary-color-06;
+//   &:not(:only-child):not(:first-child) {
+//     padding-left: 1em;
+//   }
+// }
+// .m-display-list-item-attack-ranged-ammo,
+// .m-display-list-item-attack-ranged-critical,
+// .m-display-list-item-attack-ranged-damage,
+// .m-display-list-item-attack-ranged-range {
+//   flex: 0 1 auto;
+// }
+// .is-night-mode {
+//   .m-display-list-item-attack-ranged {
+//     border-color: $light-alpha-19;
+//   }
+//   .m-display-list-item-attack-ranged-attack {
+//     color: $primary-color-16;
+//   }
+// }
 // --------------------------------------------------
 // display spell
 // --------------------------------------------------
@@ -978,165 +1029,165 @@ h3 {
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
-@media (min-width: $screen-sm) {
-  .m-display-list-thirds {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
-    .m-display-list-item {
-      flex: 0 0 30%;
-      max-width: 30%;
-      &:nth-child(3n+1),
-      &:nth-child(3n+2) {
-        margin-right: 5%;
-      }
-    }
-  }
-  .m-display-list-item-attack-melee {
-    flex-flow: row wrap;
-  }
-  .m-display-list-item-attack-melee-weapon {
-    flex: 0 0 40%;
-  }
-  .m-display-list-item-attack-melee-attack {
-    flex: 1 0 auto;
-  }
-  .m-display-list-item-attack-ranged {
-    flex-flow: row wrap;
-  }
-  .m-display-list-item-attack-ranged-weapon {
-    flex: 0 0 40%;
-  }
-  .m-display-list-item-attack-ranged-attack {
-    flex: 1 0 auto;
-  }
-  .m-display-list-item-attack-ranged-ammo,
-  .m-display-list-item-attack-ranged-critical,
-  .m-display-list-item-attack-ranged-damage,
-  .m-display-list-item-attack-ranged-range {
-    flex: 0 1 auto;
-  }
-  .is-night-mode {
-    .m-display-box-item-stat {
-      &:not(:only-child):not(:last-child) {
-        &:after {
-          background-color: $gray-06;
-        }
-      }
-    }
-  }
-  .m-display-character-intro {
-    flex-flow: row nowrap;
-  }
-  .m-display-character-content {
-    flex: 1 1 auto;
-    width: initial;
-  }
-}
-@media (min-width: $screen-md) {}
-@media (min-width: $screen-lg) {
-  .m-display-image-wrapper {
-    margin: 0 -3em 0 0;
-    left: -5em;
-    width: 20em;
-    height: 20em;
-  }
-}
-@media (min-width: $screen-xl) {}
-@media print {
-  .m-display-box {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
-  }
-  [class*="m-display-box-head"],
-  [class^="m-display-box-head"] {
-    flex: 1 1 auto;
-  }
-  .m-display-box-body {
-    margin-left: 2em;
-    flex: 1 1 auto;
-  }
-  .m-display-box-item-stat {
-    flex: 1 1 15%;
-    box-sizing: border-box;
-    position: relative;
-    &:nth-child(1),
-    &:nth-child(2),
-    &:nth-child(3),
-    &:nth-child(4),
-    &:nth-child(5),
-    &:nth-child(6) {
-      padding: 0;
-    }
-    &:nth-child(1),
-    &:nth-child(2),
-    &:nth-child(3) {
-      &:before {
-        content: none;
-      }
-    }
-    &:nth-child(3n+1),
-    &:nth-child(3n+2) {
-      &:after {
-        content: none;
-      }
-    }
-    &:not(:only-child):not(:last-child) {
-      &:after {
-        content: "";
-        background-color: $gray-18;
-        display: block;
-        width: 1px;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        right: 0;
-        transform: rotate(10deg);
-      }
-    }
-  }
-  .m-display-list {
-    display: block;
-  }
-  .m-display-box-title {
-    font-size: $font-size-100;
-  }
-  .m-display-list-item {
-    padding-top: 2px;
-    padding-bottom: 2px;
-    border-bottom: 1px solid $gray-14;
-  }
-  .m-display-list-line {
-    display: block;
-    .m-display-list-item {
-      margin-right: 0;
-      padding-top: 2px;
-      padding-bottom: 2px;
-      border-bottom: 1px solid $gray-14;
-    }
-  }
-  .m-display-list-item-percentage {
-    display: none;
-  }
-  .m-display-list-stack {
-    display: block;
-    .m-display-list-item {
-      padding-top: 2px;
-      padding-bottom: 2px;
-      border-bottom: 1px solid $gray-14;
-    }
-  }
-  .m-display-list-compact {
-    columns: 1;
-    .m-display-list-item {
-      padding-top: 2px;
-      padding-bottom: 2px;
-      border-bottom: 1px solid $gray-14;
-    }
-  }
-  .m-display-list-item-attack-melee,
-  .m-display-list-item-attack-ranged {
-    border-bottom: 1px solid $gray-14;
-  }
-}
+// @media (min-width: $screen-sm) {
+//   .m-display-list-thirds {
+//     display: flex;
+//     flex-flow: row wrap;
+//     justify-content: flex-start;
+//     .m-display-list-item {
+//       flex: 0 0 30%;
+//       max-width: 30%;
+//       &:nth-child(3n+1),
+//       &:nth-child(3n+2) {
+//         margin-right: 5%;
+//       }
+//     }
+//   }
+//   .m-display-list-item-attack-melee {
+//     flex-flow: row wrap;
+//   }
+//   .m-display-list-item-attack-melee-weapon {
+//     flex: 0 0 40%;
+//   }
+//   .m-display-list-item-attack-melee-attack {
+//     flex: 1 0 auto;
+//   }
+//   .m-display-list-item-attack-ranged {
+//     flex-flow: row wrap;
+//   }
+//   .m-display-list-item-attack-ranged-weapon {
+//     flex: 0 0 40%;
+//   }
+//   .m-display-list-item-attack-ranged-attack {
+//     flex: 1 0 auto;
+//   }
+//   .m-display-list-item-attack-ranged-ammo,
+//   .m-display-list-item-attack-ranged-critical,
+//   .m-display-list-item-attack-ranged-damage,
+//   .m-display-list-item-attack-ranged-range {
+//     flex: 0 1 auto;
+//   }
+//   .is-night-mode {
+//     .m-display-box-item-stat {
+//       &:not(:only-child):not(:last-child) {
+//         &:after {
+//           background-color: $gray-06;
+//         }
+//       }
+//     }
+//   }
+//   .m-display-character-intro {
+//     flex-flow: row nowrap;
+//   }
+//   .m-display-character-content {
+//     flex: 1 1 auto;
+//     width: initial;
+//   }
+// }
+// @media (min-width: $screen-md) {}
+// @media (min-width: $screen-lg) {
+//   .m-display-image-wrapper {
+//     margin: 0 -3em 0 0;
+//     left: -5em;
+//     width: 20em;
+//     height: 20em;
+//   }
+// }
+// @media (min-width: $screen-xl) {}
+// @media print {
+//   .m-display-box {
+//     display: flex;
+//     flex-flow: column nowrap;
+//     justify-content: flex-start;
+//   }
+//   [class*="m-display-box-head"],
+//   [class^="m-display-box-head"] {
+//     flex: 1 1 auto;
+//   }
+//   .m-display-box-body {
+//     margin-left: 2em;
+//     flex: 1 1 auto;
+//   }
+//   .m-display-box-item-stat {
+//     flex: 1 1 15%;
+//     box-sizing: border-box;
+//     position: relative;
+//     &:nth-child(1),
+//     &:nth-child(2),
+//     &:nth-child(3),
+//     &:nth-child(4),
+//     &:nth-child(5),
+//     &:nth-child(6) {
+//       padding: 0;
+//     }
+//     &:nth-child(1),
+//     &:nth-child(2),
+//     &:nth-child(3) {
+//       &:before {
+//         content: none;
+//       }
+//     }
+//     &:nth-child(3n+1),
+//     &:nth-child(3n+2) {
+//       &:after {
+//         content: none;
+//       }
+//     }
+//     &:not(:only-child):not(:last-child) {
+//       &:after {
+//         content: "";
+//         background-color: $gray-18;
+//         display: block;
+//         width: 1px;
+//         height: 100%;
+//         position: absolute;
+//         top: 0;
+//         right: 0;
+//         transform: rotate(10deg);
+//       }
+//     }
+//   }
+//   .m-display-list {
+//     display: block;
+//   }
+//   .m-display-box-title {
+//     font-size: $font-size-100;
+//   }
+//   .m-display-list-item {
+//     padding-top: 2px;
+//     padding-bottom: 2px;
+//     border-bottom: 1px solid $gray-14;
+//   }
+//   .m-display-list-line {
+//     display: block;
+//     .m-display-list-item {
+//       margin-right: 0;
+//       padding-top: 2px;
+//       padding-bottom: 2px;
+//       border-bottom: 1px solid $gray-14;
+//     }
+//   }
+//   .m-display-list-item-percentage {
+//     display: none;
+//   }
+//   .m-display-list-stack {
+//     display: block;
+//     .m-display-list-item {
+//       padding-top: 2px;
+//       padding-bottom: 2px;
+//       border-bottom: 1px solid $gray-14;
+//     }
+//   }
+//   .m-display-list-compact {
+//     columns: 1;
+//     .m-display-list-item {
+//       padding-top: 2px;
+//       padding-bottom: 2px;
+//       border-bottom: 1px solid $gray-14;
+//     }
+//   }
+//   .m-display-list-item-attack-melee,
+//   .m-display-list-item-attack-ranged {
+//     border-bottom: 1px solid $gray-14;
+//   }
+// }
