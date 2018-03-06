@@ -4,6 +4,7 @@
 .m-display-area {
   position: relative;
   display: block;
+  font-size: $font-size-root-100;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 2em;
     // margin-bottom: 0.8em;
@@ -21,7 +22,7 @@
   }
 }
 // --------------------------------------------------
-// prefix suffix
+// prefix suffix value
 // --------------------------------------------------
 .m-display-head,
 .m-display-prefix,
@@ -40,10 +41,18 @@
 .m-display-suffix {
   color: $gray-08;
 }
+h1,
+h2,
+h3 {
+  .m-display-value {
+    font-size: $font-size-150;
+  }
+}
 // --------------------------------------------------
 // snippet
 // --------------------------------------------------
 .m-display-snippet {
+  font-size: $font-size-100;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
   }
@@ -67,7 +76,7 @@
       background-color: $gray-18;
       display: block;
       width: 1px;
-      height: 70%;
+      height: 80%;
       position: absolute;
       top: 50%;
       right: 0;
@@ -193,9 +202,6 @@
     justify-content: space-between;
     position: relative;
     box-sizing: border-box;
-    .m-display-snippet-item {
-      flex: 1 1 auto;
-    }
     .m-display-list-item-name,
     .m-display-list-item-prefix,
     .m-display-list-item-suffix,
@@ -308,6 +314,70 @@
   }
 }
 // --------------------------------------------------
+// attack
+// --------------------------------------------------
+.m-display-list-attack {
+  .m-display-list-item-attack {
+    margin: 0;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid $gray-18;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    position: relative;
+    box-sizing: border-box;
+  }
+}
+.m-display-list-item-attack-ammo,
+.m-display-list-item-attack-attack,
+.m-display-list-item-attack-critical,
+.m-display-list-item-attack-damage,
+.m-display-list-item-attack-range,
+.m-display-list-item-attack-type,
+.m-display-list-item-attack-weapon {
+  margin: 0;
+  display: inline-block;
+  position: relative;
+  flex: 1 1 auto;
+  box-sizing: border-box;
+  .m-display-list-item-attack-prefix {
+    margin: 0;
+    font-size: $font-size-075;
+    font-family: $open-sans-light-italic;
+    color: $primary-color-08;
+    display: inline-block;
+  }
+  .m-display-list-item-attack-value {
+    display: inline-block;
+  }
+  &:not(:only-child):not(:last-child) {
+    padding-right: 1em;
+    margin-right: 1em;
+    &:after {
+      content: "";
+      background-color: $gray-18;
+      display: block;
+      width: 1px;
+      height: 80%;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: rotate(10deg) translate(-50%, -50%);
+      transform-origin: top;
+    }
+  }
+}
+.m-display-list-item-attack-ammo,
+.m-display-list-item-attack-attack,
+.m-display-list-item-attack-critical,
+.m-display-list-item-attack-damage,
+.m-display-list-item-attack-range,
+.m-display-list-item-attack-type,
+.m-display-list-item-attack-weapon {
+  flex: 0 0 auto;
+}
+// --------------------------------------------------
 // class name
 // --------------------------------------------------
 .m-display-name {
@@ -340,15 +410,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
   transform-origin: center center;
-}
-// --------------------------------------------------
-// attack
-// --------------------------------------------------
-.m-display-list-melee-attack,
-.m-display-list-melee-name {
-  flex: 0 0 auto;
-  display: block;
-  margin: 0;
 }
 // --------------------------------------------------
 // media queries
@@ -447,6 +508,18 @@
     }
     .m-display-prefix {
       margin-right: 0;
+      display: block;
+    }
+  }
+  // attack
+  .m-display-list-item-attack-ammo,
+  .m-display-list-item-attack-attack,
+  .m-display-list-item-attack-critical,
+  .m-display-list-item-attack-damage,
+  .m-display-list-item-attack-range,
+  .m-display-list-item-attack-type,
+  .m-display-list-item-attack-weapon {
+    .m-display-list-item-attack-prefix {
       display: block;
     }
   }

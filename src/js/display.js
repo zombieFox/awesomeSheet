@@ -355,7 +355,7 @@ var display = (function() {
         }]
       }, {
         type: "snippet",
-        element: "h2",
+        element: "h1",
         head: "Total",
         content: [{
           path: "equipment.wealth.total",
@@ -367,7 +367,7 @@ var display = (function() {
     defense: {
       all: [{
         type: "snippet",
-        element: "h2",
+        element: "h1",
         content: [{
           path: "defense.hp.current",
           prefix: "HP",
@@ -392,7 +392,12 @@ var display = (function() {
         }, {
           path: "defense.sr.current",
           prefix: "SR"
-        }, {
+        }]
+      }],
+      saves: [{
+        type: "snippet",
+        element: "h1",
+        content: [{
           path: "defense.saves.fortitude.current",
           prefix: "Fortitude",
           valueType: "bonus"
@@ -446,7 +451,7 @@ var display = (function() {
     offense: {
       all: [{
         type: "snippet",
-        element: "h2",
+        element: "h1",
         content: [{
           path: "offense.stats.melee.current",
           prefix: "Melee",
@@ -472,11 +477,21 @@ var display = (function() {
       melee: [{
         type: "clone",
         element: "ul",
-        cloneType: "attack_melee",
-        classname: ["m-display-list"],
+        cloneType: "attack",
+        classname: ["m-display-list-attack"],
         head: "Melee",
         content: [{
           path: "offense.attack.melee.all",
+        }]
+      }],
+      ranged: [{
+        type: "clone",
+        element: "ul",
+        cloneType: "attack",
+        classname: ["m-display-list-attack"],
+        head: "Ranged",
+        content: [{
+          path: "offense.attack.ranged.all",
         }]
       }]
     }
@@ -1313,7 +1328,7 @@ var display = (function() {
             })
           },
           skill: function() {},
-          attack_melee: function() {
+          attack: function() {
             displayObject.content.forEach(function(arrayItem, index) {
               var all_clone = helper.getObject({
                 object: sheet.get(),
@@ -1323,50 +1338,78 @@ var display = (function() {
                 all_clone.forEach(function(arrayItem) {
                   if (arrayItem.weapon != "") {
                     contentFound++;
-                    var listItem = document.createElement("li");
-                    listItem.setAttribute("class", "m-display-list-item");
-
-                    function _createSnippet(object) {
-                      var snippet = document.createElement("span");
-                      snippet.setAttribute("class", "m-display-snippet-item");
-                      var prefix = document.createElement("span");
-                      prefix.setAttribute("class", "m-display-prefix");
-                      prefix.textContent = object.prefix;
+                    var _createSnippet = function(config) {
+                      var meleeItem = document.createElement("span");
+                      meleeItem.setAttribute("class", "m-display-list-item-attack-" + config.classname);
+                      if (config.prefix) {
+                        var prefix = document.createElement("span");
+                        prefix.setAttribute("class", "m-display-list-item-attack-prefix");
+                        prefix.textContent = config.prefix;
+                        meleeItem.appendChild(prefix);
+                      };
                       var value = document.createElement("span");
-                      value.setAttribute("class", "m-display-value");
-                      value.textContent = object.value;
-                      snippet.appendChild(prefix);
-                      snippet.appendChild(value);
-                      return snippet;
+                      value.setAttribute("class", "m-display-list-item-attack-value");
+                      value.textContent = config.value;
+                      meleeItem.appendChild(value);
+                      return meleeItem;
                     };
-
-                    listItem.appendChild(_createSnippet({
-                      prefix: "Weapon",
-                      value: arrayItem.weapon
-                    }));
-                    listItem.appendChild(_createSnippet({
-                      prefix: "Attack",
-                      value: arrayItem.attack
-                    }));
-                    listItem.appendChild(_createSnippet({
-                      prefix: "Damage",
-                      value: arrayItem.damage
-                    }));
-                    listItem.appendChild(_createSnippet({
-                      prefix: "Critical",
-                      value: arrayItem.critical
-                    }));
-                    listItem.appendChild(_createSnippet({
-                      prefix: "Type",
-                      value: arrayItem.type
-                    }));
+                    var listItem = document.createElement("li");
+                    listItem.setAttribute("class", "m-display-list-item-attack");
+                    if ("weapon" in arrayItem && arrayItem.weapon != "") {
+                      listItem.appendChild(_createSnippet({
+                        prefix: "Weapon",
+                        value: arrayItem.weapon,
+                        classname: "weapon"
+                      }));
+                    };
+                    if ("attack" in arrayItem && arrayItem.attack != "") {
+                      listItem.appendChild(_createSnippet({
+                        prefix: "Attack",
+                        value: arrayItem.attack,
+                        classname: "attack"
+                      }));
+                    };
+                    if ("damage" in arrayItem && arrayItem.damage != "") {
+                      listItem.appendChild(_createSnippet({
+                        prefix: "Damage",
+                        value: arrayItem.damage,
+                        classname: "damage"
+                      }));
+                    };
+                    if ("critical" in arrayItem && arrayItem.critical != "") {
+                      listItem.appendChild(_createSnippet({
+                        prefix: "Critical",
+                        value: arrayItem.critical,
+                        classname: "critical"
+                      }));
+                    };
+                    if ("type" in arrayItem && arrayItem.type != "") {
+                      listItem.appendChild(_createSnippet({
+                        prefix: "Type",
+                        value: arrayItem.type,
+                        classname: "type"
+                      }));
+                    };
+                    if ("range" in arrayItem && arrayItem.range != "") {
+                      listItem.appendChild(_createSnippet({
+                        prefix: "Range",
+                        value: arrayItem.range,
+                        classname: "range"
+                      }));
+                    };
+                    if ("ammo" in arrayItem && arrayItem.ammo != "") {
+                      listItem.appendChild(_createSnippet({
+                        prefix: "Ammo",
+                        value: arrayItem.ammo,
+                        classname: "ammo"
+                      }));
+                    };
                     element.appendChild(listItem);
                   };
                 });
               };
             })
           },
-          attack_ranged: function() {},
           note_character: function() {},
           note_story: function() {}
         };
