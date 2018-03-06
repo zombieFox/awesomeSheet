@@ -339,7 +339,6 @@ h3 {
   margin: 0;
   display: inline-block;
   position: relative;
-  flex: 1 1 auto;
   box-sizing: border-box;
   .m-display-list-item-attack-prefix {
     margin: 0;
@@ -351,6 +350,17 @@ h3 {
   .m-display-list-item-attack-value {
     display: inline-block;
   }
+}
+.m-display-list-item-attack-weapon {
+  flex: 1 0 100%;
+}
+.m-display-list-item-attack-ammo,
+.m-display-list-item-attack-attack,
+.m-display-list-item-attack-critical,
+.m-display-list-item-attack-damage,
+.m-display-list-item-attack-range,
+.m-display-list-item-attack-type {
+  flex: 0 0 auto;
   &:not(:only-child):not(:last-child) {
     padding-right: 1em;
     margin-right: 1em;
@@ -367,15 +377,6 @@ h3 {
       transform-origin: top;
     }
   }
-}
-.m-display-list-item-attack-ammo,
-.m-display-list-item-attack-attack,
-.m-display-list-item-attack-critical,
-.m-display-list-item-attack-damage,
-.m-display-list-item-attack-range,
-.m-display-list-item-attack-type,
-.m-display-list-item-attack-weapon {
-  flex: 0 0 auto;
 }
 // --------------------------------------------------
 // class name
@@ -512,6 +513,28 @@ h3 {
     }
   }
   // attack
+  .m-display-list-attack {
+    .m-display-list-item-attack {
+      justify-content: flex-end;
+    }
+  }
+  .m-display-list-item-attack-weapon {
+      flex: 1 0 auto;
+    &:not(:only-child):not(:last-child) {
+      padding-right: 1em;
+    }
+  }
+  .m-display-list-item-attack-attack {
+    // flex: 0 0 auto;
+  }
+  .m-display-list-item-attack-ammo,
+  .m-display-list-item-attack-attack,
+  .m-display-list-item-attack-critical,
+  .m-display-list-item-attack-damage,
+  .m-display-list-item-attack-range,
+  .m-display-list-item-attack-type {
+    // flex: 0 1 auto;
+  }
   .m-display-list-item-attack-ammo,
   .m-display-list-item-attack-attack,
   .m-display-list-item-attack-critical,
