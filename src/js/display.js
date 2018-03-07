@@ -500,13 +500,274 @@ var display = (function() {
         type: "skills",
         element: "ul",
         classname: ["m-display-list-responsive"],
-        head: "Skills",
         content: [{
           path: "skills.default",
           skillType: "default"
         }, {
           path: "skills.custom.all",
           skillType: "custom"
+        }]
+      }]
+    },
+    spells: {
+      level_0: [{
+        type: "snippet",
+        element: "p",
+        head: "Level 0",
+        content: [{
+          path: "spells.book.level_0.known",
+          prefix: "Known"
+        }, {
+          path: "spells.book.level_0.per_day",
+          prefix: "Per Day"
+        }, {
+          path: "spells.book.level_0.bonus",
+          prefix: "Bonus"
+        }, {
+          path: "spells.book.level_0.dc.current",
+          prefix: "DC"
+        }]
+      }, {
+        type: "spells",
+        element: "ul",
+        level: 0,
+        classname: ["m-display-list-spell"],
+        content: [{
+          path: "spells.book.level_0.all",
+        }]
+      }],
+      level_1: [{
+        type: "snippet",
+        element: "p",
+        head: "Level 1",
+        content: [{
+          path: "spells.book.level_1.known",
+          prefix: "Known"
+        }, {
+          path: "spells.book.level_1.per_day",
+          prefix: "Per Day"
+        }, {
+          path: "spells.book.level_1.bonus",
+          prefix: "Bonus"
+        }, {
+          path: "spells.book.level_1.dc.current",
+          prefix: "DC"
+        }]
+      }, {
+        type: "spells",
+        element: "ul",
+        level: 1,
+        classname: ["m-display-list-spell"],
+        content: [{
+          path: "spells.book.level_1.all",
+        }]
+      }],
+      level_2: [{
+        type: "snippet",
+        element: "p",
+        head: "Level 2",
+        content: [{
+          path: "spells.book.level_2.known",
+          prefix: "Known"
+        }, {
+          path: "spells.book.level_2.per_day",
+          prefix: "Per Day"
+        }, {
+          path: "spells.book.level_2.bonus",
+          prefix: "Bonus"
+        }, {
+          path: "spells.book.level_2.dc.current",
+          prefix: "DC"
+        }]
+      }, {
+        type: "spells",
+        element: "ul",
+        level: 2,
+        classname: ["m-display-list-spell"],
+        content: [{
+          path: "spells.book.level_2.all",
+        }]
+      }],
+      level_3: [{
+        type: "snippet",
+        element: "p",
+        head: "Level 3",
+        content: [{
+          path: "spells.book.level_3.known",
+          prefix: "Known"
+        }, {
+          path: "spells.book.level_3.per_day",
+          prefix: "Per Day"
+        }, {
+          path: "spells.book.level_3.bonus",
+          prefix: "Bonus"
+        }, {
+          path: "spells.book.level_3.dc.current",
+          prefix: "DC"
+        }]
+      }, {
+        type: "spells",
+        element: "ul",
+        level: 3,
+        classname: ["m-display-list-spell"],
+        content: [{
+          path: "spells.book.level_3.all",
+        }]
+      }],
+      level_4: [{
+        type: "snippet",
+        element: "p",
+        head: "Level 4",
+        content: [{
+          path: "spells.book.level_4.known",
+          prefix: "Known"
+        }, {
+          path: "spells.book.level_4.per_day",
+          prefix: "Per Day"
+        }, {
+          path: "spells.book.level_4.bonus",
+          prefix: "Bonus"
+        }, {
+          path: "spells.book.level_4.dc.current",
+          prefix: "DC"
+        }]
+      }, {
+        type: "spells",
+        element: "ul",
+        level: 4,
+        classname: ["m-display-list-spell"],
+        content: [{
+          path: "spells.book.level_4.all",
+        }]
+      }],
+      level_5: [{
+        type: "snippet",
+        element: "p",
+        head: "Level 5",
+        content: [{
+          path: "spells.book.level_5.known",
+          prefix: "Known"
+        }, {
+          path: "spells.book.level_5.per_day",
+          prefix: "Per Day"
+        }, {
+          path: "spells.book.level_5.bonus",
+          prefix: "Bonus"
+        }, {
+          path: "spells.book.level_5.dc.current",
+          prefix: "DC"
+        }]
+      }, {
+        type: "spells",
+        element: "ul",
+        level: 5,
+        classname: ["m-display-list-spell"],
+        content: [{
+          path: "spells.book.level_5.all",
+        }]
+      }],
+      level_6: [{
+        type: "snippet",
+        element: "p",
+        head: "Level 6",
+        content: [{
+          path: "spells.book.level_6.known",
+          prefix: "Known"
+        }, {
+          path: "spells.book.level_6.per_day",
+          prefix: "Per Day"
+        }, {
+          path: "spells.book.level_6.bonus",
+          prefix: "Bonus"
+        }, {
+          path: "spells.book.level_6.dc.current",
+          prefix: "DC"
+        }]
+      }, {
+        type: "spells",
+        element: "ul",
+        level: 6,
+        classname: ["m-display-list-spell"],
+        content: [{
+          path: "spells.book.level_6.all",
+        }]
+      }],
+      level_7: [{
+        type: "snippet",
+        element: "p",
+        head: "Level 7",
+        content: [{
+          path: "spells.book.level_7.known",
+          prefix: "Known"
+        }, {
+          path: "spells.book.level_7.per_day",
+          prefix: "Per Day"
+        }, {
+          path: "spells.book.level_7.bonus",
+          prefix: "Bonus"
+        }, {
+          path: "spells.book.level_7.dc.current",
+          prefix: "DC"
+        }]
+      }, {
+        type: "spells",
+        element: "ul",
+        level: 7,
+        classname: ["m-display-list-spell"],
+        content: [{
+          path: "spells.book.level_7.all",
+        }]
+      }],
+      level_8: [{
+        type: "snippet",
+        element: "p",
+        head: "Level 8",
+        content: [{
+          path: "spells.book.level_8.known",
+          prefix: "Known"
+        }, {
+          path: "spells.book.level_8.per_day",
+          prefix: "Per Day"
+        }, {
+          path: "spells.book.level_8.bonus",
+          prefix: "Bonus"
+        }, {
+          path: "spells.book.level_8.dc.current",
+          prefix: "DC"
+        }]
+      }, {
+        type: "spells",
+        element: "ul",
+        level: 8,
+        classname: ["m-display-list-spell"],
+        content: [{
+          path: "spells.book.level_8.all",
+        }]
+      }],
+      level_9: [{
+        type: "snippet",
+        element: "p",
+        head: "Level 9",
+        content: [{
+          path: "spells.book.level_9.known",
+          prefix: "Known"
+        }, {
+          path: "spells.book.level_9.per_day",
+          prefix: "Per Day"
+        }, {
+          path: "spells.book.level_9.bonus",
+          prefix: "Bonus"
+        }, {
+          path: "spells.book.level_9.dc.current",
+          prefix: "DC"
+        }]
+      }, {
+        type: "spells",
+        element: "ul",
+        level: 9,
+        classname: ["m-display-list-spell"],
+        content: [{
+          path: "spells.book.level_9.all",
         }]
       }]
     },
@@ -1454,7 +1715,7 @@ var display = (function() {
               });
               if (all_clone.length > 0) {
                 all_clone.forEach(function(arrayItem) {
-                  if (arrayItem.name != "") {
+                  if (arrayItem.note != "") {
                     contentFound++;
                     var listItem = document.createElement("li");
                     listItem.setAttribute("class", "m-display-list-item");
@@ -1596,9 +1857,80 @@ var display = (function() {
           all_element.push(false);
         };
         return all_element;
+      },
+      spells: function(displayObject) {
+        var all_element = [];
+        var element = document.createElement(displayObject.element);
+        element.setAttribute("class", "u-list-unstyled");
+        if (displayObject.classname) {
+          displayObject.classname.forEach(function(arrayItem) {
+            helper.addClass(element, arrayItem);
+          });
+        };
+        var contentFound = 0;
+        displayObject.content.forEach(function(arrayItem, index) {
+          var all_spells = helper.getObject({
+            object: sheet.get(),
+            path: arrayItem.path
+          });
+          if (all_spells.length > 0) {
+            all_spells.forEach(function(arrayItem, index) {
+              contentFound++;
+              var listItem = document.createElement("li");
+              listItem.setAttribute("class", "m-display-list-item-spell");
+              var spell = document.createElement("span");
+              spell.setAttribute("class", "m-display-list-item-spell-name");
+              var spellName = document.createElement("span");
+              spellName.textContent = arrayItem.name;
+              var spellCounters = document.createElement("span");
+              spellCounters.setAttribute("class", "m-display-list-item-spell-count");
+              spell.appendChild(spellName);
+              listItem.appendChild(spell);
+              listItem.appendChild(spellCounters);
+              listItem.setAttribute("data-spell-button-options", "level:#" + displayObject.level + ",index:#" + index);
+              // prepared
+              if (arrayItem.prepared > 0) {
+                // var marks = document.createElement("span");
+                for (var j = 0; j < arrayItem.prepared; j++) {
+                  var preparedIcon = document.createElement("span");
+                  preparedIcon.setAttribute("class", "icon-radio-button-checked");
+                  spellCounters.insertBefore(preparedIcon, spellCounters.firstChild);
+                };
+              };
+              // cast
+              if (arrayItem.cast > 0) {
+                var all_check = spellCounters.querySelectorAll(".icon-radio-button-checked");
+                for (var j = 0; j < arrayItem.cast; j++) {
+                  if (all_check[j]) {
+                    helper.toggleClass(all_check[j], "icon-radio-button-checked");
+                    helper.toggleClass(all_check[j], "icon-radio-button-unchecked");
+                  };
+                };
+              };
+              // active
+              if (arrayItem.active) {
+                var spellActive = document.createElement("span");
+                spellActive.setAttribute("class", "m-display-list-item-spell-active");
+                var activeIcon = document.createElement("span");
+                activeIcon.setAttribute("class", "icon-play-arrow");
+                spellActive.appendChild(activeIcon);
+                spell.insertBefore(spellActive, spell.firstChild);
+              };
+              listItem.addEventListener("click", function() {
+                spells.update(helper.e(".js-spell-block-known-level-" + displayObject.level).querySelectorAll(".js-spell-col")[index].querySelector(".js-spell"), true);
+              }, false);
+              element.appendChild(listItem);
+            });
+          };
+        });
+        if (contentFound > 0) {
+          all_element.push(element);
+        } else {
+          all_element.push(false);
+        };
+        return all_element;
       }
     };
-
     if (displayObject.type in createElement) {
       return createElement[displayObject.type](displayObject);
     } else {
