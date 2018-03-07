@@ -509,6 +509,28 @@ var display = (function() {
           skillType: "custom"
         }]
       }]
+    },
+    notes: {
+      character: [{
+        type: "clone",
+        element: "ul",
+        classname: ["m-display-list"],
+        cloneType: "note",
+        head: "Character",
+        content: [{
+          path: "notes.character.all",
+        }]
+      }],
+      story: [{
+        type: "clone",
+        element: "ul",
+        classname: ["m-display-list"],
+        cloneType: "note",
+        head: "Story",
+        content: [{
+          path: "notes.story.all",
+        }]
+      }]
     }
   };
 
@@ -1424,8 +1446,28 @@ var display = (function() {
               };
             })
           },
-          note_character: function() {},
-          note_story: function() {}
+          note: function() {
+            displayObject.content.forEach(function(arrayItem, index) {
+              var all_clone = helper.getObject({
+                object: sheet.get(),
+                path: arrayItem.path
+              });
+              if (all_clone.length > 0) {
+                all_clone.forEach(function(arrayItem) {
+                  if (arrayItem.name != "") {
+                    contentFound++;
+                    var listItem = document.createElement("li");
+                    listItem.setAttribute("class", "m-display-list-item");
+                    var listItemValue = document.createElement("span");
+                    listItemValue.setAttribute("class", "m-display-list-item-text-block");
+                    listItemValue.innerHTML = arrayItem.note;
+                    listItem.appendChild(listItemValue);
+                    element.appendChild(listItem);
+                  };
+                });
+              };
+            })
+          }
         };
 
         cloneVariant[displayObject.cloneType]();
