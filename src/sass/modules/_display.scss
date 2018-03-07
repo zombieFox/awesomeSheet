@@ -510,17 +510,6 @@ h3 {
   }
 }
 // --------------------------------------------------
-// class name
-// --------------------------------------------------
-.m-display-name {
-  .m-display-snippet-item {
-    margin-bottom: 0;
-  }
-}
-.m-display-class {
-  .m-display-snippet-item {}
-}
-// --------------------------------------------------
 // image
 // --------------------------------------------------
 .m-display-image-wrapper {
@@ -597,12 +586,6 @@ h3 {
         }
       }
     }
-  }
-  // image
-  .m-display-image-wrapper {
-    margin: 0;
-    width: 15em;
-    height: 15em;
   }
   // list
   .m-display-list-responsive {
@@ -720,6 +703,15 @@ h3 {
   }
 }
 @media (min-width: $screen-lg) {
+  // class name
+  .m-display-name {}
+  .m-display-class {}
+  // image
+  .m-display-image-wrapper {
+    margin: 0;
+    width: 15em;
+    height: 15em;
+  }
   // list
   .m-display-list-responsive {
     .m-display-list-item {
