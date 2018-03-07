@@ -14,7 +14,8 @@
 // --------------------------------------------------
 .m-display-head {
   color: $primary-color-08;
-  // font-family: $open-sans-light-italic;
+  font-size: $font-size-075;
+  font-family: $open-sans-semi-bold;
   &:not(:last-child):not(:last-child) {
     margin-bottom: 0.5em;
   }
@@ -32,7 +33,7 @@
   color: $primary-color-08;
 }
 .m-display-suffix {
-  color: $gray-08;
+  color: $gray-06;
 }
 h1,
 h2,
@@ -41,14 +42,22 @@ h3 {
     font-size: $font-size-150;
   }
 }
+.is-night-mode {
+  .m-display-head {
+    color: $primary-color-12;
+  }
+  .m-display-prefix {
+    color: $primary-color-12;
+  }
+  .m-display-suffix {
+    color: $gray-14;
+  }
+}
 // --------------------------------------------------
 // snippet
 // --------------------------------------------------
 .m-display-snippet {
   font-size: $font-size-100;
-  // &:not(:only-child):not(:last-child) {
-  //   margin-bottom: 0;
-  // }
 }
 .m-display-snippet-item {
   display: inline-block;
@@ -75,6 +84,15 @@ h3 {
       right: 0;
       transform: rotate(10deg) translate(-50%, -50%);
       transform-origin: top;
+    }
+  }
+}
+.is-night-mode {
+  .m-display-snippet-item {
+    &:not(:only-child):not(:last-child) {
+      &:after {
+        background-color: $gray-04;
+      }
     }
   }
 }
@@ -172,12 +190,31 @@ h3 {
   text-align: center;
 }
 .m-display-stat {
-  color: $gray-10;
   color: $primary-color-08;
   font-family: $open-sans-light-italic;
 }
 .m-display-stat-name {
   margin-right: $font-size-050;
+}
+.is-night-mode {
+  .m-display-stats-item {
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3) {
+      &:before {
+        background-color: $gray-04;
+      }
+    }
+    &:nth-child(3n+1),
+    &:nth-child(3n+2) {
+      &:after {
+        background-color: $gray-04;
+      }
+    }
+  }
+  .m-display-stat {
+    color: $primary-color-12;
+  }
 }
 // --------------------------------------------------
 // list
@@ -189,7 +226,8 @@ h3 {
     margin: 0;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    border-bottom: 1px solid $gray-18;
+    border-bottom: $border;
+    border-bottom-color: $gray-18;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -211,7 +249,7 @@ h3 {
       color: $primary-color-08;
     }
     .m-display-list-item-suffix {
-      color: $gray-08;
+      color: $gray-06;
     }
     .m-display-list-item-name {
       margin: 0;
@@ -306,6 +344,29 @@ h3 {
     padding-bottom: 1px;
   }
 }
+.is-night-mode {
+  [class*="m-display-list"],
+  [class^="m-display-list"] {
+    .m-display-list-item {
+      border-bottom-color: $gray-04;
+      .m-display-list-item-prefix {
+        color: $primary-color-12;
+      }
+      .m-display-list-item-suffix {
+        color: $gray-14;
+      }
+    }
+  }
+  .m-display-list-dash {
+    .m-display-list-item {
+      &:not(:last-child):not(:last-child) {
+        &:after {
+          background-color: $gray-04;
+        }
+      }
+    }
+  }
+}
 // --------------------------------------------------
 // display spell
 // --------------------------------------------------
@@ -314,14 +375,15 @@ h3 {
     margin: 0;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    border-bottom: 1px solid $gray-18;
+    border-bottom: $border;
+    border-bottom-color: $gray-18;
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
     position: relative;
     box-sizing: border-box;
-      cursor: pointer;
-      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
   .m-display-list-item-spell-name {
     margin: 0;
@@ -344,31 +406,14 @@ h3 {
     color: $secondary-color-10;
   }
 }
-// .m-display-list-item-spell {
-//   display: flex;
-//   flex-flow: row wrap;
-//   justify-content: flex-start;
-//   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-// }
-// .m-display-list-item-spell-name {
-//   margin-right: 0.5em;
-//   flex: 1 1 auto;
-//   max-width: 100%;
-//   overflow: hidden;
-//   text-overflow: ellipsis;
-// }
-// .m-display-list-item-spell-count {
-//   flex: 1 1 auto;
-//   display: flex;
-//   flex-flow: row wrap;
-//   justify-content: flex-end;
-//   color: $secondary-color-10;
-// }
-// .m-display-list-item-spell-active {
-//   margin-right: 0.5em;
-//   color: $primary-color-10;
-// }
-// // --------------------------------------------------
+.is-night-mode {
+  .m-display-list-spell {
+    .m-display-list-item-spell {
+      border-bottom-color: $gray-04;
+    }
+  }
+}
+// --------------------------------------------------
 // attack
 // --------------------------------------------------
 .m-display-list-attack {
@@ -376,7 +421,8 @@ h3 {
     margin: 0;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    border-bottom: 1px solid $gray-18;
+    border-bottom: $border;
+    border-bottom-color: $gray-18;
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
@@ -433,6 +479,36 @@ h3 {
     }
   }
 }
+.is-night-mode {
+  .m-display-list-attack {
+    .m-display-list-item-attack {
+      border-bottom-color: $gray-04;
+    }
+  }
+  .m-display-list-item-attack-ammo,
+  .m-display-list-item-attack-attack,
+  .m-display-list-item-attack-critical,
+  .m-display-list-item-attack-damage,
+  .m-display-list-item-attack-range,
+  .m-display-list-item-attack-type,
+  .m-display-list-item-attack-weapon {
+    .m-display-list-item-attack-prefix {
+      color: $primary-color-12;
+    }
+  }
+  .m-display-list-item-attack-ammo,
+  .m-display-list-item-attack-attack,
+  .m-display-list-item-attack-critical,
+  .m-display-list-item-attack-damage,
+  .m-display-list-item-attack-range,
+  .m-display-list-item-attack-type {
+    &:not(:only-child):not(:last-child) {
+      &:after {
+        background-color: $gray-04;
+      }
+    }
+  }
+}
 // --------------------------------------------------
 // class name
 // --------------------------------------------------
@@ -442,9 +518,7 @@ h3 {
   }
 }
 .m-display-class {
-  .m-display-snippet-item {
-    // margin-bottom: 1em;
-  }
+  .m-display-snippet-item {}
 }
 // --------------------------------------------------
 // image
@@ -512,6 +586,15 @@ h3 {
         right: 0;
         transform: rotate(10deg) translate(-50%, 0);
         transform-origin: center;
+      }
+    }
+  }
+  .is-night-mode {
+    .m-display-stats-item {
+      &:not(:only-child):not(:last-child) {
+        &:after {
+          background-color: $gray-04;
+        }
       }
     }
   }
@@ -618,6 +701,20 @@ h3 {
         right: 0;
         transform: rotate(10deg) translate(-50%, -50%);
         transform-origin: top;
+      }
+    }
+  }
+  .is-night-mode {
+    .m-display-list-item-attack-ammo,
+    .m-display-list-item-attack-attack,
+    .m-display-list-item-attack-critical,
+    .m-display-list-item-attack-damage,
+    .m-display-list-item-attack-range,
+    .m-display-list-item-attack-type {
+      &:not(:only-child):not(:last-child) {
+        &:after {
+          background-color: $gray-04;
+        }
       }
     }
   }
