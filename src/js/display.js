@@ -1342,7 +1342,6 @@ var display = (function() {
               };
             })
           },
-          skill: function() {},
           attack: function() {
             displayObject.content.forEach(function(arrayItem, index) {
               var all_clone = helper.getObject({
@@ -1456,6 +1455,7 @@ var display = (function() {
           head.setAttribute("class", "m-display-head");
           head.textContent = displayObject.head;
         };
+        var foundSkills = [];
         displayObject.content.forEach(function(arrayItem, index) {
           var all_listItem = helper.getObject({
             object: sheet.get(),
@@ -1504,39 +1504,47 @@ var display = (function() {
                 use_magic_device: "Use Magic Device"
               };
               for (var key in all_listItem) {
-                contentFound++;
-                var listItem = document.createElement("li");
-                listItem.setAttribute("class", "m-display-list-item");
-                var listItemName = document.createElement("span");
-                listItemName.setAttribute("class", "m-display-list-item-name");
-                listItemName.textContent = skillNames[key];
-                var listItemValue = document.createElement("span");
-                listItemValue.setAttribute("class", "m-display-list-item-value");
-                listItemValue.textContent = all_listItem[key].current;
-                listItem.appendChild(listItemName);
-                listItem.appendChild(listItemValue);
-                element.appendChild(listItem);
+                if (all_listItem[key].ranks != "") {
+                  contentFound++;
+                  var skillObject = {
+                    name: skillNames[key],
+                    current: all_listItem[key].current
+                  };
+                  foundSkills.push(skillObject);
+                };
               };
             },
             custom: function() {
               all_listItem.forEach(function(arrayItem) {
-                contentFound++;
-                var listItem = document.createElement("li");
-                listItem.setAttribute("class", "m-display-list-item");
-                var listItemName = document.createElement("span");
-                listItemName.setAttribute("class", "m-display-list-item-name");
-                listItemName.textContent = arrayItem.name;
-                var listItemValue = document.createElement("span");
-                listItemValue.setAttribute("class", "m-display-list-item-value");
-                listItemValue.textContent = arrayItem.current;
-                listItem.appendChild(listItemName);
-                listItem.appendChild(listItemValue);
-                element.appendChild(listItem);
+                if (all_listItem.ranks != "") {
+                  contentFound++;
+                  var skillObject = {
+                    name: arrayItem.name,
+                    current: arrayItem.current
+                  };
+                  foundSkills.push(skillObject);
+                };
               });
             }
           };
           skills[arrayItem.skillType]();
         });
+        helper.sortObject(foundSkills, "name");
+        if (foundSkills.length > 0) {
+          foundSkills.forEach(function(arrayItem) {
+            var listItem = document.createElement("li");
+            listItem.setAttribute("class", "m-display-list-item");
+            var listItemName = document.createElement("span");
+            listItemName.setAttribute("class", "m-display-list-item-name");
+            listItemName.textContent = arrayItem.name;
+            var listItemValue = document.createElement("span");
+            listItemValue.setAttribute("class", "m-display-list-item-value");
+            listItemValue.textContent = arrayItem.current;
+            listItem.appendChild(listItemName);
+            listItem.appendChild(listItemValue);
+            element.appendChild(listItem);
+          });
+        };
         if (contentFound > 0) {
           if (head) {
             all_element.push(head);
