@@ -510,6 +510,41 @@ var display = (function() {
       }]
     },
     spells: {
+      stats: [{
+        type: "snippet",
+        element: "h1",
+        head: "Stats",
+        content: [{
+          path: "spells.stats.concentration.current",
+          prefix: "Concentration"
+        }, {
+          path: "spells.stats.caster_level_check.current",
+          prefix: "Caster Level Check"
+        }]
+      }, {
+        type: "snippet",
+        element: "p",
+        content: [{
+          path: "spells.stats.school",
+          prefix: "School"
+        }, {
+          path: "spells.stats.opposition",
+          prefix: "Opposition"
+        }, {
+          path: "spells.stats.domains",
+          prefix: "Domains"
+        }, {
+          path: "spells.stats.bloodline",
+          prefix: "Bloodline"
+        }]
+      }, {
+        type: "block",
+        element: "p",
+        content: [{
+          path: "spells.stats.notes",
+          prefix: "Spells Notes"
+        }]
+      }],
       level_0: [{
         type: "snippet",
         element: "p",
