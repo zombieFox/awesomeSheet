@@ -494,6 +494,21 @@ var display = (function() {
           path: "offense.attack.ranged.all",
         }]
       }]
+    },
+    skills: {
+      all: [{
+        type: "skills",
+        element: "ul",
+        classname: ["m-display-list-responsive"],
+        head: "Skills",
+        content: [{
+          path: "skills.default",
+          skillType: "default"
+        }, {
+          path: "skills.custom.all",
+          skillType: "custom"
+        }]
+      }]
     }
   };
 
@@ -1416,6 +1431,112 @@ var display = (function() {
 
         cloneVariant[displayObject.cloneType]();
 
+        if (contentFound > 0) {
+          if (head) {
+            all_element.push(head);
+          };
+          all_element.push(element);
+        } else {
+          all_element.push(false);
+        };
+        return all_element;
+      },
+      skills: function(displayObject) {
+        var all_element = [];
+        var element = document.createElement(displayObject.element);
+        element.setAttribute("class", "u-list-unstyled");
+        if (displayObject.classname) {
+          displayObject.classname.forEach(function(arrayItem) {
+            helper.addClass(element, arrayItem);
+          });
+        };
+        var contentFound = 0;
+        if (displayObject.head) {
+          var head = document.createElement("p");
+          head.setAttribute("class", "m-display-head");
+          head.textContent = displayObject.head;
+        };
+        displayObject.content.forEach(function(arrayItem, index) {
+          var all_listItem = helper.getObject({
+            object: sheet.get(),
+            path: arrayItem.path
+          });
+          var skills = {
+            default: function() {
+              var skillNames = {
+                acrobatics: "Acrobatics",
+                appraise: "Appraise",
+                bluff: "Bluff",
+                climb: "Climb",
+                craft_1: "Craft 1",
+                craft_2: "Craft 2",
+                diplomacy: "Diplomacy",
+                disable_device: "Disable Device",
+                disguise: "Disguise",
+                escape_artist: "Escape Artist",
+                fly: "Fly",
+                handle_animal: "Handle Animal",
+                heal: "Heal",
+                intimidate: "Intimidate",
+                knowledge_arcana: "Knowledge Arcana",
+                knowledge_dungeoneering: "Knowledge Dungeoneering",
+                knowledge_engineering: "Knowledge Engineering",
+                knowledge_geography: "Knowledge Geography",
+                knowledge_history: "Knowledge History",
+                knowledge_local: "Knowledge Local",
+                knowledge_nature: "Knowledge Nature",
+                knowledge_nobility: "Knowledge Nobility",
+                knowledge_planes: "Knowledge Planes",
+                knowledge_religion: "Knowledge Religion",
+                linguistics: "Linguistics",
+                perception: "Perception",
+                perform_1: "Perform 1",
+                perform_2: "Perform 2",
+                profession_1: "Profession 1",
+                profession_2: "Profession 2",
+                ride: "Ride",
+                sense_motive: "Sense Motive",
+                sleight_of_hand: "Sleight of Hand",
+                spellcraft: "Spellcraft",
+                stealth: "Stealth",
+                survival: "Survival",
+                swim: "Swim",
+                use_magic_device: "Use Magic Device"
+              };
+              for (var key in all_listItem) {
+                contentFound++;
+                var listItem = document.createElement("li");
+                listItem.setAttribute("class", "m-display-list-item");
+                var listItemName = document.createElement("span");
+                listItemName.setAttribute("class", "m-display-list-item-name");
+                listItemName.textContent = skillNames[key];
+                var listItemValue = document.createElement("span");
+                listItemValue.setAttribute("class", "m-display-list-item-value");
+                listItemValue.textContent = all_listItem[key].current;
+                listItem.appendChild(listItemName);
+                listItem.appendChild(listItemValue);
+                element.appendChild(listItem);
+              };
+            },
+            custom: function() {
+              all_listItem.forEach(function(arrayItem) {
+                contentFound++;
+                var listItem = document.createElement("li");
+                listItem.setAttribute("class", "m-display-list-item");
+                var listItemName = document.createElement("span");
+                listItemName.setAttribute("class", "m-display-list-item-name");
+                listItemName.textContent = arrayItem.name;
+                var listItemValue = document.createElement("span");
+                listItemValue.setAttribute("class", "m-display-list-item-value");
+                listItemValue.textContent = arrayItem.current;
+                listItem.appendChild(listItemName);
+                listItem.appendChild(listItemValue);
+                element.appendChild(listItem);
+              });
+            }
+          };
+          skills[arrayItem.skillType]();
+        });
         if (contentFound > 0) {
           if (head) {
             all_element.push(head);
