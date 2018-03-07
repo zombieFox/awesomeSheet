@@ -379,8 +379,7 @@ var display = (function() {
           prefix: "Flat Footed"
         }, {
           path: "defense.cmd.current",
-          prefix: "CMD",
-          valueType: "bonus"
+          prefix: "CMD"
         }, {
           path: "defense.dr.current",
           prefix: "DR",
