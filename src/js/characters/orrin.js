@@ -65,7 +65,7 @@ var orrin = (function() {
         }
       },
       speed: {
-        land: "30ft/6sq",
+        land: "40ft/8sq",
         fly: "",
         maneuverability: "",
         swim: "",
@@ -203,6 +203,14 @@ var orrin = (function() {
           name: "Rogue Talent (Slow Reactions)",
           note: "(Ex) Opponents damaged by the rogue's sneak attack can't make attacks of opportunity for 1 round.",
           index: false
+        }, {
+          name: "Permanent See Invisibility",
+          note: "",
+          index: false
+        }, {
+          name: "Permanent Darkvision",
+          note: "",
+          index: false
         }],
         notes: ""
       },
@@ -293,10 +301,10 @@ var orrin = (function() {
         body: "",
         chest: "Vest of Escape",
         eyes: "Eyes of the Eagle",
-        feet: "",
+        feet: "Boots of Striding and Springing",
         hands: "Gloves of Reconnaissance",
-        head: "Headband of Vast Intelligence +4",
-        headband: "",
+        head: "",
+        headband: "Headband of Vast Intelligence +4",
         neck: "Amulet of a Natural Armor +1",
         ring_left_hand: "Ring of Force Shield",
         ring_right_hand: "Ring of Protection +1",
@@ -384,8 +392,8 @@ var orrin = (function() {
       },
       ac: {
         armor_class: {
-          misc: 3,
-          temp: 4,
+          misc: "",
+          temp: "",
           current: "",
           bonuses: {
             str: false,
@@ -405,8 +413,8 @@ var orrin = (function() {
           }
         },
         flat_footed: {
-          misc: 3,
-          temp: 4,
+          misc: "",
+          temp: "",
           current: "",
           bonuses: {
             str: false,
@@ -425,8 +433,8 @@ var orrin = (function() {
           }
         },
         touch: {
-          misc: 3,
-          temp: 4,
+          misc: "",
+          temp: "",
           current: "",
           bonuses: {
             str: false,
@@ -452,7 +460,7 @@ var orrin = (function() {
           dodge: 1,
           natural: 1
         },
-        notes: "+4 dodge bonus to AC against attacks made by traps.<br>+2 AC against incorporeal attacks.<br>+6 Dodge to AC for 1 round after Sneak Attack.<br>Spells active: Barkskin (+5), Magic Vestment (+4), Deathward, Stoneskin (DR 10/adamantine[56/120]), Heroism, Haste, Mirror Image (1)"
+        notes: "+4 dodge bonus to AC against attacks made by traps.<br>+2 AC against incorporeal attacks.<br>+6 Dodge to AC for 1 round after Sneak Attack."
       },
       cmd: {
         misc: "",
@@ -780,7 +788,7 @@ var orrin = (function() {
       default: {
         acrobatics: {
           ranks: 12,
-          misc: "",
+          misc: 5,
           racial: "",
           feat: "",
           trait: "",
@@ -1871,6 +1879,21 @@ var orrin = (function() {
     },
     events: {
       all: [{
+        type: "gold",
+        event: {
+          aggregate_value: -5500
+        },
+        timestamp: {
+          date: 7,
+          day: 3,
+          year: 2018,
+          hours: 20,
+          milliseconds: 778,
+          minutes: 17,
+          month: 2,
+          seconds: 16
+        }
+      }, {
         type: "gold",
         event: {
           aggregate_value: 13009
