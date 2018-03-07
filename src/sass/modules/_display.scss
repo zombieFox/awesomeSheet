@@ -14,16 +14,10 @@
 // --------------------------------------------------
 // .m-display-intro {
 //   border: 1px solid red;
-//   // display: flex;
-//   // flex-flow: row nowrap;
-//   // justify-content: flex-start;
-//   // align-items: center;
-//   // position: relative;
-//   .m-display-class,
-//   .m-display-image-wrapper,
-//   .m-display-name {
-//     border: 1px solid red;
-//     // flex: 0 0 auto;
+//   .m-display-intro-class,
+//   .m-display-intro-image,
+//   .m-display-intro-name {
+//     border: 1px solid blue;
 //   }
 // }
 // --------------------------------------------------
@@ -33,8 +27,12 @@
   background-color: $white;
   border-radius: 50%;
   margin: -3em auto 1em;
-  width: 15em;
-  height: 15em;
+  width: 14em;
+  height: 14em;
+  min-width: 14em;
+  min-height: 14em;
+  max-width: 14em;
+  max-height: 14em;
   box-sizing: border-box;
   position: relative;
   box-shadow: $shadow-large;
@@ -631,21 +629,42 @@ h3 {
   }
 }
 @media (min-width: $screen-md) {
-  // // intro
-  // .m-display-intro {
-  //   display: flex;
-  //   flex-flow: row nowrap;
-  //   justify-content: flex-start;
-  //   align-items: center;
-  //   position: relative;
-  //   .m-display-name {}
-  //   .m-display-class {}
-  //   .m-display-image-wrapper {
-  //     margin: 0 1em 0 -3em;
-  //     width: 15em;
-  //     height: 15em;
-  //   }
-  // }
+  // intro
+  .m-display-intro {
+    display: grid;
+    grid-template-columns: 16em 2fr;
+    grid-template-rows: 8em 8em;
+    .m-display-intro-image {
+      grid-row-start: 1;
+      grid-row-end: 9;
+      grid-column-start: 1;
+      grid-column-end: 2;
+    }
+    .m-display-intro-name {
+      grid-row-start: 1;
+      grid-row-end: 2;
+      grid-column-start: 2;
+      grid-column-end: 3;
+      align-self: end;
+    }
+    .m-display-intro-class {
+      grid-row-start: 2;
+      grid-row-end: 3;
+      grid-column-start: 2;
+      grid-column-end: 3;
+      align-self: start;
+    }
+  }
+  // image
+  .m-display-image-wrapper {
+    margin: 0 1em 0 -4em;
+    width: 16em;
+    height: 16em;
+    min-width: 16em;
+    min-height: 16em;
+    max-width: 16em;
+    max-height: 16em;
+  }
   // snippet
   .m-display-snippet-item {
     .m-display-prefix {
@@ -771,7 +790,7 @@ h3 {
     }
   }
   .m-display-list-item-attack-weapon {
-    flex: 0 0 40%;
+    flex: 0 0 35%;
     &:not(:only-child):not(:last-child) {
       padding-right: 1em;
     }
