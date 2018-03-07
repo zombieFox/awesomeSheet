@@ -352,9 +352,9 @@ var display = (function() {
       }, {
         type: "snippet",
         element: "h1",
-        head: "Total",
         content: [{
           path: "equipment.wealth.total",
+          prefix: "Total",
           suffix: "GP",
           valueType: "currency"
         }]
