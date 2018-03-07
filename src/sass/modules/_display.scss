@@ -10,6 +10,44 @@
   }
 }
 // --------------------------------------------------
+// intro
+// --------------------------------------------------
+// .m-display-intro {
+//   border: 1px solid red;
+//   // display: flex;
+//   // flex-flow: row nowrap;
+//   // justify-content: flex-start;
+//   // align-items: center;
+//   // position: relative;
+//   .m-display-class,
+//   .m-display-image-wrapper,
+//   .m-display-name {
+//     border: 1px solid red;
+//     // flex: 0 0 auto;
+//   }
+// }
+// --------------------------------------------------
+// image
+// --------------------------------------------------
+.m-display-image-wrapper {
+  background-color: $white;
+  border-radius: 50%;
+  margin: -3em auto 1em;
+  width: 15em;
+  height: 15em;
+  box-sizing: border-box;
+  position: relative;
+  box-shadow: $shadow-large;
+  overflow: hidden;
+}
+.m-display-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+}
+// --------------------------------------------------
 // prefix suffix value
 // --------------------------------------------------
 .m-display-head {
@@ -510,27 +548,6 @@ h3 {
   }
 }
 // --------------------------------------------------
-// image
-// --------------------------------------------------
-.m-display-image-wrapper {
-  background-color: $white;
-  border-radius: 50%;
-  margin: -3em auto 1em;
-  width: 20em;
-  height: 20em;
-  box-sizing: border-box;
-  position: relative;
-  box-shadow: $shadow-large;
-  overflow: hidden;
-}
-.m-display-image {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transform-origin: center center;
-}
-// --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
@@ -614,6 +631,21 @@ h3 {
   }
 }
 @media (min-width: $screen-md) {
+  // // intro
+  // .m-display-intro {
+  //   display: flex;
+  //   flex-flow: row nowrap;
+  //   justify-content: flex-start;
+  //   align-items: center;
+  //   position: relative;
+  //   .m-display-name {}
+  //   .m-display-class {}
+  //   .m-display-image-wrapper {
+  //     margin: 0 1em 0 -3em;
+  //     width: 15em;
+  //     height: 15em;
+  //   }
+  // }
   // snippet
   .m-display-snippet-item {
     .m-display-prefix {
@@ -703,15 +735,6 @@ h3 {
   }
 }
 @media (min-width: $screen-lg) {
-  // class name
-  .m-display-name {}
-  .m-display-class {}
-  // image
-  .m-display-image-wrapper {
-    margin: 0;
-    width: 15em;
-    height: 15em;
-  }
   // list
   .m-display-list-responsive {
     .m-display-list-item {

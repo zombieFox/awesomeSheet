@@ -3,6 +3,7 @@ var display = (function() {
   var _displayContent = {
     basics: {
       intro: [{
+        areaClass: ["m-display-intro"],
         type: "image",
         element: "div",
         classname: ["m-display-image-wrapper"],
@@ -19,12 +20,7 @@ var display = (function() {
         classname: ["m-display-name"],
         content: [{
           path: "basics.character.name"
-        }]
-      }, {
-        type: "snippet",
-        element: "p",
-        classname: ["m-display-class"],
-        content: [{
+        }, {
           path: "basics.classes.string"
         }]
       }],
@@ -1133,7 +1129,7 @@ var display = (function() {
     if (options) {
       options.sections.forEach(function(arrayItem) {
 
-        var content = helper.getObject({
+        var all_displayObject = helper.getObject({
           object: _displayContent,
           path: arrayItem
         });
@@ -1141,7 +1137,12 @@ var display = (function() {
         displayArea.setAttribute("class", "m-display-area");
         var displayAreaContent = false;
 
-        content.forEach(function(arrayItem, index) {
+        all_displayObject.forEach(function(arrayItem, index) {
+          if (arrayItem.areaClass) {
+            arrayItem.areaClass.forEach(function(arrayItem) {
+              helper.addClass(displayArea, arrayItem);
+            });
+          };
           var elementToAdd = _render_content(arrayItem);
           // console.log(options.sections, elementToAdd);
           if (elementToAdd) {
