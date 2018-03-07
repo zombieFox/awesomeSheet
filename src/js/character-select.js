@@ -155,7 +155,10 @@ var characterSelect = (function() {
     var characterSelectName = helper.e(".js-character-select-name");
     var characterSelectClassLevel = helper.e(".js-character-select-class-level");
     characterSelectName.textContent = _get_name(sheet.get());
-    characterSelectClassLevel.textContent = classes.getClassLevel(sheet.get());
+    characterSelectClassLevel.textContent = helper.getObject({
+      object: sheet.get(),
+      path: "basics.classes.string"
+    });
   };
 
   function _get_name(characterObject) {
@@ -167,11 +170,8 @@ var characterSelect = (function() {
   };
 
   function _createCharacterItem(characterObject, characterIndex) {
-    var classLevel = classes.getClassLevel(characterObject);
     var characterName = _get_name(characterObject);
-
     var uniqueId = helper.randomString(10);
-
     var navCharacter = document.createElement("li");
     navCharacter.setAttribute("class", "m-character-select-list-item js-character-select-list-item-" + characterIndex);
 
@@ -196,7 +196,12 @@ var characterSelect = (function() {
 
     var classLevelSpan = document.createElement("span");
     classLevelSpan.setAttribute("class", "m-character-select-list-item-class-level");
-    classLevelSpan.textContent = classLevel;
+    classLevelSpan.textContent = helper.getObject({
+      object: sheet.get({
+        index: characterIndex
+      }),
+      path: "basics.classes.string"
+    });
 
     // build module
     detailsSpan.appendChild(nameSpan);

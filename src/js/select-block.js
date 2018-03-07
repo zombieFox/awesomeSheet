@@ -21,10 +21,8 @@ var selectBlock = (function() {
     sheet.store();
     totalBlock.render();
     textBlock.render();
-    if (display.state()) {
-      display.clear();
-      display.render();
-    };
+    display.clear();
+    display.render();
   };
 
   function _focus(element) {

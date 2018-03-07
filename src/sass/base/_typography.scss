@@ -7,39 +7,54 @@ h6 {
   margin: 0;
   font-weight: normal;
   line-height: $line-height-160;
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 1em;
-  }
 }
 h1 {
   // margin: 0 0 0.5em;
   font-size: $font-size-200;
   font-family: $open-sans-light;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 0.5em;
+  }
 }
 h2 {
   // margin: 0 0 1em;
   font-size: $font-size-150;
   font-family: $open-sans-regular;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 0.5em;
+  }
 }
 h3 {
   // margin: 0 0 1em;
   font-size: $font-size-150;
   font-family: $open-sans-regular;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 0.5em;
+  }
 }
 h4 {
   // margin: 0 0 1em;
   font-size: $font-size-125;
   font-family: $open-sans-semi-bold;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 0.5em;
+  }
 }
 h5 {
   // margin: 0 0 1em;
   font-size: $font-size-100;
   font-family: $open-sans-bold;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 1em;
+  }
 }
 h6 {
   // margin: 0 0 1em;
   font-size: $font-size-075;
   font-family: $open-sans-bold;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 1em;
+  }
 }
 p {
   color: $gray-03;
@@ -93,15 +108,15 @@ ul:not(:last-child) {
 }
 li {
   margin: 0;
-  > ol,
-  > ul {
+  > ul,
+  > ol {
     margin: 0;
   }
 }
 li:not(:last-child) {
   margin-bottom: 0.5em;
-  > ol:not(:last-child),
-  > ul:not(:last-child) {
+  > ul:not(:last-child),
+  > ol:not(:last-child) {
     margin-bottom: 0.5em;
   }
 }

@@ -1,68 +1,138 @@
-.m-display-box {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  width: 100%;
+// --------------------------------------------------
+// display area
+// --------------------------------------------------
+.m-display-area {
   position: relative;
-  box-sizing: border-box;
-}
-[class*="m-display-box-head"],
-[class^="m-display-box-head"] {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-.m-display-box-head-small {
-  flex: 0 0 25%;
-}
-.m-display-box-head-medium {
-  flex: 0 0 35%;
-}
-.m-display-box-head-large {
-  flex: 0 0 45%;
-}
-.m-display-box-body {
-  flex: 1 1 auto;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  align-items: stretch;
-}
-.m-display-box-body-indent {
-  margin-left: 1em;
-}
-.m-display-box-body-item-margin-large {
-  [class*="m-display-box-item"],
-  [class^="m-display-box-item"] {
-    margin-bottom: 1em;
+  display: block;
+  font-size: $font-size-root-100;
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 1.5em;
   }
 }
-.m-display-box-body-item-margin-medium {
-  [class*="m-display-box-item"],
-  [class^="m-display-box-item"] {
+// --------------------------------------------------
+// prefix suffix value
+// --------------------------------------------------
+.m-display-head {
+  color: $primary-color-08;
+  font-size: $font-size-075;
+  font-family: $open-sans-semi-bold;
+  &:not(:last-child):not(:last-child) {
     margin-bottom: 0.5em;
   }
 }
-.m-display-box-body-item-margin-small {
-  [class*="m-display-box-item"],
-  [class^="m-display-box-item"] {
-    margin-bottom: 4px;
+.m-display-prefix,
+.m-display-suffix {
+  font-size: $font-size-075;
+  font-family: $open-sans-light-italic;
+  &:not(:last-child):not(:last-child) {
+    margin-bottom: 0;
   }
 }
-[class*="m-display-box-item"],
-[class^="m-display-box-item"] {
-  flex: 1 1 auto;
+.m-display-prefix {
+  display: block;
+  color: $primary-color-08;
+}
+.m-display-suffix {
+  color: $gray-06;
+}
+h1,
+h2,
+h3 {
+  .m-display-value {
+    font-size: $font-size-150;
+  }
+}
+.is-night-mode {
+  .m-display-head {
+    color: $primary-color-12;
+  }
+  .m-display-prefix {
+    color: $primary-color-12;
+  }
+  .m-display-suffix {
+    color: $gray-14;
+  }
+}
+// --------------------------------------------------
+// snippet
+// --------------------------------------------------
+.m-display-snippet {
+  font-size: $font-size-100;
+}
+.m-display-snippet-item {
+  display: inline-block;
+  position: relative;
+  .m-display-prefix {
+    margin-right: 0.8em;
+    display: inline-block;
+  }
+  .m-display-suffix {
+    margin-left: 0.5em;
+    display: inline-block;
+  }
+  &:not(:only-child):not(:last-child) {
+    padding-right: 1em;
+    margin-right: 1em;
+    &:after {
+      content: "";
+      background-color: $gray-18;
+      display: block;
+      width: 1px;
+      height: 80%;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: rotate(10deg) translate(-50%, -50%);
+      transform-origin: top;
+    }
+  }
+}
+.is-night-mode {
+  .m-display-snippet-item {
+    &:not(:only-child):not(:last-child) {
+      &:after {
+        background-color: $gray-04;
+      }
+    }
+  }
+}
+// --------------------------------------------------
+// text block
+// --------------------------------------------------
+.m-display-text-block {
+  position: relative;
+  box-sizing: border-box;
+  .m-display-prefix {
+    margin-right: 0.8em;
+    display: block;
+  }
+  .m-display-value {
+    margin-left: 0.5em;
+    display: block;
+  }
+}
+// --------------------------------------------------
+// stats
+// --------------------------------------------------
+.m-display-stats {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  position: relative;
+  margin-left: -1em;
+  margin-right: -1em;
+  box-sizing: border-box;
+}
+.m-display-stats-item {
+  flex: 1 1 33%;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: flex-start;
-  transition: margin $transition-ease-medium;
-  max-width: 100%;
-}
-.m-display-box-item-stat {
-  flex: 1 1 33%;
+  justify-content: center;
   box-sizing: border-box;
   position: relative;
+  &:not(:last-child):not(:last-child) {
+    margin-bottom: 0;
+  }
   &:nth-child(1),
   &:nth-child(2),
   &:nth-child(3) {
@@ -78,164 +148,382 @@
   &:nth-child(3) {
     &:before {
       content: "";
-      background-color: $gray-16;
+      background-color: $gray-18;
       display: block;
       width: 80%;
       height: 1px;
       position: absolute;
       bottom: 0;
       right: 50%;
-      transform: translate(50%, 0);
+      transform: translate(50%, 50%);
     }
   }
   &:nth-child(3n+1),
   &:nth-child(3n+2) {
     &:after {
       content: "";
-      background-color: $gray-16;
+      background-color: $gray-18;
+      display: block;
+      width: 1px;
+      height: 80%;
+      position: absolute;
+      top: 50%;
+      right: 3%;
+      transform: rotate(10deg) translate(-50%, -50%);
+    }
+  }
+  &:nth-child(1),
+  &:nth-child(2) {
+    &:after {
+      transform-origin: bottom;
+    }
+  }
+  &:nth-child(4),
+  &:nth-child(5) {
+    &:after {
+      transform-origin: top;
+    }
+  }
+}
+.m-display-mod,
+.m-display-stat {
+  text-align: center;
+}
+.m-display-stat {
+  color: $primary-color-08;
+  font-family: $open-sans-light-italic;
+}
+.m-display-stat-name {
+  margin-right: $font-size-050;
+}
+.is-night-mode {
+  .m-display-stats-item {
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3) {
+      &:before {
+        background-color: $gray-04;
+      }
+    }
+    &:nth-child(3n+1),
+    &:nth-child(3n+2) {
+      &:after {
+        background-color: $gray-04;
+      }
+    }
+  }
+  .m-display-stat {
+    color: $primary-color-12;
+  }
+}
+// --------------------------------------------------
+// list
+// --------------------------------------------------
+[class*="m-display-list"],
+[class^="m-display-list"] {
+  margin-left: 0.5em;
+  .m-display-list-item {
+    margin: 0;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-bottom: $border;
+    border-bottom-color: $gray-18;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    position: relative;
+    box-sizing: border-box;
+    .m-display-list-item-prefix,
+    .m-display-list-item-suffix,
+    .m-display-list-item-text-block {
+      flex: 1 1 auto;
+      margin: 0;
+      display: block;
+    }
+    .m-display-list-item-prefix,
+    .m-display-list-item-suffix {
+      font-size: $font-size-075;
+      font-family: $open-sans-light-italic;
+    }
+    .m-display-list-item-prefix {
+      color: $primary-color-08;
+    }
+    .m-display-list-item-suffix {
+      color: $gray-06;
+    }
+    .m-display-list-item-name {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      flex: 1 1 auto;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      &:not(:only-child):not(:last-child) {
+        margin-right: 0.5em;
+      }
+    }
+    .m-display-list-item-value {
+      margin: 0;
+      padding: 0;
+      flex: 0 0 auto;
+      align-self: flex-start;
+      text-align: right;
+    }
+    .m-display-list-item-percentage {
+      background: $secondary-color-10;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      height: 1px;
+      &:after {
+        content: "";
+        background-color: $secondary-color-10;
+        display: block;
+        width: 1px;
+        height: 0.4em;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+    }
+  }
+}
+.m-display-list-dash {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  position: relative;
+  box-sizing: border-box;
+  .m-display-list-item {
+    display: inline-block;
+    position: relative;
+    padding: 0;
+    border: 0;
+    &:not(:last-child):not(:last-child) {
+      margin: 0 0.5em 0 0;
+      padding: 0 0.5em 0 0;
+      &:after {
+        content: "";
+        background-color: $gray-18;
+        display: block;
+        width: 1px;
+        height: 1em;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: rotate(10deg) translate(-50%, -50%);
+        transform-origin: center;
+      }
+    }
+  }
+}
+.m-display-list-stack {
+  .m-display-list-item {
+    display: block;
+    .m-display-list-item-name,
+    .m-display-list-item-prefix,
+    .m-display-list-item-suffix,
+    .m-display-list-item-value {
+      display: block;
+    }
+    .m-display-list-item-name {
+      overflow: auto;
+      text-overflow: inherit;
+      white-space: inherit;
+      &:not(:only-child):not(:last-child) {
+        margin-right: 0;
+      }
+    }
+  }
+}
+.m-display-list-compact {
+  .m-display-list-item {
+    padding-top: 1px;
+    padding-bottom: 1px;
+  }
+}
+.is-night-mode {
+  [class*="m-display-list"],
+  [class^="m-display-list"] {
+    .m-display-list-item {
+      border-bottom-color: $gray-04;
+      .m-display-list-item-prefix {
+        color: $primary-color-12;
+      }
+      .m-display-list-item-suffix {
+        color: $gray-14;
+      }
+    }
+  }
+  .m-display-list-dash {
+    .m-display-list-item {
+      &:not(:last-child):not(:last-child) {
+        &:after {
+          background-color: $gray-04;
+        }
+      }
+    }
+  }
+}
+// --------------------------------------------------
+// display spell
+// --------------------------------------------------
+.m-display-list-spell {
+  .m-display-list-item-spell {
+    margin: 0;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-bottom: $border;
+    border-bottom-color: $gray-18;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    position: relative;
+    box-sizing: border-box;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+  .m-display-list-item-spell-name {
+    margin: 0;
+    flex: 1 1 auto;
+    display: block;
+    .m-display-list-item-spell-active {
+      margin: 0 0.5em 0 0;
+      color: $primary-color-10;
+    }
+  }
+  .m-display-list-item-spell-count {
+    margin: 0;
+    padding: 0;
+    flex: 0 0 auto;
+    align-self: flex-start;
+    text-align: right;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    color: $secondary-color-10;
+  }
+}
+.is-night-mode {
+  .m-display-list-spell {
+    .m-display-list-item-spell {
+      border-bottom-color: $gray-04;
+    }
+  }
+}
+// --------------------------------------------------
+// attack
+// --------------------------------------------------
+.m-display-list-attack {
+  .m-display-list-item-attack {
+    margin: 0;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-bottom: $border;
+    border-bottom-color: $gray-18;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    position: relative;
+    box-sizing: border-box;
+  }
+}
+.m-display-list-item-attack-ammo,
+.m-display-list-item-attack-attack,
+.m-display-list-item-attack-critical,
+.m-display-list-item-attack-damage,
+.m-display-list-item-attack-range,
+.m-display-list-item-attack-type,
+.m-display-list-item-attack-weapon {
+  margin: 0;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  .m-display-list-item-attack-prefix {
+    margin: 0;
+    font-size: $font-size-075;
+    font-family: $open-sans-light-italic;
+    color: $primary-color-08;
+    display: inline-block;
+  }
+  .m-display-list-item-attack-value {
+    display: inline-block;
+  }
+}
+.m-display-list-item-attack-weapon {
+  flex: 1 0 100%;
+}
+.m-display-list-item-attack-ammo,
+.m-display-list-item-attack-attack,
+.m-display-list-item-attack-critical,
+.m-display-list-item-attack-damage,
+.m-display-list-item-attack-range,
+.m-display-list-item-attack-type {
+  flex: 0 0 auto;
+  &:not(:only-child):not(:last-child) {
+    padding-right: 1em;
+    margin-right: 1em;
+    &:after {
+      content: "";
+      background-color: $gray-18;
       display: block;
       width: 1px;
       height: 80%;
       position: absolute;
       top: 50%;
       right: 0;
-      transform: translate(0, -50%);
-    }
-  }
-}
-.m-display-box-item-small {
-  flex: 0 1 25%;
-}
-.m-display-box-item-medium {
-  flex: 1 1 30%;
-}
-.m-display-box-item-large {
-  flex: 1 1 40%;
-}
-.m-display-box-item-max {
-  flex: 1 1 100%;
-}
-.m-display-box-body-multiple {
-  flex: 1 1 auto;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  .m-display-box-body {
-    &:not(:only-child):not(:first-child) {
-      margin-top: 1.5em;
-    }
-  }
-}
-.m-display-box-title {
-  margin-bottom: 0;
-  margin-right: 1em;
-  padding: 0.5em 0;
-  color: $primary-color-04;
-  font-family: $open-sans-semi-bold;
-  font-size: $font-size-100;
-}
-.m-display-box-recess {
-  margin-left: 2em;
-  color: $gray-06;
-}
-.m-display-box-accent {
-  color: $primary-color-06;
-}
-.is-night-mode {
-  .m-display-box-recess {
-    margin-left: 2em;
-    color: $gray-14;
-  }
-  .m-display-box-accent {
-    color: $primary-color-16;
-  }
-  .m-display-box-item-stat {
-    &:nth-child(1),
-    &:nth-child(2),
-    &:nth-child(3) {
-      &:before {
-        background-color: $gray-06;
-      }
-    }
-    &:nth-child(3n+1),
-    &:nth-child(3n+2) {
-      &:after {
-        background-color: $gray-06;
-      }
-    }
-  }
-  .m-display-box-title {
-    color: $primary-color-16;
-  }
-}
-// --------------------------------------------------
-// display body
-// --------------------------------------------------
-.m-display-block {
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 1.5em;
-    padding-bottom: 1.5em;
-    position: relative;
-    &:after {
-      content: "";
-      background-color: $gray-18;
-      width: calc(100% + 4em);
-      height: 1px;
-      display: block;
-      position: absolute;
-      bottom: 0;
-      left: -2em;
-    }
-  }
-}
-.m-display-block-last {
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: 0;
-    &:after {
-      display: none;
+      transform: rotate(10deg) translate(-50%, -50%);
+      transform-origin: top;
     }
   }
 }
 .is-night-mode {
-  .m-display-block {
+  .m-display-list-attack {
+    .m-display-list-item-attack {
+      border-bottom-color: $gray-04;
+    }
+  }
+  .m-display-list-item-attack-ammo,
+  .m-display-list-item-attack-attack,
+  .m-display-list-item-attack-critical,
+  .m-display-list-item-attack-damage,
+  .m-display-list-item-attack-range,
+  .m-display-list-item-attack-type,
+  .m-display-list-item-attack-weapon {
+    .m-display-list-item-attack-prefix {
+      color: $primary-color-12;
+    }
+  }
+  .m-display-list-item-attack-ammo,
+  .m-display-list-item-attack-attack,
+  .m-display-list-item-attack-critical,
+  .m-display-list-item-attack-damage,
+  .m-display-list-item-attack-range,
+  .m-display-list-item-attack-type {
     &:not(:only-child):not(:last-child) {
       &:after {
-        background-color: $gray-03;
+        background-color: $gray-04;
       }
     }
   }
 }
 // --------------------------------------------------
-// display intro
+// image
 // --------------------------------------------------
-.m-display-character-intro {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-items: center;
-}
-.m-display-character-image {
-  flex: 0 0 auto;
-}
-.m-display-character-content {
-  flex: 1 0 auto;
-  width: 100%;
-}
-.m-display-item-image-wrapper {
+.m-display-image-wrapper {
   background-color: $white;
   border-radius: 50%;
-  margin: -3em 0 0;
+  margin: -3em auto 1em;
   width: 20em;
   height: 20em;
-  font-size: $font-size-root-100;
   box-sizing: border-box;
   position: relative;
   box-shadow: $shadow-large;
   overflow: hidden;
 }
-.m-display-item-image {
+.m-display-image {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -243,303 +531,14 @@
   transform-origin: center center;
 }
 // --------------------------------------------------
-// display snippet
-// --------------------------------------------------
-.m-display-item-text-snippet {
-  display: inline-block;
-  position: relative;
-  &:not(:only-child):not(:last-child) {
-    padding-right: 0.6em;
-    margin-right: 0.6em;
-    &:after {
-      content: "";
-      background-color: $gray-16;
-      display: block;
-      width: 1px;
-      height: 1.2em;
-      position: absolute;
-      top: 50%;
-      right: 0.15em;
-      transform: rotate(10deg) translate(0, -50%);
-    }
-  }
-}
-.m-display-item-text-snippet-value {}
-.m-display-item-text-snippet-prefix {
-  color: $gray-02;
-  font-size: 0.85em;
-  margin-right: 0.3em;
-}
-.m-display-item-text-snippet-suffix {
-  color: $gray-08;
-  font-size: 0.85em;
-  margin-left: 0.3em;
-}
-.is-night-mode {
-  .m-display-item-text-snippet {
-    &:not(:only-child):not(:last-child) {
-      &:after {
-        content: "";
-        background-color: $gray-06;
-      }
-    }
-  }
-  .m-display-item-text-snippet-prefix {
-    color: $gray-18;
-  }
-  .m-display-item-text-snippet-suffix {
-    color: $gray-12;
-  }
-  // .m-display-box-accent {
-  //   .m-display-item-text-snippet {
-  //     &:not(:only-child):not(:last-child) {
-  //       &:after {
-  //         background-color: $secondary-color-14;
-  //       }
-  //     }
-  //   }
-  // }
-}
-// --------------------------------------------------
-// display list
-// --------------------------------------------------
-.m-display-list {
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 2em;
-  }
-}
-.m-display-block {
-  .m-display-list {
-    margin-bottom: 1em;
-  }
-}
-.m-display-block-last {
-  .m-display-list {
-    margin-bottom: 0;
-  }
-}
-.m-display-list-item {
-  padding-top: 0.75em;
-  padding-bottom: 0.75em;
-  border-bottom: 2px solid $gray-18;
-  position: relative;
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 0;
-  }
-}
-.m-display-list-item-prefix {
-  margin-right: 0.5em;
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.m-display-list-item-value {
-  color: $primary-color-06;
-  h2 {
-    line-height: 1;
-    margin-bottom: 0;
-  }
-}
-.m-display-list-item-percentage {
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  height: 2px;
-  background: $secondary-color-10;
-}
-.m-display-list-line {
-  .m-display-list-item {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    .m-display-list-item-prefix {
-      flex: 1 1 auto;
-    }
-    .m-display-list-item-value {
-      text-align: right;
-      flex: 0 0 auto;
-    }
-  }
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 2em;
-  }
-}
-.m-display-list-stack {
-  .m-display-list-item {
-    display: block;
-    .m-display-list-item-prefix {
-      margin-right: 0;
-      display: block;
-    }
-    .m-display-list-item-value {
-      display: block;
-    }
-  }
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 2em;
-  }
-}
-.m-display-list-compact {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: stretch;
-  .m-display-list-item {
-    padding-top: 4px;
-    padding-bottom: 4px;
-    border-bottom: 2px solid $gray-18;
-    flex: 0 0 46%;
-    max-width: 46%;
-  }
-}
-.is-night-mode {
-  .m-display-list-item {
-    border-color: $light-alpha-19;
-  }
-  .m-display-list-item-value {
-    color: $primary-color-16;
-  }
-}
-// --------------------------------------------------
-// display attack melee
-// --------------------------------------------------
-.m-display-list-item-attack-melee {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-end;
-  padding-top: 0.75em;
-  padding-bottom: 0.75em;
-  border-bottom: 2px solid $gray-18;
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 0;
-  }
-}
-.m-display-list-item-attack-melee-attack,
-.m-display-list-item-attack-melee-critical,
-.m-display-list-item-attack-melee-damage,
-.m-display-list-item-attack-melee-type,
-.m-display-list-item-attack-melee-weapon {
-  box-sizing: border-box;
-  &:not(:only-child):not(:first-child) {
-    padding-left: 1.5em;
-    margin-bottom: 0;
-  }
-}
-.m-display-list-item-attack-melee-weapon {
-  font-family: $open-sans-semi-bold;
-  flex: 1 1 100%;
-}
-.m-display-list-item-attack-melee-attack {
-  flex: 1 0 auto;
-  line-height: 1;
-  margin: 0;
-  color: $primary-color-06;
-  &:not(:only-child):not(:first-child) {
-    padding-left: 1em;
-  }
-}
-.m-display-list-item-attack-melee-critical,
-.m-display-list-item-attack-melee-damage {
-  flex: 0 1 auto;
-}
-.is-night-mode {
-  .m-display-list-item-attack-melee {
-    border-color: $light-alpha-19;
-  }
-  .m-display-list-item-attack-melee-attack {
-    color: $primary-color-16;
-  }
-}
-// --------------------------------------------------
-// display attack ranged
-// --------------------------------------------------
-.m-display-list-item-attack-ranged {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-end;
-  padding-top: 0.75em;
-  padding-bottom: 0.75em;
-  border-bottom: 2px solid $gray-18;
-  &:not(:only-child):not(:last-child) {
-    margin-bottom: 0;
-  }
-}
-.m-display-list-item-attack-ranged-ammo,
-.m-display-list-item-attack-ranged-attack,
-.m-display-list-item-attack-ranged-critical,
-.m-display-list-item-attack-ranged-damage,
-.m-display-list-item-attack-ranged-range,
-.m-display-list-item-attack-ranged-type,
-.m-display-list-item-attack-ranged-weapon {
-  box-sizing: border-box;
-  &:not(:only-child):not(:first-child) {
-    padding-left: 1.5em;
-    margin-bottom: 0;
-  }
-}
-.m-display-list-item-attack-ranged-weapon {
-  font-family: $open-sans-semi-bold;
-  flex: 1 1 100%;
-}
-.m-display-list-item-attack-ranged-attack {
-  flex: 1 0 auto;
-  line-height: 1;
-  margin: 0;
-  color: $primary-color-06;
-  &:not(:only-child):not(:first-child) {
-    padding-left: 1em;
-  }
-}
-.m-display-list-item-attack-ranged-ammo,
-.m-display-list-item-attack-ranged-critical,
-.m-display-list-item-attack-ranged-damage,
-.m-display-list-item-attack-ranged-range {
-  flex: 0 1 auto;
-}
-.is-night-mode {
-  .m-display-list-item-attack-ranged {
-    border-color: $light-alpha-19;
-  }
-  .m-display-list-item-attack-ranged-attack {
-    color: $primary-color-16;
-  }
-}
-// --------------------------------------------------
-// display spell
-// --------------------------------------------------
-.m-display-list-item-spell {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  cursor: pointer;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-.m-display-list-item-spell-name {
-  margin-right: 0.5em;
-  flex: 1 1 auto;
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.m-display-list-item-spell-count {
-  flex: 1 1 auto;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-end;
-  color: $secondary-color-10;
-}
-.m-display-list-item-spell-active {
-  margin-right: 0.5em;
-  color: $primary-color-10;
-}
-// --------------------------------------------------
 // media queries
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
-  .m-display-box {
+  // stats
+  .m-display-stats {
     flex-flow: row nowrap;
   }
-  .m-display-box-item-stat {
+  .m-display-stats-item {
     flex: 1 1 15%;
     box-sizing: border-box;
     position: relative;
@@ -567,20 +566,28 @@
     &:not(:only-child):not(:last-child) {
       &:after {
         content: "";
-        background-color: $gray-16;
+        background-color: $gray-18;
         display: block;
         width: 1px;
         height: 100%;
         position: absolute;
         top: 0;
         right: 0;
-        transform: rotate(10deg);
+        transform: rotate(10deg) translate(-50%, 0);
+        transform-origin: center;
       }
     }
   }
-  .m-display-box-body-indent {
-    margin-left: 0;
+  .is-night-mode {
+    .m-display-stats-item {
+      &:not(:only-child):not(:last-child) {
+        &:after {
+          background-color: $gray-04;
+        }
+      }
+    }
   }
+  // list
   .m-display-list-responsive {
     display: flex;
     flex-flow: row wrap;
@@ -593,75 +600,120 @@
       }
     }
   }
-  .m-display-list-thirds {
+  .m-display-list-spell {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
-    .m-display-list-item {
-      flex: 0 0 30%;
-      max-width: 30%;
-      &:nth-child(3n+1),
-      &:nth-child(3n+2) {
-        margin-right: 5%;
+    .m-display-list-item-spell {
+      flex: 0 0 46%;
+      max-width: 46%;
+      &:nth-child(odd) {
+        margin-right: 8%;
       }
     }
   }
-  .m-display-list-item-attack-melee {
-    flex-flow: row wrap;
+}
+@media (min-width: $screen-md) {
+  // snippet
+  .m-display-snippet-item {
+    .m-display-prefix {
+      margin-right: 0;
+      display: block;
+    }
+    .m-display-suffix,
+    .m-display-value {
+      &:not(:only-child) {
+        margin-left: 0.5em;
+      }
+    }
+    &:not(:only-child):not(:last-child) {
+      padding-right: 1em;
+      margin-right: 1em;
+      &:after {
+        height: 90%;
+      }
+    }
   }
-  .m-display-list-item-attack-melee-weapon {
-    flex: 0 0 40%;
+  // text block
+  .m-display-text-block {
+    .m-display-value {
+      margin-left: 0.5em;
+      display: block;
+    }
+    .m-display-prefix {
+      margin-right: 0;
+      display: block;
+    }
   }
-  .m-display-list-item-attack-melee-attack {
+  // attack
+  .m-display-list-attack {
+    .m-display-list-item-attack {
+      justify-content: flex-end;
+    }
+  }
+  .m-display-list-item-attack-weapon {
     flex: 1 0 auto;
+    .m-display-list-item-attack-prefix {
+      display: block;
+    }
+    &:not(:only-child):not(:last-child) {
+      margin-right: 1em;
+    }
   }
-  .m-display-list-item-attack-ranged {
-    flex-flow: row wrap;
-  }
-  .m-display-list-item-attack-ranged-weapon {
-    flex: 0 0 40%;
-  }
-  .m-display-list-item-attack-ranged-attack {
-    flex: 1 0 auto;
-  }
-  .m-display-list-item-attack-ranged-ammo,
-  .m-display-list-item-attack-ranged-critical,
-  .m-display-list-item-attack-ranged-damage,
-  .m-display-list-item-attack-ranged-range {
-    flex: 0 1 auto;
+  .m-display-list-item-attack-ammo,
+  .m-display-list-item-attack-attack,
+  .m-display-list-item-attack-critical,
+  .m-display-list-item-attack-damage,
+  .m-display-list-item-attack-range,
+  .m-display-list-item-attack-type {
+    flex: 0 0 auto;
+    .m-display-list-item-attack-prefix {
+      display: block;
+    }
+    &:not(:only-child):not(:last-child) {
+      padding-right: 1em;
+      margin-right: 1em;
+      &:after {
+        content: "";
+        background-color: $gray-18;
+        display: block;
+        width: 1px;
+        height: 80%;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: rotate(10deg) translate(-50%, -50%);
+        transform-origin: top;
+      }
+    }
   }
   .is-night-mode {
-    .m-display-box-item-stat {
+    .m-display-list-item-attack-ammo,
+    .m-display-list-item-attack-attack,
+    .m-display-list-item-attack-critical,
+    .m-display-list-item-attack-damage,
+    .m-display-list-item-attack-range,
+    .m-display-list-item-attack-type {
       &:not(:only-child):not(:last-child) {
         &:after {
-          background-color: $gray-06;
+          background-color: $gray-04;
         }
       }
     }
   }
-  .m-display-character-intro {
-    flex-flow: row nowrap;
-  }
-  .m-display-character-content {
-    flex: 1 1 auto;
-    width: initial;
-  }
-  .m-display-item-image-wrapper {
-    margin: 0 -1em 0 0;
+}
+@media (min-width: $screen-lg) {
+  // class name
+  .m-display-name {}
+  .m-display-class {}
+  // image
+  .m-display-image-wrapper {
+    margin: 0;
     width: 15em;
     height: 15em;
-    left: -3em;
   }
-  .m-display-item-image {
-    // box-shadow: 0 0 0 0.5em $primary-color-alpha-16, 0 0 0 1em $primary-color-alpha-18;
-  }
-}
-@media (min-width: $screen-md) {}
-@media (min-width: $screen-lg) {
+  // list
   .m-display-list-responsive {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
     .m-display-list-item {
       flex: 0 0 30%;
       max-width: 30%;
@@ -674,133 +726,61 @@
       }
     }
   }
-  .m-display-item-image-wrapper {
-    margin: 0 -3em 0 0;
-    left: -5em;
-    width: 20em;
-    height: 20em;
-  }
-}
-@media (min-width: $screen-xl) {}
-@media print {
-  .m-display-box {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
-  }
-  [class*="m-display-box-head"],
-  [class^="m-display-box-head"] {
-    flex: 1 1 auto;
-  }
-  .m-display-box-body {
-    margin-left: 2em;
-    flex: 1 1 auto;
-  }
-  .m-display-box-item-stat {
-    flex: 1 1 15%;
-    box-sizing: border-box;
-    position: relative;
-    &:nth-child(1),
-    &:nth-child(2),
-    &:nth-child(3),
-    &:nth-child(4),
-    &:nth-child(5),
-    &:nth-child(6) {
-      padding: 0;
-    }
-    &:nth-child(1),
-    &:nth-child(2),
-    &:nth-child(3) {
-      &:before {
-        content: none;
-      }
-    }
-    &:nth-child(3n+1),
-    &:nth-child(3n+2) {
-      &:after {
-        content: none;
-      }
-    }
-    &:not(:only-child):not(:last-child) {
-      &:after {
-        content: "";
-        background-color: $gray-16;
-        display: block;
-        width: 1px;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        right: 0;
-        transform: rotate(10deg);
-      }
-    }
-  }
-  .m-display-block,
-  .m-display-block-last {
-    &:not(:only-child):not(:last-child) {
-      margin-bottom: 1em;
-      padding-bottom: 0;
-      border-bottom: 0;
-      &:after {
-        display: none;
-      }
-    }
-  }
-  .m-display-list {
-    display: block;
-  }
-  .m-display-box-title {
-    font-size: $font-size-100;
-  }
-  .m-display-list-item {
-    padding-top: 2px;
-    padding-bottom: 2px;
-    border-bottom: 1px solid $gray-14;
-  }
-  .m-display-list-responsive {
-    display: block;
-    .m-display-list-item {
-      max-width: 100%;
-      flex-basis: auto;
+  .m-display-list-spell {
+    .m-display-list-item-spell {
+      flex: 0 0 30%;
+      max-width: 30%;
       &:nth-child(odd) {
         margin-right: 0;
       }
       &:nth-child(3n+1),
       &:nth-child(3n+2) {
-        margin-right: 0;
+        margin-right: 5%;
       }
     }
   }
-  .m-display-list-line {
-    display: block;
-    .m-display-list-item {
-      margin-right: 0;
-      padding-top: 2px;
-      padding-bottom: 2px;
-      border-bottom: 1px solid $gray-14;
+}
+@media (min-width: $screen-xl) {
+  // attack
+  .m-display-list-attack {
+    .m-display-list-item-attack {
+      justify-content: flex-end;
     }
   }
-  .m-display-list-item-percentage {
-    display: none;
-  }
-  .m-display-list-stack {
-    display: block;
-    .m-display-list-item {
-      padding-top: 2px;
-      padding-bottom: 2px;
-      border-bottom: 1px solid $gray-14;
+  .m-display-list-item-attack-weapon {
+    flex: 0 0 40%;
+    &:not(:only-child):not(:last-child) {
+      padding-right: 1em;
     }
   }
-  .m-display-list-compact {
-    columns: 1;
-    .m-display-list-item {
-      padding-top: 2px;
-      padding-bottom: 2px;
-      border-bottom: 1px solid $gray-14;
+  .m-display-list-item-attack-attack {
+    flex: 1 0 auto;
+  }
+  .m-display-list-item-attack-ammo,
+  .m-display-list-item-attack-critical,
+  .m-display-list-item-attack-damage,
+  .m-display-list-item-attack-range,
+  .m-display-list-item-attack-type {
+    flex: 0 1 auto;
+  }
+  .m-display-list-item-attack-ammo,
+  .m-display-list-item-attack-attack,
+  .m-display-list-item-attack-critical,
+  .m-display-list-item-attack-damage,
+  .m-display-list-item-attack-range,
+  .m-display-list-item-attack-type,
+  .m-display-list-item-attack-weapon {
+    .m-display-list-item-attack-prefix {
+      display: block;
     }
   }
-  .m-display-list-item-attack-melee,
-  .m-display-list-item-attack-ranged {
-    border-bottom: 1px solid $gray-14;
+  .m-display-list-item-attack-attack,
+  .m-display-list-item-attack-weapon {
+    &:not(:only-child):not(:last-child) {
+      margin-right: 1em;
+      &:after {
+        content: none;
+      }
+    }
   }
 }

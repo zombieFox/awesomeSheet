@@ -56,15 +56,20 @@ var sheet = (function() {
 
   function get(options) {
     var defaultOptions = {
-      all: false
+      all: null,
+      index: null
     };
     if (options) {
       defaultOptions = helper.applyOptions(defaultOptions, options);
     };
-    if (defaultOptions.all) {
-      return _all_characters;
+    if (defaultOptions.index != null) {
+      return _all_characters[defaultOptions.index];
     } else {
-      return _all_characters[index.get()];
+      if (defaultOptions.all != null && defaultOptions.all) {
+        return _all_characters;
+      } else {
+        return _all_characters[index.get()];
+      };
     };
   };
 
@@ -194,10 +199,10 @@ var sheet = (function() {
   };
 
   function render() {
+    classes.render();
     characterSelect.render();
     stats.render();
     clone.render();
-    classes.render();
     inputBlock.render();
     inputRangeBlock.render();
     selectBlock.render();
@@ -516,14 +521,17 @@ var sheet = (function() {
       object: get(),
       path: "basics.character.name"
     });
-    var classLevel = classes.getClassLevel(sheet.get());
+    var classLevel = helper.getObject({
+      object: sheet.get(),
+      path: "basics.classes.string"
+    });
     if (characterName != "") {
       fileName = characterName;
     } else {
       fileName = "New character";
     };
     if (classLevel != "") {
-      fileName = fileName + ", " + classLevel;
+      fileName = fileName + " - " + classLevel;
     };
     prompt.render({
       heading: "Export " + characterName,
@@ -580,7 +588,9 @@ var sheet = (function() {
       if (event.ctrlKey && event.altKey && event.keyCode == 68) {
         display.clear();
         display.render();
-        display.toggle();
+        display.toggle({
+          all: true
+        });
         themeColor.update();
       };
       // ctrl+alt+n

@@ -806,8 +806,8 @@ var spells = (function() {
         _store_data(this);
         _update_spellButton(button, true);
         sheet.store();
-        display.clear(helper.e(".js-section-spells"));
-        display.render(helper.e(".js-section-spells"));
+        display.clear();
+        display.render();
       }.bind(modalContent);
 
       modal.render({
