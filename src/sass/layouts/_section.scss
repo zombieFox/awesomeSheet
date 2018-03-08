@@ -43,10 +43,10 @@
 }
 @media print {
   .l-section-wrapper {
-    margin: 0;
+    margin: 2em 0;
     display: block;
     columns: 10em 2;
-    column-gap: 2em;
+    column-gap: 4em;
     & > * {
       break-inside: avoid;
     }

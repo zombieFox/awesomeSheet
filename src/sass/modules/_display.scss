@@ -826,3 +826,33 @@ h3 {
     }
   }
 }
+@media print {
+  // area
+  .m-display-area {
+    break-inside: avoid;
+  }
+  // image
+  .m-display-image-wrapper {
+    box-shadow: none;
+  }
+  // list
+  [class*="m-display-list"],
+  [class^="m-display-list"] {
+    .m-display-list-item {
+      padding: 0;
+      .m-display-list-item-percentage {
+        display: none;
+      }
+    }
+  }
+  .m-display-list-spell {
+    .m-display-list-item-spell {
+      padding: 0;
+    }
+  }
+  .m-display-list-attack {
+    .m-display-list-item-attack {
+      padding: 0;
+    }
+  }
+}
