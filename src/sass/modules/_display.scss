@@ -59,7 +59,7 @@
 .m-display-prefix,
 .m-display-suffix {
   font-size: $font-size-075;
-  font-family: $open-sans-semi-bold-italic;
+  font-family: $open-sans-italic;
   &:not(:last-child):not(:last-child) {
     margin-bottom: 0;
   }
@@ -227,7 +227,7 @@ h3 {
 }
 .m-display-stat {
   color: $primary-color-08;
-  font-family: $open-sans-semi-bold-italic;
+  font-family: $open-sans-semi-bold;
 }
 .m-display-stat-name {
   margin-right: $font-size-050;
@@ -279,7 +279,7 @@ h3 {
     .m-display-list-item-prefix,
     .m-display-list-item-suffix {
       font-size: $font-size-075;
-      font-family: $open-sans-semi-bold-italic;
+      font-family: $open-sans-italic;
     }
     .m-display-list-item-prefix {
       color: $primary-color-08;
@@ -480,7 +480,7 @@ h3 {
   .m-display-list-item-attack-prefix {
     margin: 0;
     font-size: $font-size-075;
-    font-family: $open-sans-semi-bold-italic;
+    font-family: $open-sans-italic;
     color: $primary-color-08;
     display: inline-block;
   }
