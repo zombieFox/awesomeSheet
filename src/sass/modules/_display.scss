@@ -631,33 +631,16 @@ h3 {
 @media (min-width: $screen-md) {
   // intro
   .m-display-intro {
-    display: grid;
-    grid-template-columns: 16em 2fr;
-    grid-template-rows: 8em 8em;
-    .m-display-intro-image {
-      grid-row-start: 1;
-      grid-row-end: 9;
-      grid-column-start: 1;
-      grid-column-end: 2;
-    }
-    .m-display-intro-name {
-      grid-row-start: 1;
-      grid-row-end: 2;
-      grid-column-start: 2;
-      grid-column-end: 3;
-      align-self: end;
-    }
-    .m-display-intro-class {
-      grid-row-start: 2;
-      grid-row-end: 3;
-      grid-column-start: 2;
-      grid-column-end: 3;
-      align-self: start;
-    }
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    .m-display-intro-name-class {}
   }
   // image
   .m-display-image-wrapper {
-    margin: 0 1em 0 -4em;
+    margin: 0 2em 0 -4em;
     width: 16em;
     height: 16em;
     min-width: 16em;
