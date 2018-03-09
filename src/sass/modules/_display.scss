@@ -11,7 +11,9 @@
 }
 .m-display-content {
   display: block;
-  margin-left: 1em;
+  &:not(:only-child) {
+    margin-left: 1em;
+  }
 }
 .m-display-head {
   display: block;
@@ -57,11 +59,7 @@
 // --------------------------------------------------
 .m-display-head {
   color: $primary-color-08;
-  // font-size: $font-size-075;
   font-family: $open-sans-semi-bold;
-  &:not(:last-child):not(:last-child) {
-    margin-bottom: 0.5em;
-  }
 }
 .m-display-prefix,
 .m-display-suffix {
@@ -639,13 +637,16 @@ h3 {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
+    align-items: flex-start;
   }
   .m-display-head {
-    margin-left: 0;
     flex: 0 0 20%;
   }
   .m-display-content {
     flex: 1 1 auto;
+    &:not(:only-child) {
+      margin-left: 0;
+    }
   }
   // intro
   .m-display-intro {
@@ -688,12 +689,13 @@ h3 {
   }
   // text block
   .m-display-text-block {
-    .m-display-value {
-      display: block;
-    }
     .m-display-prefix {
       margin-right: 0;
-      display: block;
+    }
+    .m-display-value {
+      &:not(:only-child) {
+        margin-left: 0.5em;
+      }
     }
   }
   // attack

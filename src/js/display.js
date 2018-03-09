@@ -2,32 +2,50 @@ var display = (function() {
 
   var _displayContent = {
     basics: {
+      intro: {
+        contentClass: ["m-display-intro"],
+        // areaClass: ["m-display-intro"],
+        content: [{
+          type: "image",
+          element: {
+            node: "div",
+            classname: ["m-display-image-wrapper"]
+          },
+          contentItems: [{
+            path: "basics.image.data",
+            scale: "basics.image.scale",
+            position: "basics.image.position",
+            background: "basics.image.background",
+            color: "basics.image.color"
+          }]
+        }, {
+          type: "snippet",
+          element: {
+            node: "h1"
+          },
+          contentItems: [{
+            path: "basics.character.name"
+          }, {
+            path: "basics.classes.string"
+          }]
+        }]
+      },
       character: {
         head: "Details",
         content: [{
           type: "snippet",
-          element: "p",
-          classname: ["u-list-unstyled", "m-display-list-dash"],
+          element: {
+            node: "p"
+          },
           contentItems: [{
-            path: "basics.initiative.current",
-            prefix: "Initiative",
-            valueType: "bonus"
+            path: "basics.character.alignment",
+            prefix: "Alignment"
           }, {
-            path: "basics.speed.land",
-            prefix: "Land Speed"
+            path: "basics.character.size.category",
+            prefix: "Size"
           }, {
-            path: "basics.speed.swim",
-            prefix: "Swim Speed"
-          }, {
-            path: "basics.speed.climb",
-            prefix: "Climb Speed"
-          }, {
-            path: "basics.speed.burrow",
-            prefix: "Burrow Speed"
-          }, {
-            path: "basics.speed.fly",
-            prefix: "Fly Speed",
-            dependency: "basics.speed.maneuverability"
+            path: "basics.character.race",
+            prefix: "Race"
           }, {
             path: "basics.character.deity",
             prefix: "Deity"
@@ -35,18 +53,8 @@ var display = (function() {
             path: "basics.character.gender",
             prefix: "Gender"
           }, {
-            path: "basics.character.race",
-            prefix: "Race"
-          }, {
-            path: "basics.experience.total",
-            prefix: "EXP",
-            valueType: "number"
-          }, {
-            path: "basics.character.alignment",
-            prefix: "Alignment"
-          }, {
-            path: "basics.character.size.category",
-            prefix: "Size"
+            path: "basics.character.age",
+            prefix: "Age"
           }, {
             path: "basics.character.height",
             prefix: "Height"
@@ -54,25 +62,71 @@ var display = (function() {
             path: "basics.character.weight",
             prefix: "Weight"
           }, {
-            path: "basics.character.age",
-            prefix: "Age"
-          }, {
             path: "basics.character.hero_points",
             prefix: "Hero Points"
           }]
+        }, {
+          type: "block",
+          element: {
+            node: "p"
+          },
+          contentItems: [{
+            path: "basics.character.description",
+            prefix: "Description"
+          }],
         }]
       },
       experience: {
         head: "Experience",
-        content: []
+        content: [{
+          type: "snippet",
+          element: {
+            node: "p"
+          },
+          contentItems: [{
+            path: "basics.experience.total",
+            valueType: "number"
+          }]
+        }]
       },
       initiative: {
         head: "Initiative",
-        content: []
+        content: [{
+          type: "snippet",
+          element: {
+            node: "p"
+          },
+          contentItems: [{
+            path: "basics.initiative.current",
+            valueType: "bonus"
+          }]
+        }]
       },
       speed: {
         head: "Speed",
-        content: []
+        content: [{
+          type: "snippet",
+          element: {
+            node: "p"
+          },
+          contentItems: [{
+            path: "basics.speed.land",
+            prefix: "Land"
+          }, {
+            path: "basics.speed.swim",
+            prefix: "Swim"
+          }, {
+            path: "basics.speed.climb",
+            prefix: "Climb"
+          }, {
+            path: "basics.speed.burrow",
+            prefix: "Burrow"
+          }, {
+            path: "basics.speed.fly",
+            prefix: "Fly",
+            dependency: "basics.speed.maneuverability"
+          }]
+        }]
       }
     },
     statistics: {
@@ -84,60 +138,92 @@ var display = (function() {
         head: "Abilities",
         content: [{
           type: "list",
-          element: "ul",
-          classname: ["u-list-unstyled", "m-display-list-dash"],
-          listItemKey: "name",
-          path: "statistics.abilities.all"
+          element: {
+            node: "ul",
+            classname: ["u-list-unstyled", "m-display-list-dash"]
+          },
+          contentItems: [{
+            path: "statistics.abilities.all",
+            listItemKey: "name"
+          }],
         }, {
           type: "block",
-          element: "p",
-          prefix: "Notes",
-          path: "statistics.abilities.notes"
+          element: {
+            node: "p"
+          },
+          contentItems: [{
+            path: "statistics.abilities.notes",
+            prefix: "Notes"
+          }],
         }]
       },
       feats: {
         head: "Feats",
         content: [{
           type: "list",
-          element: "ul",
-          listItemKey: "name",
-          classname: ["u-list-unstyled", "m-display-list-dash"],
-          path: "statistics.feats.all"
+          element: {
+            node: "ul",
+            classname: ["u-list-unstyled", "m-display-list-dash"]
+          },
+          contentItems: [{
+            path: "statistics.feats.all",
+            listItemKey: "name"
+          }],
         }, {
           type: "block",
-          element: "p",
-          prefix: "Notes",
-          path: "statistics.feats.notes"
+          element: {
+            node: "p"
+          },
+          contentItems: [{
+            path: "statistics.feats.notes",
+            prefix: "Notes"
+          }],
         }]
       },
       traits: {
         head: "Traits",
         content: [{
           type: "list",
-          element: "ul",
-          listItemKey: "name",
-          classname: ["u-list-unstyled", "m-display-list-dash"],
-          path: "statistics.traits.all"
+          element: {
+            node: "ul",
+            classname: ["u-list-unstyled", "m-display-list-dash"]
+          },
+          contentItems: [{
+            path: "statistics.traits.all",
+            listItemKey: "name"
+          }],
         }, {
           type: "block",
-          element: "p",
-          prefix: "Notes",
-          path: "statistics.traits.notes"
+          element: {
+            node: "p"
+          },
+          contentItems: [{
+            path: "statistics.traits.notes",
+            prefix: "Notes"
+          }],
         }]
       },
       languages: {
         head: "Languages",
         content: [{
           type: "list",
-          element: "ul",
-          listItemKey: "name",
-          classname: ["u-list-unstyled", "m-display-list-dash"],
-          path: "statistics.languages.all"
+          element: {
+            node: "ul",
+            classname: ["u-list-unstyled", "m-display-list-dash"]
+          },
+          contentItems: [{
+            path: "statistics.languages.all",
+            listItemKey: "name"
+          }],
         }, {
           type: "block",
-          element: "p",
-          prefix: "Notes",
-          path: "statistics.languages.notes"
+          element: {
+            node: "p"
+          },
+          contentItems: [{
+            path: "statistics.languages.notes",
+            prefix: "Notes"
+          }],
         }]
       },
       power: {
@@ -1395,9 +1481,9 @@ var display = (function() {
         displayContent.setAttribute("class", "m-display-content");
         var displayAreaContentFound = false;
 
-        if ("areaClass" in displayAreaData) {
-          displayAreaData.areaClass.forEach(function(arrayItem) {
-            helper.addClass(displayArea, arrayItem);
+        if ("contentClass" in displayAreaData) {
+          displayAreaData.contentClass.forEach(function(arrayItem) {
+            helper.addClass(displayContent, arrayItem);
           });
         };
 
@@ -1488,14 +1574,14 @@ var display = (function() {
     var createElement = {
       image: function(displayObject) {
         var all_element = [];
-        var element = document.createElement(displayObject.element);
-        if (displayObject.classname) {
-          displayObject.classname.forEach(function(arrayItem) {
+        var element = document.createElement(displayObject.element.node);
+        if (displayObject.element.classname) {
+          displayObject.element.classname.forEach(function(arrayItem) {
             helper.addClass(element, arrayItem);
           });
         };
         var contentFound = 0;
-        displayObject.content.forEach(function(arrayItem, index) {
+        displayObject.contentItems.forEach(function(arrayItem, index) {
           var data = helper.getObject({
             object: sheet.get(),
             path: arrayItem.path
@@ -1545,10 +1631,10 @@ var display = (function() {
       },
       snippet: function(displayObject) {
         var all_element = [];
-        var element = document.createElement(displayObject.element);
+        var element = document.createElement(displayObject.element.node);
         element.setAttribute("class", "m-display-snippet");
-        if (displayObject.classname) {
-          displayObject.classname.forEach(function(arrayItem) {
+        if (displayObject.element.classname) {
+          displayObject.element.classname.forEach(function(arrayItem) {
             helper.addClass(element, arrayItem);
           });
         };
@@ -1602,37 +1688,39 @@ var display = (function() {
       },
       block: function(displayObject) {
         var all_element = [];
-        var element = document.createElement(displayObject.element);
+        var element = document.createElement(displayObject.element.node);
         element.setAttribute("class", "m-display-text-block");
-        if (displayObject.classname) {
-          displayObject.classname.forEach(function(arrayItem) {
+        if (displayObject.element.classname) {
+          displayObject.element.classname.forEach(function(arrayItem) {
             helper.addClass(element, arrayItem);
           });
         };
         var contentFound = 0;
-        var data = helper.getObject({
-          object: sheet.get(),
-          path: displayObject.path
+        displayObject.contentItems.forEach(function(arrayItem) {
+          var data = helper.getObject({
+            object: sheet.get(),
+            path: arrayItem.path
+          });
+          if (data != "") {
+            contentFound++;
+            if (arrayItem.prefix) {
+              var prefix = document.createElement("span");
+              prefix.setAttribute("class", "m-display-prefix");
+              prefix.textContent = arrayItem.prefix;
+              element.appendChild(prefix);
+            };
+            var value = document.createElement("span");
+            value.setAttribute("class", "m-display-value");
+            value.innerHTML = data;
+            element.appendChild(value);
+            if (arrayItem.suffix) {
+              var suffix = document.createElement("span");
+              suffix.setAttribute("class", "m-display-suffix");
+              suffix.textContent = arrayItem.suffix;
+              element.appendChild(suffix);
+            };
+          };
         });
-        if (data != "") {
-          contentFound++;
-          if (displayObject.prefix) {
-            var prefix = document.createElement("span");
-            prefix.setAttribute("class", "m-display-prefix");
-            prefix.textContent = displayObject.prefix;
-            element.appendChild(prefix);
-          };
-          var value = document.createElement("span");
-          value.setAttribute("class", "m-display-value");
-          value.innerHTML = data;
-          element.appendChild(value);
-          if (displayObject.suffix) {
-            var suffix = document.createElement("span");
-            suffix.setAttribute("class", "m-display-suffix");
-            suffix.textContent = displayObject.suffix;
-            element.appendChild(suffix);
-          };
-        };
         if (contentFound > 0) {
           all_element.push(element);
         } else {
@@ -1642,8 +1730,13 @@ var display = (function() {
       },
       stat: function(displayObject) {
         var all_element = [];
-        var element = document.createElement(displayObject.element);
+        var element = document.createElement(displayObject.element.node);
         element.setAttribute("class", "m-display-stats u-list-unstyled");
+        if (displayObject.element.classname) {
+          displayObject.element.classname.forEach(function(arrayItem) {
+            helper.addClass(element, arrayItem);
+          });
+        };
         var contentFound = 0;
         displayObject.content.forEach(function(arrayItem, index) {
           contentFound++;
@@ -1683,29 +1776,32 @@ var display = (function() {
       },
       list: function(displayObject) {
         var all_element = [];
-        var element = document.createElement(displayObject.element);
-        if (displayObject.classname) {
-          displayObject.classname.forEach(function(arrayItem) {
+        var element = document.createElement(displayObject.element.node);
+        if (displayObject.element.classname) {
+          displayObject.element.classname.forEach(function(arrayItem) {
             helper.addClass(element, arrayItem);
           });
         };
         var contentFound = 0;
-        var all_listItem = helper.getObject({
-          object: sheet.get(),
-          path: displayObject.path
-        });
-        if (all_listItem.length > 0) {
-          all_listItem.forEach(function(arrayItem) {
-            contentFound++;
-            var listItem = document.createElement("li");
-            listItem.setAttribute("class", "m-display-list-item");
-            var listItemName = document.createElement("span");
-            listItemName.setAttribute("class", "m-display-list-item-name");
-            listItemName.textContent = arrayItem[displayObject.listItemKey];
-            listItem.appendChild(listItemName);
-            element.appendChild(listItem);
+        displayObject.contentItems.forEach(function(arrayItem) {
+          var all_listItem = helper.getObject({
+            object: sheet.get(),
+            path: arrayItem.path
           });
-        };
+          var dataKey = arrayItem.listItemKey;
+          if (all_listItem.length > 0) {
+            all_listItem.forEach(function(arrayItem) {
+              contentFound++;
+              var listItem = document.createElement("li");
+              listItem.setAttribute("class", "m-display-list-item");
+              var listItemName = document.createElement("span");
+              listItemName.setAttribute("class", "m-display-list-item-name");
+              listItemName.textContent = arrayItem[dataKey];
+              listItem.appendChild(listItemName);
+              element.appendChild(listItem);
+            });
+          };
+        });
         if (contentFound > 0) {
           all_element.push(element);
         } else {
@@ -1715,10 +1811,9 @@ var display = (function() {
       },
       group: function(displayObject) {
         var all_element = [];
-        var element = document.createElement(displayObject.element);
-        element.setAttribute("class", "u-list-unstyled");
-        if (displayObject.classname) {
-          displayObject.classname.forEach(function(arrayItem) {
+        var element = document.createElement(displayObject.element.node);
+        if (displayObject.element.classname) {
+          displayObject.element.classname.forEach(function(arrayItem) {
             helper.addClass(element, arrayItem);
           });
         };
@@ -1768,8 +1863,12 @@ var display = (function() {
       },
       pill: function(displayObject) {
         var all_element = [];
-        var element = document.createElement(displayObject.element);
-        element.setAttribute("class", "u-list-unstyled");
+        var element = document.createElement(displayObject.element.node);
+        if (displayObject.element.classname) {
+          displayObject.element.classname.forEach(function(arrayItem) {
+            helper.addClass(element, arrayItem);
+          });
+        };
         var contentFound = 0;
         if (displayObject.head) {
           var head = document.createElement("p");
@@ -1806,10 +1905,9 @@ var display = (function() {
       },
       clone: function(displayObject) {
         var all_element = [];
-        var element = document.createElement(displayObject.element);
-        element.setAttribute("class", "u-list-unstyled");
-        if (displayObject.classname) {
-          displayObject.classname.forEach(function(arrayItem) {
+        var element = document.createElement(displayObject.element.node);
+        if (displayObject.element.classname) {
+          displayObject.element.classname.forEach(function(arrayItem) {
             helper.addClass(element, arrayItem);
           });
         };
@@ -2034,10 +2132,9 @@ var display = (function() {
       },
       skills: function(displayObject) {
         var all_element = [];
-        var element = document.createElement(displayObject.element);
-        element.setAttribute("class", "u-list-unstyled");
-        if (displayObject.classname) {
-          displayObject.classname.forEach(function(arrayItem) {
+        var element = document.createElement(displayObject.element.node);
+        if (displayObject.element.classname) {
+          displayObject.element.classname.forEach(function(arrayItem) {
             helper.addClass(element, arrayItem);
           });
         };
@@ -2150,10 +2247,9 @@ var display = (function() {
       },
       spells: function(displayObject) {
         var all_element = [];
-        var element = document.createElement(displayObject.element);
-        element.setAttribute("class", "u-list-unstyled");
-        if (displayObject.classname) {
-          displayObject.classname.forEach(function(arrayItem) {
+        var element = document.createElement(displayObject.element.node);
+        if (displayObject.element.classname) {
+          displayObject.element.classname.forEach(function(arrayItem) {
             helper.addClass(element, arrayItem);
           });
         };
