@@ -318,9 +318,9 @@ h3 {
         background-color: $secondary-color-10;
         display: block;
         width: 1px;
-        height: 0.4em;
+        height: 5px;
         position: absolute;
-        bottom: 0;
+        bottom: -2px;
         right: 0;
       }
     }
@@ -646,7 +646,7 @@ h3 {
   }
   // image
   .m-display-image-wrapper {
-    margin: 0 2em 0 -4em;
+    margin: 0 2em 0 -3em;
     width: 16em;
     height: 16em;
     min-width: 16em;
@@ -743,6 +743,10 @@ h3 {
   }
 }
 @media (min-width: $screen-lg) {
+  // image
+  .m-display-image-wrapper {
+    margin: 0 2em 0 -4em;
+  }
   // list
   .m-display-list-responsive {
     .m-display-list-item {
@@ -777,6 +781,10 @@ h3 {
     &:not(:only-child):not(:last-child) {
       margin-bottom: 2.5em;
     }
+  }
+  // image
+  .m-display-image-wrapper {
+    margin: 0 2em 0 -5em;
   }
   // attack
   .m-display-list-attack {

@@ -329,7 +329,7 @@ var display = (function() {
       }],
       consumable: [{
         type: "clone",
-        element: "p",
+        element: "ul",
         cloneType: "consumable",
         classname: ["m-display-list-responsive"],
         head: "Consumables",
