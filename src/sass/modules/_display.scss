@@ -50,7 +50,7 @@
 // --------------------------------------------------
 .m-display-head {
   color: $primary-color-08;
-  font-size: $font-size-075;
+  // font-size: $font-size-075;
   font-family: $open-sans-semi-bold;
   &:not(:last-child):not(:last-child) {
     margin-bottom: 0.5em;
@@ -58,7 +58,7 @@
 }
 .m-display-prefix,
 .m-display-suffix {
-  font-size: $font-size-075;
+  // font-size: $font-size-075;
   font-family: $open-sans-italic;
   &:not(:last-child):not(:last-child) {
     margin-bottom: 0;
@@ -278,7 +278,7 @@ h3 {
     }
     .m-display-list-item-prefix,
     .m-display-list-item-suffix {
-      font-size: $font-size-075;
+      // font-size: $font-size-075;
       font-family: $open-sans-italic;
     }
     .m-display-list-item-prefix {
@@ -479,7 +479,7 @@ h3 {
   box-sizing: border-box;
   .m-display-list-item-attack-prefix {
     margin: 0;
-    font-size: $font-size-075;
+    // font-size: $font-size-075;
     font-family: $open-sans-italic;
     color: $primary-color-08;
     display: inline-block;
@@ -629,6 +629,12 @@ h3 {
   }
 }
 @media (min-width: $screen-md) {
+  // display area
+  .m-display-area {
+    &:not(:only-child):not(:last-child) {
+      margin-bottom: 2em;
+    }
+  }
   // intro
   .m-display-intro {
     display: flex;
@@ -766,6 +772,12 @@ h3 {
   }
 }
 @media (min-width: $screen-xl) {
+  // display area
+  .m-display-area {
+    &:not(:only-child):not(:last-child) {
+      margin-bottom: 2.5em;
+    }
+  }
   // attack
   .m-display-list-attack {
     .m-display-list-item-attack {
