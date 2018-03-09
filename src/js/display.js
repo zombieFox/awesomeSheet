@@ -2,6 +2,253 @@ var display = (function() {
 
   var _displayContent = {
     basics: {
+      character: {
+        head: "Details",
+        content: [{
+          type: "snippet",
+          element: "p",
+          classname: ["u-list-unstyled", "m-display-list-dash"],
+          contentItems: [{
+            path: "basics.initiative.current",
+            prefix: "Initiative",
+            valueType: "bonus"
+          }, {
+            path: "basics.speed.land",
+            prefix: "Land Speed"
+          }, {
+            path: "basics.speed.swim",
+            prefix: "Swim Speed"
+          }, {
+            path: "basics.speed.climb",
+            prefix: "Climb Speed"
+          }, {
+            path: "basics.speed.burrow",
+            prefix: "Burrow Speed"
+          }, {
+            path: "basics.speed.fly",
+            prefix: "Fly Speed",
+            dependency: "basics.speed.maneuverability"
+          }, {
+            path: "basics.character.deity",
+            prefix: "Deity"
+          }, {
+            path: "basics.character.gender",
+            prefix: "Gender"
+          }, {
+            path: "basics.character.race",
+            prefix: "Race"
+          }, {
+            path: "basics.experience.total",
+            prefix: "EXP",
+            valueType: "number"
+          }, {
+            path: "basics.character.alignment",
+            prefix: "Alignment"
+          }, {
+            path: "basics.character.size.category",
+            prefix: "Size"
+          }, {
+            path: "basics.character.height",
+            prefix: "Height"
+          }, {
+            path: "basics.character.weight",
+            prefix: "Weight"
+          }, {
+            path: "basics.character.age",
+            prefix: "Age"
+          }, {
+            path: "basics.character.hero_points",
+            prefix: "Hero Points"
+          }]
+        }]
+      },
+      experience: {
+        head: "Experience",
+        content: []
+      },
+      initiative: {
+        head: "Initiative",
+        content: []
+      },
+      speed: {
+        head: "Speed",
+        content: []
+      }
+    },
+    statistics: {
+      stats: {
+        head: "Stats",
+        content: []
+      },
+      abilities: {
+        head: "Abilities",
+        content: [{
+          type: "list",
+          element: "ul",
+          classname: ["u-list-unstyled", "m-display-list-dash"],
+          listItemKey: "name",
+          path: "statistics.abilities.all"
+        }, {
+          type: "block",
+          element: "p",
+          prefix: "Notes",
+          path: "statistics.abilities.notes"
+        }]
+      },
+      feats: {
+        head: "Feats",
+        content: [{
+          type: "list",
+          element: "ul",
+          listItemKey: "name",
+          classname: ["u-list-unstyled", "m-display-list-dash"],
+          path: "statistics.feats.all"
+        }, {
+          type: "block",
+          element: "p",
+          prefix: "Notes",
+          path: "statistics.feats.notes"
+        }]
+      },
+      traits: {
+        head: "Traits",
+        content: [{
+          type: "list",
+          element: "ul",
+          listItemKey: "name",
+          classname: ["u-list-unstyled", "m-display-list-dash"],
+          path: "statistics.traits.all"
+        }, {
+          type: "block",
+          element: "p",
+          prefix: "Notes",
+          path: "statistics.traits.notes"
+        }]
+      },
+      languages: {
+        head: "Languages",
+        content: [{
+          type: "list",
+          element: "ul",
+          listItemKey: "name",
+          classname: ["u-list-unstyled", "m-display-list-dash"],
+          path: "statistics.languages.all"
+        }, {
+          type: "block",
+          element: "p",
+          prefix: "Notes",
+          path: "statistics.languages.notes"
+        }]
+      },
+      power: {
+        head: "Power",
+        content: []
+      }
+    },
+    equipment: {
+      possessions: {
+        head: "Possessions",
+        content: []
+      },
+      armor: {
+        head: "Armor",
+        content: []
+      },
+      body_slots: {
+        head: "Body Slots",
+        content: []
+      },
+      item: {
+        head: "Item",
+        content: []
+      },
+      encumbrance: {
+        head: "Encumbrance",
+        content: []
+      },
+      consumable: {
+        head: "Consumable",
+        content: []
+      },
+      wealth: {
+        head: "Wealth",
+        content: []
+      }
+    },
+    defense: {
+      hp: {
+        head: "HP",
+        content: []
+      },
+      ac: {
+        head: "AC",
+        content: []
+      },
+      cmd: {
+        head: "CMd",
+        content: []
+      },
+      saves: {
+        head: "Saves",
+        content: []
+      },
+      dr: {
+        head: "DR",
+        content: []
+      },
+      sr: {
+        head: "SR",
+        content: []
+      },
+      resistance: {
+        head: "Resistance",
+        content: []
+      }
+    },
+    offense: {
+      stats: {
+        head: "Stats",
+        content: []
+      },
+      cmb: {
+        head: "CMD",
+        content: []
+      },
+      attack: {
+        head: "Attacks",
+        content: []
+      }
+    },
+    skills: {
+      default: {
+        head: "Skills",
+        content: []
+      }
+    },
+    spells: {
+      stats: {
+        head: "Stats",
+        content: []
+      },
+      book: {
+        head: "Spells",
+        content: []
+      }
+    },
+    notes: {
+      character: {
+        head: "Character",
+        content: []
+      },
+      story: {
+        head: "Story",
+        content: []
+      }
+    }
+  };
+
+  var _______displayContent = {
+    basics: {
       intro: [{
         areaClass: ["m-display-intro"],
         wrapper: ["m-display-intro-image"],
@@ -1137,46 +1384,64 @@ var display = (function() {
     var options = helper.makeObject(displayBlock.dataset.displayOptions);
     if (options) {
       options.sections.forEach(function(arrayItem) {
-
-        var all_displayObject = helper.getObject({
+        var displayAreaData = helper.getObject({
           object: _displayContent,
           path: arrayItem
         });
+
         var displayArea = document.createElement("div");
         displayArea.setAttribute("class", "m-display-area");
-        var displayAreaContent = false;
-        all_displayObject.forEach(function(arrayItem, index) {
-          if (arrayItem.areaClass) {
-            arrayItem.areaClass.forEach(function(arrayItem) {
-              helper.addClass(displayArea, arrayItem);
-            });
-          };
-          var wrapper = false;
+        var displayContent = document.createElement("div");
+        displayContent.setAttribute("class", "m-display-content");
+        var displayAreaContentFound = false;
+
+        if ("areaClass" in displayAreaData) {
+          displayAreaData.areaClass.forEach(function(arrayItem) {
+            helper.addClass(displayArea, arrayItem);
+          });
+        };
+
+        if ("head" in displayAreaData) {
+          var displayHead = document.createElement("div");
+          displayHead.setAttribute("class", "m-display-head");
+          displayHead.textContent = displayAreaData.head;
+          displayArea.appendChild(displayHead);
+        };
+
+        displayAreaData.content.forEach(function(arrayItem) {
           var all_elementToAdd = _render_content(arrayItem);
-          if (arrayItem.wrapper) {
-            wrapper = document.createElement("div");
-            wrapper.setAttribute("class", arrayItem.wrapper);
-          };
           if (all_elementToAdd) {
             if (all_elementToAdd.length > 0) {
               all_elementToAdd.forEach(function(arrayItem) {
                 if (arrayItem) {
-                  displayAreaContent = true;
-                  if (wrapper) {
-                    wrapper.appendChild(arrayItem);
-                    displayArea.appendChild(wrapper);
-                  } else {
-                    displayArea.appendChild(arrayItem);
-                  };
+                  displayAreaContentFound = true;
+                  displayContent.appendChild(arrayItem);
                 };
               });
             };
           };
+          if (displayAreaContentFound) {
+            displayArea.appendChild(displayContent);
+            displayBlock.appendChild(displayArea);
+          };
         });
 
-        if (displayAreaContent) {
-          displayBlock.appendChild(displayArea);
-        };
+
+        // all_displayObject.forEach(function(arrayItem, index) {
+        //   console.log(arrayitem);
+        //   // if (arrayItem.areaClass) {
+        //   //   arrayItem.areaClass.forEach(function(arrayItem) {
+        //   //     helper.addClass(displayArea, arrayItem);
+        //   //   });
+        //   // };
+        //   // var wrapper = false;
+        //   // var all_elementToAdd = _render_content(arrayItem);
+        //   // if (arrayItem.wrapper) {
+        //   //   wrapper = document.createElement("div");
+        //   //   wrapper.setAttribute("class", arrayItem.wrapper);
+        //   // };
+        // });
+
 
       });
     };
@@ -1288,18 +1553,13 @@ var display = (function() {
           });
         };
         var contentFound = 0;
-        if (displayObject.head) {
-          var head = document.createElement("p");
-          head.setAttribute("class", "m-display-head");
-          head.textContent = displayObject.head;
-        };
-        displayObject.content.forEach(function(arrayItem, index) {
+        displayObject.contentItems.forEach(function(arrayItem, index) {
           var data = helper.getObject({
             object: sheet.get(),
             path: arrayItem.path
           });
           if (data != "") {
-            if (arrayItem.valueType) {
+            if ("valueType" in arrayItem) {
               data = dataFormat[arrayItem.valueType](data);
             };
             if (arrayItem.dependency) {
@@ -1334,9 +1594,6 @@ var display = (function() {
           };
         });
         if (contentFound > 0) {
-          if (head) {
-            all_element.push(head);
-          };
           all_element.push(element);
         } else {
           all_element.push(false);
@@ -1353,40 +1610,30 @@ var display = (function() {
           });
         };
         var contentFound = 0;
-        if (displayObject.head) {
-          var head = document.createElement("p");
-          head.setAttribute("class", "m-display-head");
-          head.textContent = displayObject.head;
-        };
-        displayObject.content.forEach(function(arrayItem, index) {
-          var data = helper.getObject({
-            object: sheet.get(),
-            path: arrayItem.path
-          });
-          if (data != "") {
-            contentFound++;
-            if (arrayItem.prefix) {
-              var prefix = document.createElement("span");
-              prefix.setAttribute("class", "m-display-prefix");
-              prefix.textContent = arrayItem.prefix;
-              element.appendChild(prefix);
-            };
-            var value = document.createElement("span");
-            value.setAttribute("class", "m-display-value");
-            value.innerHTML = data;
-            element.appendChild(value);
-            if (arrayItem.suffix) {
-              var suffix = document.createElement("span");
-              suffix.setAttribute("class", "m-display-suffix");
-              suffix.textContent = arrayItem.suffix;
-              element.appendChild(suffix);
-            };
-          };
+        var data = helper.getObject({
+          object: sheet.get(),
+          path: displayObject.path
         });
-        if (contentFound > 0) {
-          if (head) {
-            all_element.push(head);
+        if (data != "") {
+          contentFound++;
+          if (displayObject.prefix) {
+            var prefix = document.createElement("span");
+            prefix.setAttribute("class", "m-display-prefix");
+            prefix.textContent = displayObject.prefix;
+            element.appendChild(prefix);
           };
+          var value = document.createElement("span");
+          value.setAttribute("class", "m-display-value");
+          value.innerHTML = data;
+          element.appendChild(value);
+          if (displayObject.suffix) {
+            var suffix = document.createElement("span");
+            suffix.setAttribute("class", "m-display-suffix");
+            suffix.textContent = displayObject.suffix;
+            element.appendChild(suffix);
+          };
+        };
+        if (contentFound > 0) {
           all_element.push(element);
         } else {
           all_element.push(false);
@@ -1437,40 +1684,29 @@ var display = (function() {
       list: function(displayObject) {
         var all_element = [];
         var element = document.createElement(displayObject.element);
-        element.setAttribute("class", "u-list-unstyled");
         if (displayObject.classname) {
           displayObject.classname.forEach(function(arrayItem) {
             helper.addClass(element, arrayItem);
           });
         };
         var contentFound = 0;
-        if (displayObject.head) {
-          var head = document.createElement("p");
-          head.setAttribute("class", "m-display-head");
-          head.textContent = displayObject.head;
-        };
-        displayObject.content.forEach(function(arrayItem, index) {
-          var all_listItem = helper.getObject({
-            object: sheet.get(),
-            path: arrayItem.path
-          });
-          if (all_listItem.length > 0) {
-            all_listItem.forEach(function(arrayItem) {
-              contentFound++;
-              var listItem = document.createElement("li");
-              listItem.setAttribute("class", "m-display-list-item");
-              var listItemName = document.createElement("span");
-              listItemName.setAttribute("class", "m-display-list-item-name");
-              listItemName.textContent = arrayItem.name;
-              listItem.appendChild(listItemName);
-              element.appendChild(listItem);
-            });
-          };
+        var all_listItem = helper.getObject({
+          object: sheet.get(),
+          path: displayObject.path
         });
+        if (all_listItem.length > 0) {
+          all_listItem.forEach(function(arrayItem) {
+            contentFound++;
+            var listItem = document.createElement("li");
+            listItem.setAttribute("class", "m-display-list-item");
+            var listItemName = document.createElement("span");
+            listItemName.setAttribute("class", "m-display-list-item-name");
+            listItemName.textContent = arrayItem[displayObject.listItemKey];
+            listItem.appendChild(listItemName);
+            element.appendChild(listItem);
+          });
+        };
         if (contentFound > 0) {
-          if (head) {
-            all_element.push(head);
-          };
           all_element.push(element);
         } else {
           all_element.push(false);
@@ -1985,7 +2221,7 @@ var display = (function() {
         return all_element;
       }
     };
-    if (displayObject.type in createElement) {
+    if ("type" in displayObject && displayObject.type in createElement) {
       return createElement[displayObject.type](displayObject);
     } else {
       return false;

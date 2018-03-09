@@ -9,6 +9,13 @@
     margin-bottom: 1.5em;
   }
 }
+.m-display-content {
+  display: block;
+  margin-left: 1em;
+}
+.m-display-head {
+  display: block;
+}
 // --------------------------------------------------
 // intro
 // --------------------------------------------------
@@ -143,7 +150,6 @@ h3 {
     display: block;
   }
   .m-display-value {
-    margin-left: 0.5em;
     display: block;
   }
 }
@@ -257,7 +263,6 @@ h3 {
 // --------------------------------------------------
 [class*="m-display-list"],
 [class^="m-display-list"] {
-  margin-left: 0.5em;
   .m-display-list-item {
     margin: 0;
     padding-top: 0.5em;
@@ -631,9 +636,16 @@ h3 {
 @media (min-width: $screen-md) {
   // display area
   .m-display-area {
-    &:not(:only-child):not(:last-child) {
-      margin-bottom: 2em;
-    }
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+  }
+  .m-display-head {
+    margin-left: 0;
+    flex: 0 0 20%;
+  }
+  .m-display-content {
+    flex: 1 1 auto;
   }
   // intro
   .m-display-intro {
@@ -677,7 +689,6 @@ h3 {
   // text block
   .m-display-text-block {
     .m-display-value {
-      margin-left: 0.5em;
       display: block;
     }
     .m-display-prefix {
