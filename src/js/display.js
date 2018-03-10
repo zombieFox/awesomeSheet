@@ -8,7 +8,7 @@ var display = (function() {
           type: "image",
           element: {
             node: "div",
-            classname: ["m-display-image-wrapper"]
+            classname: ["m-display-image-wrapper", "m-display-intro-image"]
           },
           contentItems: [{
             path: "basics.image.data",
@@ -20,44 +20,64 @@ var display = (function() {
         }, {
           type: "snippet",
           element: {
-            node: "h1",
-            classname: ["m-display-intro-name-class"]
+            node: "div",
+            classname: ["m-display-intro-details"]
           },
           contentItems: [{
             path: "basics.character.name",
+            element: {
+              node: "h1",
+            }
           }, {
             path: "basics.classes.string",
-          }]
-        }, {
-          type: "snippet",
-          element: {
-            node: "p",
-            classname: ["m-display-intro-stats"]
-          },
-          contentItems: [{
+            element: {
+              node: "h2",
+            }
+          }, {
             path: "basics.initiative.current",
             prefix: "Initiative",
-            valueType: "bonus"
+            valueType: "bonus",
+            element: {
+              node: "p",
+            }
           }, {
             path: "skills.default.perception.current",
             prefix: "Perception",
-            valueType: "bonus"
+            valueType: "bonus",
+            element: {
+              node: "p",
+            }
           }, {
             path: "basics.speed.land",
-            prefix: "Land Speed"
+            prefix: "Land Speed",
+            element: {
+              node: "p",
+            }
           }, {
             path: "basics.speed.swim",
-            prefix: "Swim Speed"
+            prefix: "Swim Speed",
+            element: {
+              node: "p",
+            }
           }, {
             path: "basics.speed.climb",
-            prefix: "Climb Speed"
+            prefix: "Climb Speed",
+            element: {
+              node: "p",
+            }
           }, {
             path: "basics.speed.burrow",
-            prefix: "Burrow Speed"
+            prefix: "Burrow Speed",
+            element: {
+              node: "p",
+            }
           }, {
             path: "basics.speed.fly",
             prefix: "Fly Speed",
-            dependency: "basics.speed.maneuverability"
+            dependency: "basics.speed.maneuverability",
+            element: {
+              node: "p",
+            }
           }]
         }]
       },
@@ -1529,8 +1549,14 @@ var display = (function() {
                 data = data + " / " + dependencyData;
               };
             };
+            var snippetNode;
+            if ("element" in arrayItem) {
+              snippetNode = arrayItem.element.node;
+            } else {
+              snippetNode = "span";
+            };
             contentFound++;
-            var snippet = document.createElement("span");
+            var snippet = document.createElement(snippetNode);
             snippet.setAttribute("class", "m-display-snippet-item");
             if (arrayItem.prefix) {
               var prefix = document.createElement("span");

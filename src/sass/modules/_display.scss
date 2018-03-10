@@ -22,6 +22,36 @@
 // intro
 // --------------------------------------------------
 .m-display-intro {}
+.m-display-intro-image {}
+.m-display-intro-details {
+  h1 {
+    font-size: $font-size-150;
+    &:not(:only-child):not(:last-child) {
+      margin-bottom: 0;
+    }
+  }
+  h2 {
+    font-size: $font-size-100;
+  }
+  h1,
+  h2 {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    &:not(:only-child):not(:last-child) {
+      padding-right: 0;
+      margin-right: 0;
+      &:after {
+        content: none;
+      }
+    }
+  }
+  p {
+    &:not(:only-child):not(:last-child) {
+      margin-bottom: 0;
+    }
+  }
+}
 // --------------------------------------------------
 // image
 // --------------------------------------------------
@@ -648,8 +678,9 @@ h3 {
     justify-content: flex-start;
     align-items: center;
     position: relative;
-    .m-display-intro-name-class {}
   }
+  .m-display-intro-image {}
+  .m-display-intro-details {}
   // image
   .m-display-image-wrapper {
     margin: 0 2em 0 -3em;
@@ -753,10 +784,6 @@ h3 {
   }
 }
 @media (min-width: $screen-lg) {
-  // image
-  .m-display-image-wrapper {
-    margin: 0 2em 0 -4em;
-  }
   // list
   .m-display-list-responsive {
     .m-display-list-item {
@@ -794,7 +821,7 @@ h3 {
   }
   // image
   .m-display-image-wrapper {
-    margin: 0 2em 0 -5em;
+    margin: 0 2em 0 -4em;
   }
   // attack
   .m-display-list-attack {
