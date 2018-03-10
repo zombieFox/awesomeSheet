@@ -288,7 +288,7 @@ var display = (function() {
     equipment: {
       possessions: {
         gear: {
-          head: "Possessions",
+          head: "Gear",
           content: [{
             type: "block",
             element: {
@@ -338,7 +338,20 @@ var display = (function() {
       },
       armor: {
         head: "Armor",
-        content: []
+        content: [{
+          type: "group",
+          element: {
+            node: "ul",
+            classname: ["u-list-unstyled", "m-display-list-responsive", "m-display-list-stack"]
+          },
+          contentItems: [{
+            path: "equipment.armor.armor",
+            prefix: "Armor"
+          }, {
+            path: "equipment.armor.shield",
+            prefix: "Shield"
+          }]
+        }]
       },
       body_slots: {
         head: "Body Slots",
@@ -697,10 +710,12 @@ var display = (function() {
           },
           contentItems: [{
             path: "spells.stats.concentration.current",
-            prefix: "Concentration"
+            prefix: "Concentration",
+            valueType: "bonus"
           }, {
             path: "spells.stats.caster_level_check.current",
-            prefix: "Caster Level Check"
+            prefix: "Caster Level Check",
+            valueType: "bonus"
           }]
         }, {
           type: "snippet",
