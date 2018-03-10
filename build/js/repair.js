@@ -2584,6 +2584,45 @@ var repair = (function() {
     return characterObject;
   };
 
+  function _update_520(characterObject) {
+    var _report = {
+      name: characterObject.basics.character.name,
+      repaired: []
+    };
+    // awesome
+    _report.repaired.push("update: awesome version");
+    characterObject.awesomeSheet.version = 5.2;
+    // abilities
+    if (!("string" in characterObject.basics.classes)) {
+      _report.repaired.push("update: classes");
+      var classAndLevel = "";
+      var classes = characterObject.basics.classes.all;
+      if (classes.length > 0) {
+        classes.forEach(function(arrayItem, index) {
+          var classname = arrayItem.classname || "No class";
+          var level = arrayItem.level || "No level";
+          classAndLevel = classAndLevel + classname + " " + level;
+          if (index < (classes.length - 1)) {
+            classAndLevel = classAndLevel + " / ";
+          };
+        });
+      };
+      characterObject.basics.classes.string = classAndLevel;
+    };
+    // consumable
+    if (characterObject.equipment.consumable.all.length > 0) {
+      _report.repaired.push("update: consumable name");
+      characterObject.equipment.consumable.all.forEach(function(arrayItem) {
+        arrayItem.name = arrayItem.item;
+        delete arrayItem.item;
+      });
+    };
+    _log("update complete: 520");
+    _log("report:", _report);
+    _log("-----");
+    return characterObject;
+  };
+
   function _repair(characterObject) {
     // if version is found
     if (typeof characterObject.awesomeSheet == "object" && "version" in characterObject.awesomeSheet) {
@@ -2596,6 +2635,10 @@ var repair = (function() {
         if (characterObject.awesomeSheet.version < 5.1) {
           _log("update: 510");
           characterObject = _update_510(characterObject);
+        };
+        if (characterObject.awesomeSheet.version < 5.2) {
+          _log("update: 520");
+          characterObject = _update_520(characterObject);
         };
       };
     } else {

@@ -1,6 +1,11 @@
 var update = (function() {
 
   var history = [{
+    version: "5.2.0",
+    list: [
+      "Update Display mode design and module."
+    ]
+  }, {
     version: "5.1.0",
     list: [
       "Added Feats and Traits search."

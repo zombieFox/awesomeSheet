@@ -100,8 +100,7 @@ var ravich = (function() {
           height: 500
         },
         scale: 190
-      },
-      character_image: {}
+      }
     },
     statistics: {
       stats: {

@@ -22,10 +22,8 @@ var textareaBlock = (function() {
     _store(element);
     sheet.store();
     totalBlock.render();
-    if (display.state()) {
-      display.clear();
-      display.render();
-    };
+    display.clear();
+    display.render();
   };
 
   function _focus(element) {

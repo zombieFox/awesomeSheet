@@ -31,7 +31,7 @@ var shade = (function() {
       if (defaultOptions.includeHeader) {
         helper.addClass(shade, "m-shade-top");
       };
-      if (display.state({
+      if (display.state.get({
           all: true
         })) {
         helper.addClass(shade, "is-display-mode");

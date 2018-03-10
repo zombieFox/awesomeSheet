@@ -123,7 +123,9 @@ var menu = (function() {
       event.preventDefault();
       display.clear();
       display.render();
-      display.toggle();
+      display.toggle({
+        all: true
+      });
       themeColor.update();
     }, false);
     menuLinkFullscreenMode.addEventListener("click", function(event) {

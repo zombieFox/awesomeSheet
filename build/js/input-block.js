@@ -200,10 +200,8 @@ var inputBlock = (function() {
     totalBlock.render();
     textBlock.render();
     sheet.store();
-    if (display.state()) {
-      display.clear();
-      display.render();
-    };
+    display.clear();
+    display.render();
   };
 
   function _focus(element) {
@@ -608,13 +606,12 @@ var inputBlock = (function() {
     };
     var modalContent = _render_quickValueModal();
     var modalAction = function() {
-      var defenceSection = helper.e(".js-section-defense");
       _store_data();
       render(inputBlock);
       totalBlock.render();
       textBlock.render();
-      display.clear(defenceSection);
-      display.render(defenceSection);
+      display.clear();
+      display.render();
       sheet.store();
     };
     modal.render({

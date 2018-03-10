@@ -3,7 +3,7 @@ var orrin = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.1
+      version: 5.2
     },
     basics: {
       character: {
@@ -30,20 +30,21 @@ var orrin = (function() {
       classes: {
         all: [{
           classname: "Rogue",
-          level: 11,
-          hp: 68,
-          fortitude: 3,
-          reflex: 7,
-          will: 3,
-          ranks: 99,
-          bab: 8
-        }]
+          level: 12,
+          hp: 74,
+          fortitude: 4,
+          reflex: 8,
+          will: 4,
+          ranks: 110,
+          bab: 9
+        }],
+        string: "Rogue 12"
       },
       experience: {
-        level: 11,
-        next_level: 145000,
+        level: 12,
+        next_level: "",
         needed: "",
-        total: "",
+        total: 152920,
         advancement: "Fast"
       },
       initiative: {
@@ -64,7 +65,7 @@ var orrin = (function() {
         }
       },
       speed: {
-        land: "30ft",
+        land: "40ft/8sq",
         fly: "",
         maneuverability: "",
         swim: "",
@@ -105,7 +106,7 @@ var orrin = (function() {
         },
         dex: {
           modifier: "",
-          base: 18,
+          base: 19,
           enhancement: 4,
           misc: "",
           racial: 2,
@@ -187,7 +188,7 @@ var orrin = (function() {
           note: "If a rogue can catch an opponent when he is unable to defend himself effectively from her attack, she can strike a vital spot for extra damage.<div><br></div><div>The rogue's attack deals extra damage anytime her target would be denied a Dexterity bonus to AC (whether the target actually has a Dexterity bonus or not), or when the rogue flanks her target. This extra damage is 1d6 at 1st level, and increases by 1d6 every two rogue levels thereafter. Should the rogue score a critical hit with a sneak attack, this extra damage is not multiplied. Ranged attacks can count as sneak attacks only if the target is within 30 feet.</div><div><br></div><div>With a weapon that deals nonlethal damage (like a sap, whip, or an unarmed strike), a rogue can make a sneak attack that deals nonlethal damage instead of lethal damage. She cannot use a weapon that deals lethal damage to deal nonlethal damage in a sneak attack, not even with the usual –4 penalty.</div><div><br></div><div>The rogue must be able to see the target well enough to pick out a vital spot and must be able to reach such a spot. A rogue cannot sneak attack while striking a creature with concealment.</div>",
           index: false
         }, {
-          name: "Trap Sense (+3)",
+          name: "Trap Sense (+4)",
           note: "(Ex) At 3rd level, a rogue gains an intuitive sense that alerts her to danger from traps, giving her a +1 bonus on Reflex saves made to avoid traps and a +1 dodge bonus to AC against attacks made by traps. These bonuses rise to +2 when the rogue reaches 6th level, to +3 when she reaches 9th level, to +4 when she reaches 12th level, to +5 at 15th, and to +6 at 18th level.",
           index: false
         }, {
@@ -197,6 +198,18 @@ var orrin = (function() {
         }, {
           name: "Uncanny Dodge",
           note: "(Ex) Starting at 4th level, a rogue can react to danger before her senses would normally allow her to do so. She cannot be caught flat-footed, nor does she lose her Dex bonus to AC if the attacker is invisible. She still loses her Dexterity bonus to AC if immobilized. A rogue with this ability can still lose her Dexterity bonus to AC if an opponent successfully uses the feint action (see Combat) against her.<div><br></div><div>If a rogue already has uncanny dodge from a different class, she automatically gains improved uncanny dodge (see below) instead.</div>",
+          index: false
+        }, {
+          name: "Rogue Talent (Slow Reactions)",
+          note: "(Ex) Opponents damaged by the rogue's sneak attack can't make attacks of opportunity for 1 round.",
+          index: false
+        }, {
+          name: "Permanent See Invisibility",
+          note: "",
+          index: false
+        }, {
+          name: "Permanent Darkvision",
+          note: "",
           index: false
         }],
         notes: ""
@@ -274,7 +287,7 @@ var orrin = (function() {
       possessions: {
         gear: "Fur coat and cold weather outfit, Thieves' tools MW, Climber's kit, Magnifying glass, Merchant's scale, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Torch, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Dagger (2), Hide armor, 10ft pole in pieces",
         magic_gear: "Ioun Torch, Ioun Stones Dusty Rose, Rapier +1<br>",
-        potion_viles_oils: "Cure Light Wounds (6), Endure Elements (1), Bless Weapon (4), Greese (1), Reduce Person (1), Stabilise (1), Cure Light Wounds (1), Jump (1), Protection from Good (1), Protection from Law (1), Protection from Evil (1), Remove Fear (1), Remove Sickness (1), Shield of Faith (1), Vanish (1), Gaseous Form (1), Dispel Magic (1)",
+        potion_viles_oils: "Cure Light Wounds (6), Endure Elements (1), Bless Weapon (4), Greese (1), Reduce Person (1), Stabilise (1), Cure Light Wounds (1), Jump (1), Protection from Good (1), Protection from Law (1), Protection from Evil (1), Remove Fear (1), Remove Sickness (1), Shield of Faith (1), Vanish (1), Gaseous Form (1), Dispel Magic (1), Black Smear Poison (6)",
         scrolls: ""
       },
       armor: {
@@ -288,10 +301,10 @@ var orrin = (function() {
         body: "",
         chest: "Vest of Escape",
         eyes: "Eyes of the Eagle",
-        feet: "",
+        feet: "Boots of Striding and Springing",
         hands: "Gloves of Reconnaissance",
-        head: "Headband of Vast Intelligence +4",
-        headband: "",
+        head: "",
+        headband: "Headband of Vast Intelligence +4",
         neck: "Amulet of a Natural Armor +1",
         ring_left_hand: "Ring of Force Shield",
         ring_right_hand: "Ring of Protection +1",
@@ -339,48 +352,48 @@ var orrin = (function() {
       },
       consumable: {
         all: [{
-          item: "Gloves of Reconnaissance",
           current: "",
           total: 10,
-          used: 2
+          used: 2,
+          name: "Gloves of Reconnaissance"
         }, {
-          item: "Wand of Magic Missile (CL5)",
           current: "",
           total: 50,
-          used: 6
+          used: 6,
+          name: "Wand of Magic Missile (CL5)"
         }, {
-          item: "Wand of Cure Light Wounds",
           current: "",
           total: 50,
-          used: 1
+          used: 1,
+          name: "Wand of Cure Light Wounds"
         }, {
-          item: "Wand of Entangle",
           current: "",
           total: 50,
-          used: ""
+          used: "",
+          name: "Wand of Entangle"
         }]
       },
       wealth: {
         platinum: 3,
-        gold: 13009,
+        gold: 19559,
         silver: 5,
         copper: "",
-        total: 13039.5
+        total: ""
       }
     },
     defense: {
       hp: {
-        total: 79,
+        total: 86,
         temp: "",
-        damage: 36,
+        damage: "",
         non_lethal_damage: "",
         current: "",
         notes: ""
       },
       ac: {
         armor_class: {
-          misc: 3,
-          temp: 4,
+          misc: "",
+          temp: "",
           current: "",
           bonuses: {
             str: false,
@@ -400,8 +413,8 @@ var orrin = (function() {
           }
         },
         flat_footed: {
-          misc: 3,
-          temp: 4,
+          misc: "",
+          temp: "",
           current: "",
           bonuses: {
             str: false,
@@ -420,8 +433,8 @@ var orrin = (function() {
           }
         },
         touch: {
-          misc: 3,
-          temp: 4,
+          misc: "",
+          temp: "",
           current: "",
           bonuses: {
             str: false,
@@ -447,7 +460,7 @@ var orrin = (function() {
           dodge: 1,
           natural: 1
         },
-        notes: "+3 dodge bonus to AC against attacks made by traps.<br>+2 AC against incorporeal attacks.<br>+6 Dodge to AC for 1 round after Sneak Attack.<br>Spells active: Barkskin (+5), Magic Vestment (+4), Deathward, Stoneskin (DR 10/adamantine[56/120]), Heroism, Haste, Mirror Image (1)"
+        notes: "+4 dodge bonus to AC against attacks made by traps.<br>+2 AC against incorporeal attacks.<br>+6 Dodge to AC for 1 round after Sneak Attack."
       },
       cmd: {
         misc: "",
@@ -470,7 +483,7 @@ var orrin = (function() {
       },
       saves: {
         fortitude: {
-          base: 3,
+          base: 4,
           resistance: 2,
           feat: 2,
           trait: 1,
@@ -489,7 +502,7 @@ var orrin = (function() {
           }
         },
         reflex: {
-          base: 7,
+          base: 8,
           resistance: 2,
           feat: "",
           trait: "",
@@ -508,7 +521,7 @@ var orrin = (function() {
           }
         },
         will: {
-          base: 3,
+          base: 4,
           resistance: 2,
           feat: 2,
           trait: "",
@@ -586,8 +599,8 @@ var orrin = (function() {
     },
     offense: {
       stats: {
-        base_attack: 8,
-        base_attack_bonuses: "+8 / +3",
+        base_attack: 9,
+        base_attack_bonuses: "+9 / +4",
         melee: {
           misc: "",
           temp: "",
@@ -645,56 +658,62 @@ var orrin = (function() {
         notes: "+6d6 Sneak attack.<br>Knock-Out Blow DC 18.",
         melee: {
           all: [{
+            weapon: "Rod of Thunder and Lightning",
+            attack: "+12",
+            damage: "1d6+3",
+            critical: "x2",
+            type: "Bludgeoning"
+          }, {
             weapon: "Mithral Rapier +2",
-            attack: "+18",
+            attack: "+19",
             damage: "1d6+3",
             critical: "18–20/×2",
             type: "Piercing"
           }, {
             weapon: "Rapier +1 Shocking",
-            attack: "+16",
+            attack: "+17",
             damage: "1d6+2 + 1d6 Electrical",
             critical: "18-20/x2",
             type: "Piercing"
           }, {
             weapon: "Short Sword +1",
-            attack: "+16",
+            attack: "+17",
             damage: "1d6+2",
             critical: "19–20/×2",
             type: "Piercing"
           }, {
             weapon: "Mithral Rapier +2, Short Sword +1",
-            attack: "+16/+16/+9/+9",
+            attack: "+17/+17/+10/+10",
             damage: "1d6+3, 1d6+2",
             critical: "18–20/×2, 19–20/×2",
             type: "Piercing, Piercing"
           }, {
             weapon: "Silver Dagger",
-            attack: "+15",
+            attack: "+16",
             damage: "1d6+1",
             critical: "19–20/×2",
             type: "Piercing"
           }, {
             weapon: "Sap",
-            attack: "+15",
+            attack: "+16",
             damage: "1d6+1",
             critical: "x2",
             type: "Bludgeoning"
           }, {
             weapon: "Punching Dagger +2 Shocking",
-            attack: "+17",
+            attack: "+18",
             damage: "1d4+3 + 1d6 Electrical",
             critical: "x3",
             type: "Piercing"
           }, {
             weapon: "Mithral Rapier +2, Punching Dagger +2 Shocking",
-            attack: "+16/+16/+10/+10",
+            attack: "+17/+17/+11/+11",
             damage: "1d6+3, 1d4+3 + 1d6 Electrical",
             critical: "18–20/×2, x3",
             type: "Piercing, Piercing"
           }, {
             weapon: "Rapier +1 Shocking, Punching Dagger +2 Shocking",
-            attack: "+15/+15/+10/+10",
+            attack: "+16/+16/+11/+11",
             damage: "1d6+2 + 1d6 Electrical, 1d4+3 + 1d6 Electrical",
             critical: "18–20/×2, x3",
             type: "Piercing, Piercing"
@@ -703,7 +722,7 @@ var orrin = (function() {
         ranged: {
           all: [{
             weapon: "Shortbow (MW)",
-            attack: "+15/+10",
+            attack: "+16/+11",
             damage: "1d6",
             critical: "x3",
             range: "60 ft",
@@ -715,14 +734,14 @@ var orrin = (function() {
     },
     skills: {
       ranks: {
-        total: "",
+        total: 146,
         include_custom: false,
         current: ""
       },
       custom: {
         all: [{
           name: "Perception (Traps)",
-          ranks: 11,
+          ranks: 12,
           misc: 5,
           current: "",
           racial: "",
@@ -744,7 +763,7 @@ var orrin = (function() {
           }
         }, {
           name: "Disable Device (Traps)",
-          ranks: 11,
+          ranks: 12,
           misc: 8,
           current: "",
           racial: "",
@@ -768,8 +787,8 @@ var orrin = (function() {
       },
       default: {
         acrobatics: {
-          ranks: 11,
-          misc: "",
+          ranks: 12,
+          misc: 5,
           racial: "",
           feat: "",
           trait: "",
@@ -788,7 +807,7 @@ var orrin = (function() {
           }
         },
         appraise: {
-          ranks: 4,
+          ranks: 8,
           misc: 2,
           racial: "",
           feat: "",
@@ -808,7 +827,7 @@ var orrin = (function() {
           }
         },
         bluff: {
-          ranks: 11,
+          ranks: 12,
           misc: "",
           racial: "",
           feat: "",
@@ -910,7 +929,7 @@ var orrin = (function() {
           }
         },
         disable_device: {
-          ranks: 11,
+          ranks: 12,
           misc: 8,
           racial: "",
           feat: "",
@@ -950,7 +969,7 @@ var orrin = (function() {
           }
         },
         escape_artist: {
-          ranks: 11,
+          ranks: 12,
           misc: 6,
           racial: "",
           feat: "",
@@ -1271,7 +1290,7 @@ var orrin = (function() {
           }
         },
         perception: {
-          ranks: 11,
+          ranks: 12,
           misc: 5,
           racial: "",
           feat: "",
@@ -1395,7 +1414,7 @@ var orrin = (function() {
           }
         },
         sense_motive: {
-          ranks: 11,
+          ranks: 12,
           misc: "",
           racial: "",
           feat: "",
@@ -1415,7 +1434,7 @@ var orrin = (function() {
           }
         },
         sleight_of_hand: {
-          ranks: 11,
+          ranks: 12,
           misc: 2,
           racial: "",
           feat: "",
@@ -1435,7 +1454,7 @@ var orrin = (function() {
           }
         },
         spellcraft: {
-          ranks: 11,
+          ranks: 12,
           misc: "",
           racial: "",
           feat: "",
@@ -1455,7 +1474,7 @@ var orrin = (function() {
           }
         },
         stealth: {
-          ranks: 11,
+          ranks: 12,
           misc: "",
           racial: "",
           feat: "",
@@ -1516,7 +1535,7 @@ var orrin = (function() {
           }
         },
         use_magic_device: {
-          ranks: 11,
+          ranks: 12,
           misc: "",
           racial: "",
           feat: "",
@@ -1848,6 +1867,10 @@ var orrin = (function() {
       character: {
         all: [{
           note: "Headband of Vast Intelligence +4 Skills: Sense Motive, Spellcraft."
+        }, {
+          note: "Constant Bless effect while wielding Rod of Thunder and Lightning and glows orange."
+        }, {
+          note: "Black Smear: injury; save Fort DC 15; frequency 1/round for 6 rounds; effect 1d2 Str; cure 1 save. The poison DC is Constitution-based."
         }]
       },
       story: {
@@ -1856,6 +1879,51 @@ var orrin = (function() {
     },
     events: {
       all: [{
+        type: "gold",
+        event: {
+          aggregate_value: -5500
+        },
+        timestamp: {
+          date: 7,
+          day: 3,
+          year: 2018,
+          hours: 20,
+          milliseconds: 778,
+          minutes: 17,
+          month: 2,
+          seconds: 16
+        }
+      }, {
+        type: "gold",
+        event: {
+          aggregate_value: 13009
+        },
+        timestamp: {
+          date: 7,
+          day: 3,
+          year: 2018,
+          hours: 20,
+          milliseconds: 347,
+          minutes: 1,
+          month: 2,
+          seconds: 47
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 21600
+        },
+        timestamp: {
+          date: 7,
+          day: 3,
+          year: 2018,
+          hours: 19,
+          milliseconds: 148,
+          minutes: 35,
+          month: 2,
+          seconds: 52
+        }
+      }, {
         type: "xp",
         event: {
           aggregate_value: 17280
