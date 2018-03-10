@@ -21,14 +21,7 @@
 // --------------------------------------------------
 // intro
 // --------------------------------------------------
-// .m-display-intro {
-//   border: 1px solid red;
-//   .m-display-intro-class,
-//   .m-display-intro-image,
-//   .m-display-intro-name {
-//     border: 1px solid blue;
-//   }
-// }
+.m-display-intro {}
 // --------------------------------------------------
 // image
 // --------------------------------------------------
@@ -296,7 +289,7 @@ h3 {
       overflow: hidden;
       flex: 1 1 auto;
       text-overflow: ellipsis;
-      white-space: nowrap;
+      // white-space: nowrap;
       &:not(:only-child):not(:last-child) {
         margin-right: 0.5em;
       }
@@ -481,7 +474,7 @@ h3 {
   position: relative;
   box-sizing: border-box;
   .m-display-list-item-attack-prefix {
-    margin: 0;
+    margin: 0 0.5em 0 0;
     // font-size: $font-size-075;
     font-family: $open-sans-italic;
     color: $primary-color-08;
@@ -721,7 +714,11 @@ h3 {
   .m-display-list-item-attack-type {
     flex: 0 0 auto;
     .m-display-list-item-attack-prefix {
+      margin: 0;
       display: block;
+    }
+    .m-display-list-item-attack-value {
+      margin-left: 0.5em;
     }
     &:not(:only-child):not(:last-child) {
       padding-right: 1em;
