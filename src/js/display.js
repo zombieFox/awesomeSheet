@@ -4,7 +4,6 @@ var display = (function() {
     basics: {
       intro: {
         contentClass: ["m-display-intro"],
-        // areaClass: ["m-display-intro"],
         content: [{
           type: "image",
           element: {
@@ -131,8 +130,50 @@ var display = (function() {
     },
     statistics: {
       stats: {
-        head: "Stats",
-        content: []
+        content: [{
+          type: "stat",
+          element: {
+            node: "ul",
+            classname: ["u-list-unstyled", "m-display-stats"]
+          },
+          contentItems: [{
+            path: {
+              stat: "statistics.stats.str.current",
+              mod: "statistics.stats.str.modifier",
+            },
+            prefix: "STR"
+          }, {
+            path: {
+              stat: "statistics.stats.dex.current",
+              mod: "statistics.stats.dex.modifier",
+            },
+            prefix: "DEX"
+          }, {
+            path: {
+              stat: "statistics.stats.con.current",
+              mod: "statistics.stats.con.modifier",
+            },
+            prefix: "CON"
+          }, {
+            path: {
+              stat: "statistics.stats.int.current",
+              mod: "statistics.stats.int.modifier",
+            },
+            prefix: "INT"
+          }, {
+            path: {
+              stat: "statistics.stats.wis.current",
+              mod: "statistics.stats.wis.modifier",
+            },
+            prefix: "WIS"
+          }, {
+            path: {
+              stat: "statistics.stats.con.current",
+              mod: "statistics.stats.con.modifier",
+            },
+            prefix: "CHA"
+          }]
+        }]
       },
       abilities: {
         head: "Abilities",
@@ -149,7 +190,7 @@ var display = (function() {
         }, {
           type: "block",
           element: {
-            node: "p"
+            node: "div"
           },
           contentItems: [{
             path: "statistics.abilities.notes",
@@ -172,7 +213,7 @@ var display = (function() {
         }, {
           type: "block",
           element: {
-            node: "p"
+            node: "div"
           },
           contentItems: [{
             path: "statistics.feats.notes",
@@ -195,7 +236,7 @@ var display = (function() {
         }, {
           type: "block",
           element: {
-            node: "p"
+            node: "div"
           },
           contentItems: [{
             path: "statistics.traits.notes",
@@ -218,7 +259,7 @@ var display = (function() {
         }, {
           type: "block",
           element: {
-            node: "p"
+            node: "div"
           },
           contentItems: [{
             path: "statistics.languages.notes",
@@ -228,13 +269,69 @@ var display = (function() {
       },
       power: {
         head: "Power",
-        content: []
+        content: [{
+          type: "clone",
+          cloneType: "power",
+          element: {
+            node: "ul",
+            classname: ["u-list-unstyled", "m-display-list-responsive"]
+          },
+          contentItems: [{
+            path: "statistics.power.all",
+          }]
+        }]
       }
     },
     equipment: {
       possessions: {
-        head: "Possessions",
-        content: []
+        gear: {
+          head: "Possessions",
+          content: [{
+            type: "block",
+            element: {
+              node: "div"
+            },
+            contentItems: [{
+              path: "equipment.possessions.gear",
+            }],
+          }]
+        },
+        magic_gear: {
+          head: "Magic Gear",
+          content: [{
+            type: "block",
+            element: {
+              node: "div"
+            },
+            contentItems: [{
+              path: "equipment.possessions.magic_gear",
+            }],
+          }]
+        },
+        potion_viles_oils: {
+          head: "Potions / Viles / Oils",
+          content: [{
+            type: "block",
+            element: {
+              node: "div"
+            },
+            contentItems: [{
+              path: "equipment.possessions.potion_viles_oils",
+            }],
+          }]
+        },
+        scrolls: {
+          head: "Scrolls",
+          content: [{
+            type: "block",
+            element: {
+              node: "div"
+            },
+            contentItems: [{
+              path: "equipment.possessions.scrolls",
+            }],
+          }]
+        }
       },
       armor: {
         head: "Armor",
@@ -242,93 +339,737 @@ var display = (function() {
       },
       body_slots: {
         head: "Body Slots",
-        content: []
+        content: [{
+          type: "group",
+          element: {
+            node: "ul",
+            classname: ["u-list-unstyled", "m-display-list-responsive", "m-display-list-stack"]
+          },
+          contentItems: [{
+            path: "equipment.body_slots.belts",
+            prefix: "Belts"
+          }, {
+            path: "equipment.body_slots.body",
+            prefix: "Body"
+          }, {
+            path: "equipment.body_slots.chest",
+            prefix: "Chest"
+          }, {
+            path: "equipment.body_slots.eyes",
+            prefix: "Eyes"
+          }, {
+            path: "equipment.body_slots.feet",
+            prefix: "Feet"
+          }, {
+            path: "equipment.body_slots.hands",
+            prefix: "Hands"
+          }, {
+            path: "equipment.body_slots.head",
+            prefix: "Head"
+          }, {
+            path: "equipment.body_slots.headband",
+            prefix: "Headband"
+          }, {
+            path: "equipment.body_slots.neck",
+            prefix: "Neck"
+          }, {
+            path: "equipment.body_slots.ring_left_hand",
+            prefix: "Ring (Left Hand)"
+          }, {
+            path: "equipment.body_slots.ring_right_hand",
+            prefix: "Ring (Right Hand)"
+          }, {
+            path: "equipment.body_slots.shoulders",
+            prefix: "Shoulders"
+          }, {
+            path: "equipment.body_slots.wrist",
+            prefix: "Wrist"
+          }]
+        }]
       },
       item: {
         head: "Item",
-        content: []
+        content: [{
+          type: "clone",
+          cloneType: "item",
+          element: {
+            node: "ul",
+            classname: ["u-list-unstyled", "m-display-list-responsive", "m-display-list-compact"]
+          },
+          contentItems: [{
+            path: "equipment.item.all"
+          }]
+        }, {
+          type: "snippet",
+          element: {
+            node: "p"
+          },
+          contentItems: [{
+            path: "equipment.item.weight.current",
+            prefix: "Weight",
+            valueType: "weight",
+            suffix: "lbs"
+          }]
+        }]
       },
       encumbrance: {
         head: "Encumbrance",
-        content: []
+        content: [{
+          type: "snippet",
+          element: {
+            node: "p"
+          },
+          contentItems: [{
+            path: "equipment.encumbrance.carry_move.light",
+            prefix: "Light"
+          }, {
+            path: "equipment.encumbrance.carry_move.medium",
+            prefix: "Medium"
+          }, {
+            path: "equipment.encumbrance.carry_move.heavy",
+            prefix: "Heavy"
+          }, {
+            path: "equipment.encumbrance.carry_move.lift",
+            prefix: "Lift"
+          }, {
+            path: "equipment.encumbrance.carry_move.drag",
+            prefix: "Drag"
+          }]
+        }]
       },
       consumable: {
         head: "Consumable",
-        content: []
+        content: [{
+          type: "clone",
+          cloneType: "consumable",
+          element: {
+            node: "ul",
+            classname: ["u-list-unstyled", "m-display-list-responsive"]
+          },
+          contentItems: [{
+            path: "equipment.consumable.all"
+          }]
+        }]
       },
       wealth: {
         head: "Wealth",
-        content: []
+        content: [{
+          type: "snippet",
+          element: {
+            node: "p"
+          },
+          contentItems: [{
+            path: "equipment.wealth.platinum",
+            suffix: "PP",
+            valueType: "currency"
+          }, {
+            path: "equipment.wealth.gold",
+            suffix: "GP",
+            valueType: "currency"
+          }, {
+            path: "equipment.wealth.silver",
+            suffix: "SP",
+            valueType: "currency"
+          }, {
+            path: "equipment.wealth.copper",
+            suffix: "CP",
+            valueType: "currency"
+          }]
+        }, {
+          type: "snippet",
+          element: {
+            node: "h2"
+          },
+          contentItems: [{
+            path: "equipment.wealth.total",
+            prefix: "Total",
+            suffix: "GP",
+            valueType: "currency"
+          }]
+        }]
       }
     },
     defense: {
-      hp: {
-        head: "HP",
-        content: []
-      },
-      ac: {
-        head: "AC",
-        content: []
-      },
-      cmd: {
-        head: "CMd",
-        content: []
+      stats: {
+        content: [{
+          type: "snippet",
+          element: {
+            node: "h2"
+          },
+          contentItems: [{
+            path: "defense.hp.current",
+            dependency: "defense.hp.total",
+            prefix: "HP"
+          }, {
+            path: "defense.ac.armor_class.current",
+            prefix: "AC"
+          }, {
+            path: "defense.ac.touch.current",
+            prefix: "Touch"
+          }, {
+            path: "defense.ac.flat_footed.current",
+            prefix: "Flat Footed"
+          }, {
+            path: "defense.cmd.current",
+            prefix: "CMD"
+          }, {
+            path: "defense.dr.current",
+            prefix: "DR",
+            dependency: "defense.dr.overcome"
+          }, {
+            path: "defense.sr.current",
+            prefix: "SR"
+          }, {
+            path: "defense.resistance.current",
+            prefix: "Resistance"
+          }]
+        }]
       },
       saves: {
-        head: "Saves",
-        content: []
+        content: [{
+          type: "snippet",
+          element: {
+            node: "h2"
+          },
+          contentItems: [{
+            path: "defense.saves.fortitude.current",
+            prefix: "Fortitude",
+            valueType: "bonus"
+          }, {
+            path: "defense.saves.reflex.current",
+            prefix: "Reflex",
+            valueType: "bonus"
+          }, {
+            path: "defense.saves.will.current",
+            prefix: "Will",
+            valueType: "bonus"
+          }]
+        }]
       },
-      dr: {
-        head: "DR",
-        content: []
-      },
-      sr: {
-        head: "SR",
-        content: []
-      },
-      resistance: {
-        head: "Resistance",
-        content: []
+      notes: {
+        content: [{
+          type: "block",
+          element: {
+            node: "div"
+          },
+          contentItems: [{
+            path: "defense.ac.notes",
+            prefix: "AC Notes"
+          }]
+        }, {
+          type: "block",
+          element: {
+            node: "div"
+          },
+          contentItems: [{
+            path: "defense.cmd.notes",
+            prefix: "CMD Notes"
+          }]
+        }, {
+          type: "block",
+          element: {
+            node: "div"
+          },
+          contentItems: [{
+            path: "defense.dr.notes",
+            prefix: "DR Notes"
+          }]
+        }, {
+          type: "block",
+          element: {
+            node: "div"
+          },
+          contentItems: [{
+            path: "defense.sr.notes",
+            prefix: "SR Notes"
+          }]
+        }, {
+          type: "block",
+          element: {
+            node: "div"
+          },
+          contentItems: [{
+            path: "defense.saves.notes",
+            prefix: "Saves Notes"
+          }]
+        }, {
+          type: "block",
+          element: {
+            node: "div"
+          },
+          contentItems: [{
+            path: "defense.resistance.notes",
+            prefix: "Resistance Notes"
+          }]
+        }]
       }
     },
     offense: {
       stats: {
-        head: "Stats",
-        content: []
+        content: [{
+          type: "snippet",
+          element: {
+            node: "h2"
+          },
+          contentItems: [{
+            path: "offense.stats.melee.current",
+            prefix: "Melee",
+            valueType: "bonus"
+          }, {
+            path: "offense.stats.ranged.current",
+            prefix: "Ranged",
+            valueType: "bonus"
+          }, {
+            path: "offense.cmb.current",
+            prefix: "CMB",
+            valueType: "bonus"
+          }]
+        }]
       },
-      cmb: {
-        head: "CMD",
-        content: []
+      notes: {
+        content: [{
+          type: "block",
+          element: {
+            node: "div"
+          },
+          contentItems: [{
+            path: "offense.attack.notes",
+            prefix: "Attack Notes"
+          }]
+        }]
       },
       attack: {
-        head: "Attacks",
-        content: []
+        melee: {
+          content: [{
+            type: "clone",
+            cloneType: "attack",
+            element: {
+              node: "ul",
+              classname: ["u-list-unstyled", "m-display-list-attack"]
+            },
+            contentItems: [{
+              path: "offense.attack.melee.all",
+            }]
+          }]
+        },
+        ranged: {
+          content: [{
+            type: "clone",
+            cloneType: "attack",
+            element: {
+              node: "ul",
+              classname: ["u-list-unstyled", "m-display-list-attack"]
+            },
+            contentItems: [{
+              path: "offense.attack.ranged.all",
+            }]
+          }]
+        }
       }
     },
     skills: {
-      default: {
-        head: "Skills",
-        content: []
+      all: {
+        content: [{
+          type: "skills",
+          element: {
+            node: "ul",
+            classname: ["u-list-unstyled", "m-display-list-responsive"]
+          },
+          contentItems: [{
+            path: "skills.default",
+            skillType: "default"
+          }, {
+            path: "skills.custom.all",
+            skillType: "custom"
+          }]
+        }]
       }
     },
     spells: {
       stats: {
-        head: "Stats",
-        content: []
+        content: [{
+          type: "snippet",
+          element: {
+            node: "h2"
+          },
+          contentItems: [{
+            path: "spells.stats.concentration.current",
+            prefix: "Concentration"
+          }, {
+            path: "spells.stats.caster_level_check.current",
+            prefix: "Caster Level Check"
+          }]
+        }, {
+          type: "snippet",
+          element: {
+            node: "p"
+          },
+          contentItems: [{
+            path: "spells.stats.school",
+            prefix: "School"
+          }, {
+            path: "spells.stats.opposition",
+            prefix: "Opposition"
+          }, {
+            path: "spells.stats.domains",
+            prefix: "Domains"
+          }, {
+            path: "spells.stats.bloodline",
+            prefix: "Bloodline"
+          }]
+        }]
       },
       book: {
-        head: "Spells",
-        content: []
+        level_0: {
+          head: "Level 0",
+          content: [{
+            type: "snippet",
+            element: {
+              node: "p"
+            },
+            contentItems: [{
+              path: "spells.book.level_0.known",
+              prefix: "Known"
+            }, {
+              path: "spells.book.level_0.per_day",
+              prefix: "Per Day"
+            }, {
+              path: "spells.book.level_0.bonus",
+              prefix: "Bonus"
+            }, {
+              path: "spells.book.level_0.dc.current",
+              prefix: "DC"
+            }]
+          }, {
+            type: "spells",
+            level: 0,
+            element: {
+              node: "ul",
+              classname: ["u-list-unstyled", "m-display-list-spell"]
+            },
+            contentItems: [{
+              path: "spells.book.level_0.all",
+            }]
+          }]
+        },
+        level_1: {
+          head: "Level 1",
+          content: [{
+            type: "snippet",
+            element: {
+              node: "p"
+            },
+            contentItems: [{
+              path: "spells.book.level_1.known",
+              prefix: "Known"
+            }, {
+              path: "spells.book.level_1.per_day",
+              prefix: "Per Day"
+            }, {
+              path: "spells.book.level_1.bonus",
+              prefix: "Bonus"
+            }, {
+              path: "spells.book.level_1.dc.current",
+              prefix: "DC"
+            }]
+          }, {
+            type: "spells",
+            level: 1,
+            element: {
+              node: "ul",
+              classname: ["u-list-unstyled", "m-display-list-spell"]
+            },
+            contentItems: [{
+              path: "spells.book.level_1.all",
+            }]
+          }]
+        },
+        level_2: {
+          head: "Level 2",
+          content: [{
+            type: "snippet",
+            element: {
+              node: "p"
+            },
+            contentItems: [{
+              path: "spells.book.level_2.known",
+              prefix: "Known"
+            }, {
+              path: "spells.book.level_2.per_day",
+              prefix: "Per Day"
+            }, {
+              path: "spells.book.level_2.bonus",
+              prefix: "Bonus"
+            }, {
+              path: "spells.book.level_2.dc.current",
+              prefix: "DC"
+            }]
+          }, {
+            type: "spells",
+            level: 2,
+            element: {
+              node: "ul",
+              classname: ["u-list-unstyled", "m-display-list-spell"]
+            },
+            contentItems: [{
+              path: "spells.book.level_2.all",
+            }]
+          }]
+        },
+        level_3: {
+          head: "Level 3",
+          content: [{
+            type: "snippet",
+            element: {
+              node: "p"
+            },
+            contentItems: [{
+              path: "spells.book.level_3.known",
+              prefix: "Known"
+            }, {
+              path: "spells.book.level_3.per_day",
+              prefix: "Per Day"
+            }, {
+              path: "spells.book.level_3.bonus",
+              prefix: "Bonus"
+            }, {
+              path: "spells.book.level_3.dc.current",
+              prefix: "DC"
+            }]
+          }, {
+            type: "spells",
+            level: 3,
+            element: {
+              node: "ul",
+              classname: ["u-list-unstyled", "m-display-list-spell"]
+            },
+            contentItems: [{
+              path: "spells.book.level_3.all",
+            }]
+          }]
+        },
+        level_4: {
+          head: "Level 4",
+          content: [{
+            type: "snippet",
+            element: {
+              node: "p"
+            },
+            contentItems: [{
+              path: "spells.book.level_4.known",
+              prefix: "Known"
+            }, {
+              path: "spells.book.level_4.per_day",
+              prefix: "Per Day"
+            }, {
+              path: "spells.book.level_4.bonus",
+              prefix: "Bonus"
+            }, {
+              path: "spells.book.level_4.dc.current",
+              prefix: "DC"
+            }]
+          }, {
+            type: "spells",
+            level: 4,
+            element: {
+              node: "ul",
+              classname: ["u-list-unstyled", "m-display-list-spell"]
+            },
+            contentItems: [{
+              path: "spells.book.level_4.all",
+            }]
+          }]
+        },
+        level_5: {
+          head: "Level 5",
+          content: [{
+            type: "snippet",
+            element: {
+              node: "p"
+            },
+            contentItems: [{
+              path: "spells.book.level_5.known",
+              prefix: "Known"
+            }, {
+              path: "spells.book.level_5.per_day",
+              prefix: "Per Day"
+            }, {
+              path: "spells.book.level_5.bonus",
+              prefix: "Bonus"
+            }, {
+              path: "spells.book.level_5.dc.current",
+              prefix: "DC"
+            }]
+          }, {
+            type: "spells",
+            level: 5,
+            element: {
+              node: "ul",
+              classname: ["u-list-unstyled", "m-display-list-spell"]
+            },
+            contentItems: [{
+              path: "spells.book.level_5.all",
+            }]
+          }]
+        },
+        level_6: {
+          head: "Level 6",
+          content: [{
+            type: "snippet",
+            element: {
+              node: "p"
+            },
+            contentItems: [{
+              path: "spells.book.level_6.known",
+              prefix: "Known"
+            }, {
+              path: "spells.book.level_6.per_day",
+              prefix: "Per Day"
+            }, {
+              path: "spells.book.level_6.bonus",
+              prefix: "Bonus"
+            }, {
+              path: "spells.book.level_6.dc.current",
+              prefix: "DC"
+            }]
+          }, {
+            type: "spells",
+            level: 6,
+            element: {
+              node: "ul",
+              classname: ["u-list-unstyled", "m-display-list-spell"]
+            },
+            contentItems: [{
+              path: "spells.book.level_6.all",
+            }]
+          }]
+        },
+        level_7: {
+          head: "Level 7",
+          content: [{
+            type: "snippet",
+            element: {
+              node: "p"
+            },
+            contentItems: [{
+              path: "spells.book.level_7.known",
+              prefix: "Known"
+            }, {
+              path: "spells.book.level_7.per_day",
+              prefix: "Per Day"
+            }, {
+              path: "spells.book.level_7.bonus",
+              prefix: "Bonus"
+            }, {
+              path: "spells.book.level_7.dc.current",
+              prefix: "DC"
+            }]
+          }, {
+            type: "spells",
+            level: 7,
+            element: {
+              node: "ul",
+              classname: ["u-list-unstyled", "m-display-list-spell"]
+            },
+            contentItems: [{
+              path: "spells.book.level_7.all",
+            }]
+          }]
+        },
+        level_8: {
+          head: "Level 8",
+          content: [{
+            type: "snippet",
+            element: {
+              node: "p"
+            },
+            contentItems: [{
+              path: "spells.book.level_8.known",
+              prefix: "Known"
+            }, {
+              path: "spells.book.level_8.per_day",
+              prefix: "Per Day"
+            }, {
+              path: "spells.book.level_8.bonus",
+              prefix: "Bonus"
+            }, {
+              path: "spells.book.level_8.dc.current",
+              prefix: "DC"
+            }]
+          }, {
+            type: "spells",
+            level: 8,
+            element: {
+              node: "ul",
+              classname: ["u-list-unstyled", "m-display-list-spell"]
+            },
+            contentItems: [{
+              path: "spells.book.level_8.all",
+            }]
+          }]
+        },
+        level_9: {
+          head: "Level 9",
+          content: [{
+            type: "snippet",
+            element: {
+              node: "p"
+            },
+            contentItems: [{
+              path: "spells.book.level_9.known",
+              prefix: "Known"
+            }, {
+              path: "spells.book.level_9.per_day",
+              prefix: "Per Day"
+            }, {
+              path: "spells.book.level_9.bonus",
+              prefix: "Bonus"
+            }, {
+              path: "spells.book.level_9.dc.current",
+              prefix: "DC"
+            }]
+          }, {
+            type: "spells",
+            level: 9,
+            element: {
+              node: "ul",
+              classname: ["u-list-unstyled", "m-display-list-spell"]
+            },
+            contentItems: [{
+              path: "spells.book.level_9.all",
+            }]
+          }]
+        }
       }
     },
     notes: {
       character: {
         head: "Character",
-        content: []
+        content: [{
+          type: "clone",
+          cloneType: "note",
+          element: {
+            node: "ul",
+            classname: ["u-list-unstyled", "m-display-list"]
+          },
+          contentItems: [{
+            path: "notes.character.all"
+          }]
+        }]
       },
       story: {
         head: "Story",
-        content: []
+        content: [{
+          type: "clone",
+          cloneType: "note",
+          element: {
+            node: "ul",
+            classname: ["u-list-unstyled", "m-display-list"]
+          },
+          contentItems: [{
+            path: "notes.story.all"
+          }]
+        }]
       }
     }
   };
@@ -1731,14 +2472,13 @@ var display = (function() {
       stat: function(displayObject) {
         var all_element = [];
         var element = document.createElement(displayObject.element.node);
-        element.setAttribute("class", "m-display-stats u-list-unstyled");
         if (displayObject.element.classname) {
           displayObject.element.classname.forEach(function(arrayItem) {
             helper.addClass(element, arrayItem);
           });
         };
         var contentFound = 0;
-        displayObject.content.forEach(function(arrayItem, index) {
+        displayObject.contentItems.forEach(function(arrayItem, index) {
           contentFound++;
           var listItem = document.createElement("li");
           listItem.setAttribute("class", "m-display-stats-item");
@@ -1752,11 +2492,11 @@ var display = (function() {
           mod.setAttribute("class", "m-display-mod");
           var statData = helper.getObject({
             object: sheet.get(),
-            path: arrayItem.statPath
+            path: arrayItem.path.stat
           });
           var modData = dataFormat.bonus(helper.getObject({
             object: sheet.get(),
-            path: arrayItem.modPath
+            path: arrayItem.path.mod
           }));
           statName.textContent = arrayItem.prefix;
           statValue.textContent = statData;
@@ -1823,7 +2563,7 @@ var display = (function() {
           head.setAttribute("class", "m-display-head");
           head.textContent = displayObject.head;
         };
-        displayObject.content.forEach(function(arrayItem, index) {
+        displayObject.contentItems.forEach(function(arrayItem, index) {
           var data = helper.getObject({
             object: sheet.get(),
             path: arrayItem.path
@@ -1919,7 +2659,7 @@ var display = (function() {
         var contentFound = 0;
         var cloneVariant = {
           consumable: function() {
-            displayObject.content.forEach(function(arrayItem, index) {
+            displayObject.contentItems.forEach(function(arrayItem, index) {
               var all_clone = helper.getObject({
                 object: sheet.get(),
                 path: arrayItem.path
@@ -1935,7 +2675,7 @@ var display = (function() {
                     listItemName.textContent = arrayItem.name;
                     var listItemValue = document.createElement("span");
                     listItemValue.setAttribute("class", "m-display-list-item-value");
-                    listItemValue.textContent = (arrayItem.current || 0) + "/" + (arrayItem.total || 0);
+                    listItemValue.textContent = (arrayItem.current || 0) + " / " + (arrayItem.total || 0);
                     var percentage = parseFloat(((arrayItem.total - arrayItem.used) / arrayItem.total) * 100).toFixed(2);
                     if (percentage < 0) {
                       percentage = 0;
@@ -1953,7 +2693,7 @@ var display = (function() {
             })
           },
           power: function() {
-            displayObject.content.forEach(function(arrayItem, index) {
+            displayObject.contentItems.forEach(function(arrayItem, index) {
               var all_clone = helper.getObject({
                 object: sheet.get(),
                 path: arrayItem.path
@@ -1969,7 +2709,7 @@ var display = (function() {
                     listItemName.textContent = arrayItem.name;
                     var listItemValue = document.createElement("span");
                     listItemValue.setAttribute("class", "m-display-list-item-value");
-                    listItemValue.textContent = arrayItem.current + "/" + arrayItem.total;
+                    listItemValue.textContent = arrayItem.current + " / " + arrayItem.total;
                     var percentage = parseFloat(((arrayItem.total - arrayItem.used) / arrayItem.total) * 100).toFixed(2);
                     if (percentage < 0) {
                       percentage = 0;
@@ -1987,7 +2727,7 @@ var display = (function() {
             })
           },
           item: function() {
-            displayObject.content.forEach(function(arrayItem, index) {
+            displayObject.contentItems.forEach(function(arrayItem, index) {
               var all_clone = helper.getObject({
                 object: sheet.get(),
                 path: arrayItem.path
@@ -2013,7 +2753,7 @@ var display = (function() {
             })
           },
           attack: function() {
-            displayObject.content.forEach(function(arrayItem, index) {
+            displayObject.contentItems.forEach(function(arrayItem, index) {
               var all_clone = helper.getObject({
                 object: sheet.get(),
                 path: arrayItem.path
@@ -2095,7 +2835,7 @@ var display = (function() {
             })
           },
           note: function() {
-            displayObject.content.forEach(function(arrayItem, index) {
+            displayObject.contentItems.forEach(function(arrayItem, index) {
               var all_clone = helper.getObject({
                 object: sheet.get(),
                 path: arrayItem.path
@@ -2145,7 +2885,7 @@ var display = (function() {
           head.textContent = displayObject.head;
         };
         var foundSkills = [];
-        displayObject.content.forEach(function(arrayItem, index) {
+        displayObject.contentItems.forEach(function(arrayItem, index) {
           var all_listItem = helper.getObject({
             object: sheet.get(),
             path: arrayItem.path
@@ -2254,7 +2994,7 @@ var display = (function() {
           });
         };
         var contentFound = 0;
-        displayObject.content.forEach(function(arrayItem, index) {
+        displayObject.contentItems.forEach(function(arrayItem, index) {
           var all_spells = helper.getObject({
             object: sheet.get(),
             path: arrayItem.path
