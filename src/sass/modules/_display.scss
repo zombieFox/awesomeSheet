@@ -11,9 +11,7 @@
 }
 .m-display-content {
   display: block;
-  &:not(:only-child) {
-    margin-left: 1em;
-  }
+  margin-left: 1em;
 }
 .m-display-head {
   display: block;
@@ -511,6 +509,7 @@ h3 {
     display: inline-block;
   }
   .m-display-list-item-attack-value {
+    margin: 0 0 0 0.5em;
     display: inline-block;
   }
 }
@@ -666,10 +665,8 @@ h3 {
     flex: 0 0 20%;
   }
   .m-display-content {
+    margin-left: 0;
     flex: 1 1 auto;
-    &:not(:only-child) {
-      margin-left: 0;
-    }
   }
   // intro
   .m-display-intro {
@@ -747,9 +744,6 @@ h3 {
     .m-display-list-item-attack-prefix {
       margin: 0;
       display: block;
-    }
-    .m-display-list-item-attack-value {
-      margin-left: 0.5em;
     }
     &:not(:only-child):not(:last-child) {
       padding-right: 1em;
