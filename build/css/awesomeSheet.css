@@ -6472,9 +6472,8 @@ label {
     margin-bottom: 1.5em; }
 
 .m-display-content {
-  display: block; }
-  .m-display-content:not(:only-child) {
-    margin-left: 1em; }
+  display: block;
+  margin-left: 1em; }
 
 .m-display-head {
   display: block; }
@@ -6944,6 +6943,7 @@ h3 .m-display-value {
   .m-display-list-item-attack-range .m-display-list-item-attack-value,
   .m-display-list-item-attack-type .m-display-list-item-attack-value,
   .m-display-list-item-attack-weapon .m-display-list-item-attack-value {
+    margin: 0 0 0 0.5em;
     display: inline-block; }
 
 .m-display-list-item-attack-weapon {
@@ -7097,11 +7097,10 @@ h3 .m-display-value {
         -ms-flex: 0 0 20%;
             flex: 0 0 20%; }
   .m-display-content {
+    margin-left: 0;
     -webkit-flex: 1 1 auto;
         -ms-flex: 1 1 auto;
             flex: 1 1 auto; }
-    .m-display-content:not(:only-child) {
-      margin-left: 0; }
   .m-display-intro {
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -7168,13 +7167,6 @@ h3 .m-display-value {
     .m-display-list-item-attack-type .m-display-list-item-attack-prefix {
       margin: 0;
       display: block; }
-    .m-display-list-item-attack-ammo .m-display-list-item-attack-value,
-    .m-display-list-item-attack-attack .m-display-list-item-attack-value,
-    .m-display-list-item-attack-critical .m-display-list-item-attack-value,
-    .m-display-list-item-attack-damage .m-display-list-item-attack-value,
-    .m-display-list-item-attack-range .m-display-list-item-attack-value,
-    .m-display-list-item-attack-type .m-display-list-item-attack-value {
-      margin-left: 0.5em; }
     .m-display-list-item-attack-ammo:not(:only-child):not(:last-child),
     .m-display-list-item-attack-attack:not(:only-child):not(:last-child),
     .m-display-list-item-attack-critical:not(:only-child):not(:last-child),

@@ -22478,7 +22478,7 @@ var display = (function() {
         }, {
           type: "block",
           element: {
-            node: "p"
+            node: "div"
           },
           contentItems: [{
             path: "basics.character.description",
@@ -22718,32 +22718,35 @@ var display = (function() {
             classname: ["u-list-unstyled", "m-display-list-responsive", "m-display-list-stack"]
           },
           contentItems: [{
-            path: "equipment.body_slots.belts",
-            prefix: "Belts"
-          }, {
-            path: "equipment.body_slots.body",
-            prefix: "Body"
-          }, {
-            path: "equipment.body_slots.chest",
-            prefix: "Chest"
-          }, {
-            path: "equipment.body_slots.eyes",
-            prefix: "Eyes"
-          }, {
-            path: "equipment.body_slots.feet",
-            prefix: "Feet"
-          }, {
-            path: "equipment.body_slots.hands",
-            prefix: "Hands"
-          }, {
             path: "equipment.body_slots.head",
             prefix: "Head"
           }, {
             path: "equipment.body_slots.headband",
             prefix: "Headband"
           }, {
+            path: "equipment.body_slots.eyes",
+            prefix: "Eyes"
+          }, {
+            path: "equipment.body_slots.shoulders",
+            prefix: "Shoulders"
+          }, {
             path: "equipment.body_slots.neck",
             prefix: "Neck"
+          }, {
+            path: "equipment.body_slots.chest",
+            prefix: "Chest"
+          }, {
+            path: "equipment.body_slots.body",
+            prefix: "Body"
+          }, {
+            path: "equipment.body_slots.belts",
+            prefix: "Belts"
+          }, {
+            path: "equipment.body_slots.wrist",
+            prefix: "Wrist"
+          }, {
+            path: "equipment.body_slots.hands",
+            prefix: "Hands"
           }, {
             path: "equipment.body_slots.ring_left_hand",
             prefix: "Ring (Left Hand)"
@@ -22751,11 +22754,8 @@ var display = (function() {
             path: "equipment.body_slots.ring_right_hand",
             prefix: "Ring (Right Hand)"
           }, {
-            path: "equipment.body_slots.shoulders",
-            prefix: "Shoulders"
-          }, {
-            path: "equipment.body_slots.wrist",
-            prefix: "Wrist"
+            path: "equipment.body_slots.feet",
+            prefix: "Feet"
           }]
         }]
       },
@@ -23093,6 +23093,15 @@ var display = (function() {
           }, {
             path: "spells.stats.bloodline",
             prefix: "Bloodline"
+          }]
+        }, {
+          type: "block",
+          element: {
+            node: "div"
+          },
+          contentItems: [{
+            path: "spells.stats.notes",
+            prefix: "Notes"
           }]
         }]
       },
