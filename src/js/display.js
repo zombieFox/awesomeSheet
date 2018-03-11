@@ -628,6 +628,9 @@ var display = (function() {
             node: "h2"
           },
           contentItems: [{
+            path: "offense.stats.base_attack.string",
+            prefix: "BAB",
+          }, {
             path: "offense.stats.melee.current",
             prefix: "Melee",
             valueType: "bonus"

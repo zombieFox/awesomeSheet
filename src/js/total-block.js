@@ -190,7 +190,7 @@ var totalBlock = (function() {
           if (key == "bab") {
             externalBouns = _checkValue(helper.getObject({
               object: sheet.get(),
-              path: "offense.stats.base_attack"
+              path: "offense.stats.base_attack.bonus"
             }));
           };
           if (key == "size_base") {
@@ -450,7 +450,7 @@ var totalBlock = (function() {
       } else if (label == "bab") {
         return "Base Attack Bonus (" + _addPrefix(helper.getObject({
           object: sheet.get(),
-          path: "offense.base_attack"
+          path: "offense.base_attack.bonus"
         })) + ")";
       } else if (label == "size_base") {
         return "Size Bonus (" + _addPrefix(helper.getObject({

@@ -199,9 +199,9 @@ var sheet = (function() {
   };
 
   function render() {
+    stats.render();
     classes.render();
     characterSelect.render();
-    stats.render();
     clone.render();
     inputBlock.render();
     inputRangeBlock.render();
