@@ -3,7 +3,7 @@ var ravich = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5,
+      version: 5.2,
       demo: true
     },
     basics: {
@@ -21,10 +21,10 @@ var ravich = (function() {
         size: {
           category: "Medium",
           modifier: {
-            base: 0,
-            special: 0,
-            fly: 0,
-            stealth: 0
+            base: "",
+            special: "",
+            fly: "",
+            stealth: ""
           }
         }
       },
@@ -47,7 +47,8 @@ var ravich = (function() {
           will: 1,
           ranks: 9,
           bab: 3
-        }]
+        }],
+        string: "Rogue 3, Fighter 3"
       },
       experience: {
         level: 6,
@@ -160,13 +161,131 @@ var ravich = (function() {
         }
       },
       abilities: {
-        feats: "Weapon Finesse, Weapon Focus (Rapier), Improved Initiative, Deft Hands, Acrobatic, Toughness, Two-Weapon Fighting, Magical Aptitude, Great Fortitude",
-        traits: "Resilient, Dirty Fighter",
-        languages: "Common, Humans, Dwarven, Undercommon",
-        special: "Sneak Attack +2d6, Trapfinding, Evasion, Rogue Talent (Finesse Rogue), Trap Sense +1, Bonus Feat (2), Bravery +1, Armor Training 1"
+        all: [{
+          name: "Medium",
+          note: "Humans are Medium creatures and have no bonuses or penalties due to their size.",
+          index: false
+        }, {
+          name: "Normal Speed",
+          note: "Humans have a base speed of 30 feet.",
+          index: false
+        }, {
+          name: "Bonus Feat",
+          note: "Humans select one extra feat at 1st level.",
+          index: false
+        }, {
+          name: "Skilled",
+          note: "Humans gain an additional skill rank at first level and one additional rank whenever they gain a level.",
+          index: false
+        }, {
+          name: "Languages",
+          note: "Humans begin play speaking Common. Humans with high Intelligence scores can choose any languages they want (except secret languages, such as Druidic).",
+          index: false
+        }, {
+          name: "Bonus feat (2)",
+          note: "At 1st level, and at every even level thereafter, a fighter gains a bonus feat in addition to those gained from normal advancement (meaning that the fighter gains a feat at every level). These bonus feats must be selected from those listed as combat feats, sometimes also called \"fighter bonus feats.\"<br><br>Upon reaching 4th level, and every four levels thereafter (8th, 12th, and so on), a fighter can choose to learn a new bonus feat in place of a bonus feat he has already learned. In effect, the fighter loses the bonus feat in exchange for the new one. The old feat cannot be one that was used as a prerequisite for another feat, prestige class, or other ability. A fighter can only change one feat at any given level and must choose whether or not to swap the feat at the time he gains a new bonus feat for the level.",
+          index: false
+        }, {
+          name: "Bravery +1",
+          note: "(Ex) Starting at 2nd level, a fighter gains a +1 bonus on Will saves against fear. This bonus increases by +1 for every four levels beyond 2nd.",
+          index: false
+        }, {
+          name: "Armor training 1",
+          note: "(Ex) Starting at 3rd level, a fighter learns to be more maneuverable while wearing armor. Whenever he is wearing armor, he reduces the armor check penalty by 1 (to a minimum of 0) and increases the maximum Dexterity bonus allowed by his armor by 1. Every four levels thereafter (7th, 11th, and 15th), these bonuses increase by +1 each time, to a maximum –4 reduction of the armor check penalty and a +4 increase of the maximum Dexterity bonus allowed.",
+          index: false
+        }, {
+          name: "Sneak attack +2d6",
+          note: "If a rogue can catch an opponent when he is unable to defend himself effectively from her attack, she can strike a vital spot for extra damage.<br><br>The rogue's attack deals extra damage anytime her target would be denied a Dexterity bonus to AC (whether the target actually has a Dexterity bonus or not), or when the rogue flanks her target. This extra damage is 1d6 at 1st level, and increases by 1d6 every two rogue levels thereafter. Should the rogue score a critical hit with a sneak attack, this extra damage is not multiplied. Ranged attacks can count as sneak attacks only if the target is within 30 feet.<br><br>With a weapon that deals nonlethal damage (like a sap, whip, or an unarmed strike), a rogue can make a sneak attack that deals nonlethal damage instead of lethal damage. She cannot use a weapon that deals lethal damage to deal nonlethal damage in a sneak attack, not even with the usual –4 penalty.<br><br>The rogue must be able to see the target well enough to pick out a vital spot and must be able to reach such a spot. A rogue cannot sneak attack while striking a creature with concealment.",
+          index: false
+        }, {
+          name: "Trapfinding",
+          note: "A rogue adds 1/2 her level to Perception skill checks made to locate traps and to Disable Device skill checks (minimum +1). A rogue can use Disable Device to disarm magic traps.",
+          index: false
+        }, {
+          name: "Evasion",
+          note: "(Ex) At 2nd level and higher, a rogue can avoid even magical and unusual attacks with great agility. If she makes a successful Reflex saving throw against an attack that normally deals half damage on a successful save, she instead takes no damage. Evasion can be used only if the rogue is wearing light armor or no armor. A helpless rogue does not gain the benefit of evasion.",
+          index: false
+        }, {
+          name: "Rogue talent",
+          note: "As a rogue gains experience, she learns a number of talents that aid her and confound her foes. Starting at 2nd level, a rogue gains one rogue talent. She gains an additional rogue talent for every 2 levels of rogue attained after 2nd level. A rogue cannot select an individual talent more than once.<br><br>Talents marked with an asterisk add effects to a rogue's sneak attack. Only one of these talents can be applied to an individual attack and the decision must be made before the attack roll is made.",
+          index: false
+        }, {
+          name: "Trap sense +1",
+          note: "(Ex) At 3rd level, a rogue gains an intuitive sense that alerts her to danger from traps, giving her a +1 bonus on Reflex saves made to avoid traps and a +1 dodge bonus to AC against attacks made by traps. These bonuses rise to +2 when the rogue reaches 6th level, to +3 when she reaches 9th level, to +4 when she reaches 12th level, to +5 at 15th, and to +6 at 18th level.<br><br>Trap sense bonuses gained from multiple classes stack.",
+          index: false
+        }],
+        notes: ""
       },
       power: {
         all: []
+      },
+      feats: {
+        all: [{
+          name: "Weapon Finesse",
+          note: "",
+          index: 1448
+        }, {
+          name: "Weapon Focus",
+          note: "Selected weapon: Rapier",
+          index: 1450
+        }, {
+          name: "Improved Initiative",
+          note: "",
+          index: 722
+        }, {
+          name: "Deft Hands",
+          note: "",
+          index: 295
+        }, {
+          name: "Acrobatic",
+          note: "",
+          index: 6
+        }, {
+          name: "Toughness",
+          note: "",
+          index: 1365
+        }, {
+          name: "Two-Weapon Fighting",
+          note: "",
+          index: 1396
+        }, {
+          name: "Magical Aptitude",
+          note: "",
+          index: 853
+        }, {
+          name: "Great Fortitude",
+          note: "",
+          index: 596
+        }],
+        notes: ""
+      },
+      traits: {
+        all: [{
+          name: "Resilient",
+          note: "",
+          index: 804
+        }, {
+          name: "Acrobat",
+          note: "",
+          index: 9
+        }],
+        notes: ""
+      },
+      languages: {
+        all: [{
+          name: "Common",
+          note: "",
+          index: 5
+        }, {
+          name: "Dwarven",
+          note: "",
+          index: 8
+        }, {
+          name: "Undercommon",
+          note: "",
+          index: 20
+        }],
+        notes: ""
       }
     },
     equipment: {
@@ -248,15 +367,15 @@ var ravich = (function() {
       },
       consumable: {
         all: [{
-          item: "Wand of Cure Light Wounds",
           current: "",
           total: 50,
-          used: 32
+          used: 32,
+          name: "Wand of Cure Light Wounds"
         }, {
-          item: "Wand of Invisibility",
           current: "",
           total: 50,
-          used: 12
+          used: 12,
+          name: "Wand of Invisibility"
         }]
       },
       wealth: {
@@ -269,7 +388,7 @@ var ravich = (function() {
     },
     defense: {
       hp: {
-        total: 51,
+        total: "",
         temp: "",
         damage: 5,
         non_lethal_damage: "",
@@ -485,8 +604,10 @@ var ravich = (function() {
     },
     offense: {
       stats: {
-        base_attack: 5,
-        base_attack_bonuses: "+5",
+        base_attack: {
+          bonus: "",
+          string: ""
+        },
         melee: {
           misc: "",
           temp: "",
@@ -544,24 +665,27 @@ var ravich = (function() {
         notes: "Sneak Attack +2d6",
         melee: {
           all: [{
-            weapon: "Rapier +1 Flaming",
-            attack: "+11",
-            damage: "1d6+4, 1d6 fire",
-            critical: "18–20/x2",
-            type: "Piercing"
-          }, {
-            weapon: "Short Sword +1",
-            attack: "+10",
-            damage: "1d6+4",
-            critical: "19–20/x2",
-            type: "Piercing"
-          }, {
-            weapon: "Rapier +1 Flaming, Short Sword +1",
-            attack: "+9/+8",
-            damage: "1d6+4, 1d6 fire/1d6+4",
-            critical: "18–20/x2, 19–20/x2",
-            type: "Piercing"
-          }]
+              weapon: "Rapier +1 Flaming",
+              attack: "+11",
+              damage: "1d6+4, 1d6 fire",
+              critical: "18–20/x2",
+              type: "Piercing"
+            },
+            {
+              weapon: "Short Sword +1",
+              attack: "+10",
+              damage: "1d6+4",
+              critical: "19–20/x2",
+              type: "Piercing"
+            },
+            {
+              weapon: "Rapier +1 Flaming, Short Sword +1",
+              attack: "+9/+8",
+              damage: "1d6+4, 1d6 fire/1d6+4",
+              critical: "18–20/x2, 19–20/x2",
+              type: "Piercing"
+            }
+          ]
         },
         ranged: {
           all: [{
@@ -578,7 +702,7 @@ var ravich = (function() {
     },
     skills: {
       ranks: {
-        total: 42,
+        total: "",
         include_custom: false,
         current: ""
       },
@@ -657,7 +781,7 @@ var ravich = (function() {
           misc: 2,
           racial: "",
           feat: "",
-          trait: "",
+          trait: 1,
           current: "",
           bonuses: {
             str: false,

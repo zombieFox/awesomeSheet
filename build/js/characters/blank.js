@@ -441,8 +441,10 @@ var blank = (function() {
     },
     offense: {
       stats: {
-        base_attack: "",
-        base_attack_bonuses: "",
+        base_attack: {
+          bonus: "",
+          string: ""
+        },
         melee: {
           misc: "",
           temp: "",

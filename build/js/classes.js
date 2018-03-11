@@ -78,12 +78,12 @@ var classes = (function() {
     });
     helper.setObject({
       object: sheet.get(),
-      path: "offense.stats.base_attack",
+      path: "offense.stats.base_attack.bonus",
       newValue: totalBab
     });
     helper.setObject({
       object: sheet.get(),
-      path: "offense.stats.base_attack_bonuses",
+      path: "offense.stats.base_attack.string",
       newValue: baseAttackBonuses
     });
     helper.setObject({

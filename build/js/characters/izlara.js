@@ -3,7 +3,7 @@ var izlara = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5,
+      version: 5.2,
       demo: true
     },
     basics: {
@@ -21,10 +21,10 @@ var izlara = (function() {
         size: {
           category: "Medium",
           modifier: {
-            base: 0,
-            special: 0,
-            fly: 0,
-            stealth: 0
+            base: "",
+            special: "",
+            fly: "",
+            stealth: ""
           }
         }
       },
@@ -38,7 +38,8 @@ var izlara = (function() {
           will: 8,
           ranks: 24,
           bab: 6
-        }]
+        }],
+        string: "Wizard 12"
       },
       experience: {
         level: 12,
@@ -199,7 +200,7 @@ var izlara = (function() {
         notes: ""
       },
       languages: {
-        "all": [{
+        all: [{
           name: "Abyssal",
           note: "",
           index: 0
@@ -438,48 +439,48 @@ var izlara = (function() {
       },
       consumable: {
         all: [{
-          item: "Boots of Teleportation",
           current: "",
           total: 3,
-          used: 1
+          used: 1,
+          name: "Boots of Teleportation"
         }, {
-          item: "Wand of Lightning Bolt",
           current: "",
           total: 50,
-          used: 2
+          used: 2,
+          name: "Wand of Lightning Bolt"
         }, {
-          item: "Wand of Spider Climb",
           current: "",
           total: 50,
-          used: 19
+          used: 19,
+          name: "Wand of Spider Climb"
         }, {
-          item: "Rod of Metamagic Extend Lesser",
           current: "",
           total: 3,
-          used: 1
+          used: 1,
+          name: "Rod of Metamagic Extend Lesser"
         }, {
-          item: "Rod of Metamagic Silent Lesser",
           current: "",
           total: 3,
-          used: ""
+          used: "",
+          name: "Rod of Metamagic Silent Lesser"
         }, {
-          item: "Rod of Metamagic Quicken Lesser",
           current: "",
           total: 3,
-          used: ""
+          used: "",
+          name: "Rod of Metamagic Quicken Lesser"
         }]
       },
       wealth: {
-        platinum: 45,
+        platinum: 450,
         gold: 8405,
-        silver: 102,
-        copper: "",
+        silver: 802,
+        copper: 30,
         total: ""
       }
     },
     defense: {
       hp: {
-        total: 86,
+        total: "",
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -695,8 +696,10 @@ var izlara = (function() {
     },
     offense: {
       stats: {
-        base_attack: 6,
-        base_attack_bonuses: "+6 / +1",
+        base_attack: {
+          bonus: "",
+          string: ""
+        },
         melee: {
           misc: "",
           temp: "",
@@ -776,7 +779,7 @@ var izlara = (function() {
     },
     skills: {
       ranks: {
-        total: 132,
+        total: "",
         include_custom: false,
         current: ""
       },

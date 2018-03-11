@@ -2617,6 +2617,15 @@ var repair = (function() {
         delete arrayItem.item;
       });
     };
+    // bab
+    if ("base_attack_bonuses" in characterObject.offense.stats) {
+      _report.repaired.push("update: bab");
+      characterObject.offense.stats.base_attack = {
+        bonus: "",
+        string: ""
+      };
+      delete characterObject.offense.stats.base_attack_bonuses;
+    };
     _log("update complete: 520");
     _log("report:", _report);
     _log("-----");
