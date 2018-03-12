@@ -13658,17 +13658,47 @@ var nif = (function() {
       all: [{
         type: "xp",
         event: {
-          aggregate_value: 6150
+          aggregate_value: 1000
         },
         timestamp: {
           date: 12,
           day: 1,
           year: 2018,
           hours: 0,
-          milliseconds: 323,
-          minutes: 21,
+          milliseconds: 787,
+          minutes: 29,
           month: 2,
-          seconds: 53
+          seconds: 23
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 5150
+        },
+        timestamp: {
+          date: 12,
+          day: 1,
+          year: 2018,
+          hours: 0,
+          milliseconds: 371,
+          minutes: 29,
+          month: 2,
+          seconds: 21
+        }
+      }, {
+        type: "xp",
+        event: {
+          aggregate_value: 51330
+        },
+        timestamp: {
+          date: 12,
+          day: 1,
+          year: 2018,
+          hours: 0,
+          milliseconds: 239,
+          minutes: 29,
+          month: 2,
+          seconds: 13
         }
       }]
     }
