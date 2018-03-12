@@ -11424,7 +11424,7 @@ var nif = (function() {
           index: false
         }, {
           name: "Dimensional Steps",
-          note: "(Sp<span style=\"font-size: 1em;\">) At 8th level, you can use this ability to teleport up to 30 feet per wizard level per day as a standard action. This teleportation must be used in 5-foot increments and such movement does not provoke an attack of opportunity. You can bring other willing creatures with you, but you must expend an equal amount of distance for each additional creature brought with you.</span>",
+          note: "(Sp) At 8th level, you can use this ability to teleport up to 30 feet per wizard level per day as a standard action. This teleportation must be used in 5-foot increments and such movement does not provoke an attack of opportunity. You can bring other willing creatures with you, but you must expend an equal amount of distance for each additional creature brought with you.",
           index: false
         }, {
           name: "Elven Immunities",
@@ -12872,7 +12872,7 @@ var nif = (function() {
         opposition: "Enchantment, Necromancy",
         domains: "",
         bloodline: "",
-        notes: "Conjuration spells +2 DC.<br>+2 on caster level checks to overcome spell resistance."
+        notes: "+2 DC for Conjuration spells.<br>+2 on caster level checks to overcome spell resistance."
       },
       book: {
         level_0: {
@@ -13637,9 +13637,9 @@ var nif = (function() {
     notes: {
       character: {
         all: [{
-          note: "Spells to find:<br>Scorching Ray<br>Lightning Bolt"
+          note: "Spells to find: Scorching Ray, Lightning Bolt"
         }, {
-          note: "Headband of Vast Intelligence.<br>Skills: Use Magic Device, Fly.<br>Languages: Dwarven, Giant, Undercommon."
+          note: "Headband of Vast Intelligence.<br>Skills: Use Magic Device, Fly<br>Languages: Dwarven, Giant, Undercommon"
         }]
       },
       story: {
@@ -36171,12 +36171,9 @@ var update = (function() {
   var history = [{
     version: "5.2.0",
     list: [
-      "Update Display mode design and module."
-    ]
-  }, {
-    version: "5.1.0",
-    list: [
-      "Added Feats and Traits search."
+      "Update Display mode design and module.",
+      "*Newly added Feats Traits and Languages will have descriptions.",
+      "Added notes for Abilities."
     ]
   }, {
     version: "5.0.0",
