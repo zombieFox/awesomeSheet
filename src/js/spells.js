@@ -258,7 +258,7 @@ var spells = (function() {
         }).splice(options.index, 1);
         // snack with undo option
         snack.render({
-          message: helper.truncate(spellObject.name, 40, true) + " removed.",
+          message: "Spell " + helper.truncate(spellObject.name, 40, true) + " removed.",
           button: "Undo",
           action: _restore_lastRemovedSpell,
           destroyDelay: 8000
