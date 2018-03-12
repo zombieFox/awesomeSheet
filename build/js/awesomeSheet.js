@@ -29057,10 +29057,10 @@ var pill = (function() {
         path: pillBlockOptions.path + "[" + options.index + "]"
       })));
       var snackMessage = {
-        abilities: "Abilities " + helper.truncate(pillObject.name, 40, true) + " removed.",
-        feats: "Feat " + helper.truncate(pillObject.name, 40, true) + " removed.",
-        traits: "Trait " + helper.truncate(pillObject.name, 40, true) + " removed.",
-        languages: "Language " + helper.truncate(pillObject.name, 40, true) + " removed."
+        abilities: helper.truncate(pillObject.name, 40, true) + " removed." || "Abilities removed.",
+        feats: helper.truncate(pillObject.name, 40, true) + " removed." || "Feat  removed.",
+        traits: helper.truncate(pillObject.name, 40, true) + " removed." || "Trait  removed.",
+        languages: helper.truncate(pillObject.name, 40, true) + " removed." || "Language removed."
       };
       _store_lastRemovedPill({
         type: pillBlockOptions.type,
@@ -29260,7 +29260,7 @@ var pill = (function() {
         };
 
         pillControl.appendChild(_create_editBox({
-          title: snackTitle[pillBlockOptions.type],
+          title: "Notes",
           guides: true,
           boxSize: "m-edit-box-item-max",
           content: [noteTextarea]

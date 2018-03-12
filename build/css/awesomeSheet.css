@@ -6774,7 +6774,8 @@ h3 .m-display-value {
       right: 0; }
 
 .m-display-list-item-link {
-  cursor: pointer; }
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent; }
 
 .m-display-list-dash {
   display: -webkit-flex;
