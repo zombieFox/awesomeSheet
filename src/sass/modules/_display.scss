@@ -14,6 +14,7 @@
   margin-left: 1em;
 }
 .m-display-head {
+  margin: 0 0.5em 0 0;
   display: block;
 }
 // --------------------------------------------------
@@ -349,6 +350,9 @@ h3 {
       }
     }
   }
+}
+.m-display-list-item-link {
+  cursor: pointer;
 }
 .m-display-list-dash {
   display: flex;

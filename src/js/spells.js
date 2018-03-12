@@ -213,6 +213,10 @@ var spells = (function() {
     };
   };
 
+  function update(button) {
+    _render_quickSpellControl(button);
+  };
+
   function _update_spellObject(button) {
     var options = helper.makeObject(button.dataset.spellButtonOptions);
     var spellObject = helper.getObject({
@@ -1151,7 +1155,7 @@ var spells = (function() {
     clear: clear,
     bind: bind,
     render: render,
-    update: _render_quickSpellControl,
+    update: update,
     add: add
   };
 

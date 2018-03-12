@@ -188,7 +188,9 @@ var display = (function() {
           },
           contentItems: [{
             path: "statistics.abilities.all",
-            listItemKey: "name"
+            listItemKey: "name",
+            pillLink: true,
+            pillType: "abilities"
           }],
         }, {
           type: "block",
@@ -211,7 +213,9 @@ var display = (function() {
           },
           contentItems: [{
             path: "statistics.feats.all",
-            listItemKey: "name"
+            listItemKey: "name",
+            pillLink: true,
+            pillType: "feats"
           }],
         }, {
           type: "block",
@@ -234,7 +238,9 @@ var display = (function() {
           },
           contentItems: [{
             path: "statistics.traits.all",
-            listItemKey: "name"
+            listItemKey: "name",
+            pillLink: true,
+            pillType: "traits"
           }],
         }, {
           type: "block",
@@ -257,7 +263,9 @@ var display = (function() {
           },
           contentItems: [{
             path: "statistics.languages.all",
-            listItemKey: "name"
+            listItemKey: "name",
+            pillLink: true,
+            pillType: "languages"
           }],
         }, {
           type: "block",
@@ -1712,9 +1720,12 @@ var display = (function() {
             object: sheet.get(),
             path: arrayItem.path
           });
+          if ("pillLink" in arrayItem) {
+            var pillLink = arrayItem.pillType;
+          };
           var dataKey = arrayItem.listItemKey;
           if (all_listItem.length > 0) {
-            all_listItem.forEach(function(arrayItem) {
+            all_listItem.forEach(function(arrayItem, index) {
               contentFound++;
               var listItem = document.createElement("li");
               listItem.setAttribute("class", "m-display-list-item");
@@ -1722,6 +1733,12 @@ var display = (function() {
               listItemName.setAttribute("class", "m-display-list-item-name");
               listItemName.textContent = arrayItem[dataKey];
               listItem.appendChild(listItemName);
+              if (pillLink) {
+                helper.addClass(listItem, "m-display-list-item-link")
+                listItem.addEventListener("click", function() {
+                  pill.update(helper.e(".js-pill-block-area-" + pillLink).querySelectorAll(".js-pill-item")[index]);
+                }, false);
+              };
               element.appendChild(listItem);
             });
           };
