@@ -126,7 +126,7 @@ var totalBlock = (function() {
                   valueToPush = valueToPush * totalBlockObject[i][multiply];
                 };
                 if (addOrMinus == "minus") {
-                  toSum.push(-valueToPush);
+                  valueToPush = (-valueToPush);
                 };
                 toSum.push(valueToPush);
               };
@@ -138,7 +138,7 @@ var totalBlock = (function() {
               if (totalBlockObject[array[i]] && totalBlockObject[array[i]] != "" && !isNaN(totalBlockObject[array[i]])) {
                 var valueToPush = totalBlockObject[array[i]];
                 if (addOrMinus == "minus") {
-                  toSum.push(-valueToPush);
+                  valueToPush = (-valueToPush);
                 };
                 toSum.push(valueToPush);
               };
@@ -324,7 +324,11 @@ var totalBlock = (function() {
     _push_internalValues(options.addition, "add", options.multiply);
     _push_internalValues(options.subtraction, "minus", options.multiply);
     _push_externalValues();
-    _render_allCheck()
+    _render_allCheck();
+    if (options.path == "defense.hp") {
+      console.log(options.path);
+      console.log(toSum);
+    };
     var grandTotal = _reduceSum(toSum);
     // console.log(options.path, toSum, grandTotal);
     _store(grandTotal);

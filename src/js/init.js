@@ -1,5 +1,7 @@
 (function() {
 
+  console.log("awesomeSheet loading");
+  console.log("v", sheet.ver());
   sheet.init();
   sheet.render();
   sheet.bind();
@@ -10,5 +12,6 @@
   log.render();
   checkUrl.render();
   sheet.load();
+  console.log("loading complete");
 
 })();
