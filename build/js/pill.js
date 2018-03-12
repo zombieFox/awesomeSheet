@@ -28,8 +28,6 @@ var pill = (function() {
     _bind_all_pillControl();
   };
 
-  // var pillBlockAdd = pillBlock.querySelector(".js-pill-block-add");
-
   function _bind_all_pillBlockField(pillBlockField) {
     if (pillBlockField) {
       _bind_pillBlockField(pillBlockField);
@@ -93,7 +91,6 @@ var pill = (function() {
       traits: "statistics.traits.all",
       languages: "statistics.languages.all"
     };
-    // console.log(paths[type]);
     return helper.getObject({
       object: sheet.get(),
       path: paths[type]
@@ -161,6 +158,10 @@ var pill = (function() {
       });
       page.update();
     };
+  };
+
+  function update(button) {
+    _render_pillControl(button);
   };
 
   function _update_pillState(button) {
@@ -804,8 +805,8 @@ var pill = (function() {
       var modalAction = function() {
         _store_data(this);
         sheet.store();
-        clear(helper.e(".js-pill-block-" + pillBlockOptions.type));
-        render(helper.e(".js-pill-block-" + pillBlockOptions.type));
+        display.clear();
+        display.render();
       }.bind(modalContent);
 
       modal.render({
@@ -939,7 +940,8 @@ var pill = (function() {
     clear: clear,
     bind: bind,
     render: render,
-    add: add
+    add: add,
+    update: update
   };
 
 })();

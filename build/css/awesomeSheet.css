@@ -6476,6 +6476,7 @@ label {
   margin-left: 1em; }
 
 .m-display-head {
+  margin: 0 0.5em 0 0;
   display: block; }
 
 .m-display-intro-details h1 {
@@ -6774,6 +6775,9 @@ h3 .m-display-value {
       position: absolute;
       bottom: -2px;
       right: 0; }
+
+.m-display-list-item-link {
+  cursor: pointer; }
 
 .m-display-list-dash {
   display: -webkit-flex;
