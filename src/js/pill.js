@@ -348,10 +348,10 @@ var pill = (function() {
         path: pillBlockOptions.path + "[" + options.index + "]"
       })));
       var snackMessage = {
-        abilities: helper.truncate(pillObject.name, 40, true) + " removed." || "Abilities removed.",
-        feats: helper.truncate(pillObject.name, 40, true) + " removed." || "Feat  removed.",
-        traits: helper.truncate(pillObject.name, 40, true) + " removed." || "Trait  removed.",
-        languages: helper.truncate(pillObject.name, 40, true) + " removed." || "Language removed."
+        abilities: "Ability " + helper.truncate(pillObject.name, 40, true) + " removed.",
+        feats: "Feat " + helper.truncate(pillObject.name, 40, true) + " removed.",
+        traits: "Trait " + helper.truncate(pillObject.name, 40, true) + " removed.",
+        languages: "Language " + helper.truncate(pillObject.name, 40, true) + " removed."
       };
       _store_lastRemovedPill({
         type: pillBlockOptions.type,
