@@ -9,6 +9,7 @@
   transition: margin $transition-ease-fast, padding $transition-ease-fast;
 }
 .m-edit-box-head {
+  margin-bottom: 1em;
   max-width: 100%;
   box-sizing: border-box;
 }
@@ -535,6 +536,7 @@
     flex: 1 1 auto;
   }
   .m-edit-box-head {
+    margin-bottom: 0;
     padding: 0 2em 0 0;
   }
   .m-edit-box-indent {
