@@ -3026,6 +3026,7 @@ label {
   transition: margin 0.2s ease-in-out, padding 0.2s ease-in-out; }
 
 .m-edit-box-head {
+  margin-bottom: 1em;
   max-width: 100%;
   box-sizing: border-box; }
 
@@ -3892,6 +3893,7 @@ label {
         -ms-flex: 1 1 auto;
             flex: 1 1 auto; }
   .m-edit-box-head {
+    margin-bottom: 0;
     padding: 0 2em 0 0; }
   .m-edit-box-indent .m-edit-box-body {
     margin-left: 0; }
