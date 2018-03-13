@@ -35,9 +35,10 @@
 }
 .m-header-select-title {
   margin-right: 1em;
-  color: $light-alpha-06;
+  color: $light-alpha-03;
   font-size: $font-size-075;
   line-height: $line-height-160;
+  font-family: $open-sans-bold;
   flex: 0 0 auto;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
@@ -114,6 +115,11 @@
       background-color: $primary-color-alpha-12;
       border-color: $primary-color-12;
     }
+  }
+}
+.is-night-mode {
+  .m-header-select-title {
+    color: $light-alpha-03;
   }
 }
 // --------------------------------------------------

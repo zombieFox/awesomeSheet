@@ -162,6 +162,7 @@ var sheet = (function() {
     snack.destroy();
     _all_characters = JSON.parse(JSON.stringify(hardCodedCharacters.demo()));
     _all_characters.forEach(function(item, index, array) {
+      item.awesomeSheet.version = update.version();
       array[index] = repair.render({
         object: item,
         debug: true
