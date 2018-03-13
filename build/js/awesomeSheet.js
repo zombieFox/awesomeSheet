@@ -120,12 +120,12 @@ var helper = (function() {
         var key = "\"" + kevValuePair[0] + "\"";
         var value;
         // if the value has + with a space after it
-        if (/\+/.test(kevValuePair[1])) {
+        if (/\+(?=\S)/.test(kevValuePair[1])) {
           // remove first + symbol
           kevValuePair[1] = kevValuePair[1].substr(1, kevValuePair[1].length);
           // split the would be values
           // split on character if not followed by a space
-          var all_value = kevValuePair[1].split(/\+/);
+          var all_value = kevValuePair[1].split(/\+(?=\S)/);
           // if there are multiple values make an array
           value = "["
           for (var q = 0; q < all_value.length; q++) {
@@ -2913,8 +2913,8 @@ var izlara = (function() {
         all: [{
           name: "Flask of Oil",
           quantity: 4,
-          weight: 4,
-          value: 0.4
+          weight: 1,
+          value: 0.1
         }, {
           name: "Sack",
           quantity: 1,
@@ -2933,13 +2933,13 @@ var izlara = (function() {
         }, {
           name: "Bloodblock",
           quantity: 2,
-          weight: 2,
-          value: 50
+          weight: 1,
+          value: 25
         }, {
           name: "Healer's Kit",
           quantity: 2,
-          weight: 2,
-          value: 100
+          weight: 1,
+          value: 50
         }, {
           name: "Silk Rope (50ft)",
           quantity: 1,
@@ -5969,8 +5969,8 @@ var ravich = (function() {
         all: [{
           name: "Flask of Oil",
           quantity: 2,
-          weight: 2,
-          value: 0.2
+          weight: 1,
+          value: 0.1
         }, {
           name: "Waterskin",
           quantity: 1,
@@ -11618,48 +11618,59 @@ var nif = (function() {
       item: {
         all: [{
           name: "Flask of Oil",
-          quantity: 5,
-          weight: 5
+          quantity: 2,
+          weight: 1,
+          value: 0.1
         }, {
           name: "Sack",
           quantity: 1,
-          weight: 0.5
+          weight: 0.5,
+          value: 0.1
         }, {
           name: "Waterskin",
           quantity: 1,
-          weight: 4
+          weight: 4,
+          value: 1
         }, {
           name: "Bedroll",
           quantity: 1,
-          weight: 5
+          weight: 5,
+          value: 0.6
         }, {
           name: "Blanket",
           quantity: 1,
-          weight: 3
+          weight: 3,
+          value: 1
         }, {
           name: "Bloodblock",
           quantity: 2,
-          weight: 2
+          weight: "",
+          value: 25
         }, {
           name: "Healer's Kit",
           quantity: 2,
-          weight: 2
+          weight: 1,
+          value: 50
         }, {
-          name: "Rope (silk)",
+          name: "Silk Rope (50ft)",
           quantity: 1,
-          weight: 5
+          weight: 5,
+          value: 10
         }, {
           name: "Mirror",
           quantity: 1,
-          weight: 0.5
+          weight: 0.5,
+          value: 10
         }, {
           name: "Compass",
           quantity: 1,
-          weight: 1
+          weight: 0.5,
+          value: 10
         }, {
           name: "Andorak spell book",
           quantity: 1,
-          weight: 0.5
+          weight: 0.5,
+          value: ""
         }],
         weight: {
           current: ""
@@ -20769,11 +20780,6 @@ var clone = (function() {
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item-medium">' +
-        '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item.all[' + cloneIndex + ']quantity,type:integer,clone:true">' +
-        '          <input id="item-quantity-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
-        '        </div>' +
-        '      </div>' +
-        '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item.all[' + cloneIndex + ']weight,type:float,clone:true">' +
         '          <input id="item-weight-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '        </div>' +
@@ -20781,6 +20787,11 @@ var clone = (function() {
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item.all[' + cloneIndex + ']value,type:float,clone:true">' +
         '          <input id="item-value-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item.all[' + cloneIndex + ']quantity,type:integer,clone:true">' +
+        '          <input id="item-quantity-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '    </div>' +
@@ -32900,6 +32911,7 @@ var sheet = (function() {
     snack.destroy();
     _all_characters = JSON.parse(JSON.stringify(hardCodedCharacters.demo()));
     _all_characters.forEach(function(item, index, array) {
+      item.awesomeSheet.version = update.version();
       array[index] = repair.render({
         object: item,
         debug: true
@@ -33963,7 +33975,7 @@ var spells = (function() {
         }).splice(options.index, 1);
         // snack with undo option
         snack.render({
-          message: helper.truncate(spellObject.name, 40, true) + " removed.",
+          message: "Spell " + helper.truncate(spellObject.name, 40, true) + " removed.",
           button: "Undo",
           action: _restore_lastRemovedSpell,
           destroyDelay: 8000
@@ -35579,34 +35591,47 @@ var totalBlock = (function() {
       };
       return classSkill;
     };
-    var _push_internalValues = function(array, addOrMinus) {
-      if (array) {
-        if (options.cloneSet) {
-          for (var i = 0; i < totalBlockObject.length; i++) {
-            for (var q = 0; q < array.length; q++) {
-              if (totalBlockObject[i][array[q]] && totalBlockObject[i][array[q]] != "" && !isNaN(totalBlockObject[i][array[q]])) {
-                if (addOrMinus == "add") {
-                  toSum.push(totalBlockObject[i][array[q]]);
-                } else if (addOrMinus == "minus") {
-                  toSum.push(-totalBlockObject[i][array[q]]);
-                };
+    var _push_internalValues = function(array, addOrMinus, multiply) {
+
+      var _push_cloneSetValues = function() {
+        for (var i = 0; i < totalBlockObject.length; i++) {
+          for (var q = 0; q < array.length; q++) {
+            if (totalBlockObject[i][array[q]] && totalBlockObject[i][array[q]] != "" && !isNaN(totalBlockObject[i][array[q]])) {
+              var valueToPush = totalBlockObject[i][array[q]];
+              if (multiply != undefined) {
+                valueToPush = valueToPush * totalBlockObject[i][multiply];
               };
-            };
-          };
-        } else {
-          if (array && array.length > 0) {
-            for (var i = 0; i < array.length; i++) {
-              if (totalBlockObject[array[i]] && totalBlockObject[array[i]] != "" && !isNaN(totalBlockObject[array[i]])) {
-                if (addOrMinus == "add") {
-                  toSum.push(totalBlockObject[array[i]]);
-                } else if (addOrMinus == "minus") {
-                  toSum.push(-totalBlockObject[array[i]]);
-                };
+              if (addOrMinus == "minus") {
+                valueToPush = -valueToPush;
               };
+              toSum.push(valueToPush);
             };
           };
         };
       };
+
+      var _push_values = function() {
+        if (array && array.length > 0) {
+          for (var i = 0; i < array.length; i++) {
+            if (totalBlockObject[array[i]] && totalBlockObject[array[i]] != "" && !isNaN(totalBlockObject[array[i]])) {
+              var valueToPush = totalBlockObject[array[i]];
+              if (addOrMinus == "minus") {
+                valueToPush = -valueToPush;
+              };
+              toSum.push(valueToPush);
+            };
+          };
+        };
+      };
+
+      if (array) {
+        if (options.cloneSet) {
+          _push_cloneSetValues();
+        } else {
+          _push_values();
+        };
+      };
+
     };
     var _push_externalValues = function() {
       // loop over bonuses in totalBlockObject
@@ -35782,10 +35807,10 @@ var totalBlock = (function() {
     };
     _get_totalBlockObject();
     _update_missingBonusKey();
-    _push_internalValues(options.addition, "add");
-    _push_internalValues(options.subtraction, "minus");
+    _push_internalValues(options.addition, "add", options.multiply);
+    _push_internalValues(options.subtraction, "minus", options.multiply);
     _push_externalValues();
-    _render_allCheck()
+    _render_allCheck();
     var grandTotal = _reduceSum(toSum);
     // console.log(options.path, toSum, grandTotal);
     _store(grandTotal);
@@ -36169,6 +36194,11 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "5.3.0",
+    list: [
+      "*Update Equipment Items. You may need to review Item quantities.",
+    ]
+  },{
     version: "5.2.0",
     list: [
       "Update Display mode design and module.",

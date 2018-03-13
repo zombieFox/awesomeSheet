@@ -275,11 +275,6 @@ var clone = (function() {
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item-medium">' +
-        '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item.all[' + cloneIndex + ']quantity,type:integer,clone:true">' +
-        '          <input id="item-quantity-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
-        '        </div>' +
-        '      </div>' +
-        '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item.all[' + cloneIndex + ']weight,type:float,clone:true">' +
         '          <input id="item-weight-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '        </div>' +
@@ -287,6 +282,11 @@ var clone = (function() {
         '      <div class="m-edit-box-item-medium">' +
         '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item.all[' + cloneIndex + ']value,type:float,clone:true">' +
         '          <input id="item-value-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item-medium">' +
+        '        <div class="m-input-block js-input-block" data-input-block-options="path:equipment.item.all[' + cloneIndex + ']quantity,type:integer,clone:true">' +
+        '          <input id="item-quantity-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '        </div>' +
         '      </div>' +
         '    </div>' +

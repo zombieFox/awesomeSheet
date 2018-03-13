@@ -3026,19 +3026,8 @@ label {
   transition: margin 0.2s ease-in-out, padding 0.2s ease-in-out; }
 
 .m-edit-box-head {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: row nowrap;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-align-items: flex-start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  max-width: 100%; }
+  max-width: 100%;
+  box-sizing: border-box; }
 
 .m-edit-box-body {
   max-width: 100%; }
@@ -3126,6 +3115,16 @@ label {
   line-height: 1.5; }
   .m-edit-box-title:not(:only-child):not(:last-child) {
     margin-bottom: 0; }
+
+.m-edit-box-description {
+  font-family: "Open Sans Regular", Helvetica, Arial, sans-serif;
+  font-size: 0.8em;
+  line-height: 2; }
+  .m-edit-box-description strong {
+    background-color: #fafcff;
+    color: #2063a7;
+    padding: 1px;
+    white-space: nowrap; }
 
 [class*="m-edit-box-item"],
 [class^="m-edit-box-item"] {
@@ -3850,6 +3849,10 @@ label {
 .is-night-mode .m-edit-heading {
   background-color: #173049; }
 
+.is-night-mode .m-edit-box-description strong {
+  background-color: #060a0e;
+  color: #3e96ee; }
+
 .is-night-mode .m-edit-box-label {
   color: #94c9ff; }
 
@@ -3888,6 +3891,8 @@ label {
     -webkit-flex: 1 1 auto;
         -ms-flex: 1 1 auto;
             flex: 1 1 auto; }
+  .m-edit-box-head {
+    padding: 0 2em 0 0; }
   .m-edit-box-indent .m-edit-box-body {
     margin-left: 0; }
   .m-edit-box-labels .m-edit-box-head {
@@ -3910,8 +3915,6 @@ label {
             flex: 0 0 70%; }
   .m-edit-box-head-extra-large .m-edit-box-body {
     max-width: 30%; }
-  .m-edit-box-title {
-    margin-right: 1em; }
   .m-edit-box-no-head-small {
     padding-left: 30%; }
   .m-edit-box-no-head-large {
@@ -4882,9 +4885,10 @@ label {
 
 .m-header-select-title {
   margin-right: 1em;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 0.75em;
   line-height: 1.6666666667;
+  font-family: "Open Sans Bold", Helvetica, Arial, sans-serif;
   -webkit-flex: 0 0 auto;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto; }
@@ -4958,6 +4962,9 @@ label {
 .is-display-mode .m-header-control-button.is-active, .is-display-mode .m-header-control-button:active {
   background-color: rgba(253, 0, 66, 0.45);
   border-color: #ff3166; }
+
+.is-night-mode .m-header-select-title {
+  color: rgba(255, 255, 255, 0.9); }
 
 @media (min-width: 700px) {
   .m-header.is-pinned {

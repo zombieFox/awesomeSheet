@@ -363,48 +363,59 @@ var nif = (function() {
       item: {
         all: [{
           name: "Flask of Oil",
-          quantity: 5,
-          weight: 5
+          quantity: 2,
+          weight: 1,
+          value: 0.1
         }, {
           name: "Sack",
           quantity: 1,
-          weight: 0.5
+          weight: 0.5,
+          value: 0.1
         }, {
           name: "Waterskin",
           quantity: 1,
-          weight: 4
+          weight: 4,
+          value: 1
         }, {
           name: "Bedroll",
           quantity: 1,
-          weight: 5
+          weight: 5,
+          value: 0.6
         }, {
           name: "Blanket",
           quantity: 1,
-          weight: 3
+          weight: 3,
+          value: 1
         }, {
           name: "Bloodblock",
           quantity: 2,
-          weight: 2
+          weight: "",
+          value: 25
         }, {
           name: "Healer's Kit",
           quantity: 2,
-          weight: 2
+          weight: 1,
+          value: 50
         }, {
-          name: "Rope (silk)",
+          name: "Silk Rope (50ft)",
           quantity: 1,
-          weight: 5
+          weight: 5,
+          value: 10
         }, {
           name: "Mirror",
           quantity: 1,
-          weight: 0.5
+          weight: 0.5,
+          value: 10
         }, {
           name: "Compass",
           quantity: 1,
-          weight: 1
+          weight: 0.5,
+          value: 10
         }, {
           name: "Andorak spell book",
           quantity: 1,
-          weight: 0.5
+          weight: 0.5,
+          value: ""
         }],
         weight: {
           current: ""

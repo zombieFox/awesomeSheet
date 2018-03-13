@@ -115,34 +115,47 @@ var totalBlock = (function() {
       };
       return classSkill;
     };
-    var _push_internalValues = function(array, addOrMinus) {
-      if (array) {
-        if (options.cloneSet) {
-          for (var i = 0; i < totalBlockObject.length; i++) {
-            for (var q = 0; q < array.length; q++) {
-              if (totalBlockObject[i][array[q]] && totalBlockObject[i][array[q]] != "" && !isNaN(totalBlockObject[i][array[q]])) {
-                if (addOrMinus == "add") {
-                  toSum.push(totalBlockObject[i][array[q]]);
-                } else if (addOrMinus == "minus") {
-                  toSum.push(-totalBlockObject[i][array[q]]);
-                };
+    var _push_internalValues = function(array, addOrMinus, multiply) {
+
+      var _push_cloneSetValues = function() {
+        for (var i = 0; i < totalBlockObject.length; i++) {
+          for (var q = 0; q < array.length; q++) {
+            if (totalBlockObject[i][array[q]] && totalBlockObject[i][array[q]] != "" && !isNaN(totalBlockObject[i][array[q]])) {
+              var valueToPush = totalBlockObject[i][array[q]];
+              if (multiply != undefined) {
+                valueToPush = valueToPush * totalBlockObject[i][multiply];
               };
-            };
-          };
-        } else {
-          if (array && array.length > 0) {
-            for (var i = 0; i < array.length; i++) {
-              if (totalBlockObject[array[i]] && totalBlockObject[array[i]] != "" && !isNaN(totalBlockObject[array[i]])) {
-                if (addOrMinus == "add") {
-                  toSum.push(totalBlockObject[array[i]]);
-                } else if (addOrMinus == "minus") {
-                  toSum.push(-totalBlockObject[array[i]]);
-                };
+              if (addOrMinus == "minus") {
+                valueToPush = -valueToPush;
               };
+              toSum.push(valueToPush);
             };
           };
         };
       };
+
+      var _push_values = function() {
+        if (array && array.length > 0) {
+          for (var i = 0; i < array.length; i++) {
+            if (totalBlockObject[array[i]] && totalBlockObject[array[i]] != "" && !isNaN(totalBlockObject[array[i]])) {
+              var valueToPush = totalBlockObject[array[i]];
+              if (addOrMinus == "minus") {
+                valueToPush = -valueToPush;
+              };
+              toSum.push(valueToPush);
+            };
+          };
+        };
+      };
+
+      if (array) {
+        if (options.cloneSet) {
+          _push_cloneSetValues();
+        } else {
+          _push_values();
+        };
+      };
+
     };
     var _push_externalValues = function() {
       // loop over bonuses in totalBlockObject
@@ -318,10 +331,10 @@ var totalBlock = (function() {
     };
     _get_totalBlockObject();
     _update_missingBonusKey();
-    _push_internalValues(options.addition, "add");
-    _push_internalValues(options.subtraction, "minus");
+    _push_internalValues(options.addition, "add", options.multiply);
+    _push_internalValues(options.subtraction, "minus", options.multiply);
     _push_externalValues();
-    _render_allCheck()
+    _render_allCheck();
     var grandTotal = _reduceSum(toSum);
     // console.log(options.path, toSum, grandTotal);
     _store(grandTotal);
