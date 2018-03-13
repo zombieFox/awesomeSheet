@@ -22,13 +22,13 @@ var onboarding = (function() {
         onboardingModal.setAttribute("class", "m-onboarding");
 
         var para1 = document.createElement("p");
-        para1.innerHTML = "Some advice before the next adventure -- <strong>awesomeSheet</strong> comes prepared with two <strong>Demo Heros</strong> found in the <strong>Character Select</strong> menu to give you an idea whats possible with this webapp.";
+        para1.innerHTML = "Some advice before the next adventure -- <strong>awesomeSheet</strong> comes prepared with two <strong>Demo Heros</strong> found in the <strong>Character Select</strong> menu.";
 
         var para2 = document.createElement("p");
         para2.innerHTML = "Calistria keeps all knowledge entered here safe with the power of her \"Cache-of-the-Browser\" spell, so be wary not to fall foul of her trickery by clearing the cache and losing your Heros.";
 
         var para3 = document.createElement("p");
-        para3.innerHTML = "Be sure to cast Bigby's <strong>Export</strong> every now and then to backup your Heros.";
+        para3.innerHTML = "Be sure to cast \"Bigby's <strong>Export</strong>\" every now and then to backup your Heros.";
 
         onboardingModal.appendChild(para1);
         onboardingModal.appendChild(para2);
