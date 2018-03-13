@@ -118,12 +118,12 @@ var helper = (function() {
         var key = "\"" + kevValuePair[0] + "\"";
         var value;
         // if the value has + with a space after it
-        if (/\+/.test(kevValuePair[1])) {
+        if (/\+(?=\S)/.test(kevValuePair[1])) {
           // remove first + symbol
           kevValuePair[1] = kevValuePair[1].substr(1, kevValuePair[1].length);
           // split the would be values
           // split on character if not followed by a space
-          var all_value = kevValuePair[1].split(/\+/);
+          var all_value = kevValuePair[1].split(/\+(?=\S)/);
           // if there are multiple values make an array
           value = "["
           for (var q = 0; q < all_value.length; q++) {

@@ -1,6 +1,11 @@
 var update = (function() {
 
   var history = [{
+    version: "5.3.0",
+    list: [
+      "*Update Equipment Items. You may need to review Item quantities.",
+    ]
+  },{
     version: "5.2.0",
     list: [
       "Update Display mode design and module.",

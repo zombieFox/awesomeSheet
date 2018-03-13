@@ -320,8 +320,8 @@ var ravich = (function() {
         all: [{
           name: "Flask of Oil",
           quantity: 2,
-          weight: 2,
-          value: 0.2
+          weight: 1,
+          value: 0.1
         }, {
           name: "Waterskin",
           quantity: 1,
