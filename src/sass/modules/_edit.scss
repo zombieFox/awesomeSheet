@@ -9,11 +9,8 @@
   transition: margin $transition-ease-fast, padding $transition-ease-fast;
 }
 .m-edit-box-head {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  align-items: flex-start;
   max-width: 100%;
+  box-sizing: border-box;
 }
 .m-edit-box-body {
   max-width: 100%;
@@ -517,6 +514,9 @@
   .m-edit-box-body {
     flex: 1 1 auto;
   }
+  .m-edit-box-head {
+    padding: 0 1em 0 0;
+  }
   .m-edit-box-indent {
     .m-edit-box-body {
       margin-left: 0;
@@ -550,9 +550,6 @@
     .m-edit-box-body {
       max-width: 30%;
     }
-  }
-  .m-edit-box-title {
-    margin-right: 1em;
   }
   .m-edit-box-no-head-small {
     padding-left: 30%;

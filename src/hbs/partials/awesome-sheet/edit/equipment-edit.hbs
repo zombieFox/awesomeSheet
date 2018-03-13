@@ -205,9 +205,10 @@
       <button type="button" class="button button-medium button-secondary button-icon js-clone-remove" tabindex="1"><span class="icon-close"></span><span class="button-text">Remove</span></button>
     </div>
 
-    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small">
       <div class="m-edit-box-head">
         <h2 class="m-edit-box-title">Items</h2>
+        <p class="u-small-text">Adding a Quantity to an Item line will multiply its Value and Weight.</p>
       </div>
       <div class="m-edit-box-body">
 
@@ -240,25 +241,17 @@
 
         <div class="m-clone-block-target js-clone-block-target js-clone-block-target-item"></div>
 
-      </div>
-    </div>
-
-    <div class="js-clone-block-suffix-item">
-      <div class="m-edit-box m-edit-box-indent m-edit-box-no-head-small m-edit-box-labels">
-        <div class="m-edit-box-body">
-
-          <div class="m-edit-box-content m-edit-box-content-margin-small m-edit-box-content-end">
-            <div class="m-edit-box-item-small js-total-block" data-total-block-options="path:equipment.item.all,addition:+weight,multiply:quantity,cloneSet:true,cloneSetPath:equipment.item.weight">
-              <p class="m-edit-box-label">Total Weight</p>
-              <p class="m-edit-box-total js-text-block" data-text-block-options="path:equipment.item.weight.current,type:weight"></p>
-            </div>
-            <div class="m-edit-box-item-small js-total-block" data-total-block-options="path:equipment.item.all,addition:+value,multiply:quantity,cloneSet:true,cloneSetPath:equipment.item.value">
-              <p class="m-edit-box-label">Total Value</p>
-              <p class="m-edit-box-total js-text-block" data-text-block-options="path:equipment.item.value.current,type:currency"></p>
-            </div>
+        <div class="m-edit-box-content m-edit-box-content-margin-small m-edit-box-content-end js-clone-block-suffix-item">
+          <div class="m-edit-box-item-small js-total-block" data-total-block-options="path:equipment.item.all,addition:+weight,multiply:quantity,cloneSet:true,cloneSetPath:equipment.item.weight">
+            <p class="m-edit-box-label">Total Weight</p>
+            <p class="m-edit-box-total js-text-block" data-text-block-options="path:equipment.item.weight.current,type:weight"></p>
           </div>
-
+          <div class="m-edit-box-item-small js-total-block" data-total-block-options="path:equipment.item.all,addition:+value,multiply:quantity,cloneSet:true,cloneSetPath:equipment.item.value">
+            <p class="m-edit-box-label">Total Value</p>
+            <p class="m-edit-box-total js-text-block" data-text-block-options="path:equipment.item.value.current,type:currency"></p>
+          </div>
         </div>
+
       </div>
     </div>
 
@@ -409,8 +402,8 @@
           <div class="m-edit-box-item-large">
             <div class="m-input-block js-input-block js-input-block-aggregate" data-input-block-aggregate-options="path:equipment.wealth.gold,action:aggregate,eventType:gold,snackMessage:Gold.">
               <label class="m-input-block-label js-input-block-label" for="equipment-wealth-gold">GP to add/remove</label>
-              <input id="equipment-wealth-gold" class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-aggregate-input js-tip" data-tip-options="message:Use negative numbers to spend Gold. Eg: Apply '-100' to remove 100 GP.,state:focus" type="number"
-                tabindex="1">
+              <input id="equipment-wealth-gold" class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-aggregate-input js-tip" data-tip-options="message:Use negative numbers to spend Gold. Eg: Apply '-100' to remove 100 GP.,state:focus"
+                type="number" tabindex="1">
             </div>
           </div>
           <div class="m-edit-box-item-button-large">
@@ -441,8 +434,8 @@
           <div class="m-edit-box-item-large">
             <div class="m-input-block js-input-block js-input-block-aggregate" data-input-block-aggregate-options="path:equipment.wealth.silver,action:aggregate,eventType:silver,snackMessage:Silver.">
               <label class="m-input-block-label js-input-block-label" for="equipment-wealth-silver">SP to add/remove</label>
-              <input id="equipment-wealth-silver" class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-aggregate-input js-tip" data-tip-options="message:Use negative numbers to spend Silver. Eg: Apply '-100' to remove 100 SP.,state:focus" type="number"
-                tabindex="1">
+              <input id="equipment-wealth-silver" class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-aggregate-input js-tip" data-tip-options="message:Use negative numbers to spend Silver. Eg: Apply '-100' to remove 100 SP.,state:focus"
+                type="number" tabindex="1">
             </div>
           </div>
           <div class="m-edit-box-item-button-large">
@@ -473,8 +466,8 @@
           <div class="m-edit-box-item-large">
             <div class="m-input-block js-input-block js-input-block-aggregate" data-input-block-aggregate-options="path:equipment.wealth.copper,action:aggregate,eventType:copper,snackMessage:Copper.">
               <label class="m-input-block-label js-input-block-label" for="equipment-wealth-copper">CP to add/remove</label>
-              <input id="equipment-wealth-copper" class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-aggregate-input js-tip" data-tip-options="message:Use negative numbers to spend Copper. Eg: Apply '-100' to remove 100 CP.,state:focus" type="number"
-                tabindex="1">
+              <input id="equipment-wealth-copper" class="m-input-block-field u-full-width u-text-center js-input-block-field js-input-block-aggregate-input js-tip" data-tip-options="message:Use negative numbers to spend Copper. Eg: Apply '-100' to remove 100 CP.,state:focus"
+                type="number" tabindex="1">
             </div>
           </div>
           <div class="m-edit-box-item-button-large">

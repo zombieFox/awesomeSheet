@@ -126,7 +126,7 @@ var totalBlock = (function() {
                 valueToPush = valueToPush * totalBlockObject[i][multiply];
               };
               if (addOrMinus == "minus") {
-                valueToPush = (-valueToPush);
+                valueToPush = -valueToPush;
               };
               toSum.push(valueToPush);
             };
