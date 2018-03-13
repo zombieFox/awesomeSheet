@@ -136,8 +136,14 @@
 // --------------------------------------------------
 .m-edit-box-description {
   font-family: $open-sans-regular;
-  color: $secondary-color-04;
   font-size: 0.8em;
+  line-height: $line-height-200;
+  strong {
+    background-color: $secondary-color-20;
+    color: $secondary-color-08;
+    padding: 1px;
+    white-space: nowrap;
+  };
 }
 // --------------------------------------------------
 // edit items
@@ -487,6 +493,12 @@
   }
   .m-edit-heading {
     background-color: $secondary-color-04;
+  }
+  .m-edit-box-description {
+    strong {
+      background-color: $secondary-color-01;
+      color: $secondary-color-12;
+    };
   }
   .m-edit-box-label {
     color: $secondary-color-16;
