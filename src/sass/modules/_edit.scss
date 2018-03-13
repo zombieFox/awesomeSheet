@@ -132,6 +132,14 @@
   }
 }
 // --------------------------------------------------
+// edit description
+// --------------------------------------------------
+.m-edit-box-description {
+  font-family: $open-sans-regular;
+  color: $secondary-color-04;
+  font-size: 0.8em;
+}
+// --------------------------------------------------
 // edit items
 // --------------------------------------------------
 [class*="m-edit-box-item"],
@@ -515,7 +523,7 @@
     flex: 1 1 auto;
   }
   .m-edit-box-head {
-    padding: 0 1em 0 0;
+    padding: 0 2em 0 0;
   }
   .m-edit-box-indent {
     .m-edit-box-body {
