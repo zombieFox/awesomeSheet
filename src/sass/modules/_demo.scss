@@ -1,10 +1,22 @@
-.m-demo {}
+.m-demo {
+  .m-card {
+    border: 2px solid transparent;
+    border-color: $secondary-color-06;
+  }
+}
 .m-demo-heading {
   font-size: $font-size-150;
 }
 .m-demo-description {}
 .m-demo-add-new-character {
   margin-bottom: 0;
+}
+.m-demo {
+  &.is-display-mode {
+    .m-card {
+      border-color: $primary-color-06;
+    }
+  }
 }
 // --------------------------------------------------
 // media queries

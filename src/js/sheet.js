@@ -120,7 +120,7 @@ var sheet = (function() {
     };
     var name = helper.getObject({
       object: get(),
-      path: "basics.name"
+      path: "basics.character.name"
     });
     if (name == "" || name == undefined) {
       name = "New character";
@@ -308,7 +308,7 @@ var sheet = (function() {
     //   object: get(),
     //   path: "basics.character.name"
     // });
-    var name = get().basics.name || get().basics.character.name || "New character";
+    var name = get().basics.character.name || "New character";
     modal.render({
       heading: "Replace " + name,
       content: _importJsonModal({
@@ -398,14 +398,7 @@ var sheet = (function() {
             object: data,
             debug: true
           }));
-          var name = get().basics.name || get().basics.character.name || "New character";
-          // var name = helper.getObject({
-          //   object: get(),
-          //   path: basics.name
-          // }) || helper.getObject({
-          //   object: get(),
-          //   path: basics.character.name
-          // }) || "New character";
+          var name = get().basics.character.name || "New character";
           snack.render({
             message: helper.truncate(name, 40, true) + " imported and back in the game."
           });
@@ -442,14 +435,7 @@ var sheet = (function() {
             object: data,
             debug: true
           }));
-          var name = get().basics.name || get().basics.character.name || "New character";
-          // var name = helper.getObject({
-          //   object: get(),
-          //   path: basics.name
-          // }) || helper.getObject({
-          //   object: get(),
-          //   path: basics.character.name
-          // }) || "New character";
+          var name = get().basics.character.name || "New character";
           snack.render({
             message: helper.truncate(name, 40, true) + " replaced and back in the game."
           });

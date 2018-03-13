@@ -17,19 +17,18 @@ var demo = (function() {
 
   function _createDemoNotice() {
     var section = document.createElement("div");
-    section.setAttribute("class", "l-section js-demo");
+    section.setAttribute("class", "l-section m-demo js-demo");
     var card = document.createElement("div");
     card.setAttribute("class", "m-card");
     var cardBody = document.createElement("div");
     cardBody.setAttribute("class", "m-card-body");
     var demo = document.createElement("div");
-    demo.setAttribute("class", "m-demo");
     var heading = document.createElement("h1");
     heading.setAttribute("class", "m-demo-heading");
     heading.textContent = "Demo character";
     var description = document.createElement("p");
     description.setAttribute("class", "m-demo-description");
-    description.innerHTML = "This is a sample character to demonstrates what awesomeSheet can do. If you want to get started making your own use the <strong>Character Select</strong> menu from the <strong>Header</strong> or:";
+    description.innerHTML = "This is a sample character to demonstrates what awesomeSheet can do. Get started making your own by using the <strong>Character Select</strong> or:";
     var addButton = document.createElement("button");
     addButton.setAttribute("class", "m-demo-add-new-character button");
     addButton.textContent = "Add new character";

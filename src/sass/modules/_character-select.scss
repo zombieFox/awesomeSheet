@@ -88,11 +88,16 @@
         .m-character-select-list-item-demo {
           white-space: nowrap;
           display: inline-block;
-          line-height: $line-height-160;
+          line-height: 1;
+          padding: 2px 3px;
+          font-size: $font-size-075;
+          border-radius: $border-radius-medium;
           color: $primary-color-10;
           font-family: $open-sans-semi-bold;
           flex: 0 1 auto;
           margin-right: 0.5em;
+          border: $border;
+          border-color: $primary-color-10;
         }
         .m-character-select-list-item-name {
           white-space: nowrap;
@@ -120,7 +125,10 @@
           &:before {
             color: $white;
           }
-          .m-character-select-list-item-demo,
+          .m-character-select-list-item-demo {
+            color: $white;
+            border-color: $white;
+          }
           .m-character-select-list-item-name {
             color: $white;
           }
@@ -133,7 +141,10 @@
           &:before {
             color: $white;
           }
-          .m-character-select-list-item-demo,
+          .m-character-select-list-item-demo {
+            color: $white;
+            border-color: $white;
+          }
           .m-character-select-list-item-name {
             color: $white;
           }
@@ -155,7 +166,10 @@
             &:before {
               color: $white;
             }
-            .m-character-select-list-item-demo,
+            .m-character-select-list-item-demo {
+              color: $white;
+              border-color: $white;
+            }
             .m-character-select-list-item-name {
               color: $white;
             }
@@ -555,6 +569,7 @@
           }
           .m-character-select-list-item-demo {
             color: $secondary-color-10;
+            border-color: $secondary-color-10;
           }
           .m-character-select-list-item-name {
             color: $base-color;
@@ -574,7 +589,10 @@
             &:before {
               color: $white;
             }
-            .m-character-select-list-item-demo,
+            .m-character-select-list-item-demo {
+              color: $white;
+              border-color: $white;
+            }
             .m-character-select-list-item-name {
               color: $white;
             }
@@ -587,7 +605,10 @@
             &:before {
               color: $white;
             }
-            .m-character-select-list-item-demo,
+            .m-character-select-list-item-demo {
+              color: $white;
+              border-color: $white;
+            }
             .m-character-select-list-item-name {
               color: $white;
             }
@@ -609,7 +630,10 @@
               &:before {
                 color: $white;
               }
-              .m-character-select-list-item-demo,
+              .m-character-select-list-item-demo {
+                color: $white;
+                border-color: $white;
+              }
               .m-character-select-list-item-name {
                 color: $white;
               }
