@@ -203,6 +203,13 @@ var characterSelect = (function() {
       path: "basics.classes.string"
     });
 
+    if (characterObject.awesomeSheet.demo) {
+      var demoSpan = document.createElement("span");
+      demoSpan.setAttribute("class", "m-character-select-list-item-demo");
+      demoSpan.textContent = "Demo";
+      detailsSpan.appendChild(demoSpan);
+    };
+
     // build module
     detailsSpan.appendChild(nameSpan);
     detailsSpan.appendChild(classLevelSpan);

@@ -221,6 +221,7 @@ var sheet = (function() {
     characterImage.render();
     pill.render();
     display.render();
+    demo.render();
   };
 
   function clear() {

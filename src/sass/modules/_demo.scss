@@ -1,8 +1,10 @@
-.m-onboarding {
-  font-size: $font-size-root-100;
-  strong {
-    color: $secondary-color-10;
-  }
+.m-demo {}
+.m-demo-heading {
+  font-size: $font-size-150;
+}
+.m-demo-description {}
+.m-demo-add-new-character {
+  margin-bottom: 0;
 }
 // --------------------------------------------------
 // media queries
@@ -11,8 +13,4 @@
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}
-@media print {
-  .m-onboarding {
-    display: none;
-  }
-}
+@media print {}
