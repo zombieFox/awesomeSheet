@@ -18,6 +18,11 @@ var demo = (function() {
   function _createDemoNotice() {
     var section = document.createElement("div");
     section.setAttribute("class", "l-section m-demo js-demo");
+    if (display.state.get({
+        all: true
+      })) {
+      helper.addClass(section, "is-display-mode");
+    };
     var card = document.createElement("div");
     card.setAttribute("class", "m-card");
     var cardBody = document.createElement("div");
