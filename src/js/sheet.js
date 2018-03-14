@@ -36,10 +36,10 @@ var sheet = (function() {
     if (helper.read("allCharacters")) {
       _all_characters = JSON.parse(helper.read("allCharacters"));
     } else {
-      // load demo characters
       _all_characters = JSON.parse(JSON.stringify(hardCodedCharacters.demo()));
-      // load blank character
-      // _all_characters = JSON.parse(JSON.stringify([blank.data]));
+      var newBlank = JSON.parse(JSON.stringify(blank.data));
+      newBlank.awesomeSheet.version = update.version();
+      _all_characters.unshift(newBlank);
     };
     _all_characters.forEach(function(item, index, array) {
       array[index] = repair.render({

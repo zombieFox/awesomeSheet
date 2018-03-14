@@ -33,7 +33,6 @@ var hardCodedCharacters = (function() {
   };
 
   function demo() {
-    demoCharacters[0].awesomeSheet.version = update.version();
     return demoCharacters
   };
 
