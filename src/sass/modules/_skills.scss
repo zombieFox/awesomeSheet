@@ -3,13 +3,9 @@
 }
 .m-skill-name {
   width: 100%;
-  margin-right: 0;
 }
 .m-skill-variant-name {
   width: 100%;
-  &:not(:only-child):not(:last-child) {
-    margin: 0 0 0 1em;
-  }
 }
 // --------------------------------------------------
 // media queries
