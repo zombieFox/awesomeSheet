@@ -36,10 +36,10 @@ var sheet = (function() {
     if (helper.read("allCharacters")) {
       _all_characters = JSON.parse(helper.read("allCharacters"));
     } else {
-      // load demo characters
       _all_characters = JSON.parse(JSON.stringify(hardCodedCharacters.demo()));
-      // load blank character
-      // _all_characters = JSON.parse(JSON.stringify([blank.data]));
+      var newBlank = JSON.parse(JSON.stringify(blank.data));
+      newBlank.awesomeSheet.version = update.version();
+      _all_characters.unshift(newBlank);
     };
     _all_characters.forEach(function(item, index, array) {
       array[index] = repair.render({
@@ -120,7 +120,7 @@ var sheet = (function() {
     };
     var name = helper.getObject({
       object: get(),
-      path: "basics.name"
+      path: "basics.character.name"
     });
     if (name == "" || name == undefined) {
       name = "New character";
@@ -221,6 +221,7 @@ var sheet = (function() {
     characterImage.render();
     pill.render();
     display.render();
+    demo.render();
   };
 
   function clear() {
@@ -307,7 +308,7 @@ var sheet = (function() {
     //   object: get(),
     //   path: "basics.character.name"
     // });
-    var name = get().basics.name || get().basics.character.name || "New character";
+    var name = get().basics.character.name || "New character";
     modal.render({
       heading: "Replace " + name,
       content: _importJsonModal({
@@ -397,14 +398,7 @@ var sheet = (function() {
             object: data,
             debug: true
           }));
-          var name = get().basics.name || get().basics.character.name || "New character";
-          // var name = helper.getObject({
-          //   object: get(),
-          //   path: basics.name
-          // }) || helper.getObject({
-          //   object: get(),
-          //   path: basics.character.name
-          // }) || "New character";
+          var name = get().basics.character.name || "New character";
           snack.render({
             message: helper.truncate(name, 40, true) + " imported and back in the game."
           });
@@ -441,14 +435,7 @@ var sheet = (function() {
             object: data,
             debug: true
           }));
-          var name = get().basics.name || get().basics.character.name || "New character";
-          // var name = helper.getObject({
-          //   object: get(),
-          //   path: basics.name
-          // }) || helper.getObject({
-          //   object: get(),
-          //   path: basics.character.name
-          // }) || "New character";
+          var name = get().basics.character.name || "New character";
           snack.render({
             message: helper.truncate(name, 40, true) + " replaced and back in the game."
           });

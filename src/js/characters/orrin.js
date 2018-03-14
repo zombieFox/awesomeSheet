@@ -599,8 +599,10 @@ var orrin = (function() {
     },
     offense: {
       stats: {
-        base_attack: 9,
-        base_attack_bonuses: "+9 / +4",
+        base_attack: {
+          bonus: 9,
+          string: "+9 / +4",
+        },
         melee: {
           misc: "",
           temp: "",

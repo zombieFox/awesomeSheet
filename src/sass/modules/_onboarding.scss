@@ -1,8 +1,8 @@
 .m-onboarding {
   font-size: $font-size-root-100;
-}
-.m-onboarding-bold {
-  color: $secondary-color-08;
+  strong {
+    color: $secondary-color-10;
+  }
 }
 // --------------------------------------------------
 // media queries

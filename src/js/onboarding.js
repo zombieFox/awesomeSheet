@@ -15,45 +15,21 @@ var onboarding = (function() {
   };
 
   function render() {
-    if (helper.getObject({
-        object: sheet.get(),
-        path: "awesomeSheet.demo"
-      }) && (helper.read("onboarding") == undefined) || (helper.read("onboarding") == "false")) {
+    if ((helper.read("onboarding") == undefined) || (helper.read("onboarding") == "false")) {
 
       var _render_onboardingModal = function() {
         var onboardingModal = document.createElement("div");
         onboardingModal.setAttribute("class", "m-onboarding");
 
         var para1 = document.createElement("p");
-        var para1Text1 = document.createElement("span");
-        para1Text1.textContent = "Some advice before the next adventure -- ";
-        var strong1 = document.createElement("strong");
-        strong1.setAttribute("class", "m-onboarding-bold");
-        strong1.textContent = "awesomeSheet comes prepared with two example Heros. ";
-        var para1Text2 = document.createElement("span");
-        para1Text2.textContent = "Have a look around and learn what's possible. When you're ready, delete them and make your own.";
-        para1.appendChild(para1Text1);
-        para1.appendChild(strong1);
-        para1.appendChild(para1Text2);
+        para1.innerHTML = "Some advice before the next adventure -- <strong>awesomeSheet</strong> comes prepared with two Demo Characters found in the <strong>Character Select</strong> menu.";
 
         var para2 = document.createElement("p");
-        para2.textContent = "Calistria keeps all knowledge entered here safe with the power of her \"Cache-of-the-Browser\" spell, so be wary not to fall foul of her trickery by clearing the cache and losing your Heros.";
-
-        var strong2 = document.createElement("strong");
-        strong2.setAttribute("class", "m-onboarding-bold");
-        strong2.textContent = "Export";
-        var para3 = document.createElement("p");
-        var para3Text1 = document.createElement("span");
-        var para3Text2 = document.createElement("span");
-        para3Text1.textContent = "Be sure to cast \"Bigby's ";
-        para3Text2.textContent = "\" every now and then to backup your Heros.";
-        para3.appendChild(para3Text1);
-        para3.appendChild(strong2);
-        para3.appendChild(para3Text2);
+        para2.innerHTML = "This webapp saves all information in the local cache. Be sure to <strong>Export and backup</strong> every now and then.";
 
         onboardingModal.appendChild(para1);
         onboardingModal.appendChild(para2);
-        onboardingModal.appendChild(para3);
+
         return onboardingModal;
       };
 

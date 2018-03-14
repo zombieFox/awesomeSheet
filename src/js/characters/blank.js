@@ -37,7 +37,8 @@ var blank = (function() {
           will: "",
           ranks: "",
           bab: ""
-        }]
+        }],
+        string: ""
       },
       experience: {
         level: "",
@@ -274,7 +275,8 @@ var blank = (function() {
             shield: true,
             deflect: true,
             natural: true,
-            size_base: true
+            size_base: true,
+            dodge: false
           }
         },
         touch: {
@@ -292,7 +294,10 @@ var blank = (function() {
             deflect: true,
             dodge: true,
             size_base: true,
-            max_dex: true
+            max_dex: true,
+            armor: false,
+            shield: false,
+            natural: false
           }
         },
         stats: {
@@ -499,13 +504,13 @@ var blank = (function() {
         }
       },
       attack: {
-        notes: "",
         melee: {
           all: []
         },
         ranged: {
           all: []
-        }
+        },
+        notes: ""
       }
     },
     skills: {

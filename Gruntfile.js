@@ -77,6 +77,7 @@ module.exports = function(grunt) {
           '<%= folders.build %>/js/check-url.js',
           '<%= folders.build %>/js/classes.js',
           '<%= folders.build %>/js/clone.js',
+          '<%= folders.build %>/js/demo.js',
           '<%= folders.build %>/js/data.js',
           '<%= folders.build %>/js/display.js',
           '<%= folders.build %>/js/edit.js',
