@@ -2097,6 +2097,9 @@ label {
 .is-night-mode .u-background-with-input {
   background-color: #141414; }
 
+.is-night-mode .u-small-text {
+  color: #7a7a7a; }
+
 .is-night-mode .u-muted-text {
   color: #878787; }
   .is-night-mode .u-muted-text strong {
@@ -2486,9 +2489,6 @@ label {
 
 .m-demo-heading {
   font-size: 1.5em; }
-
-.m-demo-add-new-character {
-  margin-bottom: 0; }
 
 .m-demo.is-display-mode .m-card {
   border-color: #970027; }
