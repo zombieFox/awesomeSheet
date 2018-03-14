@@ -956,7 +956,8 @@ var blank = (function() {
           will: "",
           ranks: "",
           bab: ""
-        }]
+        }],
+        string: ""
       },
       experience: {
         level: "",
@@ -1193,7 +1194,8 @@ var blank = (function() {
             shield: true,
             deflect: true,
             natural: true,
-            size_base: true
+            size_base: true,
+            dodge: false
           }
         },
         touch: {
@@ -1211,7 +1213,10 @@ var blank = (function() {
             deflect: true,
             dodge: true,
             size_base: true,
-            max_dex: true
+            max_dex: true,
+            armor: false,
+            shield: false,
+            natural: false
           }
         },
         stats: {
@@ -1418,13 +1423,13 @@ var blank = (function() {
         }
       },
       attack: {
-        notes: "",
         melee: {
           all: []
         },
         ranged: {
           all: []
-        }
+        },
+        notes: ""
       }
     },
     skills: {
@@ -14323,8 +14328,10 @@ var orrin = (function() {
     },
     offense: {
       stats: {
-        base_attack: 9,
-        base_attack_bonuses: "+9 / +4",
+        base_attack: {
+          bonus: 9,
+          string: "+9 / +4",
+        },
         melee: {
           misc: "",
           temp: "",
@@ -19332,6 +19339,7 @@ var vos = (function() {
 var hardCodedCharacters = (function() {
 
   var demoCharacters = [
+    blank.data,
     izlara.data,
     ravich.data
   ];
@@ -20189,6 +20197,13 @@ var characterSelect = (function() {
       }),
       path: "basics.classes.string"
     });
+
+    if (characterObject.awesomeSheet.demo) {
+      var demoSpan = document.createElement("span");
+      demoSpan.setAttribute("class", "m-character-select-list-item-demo");
+      demoSpan.textContent = "Demo";
+      detailsSpan.appendChild(demoSpan);
+    };
 
     // build module
     detailsSpan.appendChild(nameSpan);
@@ -21858,6 +21873,79 @@ var clone = (function() {
   return {
     bind: bind,
     clear: clear,
+    render: render
+  };
+
+})();
+
+var demo = (function() {
+
+  var _demoState = (function() {
+    var demoState = false;
+    var get = function(state) {
+      return demoState;
+    };
+    var set = function(state) {
+      demoState = state;
+    };
+    // exposed methods
+    return {
+      set: set,
+      get: get
+    };
+  })();
+
+  function _createDemoNotice() {
+    var section = document.createElement("div");
+    section.setAttribute("class", "l-section m-demo js-demo");
+    var card = document.createElement("div");
+    card.setAttribute("class", "m-card");
+    var cardBody = document.createElement("div");
+    cardBody.setAttribute("class", "m-card-body");
+    var demo = document.createElement("div");
+    var heading = document.createElement("h1");
+    heading.setAttribute("class", "m-demo-heading");
+    heading.textContent = "Demo character";
+    var description = document.createElement("p");
+    description.setAttribute("class", "m-demo-description");
+    description.innerHTML = "A <strong>Demo Character</strong> for you to explore. To get started with your own, use the <strong>Character Select</strong> menu or:";
+    var addButton = document.createElement("button");
+    addButton.setAttribute("class", "m-demo-add-new-character button");
+    addButton.textContent = "Add new character";
+    addButton.addEventListener("click", function() {
+      sheet.add();
+    }, false);
+    demo.appendChild(heading);
+    demo.appendChild(description);
+    demo.appendChild(addButton);
+    cardBody.appendChild(demo);
+    card.appendChild(cardBody);
+    section.appendChild(card);
+    return section;
+  };
+
+  function render() {
+    var sectionWrapper = helper.e(".js-section-wrapper");
+    var demoSection = helper.e(".js-demo");
+    var demo = helper.getObject({
+      object: sheet.get(),
+      path: "awesomeSheet.demo"
+    });
+    if (demo) {
+      if (!_demoState.get()) {
+        sectionWrapper.insertBefore(_createDemoNotice(), sectionWrapper.firstChild);
+        _demoState.set(true);
+      };
+    } else {
+      if (_demoState.get()) {
+        demoSection.remove();
+        _demoState.set(false);
+      };
+    };
+  };
+
+  // exposed methods
+  return {
     render: render
   };
 
@@ -23746,6 +23834,7 @@ var display = (function() {
 
   function _toggle_chrome() {
     var header = helper.e(".js-header");
+    var demo = helper.e(".js-demo");
     var nav = helper.e(".js-nav");
     var menuElement = helper.e(".js-menu");
     var menuItem = helper.e(".js-menu-link-display-mode");
@@ -23766,6 +23855,9 @@ var display = (function() {
       helper.addClass(menuElement, "is-display-mode");
       helper.addClass(header, "is-display-mode");
       helper.addClass(characterSelect, "is-display-mode");
+      if (demo) {
+        helper.addClass(demo, "is-display-mode");
+      };
       if (shade) {
         helper.addClass(shade, "is-display-mode");
       };
@@ -23783,6 +23875,9 @@ var display = (function() {
       helper.removeClass(menuElement, "is-display-mode");
       helper.removeClass(header, "is-display-mode");
       helper.removeClass(characterSelect, "is-display-mode");
+      if (demo) {
+        helper.removeClass(demo, "is-display-mode");
+      };
       if (shade) {
         helper.removeClass(shade, "is-display-mode");
       };
@@ -28616,45 +28711,21 @@ var onboarding = (function() {
   };
 
   function render() {
-    if (helper.getObject({
-        object: sheet.get(),
-        path: "awesomeSheet.demo"
-      }) && (helper.read("onboarding") == undefined) || (helper.read("onboarding") == "false")) {
+    if ((helper.read("onboarding") == undefined) || (helper.read("onboarding") == "false")) {
 
       var _render_onboardingModal = function() {
         var onboardingModal = document.createElement("div");
         onboardingModal.setAttribute("class", "m-onboarding");
 
         var para1 = document.createElement("p");
-        var para1Text1 = document.createElement("span");
-        para1Text1.textContent = "Some advice before the next adventure -- ";
-        var strong1 = document.createElement("strong");
-        strong1.setAttribute("class", "m-onboarding-bold");
-        strong1.textContent = "awesomeSheet comes prepared with two example Heros. ";
-        var para1Text2 = document.createElement("span");
-        para1Text2.textContent = "Have a look around and learn what's possible. When you're ready, delete them and make your own.";
-        para1.appendChild(para1Text1);
-        para1.appendChild(strong1);
-        para1.appendChild(para1Text2);
+        para1.innerHTML = "Some advice before the next adventure -- <strong>awesomeSheet</strong> comes prepared with two Demo Characters found in the <strong>Character Select</strong> menu.";
 
         var para2 = document.createElement("p");
-        para2.textContent = "Calistria keeps all knowledge entered here safe with the power of her \"Cache-of-the-Browser\" spell, so be wary not to fall foul of her trickery by clearing the cache and losing your Heros.";
-
-        var strong2 = document.createElement("strong");
-        strong2.setAttribute("class", "m-onboarding-bold");
-        strong2.textContent = "Export";
-        var para3 = document.createElement("p");
-        var para3Text1 = document.createElement("span");
-        var para3Text2 = document.createElement("span");
-        para3Text1.textContent = "Be sure to cast \"Bigby's ";
-        para3Text2.textContent = "\" every now and then to backup your Heros.";
-        para3.appendChild(para3Text1);
-        para3.appendChild(strong2);
-        para3.appendChild(para3Text2);
+        para2.innerHTML = "This webapp saves all information in the local cache. Be sure to <strong>Export and backup</strong> every now and then.";
 
         onboardingModal.appendChild(para1);
         onboardingModal.appendChild(para2);
-        onboardingModal.appendChild(para3);
+
         return onboardingModal;
       };
 
@@ -32785,10 +32856,10 @@ var sheet = (function() {
     if (helper.read("allCharacters")) {
       _all_characters = JSON.parse(helper.read("allCharacters"));
     } else {
-      // load demo characters
       _all_characters = JSON.parse(JSON.stringify(hardCodedCharacters.demo()));
-      // load blank character
-      // _all_characters = JSON.parse(JSON.stringify([blank.data]));
+      var newBlank = JSON.parse(JSON.stringify(blank.data));
+      newBlank.awesomeSheet.version = update.version();
+      _all_characters.unshift(newBlank);
     };
     _all_characters.forEach(function(item, index, array) {
       array[index] = repair.render({
@@ -32869,7 +32940,7 @@ var sheet = (function() {
     };
     var name = helper.getObject({
       object: get(),
-      path: "basics.name"
+      path: "basics.character.name"
     });
     if (name == "" || name == undefined) {
       name = "New character";
@@ -32970,6 +33041,7 @@ var sheet = (function() {
     characterImage.render();
     pill.render();
     display.render();
+    demo.render();
   };
 
   function clear() {
@@ -33056,7 +33128,7 @@ var sheet = (function() {
     //   object: get(),
     //   path: "basics.character.name"
     // });
-    var name = get().basics.name || get().basics.character.name || "New character";
+    var name = get().basics.character.name || "New character";
     modal.render({
       heading: "Replace " + name,
       content: _importJsonModal({
@@ -33146,14 +33218,7 @@ var sheet = (function() {
             object: data,
             debug: true
           }));
-          var name = get().basics.name || get().basics.character.name || "New character";
-          // var name = helper.getObject({
-          //   object: get(),
-          //   path: basics.name
-          // }) || helper.getObject({
-          //   object: get(),
-          //   path: basics.character.name
-          // }) || "New character";
+          var name = get().basics.character.name || "New character";
           snack.render({
             message: helper.truncate(name, 40, true) + " imported and back in the game."
           });
@@ -33190,14 +33255,7 @@ var sheet = (function() {
             object: data,
             debug: true
           }));
-          var name = get().basics.name || get().basics.character.name || "New character";
-          // var name = helper.getObject({
-          //   object: get(),
-          //   path: basics.name
-          // }) || helper.getObject({
-          //   object: get(),
-          //   path: basics.character.name
-          // }) || "New character";
+          var name = get().basics.character.name || "New character";
           snack.render({
             message: helper.truncate(name, 40, true) + " replaced and back in the game."
           });

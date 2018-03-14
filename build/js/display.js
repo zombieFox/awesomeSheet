@@ -1324,6 +1324,7 @@ var display = (function() {
 
   function _toggle_chrome() {
     var header = helper.e(".js-header");
+    var demo = helper.e(".js-demo");
     var nav = helper.e(".js-nav");
     var menuElement = helper.e(".js-menu");
     var menuItem = helper.e(".js-menu-link-display-mode");
@@ -1344,6 +1345,9 @@ var display = (function() {
       helper.addClass(menuElement, "is-display-mode");
       helper.addClass(header, "is-display-mode");
       helper.addClass(characterSelect, "is-display-mode");
+      if (demo) {
+        helper.addClass(demo, "is-display-mode");
+      };
       if (shade) {
         helper.addClass(shade, "is-display-mode");
       };
@@ -1361,6 +1365,9 @@ var display = (function() {
       helper.removeClass(menuElement, "is-display-mode");
       helper.removeClass(header, "is-display-mode");
       helper.removeClass(characterSelect, "is-display-mode");
+      if (demo) {
+        helper.removeClass(demo, "is-display-mode");
+      };
       if (shade) {
         helper.removeClass(shade, "is-display-mode");
       };
