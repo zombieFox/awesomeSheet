@@ -1,6 +1,7 @@
 .m-demo {
   .m-card {
-    border: 2px solid transparent;
+    border: $border;
+    border-width: 10px;
     border-color: $secondary-color-06;
   }
 }
@@ -8,8 +9,7 @@
   font-size: $font-size-150;
 }
 .m-demo-description {}
-.m-demo-add-new-character {
-}
+.m-demo-add-new-character {}
 .m-demo {
   &.is-display-mode {
     .m-card {
@@ -20,7 +20,13 @@
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
-@media (min-width: $screen-sm) {}
+@media (min-width: $screen-sm) {
+  .m-demo {
+    .m-card {
+      border-width: 2px;
+    }
+  }
+}
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}

@@ -1,6 +1,6 @@
 .m-character-select {
   background-color: $white;
-  padding: 3.5em 0 0;
+  padding: 3em 0 0;
   margin: 0;
   position: fixed;
   top: 0;
@@ -902,7 +902,6 @@
 }
 @media (min-width: $screen-md) {
   .m-character-select {
-    padding: 3em 0 0;
     left: inherit;
     right: 4em;
     width: 50vw;
