@@ -21917,7 +21917,7 @@ var demo = (function() {
     }, false);
     var subDescription = document.createElement("p");
     subDescription.setAttribute("class", "m-demo-sub-description u-small-text");
-    subDescription.innerHTML = "It is safe to delete this demo character.";
+    subDescription.innerHTML = "It is safe to remove this demo character.";
     demo.appendChild(heading);
     demo.appendChild(description);
     demo.appendChild(addButton);
