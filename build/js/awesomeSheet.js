@@ -20819,7 +20819,7 @@ var clone = (function() {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
         '  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:skills.custom.all[' + cloneIndex + '],addition:+ranks+misc+racial+feat+trait,bonuses:+str+dex+con+int+wis+cha+class_skill+level+half_level+check_penalty+size_stealth+size_fly,clone:true">' +
-        '    <div class="m-edit-box-head m-edit-box-head-row">' +
+        '    <div class="m-edit-box-head-row">' +
         '      <div class="m-skill-name m-input-block js-input-block" data-input-block-options="path:skills.custom.all[' + cloneIndex + ']name,clone:true">' +
         '        <input class="m-input-block-field u-full-width u-no-margin js-input-block-field" type="text" tabindex="1" placeholder="Custom skill">' +
         '      </div>' +
@@ -32797,18 +32797,18 @@ var sheet = (function() {
   function init() {
     if (helper.read("allCharacters")) {
       _all_characters = JSON.parse(helper.read("allCharacters"));
+      _all_characters.forEach(function(item, index, array) {
+        array[index] = repair.render({
+          object: item,
+          debug: true
+        });
+      });
     } else {
       _all_characters = JSON.parse(JSON.stringify(hardCodedCharacters.demo()));
       var newBlank = JSON.parse(JSON.stringify(blank.data));
       newBlank.awesomeSheet.version = update.version();
       _all_characters.unshift(newBlank);
     };
-    _all_characters.forEach(function(item, index, array) {
-      array[index] = repair.render({
-        object: item,
-        debug: true
-      });
-    });
     store();
   };
 
@@ -32923,13 +32923,9 @@ var sheet = (function() {
     prompt.destroy();
     snack.destroy();
     _all_characters = JSON.parse(JSON.stringify(hardCodedCharacters.demo()));
-    _all_characters.forEach(function(item, index, array) {
-      item.awesomeSheet.version = update.version();
-      array[index] = repair.render({
-        object: item,
-        debug: true
-      });
-    });
+    var newBlank = JSON.parse(JSON.stringify(blank.data));
+    newBlank.awesomeSheet.version = update.version();
+    _all_characters.unshift(newBlank);
     index.set(0);
     store();
     clear();

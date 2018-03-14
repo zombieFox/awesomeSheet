@@ -35,18 +35,18 @@ var sheet = (function() {
   function init() {
     if (helper.read("allCharacters")) {
       _all_characters = JSON.parse(helper.read("allCharacters"));
+      _all_characters.forEach(function(item, index, array) {
+        array[index] = repair.render({
+          object: item,
+          debug: true
+        });
+      });
     } else {
       _all_characters = JSON.parse(JSON.stringify(hardCodedCharacters.demo()));
       var newBlank = JSON.parse(JSON.stringify(blank.data));
       newBlank.awesomeSheet.version = update.version();
       _all_characters.unshift(newBlank);
     };
-    _all_characters.forEach(function(item, index, array) {
-      array[index] = repair.render({
-        object: item,
-        debug: true
-      });
-    });
     store();
   };
 
@@ -161,13 +161,9 @@ var sheet = (function() {
     prompt.destroy();
     snack.destroy();
     _all_characters = JSON.parse(JSON.stringify(hardCodedCharacters.demo()));
-    _all_characters.forEach(function(item, index, array) {
-      item.awesomeSheet.version = update.version();
-      array[index] = repair.render({
-        object: item,
-        debug: true
-      });
-    });
+    var newBlank = JSON.parse(JSON.stringify(blank.data));
+    newBlank.awesomeSheet.version = update.version();
+    _all_characters.unshift(newBlank);
     index.set(0);
     store();
     clear();
