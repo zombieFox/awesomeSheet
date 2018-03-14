@@ -1,7 +1,6 @@
 var hardCodedCharacters = (function() {
 
   var demoCharacters = [
-    blank.data,
     izlara.data,
     ravich.data
   ];
