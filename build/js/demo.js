@@ -28,7 +28,7 @@ var demo = (function() {
     heading.textContent = "Demo character";
     var description = document.createElement("p");
     description.setAttribute("class", "m-demo-description");
-    description.innerHTML = "A <strong>Demo Character</strong> for you to explore. To get started with your own, use the <strong>Character Select</strong> menu or:";
+    description.innerHTML = "This <strong>Demo Character</strong> is for you to explore the webapp. To get started with your own, use the <strong>Character Select</strong> menu or:";
     var addButton = document.createElement("button");
     addButton.setAttribute("class", "m-demo-add-new-character button");
     addButton.textContent = "Add new character";

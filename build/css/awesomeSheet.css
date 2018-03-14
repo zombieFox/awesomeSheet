@@ -2481,7 +2481,8 @@ label {
   display: inline-block; }
 
 .m-demo .m-card {
-  border: 2px solid transparent;
+  border: 1px solid transparent;
+  border-width: 10px;
   border-color: #1e4a76; }
 
 .m-demo-heading {
@@ -2489,6 +2490,10 @@ label {
 
 .m-demo.is-display-mode .m-card {
   border-color: #970027; }
+
+@media (min-width: 550px) {
+  .m-demo .m-card {
+    border-width: 2px; } }
 
 .m-auto-suggest {
   position: relative;
@@ -4050,7 +4055,7 @@ label {
 
 .m-character-select {
   background-color: #ffffff;
-  padding: 3.5em 0 0;
+  padding: 3em 0 0;
   margin: 0;
   position: fixed;
   top: 0;
@@ -4699,7 +4704,6 @@ label {
 
 @media (min-width: 700px) {
   .m-character-select {
-    padding: 3em 0 0;
     left: inherit;
     right: 4em;
     width: 50vw;
