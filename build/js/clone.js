@@ -300,7 +300,7 @@ var clone = (function() {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
         '  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:skills.custom.all[' + cloneIndex + '],addition:+ranks+misc+racial+feat+trait,bonuses:+str+dex+con+int+wis+cha+class_skill+level+half_level+check_penalty+size_stealth+size_fly,clone:true">' +
-        '    <div class="m-edit-box-head">' +
+        '    <div class="m-edit-box-head m-edit-box-head-row">' +
         '      <div class="m-skill-name m-input-block js-input-block" data-input-block-options="path:skills.custom.all[' + cloneIndex + ']name,clone:true">' +
         '        <input class="m-input-block-field u-full-width u-no-margin js-input-block-field" type="text" tabindex="1" placeholder="Custom skill">' +
         '      </div>' +
@@ -1016,6 +1016,8 @@ var clone = (function() {
       _update_clonePrefix(cloneType);
       _update_cloneSuffix(cloneType);
       _smoothScrollToClones(cloneType);
+      totalBlock.render();
+      textBlock.render();
     } else {
       _render_maxClonesSnack(cloneType);
     };

@@ -818,11 +818,23 @@ input[type="email"], input[type="number"], input[type="password"], input[type="s
       background-color: #ffffff;
       border-color: #fd0042;
       box-shadow: inset 0 0 0 0 transparent, 0 0 0 3px rgba(253, 0, 66, 0.3); }
+    input[type="email"]:hover::-webkit-input-placeholder, input[type="number"]:hover::-webkit-input-placeholder, input[type="password"]:hover::-webkit-input-placeholder, input[type="search"]:hover::-webkit-input-placeholder, input[type="tel"]:hover::-webkit-input-placeholder, input[type="text"]:hover::-webkit-input-placeholder {
+      color: rgba(30, 125, 220, 0.4); }
+    input[type="email"]:hover:-moz-placeholder, input[type="number"]:hover:-moz-placeholder, input[type="password"]:hover:-moz-placeholder, input[type="search"]:hover:-moz-placeholder, input[type="tel"]:hover:-moz-placeholder, input[type="text"]:hover:-moz-placeholder {
+      color: rgba(30, 125, 220, 0.4); }
+    input[type="email"]:hover::-moz-placeholder, input[type="number"]:hover::-moz-placeholder, input[type="password"]:hover::-moz-placeholder, input[type="search"]:hover::-moz-placeholder, input[type="tel"]:hover::-moz-placeholder, input[type="text"]:hover::-moz-placeholder {
+      color: rgba(30, 125, 220, 0.4); }
   input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus {
     background-color: #ffffff;
     border-color: #fd0042;
     box-shadow: inset 0 0 0 0 transparent, 0 0 0 3px rgba(253, 0, 66, 0.3);
     outline: 0; }
+    input[type="email"]:focus::-webkit-input-placeholder, input[type="number"]:focus::-webkit-input-placeholder, input[type="password"]:focus::-webkit-input-placeholder, input[type="search"]:focus::-webkit-input-placeholder, input[type="tel"]:focus::-webkit-input-placeholder, input[type="text"]:focus::-webkit-input-placeholder {
+      color: #e0e0e0; }
+    input[type="email"]:focus:-moz-placeholder, input[type="number"]:focus:-moz-placeholder, input[type="password"]:focus:-moz-placeholder, input[type="search"]:focus:-moz-placeholder, input[type="tel"]:focus:-moz-placeholder, input[type="text"]:focus:-moz-placeholder {
+      color: #e0e0e0; }
+    input[type="email"]:focus::-moz-placeholder, input[type="number"]:focus::-moz-placeholder, input[type="password"]:focus::-moz-placeholder, input[type="search"]:focus::-moz-placeholder, input[type="tel"]:focus::-moz-placeholder, input[type="text"]:focus::-moz-placeholder {
+      color: #e0e0e0; }
 
 label {
   color: #1e4a76;
@@ -3048,6 +3060,20 @@ label {
   max-width: 100%;
   box-sizing: border-box; }
 
+.m-edit-box-head-row {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-bottom: 1em;
+  max-width: 100%;
+  box-sizing: border-box; }
+
 .m-edit-box-body {
   max-width: 100%; }
 
@@ -3911,10 +3937,15 @@ label {
         -ms-flex: 1 1 auto;
             flex: 1 1 auto; }
   .m-edit-box-head {
+    padding: 0 1em 0 0; }
+  .m-edit-box-head-row {
     margin-bottom: 0;
-    padding: 0 2em 0 0; }
+    padding: 0 1em 0 0; }
+    .m-edit-box-head-row .m-edit-box-title:not(:only-child):not(:last-child) {
+      margin-right: 1em; }
   .m-edit-box-indent .m-edit-box-body {
     margin-left: 0; }
+  .m-edit-box-labels .m-edit-box-head-row,
   .m-edit-box-labels .m-edit-box-head {
     padding-top: 1.25em; }
   .m-edit-box-head-small .m-edit-box-head {
@@ -5935,23 +5966,12 @@ label {
 
 .m-skill-name {
   width: 100%;
-  margin-right: 0;
-  margin-bottom: 0.5em; }
+  margin-right: 0; }
 
 .m-skill-variant-name {
-  width: 100%;
-  margin-left: 1em;
-  margin-right: 0;
-  margin-bottom: 0.5em; }
-
-@media (min-width: 550px) {
-  .m-skill-name {
-    margin-right: 1em;
-    margin-bottom: 0; }
-  .m-skill-variant-name {
-    margin-left: 0;
-    margin-right: 1em;
-    margin-bottom: 0; } }
+  width: 100%; }
+  .m-skill-variant-name:not(:only-child):not(:last-child) {
+    margin: 0 0 0 1em; }
 
 .m-spell-block.is-state-remove .m-spell-block-known .m-spell .m-spell-name {
   max-width: 80%; }
