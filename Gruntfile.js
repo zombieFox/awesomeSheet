@@ -80,7 +80,6 @@ module.exports = function(grunt) {
           '<%= folders.build %>/js/demo.js',
           '<%= folders.build %>/js/data.js',
           '<%= folders.build %>/js/display.js',
-          '<%= folders.build %>/js/edit.js',
           '<%= folders.build %>/js/encumbrance.js',
           '<%= folders.build %>/js/events.js',
           '<%= folders.build %>/js/exp.js',
