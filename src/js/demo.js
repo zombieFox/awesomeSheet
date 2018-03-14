@@ -35,9 +35,13 @@ var demo = (function() {
     addButton.addEventListener("click", function() {
       sheet.add();
     }, false);
+    var subDescription = document.createElement("p");
+    subDescription.setAttribute("class", "m-demo-sub-description u-small-text");
+    subDescription.innerHTML = "It is safe to delete this demo character.";
     demo.appendChild(heading);
     demo.appendChild(description);
     demo.appendChild(addButton);
+    demo.appendChild(subDescription);
     cardBody.appendChild(demo);
     card.appendChild(cardBody);
     section.appendChild(card);
