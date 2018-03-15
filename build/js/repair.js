@@ -2632,28 +2632,47 @@ var repair = (function() {
     return characterObject;
   };
 
+  function _update_540(characterObject) {
+    var _report = {
+      name: characterObject.basics.character.name,
+      repaired: []
+    };
+    // awesome
+    _report.repaired.push("update: awesome version");
+    characterObject.awesomeSheet.version = 5.4;
+    // abilities
+    _report.repaired.push("update: experience level");
+    characterObject.basics.experience.level = {
+      current: "",
+      class_total: ""
+    };
+    _log("update complete: 540");
+    _log("report:", _report);
+    _log("-----");
+    return characterObject;
+  };
+
   function _repair(characterObject) {
     // if version is found
     if (typeof characterObject.awesomeSheet == "object" && "version" in characterObject.awesomeSheet) {
       // if version number is below current version
       if (characterObject.awesomeSheet.version < update.version()) {
         if (characterObject.awesomeSheet.version < 5) {
-          _log("update: 500");
           characterObject = _update_500(characterObject);
         };
         if (characterObject.awesomeSheet.version < 5.1) {
-          _log("update: 510");
           characterObject = _update_510(characterObject);
         };
         if (characterObject.awesomeSheet.version < 5.2) {
-          _log("update: 520");
           characterObject = _update_520(characterObject);
+        };
+        if (characterObject.awesomeSheet.version < 5.4) {
+          characterObject = _update_540(characterObject);
         };
       };
     } else {
       // if no version is found
       if (typeof characterObject.awesomeSheet == "boolean") {
-        _log("update: legacy");
         characterObject = _update_legacy(characterObject);
         // then run normal repairs
         _repair(characterObject);

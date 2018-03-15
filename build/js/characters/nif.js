@@ -3,7 +3,7 @@ var nif = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.2
+      version: 5.4
     },
     basics: {
       character: {
@@ -41,7 +41,10 @@ var nif = (function() {
         string: "Wizard 8"
       },
       experience: {
-        level: "",
+        level: {
+          current: "",
+          class_total: ""
+        },
         next_level: "",
         needed: "",
         total: 57480,
