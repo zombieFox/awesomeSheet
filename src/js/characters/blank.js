@@ -43,7 +43,7 @@ var blank = (function() {
       experience: {
         level: {
           current: "",
-          spent: ""
+          class_total: ""
         },
         next_level: "",
         needed: "",

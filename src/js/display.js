@@ -412,7 +412,7 @@ var display = (function() {
         }]
       },
       item: {
-        head: "Item",
+        head: "Items",
         content: [{
           type: "clone",
           cloneType: "item",

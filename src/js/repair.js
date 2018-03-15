@@ -2641,12 +2641,10 @@ var repair = (function() {
     _report.repaired.push("update: awesome version");
     characterObject.awesomeSheet.version = 5.4;
     // abilities
-    if (typeof characterObject.basics.experience.level != "object") {
-      _report.repaired.push("update: experience level");
-      characterObject.basics.experience.level = {
-        current: "",
-        spent: ""
-      };
+    _report.repaired.push("update: experience level");
+    characterObject.basics.experience.level = {
+      current: "",
+      class_total: ""
     };
     _log("update complete: 540");
     _log("report:", _report);

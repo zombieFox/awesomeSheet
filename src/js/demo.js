@@ -36,13 +36,13 @@ var demo = (function() {
     description.innerHTML = "This <strong>Demo Character</strong> is for you to explore the webapp. To get started with your own, use the <strong>Character Select</strong> menu or:";
     var addButton = document.createElement("button");
     addButton.setAttribute("class", "m-demo-add-new-character button");
-    addButton.textContent = "Add new character";
+    addButton.textContent = "Add New Character";
     addButton.addEventListener("click", function() {
       sheet.add();
     }, false);
     var subDescription = document.createElement("p");
     subDescription.setAttribute("class", "m-demo-sub-description u-small-text");
-    subDescription.innerHTML = "It is safe to remove this demo character.";
+    subDescription.textContent = "It is safe to remove this Demo Character.";
     demo.appendChild(heading);
     demo.appendChild(description);
     demo.appendChild(addButton);
