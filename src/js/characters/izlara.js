@@ -3,7 +3,7 @@ var izlara = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.2,
+      version: 5.4,
       demo: true
     },
     basics: {
@@ -42,7 +42,10 @@ var izlara = (function() {
         string: "Wizard 12"
       },
       experience: {
-        level: 12,
+        level: {
+          current: "",
+          class_total: ""
+        },
         next_level: "",
         needed: "",
         total: 220000,

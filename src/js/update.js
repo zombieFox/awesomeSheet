@@ -1,11 +1,16 @@
 var update = (function() {
 
   var history = [{
+    version: "5.4.0",
+    list: [
+      "Added Level Count to the Experience tab and to the total Levels on the Classes tab.",
+    ]
+  }, {
     version: "5.3.0",
     list: [
-      "*Update Equipment Items. You may need to review Item quantities.",
+      "*Update Equipment Items. You may need to review Item Quantities.",
     ]
-  },{
+  }, {
     version: "5.2.0",
     list: [
       "Update Display mode design and module.",

@@ -3,7 +3,7 @@ var ravich = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.2,
+      version: 5.4,
       demo: true
     },
     basics: {
@@ -51,7 +51,10 @@ var ravich = (function() {
         string: "Rogue 3, Fighter 3"
       },
       experience: {
-        level: 6,
+        level: {
+          current: "",
+          class_total: ""
+        },
         next_level: "",
         needed: "",
         total: 23000,

@@ -8,7 +8,7 @@ var classes = (function() {
       currentTotal = currentTotal + classObjects[i][key];
     };
     currentTotal = parseInt(currentTotal, 10);
-    return currentTotal
+    return currentTotal;
   };
 
   function _makeBaseAttackBonuses(totalBab) {
@@ -68,7 +68,7 @@ var classes = (function() {
     var baseAttackBonuses = _makeBaseAttackBonuses(totalBab);
     helper.setObject({
       object: sheet.get(),
-      path: "basics.experience.level",
+      path: "basics.experience.level.class_total",
       newValue: totalLevels
     });
     helper.setObject({
