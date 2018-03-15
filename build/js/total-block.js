@@ -233,13 +233,13 @@ var totalBlock = (function() {
           if (key == "level") {
             externalBouns = _checkValue(helper.getObject({
               object: sheet.get(),
-              path: "basics.experience.level"
+              path: "basics.experience.level.current"
             }));
           };
           if (key == "half_level") {
             externalBouns = Math.floor(_checkValue(helper.getObject({
               object: sheet.get(),
-              path: "basics.experience.level"
+              path: "basics.experience.level.current"
             })) / 2);
           };
           if (key == "armor") {
@@ -488,12 +488,12 @@ var totalBlock = (function() {
       } else if (label == "level") {
         return "Level (" + _addPrefix(helper.getObject({
           object: sheet.get(),
-          path: "basics.experience.level"
+          path: "basics.experience.level.current"
         })) + ")";
       } else if (label == "half_level") {
         return "Half Level (" + _addPrefix(Math.floor(helper.getObject({
           object: sheet.get(),
-          path: "basics.experience.level"
+          path: "basics.experience.level.current"
         }) / 2)) + ")";
       } else if (label == "plus_ten") {
         return "Plus 10";
