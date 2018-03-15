@@ -10,6 +10,9 @@
 }
 .m-edit-box-head {
   width: 100%;
+  .m-edit-box-description {
+    margin-bottom: 1em;
+  }
 }
 .m-edit-box-head-row {
   display: flex;
@@ -543,6 +546,11 @@
   .m-edit-box-body {
     flex: 1 1 auto;
   }
+  .m-edit-box-head {
+    .m-edit-box-description {
+      margin-bottom: 0;
+    }
+  }
   .m-edit-box-head-row {
     > * {
       margin-right: 1em;
@@ -557,7 +565,9 @@
     .m-edit-box-head,
     .m-edit-box-head-row {
       > * {
-        margin-top: 1.25em;
+        &:first-child {
+          margin-top: 1.25em;
+        }
       }
     }
   }
@@ -588,6 +598,9 @@
   }
   .m-edit-box-no-head-large {
     padding-left: 40%;
+  }
+  .m-edit-box-description {
+    margin-right: 1em;
   }
   .m-edit-box-check-label,
   .m-edit-box-radio-label {
