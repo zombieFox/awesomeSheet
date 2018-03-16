@@ -25242,7 +25242,7 @@ var exp = (function() {
     } else if (speed == "Pathfinder Society") {
       selectedTrack = track.pathfinderSociety;
     };
-    var _render_nextXp = function() {
+    var _nextXp = function() {
       selectedTrack.forEach(function(item, index, array) {
         if (selectedTrack[index] <= currentXp) {
           nextLevelIndex = index + 1;
@@ -25270,7 +25270,7 @@ var exp = (function() {
         newValue: nextLevelXpNeeded
       });
     };
-    var _level_20 = function() {
+    var _level20 = function() {
       helper.setObject({
         object: sheet.get(),
         path: "basics.experience.level.current",
@@ -25287,7 +25287,7 @@ var exp = (function() {
         newValue: ""
       });
     };
-    var _clear_nextXp = function() {
+    var _clear = function() {
       helper.setObject({
         object: sheet.get(),
         path: "basics.experience.level.current",
@@ -25305,14 +25305,18 @@ var exp = (function() {
       });
     };
     // if xp is less than level 20 for any advancement speed
-    if (selectedTrack && currentXp != "") {
-      if (currentXp <= selectedTrack[selectedTrack.length - 1]) {
-        _render_nextXp();
+    if (selectedTrack) {
+      if (currentXp != "") {
+        if (currentXp <= selectedTrack[selectedTrack.length - 1]) {
+          _nextXp();
+        } else {
+          _level20();
+        };
       } else {
-        _level_20();
-      };
+        _nextXp();
+      }
     } else {
-      _clear_nextXp();
+      _clear();
     };
   };
 
