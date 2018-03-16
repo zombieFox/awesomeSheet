@@ -6,9 +6,9 @@ var tabs = (function() {
   };
 
   function _bind_tabGroup() {
-    var all_tabGroups = helper.eA(".js-tab-group");
-    for (var i = 0; i < all_tabGroups.length; i++) {
-      var all_tabItem = all_tabGroups[i].querySelectorAll(".js-tab-item");
+    var all_tabGroup = helper.eA(".js-tab-group");
+    for (var i = 0; i < all_tabGroup.length; i++) {
+      var all_tabItem = all_tabGroup[i].querySelectorAll(".js-tab-item");
       for (var j = 0; j < all_tabItem.length; j++) {
         all_tabItem[j].addEventListener("click", function() {
           _switchTabPanel(this);
@@ -58,15 +58,16 @@ var tabs = (function() {
   };
 
   function _scrollTabInToView(tabRow, tab) {
+    var tabIndicator = tabRow.querySelector(".m-tab-indicator");
     var tabRowArea = tabRow.getBoundingClientRect();
     var tabArea = tab.getBoundingClientRect();
-    if (tabArea.left < tabRowArea.left) {
-      var left = tab.offsetLeft;
-      tabRow.scrollLeft = left;
-    } else if (tabArea.right > tabRowArea.right) {
-      var right = Math.ceil(tab.offsetLeft - tabRowArea.width + tabArea.width, 10);
-      tabRow.scrollLeft = right;
-    };
+    var left = Math.ceil(tab.offsetLeft - (tabRowArea.width / 2) + (tabArea.width / 2), 10);
+    tabRow.scroll({
+      top: 0,
+      left: left,
+      behavior: 'smooth'
+    });
+    tabIndicator.setAttribute("style", "width:" + (tabArea.width - 10) + "px;left:" + (tab.offsetLeft + 5) + "px;");
   };
 
   function _switchTabPanel(tab) {
@@ -99,9 +100,29 @@ var tabs = (function() {
     _scrollTabInToView(tabRow, tab);
   };
 
+  function render() {
+    _render_all_rabRow();
+  };
+
+  function _render_all_rabRow() {
+    var all_tabRow = helper.eA(".js-tab-row");
+    for (var i = 0; i < all_tabRow.length; i++) {
+      _render_rabRow(all_tabRow[i]);
+    };
+  };
+
+  function _render_rabRow(rabRow) {
+    var all_tabItem = rabRow.querySelectorAll(".js-tab-item");
+    var tabIndicator = document.createElement("span");
+    tabIndicator.setAttribute("class", "m-tab-indicator");
+    tabIndicator.setAttribute("style", "width:" + (all_tabItem[0].getBoundingClientRect().width - 10) + "px;left:" + (all_tabItem[0].offsetLeft + 5) + "px;");
+    rabRow.appendChild(tabIndicator);
+  };
+
   // exposed methods
   return {
-    bind: bind
+    bind: bind,
+    render: render
   };
 
 })();
