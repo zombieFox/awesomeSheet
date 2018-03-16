@@ -11,10 +11,13 @@
 }
 .m-display-content {
   display: block;
-  margin-left: 1em;
+  &:not(:only-child) {
+    margin-left: 1em;
+  }
 }
 .m-display-head {
-  margin: 0 0.5em 0 0;
+  color: $primary-color-08;
+  font-family: $open-sans-semi-bold;
   display: block;
 }
 // --------------------------------------------------
@@ -79,10 +82,6 @@
 // --------------------------------------------------
 // prefix suffix value
 // --------------------------------------------------
-.m-display-head {
-  color: $primary-color-08;
-  font-family: $open-sans-semi-bold;
-}
 .m-display-prefix,
 .m-display-suffix {
   // font-size: $font-size-075;
@@ -667,11 +666,14 @@ h3 {
     align-items: flex-start;
   }
   .m-display-head {
+    margin: 0 1em 0 0;
     flex: 0 0 20%;
   }
   .m-display-content {
-    margin-left: 0;
     flex: 1 1 auto;
+    &:not(:only-child) {
+      margin-left: 0;
+    }
   }
   // intro
   .m-display-intro {
