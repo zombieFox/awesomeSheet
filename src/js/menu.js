@@ -150,7 +150,7 @@ var menu = (function() {
       close();
       prompt.render({
         heading: "Restore Demo Characters?",
-        message: "All characters will be removed and the demo characters will be restored. This can not be undone. Have you backed up your characters by Exporting?",
+        message: "Existing characters will remain and the Demo characters, Izlara and Ravich, will be restored.",
         actionText: "Restore",
         action: sheet.restore
       });

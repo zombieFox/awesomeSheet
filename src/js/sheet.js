@@ -157,14 +157,11 @@ var sheet = (function() {
   };
 
   function restore() {
-    localStorage.clear();
     prompt.destroy();
     snack.destroy();
-    _all_characters = JSON.parse(JSON.stringify(hardCodedCharacters.demo()));
-    var newBlank = JSON.parse(JSON.stringify(blank.data));
-    newBlank.awesomeSheet.version = update.version();
-    _all_characters.unshift(newBlank);
-    index.set(0);
+    _all_characters.push(hardCodedCharacters.single().izlara);
+    _all_characters.push(hardCodedCharacters.single().ravich);
+    index.set(_all_characters.length - 2);
     store();
     clear();
     render();
