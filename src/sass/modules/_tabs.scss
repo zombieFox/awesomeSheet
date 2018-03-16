@@ -1,14 +1,12 @@
 .m-tab-group {
   font-size: $font-size-100;
-  padding-top: 4px;
   max-width: 100%;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: stretch;
 }
 .m-tab-row {
-  width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
   display: flex;
@@ -16,75 +14,88 @@
   justify-content: flex-start;
   align-items: stretch;
   position: relative;
+  box-sizing: border-box;
   z-index: 1;
+  flex: 0 1 auto;
   &::-webkit-scrollbar {
     display: none;
   }
 }
+.m-tab-indicator {
+  background-color: $white;
+  width: 1em;
+  height: 8px;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: $border-radius-extra-small $border-radius-extra-small 0 0;
+  transition: all $transition-ease-medium;
+}
 .m-tab-item {
   background-color: transparent;
-  margin: 0.1em 0 0;
-  padding: 0.25em 2em 0.15em;
-  color: $white;
+  margin: 0;
+  padding: 0.25em 2em;
+  color: $light-alpha-06;
   border: 0;
+  border-radius: 0;
   border-color: transparent;
-  border-radius: $border-radius-small $border-radius-small 0 0;
   box-shadow: none;
   position: relative;
-  z-index: 1;
-  flex: 1 1 auto;
-  transition: all $transition-ease-medium;
+  flex: 0 1 auto;
+  transition: none;
+  .m-tab-text {
+    color: $light-alpha-06;
+    font-size: 0.9em;
+    position: relative;
+    display: inline-block;
+  }
   &:link,
   &:visited {
     background-color: transparent;
-    color: $white;
-    border: 0;
     border-color: transparent;
+    border: 0;
+    color: $light-alpha-06;
+    .m-tab-text {
+      color: $light-alpha-06;
+    }
   }
   &:focus,
   &:hover {
-    background-color: $light-alpha-18;
+    background-color: transparent;
     border-color: transparent;
-    color: $white;
     outline: 0;
     text-decoration: none;
     box-shadow: none;
-    z-index: 2;
+    color: $light-alpha-06;
+    .m-tab-text {
+      color: $light-alpha-06;
+    }
   }
   &:active {
-    background-color: $light-alpha-14;
+    background-color: transparent;
     border-color: transparent;
-    color: $white;
     outline: 0;
     text-decoration: none;
     box-shadow: none;
+    color: $white;
+    .m-tab-text {
+      color: $white;
+    }
   }
   &.is-active {
-    background-color: $white;
+    background-color: transparent;
     border-color: transparent;
-    border-radius: $border-radius-small $border-radius-small 0 0;
-    color: $base-color;
     box-shadow: none;
-    margin: 0;
-    padding-top: 0.25em;
-    padding-bottom: 0.25em;
-    z-index: 2;
+    color: $white;
+    .m-tab-text {
+      color: $white;
+    }
   }
 }
 .m-tab-arrow {
-  padding-left: 1.5em;
-  padding-right: 1.5em;
-  margin-bottom: 0;
-  flex: 0 0 auto;
-  position: relative;
-  z-index: 2;
-  [class*=" icon-"],
-  [class^="icon-"] {
-    font-size: 1.4em;
-  }
-}
-.m-tab-text {
-  font-size: 0.8em;
+  display: none;
 }
 .is-night-mode {
   .m-tab-item {
@@ -95,24 +106,24 @@
     &:link,
     &:visited {
       background-color: transparent;
-      color: $white;
       border-color: transparent;
+      color: $white;
     }
     &:focus,
     &:hover {
-      background-color: $dark-alpha-18;
+      background-color: transparent;
       border-color: transparent;
       color: $white;
       box-shadow: none;
     }
     &:active {
-      background-color: $dark-alpha-14;
+      background-color: transparent;
       border-color: transparent;
       color: $white;
       box-shadow: none;
     }
     &.is-active {
-      background-color: $gray-02;
+      background-color: transparent;
       border-color: transparent;
       color: $white;
       box-shadow: none;
@@ -122,7 +133,25 @@
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
-@media (min-width: $screen-sm) {}
+@media (min-width: $screen-sm) {
+  .m-tab-group {
+    justify-content: space-between;
+  }
+  .m-tab-arrow {
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    margin-bottom: 0;
+    flex: 0 0 auto;
+    position: relative;
+    z-index: 2;
+    display: block;
+    [class*=" icon-"],
+    [class^="icon-"] {
+      font-size: 1.4em;
+      display: block;
+    }
+  }
+}
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}

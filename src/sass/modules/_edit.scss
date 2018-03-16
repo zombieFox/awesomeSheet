@@ -565,9 +565,7 @@
     .m-edit-box-head,
     .m-edit-box-head-row {
       > * {
-        &:first-child {
-          margin-top: 1.25em;
-        }
+        margin-top: 1.25em;
       }
     }
   }
