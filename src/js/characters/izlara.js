@@ -3,7 +3,7 @@ var izlara = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.4,
+      version: 5.5,
       demo: true
     },
     basics: {
@@ -50,6 +50,10 @@ var izlara = (function() {
         needed: "",
         total: 220000,
         advancement: "Medium"
+      },
+      senses: {
+        racial: "Low-Light Vision",
+        magical: "Detect Magic (Permanency)"
       },
       initiative: {
         misc: "",

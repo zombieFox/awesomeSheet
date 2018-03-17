@@ -50,6 +50,10 @@ var blank = (function() {
         total: "",
         advancement: ""
       },
+      senses: {
+        racial: "",
+        magical: ""
+      },
       initiative: {
         misc: "",
         temp: "",

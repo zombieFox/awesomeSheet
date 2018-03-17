@@ -3,7 +3,7 @@ var ravich = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.4,
+      version: 5.5,
       demo: true
     },
     basics: {
@@ -59,6 +59,10 @@ var ravich = (function() {
         needed: "",
         total: 23000,
         advancement: "Medium"
+      },
+      senses: {
+        racial: "",
+        magical: ""
       },
       initiative: {
         misc: "",

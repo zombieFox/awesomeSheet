@@ -48,18 +48,6 @@ var display = (function() {
               node: "p",
             }
           }, {
-            path: "basics.senses.racial",
-            prefix: "Racial Senses",
-            element: {
-              node: "p",
-            }
-          }, {
-            path: "basics.senses.magical",
-            prefix: "Magical Senses",
-            element: {
-              node: "p",
-            }
-          }, {
             path: "basics.speed.land",
             prefix: "Land Speed",
             element: {
@@ -100,6 +88,12 @@ var display = (function() {
             node: "p"
           },
           contentItems: [{
+            path: "basics.senses.racial",
+            prefix: "Racial Senses",
+          }, {
+            path: "basics.senses.magical",
+            prefix: "Magical Senses",
+          }, {
             path: "basics.character.alignment",
             prefix: "Alignment"
           }, {
