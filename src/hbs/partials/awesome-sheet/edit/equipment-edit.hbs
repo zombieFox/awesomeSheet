@@ -240,20 +240,21 @@
 
         <div class="m-clone-block-target js-clone-block-target js-clone-block-target-item"></div>
 
-        <div class="m-edit-box-content m-edit-box-content-margin-small m-edit-box-content-end js-clone-block-suffix-item">
-          <div class="m-edit-box-item-small js-total-block" data-total-block-options="path:equipment.item.all,addition:+weight,multiply:quantity,cloneSet:true,cloneSetPath:equipment.item.weight">
-            <p class="m-edit-box-label">Total Weight</p>
-            <p class="m-edit-box-total js-text-block" data-text-block-options="path:equipment.item.weight.current,type:weight"></p>
+        <div class="js-clone-block-suffix-item">
+          <div class="m-edit-box-content m-edit-box-content-margin-small m-edit-box-content-end">
+            <div class="m-edit-box-item-small js-total-block" data-total-block-options="path:equipment.item.all,addition:+weight,multiply:quantity,cloneSet:true,cloneSetPath:equipment.item.weight">
+              <p class="m-edit-box-label">Total Weight</p>
+              <p class="m-edit-box-total js-text-block" data-text-block-options="path:equipment.item.weight.current,type:weight"></p>
+            </div>
+            <div class="m-edit-box-item-small js-total-block" data-total-block-options="path:equipment.item.all,addition:+value,multiply:quantity,cloneSet:true,cloneSetPath:equipment.item.value">
+              <p class="m-edit-box-label">Total Value</p>
+              <p class="m-edit-box-total js-text-block" data-text-block-options="path:equipment.item.value.current,type:currency"></p>
+            </div>
           </div>
-          <div class="m-edit-box-item-small js-total-block" data-total-block-options="path:equipment.item.all,addition:+value,multiply:quantity,cloneSet:true,cloneSetPath:equipment.item.value">
-            <p class="m-edit-box-label">Total Value</p>
-            <p class="m-edit-box-total js-text-block" data-text-block-options="path:equipment.item.value.current,type:currency"></p>
-          </div>
-        </div>
-
-        <div class="m-edit-box-content">
-          <div class="m-edit-box-item-max">
-            <p class="m-edit-box-description">Adding a <strong>Quantity</strong> to an <strong>Item</strong> will multiply its <strong>Weight</strong> and <strong>Value</strong>. This is also calculated into the <strong>Total Weight</strong> and <strong>Total Value</strong>.</p>
+          <div class="m-edit-box-content">
+            <div class="m-edit-box-item-max">
+              <p class="m-edit-box-description">Adding a <strong>Quantity</strong> to an <strong>Item</strong> will multiply its <strong>Weight</strong> and <strong>Value</strong>. This is also calculated into the <strong>Total Weight</strong> and <strong>Total Value</strong>.</p>
+            </div>
           </div>
         </div>
 

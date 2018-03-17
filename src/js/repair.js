@@ -2670,6 +2670,36 @@ var repair = (function() {
     characterObject.skills.stats = {
       notes: ""
     };
+    _report.repaired.push("update: favoured hp and ranks");
+
+    if (characterObject.basics.classes.all.length > 0) {
+      characterObject.basics.classes.all.forEach(function(arrayItem) {
+        var oldHp = arrayItem.hp;
+        var oldRanks = arrayItem.ranks;
+        var oldFortitude = arrayItem.fortitude;
+        var oldReflex = arrayItem.reflex;
+        var oldWill = arrayItem.will;
+        arrayItem.name = arrayItem.classname;
+        arrayItem.hp = {
+          base: oldHp,
+          favoured: ""
+        };
+        arrayItem.ranks = {
+          base: oldRanks,
+          favoured: ""
+        };
+        arrayItem.saves = {
+          fortitude: oldFortitude,
+          reflex: oldReflex,
+          will: oldWill
+        };
+        delete arrayItem.classname;
+        delete arrayItem.fortitude;
+        delete arrayItem.reflex;
+        delete arrayItem.will;
+      });
+    };
+
     _log("update complete: 550");
     _log("report:", _report);
     _log("------------------------------------------");

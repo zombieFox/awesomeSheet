@@ -117,9 +117,9 @@ var classes = (function() {
     });
     if (classes.length > 0) {
       classes.forEach(function(arrayItem, index) {
-        var classname = arrayItem.classname || "No class";
+        var name = arrayItem.name || "No class";
         var level = arrayItem.level || "No level";
-        classAndLevel = classAndLevel + classname + " " + level;
+        classAndLevel = classAndLevel + name + " " + level;
         if (index < (classes.length - 1)) {
           classAndLevel = classAndLevel + ", ";
         };

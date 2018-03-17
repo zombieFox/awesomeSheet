@@ -29,14 +29,22 @@ var blank = (function() {
       },
       classes: {
         all: [{
-          classname: "",
+          name: "",
           level: "",
-          hp: "",
-          fortitude: "",
-          reflex: "",
-          will: "",
-          ranks: "",
-          bab: ""
+          bab: "",
+          hp: {
+            base: "",
+            favoured: ""
+          },
+          ranks: {
+            base: "",
+            favoured: ""
+          },
+          saves: {
+            fortitude: "",
+            reflex: "",
+            will: ""
+          }
         }],
         string: ""
       },

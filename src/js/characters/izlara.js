@@ -30,14 +30,22 @@ var izlara = (function() {
       },
       classes: {
         all: [{
-          classname: "Wizard",
+          name: "Wizard",
           level: 12,
-          hp: 62,
-          fortitude: 4,
-          reflex: 4,
-          will: 8,
-          ranks: 24,
-          bab: 6
+          bab: 6,
+          hp: {
+            base: 62,
+            favoured: ""
+          },
+          ranks: {
+            base: 24,
+            favoured: ""
+          },
+          saves: {
+            fortitude: 4,
+            reflex: 4,
+            will: 8,
+          }
         }],
         string: "Wizard 12"
       },

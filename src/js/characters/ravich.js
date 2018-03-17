@@ -30,23 +30,39 @@ var ravich = (function() {
       },
       classes: {
         all: [{
-          classname: "Rogue",
+          name: "Rogue",
           level: 3,
-          hp: 24,
-          fortitude: 1,
-          reflex: 3,
-          will: 1,
-          ranks: 27,
-          bab: 2
+          bab: 2,
+          hp: {
+            base: 24,
+            favoured: ""
+          },
+          ranks: {
+            base: 27,
+            favoured: ""
+          },
+          saves: {
+            fortitude: 1,
+            reflex: 3,
+            will: 1,
+          }
         }, {
-          classname: "Fighter",
+          name: "Fighter",
           level: 3,
-          hp: 21,
-          fortitude: 3,
-          reflex: 1,
-          will: 1,
-          ranks: 9,
-          bab: 3
+          bab: 3,
+          hp: {
+            base: 21,
+            favoured: ""
+          },
+          ranks: {
+            base: 9,
+            favoured: ""
+          },
+          saves: {
+            fortitude: 3,
+            reflex: 1,
+            will: 1,
+          }
         }],
         string: "Rogue 3, Fighter 3"
       },
