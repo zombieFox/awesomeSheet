@@ -4,6 +4,7 @@ var update = (function() {
     version: "5.5.0",
     list: [
       "Added Senses to Basics.",
+      "Added Skill Notes."
     ]
   }, {
     version: "5.4.0",

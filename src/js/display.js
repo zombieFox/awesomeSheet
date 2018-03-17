@@ -715,6 +715,15 @@ var display = (function() {
             path: "skills.custom.all",
             skillType: "custom"
           }]
+        }, {
+          type: "block",
+          element: {
+            node: "div"
+          },
+          contentItems: [{
+            path: "skills.stats.notes",
+            prefix: "Skill Notes"
+          }],
         }]
       }
     },

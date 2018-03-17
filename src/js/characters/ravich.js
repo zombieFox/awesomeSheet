@@ -708,6 +708,9 @@ var ravich = (function() {
       }
     },
     skills: {
+      stats: {
+        notes: ""
+      },
       ranks: {
         total: "",
         include_custom: false,

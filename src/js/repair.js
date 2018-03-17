@@ -2666,6 +2666,10 @@ var repair = (function() {
       racial: "",
       magical: ""
     };
+    _report.repaired.push("update: skill notes");
+    characterObject.skills.stats = {
+      notes: ""
+    };
     _log("update complete: 550");
     _log("report:", _report);
     _log("------------------------------------------");
@@ -2699,6 +2703,7 @@ var repair = (function() {
         };
       };
     } else {
+      console.log("awesome v", update.version(), " | sheet v not found");
       // if no version is found
       if (typeof characterObject.awesomeSheet == "boolean") {
         characterObject = _update_legacy(characterObject);
@@ -2726,7 +2731,8 @@ var repair = (function() {
       defaultOptions = helper.applyOptions(defaultOptions, options);
     };
     _debug = defaultOptions.debug;
-    _log("################# REPAIR #################");
+    _log("##########################################");
+    _log("REPAIR");
     if (defaultOptions.object != null) {
       return _repair(defaultOptions.object);
     };
