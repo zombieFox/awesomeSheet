@@ -34,6 +34,7 @@ var sheet = (function() {
 
   function init() {
     if (helper.read("allCharacters")) {
+      // if characters are found in local storage repair them
       _all_characters = JSON.parse(helper.read("allCharacters"));
       _all_characters.forEach(function(item, index, array) {
         array[index] = repair.render({
@@ -42,6 +43,7 @@ var sheet = (function() {
         });
       });
     } else {
+      // else load demo characters
       _all_characters = JSON.parse(JSON.stringify(hardCodedCharacters.demo()));
       var newBlank = JSON.parse(JSON.stringify(blank.data));
       newBlank.awesomeSheet.version = update.version();

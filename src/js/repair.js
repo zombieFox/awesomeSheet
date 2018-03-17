@@ -842,7 +842,7 @@ var repair = (function() {
     // --------------------------------------------------
     _log("update complete: legacy");
     _log("report:", _report);
-    _log("-----");
+    _log("------------------------------------------");
     return characterObject;
   };
 
@@ -2539,7 +2539,7 @@ var repair = (function() {
     };
     _log("update complete: 500");
     _log("report:", _report);
-    _log("-----");
+    _log("------------------------------------------");
     return characterObject;
   };
 
@@ -2580,7 +2580,7 @@ var repair = (function() {
     };
     _log("update complete: 510");
     _log("report:", _report);
-    _log("-----");
+    _log("------------------------------------------");
     return characterObject;
   };
 
@@ -2592,7 +2592,7 @@ var repair = (function() {
     // awesome
     _report.repaired.push("update: awesome version");
     characterObject.awesomeSheet.version = 5.2;
-    // abilities
+    // classes
     if (!("string" in characterObject.basics.classes)) {
       _report.repaired.push("update: classes");
       var classAndLevel = "";
@@ -2628,7 +2628,7 @@ var repair = (function() {
     };
     _log("update complete: 520");
     _log("report:", _report);
-    _log("-----");
+    _log("------------------------------------------");
     return characterObject;
   };
 
@@ -2640,7 +2640,7 @@ var repair = (function() {
     // awesome
     _report.repaired.push("update: awesome version");
     characterObject.awesomeSheet.version = 5.4;
-    // abilities
+    // experience
     _report.repaired.push("update: experience level");
     characterObject.basics.experience.level = {
       current: "",
@@ -2648,15 +2648,40 @@ var repair = (function() {
     };
     _log("update complete: 540");
     _log("report:", _report);
-    _log("-----");
+    _log("------------------------------------------");
+    return characterObject;
+  };
+
+  function _update_550(characterObject) {
+    var _report = {
+      name: characterObject.basics.character.name,
+      repaired: []
+    };
+    // awesome
+    _report.repaired.push("update: awesome version");
+    characterObject.awesomeSheet.version = 5.5;
+    // senses
+    _report.repaired.push("update: senses");
+    characterObject.basics.senses = {
+      racial: "",
+      magical: ""
+    };
+    _log("update complete: 550");
+    _log("report:", _report);
+    _log("------------------------------------------");
     return characterObject;
   };
 
   function _repair(characterObject) {
     // if version is found
     if (typeof characterObject.awesomeSheet == "object" && "version" in characterObject.awesomeSheet) {
+      console.log("awesome v", update.version(), " | sheet v", characterObject.awesomeSheet.version);
+      if ("character" in characterObject.basics) {
+        _log(characterObject.basics.character.name);
+      };
       // if version number is below current version
       if (characterObject.awesomeSheet.version < update.version()) {
+        _log("------------------------------------------");
         if (characterObject.awesomeSheet.version < 5) {
           characterObject = _update_500(characterObject);
         };
@@ -2668,6 +2693,9 @@ var repair = (function() {
         };
         if (characterObject.awesomeSheet.version < 5.4) {
           characterObject = _update_540(characterObject);
+        };
+        if (characterObject.awesomeSheet.version < 5.5) {
+          characterObject = _update_550(characterObject);
         };
       };
     } else {

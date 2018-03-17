@@ -1,6 +1,11 @@
 var update = (function() {
 
   var history = [{
+    version: "5.5.0",
+    list: [
+      "Added Senses to Basics.",
+    ]
+  }, {
     version: "5.4.0",
     list: [
       "Added Level Count to the Experience tab and to the total Levels on the Classes tab.",
