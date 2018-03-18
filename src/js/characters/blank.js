@@ -34,11 +34,13 @@ var blank = (function() {
           bab: "",
           hp: {
             base: "",
-            favoured: ""
+            favoured: "",
+            current: ""
           },
           ranks: {
             base: "",
-            favoured: ""
+            favoured: "",
+            current: ""
           },
           saves: {
             fortitude: "",

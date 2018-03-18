@@ -107,6 +107,24 @@ var classes = (function() {
       newValue: totalWill
     });
     _classLevel();
+    _hp();
+  };
+
+  function _hp() {
+    var all_classes = helper.getObject({
+      object: sheet.get(),
+      path: "basics.classes.all"
+    });
+    var hpTotal = 0;
+    all_classes.forEach(function(arrayItem, index) {
+      hpTotal = hpTotal + arrayItem.hp.base;
+      hpTotal = hpTotal + arrayItem.hp.favoured;
+      helper.setObject({
+        object: sheet.get(),
+        path: "basics.classes.all[" + index + "].hp.current",
+        newValue: hpTotal
+      });
+    });
   };
 
   function _classLevel() {

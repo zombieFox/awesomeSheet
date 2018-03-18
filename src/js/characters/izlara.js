@@ -35,11 +35,13 @@ var izlara = (function() {
           bab: 6,
           hp: {
             base: 62,
-            favoured: ""
+            favoured: "",
+            current: ""
           },
           ranks: {
             base: 24,
-            favoured: ""
+            favoured: "",
+            current: ""
           },
           saves: {
             fortitude: 4,

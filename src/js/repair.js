@@ -2682,11 +2682,13 @@ var repair = (function() {
         arrayItem.name = arrayItem.classname;
         arrayItem.hp = {
           base: oldHp,
-          favoured: ""
+          favoured: "",
+          current: ""
         };
         arrayItem.ranks = {
           base: oldRanks,
-          favoured: ""
+          favoured: "",
+          current: ""
         };
         arrayItem.saves = {
           fortitude: oldFortitude,
@@ -2709,7 +2711,7 @@ var repair = (function() {
   function _repair(characterObject) {
     // if version is found
     if (typeof characterObject.awesomeSheet == "object" && "version" in characterObject.awesomeSheet) {
-      console.log("awesome v", update.version(), " | sheet v", characterObject.awesomeSheet.version);
+      _log(["awesome v", update.version(), " | sheet v", characterObject.awesomeSheet.version]);
       if ("character" in characterObject.basics) {
         _log(characterObject.basics.character.name);
       };

@@ -39,7 +39,7 @@ var sheet = (function() {
       _all_characters.forEach(function(item, index, array) {
         array[index] = repair.render({
           object: item,
-          debug: true
+          debug: false
         });
       });
     } else {
@@ -143,7 +143,7 @@ var sheet = (function() {
     _all_characters.forEach(function(item, index, array) {
       array[index] = repair.render({
         object: item,
-        debug: true
+        debug: false
       });
     });
     index.set(0);
@@ -391,7 +391,7 @@ var sheet = (function() {
         if (data.awesomeSheet || data.awesomeSheet.awesome) {
           add(repair.render({
             object: data,
-            debug: true
+            debug: false
           }));
           var name = get().basics.character.name || "New character";
           snack.render({
@@ -428,7 +428,7 @@ var sheet = (function() {
         if (data.awesomeSheet || data.awesomeSheet.awesome) {
           replace(repair.render({
             object: data,
-            debug: true
+            debug: false
           }));
           var name = get().basics.character.name || "New character";
           snack.render({

@@ -35,11 +35,13 @@ var ravich = (function() {
           bab: 2,
           hp: {
             base: 24,
-            favoured: ""
+            favoured: "",
+            current: ""
           },
           ranks: {
             base: 27,
-            favoured: ""
+            favoured: "",
+            current: ""
           },
           saves: {
             fortitude: 1,
@@ -52,11 +54,13 @@ var ravich = (function() {
           bab: 3,
           hp: {
             base: 21,
-            favoured: ""
+            favoured: "",
+            current: ""
           },
           ranks: {
             base: 9,
-            favoured: ""
+            favoured: "",
+            current: ""
           },
           saves: {
             fortitude: 3,
