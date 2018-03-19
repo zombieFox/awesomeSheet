@@ -154,7 +154,7 @@ var clone = (function() {
         // '        </p>' +
         // '      </div>' +
         '    </div>' +
-        '    <div class="m-edit-box-item-medium">' +
+        '    <div class="m-edit-box-item-small">' +
         '      <div class="m-input-block js-input-block" data-input-block-options="path:basics.classes.all[' + cloneIndex + ']bab,type:integer,clone:true">' +
         '        <label class="m-input-block-label js-input-block-label" for="basics-classes-all-' + cloneIndex + '-bab">Highest BAB</label>' +
         '        <input id="basics-classes-all-' + cloneIndex + '-bab" class="m-input-block-field u-full-width u-text-center js-input-block-field js-tip" data-tip-options="message:The highest BAB for this Class at this Level. Additional attacks will automatically be added.,state:focus,clone:true" type="number" tabindex="1">' +
