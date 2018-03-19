@@ -162,7 +162,7 @@
 // --------------------------------------------------
 [class*="m-edit-box-item"],
 [class^="m-edit-box-item"] {
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-end;
@@ -173,53 +173,63 @@
 .m-edit-box-item-stat {
   flex-grow: 0;
   flex-basis: 6em;
+  max-width: 6em;
 }
 .m-edit-box-item-modifier,
-.m-edit-box-item-text,
 .m-edit-box-item-total {
-  flex-grow: 0;
+  flex-grow: 1;
   flex-basis: 5em;
+  min-width: 5em;
 }
 .m-edit-box-item-check {
   flex-grow: 0;
   flex-basis: 4em;
+  max-width: 4em;
 }
 .m-edit-box-item-small {
-  flex-grow: 0;
-  flex-basis: 5em;
+  flex-grow: 1;
+  flex-basis: 6em;
+  max-width: 6em;
 }
 .m-edit-box-item-medium {
-  flex-grow: 0.5;
-  flex-basis: 10em;
+  flex-grow: 1;
+  flex-basis: 12em;
+  max-width: 12em;
 }
 .m-edit-box-item-large {
   flex-grow: 1;
-  flex-basis: 15em;
+  flex-basis: 18em;
+  max-width: 18em;
 }
 .m-edit-box-item-max {
   flex-grow: 1;
   flex-basis: 100%;
+  max-width: 100%;
 }
 [class*="m-edit-box-item-button"],
 [class^="m-edit-box-item-button"] {
-  flex: 0 0 auto;
+  flex: 0 1 auto;
   .button {
     margin: 0;
   }
 }
 .m-edit-box-item-button-small {
-  flex: 0 0 2em;
+  flex-grow: 0;
+  flex-basis: 2em;
+  max-width: 2em;
 }
 .m-edit-box-item-button-large {
-  flex: 0 0 4em;
-}
-.m-edit-box-item-shrink {
   flex-grow: 0;
-  min-width: 5em;
+  flex-basis: 3em;
+  max-width: 3em;
 }
-.m-edit-box-item-grow {
-  flex-grow: 1;
-}
+// .m-edit-box-item-shrink {
+//   flex-grow: 0;
+//   min-width: 5em;
+// }
+// .m-edit-box-item-grow {
+//   flex-grow: 1;
+// }
 // --------------------------------------------------
 // edit end
 // --------------------------------------------------
