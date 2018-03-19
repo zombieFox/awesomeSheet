@@ -173,7 +173,7 @@
 .m-edit-box-item-stat {
   flex-grow: 0;
   flex-basis: 6em;
-  max-width: 6em;
+  width: 6em;
 }
 .m-edit-box-item-modifier,
 .m-edit-box-item-total {
@@ -184,44 +184,44 @@
 .m-edit-box-item-check {
   flex-grow: 0;
   flex-basis: 4em;
-  max-width: 4em;
+  width: 4em;
 }
 .m-edit-box-item-small {
-  flex-grow: 1;
+  flex-grow: 0;
   flex-basis: 6em;
-  max-width: 6em;
+  width: 6em;
 }
 .m-edit-box-item-medium {
-  flex-grow: 1;
+  flex-grow: 0.5;
   flex-basis: 12em;
-  max-width: 12em;
+  width: 12em;
 }
 .m-edit-box-item-large {
   flex-grow: 1;
   flex-basis: 18em;
-  max-width: 18em;
+  width: 18em;
 }
 .m-edit-box-item-max {
   flex-grow: 1;
   flex-basis: 100%;
-  max-width: 100%;
+  width: 100%;
 }
-[class*="m-edit-box-item-button"],
-[class^="m-edit-box-item-button"] {
-  flex: 0 1 auto;
-  .button {
-    margin: 0;
-  }
-}
+// [class*="m-edit-box-item-button"],
+// [class^="m-edit-box-item-button"] {
+//   // flex: 0 1 auto;
+//   // .button {
+//   //   margin: 0;
+//   // }
+// }
 .m-edit-box-item-button-small {
   flex-grow: 0;
   flex-basis: 2em;
-  max-width: 2em;
+  width: 2em;
 }
 .m-edit-box-item-button-large {
   flex-grow: 0;
   flex-basis: 3em;
-  max-width: 3em;
+  width: 3em;
 }
 // .m-edit-box-item-shrink {
 //   flex-grow: 0;
