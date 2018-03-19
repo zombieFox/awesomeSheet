@@ -171,16 +171,16 @@
           </div>
         </div>
         <div class="m-edit-box-item m-edit-box-group">
-          <div class="m-edit-box-item-medium">
-            <p class="m-edit-box-label">Current Level</p>
+          <div class="m-edit-box-item-total">
+            <p class="m-edit-box-label">Level</p>
             <p class="m-edit-box-total js-text-block js-tip" data-text-block-options="path:basics.experience.level.current,type:number" data-tip-options="message:Current Level based on Advancement Speed and Total Experience.,state:hover"></p>
           </div>
-          <div class="m-edit-box-item-medium">
+          <div class="m-edit-box-item-total">
             <p class="m-edit-box-label">Next Level</p>
             <p class="m-edit-box-total js-text-block js-tip" data-text-block-options="path:basics.experience.next_level,type:number" data-tip-options="message:Total Experience for the next level.,state:hover"></p>
           </div>
-          <div class="m-edit-box-item-medium">
-            <p class="m-edit-box-label">Experience Needed</p>
+          <div class="m-edit-box-item-total">
+            <p class="m-edit-box-label">EXP Needed</p>
             <p class="m-edit-box-total js-text-block js-tip" data-text-block-options="path:basics.experience.needed,type:number" data-tip-options="message:Experience needed to level up.,state:hover"></p>
           </div>
         </div>
@@ -188,7 +188,7 @@
 
       <div class="m-edit-box-content">
         <div class="m-edit-box-item-max">
-          <p class="m-edit-box-description"><strong>Current Level</strong> is based on the chosen <strong>Advancement Speed</strong> and the experience <strong>Total</strong> you have added. <strong>Experience Needed</strong> shows the ammount needed to meet the <strong>Next Level</strong>            milestone.</p>
+          <p class="m-edit-box-description"><strong>Current Level</strong> is based on the chosen <strong>Advancement Speed</strong> and the experience <strong>Total</strong> you have added. <strong>EXP Needed</strong> shows the ammount needed to meet the <strong>Next Level</strong> milestone.</p>
         </div>
       </div>
 
@@ -385,22 +385,15 @@
     </div>
     <div class="m-edit-box-body">
       <div class="m-edit-box-content m-edit-box-content-margin-large">
-        <div class="m-edit-box-item-small">
+        <div class="m-edit-box-item">
           <div class="m-character-image-preview js-image-preview">
             <span class="m-character-image-placeholder icon-person"></span>
             <span class="m-character-image-background js-image-background"></span>
             <span class="m-character-image-preview-guide"></span>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="m-edit-box m-edit-box-indent m-edit-box-no-head-small">
-    <div class="m-edit-box-body">
-      <div class="m-edit-box-content m-edit-box-content-margin-large">
-        <div class="m-edit-box-item-small m-edit-box-group">
-          <div class="m-edit-box-item-small">
+        <div class="m-edit-box-item m-edit-box-group">
+          <div class="m-edit-box-item">
             <div class="m-input-file-block">
               <label class="m-input-file-block-label u-inline-with-input" for="character-image" tabindex="1">
                 <span class="icon-file-upload"></span><span class="m-input-file-block-label-text">Select an image</span>
@@ -408,7 +401,7 @@
               <input id="character-image" type="file" class="m-input-file-block-field js-image-input">
             </div>
           </div>
-          <div class="m-edit-box-item-button-small">
+          <div class="m-edit-box-item-button-large">
             <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-large button-icon button-slim js-image-clear" tabindex="1"><span class="icon-close"></span></a>
           </div>
         </div>
@@ -419,13 +412,20 @@
     </div>
   </div>
 
+  <div class="m-edit-box m-edit-box-indent m-edit-box-no-head-small">
+    <div class="m-edit-box-body">
+      <div class="m-edit-box-content m-edit-box-content-margin-large">
+      </div>
+    </div>
+  </div>
+
   <div class="m-edit-box m-edit-box-labels m-edit-box-indent m-edit-box-head-small">
     <div class="m-edit-box-head">
       <h2 class="m-edit-box-title">Size &amp; Position</h2>
     </div>
     <div class="m-edit-box-body">
       <div class="m-edit-box-content m-edit-box-content-margin-large">
-        <div class="m-edit-box-item-large">
+        <div class="m-edit-box-item-max">
           <div class="m-character-image-control-scale">
             <div class="m-input-range-block js-input-range-block" data-input-range-block-options="path:basics.image.scale,type:integer">
               <label class="m-input-range-block-label js-input-range-block-label" for="basics-image-scale">Scale (%)</label>
@@ -434,27 +434,27 @@
           </div>
         </div>
         <div class="m-edit-box-item m-edit-box-group">
-          <div class="m-edit-box-item-button-large">
+          <div class="m-edit-box-item">
             <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-medium js-image-scale-cover js-tip" data-tip-options="message:Scale and clip the image to fill the preview.,state:hover" tabindex="1"><span class="button-text">Cover</span></a>
           </div>
-          <div class="m-edit-box-item-button-large">
+          <div class="m-edit-box-item">
             <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-medium js-image-scale-contain js-tip" data-tip-options="message:Scale the image to show all of it.,state:hover" tabindex="1"><span class="button-text">Contain</span></a>
           </div>
-          <div class="m-edit-box-item-button-large">
+          <div class="m-edit-box-item">
             <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-medium js-image-scale-center js-tip" data-tip-options="message:Align the image to the center of the preview.,state:hover" tabindex="1"><span class="button-text">Center</span></a>
           </div>
         </div>
         <div class="m-edit-box-item m-edit-box-group">
-          <div class="m-edit-box-item-button-large">
+          <div class="m-edit-box-item">
             <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-medium js-image-scale-top js-tip" data-tip-options="message:Align the image to the top of the preview.,state:hover" tabindex="1"><span class="button-text">Top</span></a>
           </div>
-          <div class="m-edit-box-item-button-large">
+          <div class="m-edit-box-item">
             <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-medium js-image-scale-bottom js-tip" data-tip-options="message:Align the image to the bottom of the preview.,state:hover" tabindex="1"><span class="button-text">Bottom</span></a>
           </div>
-          <div class="m-edit-box-item-button-large">
+          <div class="m-edit-box-item">
             <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-medium js-image-scale-left js-tip" data-tip-options="message:Align the image to the left of the preview.,state:hover" tabindex="1"><span class="button-text">Left</span></a>
           </div>
-          <div class="m-edit-box-item-button-large">
+          <div class="m-edit-box-item">
             <a href="javascript:void(0)" class="u-inline-with-input u-no-margin button button-medium js-image-scale-right js-tip" data-tip-options="message:Align the image to the right of the preview.,state:hover" tabindex="1"><span class="button-text">Right</span></a>
           </div>
         </div>
@@ -469,21 +469,21 @@
     <div class="m-edit-box-body">
       <div class="m-edit-box-content">
         <div class="m-edit-box-item m-edit-box-group">
-          <div class="m-edit-box-item-small">
+          <div class="m-edit-box-item-check">
             <div class="m-radio-block js-radio-block" data-radio-block-options="path:basics.image.background">
               <label class="m-radio-block-label" for="basics-image-background-average">Average</label>
               <input class="m-radio-block-radio js-radio-block-input js-image-background-average" type="radio" id="basics-image-background-average" name="basics-image-background" value="average" tabindex="1" checked>
               <span class="m-radio-block-radio-icon"></span>
             </div>
           </div>
-          <div class="m-edit-box-item-small">
+          <div class="m-edit-box-item-check">
             <div class="m-radio-block js-radio-block" data-radio-block-options="path:basics.image.background">
               <label class="m-radio-block-label" for="basics-image-background-black">Black</label>
               <input class="m-radio-block-radio js-radio-block-input js-image-background-black" type="radio" id="basics-image-background-black" name="basics-image-background" value="black" tabindex="1">
               <span class="m-radio-block-radio-icon"></span>
             </div>
           </div>
-          <div class="m-edit-box-item-small">
+          <div class="m-edit-box-item-check">
             <div class="m-radio-block js-radio-block" data-radio-block-options="path:basics.image.background">
               <label class="m-radio-block-label" for="basics-image-background-white">White</label>
               <input class="m-radio-block-radio js-radio-block-input js-image-background-white" type="radio" id="basics-image-background-white" name="basics-image-background" value="white" tabindex="1">

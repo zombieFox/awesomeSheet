@@ -170,40 +170,30 @@
   box-sizing: border-box;
   transition: margin $transition-ease-medium;
 }
-.m-edit-box-item-stat {
-  flex-grow: 0;
-  flex-basis: 6em;
-  width: 6em;
-}
+.m-edit-box-item-stat,
 .m-edit-box-item-modifier,
 .m-edit-box-item-total {
-  flex-grow: 1;
-  flex-basis: 5em;
+  flex-grow: 0;
   min-width: 5em;
 }
 .m-edit-box-item-check {
   flex-grow: 0;
-  flex-basis: 4em;
-  width: 4em;
+  min-width: 4em;
 }
 .m-edit-box-item-small {
   flex-grow: 0;
-  flex-basis: 6em;
   width: 6em;
 }
 .m-edit-box-item-medium {
-  flex-grow: 0.5;
-  flex-basis: 12em;
+  flex-grow: 0;
   width: 12em;
 }
 .m-edit-box-item-large {
   flex-grow: 1;
-  flex-basis: 18em;
   width: 18em;
 }
 .m-edit-box-item-max {
   flex-grow: 1;
-  flex-basis: 100%;
   width: 100%;
 }
 // [class*="m-edit-box-item-button"],
@@ -215,12 +205,10 @@
 // }
 .m-edit-box-item-button-small {
   flex-grow: 0;
-  flex-basis: 2em;
   width: 2em;
 }
 .m-edit-box-item-button-large {
   flex-grow: 0;
-  flex-basis: 3em;
   width: 3em;
 }
 // .m-edit-box-item-shrink {
@@ -606,9 +594,6 @@
   }
   .m-edit-box-no-head-large {
     padding-left: 40%;
-  }
-  .m-edit-box-description {
-    margin-right: 1em;
   }
   .m-edit-box-check-label,
   .m-edit-box-radio-label {
