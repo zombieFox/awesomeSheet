@@ -62,7 +62,11 @@ var classes = (function() {
         });
         total = total + classTotal;
       });
-      total = total + (stats.getMod("con") * classLevel);
+      if (classLevel > 0) {
+        total = total + (stats.getMod("con") * classLevel);
+      } else {
+        total = total + stats.getMod("con");
+      };
       helper.setObject({
         object: sheet.get(),
         path: "defense.hp.total",
