@@ -78,7 +78,7 @@ var classes = (function() {
         object: sheet.get(),
         path: "basics.experience.level.class_total"
       });
-      var rankTotal = 0;
+      var total = 0;
       all_classes.forEach(function(arrayItem, index) {
         var classTotal = 0;
         if (arrayItem.ranks.base != "" || arrayItem.ranks.base != undefined && typeof arrayItem.ranks.base == "number") {
@@ -92,13 +92,17 @@ var classes = (function() {
           path: "basics.classes.all[" + index + "].ranks.current",
           newValue: classTotal
         });
-        rankTotal = rankTotal + classTotal;
+        total = total + classTotal;
       });
-      rankTotal = rankTotal + (stats.getMod("int") * classLevel);
+      if (classLevel > 0) {
+        total = total + (stats.getMod("int") * classLevel);
+      } else {
+        total = total + stats.getMod("int");
+      };
       helper.setObject({
         object: sheet.get(),
         path: "skills.ranks.total",
-        newValue: rankTotal
+        newValue: total
       });
     };
     var _makeBaseAttackBonuses = function(totalBab) {
