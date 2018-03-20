@@ -463,7 +463,7 @@ var totalBlock = (function() {
       } else if (label == "bab") {
         return "Base Attack Bonus (" + _addPrefix(helper.getObject({
           object: sheet.get(),
-          path: "offense.base_attack.bonus"
+          path: "offense.stats.base_attack.bonus"
         })) + ")";
       } else if (label == "size_base") {
         return "Size Bonus (" + _addPrefix(helper.getObject({
