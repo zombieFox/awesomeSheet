@@ -539,7 +539,7 @@ var pill = (function() {
         pillControl.appendChild(_create_editBox({
           title: "Rename",
           guides: true,
-          boxSize: "m-edit-box-item-max",
+          boxSize: "m-edit-box-item-100",
           content: [renameInput]
         }));
 
@@ -553,7 +553,7 @@ var pill = (function() {
         pillControl.appendChild(_create_editBox({
           title: "Notes",
           guides: true,
-          boxSize: "m-edit-box-item-max",
+          boxSize: "m-edit-box-item-100",
           content: [noteTextarea]
         }));
 
@@ -572,7 +572,7 @@ var pill = (function() {
               textOnly: true,
               guides: true,
               content: [para],
-              boxSize: "m-edit-box-item-max"
+              boxSize: "m-edit-box-item-100"
             }));
           };
 
@@ -584,7 +584,7 @@ var pill = (function() {
               textOnly: true,
               guides: true,
               content: [para],
-              boxSize: "m-edit-box-item-max"
+              boxSize: "m-edit-box-item-100"
             }));
           };
 
@@ -596,7 +596,7 @@ var pill = (function() {
               textOnly: true,
               guides: true,
               content: [para],
-              boxSize: "m-edit-box-item-max"
+              boxSize: "m-edit-box-item-100"
             }));
           };
 
@@ -608,7 +608,7 @@ var pill = (function() {
               textOnly: true,
               guides: true,
               content: [para],
-              boxSize: "m-edit-box-item-max"
+              boxSize: "m-edit-box-item-100"
             }));
           };
 
@@ -620,7 +620,7 @@ var pill = (function() {
               textOnly: true,
               guides: true,
               content: [para],
-              boxSize: "m-edit-box-item-max"
+              boxSize: "m-edit-box-item-100"
             }));
           };
 
@@ -632,7 +632,7 @@ var pill = (function() {
               textOnly: true,
               guides: true,
               content: [para],
-              boxSize: "m-edit-box-item-max"
+              boxSize: "m-edit-box-item-100"
             }));
           };
 
@@ -644,7 +644,7 @@ var pill = (function() {
               textOnly: true,
               guides: true,
               content: [para],
-              boxSize: "m-edit-box-item-max"
+              boxSize: "m-edit-box-item-100"
             }));
           };
 
@@ -656,7 +656,7 @@ var pill = (function() {
               textOnly: true,
               guides: true,
               content: [para],
-              boxSize: "m-edit-box-item-max"
+              boxSize: "m-edit-box-item-100"
             }));
           };
 
@@ -668,7 +668,7 @@ var pill = (function() {
               textOnly: true,
               guides: true,
               content: [para],
-              boxSize: "m-edit-box-item-max"
+              boxSize: "m-edit-box-item-100"
             }));
           };
 
@@ -680,7 +680,7 @@ var pill = (function() {
               textOnly: true,
               guides: true,
               content: [para],
-              boxSize: "m-edit-box-item-max"
+              boxSize: "m-edit-box-item-100"
             }));
           };
 
@@ -692,7 +692,7 @@ var pill = (function() {
               textOnly: true,
               guides: true,
               content: [para],
-              boxSize: "m-edit-box-item-max"
+              boxSize: "m-edit-box-item-100"
             }));
           };
         };
@@ -705,7 +705,7 @@ var pill = (function() {
               textOnly: true,
               guides: true,
               content: [para],
-              boxSize: "m-edit-box-item-max"
+              boxSize: "m-edit-box-item-100"
             }));
           };
 
@@ -717,7 +717,7 @@ var pill = (function() {
               textOnly: true,
               guides: true,
               content: [para],
-              boxSize: "m-edit-box-item-max"
+              boxSize: "m-edit-box-item-100"
             }));
           };
 
@@ -736,7 +736,7 @@ var pill = (function() {
               textOnly: true,
               guides: true,
               content: [para],
-              boxSize: "m-edit-box-item-max"
+              boxSize: "m-edit-box-item-100"
             }));
           };
 
@@ -748,7 +748,7 @@ var pill = (function() {
               textOnly: true,
               guides: true,
               content: [para],
-              boxSize: "m-edit-box-item-max"
+              boxSize: "m-edit-box-item-100"
             }));
           };
 
@@ -760,7 +760,7 @@ var pill = (function() {
               textOnly: true,
               guides: true,
               content: [para],
-              boxSize: "m-edit-box-item-max"
+              boxSize: "m-edit-box-item-100"
             }));
           };
         };
@@ -774,7 +774,7 @@ var pill = (function() {
               textOnly: true,
               guides: true,
               content: [para],
-              boxSize: "m-edit-box-item-max"
+              boxSize: "m-edit-box-item-100"
             }));
           };
         };

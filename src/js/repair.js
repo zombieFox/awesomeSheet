@@ -2670,6 +2670,37 @@ var repair = (function() {
     characterObject.skills.stats = {
       notes: ""
     };
+    _report.repaired.push("update: favoured hp and ranks");
+    if (characterObject.basics.classes.all.length > 0) {
+      characterObject.basics.classes.all.forEach(function(arrayItem) {
+        var oldHp = arrayItem.hp;
+        var oldRanks = arrayItem.ranks;
+        var oldFortitude = arrayItem.fortitude;
+        var oldReflex = arrayItem.reflex;
+        var oldWill = arrayItem.will;
+        arrayItem.name = arrayItem.classname;
+        arrayItem.hp = {
+          base: oldHp,
+          favoured: "",
+          current: ""
+        };
+        arrayItem.ranks = {
+          base: oldRanks,
+          favoured: "",
+          current: ""
+        };
+        arrayItem.saves = {
+          fortitude: oldFortitude,
+          reflex: oldReflex,
+          will: oldWill
+        };
+        delete arrayItem.classname;
+        delete arrayItem.fortitude;
+        delete arrayItem.reflex;
+        delete arrayItem.will;
+      });
+    };
+
     _log("update complete: 550");
     _log("report:", _report);
     _log("------------------------------------------");
@@ -2679,7 +2710,7 @@ var repair = (function() {
   function _repair(characterObject) {
     // if version is found
     if (typeof characterObject.awesomeSheet == "object" && "version" in characterObject.awesomeSheet) {
-      console.log("awesome v", update.version(), " | sheet v", characterObject.awesomeSheet.version);
+      _log(["awesome v", update.version(), " | sheet v", characterObject.awesomeSheet.version]);
       if ("character" in characterObject.basics) {
         _log(characterObject.basics.character.name);
       };

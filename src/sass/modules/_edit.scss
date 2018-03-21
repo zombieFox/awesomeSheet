@@ -109,7 +109,7 @@
   }
 }
 // --------------------------------------------------
-// edit group
+// edit
 // --------------------------------------------------
 .m-edit-box {
   [class*="m-edit-box-item"],
@@ -170,55 +170,64 @@
   box-sizing: border-box;
   transition: margin $transition-ease-medium;
 }
-.m-edit-box-item-stat {
-  flex-grow: 0;
-  flex-basis: 6em;
-}
+.m-edit-box-item-check,
 .m-edit-box-item-modifier,
-.m-edit-box-item-text,
+.m-edit-box-item-stat,
 .m-edit-box-item-total {
-  flex-grow: 0;
-  flex-basis: 5em;
+  flex: 0 0 auto;
+  min-width: 4em;
 }
-.m-edit-box-item-check {
-  flex-grow: 0;
+.m-edit-box-item-button-sm {
+  flex: 0 0 2em;
+}
+.m-edit-box-item-button-md {
+  flex: 0 0 3em;
+}
+.m-edit-box-item-button-lg {
+  flex: 0 0 4em;
+}
+.m-edit-box-item-4 {
   flex-basis: 4em;
+  max-width: 12em;
 }
-.m-edit-box-item-small {
-  flex-grow: 0;
-  flex-basis: 5em;
+.m-edit-box-item-8 {
+  flex-basis: 8em;
+  max-width: 16em;
 }
-.m-edit-box-item-medium {
-  flex-grow: 0.5;
-  flex-basis: 10em;
+.m-edit-box-item-12 {
+  flex-basis: 12em;
+  max-width: 20em;
 }
-.m-edit-box-item-large {
-  flex-grow: 1;
-  flex-basis: 15em;
+.m-edit-box-item-16 {
+  flex-basis: 16em;
+  max-width: 24em;
 }
-.m-edit-box-item-max {
+.m-edit-box-item-20 {
+  flex-basis: 20em;
+  max-width: 28em;
+}
+.m-edit-box-item-24 {
+  flex-basis: 24em;
+  max-width: 32em;
+}
+.m-edit-box-item-28 {
+  flex-basis: 28em;
+  max-width: 36em;
+}
+.m-edit-box-item-32 {
+  flex-basis: 32em;
+  max-width: 40em;
+}
+.m-edit-box-item-36 {
+  flex-basis: 36em;
+  max-width: 44em;
+}
+.m-edit-box-item-100 {
   flex-grow: 1;
   flex-basis: 100%;
 }
-[class*="m-edit-box-item-button"],
-[class^="m-edit-box-item-button"] {
-  flex: 0 0 auto;
-  .button {
-    margin: 0;
-  }
-}
-.m-edit-box-item-button-small {
-  flex: 0 0 2em;
-}
-.m-edit-box-item-button-large {
-  flex: 0 0 4em;
-}
 .m-edit-box-item-shrink {
   flex-grow: 0;
-  min-width: 5em;
-}
-.m-edit-box-item-grow {
-  flex-grow: 1;
 }
 // --------------------------------------------------
 // edit end
@@ -237,6 +246,7 @@
 // --------------------------------------------------
 [class*="m-edit-box-group"],
 [class^="m-edit-box-group"] {
+  flex-grow: 0;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -244,6 +254,7 @@
   z-index: 1;
   [class*="m-edit-box-item"],
   [class^="m-edit-box-item"] {
+    flex: 1 1 auto;
     margin-right: 0;
     padding-left: 0;
     padding-right: 0;
@@ -401,20 +412,64 @@
       }
     }
   }
-}
-.m-edit-box-group-control-set {
-  flex-grow: 0;
-  flex-basis: 13em;
-  [class*="m-edit-box-item"],
-  [class^="m-edit-box-item"] {
+  .m-edit-box-item-check,
+  .m-edit-box-item-modifier,
+  .m-edit-box-item-stat,
+  .m-edit-box-item-total {
+    flex: 0 0 auto;
+    min-width: 4em;
+  }
+  .m-edit-box-item-button-sm {
+    flex: 0 0 2em;
+  }
+  .m-edit-box-item-button-md {
+    flex: 0 0 3em;
+  }
+  .m-edit-box-item-button-lg {
+    flex: 0 0 4em;
+  }
+  .m-edit-box-item-4 {
+    flex-basis: 4em;
+    max-width: 12em;
+  }
+  .m-edit-box-item-8 {
+    flex-basis: 8em;
+    max-width: 16em;
+  }
+  .m-edit-box-item-12 {
+    flex-basis: 12em;
+    max-width: 20em;
+  }
+  .m-edit-box-item-16 {
+    flex-basis: 16em;
+    max-width: 24em;
+  }
+  .m-edit-box-item-20 {
+    flex-basis: 20em;
+    max-width: 28em;
+  }
+  .m-edit-box-item-24 {
+    flex-basis: 24em;
+    max-width: 32em;
+  }
+  .m-edit-box-item-28 {
+    flex-basis: 28em;
+    max-width: 36em;
+  }
+  .m-edit-box-item-32 {
+    flex-basis: 32em;
+    max-width: 40em;
+  }
+  .m-edit-box-item-36 {
+    flex-basis: 36em;
+    max-width: 44em;
+  }
+  .m-edit-box-item-100 {
     flex-grow: 1;
+    flex-basis: 100%;
   }
-  [class*="m-edit-box-item-button"],
-  [class^="m-edit-box-item-button"] {
+  .m-edit-box-item-shrink {
     flex-grow: 0;
-  }
-  .m-edit-box-item-button-large {
-    flex-basis: 3em;
   }
 }
 // --------------------------------------------------
@@ -597,9 +652,6 @@
   .m-edit-box-no-head-large {
     padding-left: 40%;
   }
-  .m-edit-box-description {
-    margin-right: 1em;
-  }
   .m-edit-box-check-label,
   .m-edit-box-radio-label {
     line-height: $line-height-250;
@@ -611,6 +663,21 @@
   }
 }
 @media (min-width: $screen-md) {
+  .m-edit-box-item-check,
+  .m-edit-box-item-modifier,
+  .m-edit-box-item-stat,
+  .m-edit-box-item-total {
+    min-width: 5em;
+  }
+  [class*="m-edit-box-group"],
+  [class^="m-edit-box-group"] {
+    .m-edit-box-item-check,
+    .m-edit-box-item-modifier,
+    .m-edit-box-item-stat,
+    .m-edit-box-item-total {
+      min-width: 5em;
+    }
+  }
   .m-edit-controls {
     top: 6.5em;
   }
