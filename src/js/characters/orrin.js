@@ -3,7 +3,7 @@ var orrin = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.2
+      version: 5.5
     },
     basics: {
       character: {
@@ -20,28 +20,41 @@ var orrin = (function() {
         size: {
           category: "Medium",
           modifier: {
-            base: "",
-            special: "",
-            fly: "",
-            stealth: ""
+            base: 0,
+            special: 0,
+            fly: 0,
+            stealth: 0
           }
         }
       },
       classes: {
         all: [{
-          classname: "Rogue",
           level: 12,
-          hp: 74,
-          fortitude: 4,
-          reflex: 8,
-          will: 4,
-          ranks: 110,
-          bab: 9
+          hp: {
+            base: 62,
+            favoured: 12,
+            current: ""
+          },
+          ranks: {
+            base: 110,
+            favoured: "",
+            current: ""
+          },
+          bab: 9,
+          name: "Rogue",
+          saves: {
+            fortitude: 4,
+            reflex: 8,
+            will: 4
+          }
         }],
         string: "Rogue 12"
       },
       experience: {
-        level: 12,
+        level: {
+          current: "",
+          class_total: ""
+        },
         next_level: "",
         needed: "",
         total: 152920,
@@ -91,6 +104,10 @@ var orrin = (function() {
           height: ""
         },
         scale: ""
+      },
+      senses: {
+        racial: "",
+        magical: "Darkvision, See Invisibility"
       }
     },
     statistics: {
@@ -185,7 +202,7 @@ var orrin = (function() {
           index: false
         }, {
           name: "Sneak Attack (+1d6)",
-          note: "If a rogue can catch an opponent when he is unable to defend himself effectively from her attack, she can strike a vital spot for extra damage.<div><br></div><div>The rogue's attack deals extra damage anytime her target would be denied a Dexterity bonus to AC (whether the target actually has a Dexterity bonus or not), or when the rogue flanks her target. This extra damage is 1d6 at 1st level, and increases by 1d6 every two rogue levels thereafter. Should the rogue score a critical hit with a sneak attack, this extra damage is not multiplied. Ranged attacks can count as sneak attacks only if the target is within 30 feet.</div><div><br></div><div>With a weapon that deals nonlethal damage (like a sap, whip, or an unarmed strike), a rogue can make a sneak attack that deals nonlethal damage instead of lethal damage. She cannot use a weapon that deals lethal damage to deal nonlethal damage in a sneak attack, not even with the usual –4 penalty.</div><div><br></div><div>The rogue must be able to see the target well enough to pick out a vital spot and must be able to reach such a spot. A rogue cannot sneak attack while striking a creature with concealment.</div>",
+          note: "If a rogue can catch an opponent when he is unable to defend himself effectively from her attack, she can strike a vital spot for extra damage.<br><br>The rogue's attack deals extra damage anytime her target would be denied a Dexterity bonus to AC (whether the target actually has a Dexterity bonus or not), or when the rogue flanks her target. This extra damage is 1d6 at 1st level, and increases by 1d6 every two rogue levels thereafter. Should the rogue score a critical hit with a sneak attack, this extra damage is not multiplied. Ranged attacks can count as sneak attacks only if the target is within 30 feet.<br><br>With a weapon that deals nonlethal damage (like a sap, whip, or an unarmed strike), a rogue can make a sneak attack that deals nonlethal damage instead of lethal damage. She cannot use a weapon that deals lethal damage to deal nonlethal damage in a sneak attack, not even with the usual –4 penalty.<br><br>The rogue must be able to see the target well enough to pick out a vital spot and must be able to reach such a spot. A rogue cannot sneak attack while striking a creature with concealment.",
           index: false
         }, {
           name: "Trap Sense (+4)",
@@ -197,19 +214,11 @@ var orrin = (function() {
           index: false
         }, {
           name: "Uncanny Dodge",
-          note: "(Ex) Starting at 4th level, a rogue can react to danger before her senses would normally allow her to do so. She cannot be caught flat-footed, nor does she lose her Dex bonus to AC if the attacker is invisible. She still loses her Dexterity bonus to AC if immobilized. A rogue with this ability can still lose her Dexterity bonus to AC if an opponent successfully uses the feint action (see Combat) against her.<div><br></div><div>If a rogue already has uncanny dodge from a different class, she automatically gains improved uncanny dodge (see below) instead.</div>",
+          note: "(Ex) Starting at 4th level, a rogue can react to danger before her senses would normally allow her to do so. She cannot be caught flat-footed, nor does she lose her Dex bonus to AC if the attacker is invisible. She still loses her Dexterity bonus to AC if immobilized. A rogue with this ability can still lose her Dexterity bonus to AC if an opponent successfully uses the feint action (see Combat) against her.<br><br>If a rogue already has uncanny dodge from a different class, she automatically gains improved uncanny dodge (see below) instead.",
           index: false
         }, {
           name: "Rogue Talent (Slow Reactions)",
           note: "(Ex) Opponents damaged by the rogue's sneak attack can't make attacks of opportunity for 1 round.",
-          index: false
-        }, {
-          name: "Permanent See Invisibility",
-          note: "",
-          index: false
-        }, {
-          name: "Permanent Darkvision",
-          note: "",
           index: false
         }],
         notes: ""
@@ -601,7 +610,7 @@ var orrin = (function() {
       stats: {
         base_attack: {
           bonus: 9,
-          string: "+9 / +4",
+          string: "+9 / +4"
         },
         melee: {
           misc: "",
@@ -1556,6 +1565,9 @@ var orrin = (function() {
             check_penalty: false
           }
         }
+      },
+      stats: {
+        notes: ""
       }
     },
     spells: {
