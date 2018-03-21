@@ -3,7 +3,7 @@ var izlara = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.4,
+      version: 5.5,
       demo: true
     },
     basics: {
@@ -30,14 +30,24 @@ var izlara = (function() {
       },
       classes: {
         all: [{
-          classname: "Wizard",
+          name: "Wizard",
           level: 12,
-          hp: 62,
-          fortitude: 4,
-          reflex: 4,
-          will: 8,
-          ranks: 24,
-          bab: 6
+          bab: 6,
+          hp: {
+            base: 45,
+            favoured: 12,
+            current: ""
+          },
+          ranks: {
+            base: 24,
+            favoured: "",
+            current: ""
+          },
+          saves: {
+            fortitude: 4,
+            reflex: 4,
+            will: 8,
+          }
         }],
         string: "Wizard 12"
       },
@@ -50,6 +60,10 @@ var izlara = (function() {
         needed: "",
         total: 220000,
         advancement: "Medium"
+      },
+      senses: {
+        racial: "Low-Light Vision",
+        magical: "Detect Magic (Permanency)"
       },
       initiative: {
         misc: "",
@@ -283,6 +297,9 @@ var izlara = (function() {
         notes: ""
       },
       abilities: {
+        stats: {
+          notes: ""
+        },
         all: [{
           name: "Arcane Bond",
           note: "At 1st level, wizards form a powerful bond with an object or a creature. This bond can take one of two forms: a familiar or a bonded object. A familiar is a magical pet that enhances the wizard's skills and senses and can aid him in magic, while a bonded object is an item a wizard can use to cast additional spells or to serve as a magical item. Once a wizard makes this choice, it is permanent and cannot be changed. Rules for bonded items are given below, while rules for familiars are at the end of this section.<br><br>Wizards who select a bonded object begin play with one at no cost. Objects that are the subject of an arcane bond must fall into one of the following categories: amulet, ring, staff, wand, or weapon. These objects are always masterwork quality. Weapons acquired at 1st level are not made of any special material. If the object is an amulet or ring, it must be worn to have effect, while staves, wands, and weapons must be held in one hand. If a wizard attempts to cast a spell without his bonded object worn or in hand, he must make a concentration check or lose the spell. The DC for this check is equal to 20 + the spell's level. If the object is a ring or amulet, it occupies the ring or neck slot accordingly.<br><br>A bonded object can be used once per day to cast any one spell that the wizard has in his spellbook and is capable of casting, even if the spell is not prepared. This spell is treated like any other spell cast by the wizard, including casting time, duration, and other effects dependent on the wizard's level. This spell cannot be modified by metamagic feats or other abilities. The bonded object cannot be used to cast spells from the wizard's opposition schools (see arcane school).<br><br>A wizard can add additional magic abilities to his bonded object as if he has the required item creation feats and if he meets the level prerequisites of the feat. For example, a wizard with a bonded dagger must be at least 5th level to add magic abilities to the dagger (see the Craft Magic Arms and Armor feat in Feats). If the bonded object is a wand, it loses its wand abilities when its last charge is consumed, but it is not destroyed and it retains all of its bonded object properties and can be used to craft a new wand. The magic properties of a bonded object, including any magic abilities added to the object, only function for the wizard who owns it. If a bonded object's owner dies, or the item is replaced, the object reverts to being an ordinary masterwork item of the appropriate type.<br><br>If a bonded object is damaged, it is restored to full hit points the next time the wizard prepares his spells. If the object of an arcane bond is lost or destroyed, it can be replaced after 1 week in a special ritual that costs 200 gp per wizard level plus the cost of the masterwork item. This ritual takes 8 hours to complete. Items replaced in this way do not possess any of the additional enchantments of the previous bonded item. A wizard can designate an existing magic item as his bonded item. This functions in the same way as replacing a lost or destroyed item except that the new magic item retains its abilities while gaining the benefits and drawbacks of becoming a bonded item.<br><br>Wizard familiar: Dako. Rat, white hair, tiny.",
@@ -781,6 +798,9 @@ var izlara = (function() {
       }
     },
     skills: {
+      stats: {
+        notes: ""
+      },
       ranks: {
         total: "",
         include_custom: false,

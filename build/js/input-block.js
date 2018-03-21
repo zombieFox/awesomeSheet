@@ -557,7 +557,7 @@ var inputBlock = (function() {
       var editBoxContent = document.createElement("div");
       editBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-large");
       var editBoxGroup = document.createElement("div");
-      editBoxGroup.setAttribute("class", "m-edit-box-item-max m-edit-box-group");
+      editBoxGroup.setAttribute("class", "m-edit-box-item-100 m-edit-box-group");
       var buttonGroup1 = document.createElement("div");
       buttonGroup1.setAttribute("class", "m-input-block-quick-value-button-group button-group button-group-line u-no-margin");
       var buttonGroup2 = document.createElement("div");
@@ -578,7 +578,7 @@ var inputBlock = (function() {
       }, false);
 
       editBoxGroup.appendChild(_render_editBoxItem("total", quickValueTotal));
-      editBoxGroup.appendChild(_render_editBoxItem("button-large", clearButton));
+      editBoxGroup.appendChild(_render_editBoxItem("button-lg", clearButton));
 
       buttonGroup1.appendChild(_render_button(1, "icon-add", 1, "large", quickValueTotal));
       buttonGroup1.appendChild(_render_button(2, "icon-add", 2, "large", quickValueTotal));
@@ -593,10 +593,10 @@ var inputBlock = (function() {
       buttonGroup2.appendChild(_render_button(10, "icon-remove", -10, "large", quickValueTotal));
       buttonGroup2.appendChild(_render_button(20, "icon-remove", -20, "large", quickValueTotal));
 
-      editBoxContent.appendChild(_render_editBoxItem("max", editBoxBodyMessage));
+      editBoxContent.appendChild(_render_editBoxItem("100", editBoxBodyMessage));
       editBoxContent.appendChild(editBoxGroup);
-      editBoxContent.appendChild(_render_editBoxItem("max", buttonGroup1));
-      editBoxContent.appendChild(_render_editBoxItem("max", buttonGroup2));
+      editBoxContent.appendChild(_render_editBoxItem("100", buttonGroup1));
+      editBoxContent.appendChild(_render_editBoxItem("100", buttonGroup2));
       editBoxBody.appendChild(editBoxContent);
       editBox.appendChild(editBoxBody);
 

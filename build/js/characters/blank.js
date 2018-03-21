@@ -29,14 +29,24 @@ var blank = (function() {
       },
       classes: {
         all: [{
-          classname: "",
+          name: "",
           level: "",
-          hp: "",
-          fortitude: "",
-          reflex: "",
-          will: "",
-          ranks: "",
-          bab: ""
+          bab: "",
+          hp: {
+            base: "",
+            favoured: "",
+            current: ""
+          },
+          ranks: {
+            base: "",
+            favoured: "",
+            current: ""
+          },
+          saves: {
+            fortitude: "",
+            reflex: "",
+            will: ""
+          }
         }],
         string: ""
       },
@@ -49,6 +59,10 @@ var blank = (function() {
         needed: "",
         total: "",
         advancement: ""
+      },
+      senses: {
+        racial: "",
+        magical: ""
       },
       initiative: {
         misc: "",
@@ -517,6 +531,9 @@ var blank = (function() {
       }
     },
     skills: {
+      stats: {
+        notes: ""
+      },
       ranks: {
         total: "",
         include_custom: false,

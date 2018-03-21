@@ -842,7 +842,7 @@ var repair = (function() {
     // --------------------------------------------------
     _log("update complete: legacy");
     _log("report:", _report);
-    _log("-----");
+    _log("------------------------------------------");
     return characterObject;
   };
 
@@ -2539,7 +2539,7 @@ var repair = (function() {
     };
     _log("update complete: 500");
     _log("report:", _report);
-    _log("-----");
+    _log("------------------------------------------");
     return characterObject;
   };
 
@@ -2580,7 +2580,7 @@ var repair = (function() {
     };
     _log("update complete: 510");
     _log("report:", _report);
-    _log("-----");
+    _log("------------------------------------------");
     return characterObject;
   };
 
@@ -2592,7 +2592,7 @@ var repair = (function() {
     // awesome
     _report.repaired.push("update: awesome version");
     characterObject.awesomeSheet.version = 5.2;
-    // abilities
+    // classes
     if (!("string" in characterObject.basics.classes)) {
       _report.repaired.push("update: classes");
       var classAndLevel = "";
@@ -2628,7 +2628,7 @@ var repair = (function() {
     };
     _log("update complete: 520");
     _log("report:", _report);
-    _log("-----");
+    _log("------------------------------------------");
     return characterObject;
   };
 
@@ -2640,7 +2640,7 @@ var repair = (function() {
     // awesome
     _report.repaired.push("update: awesome version");
     characterObject.awesomeSheet.version = 5.4;
-    // abilities
+    // experience
     _report.repaired.push("update: experience level");
     characterObject.basics.experience.level = {
       current: "",
@@ -2648,15 +2648,75 @@ var repair = (function() {
     };
     _log("update complete: 540");
     _log("report:", _report);
-    _log("-----");
+    _log("------------------------------------------");
+    return characterObject;
+  };
+
+  function _update_550(characterObject) {
+    var _report = {
+      name: characterObject.basics.character.name,
+      repaired: []
+    };
+    // awesome
+    _report.repaired.push("update: awesome version");
+    characterObject.awesomeSheet.version = 5.5;
+    // senses
+    _report.repaired.push("update: senses");
+    characterObject.basics.senses = {
+      racial: "",
+      magical: ""
+    };
+    _report.repaired.push("update: skill notes");
+    characterObject.skills.stats = {
+      notes: ""
+    };
+    _report.repaired.push("update: favoured hp and ranks");
+    if (characterObject.basics.classes.all.length > 0) {
+      characterObject.basics.classes.all.forEach(function(arrayItem) {
+        var oldHp = arrayItem.hp;
+        var oldRanks = arrayItem.ranks;
+        var oldFortitude = arrayItem.fortitude;
+        var oldReflex = arrayItem.reflex;
+        var oldWill = arrayItem.will;
+        arrayItem.name = arrayItem.classname;
+        arrayItem.hp = {
+          base: oldHp,
+          favoured: "",
+          current: ""
+        };
+        arrayItem.ranks = {
+          base: oldRanks,
+          favoured: "",
+          current: ""
+        };
+        arrayItem.saves = {
+          fortitude: oldFortitude,
+          reflex: oldReflex,
+          will: oldWill
+        };
+        delete arrayItem.classname;
+        delete arrayItem.fortitude;
+        delete arrayItem.reflex;
+        delete arrayItem.will;
+      });
+    };
+
+    _log("update complete: 550");
+    _log("report:", _report);
+    _log("------------------------------------------");
     return characterObject;
   };
 
   function _repair(characterObject) {
     // if version is found
     if (typeof characterObject.awesomeSheet == "object" && "version" in characterObject.awesomeSheet) {
+      _log(["awesome v", update.version(), " | sheet v", characterObject.awesomeSheet.version]);
+      if ("character" in characterObject.basics) {
+        _log(characterObject.basics.character.name);
+      };
       // if version number is below current version
       if (characterObject.awesomeSheet.version < update.version()) {
+        _log("------------------------------------------");
         if (characterObject.awesomeSheet.version < 5) {
           characterObject = _update_500(characterObject);
         };
@@ -2669,8 +2729,12 @@ var repair = (function() {
         if (characterObject.awesomeSheet.version < 5.4) {
           characterObject = _update_540(characterObject);
         };
+        if (characterObject.awesomeSheet.version < 5.5) {
+          characterObject = _update_550(characterObject);
+        };
       };
     } else {
+      console.log("awesome v", update.version(), " | sheet v not found");
       // if no version is found
       if (typeof characterObject.awesomeSheet == "boolean") {
         characterObject = _update_legacy(characterObject);
@@ -2698,7 +2762,8 @@ var repair = (function() {
       defaultOptions = helper.applyOptions(defaultOptions, options);
     };
     _debug = defaultOptions.debug;
-    _log("################# REPAIR #################");
+    _log("##########################################");
+    _log("REPAIR");
     if (defaultOptions.object != null) {
       return _repair(defaultOptions.object);
     };

@@ -3,7 +3,7 @@ var ravich = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.4,
+      version: 5.5,
       demo: true
     },
     basics: {
@@ -30,23 +30,43 @@ var ravich = (function() {
       },
       classes: {
         all: [{
-          classname: "Rogue",
+          name: "Rogue",
           level: 3,
-          hp: 24,
-          fortitude: 1,
-          reflex: 3,
-          will: 1,
-          ranks: 27,
-          bab: 2
+          bab: 2,
+          hp: {
+            base: 17,
+            favoured: "",
+            current: ""
+          },
+          ranks: {
+            base: 24,
+            favoured: 3,
+            current: ""
+          },
+          saves: {
+            fortitude: 1,
+            reflex: 3,
+            will: 1,
+          }
         }, {
-          classname: "Fighter",
+          name: "Fighter",
           level: 3,
-          hp: 21,
-          fortitude: 3,
-          reflex: 1,
-          will: 1,
-          ranks: 9,
-          bab: 3
+          bab: 3,
+          hp: {
+            base: 21,
+            favoured: "",
+            current: ""
+          },
+          ranks: {
+            base: 6,
+            favoured: 3,
+            current: ""
+          },
+          saves: {
+            fortitude: 3,
+            reflex: 1,
+            will: 1,
+          }
         }],
         string: "Rogue 3, Fighter 3"
       },
@@ -59,6 +79,10 @@ var ravich = (function() {
         needed: "",
         total: 23000,
         advancement: "Medium"
+      },
+      senses: {
+        racial: "",
+        magical: ""
       },
       initiative: {
         misc: "",
@@ -697,13 +721,16 @@ var ravich = (function() {
             damage: "1d6",
             critical: "x3",
             range: "60ft",
-            ammo: "30 nornal",
+            ammo: "30 normal",
             type: "Piercing"
           }]
         }
       }
     },
     skills: {
+      stats: {
+        notes: ""
+      },
       ranks: {
         total: "",
         include_custom: false,

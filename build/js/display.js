@@ -88,6 +88,12 @@ var display = (function() {
             node: "p"
           },
           contentItems: [{
+            path: "basics.senses.racial",
+            prefix: "Racial Senses",
+          }, {
+            path: "basics.senses.magical",
+            prefix: "Magical Senses",
+          }, {
             path: "basics.character.alignment",
             prefix: "Alignment"
           }, {
@@ -709,6 +715,15 @@ var display = (function() {
             path: "skills.custom.all",
             skillType: "custom"
           }]
+        }, {
+          type: "block",
+          element: {
+            node: "div"
+          },
+          contentItems: [{
+            path: "skills.stats.notes",
+            prefix: "Skill Notes"
+          }],
         }]
       }
     },

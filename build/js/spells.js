@@ -449,7 +449,7 @@ var spells = (function() {
 
       var _create_controls = function() {
         var preparedGroup = document.createElement("div");
-        preparedGroup.setAttribute("class", "m-edit-box-item m-edit-box-group-control-set");
+        preparedGroup.setAttribute("class", "m-edit-box-item-12 m-edit-box-group");
         var preparedCount = document.createElement("p");
         preparedCount.setAttribute("class", "m-edit-box-total js-spell-control-prepared-count");
         preparedCount.textContent = tempSpellObject.prepared;
@@ -472,7 +472,7 @@ var spells = (function() {
           _render_count(spellControl);
         }, false);
         var preparedClear = document.createElement("button");
-        preparedClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
+        preparedClear.setAttribute("class", "u-inline-with-input button button-large button-slim button-icon u-no-margin");
         preparedClear.setAttribute("tabindex", "1");
         var preparedClearIcon = document.createElement("span");
         preparedClearIcon.setAttribute("class", "icon-close");
@@ -483,12 +483,12 @@ var spells = (function() {
         preparedMinus.appendChild(preparedMinusIcon);
         preparedPlus.appendChild(preparedPlusIcon);
         preparedClear.appendChild(preparedClearIcon);
-        preparedGroup.appendChild(_create_editBoxItem("m-edit-box-item-button-large", preparedMinus));
-        preparedGroup.appendChild(_create_editBoxItem("m-edit-box-item-max", preparedCount));
-        preparedGroup.appendChild(_create_editBoxItem("m-edit-box-item-button-large", preparedPlus));
+        preparedGroup.appendChild(_create_editBoxItem("m-edit-box-item-button-md", preparedMinus));
+        preparedGroup.appendChild(_create_editBoxItem("m-edit-box-item-100", preparedCount));
+        preparedGroup.appendChild(_create_editBoxItem("m-edit-box-item-button-md", preparedPlus));
 
         var castGroup = document.createElement("div");
-        castGroup.setAttribute("class", "m-edit-box-item m-edit-box-group-control-set");
+        castGroup.setAttribute("class", "m-edit-box-item-12 m-edit-box-group");
         var castCount = document.createElement("p");
         castCount.setAttribute("class", "m-edit-box-total js-spell-control-cast-count");
         castCount.textContent = tempSpellObject.cast;
@@ -511,7 +511,7 @@ var spells = (function() {
           _render_count(spellControl);
         }, false);
         var castClear = document.createElement("button");
-        castClear.setAttribute("class", "u-inline-with-input button button-large button-thin button-icon");
+        castClear.setAttribute("class", "u-inline-with-input button button-large button-slim button-icon u-no-margin");
         castClear.setAttribute("tabindex", "1");
         var castClearIcon = document.createElement("span");
         castClearIcon.setAttribute("class", "icon-close");
@@ -522,9 +522,9 @@ var spells = (function() {
         castMinus.appendChild(castMinusIcon);
         castPlus.appendChild(castPlusIcon);
         castClear.appendChild(castClearIcon);
-        castGroup.appendChild(_create_editBoxItem("m-edit-box-item-button-large", castMinus));
-        castGroup.appendChild(_create_editBoxItem("m-edit-box-item-max", castCount));
-        castGroup.appendChild(_create_editBoxItem("m-edit-box-item-button-large", castPlus));
+        castGroup.appendChild(_create_editBoxItem("m-edit-box-item-button-md", castMinus));
+        castGroup.appendChild(_create_editBoxItem("m-edit-box-item-100", castCount));
+        castGroup.appendChild(_create_editBoxItem("m-edit-box-item-button-md", castPlus));
 
         var activeCheck = document.createElement("div");
         activeCheck.setAttribute("class", "m-check-block");
@@ -561,12 +561,12 @@ var spells = (function() {
         spellControl.appendChild(_create_editBox({
           title: "Prepared",
           guides: true,
-          content: [preparedGroup, _create_editBoxItem("m-edit-box-item-button-large", preparedClear)]
+          content: [preparedGroup, _create_editBoxItem("m-edit-box-item-button-md", preparedClear)]
         }));
         spellControl.appendChild(_create_editBox({
           title: "Cast",
           guides: true,
-          content: [castGroup, _create_editBoxItem("m-edit-box-item-button-large", castClear)]
+          content: [castGroup, _create_editBoxItem("m-edit-box-item-button-md", castClear)]
         }));
         spellControl.appendChild(_create_editBox({
           title: "Active",
@@ -577,13 +577,13 @@ var spells = (function() {
         spellControl.appendChild(_create_editBox({
           title: "Rename",
           guides: true,
-          boxSize: "m-edit-box-item-max",
+          boxSize: "m-edit-box-item-100",
           content: [renameInput]
         }));
         spellControl.appendChild(_create_editBox({
           title: "Spell notes",
           guides: true,
-          boxSize: "m-edit-box-item-max",
+          boxSize: "m-edit-box-item-100",
           content: [noteTextarea]
         }));
       };
@@ -610,7 +610,7 @@ var spells = (function() {
             textOnly: true,
             guides: true,
             content: [para],
-            boxSize: "m-edit-box-item-max"
+            boxSize: "m-edit-box-item-100"
           }));
         };
 
@@ -629,7 +629,7 @@ var spells = (function() {
             textOnly: true,
             guides: true,
             content: [para],
-            boxSize: "m-edit-box-item-max"
+            boxSize: "m-edit-box-item-100"
           }));
         };
 
@@ -641,7 +641,7 @@ var spells = (function() {
             textOnly: true,
             guides: true,
             content: [para],
-            boxSize: "m-edit-box-item-max"
+            boxSize: "m-edit-box-item-100"
           }));
         };
 
@@ -653,7 +653,7 @@ var spells = (function() {
             textOnly: true,
             guides: true,
             content: [para],
-            boxSize: "m-edit-box-item-max"
+            boxSize: "m-edit-box-item-100"
           }));
         };
 
@@ -665,7 +665,7 @@ var spells = (function() {
             textOnly: true,
             guides: true,
             content: [para],
-            boxSize: "m-edit-box-item-max"
+            boxSize: "m-edit-box-item-100"
           }));
         };
 
@@ -677,7 +677,7 @@ var spells = (function() {
             textOnly: true,
             guides: true,
             content: [para],
-            boxSize: "m-edit-box-item-max"
+            boxSize: "m-edit-box-item-100"
           }));
         };
 
@@ -693,7 +693,7 @@ var spells = (function() {
             textOnly: true,
             guides: true,
             content: [para],
-            boxSize: "m-edit-box-item-max"
+            boxSize: "m-edit-box-item-100"
           }));
         };
 
@@ -705,7 +705,7 @@ var spells = (function() {
             textOnly: true,
             guides: true,
             content: [para],
-            boxSize: "m-edit-box-item-max"
+            boxSize: "m-edit-box-item-100"
           }));
         };
 
@@ -721,7 +721,7 @@ var spells = (function() {
             textOnly: true,
             guides: true,
             content: [para],
-            boxSize: "m-edit-box-item-max"
+            boxSize: "m-edit-box-item-100"
           }));
         };
 
@@ -733,7 +733,7 @@ var spells = (function() {
             textOnly: true,
             guides: true,
             content: [para],
-            boxSize: "m-edit-box-item-max"
+            boxSize: "m-edit-box-item-100"
           }));
         };
 
@@ -745,7 +745,7 @@ var spells = (function() {
             textOnly: true,
             guides: true,
             content: [para],
-            boxSize: "m-edit-box-item-max"
+            boxSize: "m-edit-box-item-100"
           }));
         };
 
@@ -757,7 +757,7 @@ var spells = (function() {
             textOnly: true,
             guides: true,
             content: [div],
-            boxSize: "m-edit-box-item-max"
+            boxSize: "m-edit-box-item-100"
           }));
         };
 
@@ -769,7 +769,7 @@ var spells = (function() {
             textOnly: true,
             guides: true,
             content: [para],
-            boxSize: "m-edit-box-item-max"
+            boxSize: "m-edit-box-item-100"
           }));
         };
 
@@ -780,7 +780,7 @@ var spells = (function() {
             content: [para],
             textOnly: true,
             guides: true,
-            boxSize: "m-edit-box-item-max"
+            boxSize: "m-edit-box-item-100"
           }));
         };
 
@@ -792,7 +792,7 @@ var spells = (function() {
             textOnly: true,
             guides: true,
             content: [para],
-            boxSize: "m-edit-box-item-max"
+            boxSize: "m-edit-box-item-100"
           }));
         };
       };
