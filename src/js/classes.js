@@ -23,14 +23,34 @@ var classes = (function() {
       object: sheet.get(),
       path: "basics.classes.all"
     });
+    var _makeTotal = function(allClasses, path) {
+      var total = 0;
+      allClasses.forEach(function(arrayItem) {
+        var valueToAdd = helper.getObject({
+          object: arrayItem,
+          path: path
+        });
+        if (valueToAdd != "" || valueToAdd != undefined && typeof valueToAdd == "number") {
+          total = total + valueToAdd;
+        };
+      });
+      return total;
+    };
+    var _classLevel = function() {
+      helper.setObject({
+        object: sheet.get(),
+        path: "basics.experience.level.class_total",
+        newValue: _makeTotal(all_classes, "level")
+      });
+    };
     var _className = function() {
       var classAndLevel = "";
-      if (classes.length > 0) {
-        classes.forEach(function(arrayItem, index) {
+      if (all_classes.length > 0) {
+        all_classes.forEach(function(arrayItem, index) {
           var name = arrayItem.name || "No class";
           var level = arrayItem.level || "No level";
           classAndLevel = classAndLevel + name + " " + level;
-          if (index < (classes.length - 1)) {
+          if (index < (all_classes.length - 1)) {
             classAndLevel = classAndLevel + ", ";
           };
         });
@@ -41,7 +61,7 @@ var classes = (function() {
         newValue: classAndLevel
       });
     };
-    var _hp = function(pathToTotal) {
+    var _hp = function() {
       var classLevel = helper.getObject({
         object: sheet.get(),
         path: "basics.experience.level.class_total"
@@ -105,77 +125,66 @@ var classes = (function() {
         newValue: total
       });
     };
-    var _makeBaseAttackBonuses = function(totalBab) {
-      var allBab = [];
-      if (totalBab < 100) {
-        if (totalBab >= 5) {
-          while (totalBab > 0) {
-            allBab.push("+" + totalBab);
-            totalBab = totalBab - 5;
+    var _bab = function() {
+      var _makeBaseAttackBonuses = function(totalBab) {
+        var allBab = [];
+        if (totalBab < 100) {
+          if (totalBab >= 5) {
+            while (totalBab > 0) {
+              allBab.push("+" + totalBab);
+              totalBab = totalBab - 5;
+            };
+          } else {
+            if (totalBab > 0) {
+              allBab.push("+" + totalBab);
+            } else {
+              allBab.push(totalBab);
+            };
           };
         } else {
-          if (totalBab > 0) {
-            allBab.push("+" + totalBab);
-          } else {
-            allBab.push(totalBab);
-          };
+          allBab.push("BAB exceeds maximum calculation");
         };
-      } else {
-        allBab.push("BAB exceeds maximum calculation");
-      };
-      if (allBab.length > 1) {
-        allBab = allBab.join(" / ");
-      } else {
-        allBab = allBab[0];
-      };
-      return allBab;
-    };
-    var _makeTotal = function(allClasses, path) {
-      var total = 0;
-      allClasses.forEach(function(arrayItem) {
-        var valueToAdd = helper.getObject({
-          object: arrayItem,
-          path: path
-        });
-        if (valueToAdd != "" || valueToAdd != undefined && typeof valueToAdd == "number") {
-          total = total + valueToAdd;
+        if (allBab.length > 1) {
+          allBab = allBab.join(" / ");
+        } else {
+          allBab = allBab[0];
         };
+        return allBab;
+      };
+      helper.setObject({
+        object: sheet.get(),
+        path: "offense.stats.base_attack.bonus",
+        newValue: _makeTotal(all_classes, "bab")
       });
-      return total;
+      helper.setObject({
+        object: sheet.get(),
+        path: "offense.stats.base_attack.string",
+        newValue: _makeBaseAttackBonuses(_makeTotal(all_classes, "bab"))
+      });
     };
+    var _saves = function() {
+      helper.setObject({
+        object: sheet.get(),
+        path: "defense.saves.fortitude.base",
+        newValue: _makeTotal(all_classes, "saves.fortitude")
+      });
+      helper.setObject({
+        object: sheet.get(),
+        path: "defense.saves.reflex.base",
+        newValue: _makeTotal(all_classes, "saves.reflex")
+      });
+      helper.setObject({
+        object: sheet.get(),
+        path: "defense.saves.will.base",
+        newValue: _makeTotal(all_classes, "saves.will")
+      });
+    };
+    _classLevel();
     _className();
     _hp();
     _ranks();
-    helper.setObject({
-      object: sheet.get(),
-      path: "basics.experience.level.class_total",
-      newValue: _makeTotal(all_classes, "level")
-    });
-    helper.setObject({
-      object: sheet.get(),
-      path: "offense.stats.base_attack.bonus",
-      newValue: _makeTotal(all_classes, "bab")
-    });
-    helper.setObject({
-      object: sheet.get(),
-      path: "offense.stats.base_attack.string",
-      newValue: _makeBaseAttackBonuses(_makeTotal(all_classes, "bab"))
-    });
-    helper.setObject({
-      object: sheet.get(),
-      path: "defense.saves.fortitude.base",
-      newValue: _makeTotal(all_classes, "saves.fortitude")
-    });
-    helper.setObject({
-      object: sheet.get(),
-      path: "defense.saves.reflex.base",
-      newValue: _makeTotal(all_classes, "saves.reflex")
-    });
-    helper.setObject({
-      object: sheet.get(),
-      path: "defense.saves.will.base",
-      newValue: _makeTotal(all_classes, "saves.will")
-    });
+    _bab();
+    _saves();
   };
 
   // exposed methods

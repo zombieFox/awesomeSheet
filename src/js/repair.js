@@ -2671,7 +2671,6 @@ var repair = (function() {
       notes: ""
     };
     _report.repaired.push("update: favoured hp and ranks");
-
     if (characterObject.basics.classes.all.length > 0) {
       characterObject.basics.classes.all.forEach(function(arrayItem) {
         var oldHp = arrayItem.hp;

@@ -34,8 +34,8 @@ var izlara = (function() {
           level: 12,
           bab: 6,
           hp: {
-            base: 62,
-            favoured: "",
+            base: 45,
+            favoured: 12,
             current: ""
           },
           ranks: {
@@ -798,6 +798,9 @@ var izlara = (function() {
       }
     },
     skills: {
+      stats: {
+        notes: ""
+      },
       ranks: {
         total: "",
         include_custom: false,
