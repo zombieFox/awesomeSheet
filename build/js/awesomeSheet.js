@@ -22849,8 +22849,8 @@ var display = (function() {
             prefix: "WIS"
           }, {
             path: {
-              stat: "statistics.stats.con.current",
-              mod: "statistics.stats.con.modifier",
+              stat: "statistics.stats.cha.current",
+              mod: "statistics.stats.cha.modifier",
             },
             prefix: "CHA"
           }]
