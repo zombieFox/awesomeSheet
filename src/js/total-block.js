@@ -426,7 +426,7 @@ var totalBlock = (function() {
       var editBoxContent = document.createElement("div");
       editBoxContent.setAttribute("class", "m-edit-box-content m-edit-box-content-margin-small");
       var editBoxGroup = document.createElement("div");
-      editBoxGroup.setAttribute("class", "m-edit-box-item-mx m-edit-box-group");
+      editBoxGroup.setAttribute("class", "m-edit-box-item-100 m-edit-box-group");
       for (var i = 0; i < arguments.length; i++) {
         editBoxGroup.appendChild(arguments[i]);
       };
@@ -669,7 +669,7 @@ var totalBlock = (function() {
             var title = _bonusTextLable(key);
             var check = _render_check(key);
             var label = _render_checkLabel(title, key);
-            var editBoxItem1 = _render_editBoxItem("xl", label);
+            var editBoxItem1 = _render_editBoxItem("100", label);
             var editBoxItem2 = _render_editBoxItem("check", check);
             var editBox = _render_editBox(editBoxItem1, editBoxItem2);
             totalBlockControls.appendChild(editBox);

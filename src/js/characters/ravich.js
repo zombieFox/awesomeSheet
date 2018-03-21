@@ -721,7 +721,7 @@ var ravich = (function() {
             damage: "1d6",
             critical: "x3",
             range: "60ft",
-            ammo: "30 nornal",
+            ammo: "30 normal",
             type: "Piercing"
           }]
         }
