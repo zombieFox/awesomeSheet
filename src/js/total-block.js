@@ -413,7 +413,6 @@ var totalBlock = (function() {
       if (child) {
         editBoxItem.appendChild(child);
       };
-      console.log(editBoxItem);
       return editBoxItem;
     };
     var _render_editBox = function(nodes) {
