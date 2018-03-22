@@ -2158,10 +2158,14 @@ var display = (function() {
               for (var key in all_listItem) {
                 if (all_listItem[key].ranks != "") {
                   contentFound++;
-                  var skillObject = {
-                    name: skillNames[key],
-                    current: dataFormat.bonus(all_listItem[key].current)
+                  var skillObject = {};
+                  skillObject.name = skillNames[key];
+                  if (key == "craft_1" || key == "craft_2" || key == "perform_1" || key == "perform_2" || key == "profession_1" || key == "profession_2") {
+                    if (all_listItem[key].variant_name != "" && all_listItem[key].variant_name != undefined) {
+                      skillObject.name = all_listItem[key].variant_name;
+                    };
                   };
+                  skillObject.current = dataFormat.bonus(all_listItem[key].current);
                   foundSkills.push(skillObject);
                 };
               };

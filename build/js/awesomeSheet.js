@@ -3161,7 +3161,7 @@ var izlara = (function() {
       },
       saves: {
         fortitude: {
-          base: 4,
+          base: "",
           resistance: 3,
           feat: "",
           trait: "",
@@ -3180,7 +3180,7 @@ var izlara = (function() {
           }
         },
         reflex: {
-          base: 4,
+          base: "",
           resistance: 3,
           feat: "",
           trait: "",
@@ -3199,7 +3199,7 @@ var izlara = (function() {
           }
         },
         will: {
-          base: 8,
+          base: "",
           resistance: 3,
           feat: "",
           trait: "",
@@ -3359,9 +3359,6 @@ var izlara = (function() {
       }
     },
     skills: {
-      stats: {
-        notes: ""
-      },
       ranks: {
         total: "",
         include_custom: false,
@@ -4161,6 +4158,9 @@ var izlara = (function() {
             check_penalty: false
           }
         }
+      },
+      stats: {
+        notes: ""
       }
     },
     spells: {
@@ -6212,7 +6212,7 @@ var ravich = (function() {
       },
       saves: {
         fortitude: {
-          base: 4,
+          base: "",
           resistance: 1,
           feat: 2,
           trait: 1,
@@ -6231,7 +6231,7 @@ var ravich = (function() {
           }
         },
         reflex: {
-          base: 4,
+          base: "",
           resistance: 1,
           feat: "",
           trait: "",
@@ -6250,7 +6250,7 @@ var ravich = (function() {
           }
         },
         will: {
-          base: 2,
+          base: "",
           resistance: 1,
           feat: "",
           trait: "",
@@ -6425,9 +6425,6 @@ var ravich = (function() {
       }
     },
     skills: {
-      stats: {
-        notes: ""
-      },
       ranks: {
         total: "",
         include_custom: false,
@@ -7271,6 +7268,9 @@ var ravich = (function() {
             check_penalty: false
           }
         }
+      },
+      stats: {
+        notes: ""
       }
     },
     spells: {
@@ -8083,34 +8083,82 @@ var ravich = (function() {
 var marika = (function() {
 
   var data = {
-    awesomeSheet: true,
+    awesomeSheet: {
+      awesome: true,
+      version: 5.5
+    },
     basics: {
-      name: "Marika Spandrell",
-      race: "Human",
-      level: "9",
-      classes: [{
-        classname: "Rogue",
-        level: 9,
-        hp: 53,
-        fortitude: 3,
-        reflex: 6,
-        will: 3,
-        ranks: 72,
-        bab: 6
-      }],
-      size: {
-        category: "Medium",
-        size_modifier: 0,
-        special_size_modifier: 0,
-        size_modifier_fly: 0,
-        size_modifier_stealth: 0
+      character: {
+        name: "Marika Spandrell",
+        race: "Human",
+        alignment: "Chaotic Neutral",
+        deity: "",
+        height: "5’3",
+        weight: "98 lb",
+        age: "23",
+        gender: "Female",
+        hero_points: 1,
+        description: "",
+        size: {
+          category: "Medium",
+          modifier: {
+            base: "",
+            special: "",
+            fly: "",
+            stealth: ""
+          }
+        }
       },
-      alignment: "Chaotic Neutral",
-      deity: "",
-      height: "5’3",
-      weight: "98 lb",
-      age: "23",
-      gender: "Female",
+      classes: {
+        all: [{
+          level: 9,
+          hp: {
+            base: 42,
+            favoured: 9,
+            current: ""
+          },
+          ranks: {
+            base: 72,
+            favoured: "",
+            current: ""
+          },
+          bab: 6,
+          name: "Rogue",
+          saves: {
+            fortitude: 3,
+            reflex: 6,
+            will: 3
+          }
+        }],
+        string: "Rogue 9"
+      },
+      experience: {
+        level: {
+          current: "",
+          class_total: ""
+        },
+        next_level: "",
+        needed: "",
+        total: 76000,
+        advancement: "Medium"
+      },
+      initiative: {
+        misc: "",
+        temp: "",
+        feat: "",
+        trait: "",
+        current: "",
+        bonuses: {
+          str: false,
+          dex: true,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
+          level: false,
+          half_level: false
+        }
+      },
       speed: {
         land: "30ft",
         fly: "",
@@ -8119,32 +8167,7 @@ var marika = (function() {
         climb: "",
         burrow: ""
       },
-      hero_points: 1,
-      character_description: "",
-      initiative: {
-        misc: "",
-        temp: "",
-        feat: "",
-        trait: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false
-        }
-      },
-      xp: {
-        total: 76000,
-        advancement_speed: "Medium",
-        next_level: "",
-        needed: ""
-      },
-      character_image: {
+      image: {
         uploaded: false,
         background: "",
         color: {
@@ -8152,6 +8175,7 @@ var marika = (function() {
           g: "",
           b: ""
         },
+        data: "",
         orientation: "",
         position: {
           x: "",
@@ -8161,96 +8185,200 @@ var marika = (function() {
           width: "",
           height: ""
         },
-        scale: "",
-        image: ""
+        scale: ""
+      },
+      senses: {
+        racial: "",
+        magical: ""
       }
     },
     statistics: {
       stats: {
         str: {
-          modifier: 1,
+          modifier: "",
           base: 12,
-          current: 12,
-          racial: "",
-          enhancement: "",
-          misc: "",
-          temp: ""
-        },
-        dex: {
-          modifier: 8,
-          base: 20,
-          current: 26,
-          racial: 2,
           enhancement: 4,
           misc: "",
-          temp: ""
+          racial: "",
+          temp: "",
+          current: ""
+        },
+        dex: {
+          modifier: "",
+          base: 20,
+          enhancement: 4,
+          misc: "",
+          racial: 2,
+          temp: "",
+          current: ""
         },
         con: {
-          modifier: 0,
+          modifier: "",
           base: 10,
-          current: 10,
-          racial: "",
-          enhancement: "",
+          enhancement: 4,
           misc: "",
-          temp: ""
+          racial: "",
+          temp: "",
+          current: ""
         },
         int: {
-          modifier: 1,
+          modifier: "",
           base: 12,
-          current: 12,
-          racial: "",
           enhancement: "",
           misc: "",
-          temp: ""
+          racial: "",
+          temp: "",
+          current: ""
         },
         wis: {
-          modifier: 1,
+          modifier: "",
           base: 12,
-          current: 12,
-          racial: "",
           enhancement: "",
           misc: "",
-          temp: ""
+          racial: "",
+          temp: "",
+          current: ""
         },
         cha: {
-          modifier: -1,
+          modifier: "",
           base: 9,
-          current: 9,
-          racial: "",
           enhancement: "",
           misc: "",
-          temp: ""
+          racial: "",
+          temp: "",
+          current: ""
         }
       },
-      feats: "Deft Hands, Weapon Finesse, Two Weapon Fighting, Improved Two Weapon Fighting, Double Slice, Extra Rogue Talent.",
-      traits: "Child of the Streets, Deft Dodger.",
-      languages: "Common, Giant, Goblin.",
-      special_abilities: "Sneak Attack +5d6, Trapfinding, Trap Sense +3, Uncanny Dodge, Improved Uncanny Dodge, Minor Magic (Mage Hand 3/day), Major Magic (Unseen Servant 2/day), Fast Fingers, Fast Stealth, Powerful Sneak.",
-      power: []
+      abilities: {
+        all: [{
+          name: "Bonus Feat",
+          note: "Humans select one extra feat at 1st level.",
+          index: false
+        }, {
+          name: "Improved Uncanny Dodge",
+          note: "(Ex)&nbsp; A rogue of 8th level or higher can no longer be flanked.",
+          index: false
+        }, {
+          name: "Languages",
+          note: "Humans begin play speaking Common. Humans with high Intelligence scores can choose any languages they want (except secret languages, such as Druidic).",
+          index: false
+        }, {
+          name: "Medium",
+          note: "Humans are Medium creatures and have no bonuses or penalties due to their size.",
+          index: false
+        }, {
+          name: "Normal Speed",
+          note: "Humans have a base speed of 30 feet.",
+          index: false
+        }, {
+          name: "Rogue Talents - Fast Fingers",
+          note: "Once per day, a rogue with this talent can roll two dice while making a Sleight of Hand check and take the better result. She must choose to use this talent before making the Sleight of Hand check. A rogue can use this ability one additional time per day for every 5 rogue levels she possesses.",
+          index: false
+        }, {
+          name: "Rogue Talents - Fast Stealth",
+          note: "(Ex) This ability allows a rogue to move at full speed using the Stealth skill without penalty.",
+          index: false
+        }, {
+          name: "Rogue Talents - Major Magic (Unseen Servant)",
+          note: "(Sp) A rogue with this talent gains the ability to cast a 1st-level spell from the sorcerer/wizard spell list two times a day as a spell-like ability. The caster level for this ability is equal to the rogue's level. The save DC for this spell is 11 + the rogue's Intelligence modifier. The rogue must have an Intelligence of at least 11 to select this talent. A rogue must have the minor magic rogue talent before choosing this talent.",
+          index: false
+        }, {
+          name: "Rogue Talents - Minor Magic (Mage Hand)",
+          note: "(Sp) A rogue with this talent gains the ability to cast a 0-level spell from the sorcerer/wizard spell list. This spell can be cast three times a day as a spell-like ability. The caster level for this ability is equal to the rogue's level. The save DC for this spell is 10 + the rogue's Intelligence modifier. The rogue must have an Intelligence of at least 10 to select this talent.",
+          index: false
+        }, {
+          name: "Rogue Talents - Powerful Sneak",
+          note: "(Ex) Whenever a rogue with this talent takes a full attack action, she can elect to take a –2 penalty on all attack rolls until the start of her next turn. If an attack during this time is a sneak attack, she treats all 1s on the sneak attack damage dice as 2s.",
+          index: false
+        }, {
+          name: "Skilled",
+          note: "Humans gain an additional skill rank at first level and one additional rank whenever they gain a level.",
+          index: false
+        }, {
+          name: "Sneak Attack +5d6",
+          note: "If a rogue can catch an opponent when he is unable to defend himself effectively from her attack, she can strike a vital spot for extra damage.<br><br>The rogue's attack deals extra damage anytime her target would be denied a Dexterity bonus to AC (whether the target actually has a Dexterity bonus or not), or when the rogue flanks her target. This extra damage is 1d6 at 1st level, and increases by 1d6 every two rogue levels thereafter. Should the rogue score a critical hit with a sneak attack, this extra damage is not multiplied. Ranged attacks can count as sneak attacks only if the target is within 30 feet.<br><br>With a weapon that deals nonlethal damage (like a sap, whip, or an unarmed strike), a rogue can make a sneak attack that deals nonlethal damage instead of lethal damage. She cannot use a weapon that deals lethal damage to deal nonlethal damage in a sneak attack, not even with the usual –4 penalty.<br><br>The rogue must be able to see the target well enough to pick out a vital spot and must be able to reach such a spot. A rogue cannot sneak attack while striking a creature with concealment.",
+          index: false
+        }, {
+          name: "Trap Sense +3",
+          note: "(Ex) At 3rd level, a rogue gains an intuitive sense that alerts her to danger from traps, giving her a +1 bonus on Reflex saves made to avoid traps and a +1 dodge bonus to AC against attacks made by traps. These bonuses rise to +2 when the rogue reaches 6th level, to +3 when she reaches 9th level, to +4 when she reaches 12th level, to +5 at 15th, and to +6 at 18th level.<br><br>Trap sense bonuses gained from multiple classes stack.",
+          index: false
+        }, {
+          name: "Trapfinding",
+          note: "A rogue adds 1/2 her level to Perception skill checks made to locate traps and to Disable Device skill checks (minimum +1). A rogue can use Disable Device to disarm magic traps.",
+          index: false
+        }, {
+          name: "Uncanny Dodge",
+          note: "(Ex) Starting at 4th level, a rogue can react to danger before her senses would normally allow her to do so. She cannot be caught flat-footed, nor does she lose her Dex bonus to AC if the attacker is invisible. She still loses her Dexterity bonus to AC if immobilized. A rogue with this ability can still lose her Dexterity bonus to AC if an opponent successfully uses the feint action (see Combat) against her.<br><br>If a rogue already has uncanny dodge from a different class, she automatically gains improved uncanny dodge (see below) instead.",
+          index: false
+        }],
+        notes: ""
+      },
+      power: {
+        all: []
+      },
+      feats: {
+        all: [{
+          name: "Deft Hands",
+          note: "",
+          index: 295
+        }, {
+          name: "Double Slice",
+          note: "",
+          index: 368
+        }, {
+          name: "Extra Rogue Talent",
+          note: "",
+          index: 476
+        }, {
+          name: "Improved Two-Weapon Fighting",
+          note: "",
+          index: 756
+        }, {
+          name: "Two-Weapon Fighting",
+          note: "",
+          index: 1396
+        }, {
+          name: "Weapon Finesse",
+          note: "",
+          index: 1448
+        }],
+        notes: ""
+      },
+      traits: {
+        all: [{
+          name: "Child of the Streets",
+          note: "",
+          index: 179
+        }, {
+          name: "Deft Dodger",
+          note: "",
+          index: 258
+        }],
+        notes: ""
+      },
+      languages: {
+        all: [{
+          name: "Common",
+          note: "",
+          index: 5
+        }, {
+          name: "Giant",
+          note: "",
+          index: 10
+        }, {
+          name: "Goblin",
+          note: "",
+          index: 12
+        }],
+        notes: ""
+      }
     },
     equipment: {
-      gear: "Large Black Backpack, Bedroll, Silk Rope, Pencils, Ink, Paper, Sketch Book, Grappling Hook, Flint and Steel, Torch, Masterwork Thieves’ Tools (+2 Disable Device), Magnifying Glass (+2 Appraise), Merchant’s Scale (+2 Appraise), Trail Rations, Bread, Cheese and Wine.",
-      magic_gear: "Rapier +2 (Flaming Crystal), Short Sword +2 (Frost Crystal), Studded Leather +2, Belt of Dexterity +4, Cloak of Resistance +2, Spider Climb Pendent 1/day, Ring of Protection +1, Eyes of the Eagle, Handy Haversack.",
-      potion_viles_oils: "Cure Light Wounds (6) Cure Moderate Wounds (3), Cure Serious Wounds (2), BarkSkin (5), Shield of Faith (2)",
-      scrolls: "",
-      item: {
-        all: [],
-        weight: {
-          current: ""
-        },
-        value: {
-          current: ""
-        }
-      },
-      encumbrance: {
-        encumbrance_str: "",
-        carry_move: {
-          light: "",
-          medium: "",
-          heavy: "",
-          lift: "",
-          drag: ""
-        }
+      possessions: {
+        gear: "Large Black Backpack, Bedroll, Silk Rope, Pencils, Ink, Paper, Sketch Book, Grappling Hook, Flint and Steel, Torch, Masterwork Thieves’ Tools (+2 Disable Device), Magnifying Glass (+2 Appraise), Merchant’s Scale (+2 Appraise), Trail Rations, Bread, Cheese and Wine.",
+        magic_gear: "Rapier +2 (Flaming Crystal), Short Sword +2 (Frost Crystal), Studded Leather +2, Belt of Dexterity +4, Cloak of Resistance +2, Spider Climb Pendent 1/day, Ring of Protection +1, Eyes of the Eagle, Handy Haversack.",
+        potion_viles_oils: "Cure Light Wounds (6) Cure Moderate Wounds (3), Cure Serious Wounds (2), BarkSkin (5), Shield of Faith (2)",
+        scrolls: ""
       },
       armor: {
         armor: "Leather +2",
@@ -8259,7 +8387,7 @@ var marika = (function() {
         shield: ""
       },
       body_slots: {
-        belts: "Belt of Dexterity +4",
+        belts: "Belt of physical perfection +4",
         body: "",
         chest: "",
         eyes: "Eyes of the Eagle",
@@ -8273,19 +8401,40 @@ var marika = (function() {
         shoulders: "Cloak of Resistance +3",
         wrist: ""
       },
+      item: {
+        all: [],
+        weight: {
+          current: ""
+        },
+        value: {
+          current: ""
+        }
+      },
+      encumbrance: {
+        str: "",
+        carry_move: {
+          light: "",
+          medium: "",
+          heavy: "",
+          lift: "",
+          drag: ""
+        }
+      },
+      consumable: {
+        all: [{
+          current: "",
+          total: 10,
+          used: "",
+          name: "Slippers of Spider Climbing"
+        }]
+      },
       wealth: {
-        platinum: 21,
-        gold: 9763,
-        silver: 2,
+        platinum: 231,
+        gold: 19763,
+        silver: 232,
         copper: "",
         total: ""
-      },
-      consumable: [{
-        item: "Slippers of Spider Climbing",
-        current: 10,
-        total: 10,
-        used: ""
-      }]
+      }
     },
     defense: {
       hp: {
@@ -8293,144 +8442,175 @@ var marika = (function() {
         temp: "",
         damage: "",
         non_lethal_damage: "",
-        current: ""
+        current: "",
+        notes: ""
       },
       ac: {
-        misc: "",
-        temp: "",
-        armor: 4,
-        shield: "",
-        deflect: 2,
-        dodge: "",
-        natural: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          plus_ten: true,
-          ac_armor: true,
-          ac_shield: true,
-          ac_deflect: true,
-          ac_dodge: true,
-          ac_natural: true,
-          size: true,
-          max_dex: true
-        }
+        armor_class: {
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            plus_ten: true,
+            armor: true,
+            shield: true,
+            deflect: true,
+            dodge: true,
+            natural: true,
+            size_base: true,
+            max_dex: true
+          }
+        },
+        flat_footed: {
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            plus_ten: true,
+            armor: true,
+            shield: true,
+            deflect: true,
+            natural: true,
+            size_base: true,
+            dodge: false
+          }
+        },
+        touch: {
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            plus_ten: true,
+            deflect: true,
+            dodge: true,
+            size_base: true,
+            max_dex: true,
+            armor: false,
+            shield: false,
+            natural: false
+          }
+        },
+        stats: {
+          armor: 4,
+          shield: "",
+          deflect: 2,
+          dodge: "",
+          natural: ""
+        },
+        notes: "+3 dodge bonus to AC against attacks made by traps."
       },
-      flat_footed: {
+      cmd: {
         misc: "",
         temp: "",
         current: "",
+        notes: "",
         bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          plus_ten: true,
-          ac_armor: true,
-          ac_shield: true,
-          ac_deflect: true,
-          ac_natural: true,
-          size: true
-        }
-      },
-      touch: {
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          plus_ten: true,
-          ac_deflect: true,
-          ac_dodge: true,
-          size: true,
-          max_dex: true
-        }
-      },
-      ac_notes: "+3 dodge bonus to AC against attacks made by traps.",
-      fortitude: {
-        base: "",
-        resistance: 3,
-        feat: "",
-        trait: "",
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: true,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
+          str: true,
+          dex: true,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
+          bab: true,
+          size_special: true,
           level: false,
-          half_level: false
+          half_level: false,
+          plus_ten: true
         }
       },
-      reflex: {
-        base: "",
-        resistance: 3,
-        feat: "",
-        trait: 1,
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false
-        }
+      saves: {
+        fortitude: {
+          base: "",
+          resistance: 3,
+          feat: "",
+          trait: "",
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: false,
+            con: true,
+            int: false,
+            wis: false,
+            cha: false,
+            level: false,
+            half_level: false
+          }
+        },
+        reflex: {
+          base: "",
+          resistance: 3,
+          feat: "",
+          trait: 1,
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            level: false,
+            half_level: false
+          }
+        },
+        will: {
+          base: "",
+          resistance: 3,
+          feat: "",
+          trait: "",
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
+            level: false,
+            half_level: false
+          }
+        },
+        notes: "+3 bonus on Reflex saves made to avoid traps."
       },
-      will: {
-        base: "",
-        resistance: 3,
-        feat: "",
-        trait: "",
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: true,
-          cha_bonus: false,
-          level: false,
-          half_level: false
-        }
-      },
-      save_notes: "+3 bonus on Reflex saves made to avoid traps.",
       dr: {
         feat: "",
         trait: "",
         misc: "",
         temp: "",
-        current: "",
         overcome: "",
+        current: "",
+        notes: "",
         bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
+          str: false,
+          dex: false,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
           level: false,
           half_level: false
         }
@@ -8441,200 +8621,213 @@ var marika = (function() {
         misc: "",
         temp: "",
         current: "",
+        notes: "",
         bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
+          str: false,
+          dex: false,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
           level: false,
           half_level: false
         }
       },
-      resist_notes: ""
+      resistance: {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        notes: "",
+        bonuses: {
+          str: false,
+          dex: false,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
+          level: false,
+          half_level: false
+        }
+      }
     },
     offense: {
-      base_attack: "",
-      base_attack_bonuses: "",
+      stats: {
+        base_attack: {
+          bonus: "",
+          string: ""
+        },
+        melee: {
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: true,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            bab: true,
+            size_base: true,
+            level: false,
+            half_level: false
+          }
+        },
+        ranged: {
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            bab: true,
+            size_base: true,
+            level: false,
+            half_level: false
+          }
+        }
+      },
       cmb: {
         misc: "",
         temp: "",
         current: "",
+        notes: "",
         bonuses: {
-          str_bonus: true,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
+          str: true,
+          dex: false,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
           bab: true,
-          special_size: true,
-          level: false,
-          half_level: false
-        }
-      },
-      cmd: {
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: true,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          bab: true,
-          special_size: true,
-          level: false,
-          half_level: false,
-          plus_ten: true
-        }
-      },
-      melee_attack: {
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: true,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          bab: true,
-          size: true,
-          level: false,
-          half_level: false
-        }
-      },
-      ranged_attack: {
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          bab: true,
-          size: true,
+          size_special: true,
           level: false,
           half_level: false
         }
       },
       attack: {
-        melee: [{
-          weapon: "Rapier +2",
-          attack: "+16",
-          damage: "1d6+3",
-          critical: "18–20/x2",
-          type: "Piercing"
-        }, {
-          weapon: "Rapier +2 Powerful Sneak",
-          attack: "+13",
-          damage: "1d6+3",
-          critical: "18–20/x2",
-          type: "Piercing"
-        }, {
-          weapon: "Short Sword +2",
-          attack: "+16",
-          damage: "1d6+3",
-          critical: "19–20/x2",
-          type: "Piercing"
-        }, {
-          weapon: "Short Sword +2 Powerful Sneak",
-          attack: "+13",
-          damage: "1d6+3",
-          critical: "19–20/x2",
-          type: "Piercing"
-        }, {
-          weapon: "Full Attack Rapier +2 / Short Sword +2",
-          attack: "+14/+9/+14/+9",
-          damage: "1d6+3",
-          critical: "19–20/x2 / 18–20/x2 / 19–20/x2 / 18–20/x2",
-          type: "Piercing"
-        }],
-        ranged: [{
-          weapon: "Shortbow +1",
-          attack: "+15",
-          damage: "1d6",
-          critical: "x3",
-          range: "60 ft",
-          ammo: "50",
-          type: "Piercing"
-        }]
-      },
-      attack_notes: ""
+        notes: "",
+        melee: {
+          all: [{
+            weapon: "Rapier +2",
+            attack: "+16",
+            damage: "1d6+3",
+            critical: "18–20/x2",
+            type: "Piercing"
+          }, {
+            weapon: "Rapier +2 Powerful Sneak",
+            attack: "+13",
+            damage: "1d6+3",
+            critical: "18–20/x2",
+            type: "Piercing"
+          }, {
+            weapon: "Short Sword +2",
+            attack: "+16",
+            damage: "1d6+3",
+            critical: "19–20/x2",
+            type: "Piercing"
+          }, {
+            weapon: "Short Sword +2 Powerful Sneak",
+            attack: "+13",
+            damage: "1d6+3",
+            critical: "19–20/x2",
+            type: "Piercing"
+          }, {
+            weapon: "Full Attack Rapier +2 / Short Sword +2",
+            attack: "+14/+9/+14/+9",
+            damage: "1d6+3",
+            critical: "19–20/x2 / 18–20/x2 / 19–20/x2 / 18–20/x2",
+            type: "Piercing"
+          }]
+        },
+        ranged: {
+          all: [{
+            weapon: "Shortbow +1",
+            attack: "+15",
+            damage: "1d6",
+            critical: "x3",
+            range: "60 ft",
+            ammo: "50",
+            type: "Piercing"
+          }]
+        }
+      }
     },
     skills: {
       ranks: {
         total: "",
-        spent: {
-          include_custom: false,
-          current: ""
-        }
+        include_custom: false,
+        current: ""
       },
-      custom: [{
-        name: "Disable Device Trap",
-        ranks: 9,
-        misc: 4,
-        current: "",
-        racial: "",
-        trait: "",
-        feat: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          class_skill: true,
-          level: false,
-          half_level: true,
-          check_penalty: false
-        }
-      }, {
-        name: "Perception Trap",
-        ranks: 9,
-        misc: 5,
-        current: "",
-        racial: "",
-        trait: "",
-        feat: "",
-        bonuses: {
-          class_skill: true,
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: true,
-          cha_bonus: false,
-          level: false,
-          half_level: true,
-          check_penalty: false
-        }
-      }],
-      all: {
+      custom: {
+        all: [{
+          name: "Disable Device Trap",
+          ranks: 9,
+          misc: 4,
+          current: "",
+          racial: "",
+          trait: "",
+          feat: "",
+          bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            class_skill: true,
+            level: false,
+            half_level: true,
+            check_penalty: false,
+            size_stealth: false,
+            size_fly: false
+          }
+        }, {
+          name: "Perception Trap",
+          ranks: 9,
+          misc: 5,
+          current: "",
+          racial: "",
+          trait: "",
+          feat: "",
+          bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
+            class_skill: true,
+            level: false,
+            half_level: true,
+            check_penalty: false,
+            size_stealth: false,
+            size_fly: false
+          }
+        }]
+      },
+      default: {
         acrobatics: {
           ranks: 9,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: true,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -8643,18 +8836,18 @@ var marika = (function() {
         appraise: {
           ranks: 9,
           misc: 4,
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: true,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -8663,18 +8856,18 @@ var marika = (function() {
         bluff: {
           ranks: 9,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: true,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -8683,18 +8876,18 @@ var marika = (function() {
         climb: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: true,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: true,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -8704,18 +8897,18 @@ var marika = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -8725,18 +8918,18 @@ var marika = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -8745,18 +8938,18 @@ var marika = (function() {
         diplomacy: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -8764,19 +8957,19 @@ var marika = (function() {
         },
         disable_device: {
           ranks: 9,
-          misc: 4,
-          current: "",
+          misc: 2,
           racial: "",
-          feat: "",
+          feat: 2,
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: true,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -8785,18 +8978,18 @@ var marika = (function() {
         disguise: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -8805,18 +8998,18 @@ var marika = (function() {
         escape_artist: {
           ranks: 9,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: true,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -8825,39 +9018,39 @@ var marika = (function() {
         fly: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true,
-            size_modifier_fly: true
+            size_fly: true
           }
         },
         handle_animal: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -8866,18 +9059,18 @@ var marika = (function() {
         heal: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -8886,18 +9079,18 @@ var marika = (function() {
         intimidate: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -8906,18 +9099,18 @@ var marika = (function() {
         knowledge_arcana: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -8926,18 +9119,18 @@ var marika = (function() {
         knowledge_dungeoneering: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -8946,18 +9139,18 @@ var marika = (function() {
         knowledge_engineering: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -8966,18 +9159,18 @@ var marika = (function() {
         knowledge_geography: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -8986,18 +9179,18 @@ var marika = (function() {
         knowledge_history: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -9006,18 +9199,18 @@ var marika = (function() {
         knowledge_local: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -9026,18 +9219,18 @@ var marika = (function() {
         knowledge_nature: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -9046,18 +9239,18 @@ var marika = (function() {
         knowledge_nobility: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -9066,18 +9259,18 @@ var marika = (function() {
         knowledge_planes: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -9086,18 +9279,18 @@ var marika = (function() {
         knowledge_religion: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -9106,18 +9299,18 @@ var marika = (function() {
         linguistics: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -9126,18 +9319,18 @@ var marika = (function() {
         perception: {
           ranks: 9,
           misc: 5,
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             class_skill: true,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -9147,18 +9340,18 @@ var marika = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -9168,18 +9361,18 @@ var marika = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -9189,18 +9382,18 @@ var marika = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -9210,18 +9403,18 @@ var marika = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -9230,18 +9423,18 @@ var marika = (function() {
         ride: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -9250,18 +9443,18 @@ var marika = (function() {
         sense_motive: {
           ranks: 9,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             class_skill: true,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -9269,19 +9462,19 @@ var marika = (function() {
         },
         sleight_of_hand: {
           ranks: 9,
-          misc: 3,
-          current: "",
+          misc: 1,
           racial: "",
-          feat: "",
+          feat: 2,
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: true,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -9290,18 +9483,18 @@ var marika = (function() {
         spellcraft: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -9310,39 +9503,39 @@ var marika = (function() {
         stealth: {
           ranks: 9,
           misc: 5,
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: true,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true,
-            size_modifier_stealth: true
+            size_stealth: true
           }
         },
         survival: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -9351,18 +9544,18 @@ var marika = (function() {
         swim: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: true,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: true,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -9371,348 +9564,360 @@ var marika = (function() {
         use_magic_device: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
           }
         }
+      },
+      stats: {
+        notes: ""
       }
     },
     spells: {
-      concentration: {
-        current: "",
-        misc: "",
-        temp: "",
-        racial: "",
-        feat: "",
-        trait: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false
-        }
-      },
-      caster_level_check: {
-        current: "",
-        misc: "",
-        temp: "",
-        racial: "",
-        feat: "",
-        trait: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false
-        }
-      },
-      school: "",
-      opposition: "",
-      domains: "",
-      bloodline: "",
-      spell_notes: "",
-      per_day: {
-        level_0: "",
-        level_1: "",
-        level_2: "",
-        level_3: "",
-        level_4: "",
-        level_5: "",
-        level_6: "",
-        level_7: "",
-        level_8: "",
-        level_9: ""
-      },
-      known: {
-        level_0: "",
-        level_1: "",
-        level_2: "",
-        level_3: "",
-        level_4: "",
-        level_5: "",
-        level_6: "",
-        level_7: "",
-        level_8: "",
-        level_9: ""
-      },
-      bonus: {
-        level_0: "",
-        level_1: "",
-        level_2: "",
-        level_3: "",
-        level_4: "",
-        level_5: "",
-        level_6: "",
-        level_7: "",
-        level_8: "",
-        level_9: ""
-      },
-      dc: {
-        level_0: {
-          spell_level: 0,
+      stats: {
+        concentration: {
           misc: "",
           temp: "",
+          racial: "",
           feat: "",
           trait: "",
           current: "",
           bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
+            half_level: false
           }
+        },
+        caster_level_check: {
+          misc: "",
+          temp: "",
+          racial: "",
+          feat: "",
+          trait: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            level: false,
+            half_level: false
+          }
+        },
+        school: "",
+        opposition: "",
+        domains: "",
+        bloodline: "",
+        notes: ""
+      },
+      book: {
+        level_0: {
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 0,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: [{
+            name: "Mage Hand",
+            note: "",
+            prepared: 3,
+            active: false,
+            cast: 0,
+            index: 1491
+          }]
         },
         level_1: {
-          spell_level: 1,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 1,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: [{
+            name: "Unseen Servant",
+            note: "",
+            prepared: 2,
+            active: false,
+            cast: 0,
+            index: 2677
+          }]
         },
         level_2: {
-          spell_level: 2,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 2,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_3: {
-          spell_level: 3,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 3,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_4: {
-          spell_level: 4,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 4,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_5: {
-          spell_level: 5,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 5,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_6: {
-          spell_level: 6,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 6,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_7: {
-          spell_level: 7,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 7,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_8: {
-          spell_level: 8,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 8,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_9: {
-          spell_level: 9,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 9,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         }
-      },
-      book: [{
-        level_0: [{
-          name: "Mage Hand",
-          prepared: 3,
-          active: false,
-          cast: 0,
-          note: ""
-        }]
-      }, {
-        level_1: [{
-          name: "Unseen Servant",
-          prepared: 2,
-          active: false,
-          cast: 0,
-          note: ""
-        }]
-      }, {
-        level_2: []
-      }, {
-        level_3: []
-      }, {
-        level_4: []
-      }, {
-        level_5: []
-      }, {
-        level_6: []
-      }, {
-        level_7: []
-      }, {
-        level_8: []
-      }, {
-        level_9: []
-      }]
+      }
     },
     notes: {
-      character: [{
-        note: "<strong>Sneak attack</strong> Attack deals extra damage anytime her target would be denied a Dexterity bonus to AC (+5d6).<br><strong>Evasion (Ex)</strong> A rogue adds 1/2 her level to Perception skill checks made to locate traps and to Disable Device skill checks.<br><strong>Rogue talent</strong> Minor Magic (Sp) Mage Hand, 3/day.<br><strong>Rogue talent</strong> Major Magic (Sp) Unseen Servant, 2/day.<br><strong>Rogue talent</strong> Fast Fingers (Ex) Roll two dice while making a Sleight of Hand check and take the better result, 1/day.<br><strong>Rogue talent</strong> Fast Stealth (Ex) Move at full speed using the Stealth skill without penalty.<br><strong>Rogue talent</strong> During a full attack action you may take a –2 penalty on all attack rolls until the start of her next turn. If an attack during this time is a sneak attack, treats all 1s on the sneak attack damage dice as 2s.<br><strong>Trap sense (Ex)</strong> +3 bonus on Reflex saves made to avoid traps and a +3 dodge bonus to AC against attacks made by traps. These bonuses rise to +2 when the rogue reaches 6th level, to +3 when she reaches 9th level.<br><strong>Uncanny Dodge (Ex)</strong> cannot be caught flat-footed, nor lose Dex bonus to AC if the attacker is invisible. Still loses Dexterity bonus to AC if immobilized.<br><strong>Improved Uncanny Dodge (Ex)</strong> A rogue of 8th level or higher can no longer be flanked."
-      }, {
-        note: "<strong>Deft Hands</strong> +2 bonus on Disable Device and Sleight of Hand skill checks<br><strong>Weapon Finesse</strong> With a light weapon, rapier, whip, or spiked chain made for a creature of your size category, you may use your Dexterity modifier instead of your Strength modifier on attack rolls.<br><strong>Two Weapon Fighting</strong> Penalties on attack rolls for fighting with two weapons are reduced.<br><strong>Improved Two Weapon Fighting</strong> In addition to the standard single extra attack you get with an off-hand weapon, get a second attack with it, albeit at a –5 penalty.<br><strong>Double Slice</strong> Add your Strength bonus to damage rolls made with your off-hand weapon.<br><strong>Extra Rogue Talent</strong> Gain one additional rogue talent"
-      }],
-      story: []
+      character: {
+        all: []
+      },
+      story: {
+        all: []
+      }
     },
-    events: []
+    events: {
+      all: []
+    }
   };
 
   // exposed methods
@@ -9725,34 +9930,82 @@ var marika = (function() {
 var nefi = (function() {
 
   var data = {
-    awesomeSheet: true,
+    awesomeSheet: {
+      awesome: true,
+      version: 5.5
+    },
     basics: {
-      name: "Nefi Fefi",
-      race: "Human",
-      level: "11",
-      classes: [{
-        classname: "Fighter",
-        level: 11,
-        hp: 85,
-        fortitude: 7,
-        reflex: 3,
-        will: 3,
-        ranks: 22,
-        bab: 11
-      }],
-      size: {
-        category: "Medium",
-        size_modifier: 0,
-        special_size_modifier: 0,
-        size_modifier_fly: 0,
-        size_modifier_stealth: 0
+      character: {
+        name: "Nefi Fefi",
+        race: "Human",
+        alignment: "Neutral",
+        deity: "",
+        height: "6'2",
+        weight: "202 lbs",
+        age: "28",
+        gender: "Male",
+        hero_points: 1,
+        description: "",
+        size: {
+          category: "Medium",
+          modifier: {
+            base: "",
+            special: "",
+            fly: "",
+            stealth: ""
+          }
+        }
       },
-      alignment: "Neutral",
-      deity: "",
-      height: "6'2",
-      weight: "202 lbs",
-      age: "28",
-      gender: "Male",
+      classes: {
+        all: [{
+          level: 11,
+          hp: {
+            base: 65,
+            favoured: 11,
+            current: 76
+          },
+          ranks: {
+            base: 44,
+            favoured: "",
+            current: 44
+          },
+          bab: 11,
+          name: "Fighter",
+          saves: {
+            fortitude: 7,
+            reflex: 3,
+            will: 3
+          }
+        }],
+        string: "Fighter 11"
+      },
+      experience: {
+        level: {
+          current: "",
+          class_total: ""
+        },
+        next_level: "",
+        needed: "",
+        total: 155000,
+        advancement: "Medium"
+      },
+      initiative: {
+        misc: "",
+        temp: "",
+        feat: "",
+        trait: 2,
+        current: 5,
+        bonuses: {
+          str: false,
+          dex: true,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
+          level: false,
+          half_level: false
+        }
+      },
       speed: {
         land: "30ft",
         fly: "",
@@ -9761,32 +10014,7 @@ var nefi = (function() {
         climb: "",
         burrow: ""
       },
-      hero_points: 1,
-      character_description: "",
-      initiative: {
-        misc: "2",
-        temp: "",
-        feat: "",
-        trait: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false
-        }
-      },
-      xp: {
-        total: 155000,
-        advancement_speed: "Medium",
-        next_level: "",
-        needed: ""
-      },
-      character_image: {
+      image: {
         uploaded: false,
         background: "",
         color: {
@@ -9794,6 +10022,7 @@ var nefi = (function() {
           g: "",
           b: ""
         },
+        data: "",
         orientation: "",
         position: {
           x: "",
@@ -9803,8 +10032,11 @@ var nefi = (function() {
           width: "",
           height: ""
         },
-        scale: "",
-        image: ""
+        scale: ""
+      },
+      senses: {
+        racial: "",
+        magical: ""
       }
     },
     statistics: {
@@ -9812,87 +10044,176 @@ var nefi = (function() {
         str: {
           modifier: 5,
           base: 15,
-          current: 21,
-          racial: 2,
           enhancement: 4,
           misc: "",
-          temp: ""
+          racial: 2,
+          temp: "",
+          current: 21
         },
         dex: {
           modifier: 3,
           base: 14,
-          current: 16,
-          racial: "",
           enhancement: 2,
           misc: "",
-          temp: ""
+          racial: "",
+          temp: "",
+          current: 16
         },
         con: {
           modifier: 1,
           base: 12,
-          current: 12,
-          racial: "",
           enhancement: "",
           misc: "",
-          temp: ""
+          racial: "",
+          temp: "",
+          current: 12
         },
         int: {
           modifier: 1,
           base: 13,
-          current: 13,
-          racial: "",
           enhancement: "",
           misc: "",
-          temp: ""
+          racial: "",
+          temp: "",
+          current: 13
         },
         wis: {
           modifier: 1,
           base: 10,
-          current: 12,
-          racial: "",
           enhancement: 2,
           misc: "",
-          temp: ""
+          racial: "",
+          temp: "",
+          current: 12
         },
         cha: {
           modifier: 0,
           base: 8,
-          current: 10,
-          racial: "",
           enhancement: 2,
           misc: "",
-          temp: ""
+          racial: "",
+          temp: "",
+          current: 10
         }
       },
-      feats: "Weapon Focus (Guisarme), Iron Will, Great Fortitude, Combat Reflexes, Dodge, Power Attack, Combat Expertise, Greater Trip, Improved Trip, Felling Smash, Greater Weapon Focus (Guisarme), Weapon Specialization (Guisarme), Furious Focus",
-      traits: "Resilient, Adopted (Elven Reflexes)",
-      languages: "Common, Elven, Draconic",
-      special_abilities: "Bonus feat (5), Bravery +3, Weapon training 2 (Pole Arms +2, Blades, Heavy +1),  Armor training 3",
-      power: []
+      abilities: {
+        all: [{
+          name: "Armor Training (3)",
+          note: "(Ex) Starting at 3rd level, a fighter learns to be more maneuverable while wearing armor. Whenever he is wearing armor, he reduces the armor check penalty by 1 (to a minimum of 0) and increases the maximum Dexterity bonus allowed by his armor by 1. Every four levels thereafter (7th, 11th, and 15th), these bonuses increase by +1 each time, to a maximum –4 reduction of the armor check penalty and a +4 increase of the maximum Dexterity bonus allowed.<div><br></div><div>In addition, a fighter can also move at his normal speed while wearing medium armor. At 7th level, a fighter can move at his normal speed while wearing heavy armor.</div>",
+          index: false
+        }, {
+          name: "Bonus Feat (5)",
+          note: "At 1st level, and at every even level thereafter, a fighter gains a bonus feat in addition to those gained from normal advancement (meaning that the fighter gains a feat at every level). These bonus feats must be selected from those listed as combat feats, sometimes also called \"fighter bonus feats.\"",
+          index: false
+        }, {
+          name: "Bravery (+3)",
+          note: "(Ex) Starting at 2nd level, a fighter gains a +1 bonus on Will saves against fear. This bonus increases by +1 for every four levels beyond 2nd.",
+          index: false
+        }, {
+          name: "Weapon Training (2)",
+          note: "(Ex) Starting at 5th level, a fighter can select one group of weapons, as noted below. Whenever he attacks with a weapon from this group, he gains a +1 bonus on attack and damage rolls.<div><br></div><div>Every four levels thereafter (9th, 13th, and 17th), a fighter becomes further trained in another group of weapons. He gains a +1 bonus on attack and damage rolls when using a weapon from this group. In addition, the bonuses granted by previous weapon groups increase by +1 each. For example, when a fighter reaches 9th level, he receives a +1 bonus on attack and damage rolls with one weapon group and a +2 bonus on attack and damage rolls with the weapon group selected at 5th level. Bonuses granted from overlapping groups do not stack. Take the highest bonus granted for a weapon if it resides in two or more groups.</div><div><br></div><div>A fighter also adds this bonus to any combat maneuver checks made with weapons from this group. This bonus also applies to the fighter's Combat Maneuver Defense when defending against disarm and sunder attempts made against weapons from this group.</div><div><br></div><div>Pole Arms +2, Blades, Heavy +1</div>",
+          index: false
+        }],
+        notes: ""
+      },
+      power: {
+        all: []
+      },
+      feats: {
+        all: [{
+          name: "Combat Expertise",
+          note: "",
+          index: 198
+        }, {
+          name: "Combat Reflexes",
+          note: "",
+          index: 203
+        }, {
+          name: "Dodge",
+          note: "",
+          index: 361
+        }, {
+          name: "Felling Smash",
+          note: "",
+          index: 508
+        }, {
+          name: "Furious Focus",
+          note: "",
+          index: 567
+        }, {
+          name: "Great Fortitude",
+          note: "",
+          index: 596
+        }, {
+          name: "Greater Trip",
+          note: "",
+          index: 626
+        }, {
+          name: "Greater Weapon Focus",
+          note: "Guisarme",
+          index: 629
+        }, {
+          name: "Improved Trip",
+          note: "",
+          index: 753
+        }, {
+          name: "Iron Will",
+          note: "",
+          index: 783
+        }, {
+          name: "Power Attack",
+          note: "",
+          index: 1020
+        }, {
+          name: "Weapon Focus",
+          note: "Guisarme",
+          index: 1450
+        }, {
+          name: "Weapon Specialization",
+          note: "Guisarme",
+          index: 1452
+        }],
+        notes: ""
+      },
+      traits: {
+        all: [{
+          name: "Resilient",
+          note: "",
+          index: 804
+        }, {
+          name: "Adopted",
+          note: "Elven Reflexes",
+          index: 12
+        }, {
+          name: "Elven Reflexes",
+          note: "",
+          index: 327
+        }],
+        notes: ""
+      },
+      languages: {
+        all: [{
+          name: "Common",
+          note: "",
+          index: 5
+        }, {
+          name: "Elven",
+          note: "",
+          index: 9
+        }, {
+          name: "Draconic",
+          note: "",
+          index: 6
+        }],
+        notes: ""
+      }
     },
     equipment: {
-      gear: "Backpack, Flask Of Oil (2), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Dagger, Combat Horse (Tafi), Roc feathers, head and feet, Red Dragon (Adult) scales and claws",
-      magic_gear: "Ioun Stone (Dusty rose), Feather Token (Tree)",
-      potion_viles_oils: "Light Wounds (4) Moderate Wounds (5), Serious Wounds (1), Potion of Resist Fire (1), Alchemist Fire (1), Potion of Lesser Restoration (1), Potion of Remove Disease (1)",
-      scrolls: "",
-      item: {
-        all: [],
-        weight: {
-          current: ""
-        },
-        value: {
-          current: ""
-        }
-      },
-      encumbrance: {
-        encumbrance_str: "",
-        carry_move: {
-          light: "",
-          medium: "",
-          heavy: "",
-          lift: "",
-          drag: ""
-        }
+      possessions: {
+        gear: "Backpack, Flask Of Oil (2), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Dagger, Combat Horse (Tafi), Roc feathers, head and feet, Red Dragon (Adult) scales and claws",
+        magic_gear: "Ioun Stone (Dusty rose), Feather Token (Tree)",
+        potion_viles_oils: "Light Wounds (4) Moderate Wounds (5), Serious Wounds (1), Potion of Resist Fire (1), Alchemist Fire (1), Potion of Lesser Restoration (1), Potion of Remove Disease (1)",
+        scrolls: ""
       },
       armor: {
         armor: "Full Plate +2",
@@ -9915,14 +10236,35 @@ var nefi = (function() {
         shoulders: "Cloak of Resistance +3",
         wrist: ""
       },
+      item: {
+        all: [],
+        weight: {
+          current: 0
+        },
+        value: {
+          current: 0
+        }
+      },
+      encumbrance: {
+        str: "",
+        carry_move: {
+          light: "153 lbs. or less",
+          medium: "154 - 306 lbs.",
+          heavy: "307 - 460 lbs.",
+          lift: "920 lbs.",
+          drag: "2,300 lbs."
+        }
+      },
+      consumable: {
+        all: []
+      },
       wealth: {
         platinum: "",
         gold: 870,
         silver: "",
         copper: "",
         total: ""
-      },
-      consumable: []
+      }
     },
     defense: {
       hp: {
@@ -9930,144 +10272,175 @@ var nefi = (function() {
         temp: "",
         damage: "",
         non_lethal_damage: "",
-        current: ""
+        current: "",
+        notes: ""
       },
       ac: {
-        misc: 1,
-        temp: "",
-        armor: 11,
-        shield: "",
-        deflect: 2,
-        dodge: 1,
-        natural: 3,
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          plus_ten: true,
-          ac_armor: true,
-          ac_shield: true,
-          ac_deflect: true,
-          ac_dodge: true,
-          ac_natural: true,
-          size: true,
-          max_dex: true
-        }
+        armor_class: {
+          misc: 1,
+          temp: "",
+          current: 31,
+          bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            plus_ten: true,
+            armor: true,
+            shield: true,
+            deflect: true,
+            dodge: true,
+            natural: true,
+            size_base: true,
+            max_dex: true
+          }
+        },
+        flat_footed: {
+          misc: 1,
+          temp: "",
+          current: 27,
+          bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            plus_ten: true,
+            armor: true,
+            shield: true,
+            deflect: true,
+            natural: true,
+            size_base: true,
+            dodge: false
+          }
+        },
+        touch: {
+          misc: 1,
+          temp: "",
+          current: 17,
+          bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            plus_ten: true,
+            deflect: true,
+            dodge: true,
+            size_base: true,
+            max_dex: true,
+            armor: false,
+            shield: false,
+            natural: false
+          }
+        },
+        stats: {
+          armor: 11,
+          shield: "",
+          deflect: 2,
+          dodge: 1,
+          natural: 3
+        },
+        notes: "Ioun Stone (Dusty rose) +1 insight bonus to AC."
       },
-      flat_footed: {
-        misc: 1,
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          plus_ten: true,
-          ac_armor: true,
-          ac_shield: true,
-          ac_deflect: true,
-          ac_natural: true,
-          size: true
-        }
-      },
-      touch: {
-        misc: 1,
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          plus_ten: true,
-          ac_deflect: true,
-          ac_dodge: true,
-          size: true,
-          max_dex: true
-        }
-      },
-      ac_notes: "Ioun Stone (Dusty rose) +1 insight bonus to AC.",
-      fortitude: {
-        base: "",
-        resistance: 3,
-        feat: 2,
-        trait: 1,
+      cmd: {
         misc: "",
         temp: "",
-        current: "",
+        current: 29,
+        notes: "",
         bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: true,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
+          str: true,
+          dex: true,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
+          bab: true,
+          size_special: true,
           level: false,
-          half_level: false
+          half_level: false,
+          plus_ten: true
         }
       },
-      reflex: {
-        base: "",
-        resistance: 3,
-        feat: "",
-        trait: "",
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false
-        }
+      saves: {
+        fortitude: {
+          base: "",
+          resistance: 3,
+          feat: 2,
+          trait: 1,
+          misc: "",
+          temp: "",
+          current: 14,
+          bonuses: {
+            str: false,
+            dex: false,
+            con: true,
+            int: false,
+            wis: false,
+            cha: false,
+            level: false,
+            half_level: false
+          }
+        },
+        reflex: {
+          base: "",
+          resistance: 3,
+          feat: "",
+          trait: "",
+          misc: "",
+          temp: "",
+          current: 9,
+          bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            level: false,
+            half_level: false
+          }
+        },
+        will: {
+          base: "",
+          resistance: 3,
+          feat: 2,
+          trait: "",
+          misc: "",
+          temp: "",
+          current: 9,
+          bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
+            level: false,
+            half_level: false
+          }
+        },
+        notes: "+3 bonus on Will saves against fear."
       },
-      will: {
-        base: "",
-        resistance: 3,
-        feat: 2,
-        trait: "",
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: true,
-          cha_bonus: false,
-          level: false,
-          half_level: false
-        }
-      },
-      save_notes: "+3 bonus on Will saves against fear.",
       dr: {
         feat: "",
         trait: "",
         misc: "",
         temp: "",
-        current: "",
         overcome: "",
+        current: 0,
+        notes: "",
         bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
+          str: false,
+          dex: false,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
           level: false,
           half_level: false
         }
@@ -10077,178 +10450,187 @@ var nefi = (function() {
         trait: "",
         misc: "",
         temp: "",
-        current: "",
+        current: 0,
+        notes: "",
         bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
+          str: false,
+          dex: false,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
           level: false,
           half_level: false
         }
       },
-      resist_notes: ""
+      resistance: {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: 0,
+        notes: "",
+        bonuses: {
+          str: false,
+          dex: false,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
+          level: false,
+          half_level: false
+        }
+      }
     },
     offense: {
-      base_attack: "",
-      base_attack_bonuses: "",
+      stats: {
+        base_attack: {
+          bonus: "",
+          string: ""
+        },
+        melee: {
+          misc: "",
+          temp: "",
+          current: 16,
+          bonuses: {
+            str: true,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            bab: true,
+            size_base: true,
+            level: false,
+            half_level: false
+          }
+        },
+        ranged: {
+          misc: "",
+          temp: "",
+          current: 14,
+          bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            bab: true,
+            size_base: true,
+            level: false,
+            half_level: false
+          }
+        }
+      },
       cmb: {
         misc: "",
         temp: "",
-        current: "",
+        current: 16,
+        notes: "+2 to CMD against trip.",
         bonuses: {
-          str_bonus: true,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
+          str: true,
+          dex: false,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
           bab: true,
-          special_size: true,
-          level: false,
-          half_level: false
-        }
-      },
-      cmd: {
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: true,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          bab: true,
-          special_size: true,
-          level: false,
-          half_level: false,
-          plus_ten: true
-        }
-      },
-      melee_attack: {
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: true,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          bab: true,
-          size: true,
-          level: false,
-          half_level: false
-        }
-      },
-      ranged_attack: {
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          bab: true,
-          size: true,
+          size_special: true,
           level: false,
           half_level: false
         }
       },
       attack: {
-        melee: [{
-          weapon: "Guisarme +1 Keen",
-          attack: "+21/+16/+11",
-          damage: "2d4+12",
-          critical: "19-20/x3",
-          type: "Piercing/Slashing"
-        }, {
-          weapon: "Guisarme +1 Keen Power Attack",
-          attack: "+18/+13/+8",
-          damage: "2d4+18",
-          critical: "19-20/x3",
-          type: "Piercing/Slashing"
-        }, {
-          weapon: "Guisarme +1 Trip",
-          attack: "+24",
-          damage: "",
-          critical: "",
-          type: "Piercing/Slashing"
-        }, {
-          weapon: "Greatsword MW",
-          attack: "+18/+13/+8",
-          damage: "1d10+8",
-          critical: "19–20/x2",
-          type: "Slashing"
-        }, {
-          weapon: "Greatsword MW Power Attack",
-          attack: "+15/+10/+5",
-          damage: "1d10+14",
-          critical: "19–20/x2",
-          type: "Slashing"
-        }, {
-          weapon: "Halberd MW",
-          attack: "+19/+14/+9",
-          damage: "1d8+10",
-          critical: "x3",
-          type: "Piercing/Slashing"
-        }, {
-          weapon: "Halberd MW Power Attack",
-          attack: "+16/+10/+5",
-          damage: "1d8+16",
-          critical: "x3",
-          type: "Piercing/Slashing"
-        }, {
-          weapon: "Earth Breaker +1 Frost",
-          attack: "+17/+12/+7",
-          damage: "2d6+8 1d6 (cold)",
-          critical: "x3",
-          type: "Bludgeoning"
-        }],
-        ranged: [{
-          weapon: "Composite Longbow MW",
-          attack: "+13/+8/+3",
-          damage: "1d8+5",
-          critical: "x3",
-          range: "100 ft",
-          ammo: "50",
-          type: "Piercing"
-        }]
-      },
-      attack_notes: "+2 bonus to CMD against trip."
+        notes: "",
+        melee: {
+          all: [{
+            weapon: "Guisarme +1 Keen",
+            attack: "+21/+16/+11",
+            damage: "2d4+12",
+            critical: "19-20/x3",
+            type: "Piercing/Slashing"
+          }, {
+            weapon: "Guisarme +1 Keen Power Attack",
+            attack: "+18/+13/+8",
+            damage: "2d4+18",
+            critical: "19-20/x3",
+            type: "Piercing/Slashing"
+          }, {
+            weapon: "Guisarme +1 Trip",
+            attack: "+24",
+            damage: "",
+            critical: "",
+            type: "Piercing/Slashing"
+          }, {
+            weapon: "Greatsword MW",
+            attack: "+18/+13/+8",
+            damage: "1d10+8",
+            critical: "19–20/x2",
+            type: "Slashing"
+          }, {
+            weapon: "Greatsword MW Power Attack",
+            attack: "+15/+10/+5",
+            damage: "1d10+14",
+            critical: "19–20/x2",
+            type: "Slashing"
+          }, {
+            weapon: "Halberd MW",
+            attack: "+19/+14/+9",
+            damage: "1d8+10",
+            critical: "x3",
+            type: "Piercing/Slashing"
+          }, {
+            weapon: "Halberd MW Power Attack",
+            attack: "+16/+10/+5",
+            damage: "1d8+16",
+            critical: "x3",
+            type: "Piercing/Slashing"
+          }, {
+            weapon: "Earth Breaker +1 Frost",
+            attack: "+17/+12/+7",
+            damage: "2d6+8 1d6 (cold)",
+            critical: "x3",
+            type: "Bludgeoning"
+          }]
+        },
+        ranged: {
+          all: [{
+            weapon: "Composite Longbow MW",
+            attack: "+13/+8/+3",
+            damage: "1d8+5",
+            critical: "x3",
+            range: "100 ft",
+            ammo: "50",
+            type: "Piercing"
+          }]
+        }
+      }
     },
     skills: {
       ranks: {
         total: "",
-        spent: {
-          include_custom: false,
-          current: ""
-        }
+        include_custom: false,
+        current: ""
       },
-      custom: [],
-      all: {
+      custom: {
+        all: []
+      },
+      default: {
         acrobatics: {
-          ranks: "",
+          ranks: 1,
           misc: 5,
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 6,
           bonuses: {
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: false,
             level: false,
             half_level: false,
@@ -10258,18 +10640,18 @@ var nefi = (function() {
         appraise: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 1,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -10278,38 +10660,38 @@ var nefi = (function() {
         bluff: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 0,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
           }
         },
         climb: {
-          ranks: 4,
+          ranks: 5,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 10,
           bonuses: {
+            str: true,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: true,
-            str_bonus: true,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -10319,18 +10701,18 @@ var nefi = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 1,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -10340,18 +10722,18 @@ var nefi = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 1,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -10360,18 +10742,18 @@ var nefi = (function() {
         diplomacy: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 0,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -10380,18 +10762,18 @@ var nefi = (function() {
         disable_device: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 0,
           bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -10400,18 +10782,18 @@ var nefi = (function() {
         disguise: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 0,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -10420,18 +10802,18 @@ var nefi = (function() {
         escape_artist: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 0,
           bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -10440,39 +10822,39 @@ var nefi = (function() {
         fly: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 0,
           bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true,
-            size_modifier_fly: true
+            size_fly: true
           }
         },
         handle_animal: {
           ranks: 8,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 11,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: true,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -10481,18 +10863,18 @@ var nefi = (function() {
         heal: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 1,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -10501,18 +10883,18 @@ var nefi = (function() {
         intimidate: {
           ranks: 4,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 7,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: true,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -10521,18 +10903,18 @@ var nefi = (function() {
         knowledge_arcana: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 1,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: true,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -10541,18 +10923,18 @@ var nefi = (function() {
         knowledge_dungeoneering: {
           ranks: 1,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 5,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: true,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -10561,18 +10943,18 @@ var nefi = (function() {
         knowledge_engineering: {
           ranks: 1,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 5,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: true,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -10581,18 +10963,18 @@ var nefi = (function() {
         knowledge_geography: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 1,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -10601,18 +10983,18 @@ var nefi = (function() {
         knowledge_history: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 1,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -10621,18 +11003,18 @@ var nefi = (function() {
         knowledge_local: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 1,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -10641,18 +11023,18 @@ var nefi = (function() {
         knowledge_nature: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 1,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -10661,18 +11043,18 @@ var nefi = (function() {
         knowledge_nobility: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 1,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -10681,18 +11063,18 @@ var nefi = (function() {
         knowledge_planes: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 1,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -10701,18 +11083,18 @@ var nefi = (function() {
         knowledge_religion: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 1,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -10721,18 +11103,18 @@ var nefi = (function() {
         linguistics: {
           ranks: 1,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 2,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -10741,18 +11123,18 @@ var nefi = (function() {
         perception: {
           ranks: 11,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 12,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -10762,18 +11144,18 @@ var nefi = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 0,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -10783,18 +11165,18 @@ var nefi = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 0,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -10804,18 +11186,18 @@ var nefi = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 1,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -10825,38 +11207,38 @@ var nefi = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 1,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
           }
         },
         ride: {
-          ranks: 9,
+          ranks: 10,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 10,
           bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -10865,18 +11247,18 @@ var nefi = (function() {
         sense_motive: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 1,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -10885,18 +11267,18 @@ var nefi = (function() {
         sleight_of_hand: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 0,
           bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -10905,18 +11287,18 @@ var nefi = (function() {
         spellcraft: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 1,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -10925,59 +11307,59 @@ var nefi = (function() {
         stealth: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 0,
           bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true,
-            size_modifier_stealth: true
+            size_stealth: true
           }
         },
         survival: {
-          ranks: 2,
+          ranks: 8,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 12,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             class_skill: true,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
           }
         },
         swim: {
-          ranks: 3,
+          ranks: 5,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 10,
           bonuses: {
+            str: true,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: true,
-            str_bonus: true,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -10986,342 +11368,348 @@ var nefi = (function() {
         use_magic_device: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: 0,
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
           }
         }
+      },
+      stats: {
+        notes: ""
       }
     },
     spells: {
-      concentration: {
-        current: "",
-        misc: "",
-        temp: "",
-        racial: "",
-        feat: "",
-        trait: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false
-        }
-      },
-      caster_level_check: {
-        current: "",
-        misc: "",
-        temp: "",
-        racial: "",
-        feat: "",
-        trait: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false
-        }
-      },
-      school: "",
-      opposition: "",
-      domains: "",
-      bloodline: "",
-      spell_notes: "",
-      per_day: {
-        level_0: "",
-        level_1: "",
-        level_2: "",
-        level_3: "",
-        level_4: "",
-        level_5: "",
-        level_6: "",
-        level_7: "",
-        level_8: "",
-        level_9: ""
-      },
-      known: {
-        level_0: "",
-        level_1: "",
-        level_2: "",
-        level_3: "",
-        level_4: "",
-        level_5: "",
-        level_6: "",
-        level_7: "",
-        level_8: "",
-        level_9: ""
-      },
-      bonus: {
-        level_0: "",
-        level_1: "",
-        level_2: "",
-        level_3: "",
-        level_4: "",
-        level_5: "",
-        level_6: "",
-        level_7: "",
-        level_8: "",
-        level_9: ""
-      },
-      dc: {
-        level_0: {
-          spell_level: 0,
+      stats: {
+        concentration: {
           misc: "",
           temp: "",
+          racial: "",
           feat: "",
           trait: "",
-          current: "",
+          current: 0,
           bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
+            half_level: false
           }
+        },
+        caster_level_check: {
+          misc: "",
+          temp: "",
+          racial: "",
+          feat: "",
+          trait: "",
+          current: 0,
+          bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            level: false,
+            half_level: false
+          }
+        },
+        school: "",
+        opposition: "",
+        domains: "",
+        bloodline: "",
+        notes: ""
+      },
+      book: {
+        level_0: {
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 0,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: 0,
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_1: {
-          spell_level: 1,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 1,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: 0,
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_2: {
-          spell_level: 2,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 2,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: 0,
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_3: {
-          spell_level: 3,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 3,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: 0,
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_4: {
-          spell_level: 4,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 4,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: 0,
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_5: {
-          spell_level: 5,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 5,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: 0,
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_6: {
-          spell_level: 6,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 6,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: 0,
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_7: {
-          spell_level: 7,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 7,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: 0,
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_8: {
-          spell_level: 8,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 8,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: 0,
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_9: {
-          spell_level: 9,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 9,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: 0,
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         }
-      },
-      book: [{
-        level_0: []
-      }, {
-        level_1: []
-      }, {
-        level_2: []
-      }, {
-        level_3: []
-      }, {
-        level_4: []
-      }, {
-        level_5: []
-      }, {
-        level_6: []
-      }, {
-        level_7: []
-      }, {
-        level_8: []
-      }, {
-        level_9: []
-      }]
+      }
     },
     notes: {
-      character: [{
-        note: "<strong>Ability Score</strong> Human characters get a +2 bonus to one ability score of their choice at creation to represent their varied nature.<br><strong>Medium</strong> Humans are Medium creatures and have no bonuses or penalties due to their size.<br><strong>Normal Speed</strong> Humans have a base speed of 30 feet.<br><strong>Bonus Feat</strong> Humans select one extra feat at 1st level.<br><strong>Skilled</strong> Humans gain an additional skill rank at first level and one additional rank whenever they gain a level.<br><strong>Languages</strong> Humans begin play speaking Common. Humans with high Intelligence scores can choose any languages they want (except secret languages, such as Druidic)."
-      }, {
-        note: "<strong>Weapon Focus (Guisarme)</strong> You gain a +1 bonus on all attack rolls you make using the selected weapon<br><strong>Iron Will</strong> You get a +2 bonus on all Will saving throws<br><strong>Great Fortitude</strong> You get a +2 bonus on all Fortitude saving throws.<br><strong>Combat Reflexes</strong> You may make a number of additional attacks of opportunity per round equal to your Dexterity bonus. With this feat, you may also make attacks of opportunity while flat-footed<br><strong>Dodge</strong> You gain a +1 dodge bonus to your AC. A condition that makes you lose your Dex bonus to AC also makes you lose the benefits of this feat<br><strong>Power Attack</strong> You can choose to take a –1 penalty on all melee attack rolls and combat maneuver checks to gain a +2 bonus on all melee damage rolls. This bonus to damage is increased by half (+50%) if you are making an attack with a two-handed weapon, a one handed weapon using two hands, or a primary natural weapon that adds 1-1/2 times your Strength modifier on damage rolls. This bonus to damage is halved (–50%) if you are making an attack with an off-hand weapon or secondary natural weapon. When your base attack bonus reaches +4, and every 4 points thereafter, the penalty increases by –1 and the bonus to damage increases by +2. You must choose to use this feat before making an attack roll, and its effects last until your next turn. The bonus damage does not apply to touch attacks or effects that do not deal hit point damage<br><strong>Combat Expertise</strong> You can choose to take a –1 penalty on melee attack rolls and combat maneuver checks to gain a +1 dodge bonus to your Armor Class. When your base attack bonus reaches +4, and every +4 thereafter, the penalty increases by –1 and the dodge bonus increases by +1. You can only choose to use this feat when you declare that you are making an attack or a full-attack action with a melee weapon. The effects of this feat last until your next turn<br><strong>Greater Trip</strong> You receive a +2 bonus on checks made to trip a foe. This bonus stacks with the bonus granted by Improved Trip. Whenever you successfully trip an opponent, that opponent provokes attacks of opportunity<br><strong>Improved Trip</strong> You do not provoke an attack of opportunity when performing a trip combat maneuver. In addition, you receive a +2 bonus on checks made to trip a foe. You also receive a +2 bonus to your Combat Maneuver Defense whenever an opponent tries to trip you<br><strong>Felling Smash</strong> If you use the attack action to make a single melee attack at your highest base attack bonus while using Power Attack and you hit an opponent, you can spend a swift action to attempt a trip combat maneuver against that opponent<br><strong>Greater Weapon Focus (Guisarme)</strong> You gain a +1 bonus on attack rolls you make using the selected weapon. This bonus stacks with other bonuses on attack rolls, including those from Weapon Focus.<br><strong>Weapon Specialization</strong> You gain a +2 bonus on all damage rolls you make using the selected weapon.<br><strong>Furious Focus</strong> When you are wielding a two-handed weapon or a one-handed weapon with two hands, and using the Power Attack feat, you do not suffer Power Attack's penalty on melee attack rolls on the first attack you make each turn. You still suffer the penalty on any additional attacks, including attacks of opportunity."
-      }, {
-        note: "<strong>Bonus feat (5)</strong> At 1st level, and at every even level thereafter, a fighter gains a bonus feat in addition to those gained from normal advancement (meaning that the fighter gains a feat at every level). These bonus feats must be selected from those listed as combat feats, sometimes also called \"fighter bonus feats.\" </span>Upon reaching 4th level, and every four levels thereafter (8th, 12th, and so on), a fighter can choose to learn a new bonus feat in place of a bonus feat he has already learned. In effect, the fighter loses the bonus feat in exchange for the new one. The old feat cannot be one that was used as a prerequisite for another feat, prestige class, or other ability. A fighter can only change one feat at any given level and must choose whether or not to swap the feat at the time he gains a new bonus feat for the level.<br><strong>Bravery (Ex)</strong> Starting at 2nd level, a fighter gains a +1 bonus on Will saves against fear. This bonus increases by +1 for every four levels beyond 2nd.<br><strong>Weapon training 2 (Pole Arms +2, Blades, Heavy +1)</strong> Starting at 5th level, a fighter can select one group of weapons, as noted below. Whenever he attacks with a weapon from this group, he gains a +1 bonus on attack and damage rolls. </span>Every four levels thereafter (9th, 13th, and 17th), a fighter becomes further trained in another group of weapons. He gains a +1 bonus on attack and damage rolls when using a weapon from this group. In addition, the bonuses granted by previous weapon groups increase by +1 each. For example, when a fighter reaches 9th level, he receives a +1 bonus on attack and damage rolls with one weapon group and a +2 bonus on attack and damage rolls with the weapon group selected at 5th level. Bonuses granted from overlapping groups do not stack. Take the highest bonus granted for a weapon if it resides in two or more groups. </span>A fighter also adds this bonus to any combat maneuver checks made with weapons from this group. This bonus also applies to the fighter's Combat Maneuver Defense when defending against disarm and sunder attempts made against weapons from this group.<br><strong>Armor Training (Ex)</strong> Starting at 3rd level, a fighter learns to be more maneuverable while wearing armor. Whenever he is wearing armor, he reduces the armor check penalty by 1 (to a minimum of 0) and increases the maximum Dexterity bonus allowed by his armor by 1. Every four levels thereafter (7th, 11th, and 15th), these bonuses increase by +1 each time, to a maximum –4 reduction of the armor check penalty and a +4 increase of the maximum Dexterity bonus allowed. In addition, a fighter can also move at his normal speed while wearing medium armor. At 7th level, a fighter can move at his normal speed while wearing heavy armor."
-      }, {
-        note: "<strong>Resilient</strong> Growing up in a poor neighborhood or in the unforgiving wilds often forced you to subsist on food and water from doubtful sources. You've built up your mettle as a result, and gain a +1 trait bonus on Fortitude saves<br><strong>Adopted (Elven Reflexes)</strong> You were adopted and raised by someone not of your actual race, and raised in a society not your own. As a result, you picked up a race trait from your adoptive parents and society, and may immediately select a race trait from your adoptive parents' race.<br>One of your parents was a member of a wild elven tribe, and you've inherited a portion of your elven parent's quick reflexes. You gain a +2 trait bonus on Initiative checks."
-      }, {
-        note: "Harrow point = +5 on all damage rolls for one combat"
-      }],
-      story: []
+      character: {
+        all: [{
+          note: "Harrow point = +5 on all damage rolls for one combat"
+        }]
+      },
+      story: {
+        all: []
+      }
     },
-    events: []
+    events: {
+      all: []
+    }
   };
 
   // exposed methods
@@ -11336,7 +11724,7 @@ var nif = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.4
+      version: 5.5
     },
     basics: {
       character: {
@@ -11362,14 +11750,24 @@ var nif = (function() {
       },
       classes: {
         all: [{
-          classname: "Wizard",
           level: 8,
-          hp: 42,
-          fortitude: 2,
-          reflex: 2,
-          will: 6,
-          ranks: 16,
-          bab: 4
+          hp: {
+            base: 34,
+            favoured: 8,
+            current: ""
+          },
+          ranks: {
+            base: 16,
+            favoured: "",
+            current: ""
+          },
+          bab: 4,
+          name: "Wizard",
+          saves: {
+            fortitude: 2,
+            reflex: 2,
+            will: 6
+          }
         }],
         string: "Wizard 8"
       },
@@ -11427,6 +11825,10 @@ var nif = (function() {
           height: 513
         },
         scale: 186
+      },
+      senses: {
+        racial: "",
+        magical: ""
       }
     },
     statistics: {
@@ -11818,7 +12220,7 @@ var nif = (function() {
         gold: 1027,
         silver: "",
         copper: "",
-        total: 1027
+        total: ""
       }
     },
     defense: {
@@ -11923,7 +12325,7 @@ var nif = (function() {
       },
       saves: {
         fortitude: {
-          base: 2,
+          base: "",
           resistance: 2,
           feat: "",
           trait: 1,
@@ -11942,7 +12344,7 @@ var nif = (function() {
           }
         },
         reflex: {
-          base: 2,
+          base: "",
           resistance: 2,
           feat: "",
           trait: "",
@@ -11961,7 +12363,7 @@ var nif = (function() {
           }
         },
         will: {
-          base: 6,
+          base: "",
           resistance: 2,
           feat: "",
           trait: "",
@@ -12040,8 +12442,8 @@ var nif = (function() {
     offense: {
       stats: {
         base_attack: {
-          bonus: 4,
-          string: "+4"
+          bonus: "",
+          string: ""
         },
         melee: {
           misc: "",
@@ -12920,6 +13322,9 @@ var nif = (function() {
             check_penalty: false
           }
         }
+      },
+      stats: {
+        notes: ""
       }
     },
     spells: {
@@ -13825,10 +14230,10 @@ var orrin = (function() {
         size: {
           category: "Medium",
           modifier: {
-            base: 0,
-            special: 0,
-            fly: 0,
-            stealth: 0
+            base: "",
+            special: "",
+            fly: "",
+            stealth: ""
           }
         }
       },
@@ -14197,7 +14602,7 @@ var orrin = (function() {
     },
     defense: {
       hp: {
-        total: 86,
+        total: "",
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -14297,7 +14702,7 @@ var orrin = (function() {
       },
       saves: {
         fortitude: {
-          base: 4,
+          base: "",
           resistance: 2,
           feat: 2,
           trait: 1,
@@ -14316,7 +14721,7 @@ var orrin = (function() {
           }
         },
         reflex: {
-          base: 8,
+          base: "",
           resistance: 2,
           feat: "",
           trait: "",
@@ -14335,7 +14740,7 @@ var orrin = (function() {
           }
         },
         will: {
-          base: 4,
+          base: "",
           resistance: 2,
           feat: 2,
           trait: "",
@@ -14414,8 +14819,8 @@ var orrin = (function() {
     offense: {
       stats: {
         base_attack: {
-          bonus: 9,
-          string: "+9 / +4"
+          bonus: "",
+          string: ""
         },
         melee: {
           misc: "",
@@ -14550,7 +14955,7 @@ var orrin = (function() {
     },
     skills: {
       ranks: {
-        total: 146,
+        total: "",
         include_custom: false,
         current: ""
       },
@@ -15861,34 +16266,82 @@ var orrin = (function() {
 var ro = (function() {
 
   var data = {
-    awesomeSheet: true,
+    awesomeSheet: {
+      awesome: true,
+      version: 5.5
+    },
     basics: {
-      name: "Ro Flint",
-      race: "Elf",
-      level: "7",
-      classes: [{
-        classname: "Magus Bladebound",
-        level: 7,
-        hp: 38,
-        fortitude: 6,
-        reflex: 2,
-        will: 6,
-        ranks: 14,
-        bab: 5
-      }],
-      size: {
-        category: "Medium",
-        size_modifier: 0,
-        special_size_modifier: 0,
-        size_modifier_fly: 0,
-        size_modifier_stealth: 0
+      character: {
+        name: "Ro Flint",
+        race: "Elf",
+        alignment: "Lawful Evil",
+        deity: "",
+        height: "6'0",
+        weight: "",
+        age: "120",
+        gender: "Male",
+        hero_points: "",
+        description: "",
+        size: {
+          category: "Medium",
+          modifier: {
+            base: "",
+            special: "",
+            fly: "",
+            stealth: ""
+          }
+        }
       },
-      alignment: "Lawful Evil",
-      deity: "",
-      height: "6'0",
-      weight: "",
-      age: "120",
-      gender: "Male",
+      classes: {
+        all: [{
+          level: 7,
+          hp: {
+            base: 31,
+            favoured: 7,
+            current: ""
+          },
+          ranks: {
+            base: 14,
+            favoured: "",
+            current: ""
+          },
+          bab: 5,
+          name: "Bladebound Magus",
+          saves: {
+            fortitude: 6,
+            reflex: 2,
+            will: 6
+          }
+        }],
+        string: "Bladebound Magus 7"
+      },
+      experience: {
+        level: {
+          current: "",
+          class_total: ""
+        },
+        next_level: "",
+        needed: "",
+        total: 29090,
+        advancement: "Medium"
+      },
+      initiative: {
+        misc: "",
+        temp: "",
+        feat: "",
+        trait: "",
+        current: "",
+        bonuses: {
+          str: false,
+          dex: true,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
+          level: false,
+          half_level: false
+        }
+      },
       speed: {
         land: "30ft",
         fly: "",
@@ -15897,32 +16350,7 @@ var ro = (function() {
         climb: "",
         burrow: ""
       },
-      hero_points: "",
-      character_description: "",
-      initiative: {
-        misc: "",
-        temp: "",
-        feat: "",
-        trait: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false
-        }
-      },
-      xp: {
-        total: 29090,
-        advancement_speed: "Medium",
-        next_level: "",
-        needed: ""
-      },
-      character_image: {
+      image: {
         uploaded: false,
         background: "",
         color: {
@@ -15930,7 +16358,7 @@ var ro = (function() {
           g: "",
           b: ""
         },
-        image: "",
+        data: "",
         orientation: "",
         position: {
           x: "",
@@ -15941,104 +16369,229 @@ var ro = (function() {
           height: ""
         },
         scale: ""
+      },
+      senses: {
+        racial: "Low-Light Vision",
+        magical: ""
       }
     },
     statistics: {
       stats: {
         str: {
-          modifier: 1,
+          modifier: "",
           base: 12,
-          current: 12,
-          racial: "",
           enhancement: "",
           misc: "",
-          temp: ""
+          racial: "",
+          temp: "",
+          current: ""
         },
         dex: {
-          modifier: 5,
+          modifier: "",
           base: 17,
-          current: 21,
-          racial: 2,
           enhancement: 2,
           misc: "",
-          temp: ""
+          racial: 2,
+          temp: "",
+          current: ""
         },
         con: {
-          modifier: 0,
+          modifier: "",
           base: 12,
-          current: 10,
-          racial: -2,
           enhancement: "",
           misc: "",
-          temp: ""
+          racial: -2,
+          temp: "",
+          current: ""
         },
         int: {
-          modifier: 4,
+          modifier: "",
           base: 14,
-          current: 18,
-          racial: 2,
           enhancement: 2,
           misc: "",
-          temp: ""
+          racial: 2,
+          temp: "",
+          current: ""
         },
         wis: {
-          modifier: 0,
+          modifier: "",
           base: 10,
-          current: 10,
-          racial: "",
           enhancement: "",
           misc: "",
-          temp: ""
+          racial: "",
+          temp: "",
+          current: ""
         },
         cha: {
-          modifier: -2,
+          modifier: "",
           base: 7,
-          current: 7,
-          racial: "",
           enhancement: "",
           misc: "",
-          temp: ""
+          racial: "",
+          temp: "",
+          current: ""
         }
       },
-      feats: "Weapon Finesse, Dervish Dance, Alertness, Extra Arcane Pool, Weapon Focus (Black Blade), Intensified Spell",
-      traits: "Magical Lineage (Shocking Grasp), Focused Mind (+2 on concentration checks)",
-      languages: "Common, Draconic, Dwarven, Elven, Orc",
-      special_abilities: "Low-Light Vision (Ex), Elven Immunities (Ex), Elven Magic (Ex), Weapon Familiarity (Ex), Keen Senses (Ex), Arcane Pool, Cantrips, Spell Combat (EX), Black Blade (Ex), Spell Recall (Su), Magus Arcana (Arcane Accuracy), Knowledge Pool (Su), Medium Armor (Ex)",
-      power: [{
-        name: "Arcane Pool",
-        current: "",
-        total: 8,
-        used: ""
-      }, {
-        name: "Black Blade Arcane Pool",
-        current: "",
-        total: 2,
-        used: ""
-      }]
+      abilities: {
+        all: [{
+          name: "Elven Immunities",
+          note: "Elves are immune to magic sleep effects and get a +2 racial saving throw bonus against enchantment spells and effects.",
+          index: false
+        }, {
+          name: "Low-Light Vision",
+          note: "Elves can see twice as far as humans in conditions of dim light.",
+          index: false
+        }, {
+          name: "Elven Magic",
+          note: "Elves receive a +2 racial bonus on caster level checks made to overcome spell resistance. In addition, elves receive a +2 racial bonus on Spellcraft skill checks made to identify the properties of magic items.",
+          index: false
+        }, {
+          name: "Keen Senses",
+          note: "Elves receive a +2 racial bonus on Perception skill checks.",
+          index: false
+        }, {
+          name: "Weapon Familiarity",
+          note: "Elves are proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), and treat any weapon with the word \"elven\" in its name as a martial weapon.",
+          index: false
+        }, {
+          name: "Languages",
+          note: "Elves begin play speaking Common and Elven. Elves with high Intelligence scores can choose from the following: Celestial, Draconic, Gnoll, Gnome, Goblin, Orc, and Sylvan.",
+          index: false
+        }, {
+          name: "Arcane Pool",
+          note: "(Su) At 1st level, the magus gains a reservoir of mystical arcane energy that he can draw upon to fuel his powers and enhance his weapon. This arcane pool has a number of points equal to 1/2 his magus level (minimum 1) + his Intelligence modifier. The pool refreshes once per day when the magus prepares his spells.<br><br>At 1st level, a magus can expend 1 point from his arcane pool as a swift action to grant any weapon he is holding a +1 enhancement bonus for 1 minute. For every four levels beyond 1st, the weapon gains another +1 enhancement bonus, to a maximum of +5 at 17th level. These bonuses can be added to the weapon, stacking with existing weapon enhancement to a maximum of +5. Multiple uses of this ability do not stack with themselves.</div><br><br>At 5th level, these bonuses can be used to add any of the following weapon properties: dancing, flaming, flaming burst, frost, icy burst, keen, shock, shocking burst, speed, or vorpal. Adding these properties consumes an amount of bonus equal to the property's base price modifier (see the Magic Weapon Special Ability Descriptions). These properties are added to any the weapon already has, but duplicates do not stack. If the weapon is not magical, at least a +1 enhancement bonus must be added before any other properties can be added. These bonuses and properties are decided when the arcane pool point is spent and cannot be changed until the next time the magus uses this ability. These bonuses do not function if the weapon is wielded by anyone other than the magus.</div><br><br>A magus can only enhance one weapon in this way at one time. If he uses this ability again, the first use immediately ends.</div>",
+          index: false
+        }, {
+          name: "Cantrips",
+          note: "A magus can prepare a number of cantrips, or 0-level spells, each day, as noted in the table above under “Spells per Day.” These spells are cast like any other spell, but they are not expended when cast and may be used again.",
+          index: false
+        }, {
+          name: "Spell Combat",
+          note: "(Ex) At 1st level, a magus learns to cast spells and wield his weapons at the same time. This functions much like two-weapon fighting, but the off-hand weapon is a spell that is being cast. To use this ability, the magus must have one hand free (even if the spell being cast does not have somatic components), while wielding a light or one-handed melee weapon in the other hand. As a full-round action, he can make all of his attacks with his melee weapon at a –2 penalty and can also cast any spell from the magus spell list with a casting time of 1 standard action (any attack roll made as part of this spell also takes this penalty). If he casts this spell defensively, he can decide to take an additional penalty on his attack rolls, up to his Intelligence bonus, and add the same amount as a circumstance bonus on his concentration check. If the check fails, the spell is wasted, but the attacks still take the penalty. A magus can choose to cast the spell first or make the weapon attacks first, but if he has more than one attack, he cannot cast the spell between weapon attacks.",
+          index: false
+        }, {
+          name: "Black Blade",
+          note: "(Ex) At 3rd level, the bladebound magus' gains a powerful sentient weapon called a black blade, whose weapon type is chosen by the magus. A magus with this class feature cannot take the familiar magus arcana, and cannot have a familiar of any kind, even from another class.<br><br>Instead of the normal arcane pool amount, the bladebound magus's arcane pool has a number of points equal to 1/3 his level (minimum 1) plus his Intelligence bonus. This ability changes the Arcane Pool class feature and replaces the magus arcana gained at 3rd level.</div>",
+          index: false
+        }, {
+          name: "Black Blade Strike",
+          note: "(Sp) As a free action, the magus can spend a point from the black blade's arcane pool to grant the black blade a +1 bonus on damage rolls for 1 minute. For every four levels beyond 1st, this ability gives the black blade another +1 on damage rolls.",
+          index: false
+        }, {
+          name: "Telepathy",
+          note: "(Su) While a magus is wielding or carrying his black blade, he can communicate telepathically with the blade in a language that the magus and the black blade share.",
+          index: false
+        }, {
+          name: "Unbreakable",
+          note: "(Ex) As long as it has at least 1 point in its arcane pool, a black blade is immune to the broken condition. If broken, the black blade is unconscious and powerless until repaired. If destroyed, the black blade can be reforged 1 week later through a special ritual that costs 200 gp per magus level. The ritual takes 24 hours to complete.",
+          index: false
+        }, {
+          name: "Energy Attunement",
+          note: "(Su) At 5th level, as a free action, a magus can spend a point of his black blade's arcane pool to have it deal one of the following types of damage instead of weapon damage: cold, electricity, or fire. He can spend 2 points from the black blade's arcane pool to deal sonic or force damage instead of weapon damage. This effect lasts until the start of the magus's next turn.",
+          index: false
+        }, {
+          name: "Magus Arcana - Arcane Accuracy",
+          note: "(Su) The magus can expend 1 point from his arcane pool as a swift action to grant himself an insight bonus equal to his Intelligence bonus on all attack rolls until the end of his turn.",
+          index: false
+        }, {
+          name: "Spell Recall",
+          note: "(Su) At 4th level, the magus learns to use his arcane pool to recall spells he has already cast. With a swift action he can recall any single magus spell that he has already prepared and cast that day by expending a number of points from his arcane pool equal to the spell's level (minimum 1). The spell is prepared again, just as if it had not been cast.",
+          index: false
+        }, {
+          name: "Knowledge Pool",
+          note: "(Su) At 7th level, when a magus prepares his magus spells, he can decide to expend 1 or more points from his arcane pool, up to his Intelligence bonus. For each point he expends, he can treat any one spell from the magus spell list as if it were in his spellbook and can prepare that spell as normal that day. If he does not cast spells prepared in this way before the next time he prepares spells, he loses those spells. He can also cast spells added in this way using his spell recall ability, but only until he prepares spells again.",
+          index: false
+        }, {
+          name: "Medium Armor",
+          note: "(Ex) At 7th level, a magus gains proficiency with medium armor. A magus can cast magus spells while wearing medium armor without incurring the normal arcane spell failure chance. Like any other arcane spellcaster, a magus wearing heavy armor or using a shield incurs a chance of arcane spell failure if the spell in question has a somatic component.",
+          index: false
+        }],
+        notes: ""
+      },
+      power: {
+        all: [{
+          name: "Arcane Pool",
+          current: "",
+          total: 8,
+          used: ""
+        }, {
+          name: "Black Blade Arcane Pool",
+          current: "",
+          total: 2,
+          used: ""
+        }]
+      },
+      feats: {
+        all: [{
+          name: "Weapon Finesse",
+          note: "",
+          index: 1448
+        }, {
+          name: "Dervish Dance",
+          note: "",
+          index: 308
+        }, {
+          name: "Alertness",
+          note: "",
+          index: 20
+        }, {
+          name: "Extra Arcane Pool",
+          note: "",
+          index: 454
+        }, {
+          name: "Weapon Focus",
+          note: "Black Blade",
+          index: 1450
+        }, {
+          name: "Intensified Spell",
+          note: "",
+          index: 776
+        }],
+        notes: ""
+      },
+      traits: {
+        all: [{
+          name: "Magical Lineage",
+          note: "Shocking Grasp",
+          index: 624
+        }, {
+          name: "Focused Mind",
+          note: "",
+          index: 402
+        }],
+        notes: ""
+      },
+      languages: {
+        all: [{
+          name: "Common",
+          note: "",
+          index: 5
+        }, {
+          name: "Draconic",
+          note: "",
+          index: 6
+        }, {
+          name: "Dwarven",
+          note: "",
+          index: 8
+        }, {
+          name: "Elven",
+          note: "",
+          index: 9
+        }, {
+          name: "Orc",
+          note: "",
+          index: 17
+        }],
+        notes: ""
+      }
     },
     equipment: {
-      gear: "Fur coat and cold weather outfit, Rapier, Spell component pouch, Spellbook, Backpack, Flask of Oil x3, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Tent for 2, Trained Donkey (commands: come, down, stay heal, work), Alchemist Fire (3), Potion of CLW (3)",
-      magic_gear: "Short Sword +1, Black Blade Scimitar +2",
-      potion_viles_oils: "",
-      scrolls: "",
-      item: {
-        all: [],
-        weight: {
-          current: ""
-        },
-        value: {
-          current: ""
-        }
-      },
-      encumbrance: {
-        encumbrance_str: "",
-        carry_move: {
-          light: "",
-          medium: "",
-          heavy: "",
-          lift: "",
-          drag: ""
-        }
+      possessions: {
+        gear: "Fur coat and cold weather outfit, Rapier, Spell component pouch, Spellbook, Backpack, Flask of Oil x3, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Tent for 2, Trained Donkey (commands: come, down, stay heal, work)",
+        magic_gear: "",
+        potion_viles_oils: "Alchemist Fire (3), Potion of CLW (3)",
+        scrolls: ""
       },
       armor: {
         armor: "Mithral Chain Shirt +1",
@@ -16061,24 +16614,45 @@ var ro = (function() {
         shoulders: "Cloak of Resistance  +1",
         wrist: ""
       },
+      item: {
+        all: [],
+        weight: {
+          current: ""
+        },
+        value: {
+          current: ""
+        }
+      },
+      encumbrance: {
+        str: "",
+        carry_move: {
+          light: "",
+          medium: "",
+          heavy: "",
+          lift: "",
+          drag: ""
+        }
+      },
+      consumable: {
+        all: [{
+          current: "",
+          total: 3,
+          used: "",
+          name: "Alchemist Fire"
+        }, {
+          current: "",
+          total: 3,
+          used: "",
+          name: "Potion of CLW"
+        }]
+      },
       wealth: {
         platinum: "",
         gold: 1570,
         silver: "",
         copper: "",
         total: ""
-      },
-      consumable: [{
-        item: "Alchemist Fire",
-        current: "",
-        total: 3,
-        used: ""
-      }, {
-        item: "Potion of CLW",
-        current: "",
-        total: 3,
-        used: ""
-      }]
+      }
     },
     defense: {
       hp: {
@@ -16086,144 +16660,175 @@ var ro = (function() {
         temp: "",
         damage: "",
         non_lethal_damage: "",
-        current: ""
+        current: "",
+        notes: ""
       },
       ac: {
-        misc: "",
-        temp: "",
-        armor: 5,
-        shield: "",
-        deflect: "",
-        dodge: "",
-        natural: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          plus_ten: true,
-          ac_armor: true,
-          ac_shield: true,
-          ac_deflect: true,
-          ac_dodge: true,
-          ac_natural: true,
-          size: true,
-          max_dex: true
-        }
+        armor_class: {
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            plus_ten: true,
+            armor: true,
+            shield: true,
+            deflect: true,
+            dodge: true,
+            natural: true,
+            size_base: true,
+            max_dex: true
+          }
+        },
+        flat_footed: {
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            plus_ten: true,
+            armor: true,
+            shield: true,
+            deflect: true,
+            natural: true,
+            size_base: true,
+            dodge: false
+          }
+        },
+        touch: {
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            plus_ten: true,
+            deflect: true,
+            dodge: true,
+            size_base: true,
+            max_dex: true,
+            armor: false,
+            shield: false,
+            natural: false
+          }
+        },
+        stats: {
+          armor: 5,
+          shield: "",
+          deflect: "",
+          dodge: "",
+          natural: ""
+        },
+        notes: ""
       },
-      flat_footed: {
+      cmd: {
         misc: "",
         temp: "",
         current: "",
+        notes: "",
         bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          plus_ten: true,
-          ac_armor: true,
-          ac_shield: true,
-          ac_deflect: true,
-          ac_natural: true,
-          size: true
-        }
-      },
-      touch: {
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          plus_ten: true,
-          ac_deflect: true,
-          ac_dodge: true,
-          size: true,
-          max_dex: true
-        }
-      },
-      ac_notes: "",
-      fortitude: {
-        base: "",
-        resistance: 1,
-        feat: "",
-        trait: "",
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: true,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
+          str: true,
+          dex: true,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
+          bab: true,
+          size_special: true,
           level: false,
-          half_level: false
+          half_level: false,
+          plus_ten: true
         }
       },
-      reflex: {
-        base: "",
-        resistance: 1,
-        feat: "",
-        trait: "",
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false
-        }
+      saves: {
+        fortitude: {
+          base: "",
+          resistance: 1,
+          feat: "",
+          trait: "",
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: false,
+            con: true,
+            int: false,
+            wis: false,
+            cha: false,
+            level: false,
+            half_level: false
+          }
+        },
+        reflex: {
+          base: "",
+          resistance: 1,
+          feat: "",
+          trait: "",
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            level: false,
+            half_level: false
+          }
+        },
+        will: {
+          base: "",
+          resistance: 1,
+          feat: "",
+          trait: "",
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
+            level: false,
+            half_level: false
+          }
+        },
+        notes: "Immune to sleep effects, +2 against enchantment spells and effects, +7 against cold weather"
       },
-      will: {
-        base: "",
-        resistance: 1,
-        feat: "",
-        trait: "",
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: true,
-          cha_bonus: false,
-          level: false,
-          half_level: false
-        }
-      },
-      save_notes: "Immune to sleep effects, +2 against enchantment spells and effects, +7 against cold weather",
       dr: {
         feat: "",
         trait: "",
         misc: "",
         temp: "",
-        current: "",
         overcome: "",
+        current: "",
+        notes: "",
         bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
+          str: false,
+          dex: false,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
           level: false,
           half_level: false
         }
@@ -16234,171 +16839,180 @@ var ro = (function() {
         misc: "",
         temp: "",
         current: "",
+        notes: "",
         bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
+          str: false,
+          dex: false,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
           level: false,
           half_level: false
         }
       },
-      resist_notes: ""
+      resistance: {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        notes: "",
+        bonuses: {
+          str: false,
+          dex: false,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
+          level: false,
+          half_level: false
+        }
+      }
     },
     offense: {
-      base_attack: "",
-      base_attack_bonuses: "",
+      stats: {
+        base_attack: {
+          bonus: "",
+          string: ""
+        },
+        melee: {
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: true,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            bab: true,
+            size_base: true,
+            level: false,
+            half_level: false
+          }
+        },
+        ranged: {
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            bab: true,
+            size_base: true,
+            level: false,
+            half_level: false
+          }
+        }
+      },
       cmb: {
         misc: "",
         temp: "",
         current: "",
+        notes: "",
         bonuses: {
-          str_bonus: true,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
+          str: true,
+          dex: false,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
           bab: true,
-          special_size: true,
-          level: false,
-          half_level: false
-        }
-      },
-      cmd: {
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: true,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          bab: true,
-          special_size: true,
-          level: false,
-          half_level: false,
-          plus_ten: true
-        }
-      },
-      melee_attack: {
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: true,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          bab: true,
-          size: true,
-          level: false,
-          half_level: false
-        }
-      },
-      ranged_attack: {
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          bab: true,
-          size: true,
+          size_special: true,
           level: false,
           half_level: false
         }
       },
       attack: {
-        melee: [{
-          weapon: "Shortsword +1",
-          attack: "+11",
-          damage: "1d6+2",
-          critical: "18–20/x2",
-          type: "Piercing"
-        }, {
-          weapon: "Black Blade Scimitar +2",
-          attack: "+13",
-          damage: "1d6+7",
-          critical: "18–20/x2",
-          type: "Slashing"
-        }, {
-          weapon: "Spellstrike",
-          attack: "+13",
-          damage: "1d6+7",
-          critical: "18–20/x2",
-          type: "Slashing"
-        }, {
-          weapon: "Black Blade Scimitar +2/Spell Strike",
-          attack: "+11/+11",
-          damage: "1d6+7/Spell Effect",
-          critical: "18–20/x2, 18–20/x2",
-          type: "Slashing, Slashing"
-        }, {
-          weapon: "Black Blade Scimitar +3 Keen",
-          attack: "+14",
-          damage: "1d6+8",
-          critical: "15-20x2",
-          type: "Slashing"
-        }, {
-          weapon: "Black Blade Scimitar +3 Keen/Spell Strike Keen",
-          attack: "+12/+12",
-          damage: "1d6+8/Spell Effect",
-          critical: "15-20x2,  15-20x2",
-          type: "Slashing"
-        }, {
-          weapon: "Black Blade Scimitar +3 Arcane Accuracy Keen/Spell Strike Arcane Accuracy Keen",
-          attack: "+16/+16",
-          damage: "1d6+8/Spell Effect",
-          critical: "15-20x2,  15-20x2",
-          type: "Slashing"
-        }],
-        ranged: [{
-          weapon: "Shortbow",
-          attack: "+10",
-          damage: "1d6",
-          critical: "x3",
-          range: "60 ft",
-          ammo: "50",
-          type: "Piercing"
-        }]
-      },
-      attack_notes: "1 Arcane pool point = Arcane Accuracy +4 to attack or +2 or +1 and Keen"
+        notes: "1 Arcane pool point = Arcane Accuracy +4 to attack or +2 or +1 and Keen",
+        melee: {
+          all: [{
+            weapon: "Shortsword +1",
+            attack: "+11",
+            damage: "1d6+2",
+            critical: "18–20/x2",
+            type: "Piercing"
+          }, {
+            weapon: "Black Blade Scimitar +2",
+            attack: "+13",
+            damage: "1d6+7",
+            critical: "18–20/x2",
+            type: "Slashing"
+          }, {
+            weapon: "Spellstrike",
+            attack: "+13",
+            damage: "1d6+7",
+            critical: "18–20/x2",
+            type: "Slashing"
+          }, {
+            weapon: "Black Blade Scimitar +2/Spell Strike",
+            attack: "+11/+11",
+            damage: "1d6+7/Spell Effect",
+            critical: "18–20/x2, 18–20/x2",
+            type: "Slashing, Slashing"
+          }, {
+            weapon: "Black Blade Scimitar +3 Keen",
+            attack: "+14",
+            damage: "1d6+8",
+            critical: "15-20x2",
+            type: "Slashing"
+          }, {
+            weapon: "Black Blade Scimitar +3 Keen/Spell Strike Keen",
+            attack: "+12/+12",
+            damage: "1d6+8/Spell Effect",
+            critical: "15-20x2,  15-20x2",
+            type: "Slashing"
+          }, {
+            weapon: "Black Blade Scimitar +3 Arcane Accuracy Keen/Spell Strike Arcane Accuracy Keen",
+            attack: "+16/+16",
+            damage: "1d6+8/Spell Effect",
+            critical: "15-20x2,  15-20x2",
+            type: "Slashing"
+          }]
+        },
+        ranged: {
+          all: [{
+            weapon: "Shortbow",
+            attack: "+10",
+            damage: "1d6",
+            critical: "x3",
+            range: "60 ft",
+            ammo: "50",
+            type: "Piercing"
+          }]
+        }
+      }
     },
     skills: {
       ranks: {
         total: "",
-        spent: {
-          include_custom: false,
-          current: ""
-        }
+        include_custom: false,
+        current: ""
       },
-      custom: [],
-      all: {
+      custom: {
+        all: []
+      },
+      default: {
         acrobatics: {
           ranks: 4,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: false,
             level: false,
             half_level: false,
@@ -16408,18 +17022,18 @@ var ro = (function() {
         appraise: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -16428,18 +17042,18 @@ var ro = (function() {
         bluff: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -16448,18 +17062,18 @@ var ro = (function() {
         climb: {
           ranks: 2,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: true,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: true,
-            str_bonus: true,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -16469,18 +17083,18 @@ var ro = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -16490,18 +17104,18 @@ var ro = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -16510,18 +17124,18 @@ var ro = (function() {
         diplomacy: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -16530,18 +17144,18 @@ var ro = (function() {
         disable_device: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -16550,18 +17164,18 @@ var ro = (function() {
         disguise: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -16570,18 +17184,18 @@ var ro = (function() {
         escape_artist: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -16590,39 +17204,39 @@ var ro = (function() {
         fly: {
           ranks: 7,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: true,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true,
-            size_modifier_fly: true
+            size_fly: true
           }
         },
         handle_animal: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -16631,18 +17245,18 @@ var ro = (function() {
         heal: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -16651,18 +17265,18 @@ var ro = (function() {
         intimidate: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -16671,18 +17285,18 @@ var ro = (function() {
         knowledge_arcana: {
           ranks: 1,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: true,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -16691,18 +17305,18 @@ var ro = (function() {
         knowledge_dungeoneering: {
           ranks: 1,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: true,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -16711,18 +17325,18 @@ var ro = (function() {
         knowledge_engineering: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -16731,18 +17345,18 @@ var ro = (function() {
         knowledge_geography: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -16751,18 +17365,18 @@ var ro = (function() {
         knowledge_history: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -16771,18 +17385,18 @@ var ro = (function() {
         knowledge_local: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -16791,18 +17405,18 @@ var ro = (function() {
         knowledge_nature: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -16811,18 +17425,18 @@ var ro = (function() {
         knowledge_nobility: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -16831,18 +17445,18 @@ var ro = (function() {
         knowledge_planes: {
           ranks: 1,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: true,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -16851,18 +17465,18 @@ var ro = (function() {
         knowledge_religion: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -16871,18 +17485,18 @@ var ro = (function() {
         linguistics: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -16891,18 +17505,18 @@ var ro = (function() {
         perception: {
           ranks: 7,
           misc: 2,
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -16912,18 +17526,18 @@ var ro = (function() {
           variant_name: "Dance",
           ranks: 2,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -16933,18 +17547,18 @@ var ro = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -16954,18 +17568,18 @@ var ro = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -16975,18 +17589,18 @@ var ro = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -16995,18 +17609,18 @@ var ro = (function() {
         ride: {
           ranks: 1,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: true,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -17015,18 +17629,18 @@ var ro = (function() {
         sense_motive: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -17035,18 +17649,18 @@ var ro = (function() {
         sleight_of_hand: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -17055,18 +17669,18 @@ var ro = (function() {
         spellcraft: {
           ranks: 7,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: true,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -17075,39 +17689,39 @@ var ro = (function() {
         stealth: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true,
-            size_modifier_stealth: true
+            size_stealth: true
           }
         },
         survival: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -17116,18 +17730,18 @@ var ro = (function() {
         swim: {
           ranks: 2,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: true,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: true,
-            str_bonus: true,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -17136,624 +17750,663 @@ var ro = (function() {
         use_magic_device: {
           ranks: 7,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: true,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
           }
         }
+      },
+      stats: {
+        notes: ""
       }
     },
     spells: {
-      concentration: {
-        current: "",
-        misc: 2,
-        temp: "",
-        racial: "",
-        feat: "",
-        trait: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: true,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: true,
-          half_level: false
-        }
-      },
-      caster_level_check: {
-        current: "",
-        misc: "",
-        temp: "",
-        racial: "",
-        feat: "",
-        trait: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: true,
-          half_level: false
-        }
-      },
-      school: "",
-      opposition: "",
-      domains: "",
-      bloodline: "",
-      spell_notes: "+2 on caster level checks to overcome spell resistance.",
-      per_day: {
-        level_0: 5,
-        level_1: 4,
-        level_2: 3,
-        level_3: 1,
-        level_4: "",
-        level_5: "",
-        level_6: "",
-        level_7: "",
-        level_8: "",
-        level_9: ""
-      },
-      known: {
-        level_0: "",
-        level_1: "",
-        level_2: "",
-        level_3: "",
-        level_4: "",
-        level_5: "",
-        level_6: "",
-        level_7: "",
-        level_8: "",
-        level_9: ""
-      },
-      bonus: {
-        level_0: "",
-        level_1: 1,
-        level_2: 1,
-        level_3: 1,
-        level_4: "",
-        level_5: "",
-        level_6: "",
-        level_7: "",
-        level_8: "",
-        level_9: ""
-      },
-      dc: {
-        level_0: {
-          spell_level: 0,
+      stats: {
+        concentration: {
           misc: "",
           temp: "",
+          racial: "",
+          feat: "",
+          trait: 2,
+          current: "",
+          bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
+            level: true,
+            half_level: false
+          }
+        },
+        caster_level_check: {
+          misc: "",
+          temp: "",
+          racial: "",
           feat: "",
           trait: "",
           current: "",
           bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: true,
-            plus_ten: true
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            level: true,
+            half_level: false
           }
+        },
+        school: "",
+        opposition: "",
+        domains: "",
+        bloodline: "",
+        notes: "+2 on caster level checks to overcome spell resistance."
+      },
+      book: {
+        level_0: {
+          per_day: 5,
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 0,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: true,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: true,
+              plus_ten: true
+            }
+          },
+          all: [{
+            name: "Acid Splash",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 23
+          }, {
+            name: "Arcane Mark",
+            note: "",
+            prepared: 1,
+            active: false,
+            cast: 0,
+            index: 135
+          }, {
+            name: "Dancing Lights",
+            note: "",
+            prepared: 1,
+            active: false,
+            cast: 0,
+            index: 608
+          }, {
+            name: "Daze",
+            note: "",
+            prepared: 1,
+            active: false,
+            cast: 0,
+            index: 620
+          }, {
+            name: "Detect Magic",
+            note: "",
+            prepared: 1,
+            active: false,
+            cast: 0,
+            index: 691
+          }, {
+            name: "Disrupt Undead",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 748
+          }, {
+            name: "Flare",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 975
+          }, {
+            name: "Ghost Sound",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 1074
+          }, {
+            name: "Light",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 1431
+          }, {
+            name: "Mage Hand",
+            note: "",
+            prepared: 1,
+            active: false,
+            cast: 0,
+            index: 1491
+          }, {
+            name: "Open/Close",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 1696
+          }, {
+            name: "Prestidigitation",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 1835
+          }, {
+            name: "Ray of Frost",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 1916
+          }, {
+            name: "Read Magic",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 1918
+          }, {
+            name: "Spark",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 2267
+          }]
         },
         level_1: {
-          spell_level: 1,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: true,
-            plus_ten: true
-          }
+          per_day: 4,
+          known: "",
+          bonus: 1,
+          dc: {
+            spell_level: 1,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: true,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: true,
+              plus_ten: true
+            }
+          },
+          all: [{
+            name: "Color Spray",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 463
+          }, {
+            name: "Grease",
+            note: "",
+            prepared: 1,
+            active: false,
+            cast: 0,
+            index: 1117
+          }, {
+            name: "Shocking Grasp",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 2200
+          }, {
+            name: "True Strike",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 2627
+          }, {
+            name: "Magic Missile",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 1511
+          }, {
+            name: "Shield",
+            note: "",
+            prepared: 1,
+            active: false,
+            cast: 0,
+            index: 2181
+          }, {
+            name: "Vanish",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 2692
+          }, {
+            name: "Obscuring Mist",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 1688
+          }, {
+            name: "Chill Touch",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 432
+          }, {
+            name: "Frostbite",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 1046
+          }, {
+            name: "Infernal Healing",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 1299
+          }, {
+            name: "Windy Escape",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 2801
+          }, {
+            name: "Unerring Weapon",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 2658
+          }, {
+            name: "Ray Of Enfeeblement",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 1914
+          }, {
+            name: "Burning Hands",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 353
+          }, {
+            name: "Expeditious Retreat",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 892
+          }, {
+            name: "Shocking Grasp Intensified",
+            note: "",
+            prepared: 3,
+            active: false,
+            cast: 0,
+            index: 2200
+          }]
         },
         level_2: {
-          spell_level: 2,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: true,
-            plus_ten: true
-          }
+          per_day: 3,
+          known: "",
+          bonus: 1,
+          dc: {
+            spell_level: 2,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: true,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: true,
+              plus_ten: true
+            }
+          },
+          all: [{
+            name: "Mirror Image",
+            note: "",
+            prepared: 2,
+            active: false,
+            cast: 0,
+            index: 1606
+          }, {
+            name: "Frigid Touch",
+            note: "",
+            prepared: 2,
+            active: false,
+            cast: 0,
+            index: 1043
+          }, {
+            name: "Glitterdust",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 1092
+          }, {
+            name: "Web",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 2781
+          }, {
+            name: "Scorching Ray",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 2072
+          }, {
+            name: "Pyrotechnics",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 1892
+          }]
         },
         level_3: {
-          spell_level: 3,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: true,
-            plus_ten: true
-          }
+          per_day: 1,
+          known: "",
+          bonus: 1,
+          dc: {
+            spell_level: 3,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: true,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: true,
+              plus_ten: true
+            }
+          },
+          all: [{
+            name: "Fly",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 996
+          }, {
+            name: "Haste",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 1150
+          }, {
+            name: "Force Hook Charge",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 1010
+          }, {
+            name: "Ray of Exhaustion",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 1915
+          }, {
+            name: "Vampiric Touch",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 2691
+          }, {
+            name: "Stinking Cloud",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 2344
+          }, {
+            name: "Slow",
+            note: "",
+            prepared: 0,
+            active: false,
+            cast: 0,
+            index: 2239
+          }]
         },
         level_4: {
-          spell_level: 4,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 4,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_5: {
-          spell_level: 5,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 5,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_6: {
-          spell_level: 6,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 6,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_7: {
-          spell_level: 7,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 7,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_8: {
-          spell_level: 8,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 8,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_9: {
-          spell_level: 9,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 9,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         }
-      },
-      book: [{
-        level_0: [{
-          name: "Acid Splash",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Arcane Mark",
-          prepared: 1,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Dancing Lights",
-          prepared: 1,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Daze",
-          prepared: 1,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Detect Magic",
-          prepared: 1,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Disrupt Undead",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Flare",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Ghost Sound",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Light",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Mage Hand",
-          prepared: 1,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Open Close",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Prestidigitation",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Ray of Frost",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Read Magic",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Spark",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }]
-      }, {
-        level_1: [{
-          name: "Color Spray",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Grease",
-          prepared: 1,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Shocking Grasp",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "True Strike",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Magic Missile",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Shield",
-          prepared: 1,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Vanish",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Obscuring Mist",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Chill Touch",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Frostbite",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Infernal Healing",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Windy Escape",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Unerring Weapon",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Ray of Enfeeblement",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Burning Hands",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Expeditious Retreat",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Shocking Grasp Intensified",
-          prepared: 3,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Reduce Person",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }]
-      }, {
-        level_2: [{
-          name: "Mirror Image",
-          prepared: 2,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Frigid Touch",
-          prepared: 2,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Glitter Dust",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Web",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Scorching Ray",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Pyrotechnics",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Web",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }]
-      }, {
-        level_3: [{
-          name: "Fly",
-          prepared: 1,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Haste",
-          prepared: 1,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Force Hook Charge",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Ray of Exhaustion",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Vampiric Touch",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Stinking Cloud",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }, {
-          name: "Slow",
-          prepared: 0,
-          active: false,
-          cast: 0,
-          note: ""
-        }]
-      }, {
-        level_4: []
-      }, {
-        level_5: []
-      }, {
-        level_6: []
-      }, {
-        level_7: []
-      }, {
-        level_8: []
-      }, {
-        level_9: []
-      }]
+      }
     },
     notes: {
-      character: [{
-        note: "<strong>+2 Dexterity, +2 Intelligence, –2 Constitution</strong> Elves are nimble, both in body and mind, but their form is frail.<br><strong>Medium</strong> Elves are Medium creatures and have no bonuses or penalties due to their size.<br><strong>Normal Speed</strong> Elves have a base speed of 30 feet.<br><strong>Low-Light Vision</strong> Elves can see twice as far as humans in conditions of dim light. See Additional Rules.<br><strong>Elven Immunities</strong> Elves are immune to magic sleep effects and get a +2 racial saving throw bonus against enchantment spells and effects.<br><strong>Elven Magic</strong> Elves receive a +2 racial bonus on caster level checks made to overcome spell resistance. In addition, elves receive a +2 racial bonus on Spellcraft skill checks made to identify the properties of magic items.<br><strong>Keen Senses</strong> Elves receive a +2 racial bonus on Perception skill checks.<br><strong>Weapon Familiarity</strong> Elves are proficient with longbows (including composite longbows), longswords, rapiers, and shortbows (including composite shortbows), and treat any weapon with the word \"elven\" in its name as a martial weapon.<br><strong>Languages</strong> Elves begin play speaking Common and Elven. Elves with high Intelligence scores can choose from the following: Celestial, Draconic, Gnoll, Gnome, Goblin, Orc, and Sylvan."
-      }, {
-        note: "<strong>Weapon Finesse</strong> With a light weapon, rapier, whip, or spiked chain made for a creature of your size category, you may use your Dexterity modifier instead of your Strength modifier on attack rolls. If you carry a shield, its armor check penalty applies to your attack rolls.<br><strong>Dervish Dance</strong> When wielding a scimitar with one hand, you can use your Dexterity modifier instead of your Strength modifier on melee attack and damage rolls. You treat the scimitar as a one-handed piercing weapon for all feats and class abilities that require such a weapon (such as a duelist’s precise strike ability). The scimitar must be for a creature of your size. You cannot use this feat if you are carrying a weapon or shield in your off hand.<br><strong>Extra Arcane Pool</strong> Your arcane pool increases by 2.<br><strong>Weapon Focus (Black Blade)</strong> You gain a +1 bonus on all attack rolls you make using the selected weapon.<br><strong>Intensified Spell</strong> An intensified spell increases the maximum number of damage dice by 5 levels. You must actually have sufficient caster levels to surpass the maximum in order to benefit from this feat. No other variables of the spell are affected, and spells that inflict damage that is not modified by caster level are not affected by this feat. An intensified spell uses up a spell slot one level higher than the spell's actual level.<br><strong>Magical Lineage (Shocking Grasp)</strong> One of your parents was a gifted spellcaster who not only used metamagic often, but also developed many magical items and perhaps even a new spell or two—and you have inherited a fragment of this greatness. Pick one spell when you choose this trait. When you apply metamagic feats to this spell, treat its actual level as 1 lower for determining the spell's final adjusted level.<br><strong>Focused Mind</strong> Your childhood was either dominated by lessons of some sort (whether musical, academic, or other) or by a horrible home life that encouraged your ability to block out distractions and focus on the immediate task at hand. You gain a +2 trait bonus on concentration checks."
-      }, {
-        note: "<strong>Arcane Pool (Su)</strong> At 1st level, the magus gains a reservoir of mystical arcane energy that he can draw upon to fuel his powers and enhance his weapon. This arcane pool has a number of points equal to 1/2 his magus level (minimum 1) + his Intelligence modifier. The pool refreshes once per day when the magus prepares his spells.<br>At 1st level, a magus can expend 1 point from his arcane pool as a swift action to grant any weapon he is holding a +1 enhancement bonus for 1 minute. For every four levels beyond 1st, the weapon gains another +1 enhancement bonus, to a maximum of +5 at 17th level. These bonuses can be added to the weapon, stacking with existing weapon enhancement to a maximum of +5. Multiple uses of this ability do not stack with themselves.<br>At 5th level, these bonuses can be used to add any of the following weapon properties: dancing, flaming, flaming burst, frost, icy burst, keen, shock, shocking burst, speed, or vorpal. Adding these properties consumes an amount of bonus equal to the property's base price modifier (see the Magic Weapon Special Ability Descriptions). These properties are added to any the weapon already has, but duplicates do not stack. If the weapon is not magical, at least a +1 enhancement bonus must be added before any other properties can be added. These bonuses and properties are decided when the arcane pool point is spent and cannot be changed until the next time the magus uses this ability. These bonuses do not function if the weapon is wielded by anyone other than the magus.<br>A magus can only enhance one weapon in this way at one time. If he uses this ability again, the first use immediately ends.<br><strong>Cantrips</strong> A magus can prepare a number of cantrips, or 0-level spells, each day, as noted in the table above under “Spells per Day.” These spells are cast like any other spell, but they are not expended when cast and may be used again.<br><strong>Spell Combat (Ex)</strong> At 1st level, a magus learns to cast spells and wield his weapons at the same time. This functions much like two-weapon fighting, but the off-hand weapon is a spell that is being cast. To use this ability, the magus must have one hand free (even if the spell being cast does not have somatic components), while wielding a light or one-handed melee weapon in the other hand. As a full-round action, he can make all of his attacks with his melee weapon at a –2 penalty and can also cast any spell from the magus spell list with a casting time of 1 standard action (any attack roll made as part of this spell also takes this penalty). If he casts this spell defensively, he can decide to take an additional penalty on his attack rolls, up to his Intelligence bonus, and add the same amount as a circumstance bonus on his concentration check. If the check fails, the spell is wasted, but the attacks still take the penalty. A magus can choose to cast the spell first or make the weapon attacks first, but if he has more than one attack, he cannot cast the spell between weapon attacks.<br><strong>Spellstrike (Su)</strong> At 2nd level, whenever a magus casts a spell with a range of “touch” from the magus spell list, he can deliver the spell through any weapon he is wielding as part of a melee attack. Instead of the free melee touch attack normally allowed to deliver the spell, a magus can make one free melee attack with his weapon (at his highest base attack bonus) as part of casting this spell. If successful, this melee attack deals its normal damage as well as the effects of the spell. If the magus makes this attack in concert with spell combat, this melee attack takes all the penalties accrued by spell combat melee attacks. This attack uses the weapon's critical range (20, 19–20, or 18–20 and modified by the keen weapon property or similar effects), but the spell effect only deals ×2 damage on a successful critical hit, while the weapon damage uses its own critical modifier.<br><strong>Magus Arcana Arcane Accuracy (Su)</strong> The magus can expend 1 point from his arcane pool as a swift action to grant himself an insight bonus equal to his Intelligence bonus on all attack rolls until the end of his turn.<br><strong>Knowledge Pool (Su)</strong>At 7th level, when a magus prepares his magus spells, he can decide to expend 1 or more points from his arcane pool, up to his Intelligence bonus. For each point he expends, he can treat any one spell from the magus spell list as if it were in his spellbook and can prepare that spell as normal that day. If he does not cast spells prepared in this way before the next time he prepares spells, he loses those spells. He can also cast spells added in this way using his spell recall ability, but only until he prepares spells again.<br><strong>Medium Armor (Ex)</strong> At 7th level, a magus gains proficiency with medium armor. A magus can cast magus spells while wearing medium armor without incurring the normal arcane spell failure chance. Like any other arcane spellcaster, a magus wearing heavy armor or using a shield incurs a chance of arcane spell failure if the spell in question has a somatic component."
-      }, {
-        note: "<strong>Black Blade (Ex)</strong> At 3rd level, the bladebound magus' gains a powerful sentient weapon called a black blade, whose weapon type is chosen by the magus. A magus with this class feature cannot take the familiar magus arcana, and cannot have a familiar of any kind, even from another class.<br>Instead of the normal arcane pool amount, the bladebound magus's arcane pool has a number of points equal to 1/3 his level (minimum 1) plus his Intelligence bonus. This ability changes the Arcane Pool class feature and replaces the magus arcana gained at 3rd level.<br><strong>Black Blade Ability Descriptions</strong> Enhancement Bonus +2, Int 12, Wis 8, Cha 8 Ego 8. Cause: To protect the Evles.<br><strong>Alertness (Ex)</strong> While a magus is wielding his black blade, he gains the Alertness feat.<br><strong>Black Blade Strike (Sp)</strong> As a free action, the magus can spend a point from the black blade's arcane pool to grant the black blade a +1 bonus on damage rolls for 1 minute. For every four levels beyond 1st, this ability gives the black blade another +1 on damage rolls.<br><strong>Telepathy (Su)</strong> While a magus is wielding or carrying his black blade, he can communicate telepathically with the blade in a language that the magus and the black blade share.<br><strong>Unbreakable (Ex)</strong> As long as it has at least 1 point in its arcane pool, a black blade is immune to the broken condition. If broken, the black blade is unconscious and powerless until repaired. If destroyed, the black blade can be reforged 1 week later through a special ritual that costs 200 gp per magus level. The ritual takes 24 hours to complete.<br><strong>Energy Attunement (Su)</strong> At 5th level, as a free action, a magus can spend a point of his black blade's arcane pool to have it deal one of the following types of damage instead of weapon damage: cold, electricity, or fire. He can spend 2 points from the black blade's arcane pool to deal sonic or force damage instead of weapon damage. This effect lasts until the start of the magus's next turn."
-      }, {
-        note: "Headband of Vast Intelligence +2 skill: Use Magic Device."
-      }],
-      story: []
+      character: {
+        all: [{
+          note: "Headband of Vast Intelligence +2 skill: Use Magic Device."
+        }]
+      },
+      story: {
+        all: []
+      }
     },
-    events: []
+    events: {
+      all: []
+    }
   };
 
   // exposed methods
@@ -17766,34 +18419,82 @@ var ro = (function() {
 var vos = (function() {
 
   var data = {
-    awesomeSheet: true,
+    awesomeSheet: {
+      awesome: true,
+      version: 5.5
+    },
     basics: {
-      name: "Vos Thunderstomp",
-      race: "Dwarf",
-      level: "",
-      classes: [{
-        classname: "Monk",
-        level: 8,
-        hp: 46,
-        fortitude: 6,
-        reflex: 6,
-        will: 6,
-        ranks: 32,
-        bab: 6
-      }],
-      size: {
-        category: "Medium",
-        size_modifier: 0,
-        special_size_modifier: 0,
-        size_modifier_fly: 0,
-        size_modifier_stealth: 0
+      character: {
+        name: "Vos Thunderstomp",
+        race: "Dwarf",
+        alignment: "Chaotic Neutral",
+        deity: "",
+        height: "5'0",
+        weight: "190 lbs",
+        age: "40",
+        gender: "Male",
+        hero_points: "",
+        description: "",
+        size: {
+          category: "Medium",
+          modifier: {
+            base: "",
+            special: "",
+            fly: "",
+            stealth: ""
+          }
+        }
       },
-      alignment: "Chaotic Neutral",
-      deity: "",
-      height: "5'0",
-      weight: "190 lbs",
-      age: "40",
-      gender: "Male",
+      classes: {
+        all: [{
+          level: 8,
+          hp: {
+            base: 38,
+            favoured: 8,
+            current: ""
+          },
+          ranks: {
+            base: 32,
+            favoured: "",
+            current: ""
+          },
+          bab: 6,
+          name: "Monk",
+          saves: {
+            fortitude: 6,
+            reflex: 6,
+            will: 6
+          }
+        }],
+        string: "Monk 8"
+      },
+      experience: {
+        level: {
+          current: "",
+          class_total: ""
+        },
+        next_level: "",
+        needed: "",
+        total: 51000,
+        advancement: "Medium"
+      },
+      initiative: {
+        misc: "",
+        temp: "",
+        feat: "",
+        trait: "",
+        current: "",
+        bonuses: {
+          str: false,
+          dex: true,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
+          level: false,
+          half_level: false
+        }
+      },
       speed: {
         land: "50ft",
         fly: "",
@@ -17802,32 +18503,7 @@ var vos = (function() {
         climb: "",
         burrow: ""
       },
-      hero_points: "",
-      character_description: "",
-      initiative: {
-        misc: "",
-        temp: "",
-        feat: "",
-        trait: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false
-        }
-      },
-      xp: {
-        total: 51000,
-        advancement_speed: "Medium",
-        next_level: "",
-        needed: ""
-      },
-      character_image: {
+      image: {
         uploaded: false,
         background: "",
         color: {
@@ -17835,6 +18511,7 @@ var vos = (function() {
           g: "",
           b: ""
         },
+        data: "",
         orientation: "",
         position: {
           x: "",
@@ -17844,88 +18521,272 @@ var vos = (function() {
           width: "",
           height: ""
         },
-        scale: "",
-        image: ""
+        scale: ""
+      },
+      senses: {
+        racial: "",
+        magical: ""
       }
     },
     statistics: {
       stats: {
         str: {
-          modifier: 4,
+          modifier: "",
           base: 17,
-          current: 19,
-          racial: "",
           enhancement: 2,
           misc: "",
-          temp: ""
+          racial: "",
+          temp: "",
+          current: ""
         },
         dex: {
-          modifier: 2,
+          modifier: "",
           base: 14,
-          current: 14,
-          racial: "",
           enhancement: "",
           misc: "",
-          temp: ""
+          racial: "",
+          temp: "",
+          current: ""
         },
         con: {
-          modifier: 1,
+          modifier: "",
           base: 10,
-          current: 12,
-          racial: 2,
           enhancement: "",
           misc: "",
-          temp: ""
+          racial: 2,
+          temp: "",
+          current: ""
         },
         int: {
-          modifier: 0,
+          modifier: "",
           base: 10,
-          current: 10,
-          racial: "",
           enhancement: "",
           misc: "",
-          temp: ""
+          racial: "",
+          temp: "",
+          current: ""
         },
         wis: {
-          modifier: 4,
+          modifier: "",
           base: 14,
-          current: 18,
-          racial: 2,
           enhancement: 2,
           misc: "",
-          temp: ""
+          racial: 2,
+          temp: "",
+          current: ""
         },
         cha: {
-          modifier: -2,
+          modifier: "",
           base: 9,
-          current: 7,
-          racial: -2,
           enhancement: "",
           misc: "",
-          temp: ""
+          racial: -2,
+          temp: "",
+          current: ""
         }
       },
-      feats: "Weapon Focus (Unarmed Strike), Improved Grapple, Dodge, Extra Ki, Improved Disarm, Extra Ki, Combat Reflexes, Great Fortitude",
-      traits: "",
-      languages: "Common, Dwarven",
-      special_abilities: "Darkvision, Defensive Training, Greed, Hatred, Hardy, Stability, Stonecunning, Weapon Familiarity, Evasion, Flurry of Blows (Ex), Stunning Fist (Ex), Unarmed Strike, AC Bonus (Ex), Evasion (Ex), Fast Movement (Ex), Maneuver Training (Ex), Still Mind (Ex), Ki Pool (magic/cold iron/silver) (Su), Slow Fall 40ft (Ex), High Jump (Ex), Purity of Body (Ex), Wholeness of Body (Su)",
-      power: [{
-        name: "Ki Pool",
-        current: "",
-        total: 11,
-        used: 2
-      }, {
-        name: "Stunning Fist",
-        current: "",
-        total: 10,
-        used: 1
-      }]
+      abilities: {
+        all: [{
+          name: "AC Bonus +2",
+          note: "(Ex) When unarmored and unencumbered, the monk adds his Wisdom bonus (if any) to his AC and his CMD. In addition, a monk gains a +1 bonus to AC and CMD at 4th level. This bonus increases by 1 for every four monk levels thereafter, up to a maximum of +5 at 20th level.",
+          index: false
+        }, {
+          name: "Bonus Feats 3",
+          note: "At 1st level, 2nd level, and every 4 levels thereafter, a monk may select a bonus feat. These feats must be taken from the following list: Catch Off-Guard, Combat Reflexes, Deflect Arrows, Dodge, Improved Grapple, Scorpion Style, and Throw Anything. At 6th level, the following feats are added to the list: Gorgon's Fist, Improved Bull Rush, Improved Disarm, Improved Feint, Improved Trip, and Mobility. At 10th level, the following feats are added to the list: Improved Critical, Medusa's Wrath, Snatch Arrows, and Spring Attack. A monk need not have any of the prerequisites normally required for these feats to select them.",
+          index: false
+        }, {
+          name: "Darkvision",
+          note: "Dwarves can see in the dark up to 60 feet.",
+          index: false
+        }, {
+          name: "Defensive Training",
+          note: "Dwarves get a +4 dodge bonus to AC against monsters of the giant subtype.",
+          index: false
+        }, {
+          name: "Evasion",
+          note: "(Ex) At 2nd level or higher, a monk can avoid damage from many area-effect attacks. If a monk makes a successful Reflex saving throw against an attack that normally deals half damage on a successful save, he instead takes no damage. Evasion can be used only if a monk is wearing light armor or no armor. A helpless monk does not gain the benefit of evasion.",
+          index: false
+        }, {
+          name: "Fast Movement",
+          note: "(Ex) At 3rd level, a monk gains an enhancement bonus to his land speed, as shown on Table: Monk. A monk in armor or carrying a medium or heavy load loses this extra speed.",
+          index: false
+        }, {
+          name: "Flurry of Blows",
+          note: "(Ex) Starting at 1st level, a monk can make a flurry of blows as a full-attack action. When doing so, he may make on additional attack, taking a -2 penalty on all of his attack rolls, as if using the Two-Weapon Fighting feat. These attacks can be any combination of unarmed strikes and attacks with a monk special weapon (he does not need to use two weapons to use this ability). For the purpose of these attacks, the monk's base attack bonus from his monk class levels is equal to his monk level. For all other purposes, such as qualifying for a feat or a prestige class, the monk uses his normal base attack bonus.<br><br>At 8th level, the monk can make two additional attacks when he uses flurry of blows, as if using Improved Two-Weapon Fighting (even if the monk does not meet the prerequisites for the feat).<br><br>At 15th level, the monk can make three additional attacks using flurry of blows, as if using Greater Two-Weapon Fighting (even if the monk does not meet the prerequisites for the feat).<br><br>A monk applies his full Strength bonus to his damage rolls for all successful attacks made with flurry of blows, whether the attacks are made with an off-hand or with a weapon wielded in both hands. A monk may substitute disarm, sunder, and trip combat maneuvers for unarmed attacks as part of a flurry of blows. A monk cannot use any weapon other than an unarmed strike or a special monk weapon as part of a flurry of blows. A monk with natural weapons cannot use such weapons as part of a flurry of blows, nor can he make natural attacks in addition to his flurry of blows attacks.",
+          index: false
+        }, {
+          name: "Greed",
+          note: "Dwarves receive a +2 racial bonus on Appraise skill checks made to determine the price of nonmagical goods that contain precious metals or gemstones.",
+          index: false
+        }, {
+          name: "Hardy",
+          note: "Dwarves receive a +2 racial bonus on saving throws against poison, spells, and spell-like abilities.",
+          index: false
+        }, {
+          name: "Hatred",
+          note: "Dwarves receive a +1 bonus on attack rolls against humanoid creatures of the orc and goblinoid subtypes due to special training against these hated foes.",
+          index: false
+        }, {
+          name: "High Jump",
+          note: "(Ex) At 5th level, a monk adds his level to all Acrobatics checks made to jump, both for vertical jumps and horizontal jumps. In addition, he always counts as having a running start when making jump checks using Acrobatics. By spending 1 point from his ki pool as a swift action, a monk gains a +20 bonus on Acrobatics checks made to jump for 1 round.",
+          index: false
+        }, {
+          name: "Ki Pool",
+          note: "(Su) At 4th level, a monk gains a pool of ki points, supernatural energy he can use to accomplish amazing feats. The number of points in a monk's ki pool is equal to 1/2 his monk level + his Wisdom modifier. As long as he has at least 1 point in his ki pool, he can make a ki strike. At 4th level, ki strike allows his unarmed attacks to be treated as magic weapons for the purpose of overcoming damage reduction. At 7th level, his unarmed attacks are also treated as cold iron and silver for the purpose of overcoming damage reduction. At 10th level, his unarmed attacks are also treated as lawful weapons for the purpose of overcoming damage reduction. At 16th level, his unarmed attacks are treated as adamantine weapons for the purpose of overcoming damage reduction and bypassing hardness.<br><br>By spending 1 point from his ki pool, a monk can make one additional attack at his highest attack bonus when making a flurry of blows attack. In addition, he can spend 1 point to increase his speed by 20 feet for 1 round. Finally, a monk can spend 1 point from his ki pool to give himself a +4 dodge bonus to AC for 1 round. Each of these powers is activated as a swift action. A monk gains additional powers that consume points from his ki pool as he gains levels.<br><br>The ki pool is replenished each morning after 8 hours of rest or meditation; these hours do not need to be consecutive.",
+          index: false
+        }, {
+          name: "Languages",
+          note: "Dwarves begin play speaking Common and Dwarven. Dwarves with high Intelligence scores can choose from the following: Giant, Gnome, Goblin, Orc, Terran, and Undercommon.",
+          index: false
+        }, {
+          name: "Maneuver Training",
+          note: "(Ex) At 3rd level, a monk uses his monk level in place of his base attack bonus when calculating his Combat Maneuver Bonus. Base attack bonuses granted from other classes are unaffected and are added normally.",
+          index: false
+        }, {
+          name: "Medium",
+          note: "Dwarves are Medium creatures and have no bonuses or penalties due to their size.",
+          index: false
+        }, {
+          name: "Purity of Body",
+          note: "(Ex) At 5th level, a monk gains immunity to all diseases, including supernatural and magical diseases.",
+          index: false
+        }, {
+          name: "Slow and Steady",
+          note: "Dwarves have a base speed of 20 feet, but their speed is never modified by armor or encumbrance.",
+          index: false
+        }, {
+          name: "Slow Fall (40ft)",
+          note: "(Ex) At 4th level or higher, a monk within arm's reach of a wall can use it to slow his descent. When first gaining this ability, he takes damage as if the fall were 20 feet shorter than it actually is. The monk's ability to slow his fall (that is, to reduce the effective distance of the fall when next to a wall) improves with his monk level until at 20th level he can use a nearby wall to slow his descent and fall any distance without harm.",
+          index: false
+        }, {
+          name: "Stability",
+          note: "Dwarves receive a +4 racial bonus to their Combat Maneuver Defense when resisting a bull rush or trip attempt while standing on the ground.",
+          index: false
+        }, {
+          name: "Still Mind",
+          note: "(Ex) A monk of 3rd level or higher gains a +2 bonus on saving throws against enchantment spells and effects.",
+          index: false
+        }, {
+          name: "Stonecunning",
+          note: "Dwarves receive a +2 bonus on Perception checks to potentially notice unusual stonework, such as traps and hidden doors located in stone walls or floors. They receive a check to notice such features whenever they pass within 10 feet of them, whether or not they are actively looking.",
+          index: false
+        }, {
+          name: "Stunning Fist",
+          note: "(Ex) At 1st level, the monk gains Stunning Fist as a bonus feat, even if he does not meet the prerequisites. At 4th level, and every 4 levels thereafter, the monk gains the ability to apply a new condition to the target of his Stunning Fist. This condition replaces stunning the target for 1 round, and a successful saving throw still negates the effect. At 4th level, he can choose to make the target fatigued. At 8th level, he can make the target sickened for 1 minute. At 12th level, he can make the target staggered for 1d6+1 rounds. At 16th level, he can permanently blind or deafen the target. At 20th level, he can paralyze the target for 1d6+1 rounds. The monk must choose which condition will apply before the attack roll is made. These effects do not stack with themselves (a creature sickened by Stunning Fist cannot become nauseated if hit by Stunning Fist again), but additional hits do increase the duration.",
+          index: false
+        }, {
+          name: "Unarmed Damage 1d10",
+          note: "",
+          index: false
+        }, {
+          name: "Unarmed Strike",
+          note: "At 1st level, a monk gains Improved Unarmed Strike as a bonus feat. A monk's attacks may be with fist, elbows, knees, and feet. This means that a monk may make unarmed strikes with his hands full. There is no such thing as an off-hand attack for a monk striking unarmed. A monk may thus apply his full Strength bonus on damage rolls for all his unarmed strikes.<br><br>Usually a monk's unarmed strikes deal lethal damage, but he can choose to deal nonlethal damage instead with no penalty on his attack roll. He has the same choice to deal lethal or nonlethal damage while grappling.<br><br>A monk's unarmed strike is treated as both a manufactured weapon and a natural weapon for the purpose of spells and effects that enhance or improve either manufactured weapons or natural weapons.<br><br>A monk also deals more damage with his unarmed strikes than a normal person would, as shown above on Table: Monk. The unarmed damage values listed on Table: Monk is for Medium monks. A Small monk deals less damage than the amount given there with his unarmed attacks, while a Large monk deals more damage.",
+          index: false
+        }, {
+          name: "Weapon Familiarity",
+          note: "Dwarves are proficient with battleaxes, heavy picks, and warhammers, and treat any weapon with the word \"dwarven\" in its name as a martial weapon.",
+          index: false
+        }, {
+          name: "Wholeness of Body",
+          note: "(Su) At 7th level or higher, a monk can heal his own wounds as a standard action. He can heal a number of hit points of damage equal to his monk level by using 2 points from his ki pool.",
+          index: false
+        }],
+        notes: ""
+      },
+      power: {
+        all: [{
+          name: "Ki Pool",
+          current: "",
+          total: 11,
+          used: 2
+        }, {
+          name: "Stunning Fist",
+          current: "",
+          total: 10,
+          used: 1
+        }]
+      },
+      feats: {
+        all: [{
+          name: "Combat Reflexes",
+          note: "",
+          index: 203
+        }, {
+          name: "Dodge",
+          note: "",
+          index: 361
+        }, {
+          name: "Extra Ki",
+          note: "",
+          index: 466
+        }, {
+          name: "Extra Ki",
+          note: "",
+          index: 466
+        }, {
+          name: "Great Fortitude",
+          note: "",
+          index: 596
+        }, {
+          name: "Improved Disarm",
+          note: "",
+          index: 702
+        }, {
+          name: "Improved Grapple",
+          note: "",
+          index: 716
+        }, {
+          name: "Weapon Focus",
+          note: "Unarmed Strike",
+          index: 1450
+        }],
+        notes: ""
+      },
+      traits: {
+        all: [],
+        notes: ""
+      },
+      languages: {
+        all: [{
+          name: "Common",
+          note: "",
+          index: 5
+        }, {
+          name: "Dwarven",
+          note: "",
+          index: 8
+        }],
+        notes: ""
+      }
     },
     equipment: {
-      gear: "Backpack, Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Rubbing Poweder, Fine Cheese (1), Smelly Cheese (3), Wine (2), Wrestling Costume (2), Dagger, Lavendar soap, Soap bar",
-      magic_gear: "Good Berries (5), Bracers of Armor +1, Ioun Stones Dusty Rose",
-      potion_viles_oils: "Rubbing Oils (5)",
-      scrolls: "",
+      possessions: {
+        gear: "Backpack, Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Rubbing Poweder, Fine Cheese (1), Smelly Cheese (3), Wine (2), Wrestling Costume (2), Dagger, Lavendar soap, Soap bar",
+        magic_gear: "Good Berries (5), Bracers of Armor +1, Ioun Stones Dusty Rose",
+        potion_viles_oils: "Rubbing Oils (5)",
+        scrolls: ""
+      },
+      armor: {
+        armor: "",
+        check_penalty: "",
+        max_dex: "",
+        shield: ""
+      },
+      body_slots: {
+        belts: "Belt of Giant Strength +2",
+        body: "",
+        chest: "",
+        eyes: "",
+        feet: "",
+        hands: "",
+        head: "Headband of Inspired Wisdom +2",
+        headband: "",
+        neck: "Amulet of Mighty Fists +1 (Shock)",
+        ring_left_hand: "",
+        ring_right_hand: "Ring of Protection +1",
+        shoulders: "Cloak of Resistance +2",
+        wrist: "Bracers of Armor +2"
+      },
       item: {
         all: [{
           name: "Flask Of Oil",
@@ -17964,7 +18825,7 @@ var vos = (function() {
         }
       },
       encumbrance: {
-        encumbrance_str: "",
+        str: "",
         carry_move: {
           light: "",
           medium: "",
@@ -17973,26 +18834,13 @@ var vos = (function() {
           drag: ""
         }
       },
-      armor: {
-        armor: "",
-        check_penalty: "",
-        max_dex: "",
-        shield: ""
-      },
-      body_slots: {
-        belts: "Belt of Giant Strength +2",
-        body: "",
-        chest: "",
-        eyes: "",
-        feet: "",
-        hands: "",
-        head: "Headband of Inspired Wisdom +2",
-        headband: "",
-        neck: "Amulet of Mighty Fists +1 (Shock)",
-        ring_left_hand: "",
-        ring_right_hand: "Ring of Protection +1",
-        shoulders: "Cloak of Resistance +2",
-        wrist: "Bracers of Armor +2"
+      consumable: {
+        all: [{
+          quantity: 3,
+          weight: "",
+          name: "Alchemist Fire",
+          current: ""
+        }]
       },
       wealth: {
         platinum: "",
@@ -18000,12 +18848,7 @@ var vos = (function() {
         silver: "",
         copper: "",
         total: ""
-      },
-      consumable: [{
-        item: "Alchemist Fire",
-        quantity: 3,
-        weight: ""
-      }]
+      }
     },
     defense: {
       hp: {
@@ -18013,148 +18856,175 @@ var vos = (function() {
         temp: "",
         damage: "",
         non_lethal_damage: "",
-        current: ""
+        current: "",
+        notes: ""
       },
       ac: {
-        misc: 3,
-        temp: "",
-        armor: 2,
-        shield: "",
-        deflect: 1,
-        dodge: 1,
-        natural: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: true,
-          cha_bonus: false,
-          plus_ten: true,
-          ac_armor: true,
-          ac_shield: true,
-          ac_deflect: true,
-          ac_dodge: true,
-          ac_natural: true,
-          size: true,
-          max_dex: true
-        }
+        armor_class: {
+          misc: 3,
+          temp: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
+            plus_ten: true,
+            armor: true,
+            shield: true,
+            deflect: true,
+            dodge: true,
+            natural: true,
+            size_base: true,
+            max_dex: true
+          }
+        },
+        flat_footed: {
+          misc: 3,
+          temp: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
+            plus_ten: true,
+            armor: true,
+            shield: true,
+            deflect: true,
+            natural: true,
+            size_base: true,
+            dodge: false
+          }
+        },
+        touch: {
+          misc: 3,
+          temp: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
+            plus_ten: true,
+            deflect: true,
+            dodge: true,
+            size_base: true,
+            max_dex: true,
+            armor: false,
+            shield: false,
+            natural: false
+          }
+        },
+        stats: {
+          armor: 2,
+          shield: "",
+          deflect: 1,
+          dodge: 1,
+          natural: ""
+        },
+        notes: ""
       },
-      flat_footed: {
-        misc: 3,
+      cmd: {
+        misc: 1,
         temp: "",
         current: "",
+        notes: "",
         bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: true,
-          cha_bonus: false,
-          plus_ten: true,
-          ac_armor: true,
-          ac_shield: true,
-          ac_deflect: true,
-          ac_natural: true,
-          size: true,
-          ac_dodge: false
-        }
-      },
-      touch: {
-        misc: 3,
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: true,
-          cha_bonus: false,
-          plus_ten: true,
-          ac_deflect: true,
-          ac_dodge: true,
-          size: true,
-          max_dex: true,
-          ac_armor: false,
-          ac_shield: false,
-          ac_natural: false
-        }
-      },
-      ac_notes: "",
-      fortitude: {
-        base: "",
-        resistance: 2,
-        feat: 2,
-        trait: "",
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: true,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
+          str: true,
+          dex: true,
+          con: false,
+          int: false,
+          wis: true,
+          cha: false,
+          bab: true,
+          size_special: true,
           level: false,
-          half_level: false
+          half_level: false,
+          plus_ten: true
         }
       },
-      reflex: {
-        base: "",
-        resistance: 2,
-        feat: "",
-        trait: "",
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false
-        }
+      saves: {
+        fortitude: {
+          base: "",
+          resistance: 2,
+          feat: 2,
+          trait: "",
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: false,
+            con: true,
+            int: false,
+            wis: false,
+            cha: false,
+            level: false,
+            half_level: false
+          }
+        },
+        reflex: {
+          base: "",
+          resistance: 2,
+          feat: "",
+          trait: "",
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            level: false,
+            half_level: false
+          }
+        },
+        will: {
+          base: "",
+          resistance: 2,
+          feat: "",
+          trait: "",
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
+            level: false,
+            half_level: false
+          }
+        },
+        notes: "Immunity to all diseases, +2 against poison, spells, and spell-like abilities, +2 against enchantment spells and effects."
       },
-      will: {
-        base: "",
-        resistance: 2,
-        feat: "",
-        trait: "",
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: true,
-          cha_bonus: false,
-          level: false,
-          half_level: false
-        }
-      },
-      save_notes: "Immunity to all diseases, +2 against poison, spells, and spell-like abilities, +2 against enchantment spells and effects.",
       dr: {
         feat: "",
         trait: "",
         misc: "",
         temp: "",
-        current: "",
         overcome: "",
+        current: "",
+        notes: "",
         bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
+          str: false,
+          dex: false,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
           level: false,
           half_level: false
         }
@@ -18165,180 +19035,191 @@ var vos = (function() {
         misc: "",
         temp: "",
         current: "",
+        notes: "",
         bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
+          str: false,
+          dex: false,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
           level: false,
           half_level: false
         }
       },
-      resist_notes: ""
+      resistance: {
+        feat: "",
+        trait: "",
+        misc: "",
+        temp: "",
+        current: "",
+        notes: "",
+        bonuses: {
+          str: false,
+          dex: false,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
+          level: false,
+          half_level: false
+        }
+      }
     },
     offense: {
-      base_attack: "",
-      base_attack_bonuses: "",
+      stats: {
+        base_attack: {
+          bonus: 6,
+          string: "+6 / +1"
+        },
+        melee: {
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: true,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            bab: true,
+            size_base: true,
+            level: false,
+            half_level: false
+          }
+        },
+        ranged: {
+          misc: "",
+          temp: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            bab: true,
+            size_base: true,
+            level: false,
+            half_level: false
+          }
+        }
+      },
       cmb: {
         misc: "",
         temp: "",
         current: "",
+        notes: "",
         bonuses: {
-          str_bonus: true,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
+          str: true,
+          dex: false,
+          con: false,
+          int: false,
+          wis: false,
+          cha: false,
           bab: false,
-          special_size: true,
+          size_special: true,
           level: true,
-          half_level: false
-        }
-      },
-      cmd: {
-        misc: 1,
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: true,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: true,
-          cha_bonus: false,
-          bab: true,
-          special_size: true,
-          level: false,
-          half_level: false,
-          plus_ten: true
-        }
-      },
-      melee_attack: {
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: true,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          bab: true,
-          size: true,
-          level: false,
-          half_level: false
-        }
-      },
-      ranged_attack: {
-        misc: "",
-        temp: "",
-        current: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          bab: true,
-          size: true,
-          level: false,
           half_level: false
         }
       },
       attack: {
-        melee: [{
-          weapon: "Flurry of Blows",
-          attack: "+11/+11/+8/+8",
-          damage: "1d10+4 + 1d6 electricity",
-          critical: "20x2",
-          type: "Bludgeoning"
-        }, {
-          weapon: "Grapple",
-          attack: "+14",
-          damage: "1d10+4",
-          critical: "20x2",
-          type: ""
-        }, {
-          weapon: "Disarm",
-          attack: "+14",
-          damage: "",
-          critical: "",
-          type: ""
-        }, {
-          weapon: "Stunning Fist",
-          attack: "+11",
-          damage: "1d10+4 + 1d6 electricity",
-          critical: "20x2",
-          type: "Bludgeoning"
-        }, {
-          weapon: "Unarmed Strike",
-          attack: "+11",
-          damage: "1d10+4 + 1d6 electricity",
-          critical: "20x2",
-          type: "Bludgeoning"
-        }],
-        ranged: [{
-          weapon: "Shortbow",
-          attack: "+8",
-          damage: "1d6",
-          critical: "x3",
-          range: "60 ft",
-          ammo: "50",
-          type: "Piercing"
-        }]
-      },
-      attack_notes: "+1 weapon focus (Unarmed strike). +2 grapple, +2 to resist grapple. +2 disarm, +2 CMD to resist disarm. Stunning Fist DC 18, Fortitude."
+        notes: "+1 weapon focus (Unarmed strike). +2 grapple, +2 to resist grapple. +2 disarm, +2 CMD to resist disarm. Stunning Fist DC 18, Fortitude.",
+        melee: {
+          all: [{
+            weapon: "Flurry of Blows",
+            attack: "+11/+11/+8/+8",
+            damage: "1d10+4 + 1d6 electricity",
+            critical: "20x2",
+            type: "Bludgeoning"
+          }, {
+            weapon: "Grapple",
+            attack: "+14",
+            damage: "1d10+4",
+            critical: "20x2",
+            type: ""
+          }, {
+            weapon: "Disarm",
+            attack: "+14",
+            damage: "",
+            critical: "",
+            type: ""
+          }, {
+            weapon: "Stunning Fist",
+            attack: "+11",
+            damage: "1d10+4 + 1d6 electricity",
+            critical: "20x2",
+            type: "Bludgeoning"
+          }, {
+            weapon: "Unarmed Strike",
+            attack: "+11",
+            damage: "1d10+4 + 1d6 electricity",
+            critical: "20x2",
+            type: "Bludgeoning"
+          }]
+        },
+        ranged: {
+          all: [{
+            weapon: "Shortbow",
+            attack: "+8",
+            damage: "1d6",
+            critical: "x3",
+            range: "60 ft",
+            ammo: "50",
+            type: "Piercing"
+          }]
+        }
+      }
     },
     skills: {
       ranks: {
         total: "",
-        spent: {
-          include_custom: false,
-          current: ""
-        }
+        include_custom: false,
+        current: ""
       },
-      custom: [{
-        name: "Acrobatics (Jump)",
-        ranks: 8,
-        misc: "",
-        current: "",
-        racial: "",
-        trait: "",
-        feat: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: true,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          class_skill: true,
-          level: true,
-          half_level: false,
-          check_penalty: false
-        }
-      }],
-      all: {
-        acrobatics: {
+      custom: {
+        all: [{
+          name: "Acrobatics (Jump)",
           ranks: 8,
           misc: "",
           current: "",
           racial: "",
+          trait: "",
+          feat: "",
+          bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            class_skill: true,
+            level: true,
+            half_level: false,
+            check_penalty: false,
+            size_stealth: false,
+            size_fly: false
+          }
+        }]
+      },
+      default: {
+        acrobatics: {
+          ranks: 8,
+          misc: "",
+          racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: true,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -18346,19 +19227,19 @@ var vos = (function() {
         },
         appraise: {
           ranks: "",
-          misc: 2,
-          current: "",
-          racial: "",
+          misc: "",
+          racial: 2,
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -18367,18 +19248,18 @@ var vos = (function() {
         bluff: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -18387,18 +19268,18 @@ var vos = (function() {
         climb: {
           ranks: 5,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: true,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: true,
-            str_bonus: true,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -18408,18 +19289,18 @@ var vos = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -18429,18 +19310,18 @@ var vos = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -18449,18 +19330,18 @@ var vos = (function() {
         diplomacy: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -18469,18 +19350,18 @@ var vos = (function() {
         disable_device: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -18489,18 +19370,18 @@ var vos = (function() {
         disguise: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -18509,18 +19390,18 @@ var vos = (function() {
         escape_artist: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -18529,39 +19410,39 @@ var vos = (function() {
         fly: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true,
-            size_modifier_fly: true
+            size_fly: true
           }
         },
         handle_animal: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -18570,18 +19451,18 @@ var vos = (function() {
         heal: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -18590,18 +19471,18 @@ var vos = (function() {
         intimidate: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -18610,18 +19491,18 @@ var vos = (function() {
         knowledge_arcana: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -18630,18 +19511,18 @@ var vos = (function() {
         knowledge_dungeoneering: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -18650,18 +19531,18 @@ var vos = (function() {
         knowledge_engineering: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -18670,18 +19551,18 @@ var vos = (function() {
         knowledge_geography: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -18690,18 +19571,18 @@ var vos = (function() {
         knowledge_history: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -18710,18 +19591,18 @@ var vos = (function() {
         knowledge_local: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -18730,18 +19611,18 @@ var vos = (function() {
         knowledge_nature: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -18750,18 +19631,18 @@ var vos = (function() {
         knowledge_nobility: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -18770,18 +19651,18 @@ var vos = (function() {
         knowledge_planes: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -18790,18 +19671,18 @@ var vos = (function() {
         knowledge_religion: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -18810,18 +19691,18 @@ var vos = (function() {
         linguistics: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -18830,18 +19711,18 @@ var vos = (function() {
         perception: {
           ranks: 8,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             class_skill: true,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -18851,18 +19732,18 @@ var vos = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -18872,18 +19753,18 @@ var vos = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
@@ -18893,18 +19774,18 @@ var vos = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -18914,18 +19795,18 @@ var vos = (function() {
           variant_name: "",
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -18934,18 +19815,18 @@ var vos = (function() {
         ride: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -18954,18 +19835,18 @@ var vos = (function() {
         sense_motive: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -18974,18 +19855,18 @@ var vos = (function() {
         sleight_of_hand: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -18994,18 +19875,18 @@ var vos = (function() {
         spellcraft: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: true,
+            wis: false,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: true,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -19014,39 +19895,39 @@ var vos = (function() {
         stealth: {
           ranks: 8,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: true,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: true,
-            str_bonus: false,
-            dex_bonus: true,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true,
-            size_modifier_stealth: true
+            size_stealth: true
           }
         },
         survival: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: true,
+            cha: false,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: true,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: false
@@ -19055,18 +19936,18 @@ var vos = (function() {
         swim: {
           ranks: 3,
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: true,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             class_skill: true,
-            str_bonus: true,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
             level: false,
             half_level: false,
             check_penalty: true
@@ -19075,346 +19956,354 @@ var vos = (function() {
         use_magic_device: {
           ranks: "",
           misc: "",
-          current: "",
           racial: "",
           feat: "",
           trait: "",
+          current: "",
           bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: true,
             class_skill: false,
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: true,
             level: false,
             half_level: false,
             check_penalty: false
           }
         }
+      },
+      stats: {
+        notes: ""
       }
     },
     spells: {
-      concentration: {
-        current: "",
-        misc: "",
-        temp: "",
-        racial: "",
-        feat: "",
-        trait: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false
-        }
-      },
-      caster_level_check: {
-        current: "",
-        misc: "",
-        temp: "",
-        racial: "",
-        feat: "",
-        trait: "",
-        bonuses: {
-          str_bonus: false,
-          dex_bonus: false,
-          con_bonus: false,
-          int_bonus: false,
-          wis_bonus: false,
-          cha_bonus: false,
-          level: false,
-          half_level: false
-        }
-      },
-      school: "",
-      opposition: "",
-      domains: "",
-      bloodline: "",
-      spell_notes: "",
-      per_day: {
-        level_0: "",
-        level_1: "",
-        level_2: "",
-        level_3: "",
-        level_4: "",
-        level_5: "",
-        level_6: "",
-        level_7: "",
-        level_8: "",
-        level_9: ""
-      },
-      known: {
-        level_0: "",
-        level_1: "",
-        level_2: "",
-        level_3: "",
-        level_4: "",
-        level_5: "",
-        level_6: "",
-        level_7: "",
-        level_8: "",
-        level_9: ""
-      },
-      bonus: {
-        level_0: "",
-        level_1: "",
-        level_2: "",
-        level_3: "",
-        level_4: "",
-        level_5: "",
-        level_6: "",
-        level_7: "",
-        level_8: "",
-        level_9: ""
-      },
-      dc: {
-        level_0: {
-          spell_level: 0,
+      stats: {
+        concentration: {
           misc: "",
           temp: "",
+          racial: "",
           feat: "",
           trait: "",
           current: "",
           bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
             level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
+            half_level: false
           }
+        },
+        caster_level_check: {
+          misc: "",
+          temp: "",
+          racial: "",
+          feat: "",
+          trait: "",
+          current: "",
+          bonuses: {
+            str: false,
+            dex: false,
+            con: false,
+            int: false,
+            wis: false,
+            cha: false,
+            level: false,
+            half_level: false
+          }
+        },
+        school: "",
+        opposition: "",
+        domains: "",
+        bloodline: "",
+        notes: ""
+      },
+      book: {
+        level_0: {
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 0,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_1: {
-          spell_level: 1,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 1,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_2: {
-          spell_level: 2,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 2,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_3: {
-          spell_level: 3,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 3,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_4: {
-          spell_level: 4,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 4,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_5: {
-          spell_level: 5,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 5,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_6: {
-          spell_level: 6,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 6,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_7: {
-          spell_level: 7,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 7,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_8: {
-          spell_level: 8,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 8,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         },
         level_9: {
-          spell_level: 9,
-          misc: "",
-          temp: "",
-          feat: "",
-          trait: "",
-          current: "",
-          bonuses: {
-            str_bonus: false,
-            dex_bonus: false,
-            con_bonus: false,
-            int_bonus: false,
-            wis_bonus: false,
-            cha_bonus: false,
-            level: false,
-            half_level: false,
-            spell_level: false,
-            plus_ten: false
-          }
+          per_day: "",
+          known: "",
+          bonus: "",
+          dc: {
+            spell_level: 9,
+            misc: "",
+            temp: "",
+            feat: "",
+            trait: "",
+            current: "",
+            bonuses: {
+              str: false,
+              dex: false,
+              con: false,
+              int: false,
+              wis: false,
+              cha: false,
+              level: false,
+              half_level: false,
+              spell_level: false,
+              plus_ten: false
+            }
+          },
+          all: []
         }
-      },
-      book: [{
-        level_0: []
-      }, {
-        level_1: []
-      }, {
-        level_2: []
-      }, {
-        level_3: []
-      }, {
-        level_4: []
-      }, {
-        level_5: []
-      }, {
-        level_6: []
-      }, {
-        level_7: []
-      }, {
-        level_8: []
-      }, {
-        level_9: []
-      }]
+      }
     },
     notes: {
-      character: [{
-        note: "<strong>+2 Constitution, +2 Wisdom, –2 Charisma</strong> Dwarves are both tough and wise, but also a bit gruff.<br><strong>Medium</strong> Dwarves are Medium creatures and have no bonuses or penalties due to their size.<br><strong>Slow and Steady</strong> Dwarves have a base speed of 20 feet, but their speed is never modified by armor or encumbrance.<br><strong>Darkvision</strong> Dwarves can see in the dark up to 60 feet.<br><strong>Defensive Training</strong> Dwarves get a +4 dodge bonus to AC against monsters of the giant subtype.<br><strong>Greed</strong> Dwarves receive a +2 racial bonus on Appraise skill checks made to determine the price of nonmagical goods that contain precious metals or gemstones.<br><strong>Hatred</strong> Dwarves receive a +1 bonus on attack rolls against humanoid creatures of the orc and goblinoid subtypes due to special training against these hated foes.<br><strong>Hardy</strong> Dwarves receive a +2 racial bonus on saving throws against poison, spells, and spell-like abilities.<br><strong>Stability</strong> Dwarves receive a +4 racial bonus to their Combat Maneuver Defense when resisting a bull rush or trip attempt while standing on the ground.<br><strong>Stonecunning</strong> Dwarves receive a +2 bonus on Perception checks to potentially notice unusual stonework, such as traps and hidden doors located in stone walls or floors. They receive a check to notice such features whenever they pass within 10 feet of them, whether or not they are actively looking.<br><strong>Weapon Familiarity</strong> Dwarves are proficient with battleaxes, heavy picks, and warhammers, and treat any weapon with the word \"dwarven\" in its name as a martial weapon.<br><strong>Languages</strong> Dwarves begin play speaking Common and Dwarven. Dwarves with high Intelligence scores can choose from the following Giant, Gnome, Goblin, Orc, Terran, and Undercommon."
-      }, {
-        note: "<strong>Weapon and Armor Proficiency</strong> Monks are proficient with the club, crossbow (light or heavy), dagger, handaxe, javelin, kama, nunchaku, quarterstaff, sai, shortspear, short sword, shuriken, siangham, sling, and spear.<br>Monks are not proficient with any armor or shields.<br>When wearing armor, using a shield, or carrying a medium or heavy load, a monk loses his AC bonus, as well as his fast movement and flurry of blows abilities.<br><strong>AC Bonus (Ex)</strong> When unarmored and unencumbered, the monk adds his Wisdom bonus (if any) to his AC and his CMD. In addition, a monk gains a +1 bonus to AC and CMD at 4th level. This bonus increases by 1 for every four monk levels thereafter, up to a maximum of +5 at 20th level.<br>These bonuses to AC apply even against touch attacks or when the monk is flat-footed. He loses these bonuses when he is immobilized or helpless, when he wears any armor, when he carries a shield, or when he carries a medium or heavy load.<br><strong>Flurry of Blows (Ex)</strong> Starting at 1st level, a monk can make a flurry of blows as a full-attack action. When doing so, he may make on additional attack, taking a -2 penalty on all of his attack rolls, as if using the Two-Weapon Fighting feat. These attacks can be any combination of unarmed strikes and attacks with a monk special weapon (he does not need to use two weapons to use this ability). For the purpose of these attacks, the monk's base attack bonus from his monk class levels is equal to his monk level. For all Other purposes, such as qualifying for a feat or a prestige class, the monk uses his normal base attack bonus.<br>At 8th level, the monk can make two additional attacks when he uses flurry of blows, as if using Improved Two-Weapon Fighting (even if the monk does not meet the prerequisites for the feat).<br>At 15th level, the monk can make three additional attacks using flurry of blows, as if using Greater Two-Weapon Fighting (even if the monk does not meet the prerequisites for the feat).<br>A monk applies his full Strength bonus to his damage rolls for all successful attacks made with flurry of blows, whether the attacks are made with an off-hand or with a weapon wielded in both hands. A monk may substitute disarm, sunder, and trip combat maneuvers for unarmed attacks as part of a flurry of blows. A monk cannot use any weapon other than an unarmed strike or a special monk weapon as part of a flurry of blows. A monk with natural weapons cannot use such weapons as part of a flurry of blows, nor can he make natural attacks in addition to his flurry of blows attacks.<br><strong>Unarmed Strike</strong> At 1st level, a monk gains Improved Unarmed Strike as a bonus feat. A monk's attacks may be with fist, elbows, knees, and feet. This means that a monk may make unarmed strikes with his hands full. There is no such thing as an off-hand attack for a monk striking unarmed. A monk may thus apply his full Strength bonus on damage rolls for all his unarmed strikes.<br>Usually a monk's unarmed strikes deal lethal damage, but he can choose to deal nonlethal damage instead with no penalty on his attack roll. He has the same choice to deal lethal or nonlethal damage while grappling.<br>A monk's unarmed strike is treated as both a manufactured weapon and a natural weapon for the purpose of spells and effects that enhance or improve either manufactured weapons or natural weapons.<br>A monk also deals more damage with his unarmed strikes than a normal person would, as shown above on Table: Monk. The unarmed damage values listed on Table: Monk is for Medium monks. A Small monk deals less damage than the amount given there with his unarmed attacks, while a Large monk deals more damage; see Small or Large Monk Unarmed Damage on the table given below.<br><strong>Bonus Feat</strong> At 1st level, 2nd level, and every 4 levels thereafter, a monk may select a bonus feat. These feats must be taken from the following list: Catch Off-Guard, Combat Reflexes, Deflect Arrows, Dodge, Improved Grapple, Scorpion Style, and Throw Anything. At 6th level, the following feats are added to the list: Gorgon's Fist, Improved Bull Rush, Improved Disarm, Improved Feint, Improved Trip, and Mobility. At 10th level, the following feats are added to the list: Improved Critical, Medusa's Wrath, Snatch Arrows, and Spring Attack. A monk need not have any of the prerequisites normally required for these feats to select them.<br><strong>Stunning Fist (Ex)</strong> At 1st level, the monk gains Stunning Fist as a bonus feat, even if he does not meet the prerequisites. At 4th level, and every 4 levels thereafter, the monk gains the ability to apply a new condition to the target of his Stunning Fist. This condition replaces stunning the target for 1 round, and a successful saving throw still negates the effect. At 4th level, he can choose to make the target fatigued. At 8th level, he can make the target sickened for 1 minute. At 12th level, he can make the target staggered for 1d6+1 rounds. At 16th level, he can permanently blind or deafen the target. At 20th level, he can paralyze the target for 1d6+1 rounds. The monk must choose which condition will apply before the attack roll is made. These effects do not stack with themselves (a creature sickened by Stunning Fist cannot become nauseated if hit by Stunning Fist again), but additional hits do increase the duration.<br><strong>Evasion (Ex)</strong> At 2nd level or higher, a monk can avoid damage from many area-effect attacks. If a monk makes a successful Reflex saving throw against an attack that normally deals half damage on a successful save, he instead takes no damage. Evasion can be used only if a monk is wearing light armor or no armor. A helpless monk does not gain the benefit of evasion.<br><strong>Fast Movement (Ex)</strong> At 3rd level, a monk gains an enhancement bonus to his land speed, as shown on Table: Monk. A monk in armor or carrying a medium or heavy load loses this extra speed.<br><strong>Maneuver Training (Ex)</strong> At 3rd level, a monk uses his monk level in place of his base attack bonus when calculating his Combat Maneuver Bonus. Base attack bonuses granted from other classes are unaffected and are added normally.<br><strong>Still Mind (Ex)</strong> A monk of 3rd level or higher gains a +2 bonus on saving throws against enchantment spells and effects.<br><strong>Ki Pool (Su)</strong> At 4th level, a monk gains a pool of ki points, supernatural energy he can use to accomplish amazing feats. The number of points in a monk's ki pool is equal to 1/2 his monk level + his Wisdom modifier. As long as he has at least 1 point in his ki pool, he can make a ki strike. At 4th level, ki strike allows his unarmed attacks to be treated as magic weapons for the purpose of overcoming damage reduction. At 7th level, his unarmed attacks are also treated as cold iron and silver for the purpose of overcoming damage reduction. At 10th level, his unarmed attacks are also treated as lawful weapons for the purpose of overcoming damage reduction. At 16th level, his unarmed attacks are treated as adamantine weapons for the purpose of overcoming damage reduction and bypassing hardness.<br>By spending 1 point from his ki pool, a monk can make one additional attack at his highest attack bonus when making a flurry of blows attack. In addition, he can spend 1 point to increase his speed by 20 feet for 1 round. Finally, a monk can spend 1 point from his ki pool to give himself a +4 dodge bonus to AC for 1 round. Each of these powers is activated as a swift action. A monk gains additional powers that consume points from his ki pool as he gains levels.<br>The ki pool is replenished each morning after 8 hours of rest or meditation; these hours do not need to be consecutive.<br><strong>Slow Fall (Ex)</strong> At 4th level or higher, a monk within arm's reach of a wall can use it to slow his descent. When first gaining this ability, he takes damage as if the fall were 20 feet shorter than it actually is. The monk's ability to slow his fall (that is, to reduce the effective distance of the fall when next to a wall) improves with his monk level until at 20th level he can use a nearby wall to slow his descent and fall any distance without harm.<br><strong>High Jump (Ex)</strong> At 5th level, a monk adds his level to all Acrobatics checks made to jump, both for vertical jumps and horizontal jumps. In addition, he always counts as having a running start when making jump checks using Acrobatics. By spending 1 point from his ki pool as a swift action, a monk gains a +20 bonus on Acrobatics checks made to jump for 1 round.<br><strong>Purity of Body (Ex)</strong> At 5th level, a monk gains immunity to all diseases, including supernatural and magical diseases.<br><strong>Wholeness of Body (Su)</strong> At 7th level or higher, a monk can heal his own wounds as a standard action. He can heal a number of hit points of damage equal to his monk level by using 2 points from his ki pool."
-      }, {
-        note: "<strong>Improved Grapple</strong> You do not provoke an attack of opportunity when performing a grapple combat maneuver. In addition, you receive a +2 bonus on checks made to grapple a foe. You also receive a +2 bonus to your Combat Maneuver Defense whenever an opponent tries to grapple you.<br><strong>Weapon Focus</strong> You gain a +1 bonus on all attack rolls you make using the selected weapon.<br><strong>Dodge</strong> You gain a +1 dodge bonus to your AC. A condition that makes you lose your Dex bonus to AC also makes you lose the benefits of this feat.<br><strong>Extra Ki</strong> Your ki pool increases by 2.<br><strong>Improved Disarm</strong> You do not provoke an attack of opportunity when performing a disarm combat maneuver. In addition, you receive a +2 bonus on checks made to disarm a foe. You also receive a +2 bonus to your Combat Maneuver Defense whenever an opponent tries to disarm you.<br><strong>Combat Reflexes</strong> You may make a number of additional attacks of opportunity per round equal to your Dexterity bonus. With this feat, you may also make attacks of opportunity while flat-footed.<br><strong>Great Fortitude</strong> You get a +2 bonus on all Fortitude saving throws."
-      }, {
-        note: "Infected with lycanthropy."
-      }, {
-        note: "Pippin making Ioun Stones Dusty Rose for Vos (2,500gp spent on materials)."
-      }],
-      story: [{
-        note: "Party gear Wand of Cure Light Wounds x2 (Pippin and Morin)."
-      }, {
-        note: "Prince's Wolves scarf, a toke to proof."
-      }]
+      character: {
+        all: [{
+          note: "Infected with lycanthropy."
+        }, {
+          note: "Pippin making Ioun Stones Dusty Rose for Vos (2,500gp spent on materials)."
+        }]
+      },
+      story: {
+        all: [{
+          note: "Party gear Wand of Cure Light Wounds x2 (Pippin and Morin)."
+        }, {
+          note: "Prince's Wolves scarf, a toke to proof."
+        }]
+      }
     },
-    events: []
+    events: {
+      all: []
+    }
   };
 
   // exposed methods
@@ -24831,10 +25720,14 @@ var display = (function() {
               for (var key in all_listItem) {
                 if (all_listItem[key].ranks != "") {
                   contentFound++;
-                  var skillObject = {
-                    name: skillNames[key],
-                    current: dataFormat.bonus(all_listItem[key].current)
+                  var skillObject = {};
+                  skillObject.name = skillNames[key];
+                  if (key == "craft_1" || key == "craft_2" || key == "perform_1" || key == "perform_2" || key == "profession_1" || key == "profession_2") {
+                    if (all_listItem[key].variant_name != "" && all_listItem[key].variant_name != undefined) {
+                      skillObject.name = all_listItem[key].variant_name;
+                    };
                   };
+                  skillObject.current = dataFormat.bonus(all_listItem[key].current);
                   foundSkills.push(skillObject);
                 };
               };
@@ -29734,6 +30627,8 @@ var pill = (function() {
       var modalContent = _create_pillModal();
       var modalAction = function() {
         _store_data(this);
+        clear();
+        render();
         sheet.store();
         display.clear();
         display.render();

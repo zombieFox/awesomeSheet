@@ -804,6 +804,8 @@ var pill = (function() {
       var modalContent = _create_pillModal();
       var modalAction = function() {
         _store_data(this);
+        clear();
+        render();
         sheet.store();
         display.clear();
         display.render();

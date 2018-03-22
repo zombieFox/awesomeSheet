@@ -600,7 +600,7 @@ var izlara = (function() {
       },
       saves: {
         fortitude: {
-          base: 4,
+          base: "",
           resistance: 3,
           feat: "",
           trait: "",
@@ -619,7 +619,7 @@ var izlara = (function() {
           }
         },
         reflex: {
-          base: 4,
+          base: "",
           resistance: 3,
           feat: "",
           trait: "",
@@ -638,7 +638,7 @@ var izlara = (function() {
           }
         },
         will: {
-          base: 8,
+          base: "",
           resistance: 3,
           feat: "",
           trait: "",
@@ -798,9 +798,6 @@ var izlara = (function() {
       }
     },
     skills: {
-      stats: {
-        notes: ""
-      },
       ranks: {
         total: "",
         include_custom: false,
@@ -1600,6 +1597,9 @@ var izlara = (function() {
             check_penalty: false
           }
         }
+      },
+      stats: {
+        notes: ""
       }
     },
     spells: {

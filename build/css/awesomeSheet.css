@@ -2177,14 +2177,11 @@ label {
     margin: 2em 0;
     display: block;
     -webkit-columns: 10em 2;
-       -moz-columns: 10em 2;
             columns: 10em 2;
     -webkit-column-gap: 4em;
-       -moz-column-gap: 4em;
             column-gap: 4em; }
     .l-section-wrapper > * {
       -webkit-column-break-inside: avoid;
-         page-break-inside: avoid;
               break-inside: avoid; }
   .l-section {
     margin: 0 0 1em;
@@ -3180,9 +3177,14 @@ label {
   box-sizing: border-box;
   transition: margin 0.3s ease-in-out; }
 
-.m-edit-box-item-check,
 .m-edit-box-item-modifier,
-.m-edit-box-item-stat,
+.m-edit-box-item-stat {
+  -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  min-width: 4em; }
+
+.m-edit-box-item-check,
 .m-edit-box-item-total {
   -webkit-flex: 0 0 auto;
       -ms-flex: 0 0 auto;
@@ -3801,13 +3803,17 @@ label {
     [class^="m-edit-box-group"] [class*="m-edit-box-item"]:first-of-type:last-of-type .m-input-file-block .m-input-file-block-label,
     [class^="m-edit-box-group"] [class^="m-edit-box-item"]:first-of-type:last-of-type .m-input-file-block .m-input-file-block-label {
       border-radius: 5px; }
-  [class*="m-edit-box-group"] .m-edit-box-item-check,
   [class*="m-edit-box-group"] .m-edit-box-item-modifier,
   [class*="m-edit-box-group"] .m-edit-box-item-stat,
+  [class^="m-edit-box-group"] .m-edit-box-item-modifier,
+  [class^="m-edit-box-group"] .m-edit-box-item-stat {
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    min-width: 4em; }
+  [class*="m-edit-box-group"] .m-edit-box-item-check,
   [class*="m-edit-box-group"] .m-edit-box-item-total,
   [class^="m-edit-box-group"] .m-edit-box-item-check,
-  [class^="m-edit-box-group"] .m-edit-box-item-modifier,
-  [class^="m-edit-box-group"] .m-edit-box-item-stat,
   [class^="m-edit-box-group"] .m-edit-box-item-total {
     -webkit-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
@@ -7464,7 +7470,6 @@ h3 .m-display-value {
 @media print {
   .m-display-area {
     -webkit-column-break-inside: avoid;
-       page-break-inside: avoid;
             break-inside: avoid; }
   .m-display-image-wrapper {
     box-shadow: none; }

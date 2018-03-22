@@ -20,10 +20,10 @@ var orrin = (function() {
         size: {
           category: "Medium",
           modifier: {
-            base: 0,
-            special: 0,
-            fly: 0,
-            stealth: 0
+            base: "",
+            special: "",
+            fly: "",
+            stealth: ""
           }
         }
       },
@@ -392,7 +392,7 @@ var orrin = (function() {
     },
     defense: {
       hp: {
-        total: 86,
+        total: "",
         temp: "",
         damage: "",
         non_lethal_damage: "",
@@ -492,7 +492,7 @@ var orrin = (function() {
       },
       saves: {
         fortitude: {
-          base: 4,
+          base: "",
           resistance: 2,
           feat: 2,
           trait: 1,
@@ -511,7 +511,7 @@ var orrin = (function() {
           }
         },
         reflex: {
-          base: 8,
+          base: "",
           resistance: 2,
           feat: "",
           trait: "",
@@ -530,7 +530,7 @@ var orrin = (function() {
           }
         },
         will: {
-          base: 4,
+          base: "",
           resistance: 2,
           feat: 2,
           trait: "",
@@ -609,8 +609,8 @@ var orrin = (function() {
     offense: {
       stats: {
         base_attack: {
-          bonus: 9,
-          string: "+9 / +4"
+          bonus: "",
+          string: ""
         },
         melee: {
           misc: "",
@@ -745,7 +745,7 @@ var orrin = (function() {
     },
     skills: {
       ranks: {
-        total: 146,
+        total: "",
         include_custom: false,
         current: ""
       },
