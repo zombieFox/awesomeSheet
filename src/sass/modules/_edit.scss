@@ -231,6 +231,11 @@
 }
 .m-edit-box-item-shrink {
   flex-grow: 0;
+  min-width: initial;
+}
+.m-edit-box-item-grow {
+  flex-grow: 1;
+  max-width: initial;
 }
 // --------------------------------------------------
 // edit end
