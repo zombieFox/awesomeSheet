@@ -1,7 +1,7 @@
 <div class="m-tab-panel js-tab-panel js-tab-panel-stats">
 
   <div class="js-stats" data-stats-options="path:statistics.stats.str,addition:+base+enhancement+misc+racial+temp">
-    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small">
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
       <div class="m-edit-box-head">
         <h2 class="m-edit-box-title">Strength</h2>
       </div>
@@ -9,12 +9,12 @@
         <div class="m-edit-box-content m-edit-box-content-margin-large">
 
           <div class="m-edit-box-item-100 m-edit-box-group">
-            <div class="m-edit-box-item-total">
+            <div class="m-edit-box-item-stat">
               <p class="m-edit-box-label">Score</p>
               <p class="m-edit-box-total js-text-block" data-text-block-options="path:statistics.stats.str.current"></p>
             </div>
-            <div class="m-edit-box-item-total">
-              <p class="m-edit-box-label">Modifier</p>
+            <div class="m-edit-box-item-modifier">
+              <p class="m-edit-box-label"><span class="hidden-md hidden-lg hidden-xl">Mod</span><span class="hidden-xs hidden-sm">Modifier</span></p>
               <p class="m-edit-box-total js-text-block" data-text-block-options="path:statistics.stats.str.modifier,type:bonus"></p>
             </div>
             <div class="m-edit-box-item">
@@ -55,7 +55,7 @@
   </div>
 
   <div class="js-stats" data-stats-options="path:statistics.stats.dex,addition:+base+enhancement+misc+racial+temp">
-    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small">
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
       <div class="m-edit-box-head">
         <h2 class="m-edit-box-title">Dexterity</h2>
       </div>
@@ -63,41 +63,41 @@
         <div class="m-edit-box-content m-edit-box-content-margin-large">
 
           <div class="m-edit-box-item-100 m-edit-box-group">
-            <div class="m-edit-box-item-total">
-              <p class="m-edit-box-label hidden-sm hidden-md hidden-lg hidden-xl">Score</p>
+            <div class="m-edit-box-item-stat">
+              <p class="m-edit-box-label">Score</p>
               <p class="m-edit-box-total js-text-block" data-text-block-options="path:statistics.stats.dex.current"></p>
             </div>
-            <div class="m-edit-box-item-total">
-              <p class="m-edit-box-label hidden-sm hidden-md hidden-lg hidden-xl">Modifier</p>
+            <div class="m-edit-box-item-modifier">
+              <p class="m-edit-box-label"><span class="hidden-md hidden-lg hidden-xl">Mod</span><span class="hidden-xs hidden-sm">Modifier</span></p>
               <p class="m-edit-box-total js-text-block" data-text-block-options="path:statistics.stats.dex.modifier,type:bonus"></p>
             </div>
             <div class="m-edit-box-item">
               <div class="m-input-block js-input-block" data-input-block-options="path:statistics.stats.dex.base,type:integer">
-                <label class="m-input-block-label hidden-sm hidden-md hidden-lg hidden-xl js-input-block-label" for="statistics-stats-dex-base">Base</label>
+                <label class="m-input-block-label js-input-block-label" for="statistics-stats-dex-base">Base</label>
                 <input class="m-input-block-field u-full-width u-text-center js-stats-field js-input-block-field" id="statistics-stats-dex-base" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item">
               <div class="m-input-block js-input-block" data-input-block-options="path:statistics.stats.dex.racial,type:integer">
-                <label class="m-input-block-label hidden-sm hidden-md hidden-lg hidden-xl js-input-block-label" for="statistics-stats-dex-racial">Racial</label>
+                <label class="m-input-block-label js-input-block-label" for="statistics-stats-dex-racial">Racial</label>
                 <input class="m-input-block-field u-full-width u-text-center js-stats-field js-input-block-field" id="statistics-stats-dex-racial" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item">
               <div class="m-input-block js-input-block" data-input-block-options="path:statistics.stats.dex.enhancement,type:integer">
-                <label class="m-input-block-label hidden-sm hidden-md hidden-lg hidden-xl js-input-block-label" for="statistics-stats-dex-enhancement">Enhance</label>
+                <label class="m-input-block-label js-input-block-label" for="statistics-stats-dex-enhancement">Enhance</label>
                 <input class="m-input-block-field u-full-width u-text-center js-stats-field js-input-block-field" id="statistics-stats-dex-enhancement" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item">
               <div class="m-input-block js-input-block" data-input-block-options="path:statistics.stats.dex.misc,type:integer">
-                <label class="m-input-block-label hidden-sm hidden-md hidden-lg hidden-xl js-input-block-label" for="statistics-stats-dex-misc">Misc</label>
+                <label class="m-input-block-label js-input-block-label" for="statistics-stats-dex-misc">Misc</label>
                 <input class="m-input-block-field u-full-width u-text-center js-stats-field js-input-block-field" id="statistics-stats-dex-misc" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item">
               <div class="m-input-block js-input-block" data-input-block-options="path:statistics.stats.dex.temp,type:integer">
-                <label class="m-input-block-label hidden-sm hidden-md hidden-lg hidden-xl js-input-block-label" for="statistics-stats-dex-temp">Temp</label>
+                <label class="m-input-block-label js-input-block-label" for="statistics-stats-dex-temp">Temp</label>
                 <input class="m-input-block-field u-full-width u-text-center js-stats-field js-input-block-field" id="statistics-stats-dex-temp" type="number" tabindex="1">
               </div>
             </div>
@@ -109,7 +109,7 @@
   </div>
 
   <div class="js-stats" data-stats-options="path:statistics.stats.con,addition:+base+enhancement+misc+racial+temp">
-    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small">
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
       <div class="m-edit-box-head">
         <h2 class="m-edit-box-title">Constitution</h2>
       </div>
@@ -117,41 +117,41 @@
         <div class="m-edit-box-content m-edit-box-content-margin-large">
 
           <div class="m-edit-box-item-100 m-edit-box-group">
-            <div class="m-edit-box-item-total">
-              <p class="m-edit-box-label hidden-sm hidden-md hidden-lg hidden-xl">Score</p>
+            <div class="m-edit-box-item-stat">
+              <p class="m-edit-box-label">Score</p>
               <p class="m-edit-box-total js-text-block" data-text-block-options="path:statistics.stats.con.current"></p>
             </div>
-            <div class="m-edit-box-item-total">
-              <p class="m-edit-box-label hidden-sm hidden-md hidden-lg hidden-xl">Modifier</p>
+            <div class="m-edit-box-item-modifier">
+              <p class="m-edit-box-label"><span class="hidden-md hidden-lg hidden-xl">Mod</span><span class="hidden-xs hidden-sm">Modifier</span></p>
               <p class="m-edit-box-total js-text-block" data-text-block-options="path:statistics.stats.con.modifier,type:bonus"></p>
             </div>
             <div class="m-edit-box-item">
               <div class="m-input-block js-input-block" data-input-block-options="path:statistics.stats.con.base,type:integer">
-                <label class="m-input-block-label hidden-sm hidden-md hidden-lg hidden-xl js-input-block-label" for="statistics-stats-con-base">Base</label>
+                <label class="m-input-block-label js-input-block-label" for="statistics-stats-con-base">Base</label>
                 <input class="m-input-block-field u-full-width u-text-center js-stats-field js-input-block-field" id="statistics-stats-con-base" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item">
               <div class="m-input-block js-input-block" data-input-block-options="path:statistics.stats.con.racial,type:integer">
-                <label class="m-input-block-label hidden-sm hidden-md hidden-lg hidden-xl js-input-block-label" for="statistics-stats-con-racial">Racial</label>
+                <label class="m-input-block-label js-input-block-label" for="statistics-stats-con-racial">Racial</label>
                 <input class="m-input-block-field u-full-width u-text-center js-stats-field js-input-block-field" id="statistics-stats-con-racial" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item">
               <div class="m-input-block js-input-block" data-input-block-options="path:statistics.stats.con.enhancement,type:integer">
-                <label class="m-input-block-label hidden-sm hidden-md hidden-lg hidden-xl js-input-block-label" for="statistics-stats-con-enhancement">Enhance</label>
+                <label class="m-input-block-label js-input-block-label" for="statistics-stats-con-enhancement">Enhance</label>
                 <input class="m-input-block-field u-full-width u-text-center js-stats-field js-input-block-field" id="statistics-stats-con-enhancement" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item">
               <div class="m-input-block js-input-block" data-input-block-options="path:statistics.stats.con.misc,type:integer">
-                <label class="m-input-block-label hidden-sm hidden-md hidden-lg hidden-xl js-input-block-label" for="statistics-stats-con-misc">Misc</label>
+                <label class="m-input-block-label js-input-block-label" for="statistics-stats-con-misc">Misc</label>
                 <input class="m-input-block-field u-full-width u-text-center js-stats-field js-input-block-field" id="statistics-stats-con-misc" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item">
               <div class="m-input-block js-input-block" data-input-block-options="path:statistics.stats.con.temp,type:integer">
-                <label class="m-input-block-label hidden-sm hidden-md hidden-lg hidden-xl js-input-block-label" for="statistics-stats-con-temp">Temp</label>
+                <label class="m-input-block-label js-input-block-label" for="statistics-stats-con-temp">Temp</label>
                 <input class="m-input-block-field u-full-width u-text-center js-stats-field js-input-block-field" id="statistics-stats-con-temp" type="number" tabindex="1">
               </div>
             </div>
@@ -163,7 +163,7 @@
   </div>
 
   <div class="js-stats" data-stats-options="path:statistics.stats.int,addition:+base+enhancement+misc+racial+temp">
-    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small">
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
       <div class="m-edit-box-head">
         <h2 class="m-edit-box-title">Intelligence</h2>
       </div>
@@ -171,41 +171,41 @@
         <div class="m-edit-box-content m-edit-box-content-margin-large">
 
           <div class="m-edit-box-item-100 m-edit-box-group">
-            <div class="m-edit-box-item-total">
-              <p class="m-edit-box-label hidden-sm hidden-md hidden-lg hidden-xl">Score</p>
+            <div class="m-edit-box-item-stat">
+              <p class="m-edit-box-label">Score</p>
               <p class="m-edit-box-total js-text-block" data-text-block-options="path:statistics.stats.int.current"></p>
             </div>
-            <div class="m-edit-box-item-total">
-              <p class="m-edit-box-label hidden-sm hidden-md hidden-lg hidden-xl">Modifier</p>
+            <div class="m-edit-box-item-modifier">
+              <p class="m-edit-box-label"><span class="hidden-md hidden-lg hidden-xl">Mod</span><span class="hidden-xs hidden-sm">Modifier</span></p>
               <p class="m-edit-box-total js-text-block" data-text-block-options="path:statistics.stats.int.modifier,type:bonus"></p>
             </div>
             <div class="m-edit-box-item">
               <div class="m-input-block js-input-block" data-input-block-options="path:statistics.stats.int.base,type:integer">
-                <label class="m-input-block-label hidden-sm hidden-md hidden-lg hidden-xl js-input-block-label" for="statistics-stats-int-base">Base</label>
+                <label class="m-input-block-label js-input-block-label" for="statistics-stats-int-base">Base</label>
                 <input class="m-input-block-field u-full-width u-text-center js-stats-field js-input-block-field" id="statistics-stats-int-base" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item">
               <div class="m-input-block js-input-block" data-input-block-options="path:statistics.stats.int.racial,type:integer">
-                <label class="m-input-block-label hidden-sm hidden-md hidden-lg hidden-xl js-input-block-label" for="statistics-stats-int-racial">Racial</label>
+                <label class="m-input-block-label js-input-block-label" for="statistics-stats-int-racial">Racial</label>
                 <input class="m-input-block-field u-full-width u-text-center js-stats-field js-input-block-field" id="statistics-stats-int-racial" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item">
               <div class="m-input-block js-input-block" data-input-block-options="path:statistics.stats.int.enhancement,type:integer">
-                <label class="m-input-block-label hidden-sm hidden-md hidden-lg hidden-xl js-input-block-label" for="statistics-stats-int-enhancement">Enhance</label>
+                <label class="m-input-block-label js-input-block-label" for="statistics-stats-int-enhancement">Enhance</label>
                 <input class="m-input-block-field u-full-width u-text-center js-stats-field js-input-block-field" id="statistics-stats-int-enhancement" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item">
               <div class="m-input-block js-input-block" data-input-block-options="path:statistics.stats.int.misc,type:integer">
-                <label class="m-input-block-label hidden-sm hidden-md hidden-lg hidden-xl js-input-block-label" for="statistics-stats-int-misc">Misc</label>
+                <label class="m-input-block-label js-input-block-label" for="statistics-stats-int-misc">Misc</label>
                 <input class="m-input-block-field u-full-width u-text-center js-stats-field js-input-block-field" id="statistics-stats-int-misc" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item">
               <div class="m-input-block js-input-block" data-input-block-options="path:statistics.stats.int.temp,type:integer">
-                <label class="m-input-block-label hidden-sm hidden-md hidden-lg hidden-xl js-input-block-label" for="statistics-stats-int-temp">Temp</label>
+                <label class="m-input-block-label js-input-block-label" for="statistics-stats-int-temp">Temp</label>
                 <input class="m-input-block-field u-full-width u-text-center js-stats-field js-input-block-field" id="statistics-stats-int-temp" type="number" tabindex="1">
               </div>
             </div>
@@ -217,7 +217,7 @@
   </div>
 
   <div class="js-stats" data-stats-options="path:statistics.stats.wis,addition:+base+enhancement+misc+racial+temp">
-    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small">
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
       <div class="m-edit-box-head">
         <h2 class="m-edit-box-title">Wisdom</h2>
       </div>
@@ -225,41 +225,41 @@
         <div class="m-edit-box-content m-edit-box-content-margin-large">
 
           <div class="m-edit-box-item-100 m-edit-box-group">
-            <div class="m-edit-box-item-total">
-              <p class="m-edit-box-label hidden-sm hidden-md hidden-lg hidden-xl">Score</p>
+            <div class="m-edit-box-item-stat">
+              <p class="m-edit-box-label">Score</p>
               <p class="m-edit-box-total js-text-block" data-text-block-options="path:statistics.stats.wis.current"></p>
             </div>
-            <div class="m-edit-box-item-total">
-              <p class="m-edit-box-label hidden-sm hidden-md hidden-lg hidden-xl">Modifier</p>
+            <div class="m-edit-box-item-modifier">
+              <p class="m-edit-box-label"><span class="hidden-md hidden-lg hidden-xl">Mod</span><span class="hidden-xs hidden-sm">Modifier</span></p>
               <p class="m-edit-box-total js-text-block" data-text-block-options="path:statistics.stats.wis.modifier,type:bonus"></p>
             </div>
             <div class="m-edit-box-item">
               <div class="m-input-block js-input-block" data-input-block-options="path:statistics.stats.wis.base,type:integer">
-                <label class="m-input-block-label hidden-sm hidden-md hidden-lg hidden-xl js-input-block-label" for="statistics-stats-wis-base">Base</label>
+                <label class="m-input-block-label js-input-block-label" for="statistics-stats-wis-base">Base</label>
                 <input class="m-input-block-field u-full-width u-text-center js-stats-field js-input-block-field" id="statistics-stats-wis-base" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item">
               <div class="m-input-block js-input-block" data-input-block-options="path:statistics.stats.wis.racial,type:integer">
-                <label class="m-input-block-label hidden-sm hidden-md hidden-lg hidden-xl js-input-block-label" for="statistics-stats-wis-racial">Racial</label>
+                <label class="m-input-block-label js-input-block-label" for="statistics-stats-wis-racial">Racial</label>
                 <input class="m-input-block-field u-full-width u-text-center js-stats-field js-input-block-field" id="statistics-stats-wis-racial" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item">
               <div class="m-input-block js-input-block" data-input-block-options="path:statistics.stats.wis.enhancement,type:integer">
-                <label class="m-input-block-label hidden-sm hidden-md hidden-lg hidden-xl js-input-block-label" for="statistics-stats-wis-enhancement">Enhance</label>
+                <label class="m-input-block-label js-input-block-label" for="statistics-stats-wis-enhancement">Enhance</label>
                 <input class="m-input-block-field u-full-width u-text-center js-stats-field js-input-block-field" id="statistics-stats-wis-enhancement" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item">
               <div class="m-input-block js-input-block" data-input-block-options="path:statistics.stats.wis.misc,type:integer">
-                <label class="m-input-block-label hidden-sm hidden-md hidden-lg hidden-xl js-input-block-label" for="statistics-stats-wis-misc">Misc</label>
+                <label class="m-input-block-label js-input-block-label" for="statistics-stats-wis-misc">Misc</label>
                 <input class="m-input-block-field u-full-width u-text-center js-stats-field js-input-block-field" id="statistics-stats-wis-misc" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item">
               <div class="m-input-block js-input-block" data-input-block-options="path:statistics.stats.wis.temp,type:integer">
-                <label class="m-input-block-label hidden-sm hidden-md hidden-lg hidden-xl js-input-block-label" for="statistics-stats-wis-temp">Temp</label>
+                <label class="m-input-block-label js-input-block-label" for="statistics-stats-wis-temp">Temp</label>
                 <input class="m-input-block-field u-full-width u-text-center js-stats-field js-input-block-field" id="statistics-stats-wis-temp" type="number" tabindex="1">
               </div>
             </div>
@@ -271,7 +271,7 @@
   </div>
 
   <div class="js-stats" data-stats-options="path:statistics.stats.cha,addition:+base+enhancement+misc+racial+temp">
-    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small">
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
       <div class="m-edit-box-head">
         <h2 class="m-edit-box-title">Charisma</h2>
       </div>
@@ -279,41 +279,41 @@
         <div class="m-edit-box-content m-edit-box-content-margin-large">
 
           <div class="m-edit-box-item-100 m-edit-box-group">
-            <div class="m-edit-box-item-total">
-              <p class="m-edit-box-label hidden-sm hidden-md hidden-lg hidden-xl">Score</p>
+            <div class="m-edit-box-item-stat">
+              <p class="m-edit-box-label">Score</p>
               <p class="m-edit-box-total js-text-block" data-text-block-options="path:statistics.stats.cha.current"></p>
             </div>
-            <div class="m-edit-box-item-total">
-              <p class="m-edit-box-label hidden-sm hidden-md hidden-lg hidden-xl">Modifier</p>
+            <div class="m-edit-box-item-modifier">
+              <p class="m-edit-box-label"><span class="hidden-md hidden-lg hidden-xl">Mod</span><span class="hidden-xs hidden-sm">Modifier</span></p>
               <p class="m-edit-box-total js-text-block" data-text-block-options="path:statistics.stats.cha.modifier,type:bonus"></p>
             </div>
             <div class="m-edit-box-item">
               <div class="m-input-block js-input-block" data-input-block-options="path:statistics.stats.cha.base,type:integer">
-                <label class="m-input-block-label hidden-sm hidden-md hidden-lg hidden-xl js-input-block-label" for="statistics-stats-cha-base">Base</label>
+                <label class="m-input-block-label js-input-block-label" for="statistics-stats-cha-base">Base</label>
                 <input class="m-input-block-field u-full-width u-text-center js-stats-field js-input-block-field" id="statistics-stats-cha-base" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item">
               <div class="m-input-block js-input-block" data-input-block-options="path:statistics.stats.cha.racial,type:integer">
-                <label class="m-input-block-label hidden-sm hidden-md hidden-lg hidden-xl js-input-block-label" for="statistics-stats-cha-racial">Racial</label>
+                <label class="m-input-block-label js-input-block-label" for="statistics-stats-cha-racial">Racial</label>
                 <input class="m-input-block-field u-full-width u-text-center js-stats-field js-input-block-field" id="statistics-stats-cha-racial" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item">
               <div class="m-input-block js-input-block" data-input-block-options="path:statistics.stats.cha.enhancement,type:integer">
-                <label class="m-input-block-label hidden-sm hidden-md hidden-lg hidden-xl js-input-block-label" for="statistics-stats-cha-enhancement">Enhance</label>
+                <label class="m-input-block-label js-input-block-label" for="statistics-stats-cha-enhancement">Enhance</label>
                 <input class="m-input-block-field u-full-width u-text-center js-stats-field js-input-block-field" id="statistics-stats-cha-enhancement" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item">
               <div class="m-input-block js-input-block" data-input-block-options="path:statistics.stats.cha.misc,type:integer">
-                <label class="m-input-block-label hidden-sm hidden-md hidden-lg hidden-xl js-input-block-label" for="statistics-stats-cha-misc">Misc</label>
+                <label class="m-input-block-label js-input-block-label" for="statistics-stats-cha-misc">Misc</label>
                 <input class="m-input-block-field u-full-width u-text-center js-stats-field js-input-block-field" id="statistics-stats-cha-misc" type="number" tabindex="1">
               </div>
             </div>
             <div class="m-edit-box-item">
               <div class="m-input-block js-input-block" data-input-block-options="path:statistics.stats.cha.temp,type:integer">
-                <label class="m-input-block-label hidden-sm hidden-md hidden-lg hidden-xl js-input-block-label" for="statistics-stats-cha-temp">Temp</label>
+                <label class="m-input-block-label js-input-block-label" for="statistics-stats-cha-temp">Temp</label>
                 <input class="m-input-block-field u-full-width u-text-center js-stats-field js-input-block-field" id="statistics-stats-cha-temp" type="number" tabindex="1">
               </div>
             </div>

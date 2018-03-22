@@ -170,9 +170,12 @@
   box-sizing: border-box;
   transition: margin $transition-ease-medium;
 }
-.m-edit-box-item-check,
 .m-edit-box-item-modifier,
-.m-edit-box-item-stat,
+.m-edit-box-item-stat {
+  flex: 0 0 auto;
+  min-width: 4em;
+}
+.m-edit-box-item-check,
 .m-edit-box-item-total {
   flex: 0 0 auto;
   min-width: 4em;
@@ -412,9 +415,12 @@
       }
     }
   }
-  .m-edit-box-item-check,
   .m-edit-box-item-modifier,
-  .m-edit-box-item-stat,
+  .m-edit-box-item-stat {
+    flex: 0 0 auto;
+    min-width: 4em;
+  }
+  .m-edit-box-item-check,
   .m-edit-box-item-total {
     flex: 0 0 auto;
     min-width: 4em;
