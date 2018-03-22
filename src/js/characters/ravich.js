@@ -515,7 +515,7 @@ var ravich = (function() {
       },
       saves: {
         fortitude: {
-          base: 4,
+          base: "",
           resistance: 1,
           feat: 2,
           trait: 1,
@@ -534,7 +534,7 @@ var ravich = (function() {
           }
         },
         reflex: {
-          base: 4,
+          base: "",
           resistance: 1,
           feat: "",
           trait: "",
@@ -553,7 +553,7 @@ var ravich = (function() {
           }
         },
         will: {
-          base: 2,
+          base: "",
           resistance: 1,
           feat: "",
           trait: "",
@@ -728,9 +728,6 @@ var ravich = (function() {
       }
     },
     skills: {
-      stats: {
-        notes: ""
-      },
       ranks: {
         total: "",
         include_custom: false,
@@ -1574,6 +1571,9 @@ var ravich = (function() {
             check_penalty: false
           }
         }
+      },
+      stats: {
+        notes: ""
       }
     },
     spells: {

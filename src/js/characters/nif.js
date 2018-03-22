@@ -3,7 +3,7 @@ var nif = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.4
+      version: 5.5
     },
     basics: {
       character: {
@@ -29,14 +29,24 @@ var nif = (function() {
       },
       classes: {
         all: [{
-          classname: "Wizard",
           level: 8,
-          hp: 42,
-          fortitude: 2,
-          reflex: 2,
-          will: 6,
-          ranks: 16,
-          bab: 4
+          hp: {
+            base: 34,
+            favoured: 8,
+            current: ""
+          },
+          ranks: {
+            base: 16,
+            favoured: "",
+            current: ""
+          },
+          bab: 4,
+          name: "Wizard",
+          saves: {
+            fortitude: 2,
+            reflex: 2,
+            will: 6
+          }
         }],
         string: "Wizard 8"
       },
@@ -94,6 +104,10 @@ var nif = (function() {
           height: 513
         },
         scale: 186
+      },
+      senses: {
+        racial: "",
+        magical: ""
       }
     },
     statistics: {
@@ -485,7 +499,7 @@ var nif = (function() {
         gold: 1027,
         silver: "",
         copper: "",
-        total: 1027
+        total: ""
       }
     },
     defense: {
@@ -590,7 +604,7 @@ var nif = (function() {
       },
       saves: {
         fortitude: {
-          base: 2,
+          base: "",
           resistance: 2,
           feat: "",
           trait: 1,
@@ -609,7 +623,7 @@ var nif = (function() {
           }
         },
         reflex: {
-          base: 2,
+          base: "",
           resistance: 2,
           feat: "",
           trait: "",
@@ -628,7 +642,7 @@ var nif = (function() {
           }
         },
         will: {
-          base: 6,
+          base: "",
           resistance: 2,
           feat: "",
           trait: "",
@@ -707,8 +721,8 @@ var nif = (function() {
     offense: {
       stats: {
         base_attack: {
-          bonus: 4,
-          string: "+4"
+          bonus: "",
+          string: ""
         },
         melee: {
           misc: "",
@@ -1587,6 +1601,9 @@ var nif = (function() {
             check_penalty: false
           }
         }
+      },
+      stats: {
+        notes: ""
       }
     },
     spells: {
