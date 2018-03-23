@@ -2177,14 +2177,11 @@ label {
     margin: 2em 0;
     display: block;
     -webkit-columns: 10em 2;
-       -moz-columns: 10em 2;
             columns: 10em 2;
     -webkit-column-gap: 4em;
-       -moz-column-gap: 4em;
             column-gap: 4em; }
     .l-section-wrapper > * {
       -webkit-column-break-inside: avoid;
-         page-break-inside: avoid;
               break-inside: avoid; }
   .l-section {
     margin: 0 0 1em;
@@ -2659,8 +2656,7 @@ label {
             justify-content: flex-start;
     position: relative; }
   .m-card-controls .button {
-    padding: 0 1.5em;
-    line-height: 2.5; }
+    padding: 0.5em 1.5em; }
     .m-card-controls .button [class*=" icon-"],
     .m-card-controls .button [class^="icon-"] {
       font-size: 1.2em; }
@@ -2723,11 +2719,9 @@ label {
       color: #ffffff; } }
 
 @media (min-width: 700px) {
-  .m-card-controls .button {
-    line-height: 3; }
-    .m-card-controls .button [class*=" icon-"],
-    .m-card-controls .button [class^="icon-"] {
-      font-size: 1.4em; } }
+  .m-card-controls .button [class*=" icon-"],
+  .m-card-controls .button [class^="icon-"] {
+    font-size: 1.4em; } }
 
 @media print {
   .m-card {
@@ -5721,7 +5715,7 @@ label {
 .m-tab-item {
   background-color: transparent;
   margin: 0;
-  padding: 0.25em 2em;
+  padding: 0.5em 2em;
   color: rgba(255, 255, 255, 0.75);
   border: 0;
   border-radius: 0;
@@ -7480,7 +7474,6 @@ h3 .m-display-value {
 @media print {
   .m-display-area {
     -webkit-column-break-inside: avoid;
-       page-break-inside: avoid;
             break-inside: avoid; }
   .m-display-image-wrapper {
     box-shadow: none; }
