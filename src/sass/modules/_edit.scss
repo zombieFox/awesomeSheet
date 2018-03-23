@@ -10,11 +10,13 @@
 }
 .m-edit-box-head {
   width: 100%;
+  margin-bottom: 1em;
   .m-edit-box-description {
     margin-bottom: 1em;
   }
 }
 .m-edit-box-head-row {
+  margin-bottom: 1em;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -613,11 +615,13 @@
     flex: 1 1 auto;
   }
   .m-edit-box-head {
+    margin-bottom: 0;
     .m-edit-box-description {
       margin-bottom: 0;
     }
   }
   .m-edit-box-head-row {
+    margin-bottom: 0;
     > * {
       margin-right: 1em;
     }
