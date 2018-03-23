@@ -18,8 +18,7 @@
     position: relative;
   }
   .button {
-    padding: 0 1.5em;
-    line-height: 2.5;
+    padding: 0.5em 1.5em;
     [class*=" icon-"],
     [class^="icon-"] {
       font-size: 1.2em;
@@ -128,7 +127,6 @@
 @media (min-width: $screen-md) {
   .m-card-controls {
     .button {
-      line-height: 3;
       [class*=" icon-"],
       [class^="icon-"] {
         font-size: 1.4em;
