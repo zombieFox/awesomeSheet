@@ -487,11 +487,29 @@ h3 {
     padding-bottom: 0.5em;
     border-bottom: $border;
     border-bottom-color: $gray-18;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
+    display: block;
     position: relative;
     box-sizing: border-box;
+  }
+}
+.m-display-list-item-attack-equipped {
+  background-color: $primary-color-08;
+  color: $white;
+  border-radius: 50%;
+  padding: 0;
+  width: 1.4em;
+  height: 1.4em;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  display: inline-flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  [class*=" icon-"],
+  [class^="icon-"] {
+    line-height: 1;
   }
 }
 .m-display-list-item-attack-ammo,
@@ -501,79 +519,120 @@ h3 {
 .m-display-list-item-attack-range,
 .m-display-list-item-attack-type,
 .m-display-list-item-attack-weapon {
-  margin: 0;
-  display: inline-block;
+  padding-left: 1.4em;
   position: relative;
+  width: 100%;
   box-sizing: border-box;
+  display: inline-flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
   .m-display-list-item-attack-prefix {
-    margin: 0 0.5em 0 0;
-    // font-size: $font-size-075;
+    margin: 0 1em 0 0;
     font-family: $open-sans-italic;
     color: $primary-color-08;
-    display: inline-block;
+    min-width: 5em;
+    text-align: right;
+    flex: 0 0 auto;
   }
   .m-display-list-item-attack-value {
-    margin: 0 0 0 0.5em;
-    display: inline-block;
+    margin: 0;
+    flex: 1 1 auto;
   }
 }
-.m-display-list-item-attack-weapon {
-  flex: 1 0 100%;
-}
-.m-display-list-item-attack-ammo,
-.m-display-list-item-attack-attack,
-.m-display-list-item-attack-critical,
-.m-display-list-item-attack-damage,
-.m-display-list-item-attack-range,
-.m-display-list-item-attack-type {
-  flex: 0 0 auto;
-  &:not(:only-child):not(:last-child) {
-    padding-right: 1em;
-    margin-right: 1em;
-    &:after {
-      content: "";
-      background-color: $gray-18;
-      display: block;
-      width: 1px;
-      height: 80%;
-      position: absolute;
-      top: 50%;
-      right: 0;
-      transform: rotate(10deg) translate(-50%, -50%);
-      transform-origin: top;
-    }
-  }
-}
-.is-night-mode {
-  .m-display-list-attack {
-    .m-display-list-item-attack {
-      border-bottom-color: $gray-04;
-    }
-  }
-  .m-display-list-item-attack-ammo,
-  .m-display-list-item-attack-attack,
-  .m-display-list-item-attack-critical,
-  .m-display-list-item-attack-damage,
-  .m-display-list-item-attack-range,
-  .m-display-list-item-attack-type,
-  .m-display-list-item-attack-weapon {
-    .m-display-list-item-attack-prefix {
-      color: $primary-color-12;
-    }
-  }
-  .m-display-list-item-attack-ammo,
-  .m-display-list-item-attack-attack,
-  .m-display-list-item-attack-critical,
-  .m-display-list-item-attack-damage,
-  .m-display-list-item-attack-range,
-  .m-display-list-item-attack-type {
-    &:not(:only-child):not(:last-child) {
-      &:after {
-        background-color: $gray-04;
-      }
-    }
-  }
-}
+// .m-display-list-attack {
+//   .m-display-list-item-attack {
+//     margin: 0;
+//     padding-top: 0.5em;
+//     padding-bottom: 0.5em;
+//     border-bottom: $border;
+//     border-bottom-color: $gray-18;
+//     display: flex;
+//     flex-flow: row wrap;
+//     justify-content: flex-start;
+//     position: relative;
+//     box-sizing: border-box;
+//   }
+// }
+// .m-display-list-item-attack-ammo,
+// .m-display-list-item-attack-attack,
+// .m-display-list-item-attack-critical,
+// .m-display-list-item-attack-damage,
+// .m-display-list-item-attack-range,
+// .m-display-list-item-attack-type,
+// .m-display-list-item-attack-weapon {
+//   margin: 0;
+//   display: inline-block;
+//   position: relative;
+//   box-sizing: border-box;
+//   .m-display-list-item-attack-prefix {
+//     margin: 0 0.5em 0 0;
+//     // font-size: $font-size-075;
+//     font-family: $open-sans-italic;
+//     color: $primary-color-08;
+//     display: inline-block;
+//   }
+//   .m-display-list-item-attack-value {
+//     margin: 0 0 0 0.5em;
+//     display: inline-block;
+//   }
+// }
+// .m-display-list-item-attack-weapon {
+//   flex: 1 0 100%;
+// }
+// .m-display-list-item-attack-ammo,
+// .m-display-list-item-attack-attack,
+// .m-display-list-item-attack-critical,
+// .m-display-list-item-attack-damage,
+// .m-display-list-item-attack-range,
+// .m-display-list-item-attack-type {
+//   flex: 0 0 auto;
+//   &:not(:only-child):not(:last-child) {
+//     padding-right: 1em;
+//     margin-right: 1em;
+//     &:after {
+//       content: "";
+//       background-color: $gray-18;
+//       display: block;
+//       width: 1px;
+//       height: 80%;
+//       position: absolute;
+//       top: 50%;
+//       right: 0;
+//       transform: rotate(10deg) translate(-50%, -50%);
+//       transform-origin: top;
+//     }
+//   }
+// }
+// .is-night-mode {
+//   .m-display-list-attack {
+//     .m-display-list-item-attack {
+//       border-bottom-color: $gray-04;
+//     }
+//   }
+//   .m-display-list-item-attack-ammo,
+//   .m-display-list-item-attack-attack,
+//   .m-display-list-item-attack-critical,
+//   .m-display-list-item-attack-damage,
+//   .m-display-list-item-attack-range,
+//   .m-display-list-item-attack-type,
+//   .m-display-list-item-attack-weapon {
+//     .m-display-list-item-attack-prefix {
+//       color: $primary-color-12;
+//     }
+//   }
+//   .m-display-list-item-attack-ammo,
+//   .m-display-list-item-attack-attack,
+//   .m-display-list-item-attack-critical,
+//   .m-display-list-item-attack-damage,
+//   .m-display-list-item-attack-range,
+//   .m-display-list-item-attack-type {
+//     &:not(:only-child):not(:last-child) {
+//       &:after {
+//         background-color: $gray-04;
+//       }
+//     }
+//   }
+// }
 // --------------------------------------------------
 // media queries
 // --------------------------------------------------
@@ -656,6 +715,68 @@ h3 {
       }
     }
   }
+  .m-display-list-attack {
+    .m-display-list-item-attack {
+      padding-left: 3em;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: flex-start;
+    }
+  }
+  .m-display-list-item-attack-ammo,
+  .m-display-list-item-attack-attack,
+  .m-display-list-item-attack-critical,
+  .m-display-list-item-attack-damage,
+  .m-display-list-item-attack-range,
+  .m-display-list-item-attack-type,
+  .m-display-list-item-attack-weapon {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    position: relative;
+    .m-display-list-item-attack-prefix {
+      margin: 0 0.5em 0 0;
+      min-width: initial;
+      font-family: $open-sans-italic;
+      color: $primary-color-08;
+      text-align: left;
+      display: inline-block;
+      flex: none;
+    }
+    .m-display-list-item-attack-value {
+      margin: 0 0 0 0.5em;
+      display: inline-block;
+      flex: none;
+    }
+  }
+  .m-display-list-item-attack-weapon {
+    flex: none;
+  }
+  .m-display-list-item-attack-ammo,
+  .m-display-list-item-attack-attack,
+  .m-display-list-item-attack-critical,
+  .m-display-list-item-attack-damage,
+  .m-display-list-item-attack-range,
+  .m-display-list-item-attack-type {
+    width: initial;
+    flex: none;
+    &:not(:only-child):not(:last-child) {
+      padding-right: 1em;
+      margin-right: 1em;
+      &:after {
+        content: "";
+        background-color: $gray-18;
+        display: block;
+        width: 1px;
+        height: 80%;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: rotate(10deg) translate(-50%, -50%);
+        transform-origin: top;
+      }
+    }
+  }
 }
 @media (min-width: $screen-md) {
   // display area
@@ -714,6 +835,7 @@ h3 {
   }
   .m-display-list-item-attack-weapon {
     flex: 1 0 auto;
+    width: initial;
     .m-display-list-item-attack-prefix {
       display: block;
     }
