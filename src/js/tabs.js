@@ -62,12 +62,22 @@ var tabs = (function() {
     var tabRowArea = tabRow.getBoundingClientRect();
     var tabArea = tab.getBoundingClientRect();
     var left = Math.ceil(tab.offsetLeft - (tabRowArea.width / 2) + (tabArea.width / 2), 10);
-    tabRow.scroll({
-      top: 0,
-      left: left,
-      behavior: 'smooth'
-    });
     tabIndicator.setAttribute("style", "width:" + (tabArea.width - 10) + "px;left:" + (tab.offsetLeft + 5) + "px;");
+    if (tabRow.scroll) {
+      tabRow.scroll({
+        top: 0,
+        left: left,
+        behavior: 'smooth'
+      });
+    } else {
+      if (tabArea.left < tabRowArea.left) {
+        var left = tab.offsetLeft;
+        tabRow.scrollLeft = left;
+      } else if (tabArea.right > tabRowArea.right) {
+        var right = Math.ceil(tab.offsetLeft - tabRowArea.width + tabArea.width, 10);
+        tabRow.scrollLeft = right;
+      };
+    };
   };
 
   function _switchTabPanel(tab) {
