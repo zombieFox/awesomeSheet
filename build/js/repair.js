@@ -2725,7 +2725,7 @@ var repair = (function() {
     };
     if (characterObject.offense.attack.ranged.all.length > 0) {
       characterObject.offense.attack.ranged.all.forEach(function(arrayItem) {
-        if (!"equipped" in arrayItem) {
+        if (!("equipped" in arrayItem)) {
           arrayItem.equipped = false;
         };
       });
