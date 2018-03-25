@@ -2004,11 +2004,9 @@ var display = (function() {
                     listItem.setAttribute("class", "m-display-list-item-attack");
                     if (arrayItem.equipped) {
                       var meleeEquipped = document.createElement("span");
-                      meleeEquipped.setAttribute("class", "m-display-list-item-attack-equipped");
-                      var meleeEquippedIcon = document.createElement("span");
-                      meleeEquippedIcon.setAttribute("class", "icon-check");
-                      meleeEquipped.appendChild(meleeEquippedIcon);
+                      meleeEquipped.setAttribute("class", "m-display-list-item-attack-equipped icon-check");
                       listItem.appendChild(meleeEquipped);
+                      helper.addClass(listItem, "is-active");
                     };
                     if ("weapon" in arrayItem && arrayItem.weapon != "") {
                       listItem.appendChild(_createSnippet({
