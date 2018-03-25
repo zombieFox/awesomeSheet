@@ -3,7 +3,7 @@ var vos = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.5
+      version: 5.6
     },
     basics: {
       character: {
@@ -715,31 +715,36 @@ var vos = (function() {
             attack: "+11/+11/+8/+8",
             damage: "1d10+4 + 1d6 electricity",
             critical: "20x2",
-            type: "Bludgeoning"
+            type: "Bludgeoning",
+            equipped: true
           }, {
             weapon: "Grapple",
             attack: "+14",
             damage: "1d10+4",
             critical: "20x2",
-            type: ""
+            type: "",
+            equipped: false
           }, {
             weapon: "Disarm",
             attack: "+14",
             damage: "",
             critical: "",
-            type: ""
+            type: "",
+            equipped: false
           }, {
             weapon: "Stunning Fist",
             attack: "+11",
             damage: "1d10+4 + 1d6 electricity",
             critical: "20x2",
-            type: "Bludgeoning"
+            type: "Bludgeoning",
+            equipped: false
           }, {
             weapon: "Unarmed Strike",
             attack: "+11",
             damage: "1d10+4 + 1d6 electricity",
             critical: "20x2",
-            type: "Bludgeoning"
+            type: "Bludgeoning",
+            equipped: false
           }]
         },
         ranged: {

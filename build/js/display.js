@@ -2002,6 +2002,12 @@ var display = (function() {
                     };
                     var listItem = document.createElement("li");
                     listItem.setAttribute("class", "m-display-list-item-attack");
+                    if (arrayItem.equipped) {
+                      var meleeEquipped = document.createElement("span");
+                      meleeEquipped.setAttribute("class", "m-display-list-item-attack-equipped icon-check");
+                      listItem.appendChild(meleeEquipped);
+                      helper.addClass(listItem, "is-active");
+                    };
                     if ("weapon" in arrayItem && arrayItem.weapon != "") {
                       listItem.appendChild(_createSnippet({
                         prefix: "Weapon",

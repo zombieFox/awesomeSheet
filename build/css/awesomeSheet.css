@@ -3042,11 +3042,13 @@ label {
   transition: margin 0.2s ease-in-out, padding 0.2s ease-in-out; }
 
 .m-edit-box-head {
-  width: 100%; }
+  width: 100%;
+  margin-bottom: 1em; }
   .m-edit-box-head .m-edit-box-description {
     margin-bottom: 1em; }
 
 .m-edit-box-head-row {
+  margin-bottom: 1em;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -4018,10 +4020,14 @@ label {
     -webkit-flex: 1 1 auto;
         -ms-flex: 1 1 auto;
             flex: 1 1 auto; }
-  .m-edit-box-head .m-edit-box-description {
+  .m-edit-box-head {
     margin-bottom: 0; }
-  .m-edit-box-head-row > * {
-    margin-right: 1em; }
+    .m-edit-box-head .m-edit-box-description {
+      margin-bottom: 0; }
+  .m-edit-box-head-row {
+    margin-bottom: 0; }
+    .m-edit-box-head-row > * {
+      margin-right: 1em; }
   .m-edit-box-indent .m-edit-box-body {
     margin-left: 0; }
   .m-edit-box-labels .m-edit-box-head > *,
@@ -7102,21 +7108,34 @@ h3 .m-display-value {
 
 .m-display-list-attack .m-display-list-item-attack {
   margin: 0;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  padding: 0.5em 1em;
   border-bottom: 1px solid transparent;
   border-bottom-color: #e0e0e0;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  display: block;
   position: relative;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  transition: background-color 0.2s ease-in-out; }
+  .m-display-list-attack .m-display-list-item-attack.is-active {
+    background-color: rgba(253, 0, 66, 0.05); }
+
+.m-display-list-item-attack-equipped {
+  background-color: #fd0042;
+  border: 0.4em solid transparent;
+  border-color: #ffffff;
+  color: #ffffff;
+  border-radius: 50%;
+  padding: 0;
+  width: 1.5em;
+  height: 1.5em;
+  line-height: 1.5;
+  display: inline-block;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%); }
 
 .m-display-list-item-attack-ammo,
 .m-display-list-item-attack-attack,
@@ -7125,10 +7144,18 @@ h3 .m-display-value {
 .m-display-list-item-attack-range,
 .m-display-list-item-attack-type,
 .m-display-list-item-attack-weapon {
-  margin: 0;
-  display: inline-block;
   position: relative;
-  box-sizing: border-box; }
+  width: 100%;
+  box-sizing: border-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-flow: row nowrap;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start; }
   .m-display-list-item-attack-ammo .m-display-list-item-attack-prefix,
   .m-display-list-item-attack-attack .m-display-list-item-attack-prefix,
   .m-display-list-item-attack-critical .m-display-list-item-attack-prefix,
@@ -7136,10 +7163,14 @@ h3 .m-display-value {
   .m-display-list-item-attack-range .m-display-list-item-attack-prefix,
   .m-display-list-item-attack-type .m-display-list-item-attack-prefix,
   .m-display-list-item-attack-weapon .m-display-list-item-attack-prefix {
-    margin: 0 0.5em 0 0;
+    margin: 0 1em 0 0;
     font-family: "Open Sans Italic", Helvetica, Arial, sans-serif;
     color: #ca0035;
-    display: inline-block; }
+    min-width: 5em;
+    text-align: right;
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto; }
   .m-display-list-item-attack-ammo .m-display-list-item-attack-value,
   .m-display-list-item-attack-attack .m-display-list-item-attack-value,
   .m-display-list-item-attack-critical .m-display-list-item-attack-value,
@@ -7147,71 +7178,18 @@ h3 .m-display-value {
   .m-display-list-item-attack-range .m-display-list-item-attack-value,
   .m-display-list-item-attack-type .m-display-list-item-attack-value,
   .m-display-list-item-attack-weapon .m-display-list-item-attack-value {
-    margin: 0 0 0 0.5em;
-    display: inline-block; }
-
-.m-display-list-item-attack-weapon {
-  -webkit-flex: 1 0 100%;
-      -ms-flex: 1 0 100%;
-          flex: 1 0 100%; }
-
-.m-display-list-item-attack-ammo,
-.m-display-list-item-attack-attack,
-.m-display-list-item-attack-critical,
-.m-display-list-item-attack-damage,
-.m-display-list-item-attack-range,
-.m-display-list-item-attack-type {
-  -webkit-flex: 0 0 auto;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto; }
-  .m-display-list-item-attack-ammo:not(:only-child):not(:last-child),
-  .m-display-list-item-attack-attack:not(:only-child):not(:last-child),
-  .m-display-list-item-attack-critical:not(:only-child):not(:last-child),
-  .m-display-list-item-attack-damage:not(:only-child):not(:last-child),
-  .m-display-list-item-attack-range:not(:only-child):not(:last-child),
-  .m-display-list-item-attack-type:not(:only-child):not(:last-child) {
-    padding-right: 1em;
-    margin-right: 1em; }
-    .m-display-list-item-attack-ammo:not(:only-child):not(:last-child):after,
-    .m-display-list-item-attack-attack:not(:only-child):not(:last-child):after,
-    .m-display-list-item-attack-critical:not(:only-child):not(:last-child):after,
-    .m-display-list-item-attack-damage:not(:only-child):not(:last-child):after,
-    .m-display-list-item-attack-range:not(:only-child):not(:last-child):after,
-    .m-display-list-item-attack-type:not(:only-child):not(:last-child):after {
-      content: "";
-      background-color: #e0e0e0;
-      display: block;
-      width: 1px;
-      height: 80%;
-      position: absolute;
-      top: 50%;
-      right: 0;
-      -webkit-transform: rotate(10deg) translate(-50%, -50%);
-          -ms-transform: rotate(10deg) translate(-50%, -50%);
-              transform: rotate(10deg) translate(-50%, -50%);
-      -webkit-transform-origin: top;
-          -ms-transform-origin: top;
-              transform-origin: top; }
+    margin: 0;
+    -webkit-flex: 1 1 auto;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto; }
 
 .is-night-mode .m-display-list-attack .m-display-list-item-attack {
   border-bottom-color: #2e2e2e; }
+  .is-night-mode .m-display-list-attack .m-display-list-item-attack.is-active {
+    background-color: rgba(253, 0, 66, 0.1); }
 
-.is-night-mode .m-display-list-item-attack-ammo .m-display-list-item-attack-prefix,
-.is-night-mode .m-display-list-item-attack-attack .m-display-list-item-attack-prefix,
-.is-night-mode .m-display-list-item-attack-critical .m-display-list-item-attack-prefix,
-.is-night-mode .m-display-list-item-attack-damage .m-display-list-item-attack-prefix,
-.is-night-mode .m-display-list-item-attack-range .m-display-list-item-attack-prefix,
-.is-night-mode .m-display-list-item-attack-type .m-display-list-item-attack-prefix,
-.is-night-mode .m-display-list-item-attack-weapon .m-display-list-item-attack-prefix {
-  color: #ff3166; }
-
-.is-night-mode .m-display-list-item-attack-ammo:not(:only-child):not(:last-child):after,
-.is-night-mode .m-display-list-item-attack-attack:not(:only-child):not(:last-child):after,
-.is-night-mode .m-display-list-item-attack-critical:not(:only-child):not(:last-child):after,
-.is-night-mode .m-display-list-item-attack-damage:not(:only-child):not(:last-child):after,
-.is-night-mode .m-display-list-item-attack-range:not(:only-child):not(:last-child):after,
-.is-night-mode .m-display-list-item-attack-type:not(:only-child):not(:last-child):after {
-  background-color: #2e2e2e; }
+.is-night-mode .m-display-list-item-attack-equipped {
+  border-color: #141414; }
 
 @media (min-width: 550px) {
   .m-display-stats {
@@ -7280,7 +7258,99 @@ h3 .m-display-value {
               flex: 0 0 46%;
       max-width: 46%; }
       .m-display-list-spell .m-display-list-item-spell:nth-child(odd) {
-        margin-right: 8%; } }
+        margin-right: 8%; }
+  .m-display-list-attack .m-display-list-item-attack {
+    padding-left: 2em;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start; }
+  .m-display-list-item-attack-ammo,
+  .m-display-list-item-attack-attack,
+  .m-display-list-item-attack-critical,
+  .m-display-list-item-attack-damage,
+  .m-display-list-item-attack-range,
+  .m-display-list-item-attack-type,
+  .m-display-list-item-attack-weapon {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    position: relative; }
+    .m-display-list-item-attack-ammo .m-display-list-item-attack-prefix,
+    .m-display-list-item-attack-attack .m-display-list-item-attack-prefix,
+    .m-display-list-item-attack-critical .m-display-list-item-attack-prefix,
+    .m-display-list-item-attack-damage .m-display-list-item-attack-prefix,
+    .m-display-list-item-attack-range .m-display-list-item-attack-prefix,
+    .m-display-list-item-attack-type .m-display-list-item-attack-prefix,
+    .m-display-list-item-attack-weapon .m-display-list-item-attack-prefix {
+      margin: 0 0.5em 0 0;
+      min-width: initial;
+      font-family: "Open Sans Italic", Helvetica, Arial, sans-serif;
+      color: #ca0035;
+      text-align: left;
+      display: inline-block;
+      -webkit-flex: none;
+          -ms-flex: none;
+              flex: none; }
+    .m-display-list-item-attack-ammo .m-display-list-item-attack-value,
+    .m-display-list-item-attack-attack .m-display-list-item-attack-value,
+    .m-display-list-item-attack-critical .m-display-list-item-attack-value,
+    .m-display-list-item-attack-damage .m-display-list-item-attack-value,
+    .m-display-list-item-attack-range .m-display-list-item-attack-value,
+    .m-display-list-item-attack-type .m-display-list-item-attack-value,
+    .m-display-list-item-attack-weapon .m-display-list-item-attack-value {
+      margin: 0 0 0 0.5em;
+      display: inline-block;
+      -webkit-flex: none;
+          -ms-flex: none;
+              flex: none; }
+  .m-display-list-item-attack-weapon {
+    -webkit-flex: none;
+        -ms-flex: none;
+            flex: none; }
+  .m-display-list-item-attack-ammo,
+  .m-display-list-item-attack-attack,
+  .m-display-list-item-attack-critical,
+  .m-display-list-item-attack-damage,
+  .m-display-list-item-attack-range,
+  .m-display-list-item-attack-type {
+    width: initial;
+    -webkit-flex: none;
+        -ms-flex: none;
+            flex: none; }
+    .m-display-list-item-attack-ammo:not(:only-child):not(:last-child),
+    .m-display-list-item-attack-attack:not(:only-child):not(:last-child),
+    .m-display-list-item-attack-critical:not(:only-child):not(:last-child),
+    .m-display-list-item-attack-damage:not(:only-child):not(:last-child),
+    .m-display-list-item-attack-range:not(:only-child):not(:last-child),
+    .m-display-list-item-attack-type:not(:only-child):not(:last-child) {
+      padding-right: 1em;
+      margin-right: 1em; }
+      .m-display-list-item-attack-ammo:not(:only-child):not(:last-child):after,
+      .m-display-list-item-attack-attack:not(:only-child):not(:last-child):after,
+      .m-display-list-item-attack-critical:not(:only-child):not(:last-child):after,
+      .m-display-list-item-attack-damage:not(:only-child):not(:last-child):after,
+      .m-display-list-item-attack-range:not(:only-child):not(:last-child):after,
+      .m-display-list-item-attack-type:not(:only-child):not(:last-child):after {
+        content: "";
+        background-color: #e0e0e0;
+        display: block;
+        width: 1px;
+        height: 80%;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        -webkit-transform: rotate(10deg) translate(-50%, -50%);
+            -ms-transform: rotate(10deg) translate(-50%, -50%);
+                transform: rotate(10deg) translate(-50%, -50%);
+        -webkit-transform-origin: top;
+            -ms-transform-origin: top;
+                transform-origin: top; } }
 
 @media (min-width: 700px) {
   .m-display-area {
@@ -7329,7 +7399,8 @@ h3 .m-display-value {
   .m-display-list-item-attack-weapon {
     -webkit-flex: 1 0 auto;
         -ms-flex: 1 0 auto;
-            flex: 1 0 auto; }
+            flex: 1 0 auto;
+    width: initial; }
     .m-display-list-item-attack-weapon .m-display-list-item-attack-prefix {
       display: block; }
     .m-display-list-item-attack-weapon:not(:only-child):not(:last-child) {

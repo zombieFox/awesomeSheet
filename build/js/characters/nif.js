@@ -3,7 +3,7 @@ var nif = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.5
+      version: 5.6
     },
     basics: {
       character: {
@@ -781,11 +781,12 @@ var nif = (function() {
         notes: "",
         melee: {
           all: [{
-            weapon: "Dagger (Master Work)",
+            weapon: "Dagger MW",
             attack: "+4",
             damage: "1d6+1",
             critical: "19–20/x2",
-            type: "Slashing/Piercing"
+            type: "Slashing/Piercing",
+            equipped: true
           }]
         },
         ranged: {
@@ -796,7 +797,8 @@ var nif = (function() {
             critical: "x3",
             range: "60 ft",
             ammo: "50",
-            type: "Piercing"
+            type: "Piercing",
+            equipped: false
           }]
         }
       }

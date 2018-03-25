@@ -3,7 +3,7 @@ var nefi = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.5
+      version: 5.6
     },
     basics: {
       character: {
@@ -620,49 +620,57 @@ var nefi = (function() {
             attack: "+21/+16/+11",
             damage: "2d4+12",
             critical: "19-20/x3",
-            type: "Piercing/Slashing"
+            type: "Piercing/Slashing",
+            equipped: true
           }, {
             weapon: "Guisarme +1 Keen Power Attack",
             attack: "+18/+13/+8",
             damage: "2d4+18",
             critical: "19-20/x3",
-            type: "Piercing/Slashing"
+            type: "Piercing/Slashing",
+            equipped: false
           }, {
             weapon: "Guisarme +1 Trip",
             attack: "+24",
             damage: "",
             critical: "",
-            type: "Piercing/Slashing"
+            type: "Piercing/Slashing",
+            equipped: false
           }, {
             weapon: "Greatsword MW",
             attack: "+18/+13/+8",
             damage: "1d10+8",
             critical: "19–20/x2",
-            type: "Slashing"
+            type: "Slashing",
+            equipped: false
           }, {
             weapon: "Greatsword MW Power Attack",
             attack: "+15/+10/+5",
             damage: "1d10+14",
             critical: "19–20/x2",
-            type: "Slashing"
+            type: "Slashing",
+            equipped: false
           }, {
             weapon: "Halberd MW",
             attack: "+19/+14/+9",
             damage: "1d8+10",
             critical: "x3",
-            type: "Piercing/Slashing"
+            type: "Piercing/Slashing",
+            equipped: false
           }, {
             weapon: "Halberd MW Power Attack",
             attack: "+16/+10/+5",
             damage: "1d8+16",
             critical: "x3",
-            type: "Piercing/Slashing"
+            type: "Piercing/Slashing",
+            equipped: false
           }, {
             weapon: "Earth Breaker +1 Frost",
             attack: "+17/+12/+7",
             damage: "2d6+8 1d6 (cold)",
             critical: "x3",
-            type: "Bludgeoning"
+            type: "Bludgeoning",
+            equipped: false
           }]
         },
         ranged: {
@@ -673,7 +681,8 @@ var nefi = (function() {
             critical: "x3",
             range: "100 ft",
             ammo: "50",
-            type: "Piercing"
+            type: "Piercing",
+            equipped: false
           }]
         }
       }

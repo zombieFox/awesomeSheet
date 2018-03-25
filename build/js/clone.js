@@ -358,8 +358,8 @@ var clone = (function() {
         '          </div>' +
         '          <div class="m-edit-box-item-check">' +
         '            <div class="m-check-block">' +
-        '              <p class="m-edit-box-label">Class <span class="hidden-xs hidden-sm hidden-md">Skill</span></p>' +
-        '              <input class="m-check-block-check js-total-block-check" data-total-block-check-options="path:skills.custom.all[' + cloneIndex + ']bonuses,type:class_skill,clone:true" type="checkbox" tabindex="1">' +
+        '              <label for="skills-custom-' + cloneIndex + '-class-skill" class="m-check-block-label">Class <span class="hidden-xs hidden-sm hidden-md">Skill</span></label>' +
+        '              <input id="skills-custom-' + cloneIndex + '-class-skill" class="m-check-block-check m-check-block-check-with-label js-total-block-check" data-total-block-check-options="path:skills.custom.all[' + cloneIndex + ']bonuses,type:class_skill,clone:true" type="checkbox" tabindex="1">' +
         '              <span class="m-check-block-check-icon"></span>' +
         '            </div>' +
         '          </div>' +
@@ -379,10 +379,19 @@ var clone = (function() {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
         '  <div class="m-edit-box-content m-edit-box-content-outline m-edit-box-content-margin-large">' +
-        '    <div class="m-edit-box-item-100">' +
-        '      <div class="m-input-block js-input-block" data-input-block-options="path:offense.attack.melee.all[' + cloneIndex + ']weapon,clone:true">' +
-        '        <label class="m-input-block-label js-input-block-label" for="attack-melee-weapon-' + cloneIndex + '">Weapon</label>' +
-        '        <input id="attack-melee-weapon-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">' +
+        '    <div class="m-edit-box-item-100 m-edit-box-group">' +
+        '      <div class="m-edit-box-item-100">' +
+        '        <div class="m-input-block js-input-block" data-input-block-options="path:offense.attack.melee.all[' + cloneIndex + ']weapon,clone:true">' +
+        '          <label class="m-input-block-label js-input-block-label" for="attack-melee-weapon-' + cloneIndex + '">Weapon</label>' +
+        '          <input id="attack-melee-weapon-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item-check">' +
+        '        <div class="m-check-block js-check-block" data-check-block-options="path:offense.attack.melee.all[' + cloneIndex + '].equipped,clone:true">' +
+        '          <label for="attack-melee-' + cloneIndex + '-equipped" class="m-check-block-label">Equipped</label>' +
+        '          <input id="attack-melee-' + cloneIndex + '-equipped" class="m-check-block-check m-check-block-check-with-label js-check-block-input" type="checkbox" tabindex="1">' +
+        '          <span class="m-check-block-check-icon"></span>' +
+        '        </div>' +
         '      </div>' +
         '    </div>' +
         '    <div class="m-edit-box-item-12">' +
@@ -419,10 +428,19 @@ var clone = (function() {
       cloneString =
         '<div class="m-clone-block-content js-clone-block-content">' +
         '  <div class="m-edit-box-content m-edit-box-content-outline m-edit-box-content-margin-large">' +
-        '    <div class="m-edit-box-item-100">' +
-        '      <div class="m-input-block js-input-block" data-input-block-options="path:offense.attack.ranged.all[' + cloneIndex + ']weapon,clone:true">' +
-        '        <label class="m-input-block-label js-input-block-label" for="attack-ranged-weapon-' + cloneIndex + '">Weapon</label>' +
-        '        <input id="attack-ranged-weapon-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">' +
+        '    <div class="m-edit-box-item-100 m-edit-box-group">' +
+        '      <div class="m-edit-box-item-100">' +
+        '        <div class="m-input-block js-input-block" data-input-block-options="path:offense.attack.ranged.all[' + cloneIndex + ']weapon,clone:true">' +
+        '          <label class="m-input-block-label js-input-block-label" for="attack-ranged-weapon-' + cloneIndex + '">Weapon</label>' +
+        '          <input id="attack-ranged-weapon-' + cloneIndex + '" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">' +
+        '        </div>' +
+        '      </div>' +
+        '      <div class="m-edit-box-item-check">' +
+        '        <div class="m-check-block js-check-block" data-check-block-options="path:offense.attack.ranged.all[' + cloneIndex + '].equipped,clone:true">' +
+        '          <label for="attack-ranged-' + cloneIndex + '-equipped" class="m-check-block-label">Equipped</label>' +
+        '          <input id="attack-ranged-' + cloneIndex + '-equipped" class="m-check-block-check m-check-block-check-with-label js-check-block-input" type="checkbox" tabindex="1">' +
+        '          <span class="m-check-block-check-icon"></span>' +
+        '        </div>' +
         '      </div>' +
         '    </div>' +
         '    <div class="m-edit-box-item-12">' +
@@ -763,7 +781,8 @@ var clone = (function() {
         attack: "",
         damage: "",
         critical: "",
-        type: ""
+        type: "",
+        equipped: false
       };
     };
     if (cloneType == "attack-ranged") {
@@ -774,7 +793,8 @@ var clone = (function() {
         critical: "",
         range: "",
         ammo: "",
-        type: ""
+        type: "",
+        equipped: false
       };
     };
     if (cloneType == "consumable") {
@@ -1008,6 +1028,9 @@ var clone = (function() {
     if (cloneType == "consumable" || cloneType == "power" || cloneType == "skill" || cloneType == "item" || cloneType == "attack-melee" || cloneType == "attack-ranged") {
       _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
     };
+    if (cloneType == "attack-melee" || cloneType == "attack-ranged") {
+      _bind_checkBlock(newClone.querySelectorAll(".js-check-block"));
+    };
     if (cloneType == "skill") {
       _bind_totalBlockCheck(newClone.querySelectorAll(".js-total-block-check"));
       _bind_totalBlockBonuses(newClone.querySelectorAll(".js-total-block-bonuses"));
@@ -1227,6 +1250,12 @@ var clone = (function() {
   function _bind_inputBlock(all_inputBlock) {
     for (var i = 0; i < all_inputBlock.length; i++) {
       inputBlock.bind(all_inputBlock[i]);
+    };
+  };
+
+  function _bind_checkBlock(all_checkBlock) {
+    for (var i = 0; i < all_checkBlock.length; i++) {
+      checkBlock.bind(all_checkBlock[i]);
     };
   };
 

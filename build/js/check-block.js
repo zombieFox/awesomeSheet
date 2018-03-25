@@ -8,7 +8,10 @@ var checkBlock = (function() {
     } else {
       var all_checkBlock = helper.eA(".js-check-block");
       for (var i = 0; i < all_checkBlock.length; i++) {
-        _bind_checkBlock(all_checkBlock[i]);
+        var options = helper.makeObject(all_checkBlock[i].dataset.checkBlockOptions);
+        if (!options.clone) {
+          _bind_checkBlock(all_checkBlock[i]);
+        };
       };
     };
   };

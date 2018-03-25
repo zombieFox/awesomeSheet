@@ -2707,6 +2707,35 @@ var repair = (function() {
     return characterObject;
   };
 
+  function _update_560(characterObject) {
+    var _report = {
+      name: characterObject.basics.character.name,
+      repaired: []
+    };
+    // awesome
+    _report.repaired.push("update: awesome version");
+    characterObject.awesomeSheet.version = 5.6;
+    _report.repaired.push("update: attacks");
+    if (characterObject.offense.attack.melee.all.length > 0) {
+      characterObject.offense.attack.melee.all.forEach(function(arrayItem) {
+        if (!"equipped" in arrayItem) {
+          arrayItem.equipped = false;
+        };
+      });
+    };
+    if (characterObject.offense.attack.ranged.all.length > 0) {
+      characterObject.offense.attack.ranged.all.forEach(function(arrayItem) {
+        if (!"equipped" in arrayItem) {
+          arrayItem.equipped = false;
+        };
+      });
+    };
+    _log("update complete: 560");
+    _log("report:", _report);
+    _log("------------------------------------------");
+    return characterObject;
+  };
+
   function _repair(characterObject) {
     // if version is found
     if (typeof characterObject.awesomeSheet == "object" && "version" in characterObject.awesomeSheet) {
@@ -2731,6 +2760,9 @@ var repair = (function() {
         };
         if (characterObject.awesomeSheet.version < 5.5) {
           characterObject = _update_550(characterObject);
+        };
+        if (characterObject.awesomeSheet.version < 5.6) {
+          characterObject = _update_560(characterObject);
         };
       };
     } else {

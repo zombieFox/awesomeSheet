@@ -3,7 +3,7 @@ var orrin = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.5
+      version: 5.6
     },
     basics: {
       character: {
@@ -673,61 +673,71 @@ var orrin = (function() {
             attack: "+12",
             damage: "1d6+3",
             critical: "x2",
-            type: "Bludgeoning"
+            type: "Bludgeoning",
+            equipped: false
           }, {
             weapon: "Mithral Rapier +2",
             attack: "+19",
             damage: "1d6+3",
             critical: "18–20/×2",
-            type: "Piercing"
+            type: "Piercing",
+            equipped: true
           }, {
             weapon: "Rapier +1 Shocking",
             attack: "+17",
             damage: "1d6+2 + 1d6 Electrical",
             critical: "18-20/x2",
-            type: "Piercing"
+            type: "Piercing",
+            equipped: false
           }, {
             weapon: "Short Sword +1",
             attack: "+17",
             damage: "1d6+2",
             critical: "19–20/×2",
-            type: "Piercing"
+            type: "Piercing",
+            equipped: false
           }, {
             weapon: "Mithral Rapier +2, Short Sword +1",
             attack: "+17/+17/+10/+10",
             damage: "1d6+3, 1d6+2",
             critical: "18–20/×2, 19–20/×2",
-            type: "Piercing, Piercing"
+            type: "Piercing, Piercing",
+            equipped: false
           }, {
             weapon: "Silver Dagger",
             attack: "+16",
             damage: "1d6+1",
             critical: "19–20/×2",
-            type: "Piercing"
+            type: "Piercing",
+            equipped: false
           }, {
             weapon: "Sap",
             attack: "+16",
             damage: "1d6+1",
             critical: "x2",
-            type: "Bludgeoning"
+            type: "Bludgeoning",
+            equipped: false
           }, {
             weapon: "Punching Dagger +2 Shocking",
             attack: "+18",
             damage: "1d4+3 + 1d6 Electrical",
             critical: "x3",
-            type: "Piercing"
+            type: "Piercing",
+            equipped: true
           }, {
             weapon: "Mithral Rapier +2, Punching Dagger +2 Shocking",
             attack: "+17/+17/+11/+11",
             damage: "1d6+3, 1d4+3 + 1d6 Electrical",
             critical: "18–20/×2, x3",
-            type: "Piercing, Piercing"
+            type: "Piercing, Piercing",
+            equipped: true
           }, {
             weapon: "Rapier +1 Shocking, Punching Dagger +2 Shocking",
             attack: "+16/+16/+11/+11",
             damage: "1d6+2 + 1d6 Electrical, 1d4+3 + 1d6 Electrical",
             critical: "18–20/×2, x3",
-            type: "Piercing, Piercing"
+            type: "Piercing, Piercing",
+            equipped: false
           }]
         },
         ranged: {
@@ -738,7 +748,8 @@ var orrin = (function() {
             critical: "x3",
             range: "60 ft",
             ammo: "50",
-            type: "Piercing"
+            type: "Piercing",
+            equipped: false
           }]
         }
       }

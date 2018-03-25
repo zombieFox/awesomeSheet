@@ -3,7 +3,7 @@ var izlara = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.5,
+      version: 5.6,
       demo: true
     },
     basics: {
@@ -781,7 +781,8 @@ var izlara = (function() {
             attack: "+7",
             damage: "1d4+1",
             critical: "19–20/x2",
-            type: "Slashing/Piercing"
+            type: "Slashing/Piercing",
+            equipped: true
           }]
         },
         ranged: {
@@ -792,7 +793,8 @@ var izlara = (function() {
             critical: "x3",
             range: "60ft",
             ammo: "30 normal, 5 silver",
-            type: "Piercing"
+            type: "Piercing",
+            equipped: false
           }]
         }
       }
