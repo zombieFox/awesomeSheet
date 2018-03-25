@@ -2718,12 +2718,16 @@ var repair = (function() {
     _report.repaired.push("update: attacks");
     if (characterObject.offense.attack.melee.all.length > 0) {
       characterObject.offense.attack.melee.all.forEach(function(arrayItem) {
-        arrayItem.equipped = false;
+        if (!"equipped" in arrayItem) {
+          arrayItem.equipped = false;
+        };
       });
     };
     if (characterObject.offense.attack.ranged.all.length > 0) {
       characterObject.offense.attack.ranged.all.forEach(function(arrayItem) {
-        arrayItem.equipped = false;
+        if (!"equipped" in arrayItem) {
+          arrayItem.equipped = false;
+        };
       });
     };
     _log("update complete: 560");

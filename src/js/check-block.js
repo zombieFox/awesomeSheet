@@ -20,7 +20,6 @@ var checkBlock = (function() {
     var checkBlockInput = checkBlock.querySelector(".js-check-block-input");
     if (checkBlockInput) {
       checkBlockInput.addEventListener("change", function() {
-        console.log(this);
         clearTimeout(storeCheckTimer);
         storeCheckTimer = setTimeout(delayUpdate, 300, this);
       }, false);

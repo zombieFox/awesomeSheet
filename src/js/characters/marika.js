@@ -3,7 +3,7 @@ var marika = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.5
+      version: 5.6
     },
     basics: {
       character: {
@@ -637,31 +637,22 @@ var marika = (function() {
             attack: "+16",
             damage: "1d6+3",
             critical: "18–20/x2",
-            type: "Piercing"
-          }, {
-            weapon: "Rapier +2 Powerful Sneak",
-            attack: "+13",
-            damage: "1d6+3",
-            critical: "18–20/x2",
-            type: "Piercing"
+            type: "Piercing",
+            equipped: false
           }, {
             weapon: "Short Sword +2",
             attack: "+16",
             damage: "1d6+3",
             critical: "19–20/x2",
-            type: "Piercing"
+            type: "Piercing",
+            equipped: false
           }, {
-            weapon: "Short Sword +2 Powerful Sneak",
-            attack: "+13",
-            damage: "1d6+3",
-            critical: "19–20/x2",
-            type: "Piercing"
-          }, {
-            weapon: "Full Attack Rapier +2 / Short Sword +2",
+            weapon: "Rapier +2 / Short Sword +2",
             attack: "+14/+9/+14/+9",
             damage: "1d6+3",
             critical: "19–20/x2 / 18–20/x2 / 19–20/x2 / 18–20/x2",
-            type: "Piercing"
+            type: "Piercing",
+            equipped: true
           }]
         },
         ranged: {
@@ -672,7 +663,8 @@ var marika = (function() {
             critical: "x3",
             range: "60 ft",
             ammo: "50",
-            type: "Piercing"
+            type: "Piercing",
+            equipped: false
           }]
         }
       }

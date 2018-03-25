@@ -3,7 +3,7 @@ var ravich = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.5,
+      version: 5.6,
       demo: true
     },
     basics: {
@@ -692,27 +692,34 @@ var ravich = (function() {
         notes: "Sneak Attack +2d6",
         melee: {
           all: [{
-              weapon: "Rapier +1 Flaming",
-              attack: "+11",
-              damage: "1d6+4, 1d6 fire",
-              critical: "18–20/x2",
-              type: "Piercing"
-            },
-            {
-              weapon: "Short Sword +1",
-              attack: "+10",
-              damage: "1d6+4",
-              critical: "19–20/x2",
-              type: "Piercing"
-            },
-            {
-              weapon: "Rapier +1 Flaming, Short Sword +1",
-              attack: "+9/+8",
-              damage: "1d6+4, 1d6 fire/1d6+4",
-              critical: "18–20/x2, 19–20/x2",
-              type: "Piercing"
-            }
-          ]
+            weapon: "Rapier +1 Flaming",
+            attack: "+11",
+            damage: "1d6+4, 1d6 fire",
+            critical: "18–20/x2",
+            type: "Piercing",
+            equipped: false
+          }, {
+            weapon: "Short Sword +1",
+            attack: "+10",
+            damage: "1d6+4",
+            critical: "19–20/x2",
+            type: "Piercing",
+            equipped: false
+          }, {
+            weapon: "Rapier +1 Flaming, Short Sword +1",
+            attack: "+9/+8",
+            damage: "1d6+4, 1d6 fire/1d6+4",
+            critical: "18–20/x2, 19–20/x2",
+            type: "Piercing",
+            equipped: true
+          }, {
+            weapon: "Dagger",
+            attack: "+9",
+            damage: "1d4+4",
+            critical: "19–20/x2",
+            type: "Piercing & Slashing",
+            equipped: false
+          }]
         },
         ranged: {
           all: [{
@@ -722,7 +729,8 @@ var ravich = (function() {
             critical: "x3",
             range: "60ft",
             ammo: "30 normal",
-            type: "Piercing"
+            type: "Piercing",
+            equipped: false
           }]
         }
       }

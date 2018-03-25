@@ -3,7 +3,7 @@ var ro = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.5
+      version: 5.6
     },
     basics: {
       character: {
@@ -672,43 +672,50 @@ var ro = (function() {
             attack: "+11",
             damage: "1d6+2",
             critical: "18–20/x2",
-            type: "Piercing"
+            type: "Piercing",
+            equipped: false
           }, {
             weapon: "Black Blade Scimitar +2",
             attack: "+13",
             damage: "1d6+7",
             critical: "18–20/x2",
-            type: "Slashing"
+            type: "Slashing",
+            equipped: true
           }, {
             weapon: "Spellstrike",
             attack: "+13",
             damage: "1d6+7",
             critical: "18–20/x2",
-            type: "Slashing"
+            type: "Slashing",
+            equipped: false
           }, {
             weapon: "Black Blade Scimitar +2/Spell Strike",
             attack: "+11/+11",
             damage: "1d6+7/Spell Effect",
             critical: "18–20/x2, 18–20/x2",
-            type: "Slashing, Slashing"
+            type: "Slashing, Slashing",
+            equipped: false
           }, {
             weapon: "Black Blade Scimitar +3 Keen",
             attack: "+14",
             damage: "1d6+8",
             critical: "15-20x2",
-            type: "Slashing"
+            type: "Slashing",
+            equipped: false
           }, {
             weapon: "Black Blade Scimitar +3 Keen/Spell Strike Keen",
             attack: "+12/+12",
             damage: "1d6+8/Spell Effect",
             critical: "15-20x2,  15-20x2",
-            type: "Slashing"
+            type: "Slashing",
+            equipped: false
           }, {
             weapon: "Black Blade Scimitar +3 Arcane Accuracy Keen/Spell Strike Arcane Accuracy Keen",
             attack: "+16/+16",
             damage: "1d6+8/Spell Effect",
             critical: "15-20x2,  15-20x2",
-            type: "Slashing"
+            type: "Slashing",
+            equipped: false
           }]
         },
         ranged: {
@@ -719,7 +726,8 @@ var ro = (function() {
             critical: "x3",
             range: "60 ft",
             ammo: "50",
-            type: "Piercing"
+            type: "Piercing",
+            equipped: false
           }]
         }
       }
