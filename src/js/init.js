@@ -12,4 +12,8 @@
   checkUrl.render();
   sheet.load();
 
+  display.toggle({
+    all: true
+  });
+
 })();

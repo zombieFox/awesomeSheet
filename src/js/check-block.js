@@ -8,7 +8,10 @@ var checkBlock = (function() {
     } else {
       var all_checkBlock = helper.eA(".js-check-block");
       for (var i = 0; i < all_checkBlock.length; i++) {
-        _bind_checkBlock(all_checkBlock[i]);
+        var options = helper.makeObject(all_checkBlock[i].dataset.checkBlockOptions);
+        if (!options.clone) {
+          _bind_checkBlock(all_checkBlock[i]);
+        };
       };
     };
   };
@@ -17,6 +20,7 @@ var checkBlock = (function() {
     var checkBlockInput = checkBlock.querySelector(".js-check-block-input");
     if (checkBlockInput) {
       checkBlockInput.addEventListener("change", function() {
+        console.log(this);
         clearTimeout(storeCheckTimer);
         storeCheckTimer = setTimeout(delayUpdate, 300, this);
       }, false);
