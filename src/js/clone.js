@@ -303,6 +303,12 @@ var clone = (function() {
         '          <input id="item-quantity-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '        </div>' +
         '      </div>' +
+        '      <div class="m-edit-box-item-check">' +
+        '        <div class="m-check-block js-check-block" data-check-block-options="path:equipment.item.all[' + cloneIndex + '].include,clone:true">' +
+        '          <input class="m-check-block-check js-check-block-input" type="checkbox" tabindex="1">' +
+        '          <span class="m-check-block-check-icon"></span>' +
+        '        </div>' +
+        '      </div>' +
         '    </div>' +
         '  </div>' +
         '</div>' +
@@ -818,7 +824,8 @@ var clone = (function() {
         name: "",
         quantity: "",
         weight: "",
-        value: ""
+        value: "",
+        include: true
       };
     };
     if (cloneType == "skill") {
@@ -1028,7 +1035,7 @@ var clone = (function() {
     if (cloneType == "consumable" || cloneType == "power" || cloneType == "skill" || cloneType == "item" || cloneType == "attack-melee" || cloneType == "attack-ranged") {
       _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
     };
-    if (cloneType == "attack-melee" || cloneType == "attack-ranged") {
+    if (cloneType == "attack-melee" || cloneType == "attack-ranged" || cloneType == "item") {
       _bind_checkBlock(newClone.querySelectorAll(".js-check-block"));
     };
     if (cloneType == "skill") {
