@@ -304,7 +304,7 @@ var clone = (function() {
         '        </div>' +
         '      </div>' +
         '      <div class="m-edit-box-item-check">' +
-        '        <div class="m-check-block js-check-block js-tip" data-tip-options="message:Include this Item in the Total Weight and Wealth.,state:hover,clone:true" data-check-block-options="path:equipment.item.all[' + cloneIndex + '].include,clone:true">' +
+        '        <div class="m-check-block js-check-block" data-check-block-options="path:equipment.item.all[' + cloneIndex + '].include,clone:true">' +
         '          <input class="m-check-block-check js-check-block-input" type="checkbox" tabindex="1">' +
         '          <span class="m-check-block-check-icon"></span>' +
         '        </div>' +
