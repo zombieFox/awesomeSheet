@@ -303,6 +303,12 @@ var clone = (function() {
         '          <input id="item-quantity-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '        </div>' +
         '      </div>' +
+        '      <div class="m-edit-box-item-check">' +
+        '        <div class="m-check-block js-check-block" data-check-block-options="path:equipment.item.all[' + cloneIndex + '].include,clone:true">' +
+        '          <input class="m-check-block-check js-check-block-input" type="checkbox" tabindex="1">' +
+        '          <span class="m-check-block-check-icon"></span>' +
+        '        </div>' +
+        '      </div>' +
         '    </div>' +
         '  </div>' +
         '</div>' +
@@ -818,7 +824,8 @@ var clone = (function() {
         name: "",
         quantity: "",
         weight: "",
-        value: ""
+        value: "",
+        include: true
       };
     };
     if (cloneType == "skill") {
@@ -1021,25 +1028,30 @@ var clone = (function() {
       _bind_classLevelInputBlock(newClone.querySelectorAll(".js-basics-class-level"));
       _bind_tip(newClone.querySelectorAll(".js-tip"));
     };
-    if (cloneType == "consumable" || cloneType == "power" || cloneType == "skill") {
-      _bind_totalBlock(newClone.querySelector(".js-total-block"));
-      _bind_inputBlockIncrement(newClone.querySelectorAll(".js-input-block-increment"));
-    };
-    if (cloneType == "consumable" || cloneType == "power" || cloneType == "skill" || cloneType == "item" || cloneType == "attack-melee" || cloneType == "attack-ranged") {
+    if (cloneType == "consumable" || cloneType == "power") {
       _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
-    };
-    if (cloneType == "attack-melee" || cloneType == "attack-ranged") {
-      _bind_checkBlock(newClone.querySelectorAll(".js-check-block"));
+      _bind_inputBlockIncrement(newClone.querySelectorAll(".js-input-block-increment"));
+      _bind_totalBlock(newClone.querySelector(".js-total-block"));
     };
     if (cloneType == "skill") {
+      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
+      _bind_inputBlockIncrement(newClone.querySelectorAll(".js-input-block-increment"));
+      _bind_totalBlock(newClone.querySelector(".js-total-block"));
       _bind_totalBlockCheck(newClone.querySelectorAll(".js-total-block-check"));
       _bind_totalBlockBonuses(newClone.querySelectorAll(".js-total-block-bonuses"));
+    };
+    if (cloneType == "attack-melee" || cloneType == "attack-ranged") {
+      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
+      _bind_checkBlock(newClone.querySelectorAll(".js-check-block"));
     };
     if (cloneType == "note-character" || cloneType == "note-story") {
       _bind_textareaBlock(newClone.querySelectorAll(".js-textarea-block"));
     };
     if (cloneType == "item") {
+      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
+      _bind_checkBlock(newClone.querySelectorAll(".js-check-block"));
       _bind_wealth(newClone.querySelectorAll(".js-input-block"));
+      _bind_tip(newClone.querySelectorAll(".js-tip"));
     };
   };
 
@@ -1051,6 +1063,7 @@ var clone = (function() {
       _update_clonePrefix(cloneType);
       _update_cloneSuffix(cloneType);
       _smoothScrollToClones(cloneType);
+      _update_all_clones(cloneType);
       totalBlock.render();
       textBlock.render();
     } else {
@@ -1155,6 +1168,12 @@ var clone = (function() {
       var all_textareaBlock = target.querySelectorAll(".js-textarea-block");
       for (var i = 0; i < all_textareaBlock.length; i++) {
         textareaBlock.render(all_textareaBlock[i]);
+      };
+    };
+    if (cloneType == "item") {
+      var all_checkBlock = target.querySelectorAll(".js-check-block");
+      for (var i = 0; i < all_checkBlock.length; i++) {
+        checkBlock.render(all_checkBlock[i]);
       };
     };
   };

@@ -1,6 +1,6 @@
 var checkBlock = (function() {
 
-  var storeCheckTimer = null;
+  var _timer_storeUpdate = null;
 
   function bind(checkBlock) {
     if (checkBlock) {
@@ -20,14 +20,17 @@ var checkBlock = (function() {
     var checkBlockInput = checkBlock.querySelector(".js-check-block-input");
     if (checkBlockInput) {
       checkBlockInput.addEventListener("change", function() {
-        clearTimeout(storeCheckTimer);
-        storeCheckTimer = setTimeout(delayUpdate, 300, this);
+        clearTimeout(_timer_storeUpdate);
+        _timer_storeUpdate = setTimeout(delayStoreUpdate, 300, this);
       }, false);
     };
   };
 
-  function delayUpdate(input) {
+  function delayStoreUpdate(input) {
     _store(input);
+    wealth.render();
+    totalBlock.render();
+    textBlock.render();
     sheet.store();
   };
 

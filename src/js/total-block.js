@@ -119,16 +119,18 @@ var totalBlock = (function() {
 
       var _push_cloneSetValues = function() {
         for (var i = 0; i < totalBlockObject.length; i++) {
-          for (var q = 0; q < array.length; q++) {
-            if (totalBlockObject[i][array[q]] && totalBlockObject[i][array[q]] != "" && !isNaN(totalBlockObject[i][array[q]])) {
-              var valueToPush = totalBlockObject[i][array[q]];
-              if (multiply != undefined) {
-                valueToPush = valueToPush * totalBlockObject[i][multiply];
+          if (totalBlockObject[i].include) {
+            for (var q = 0; q < array.length; q++) {
+              if (totalBlockObject[i][array[q]] && totalBlockObject[i][array[q]] != "" && !isNaN(totalBlockObject[i][array[q]])) {
+                var valueToPush = totalBlockObject[i][array[q]];
+                if (multiply != undefined) {
+                  valueToPush = valueToPush * totalBlockObject[i][multiply];
+                };
+                if (addOrMinus == "minus") {
+                  valueToPush = -valueToPush;
+                };
+                toSum.push(valueToPush);
               };
-              if (addOrMinus == "minus") {
-                valueToPush = -valueToPush;
-              };
-              toSum.push(valueToPush);
             };
           };
         };
