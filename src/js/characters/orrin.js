@@ -325,22 +325,26 @@ var orrin = (function() {
           name: "Flask of Oil",
           quantity: 1,
           weight: 1,
-          value: 2
+          value: 2,
+          include: true
         }, {
           name: "Tanglefoot bag",
           quantity: 2,
           weight: 8,
-          value: 3
+          value: 3,
+          include: true
         }, {
           name: "Flat Bread",
           quantity: 10,
           weight: 2,
-          value: 4
+          value: 4,
+          include: true
         }, {
           name: "Bedrolls",
           quantity: 6,
           weight: 2,
-          value: 1
+          value: 1,
+          include: false
         }],
         weight: {
           current: ""

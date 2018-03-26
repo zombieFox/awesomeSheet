@@ -373,31 +373,45 @@ var vos = (function() {
         all: [{
           name: "Flask Of Oil",
           quantity: 3,
-          weight: ""
+          weight: 1,
+          value: 0.1,
+          include: true
         }, {
           name: "Potion of Cure Light Wounds",
-          quantity: 1,
-          weight: ""
+          quantity: 4,
+          weight: 0.1,
+          value: 50,
+          include: true
         }, {
           name: "Potion of Cure Moderate Wounds",
-          quantity: 1,
-          weight: ""
+          quantity: 3,
+          weight: 0.1,
+          value: 300,
+          include: true
         }, {
-          name: "Potion of Cure Serious Wounds ",
-          quantity: 1,
-          weight: ""
+          name: "Potion of Cure Serious Wounds",
+          quantity: 2,
+          weight: 0.1,
+          value: 750,
+          include: true
         }, {
           name: "Potion of Owls Wisdom",
-          quantity: 1,
-          weight: ""
+          quantity: 4,
+          weight: 0.1,
+          value: 300,
+          include: true
         }, {
           name: "Potion of Stabilise",
           quantity: 1,
-          weight: ""
+          weight: 0.1,
+          value: 25,
+          include: true
         }, {
           name: "Scented Oils",
           quantity: 5,
-          weight: ""
+          weight: 0.1,
+          value: 1,
+          include: true
         }],
         weight: {
           current: ""

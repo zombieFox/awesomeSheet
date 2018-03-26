@@ -348,32 +348,38 @@ var ravich = (function() {
           name: "Flask of Oil",
           quantity: 2,
           weight: 1,
-          value: 0.1
+          value: 0.1,
+          include: true
         }, {
           name: "Waterskin",
           quantity: 1,
           weight: 4,
-          value: 1
+          value: 1,
+          include: true
         }, {
           name: "Bedroll & Blanket",
           quantity: 1,
           weight: 8,
-          value: 0.6
+          value: 0.6,
+          include: true
         }, {
           name: "Rope (silk)",
           quantity: 1,
           weight: 5,
-          value: 10
+          value: 10,
+          include: true
         }, {
           name: "Mirror",
           quantity: 1,
           weight: 0.5,
-          value: 10
+          value: 10,
+          include: true
         }, {
           name: "Compass",
           quantity: 1,
           weight: 1,
-          value: 10
+          value: 10,
+          include: true
         }],
         weight: {
           current: ""
