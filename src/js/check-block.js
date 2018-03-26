@@ -20,7 +20,6 @@ var checkBlock = (function() {
     var checkBlockInput = checkBlock.querySelector(".js-check-block-input");
     if (checkBlockInput) {
       checkBlockInput.addEventListener("change", function() {
-        console.log();
         clearTimeout(_timer_storeUpdate);
         _timer_storeUpdate = setTimeout(delayStoreUpdate, 300, this);
       }, false);
@@ -29,6 +28,7 @@ var checkBlock = (function() {
 
   function delayStoreUpdate(input) {
     _store(input);
+    wealth.render();
     totalBlock.render();
     textBlock.render();
     sheet.store();
