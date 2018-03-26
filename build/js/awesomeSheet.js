@@ -2959,47 +2959,56 @@ var izlara = (function() {
           name: "Flask of Oil",
           quantity: 4,
           weight: 1,
-          value: 0.1
+          value: 0.1,
+          include: true
         }, {
           name: "Sack",
           quantity: 1,
           weight: 0.5,
-          value: 0.1
+          value: 0.1,
+          include: true
         }, {
           name: "Waterskin",
           quantity: 1,
           weight: 4,
-          value: 1
+          value: 1,
+          include: true
         }, {
           name: "Bedroll and Blanket",
           quantity: 1,
           weight: 8,
-          value: 0.6
+          value: 0.6,
+          include: true
         }, {
           name: "Bloodblock",
           quantity: 2,
           weight: 1,
-          value: 25
+          value: 25,
+          include: true
         }, {
           name: "Healer's Kit",
           quantity: 2,
           weight: 1,
-          value: 50
+          value: 50,
+          include: true
         }, {
           name: "Silk Rope (50ft)",
           quantity: 1,
           weight: 5,
-          value: 10
+          value: 10,
+          include: true
         }, {
           name: "Mirror",
           quantity: 1,
           weight: 1,
-          value: 10
+          value: 10,
+          include: true
         }, {
           name: "Compass",
           quantity: 1,
           weight: 0.5,
-          value: 10
+          value: 10,
+          include: true
         }],
         weight: {
           current: ""
@@ -6047,32 +6056,38 @@ var ravich = (function() {
           name: "Flask of Oil",
           quantity: 2,
           weight: 1,
-          value: 0.1
+          value: 0.1,
+          include: true
         }, {
           name: "Waterskin",
           quantity: 1,
           weight: 4,
-          value: 1
+          value: 1,
+          include: true
         }, {
           name: "Bedroll & Blanket",
           quantity: 1,
           weight: 8,
-          value: 0.6
+          value: 0.6,
+          include: true
         }, {
           name: "Rope (silk)",
           quantity: 1,
           weight: 5,
-          value: 10
+          value: 10,
+          include: true
         }, {
           name: "Mirror",
           quantity: 1,
           weight: 0.5,
-          value: 10
+          value: 10,
+          include: true
         }, {
           name: "Compass",
           quantity: 1,
           weight: 1,
-          value: 10
+          value: 10,
+          include: true
         }],
         weight: {
           current: ""
@@ -12114,57 +12129,68 @@ var nif = (function() {
           name: "Flask of Oil",
           quantity: 2,
           weight: 1,
-          value: 0.1
+          value: 0.1,
+          include: true
         }, {
           name: "Sack",
           quantity: 1,
           weight: 0.5,
-          value: 0.1
+          value: 0.1,
+          include: true
         }, {
           name: "Waterskin",
           quantity: 1,
           weight: 4,
-          value: 1
+          value: 1,
+          include: true
         }, {
           name: "Bedroll",
           quantity: 1,
           weight: 5,
-          value: 0.6
+          value: 0.6,
+          include: true
         }, {
           name: "Blanket",
           quantity: 1,
           weight: 3,
-          value: 1
+          value: 1,
+          include: true
         }, {
           name: "Bloodblock",
           quantity: 2,
-          weight: "",
-          value: 25
+          weight: 0,
+          value: 25,
+          include: true
         }, {
           name: "Healer's Kit",
           quantity: 2,
           weight: 1,
-          value: 50
+          value: 50,
+          include: true
         }, {
           name: "Silk Rope (50ft)",
           quantity: 1,
           weight: 5,
-          value: 10
+          value: 10,
+          include: true
         }, {
           name: "Mirror",
           quantity: 1,
           weight: 0.5,
-          value: 10
+          value: 10,
+          include: true
         }, {
           name: "Compass",
           quantity: 1,
           weight: 0.5,
-          value: 10
+          value: 10,
+          include: true
         }, {
           name: "Andorak spell book",
           quantity: 1,
           weight: 0.5,
-          value: ""
+          value: 0,
+          include: true
         }],
         weight: {
           current: ""
@@ -14548,22 +14574,26 @@ var orrin = (function() {
           name: "Flask of Oil",
           quantity: 1,
           weight: 1,
-          value: 2
+          value: 2,
+          include: true
         }, {
           name: "Tanglefoot bag",
           quantity: 2,
           weight: 8,
-          value: 3
+          value: 3,
+          include: true
         }, {
           name: "Flat Bread",
           quantity: 10,
           weight: 2,
-          value: 4
+          value: 4,
+          include: true
         }, {
           name: "Bedrolls",
           quantity: 6,
           weight: 2,
-          value: 1
+          value: 1,
+          include: false
         }],
         weight: {
           current: ""
@@ -18823,31 +18853,45 @@ var vos = (function() {
         all: [{
           name: "Flask Of Oil",
           quantity: 3,
-          weight: ""
+          weight: 1,
+          value: 0.1,
+          include: true
         }, {
           name: "Potion of Cure Light Wounds",
-          quantity: 1,
-          weight: ""
+          quantity: 4,
+          weight: 0.1,
+          value: 50,
+          include: true
         }, {
           name: "Potion of Cure Moderate Wounds",
-          quantity: 1,
-          weight: ""
+          quantity: 3,
+          weight: 0.1,
+          value: 300,
+          include: true
         }, {
-          name: "Potion of Cure Serious Wounds ",
-          quantity: 1,
-          weight: ""
+          name: "Potion of Cure Serious Wounds",
+          quantity: 2,
+          weight: 0.1,
+          value: 750,
+          include: true
         }, {
           name: "Potion of Owls Wisdom",
-          quantity: 1,
-          weight: ""
+          quantity: 4,
+          weight: 0.1,
+          value: 300,
+          include: true
         }, {
           name: "Potion of Stabilise",
           quantity: 1,
-          weight: ""
+          weight: 0.1,
+          value: 25,
+          include: true
         }, {
           name: "Scented Oils",
           quantity: 5,
-          weight: ""
+          weight: 0.1,
+          value: 1,
+          include: true
         }],
         weight: {
           current: ""
@@ -21249,7 +21293,7 @@ var characterSelect = (function() {
 })();
 var checkBlock = (function() {
 
-  var storeCheckTimer = null;
+  var _timer_storeUpdate = null;
 
   function bind(checkBlock) {
     if (checkBlock) {
@@ -21269,14 +21313,17 @@ var checkBlock = (function() {
     var checkBlockInput = checkBlock.querySelector(".js-check-block-input");
     if (checkBlockInput) {
       checkBlockInput.addEventListener("change", function() {
-        clearTimeout(storeCheckTimer);
-        storeCheckTimer = setTimeout(delayUpdate, 300, this);
+        clearTimeout(_timer_storeUpdate);
+        _timer_storeUpdate = setTimeout(delayStoreUpdate, 300, this);
       }, false);
     };
   };
 
-  function delayUpdate(input) {
+  function delayStoreUpdate(input) {
     _store(input);
+    wealth.render();
+    totalBlock.render();
+    textBlock.render();
     sheet.store();
   };
 
@@ -21893,6 +21940,12 @@ var clone = (function() {
         '          <input id="item-quantity-' + cloneIndex + '" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">' +
         '        </div>' +
         '      </div>' +
+        '      <div class="m-edit-box-item-check">' +
+        '        <div class="m-check-block js-check-block" data-check-block-options="path:equipment.item.all[' + cloneIndex + '].include,clone:true">' +
+        '          <input class="m-check-block-check js-check-block-input" type="checkbox" tabindex="1">' +
+        '          <span class="m-check-block-check-icon"></span>' +
+        '        </div>' +
+        '      </div>' +
         '    </div>' +
         '  </div>' +
         '</div>' +
@@ -22408,7 +22461,8 @@ var clone = (function() {
         name: "",
         quantity: "",
         weight: "",
-        value: ""
+        value: "",
+        include: true
       };
     };
     if (cloneType == "skill") {
@@ -22611,25 +22665,30 @@ var clone = (function() {
       _bind_classLevelInputBlock(newClone.querySelectorAll(".js-basics-class-level"));
       _bind_tip(newClone.querySelectorAll(".js-tip"));
     };
-    if (cloneType == "consumable" || cloneType == "power" || cloneType == "skill") {
-      _bind_totalBlock(newClone.querySelector(".js-total-block"));
-      _bind_inputBlockIncrement(newClone.querySelectorAll(".js-input-block-increment"));
-    };
-    if (cloneType == "consumable" || cloneType == "power" || cloneType == "skill" || cloneType == "item" || cloneType == "attack-melee" || cloneType == "attack-ranged") {
+    if (cloneType == "consumable" || cloneType == "power") {
       _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
-    };
-    if (cloneType == "attack-melee" || cloneType == "attack-ranged") {
-      _bind_checkBlock(newClone.querySelectorAll(".js-check-block"));
+      _bind_inputBlockIncrement(newClone.querySelectorAll(".js-input-block-increment"));
+      _bind_totalBlock(newClone.querySelector(".js-total-block"));
     };
     if (cloneType == "skill") {
+      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
+      _bind_inputBlockIncrement(newClone.querySelectorAll(".js-input-block-increment"));
+      _bind_totalBlock(newClone.querySelector(".js-total-block"));
       _bind_totalBlockCheck(newClone.querySelectorAll(".js-total-block-check"));
       _bind_totalBlockBonuses(newClone.querySelectorAll(".js-total-block-bonuses"));
+    };
+    if (cloneType == "attack-melee" || cloneType == "attack-ranged") {
+      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
+      _bind_checkBlock(newClone.querySelectorAll(".js-check-block"));
     };
     if (cloneType == "note-character" || cloneType == "note-story") {
       _bind_textareaBlock(newClone.querySelectorAll(".js-textarea-block"));
     };
     if (cloneType == "item") {
+      _bind_inputBlock(newClone.querySelectorAll(".js-input-block"));
+      _bind_checkBlock(newClone.querySelectorAll(".js-check-block"));
       _bind_wealth(newClone.querySelectorAll(".js-input-block"));
+      _bind_tip(newClone.querySelectorAll(".js-tip"));
     };
   };
 
@@ -22641,6 +22700,7 @@ var clone = (function() {
       _update_clonePrefix(cloneType);
       _update_cloneSuffix(cloneType);
       _smoothScrollToClones(cloneType);
+      _update_all_clones(cloneType);
       totalBlock.render();
       textBlock.render();
     } else {
@@ -22745,6 +22805,12 @@ var clone = (function() {
       var all_textareaBlock = target.querySelectorAll(".js-textarea-block");
       for (var i = 0; i < all_textareaBlock.length; i++) {
         textareaBlock.render(all_textareaBlock[i]);
+      };
+    };
+    if (cloneType == "item") {
+      var all_checkBlock = target.querySelectorAll(".js-check-block");
+      for (var i = 0; i < all_checkBlock.length; i++) {
+        checkBlock.render(all_checkBlock[i]);
       };
     };
   };
@@ -25529,8 +25595,10 @@ var display = (function() {
                     listItemName.textContent = arrayItem.name;
                     var listItemValue = document.createElement("span");
                     listItemValue.setAttribute("class", "m-display-list-item-value");
-                    listItemValue.textContent = (arrayItem.current || 0) + " / " + (arrayItem.total || 0);
-                    var percentage = parseFloat(((arrayItem.total - arrayItem.used) / arrayItem.total) * 100).toFixed(2);
+                    var current = arrayItem.current || 0;
+                    var total = arrayItem.total || 0;
+                    listItemValue.textContent = current + " / " + total;
+                    var percentage = parseFloat(((total - arrayItem.used) / total) * 100).toFixed(2);
                     if (percentage < 0) {
                       percentage = 0;
                     };
@@ -25563,8 +25631,10 @@ var display = (function() {
                     listItemName.textContent = arrayItem.name;
                     var listItemValue = document.createElement("span");
                     listItemValue.setAttribute("class", "m-display-list-item-value");
-                    listItemValue.textContent = arrayItem.current + " / " + arrayItem.total;
-                    var percentage = parseFloat(((arrayItem.total - arrayItem.used) / arrayItem.total) * 100).toFixed(2);
+                    var current = arrayItem.current || 0;
+                    var total = arrayItem.total || 0;
+                    listItemValue.textContent = current + " / " + total;
+                    var percentage = parseFloat(((total - arrayItem.used) / total) * 100).toFixed(2);
                     if (percentage < 0) {
                       percentage = 0;
                     };
@@ -33847,7 +33917,7 @@ var repair = (function() {
     _report.repaired.push("update: attacks");
     if (characterObject.offense.attack.melee.all.length > 0) {
       characterObject.offense.attack.melee.all.forEach(function(arrayItem) {
-        if (!"equipped" in arrayItem) {
+        if (!("equipped" in arrayItem)) {
           arrayItem.equipped = false;
         };
       });
@@ -33860,6 +33930,28 @@ var repair = (function() {
       });
     };
     _log("update complete: 560");
+    _log("report:", _report);
+    _log("------------------------------------------");
+    return characterObject;
+  };
+
+  function _update_570(characterObject) {
+    var _report = {
+      name: characterObject.basics.character.name,
+      repaired: []
+    };
+    // awesome
+    _report.repaired.push("update: awesome version");
+    characterObject.awesomeSheet.version = 5.7;
+    _report.repaired.push("update: items");
+    if (characterObject.equipment.item.all.length > 0) {
+      characterObject.equipment.item.all.forEach(function(arrayItem) {
+        if (!("include" in arrayItem)) {
+          arrayItem.include = true;
+        };
+      });
+    };
+    _log("update complete: 570");
     _log("report:", _report);
     _log("------------------------------------------");
     return characterObject;
@@ -33892,6 +33984,9 @@ var repair = (function() {
         };
         if (characterObject.awesomeSheet.version < 5.6) {
           characterObject = _update_560(characterObject);
+        };
+        if (characterObject.awesomeSheet.version < 5.7) {
+          characterObject = _update_570(characterObject);
         };
       };
     } else {
@@ -36904,16 +36999,18 @@ var totalBlock = (function() {
 
       var _push_cloneSetValues = function() {
         for (var i = 0; i < totalBlockObject.length; i++) {
-          for (var q = 0; q < array.length; q++) {
-            if (totalBlockObject[i][array[q]] && totalBlockObject[i][array[q]] != "" && !isNaN(totalBlockObject[i][array[q]])) {
-              var valueToPush = totalBlockObject[i][array[q]];
-              if (multiply != undefined) {
-                valueToPush = valueToPush * totalBlockObject[i][multiply];
+          if (totalBlockObject[i].include) {
+            for (var q = 0; q < array.length; q++) {
+              if (totalBlockObject[i][array[q]] && totalBlockObject[i][array[q]] != "" && !isNaN(totalBlockObject[i][array[q]])) {
+                var valueToPush = totalBlockObject[i][array[q]];
+                if (multiply != undefined) {
+                  valueToPush = valueToPush * totalBlockObject[i][multiply];
+                };
+                if (addOrMinus == "minus") {
+                  valueToPush = -valueToPush;
+                };
+                toSum.push(valueToPush);
               };
-              if (addOrMinus == "minus") {
-                valueToPush = -valueToPush;
-              };
-              toSum.push(valueToPush);
             };
           };
         };
@@ -37503,6 +37600,11 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "5.7.0",
+    list: [
+      "Added Include option for each Item in Equipment."
+    ]
+  }, {
     version: "5.6.0",
     list: [
       "Added Equipped states to Attacks."
@@ -37812,19 +37914,74 @@ var update = (function() {
 
 var wealth = (function() {
 
-  var renderTimer = null;
+  var _timer_render = null;
 
   function bind() {
     var equipmentWealthIncludeItem = helper.e(".js-equipment-wealth-include-item");
     equipmentWealthIncludeItem.addEventListener("change", function() {
-      renderTimer = setTimeout(function() {
+      clearTimeout(_timer_render);
+      _timer_render = setTimeout(function() {
         render();
         textBlock.render();
       }, 350, this);
     }, false);
   };
 
-  function render() {
+  function _render_wealth() {
+    var _create_goldTotal = function(wealth) {
+      var includeItem = helper.getObject({
+        object: sheet.get(),
+        path: "equipment.wealth.include_item"
+      });
+      var wealthInGp = [];
+      if (includeItem) {
+        wealthInGp.push(helper.getObject({
+          object: sheet.get(),
+          path: "equipment.item.value.current"
+        }));
+      };
+      if ("platinum" in wealth) {
+        var platinum = wealth.platinum * 10;
+        if (!isNaN(platinum) && platinum != "") {
+          wealthInGp.push(platinum);
+        } else {
+          wealthInGp.push(0);
+        };
+      };
+      if ("gold" in wealth) {
+        var gold = wealth.gold;
+        if (!isNaN(gold) && gold != "") {
+          wealthInGp.push(gold);
+        } else {
+          wealthInGp.push(0);
+        };
+      };
+      if ("silver" in wealth) {
+        var silver = wealth.silver / 10;
+        if (!isNaN(silver) && silver != "") {
+          wealthInGp.push(silver);
+        } else {
+          wealthInGp.push(0);
+        };
+      };
+      if ("copper" in wealth) {
+        var copper = wealth.copper / 100;
+        if (!isNaN(copper) && copper != "") {
+          wealthInGp.push(copper);
+        } else {
+          wealthInGp.push(0);
+        };
+      };
+      var grandTotal;
+      if (wealthInGp.length > 0) {
+        grandTotal = wealthInGp.reduce(function(a, b) {
+          return a + b;
+        });
+      } else {
+        grandTotal = 0;
+      };
+      return grandTotal;
+    };
     var total = _create_goldTotal(helper.getObject({
       object: sheet.get(),
       path: "equipment.wealth"
@@ -37837,59 +37994,12 @@ var wealth = (function() {
     sheet.store();
   };
 
-  function _create_goldTotal(wealth) {
-    var includeItem = helper.getObject({
-      object: sheet.get(),
-      path: "equipment.wealth.include_item"
-    });
-    var wealthInGp = [];
-    if (includeItem) {
-      wealthInGp.push(helper.getObject({
-        object: sheet.get(),
-        path: "equipment.item.value.current"
-      }));
-    };
-    if ("platinum" in wealth) {
-      var platinum = wealth.platinum * 10;
-      if (!isNaN(platinum) && platinum != "") {
-        wealthInGp.push(platinum);
-      } else {
-        wealthInGp.push(0);
-      };
-    };
-    if ("gold" in wealth) {
-      var gold = wealth.gold;
-      if (!isNaN(gold) && gold != "") {
-        wealthInGp.push(gold);
-      } else {
-        wealthInGp.push(0);
-      };
-    };
-    if ("silver" in wealth) {
-      var silver = wealth.silver / 10;
-      if (!isNaN(silver) && silver != "") {
-        wealthInGp.push(silver);
-      } else {
-        wealthInGp.push(0);
-      };
-    };
-    if ("copper" in wealth) {
-      var copper = wealth.copper / 100;
-      if (!isNaN(copper) && copper != "") {
-        wealthInGp.push(copper);
-      } else {
-        wealthInGp.push(0);
-      };
-    };
-    var grandTotal;
-    if (wealthInGp.length > 0) {
-      grandTotal = wealthInGp.reduce(function(a, b) {
-        return a + b;
-      });
-    } else {
-      grandTotal = 0;
-    };
-    return grandTotal;
+  function render() {
+    clearTimeout(_timer_render);
+    _timer_render = setTimeout(function() {
+      _render_wealth();
+      textBlock.render();
+    }, 350, this);
   };
 
   // exposed methods

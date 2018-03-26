@@ -1898,8 +1898,10 @@ var display = (function() {
                     listItemName.textContent = arrayItem.name;
                     var listItemValue = document.createElement("span");
                     listItemValue.setAttribute("class", "m-display-list-item-value");
-                    listItemValue.textContent = (arrayItem.current || 0) + " / " + (arrayItem.total || 0);
-                    var percentage = parseFloat(((arrayItem.total - arrayItem.used) / arrayItem.total) * 100).toFixed(2);
+                    var current = arrayItem.current || 0;
+                    var total = arrayItem.total || 0;
+                    listItemValue.textContent = current + " / " + total;
+                    var percentage = parseFloat(((total - arrayItem.used) / total) * 100).toFixed(2);
                     if (percentage < 0) {
                       percentage = 0;
                     };
@@ -1932,8 +1934,10 @@ var display = (function() {
                     listItemName.textContent = arrayItem.name;
                     var listItemValue = document.createElement("span");
                     listItemValue.setAttribute("class", "m-display-list-item-value");
-                    listItemValue.textContent = arrayItem.current + " / " + arrayItem.total;
-                    var percentage = parseFloat(((arrayItem.total - arrayItem.used) / arrayItem.total) * 100).toFixed(2);
+                    var current = arrayItem.current || 0;
+                    var total = arrayItem.total || 0;
+                    listItemValue.textContent = current + " / " + total;
+                    var percentage = parseFloat(((total - arrayItem.used) / total) * 100).toFixed(2);
                     if (percentage < 0) {
                       percentage = 0;
                     };
