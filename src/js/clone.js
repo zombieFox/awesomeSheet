@@ -305,7 +305,7 @@ var clone = (function() {
         '      </div>' +
         '      <div class="m-edit-box-item-check">' +
         '        <div class="m-check-block js-check-block js-tip" data-tip-options="message:Include this Item in the Total Weight and Wealth.,state:hover,clone:true" data-check-block-options="path:equipment.item.all[' + cloneIndex + '].include,clone:true">' +
-        '          <input class="m-check-block-check js-check-block-input" type="checkbox" tabindex="1" checked>' +
+        '          <input class="m-check-block-check js-check-block-input" type="checkbox" tabindex="1">' +
         '          <span class="m-check-block-check-icon"></span>' +
         '        </div>' +
         '      </div>' +
@@ -1063,6 +1063,7 @@ var clone = (function() {
       _update_clonePrefix(cloneType);
       _update_cloneSuffix(cloneType);
       _smoothScrollToClones(cloneType);
+      _update_all_clones(cloneType);
       totalBlock.render();
       textBlock.render();
     } else {

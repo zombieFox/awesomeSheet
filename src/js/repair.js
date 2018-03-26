@@ -2747,7 +2747,6 @@ var repair = (function() {
     _report.repaired.push("update: items");
     if (characterObject.equipment.item.all.length > 0) {
       characterObject.equipment.item.all.forEach(function(arrayItem) {
-        console.log(arrayItem);
         if (!("include" in arrayItem)) {
           arrayItem.include = true;
         };
