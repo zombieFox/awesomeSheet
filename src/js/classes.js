@@ -83,9 +83,9 @@ var classes = (function() {
         total = total + classTotal;
       });
       if (classLevel > 0) {
-        total = total + (stats.getMod("con") * classLevel);
+        total = total + (stats.get.mod("con") * classLevel);
       } else {
-        total = total + stats.getMod("con");
+        total = total + stats.get.mod("con");
       };
       helper.setObject({
         object: sheet.get(),
@@ -115,9 +115,9 @@ var classes = (function() {
         total = total + classTotal;
       });
       if (classLevel > 0) {
-        total = total + (stats.getMod("int") * classLevel);
+        total = total + (stats.get.mod("int") * classLevel);
       } else {
-        total = total + stats.getMod("int");
+        total = total + stats.get.mod("int");
       };
       helper.setObject({
         object: sheet.get(),

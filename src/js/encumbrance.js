@@ -40,7 +40,7 @@ var encumbrance = (function() {
   };
 
   function _render_encumbrance() {
-    var str = stats.getScore("str");
+    var str = stats.get.score("str");
     var encumbranceStr = helper.getObject({
       object: sheet.get(),
       path: "equipment.encumbrance.str"
