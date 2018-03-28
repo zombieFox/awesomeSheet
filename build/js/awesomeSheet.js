@@ -21517,9 +21517,9 @@ var classes = (function() {
         total = total + classTotal;
       });
       if (classLevel > 0) {
-        total = total + (stats.getMod("con") * classLevel);
+        total = total + (stats.get.mod("con") * classLevel);
       } else {
-        total = total + stats.getMod("con");
+        total = total + stats.get.mod("con");
       };
       helper.setObject({
         object: sheet.get(),
@@ -21549,9 +21549,9 @@ var classes = (function() {
         total = total + classTotal;
       });
       if (classLevel > 0) {
-        total = total + (stats.getMod("int") * classLevel);
+        total = total + (stats.get.mod("int") * classLevel);
       } else {
-        total = total + stats.getMod("int");
+        total = total + stats.get.mod("int");
       };
       helper.setObject({
         object: sheet.get(),
@@ -21628,6 +21628,7 @@ var classes = (function() {
   };
 
 })();
+
 var clone = (function() {
 
   function render() {
@@ -26063,7 +26064,7 @@ var encumbrance = (function() {
   };
 
   function _render_encumbrance() {
-    var str = stats.getScore("str");
+    var str = stats.get.score("str");
     var encumbranceStr = helper.getObject({
       object: sheet.get(),
       path: "equipment.encumbrance.str"
@@ -36338,36 +36339,41 @@ var stats = (function() {
     };
   };
 
-  function get_score(key) {
-    var value = 0;
-    var score = helper.getObject({
-      object: sheet.get(),
-      path: "statistics.stats." + key + ".current"
-    });
-    if (score != "" || !isNaN(score)) {
-      value = score;
+  var get = (function() {
+    var score = function(key) {
+      var value = 0;
+      var score = helper.getObject({
+        object: sheet.get(),
+        path: "statistics.stats." + key.toLowerCase() + ".current"
+      });
+      if (score != "" || !isNaN(score)) {
+        value = score;
+      };
+      return value;
     };
-    return value;
-  };
-
-  function get_mod(key) {
-    var value = 0;
-    var mod = helper.getObject({
-      object: sheet.get(),
-      path: "statistics.stats." + key + ".modifier"
-    });
-    if (mod != "" || !isNaN(mod)) {
-      value = mod;
+    var mod = function(key) {
+      var value = 0;
+      var mod = helper.getObject({
+        object: sheet.get(),
+        path: "statistics.stats." + key.toLowerCase() + ".modifier"
+      });
+      if (mod != "" || !isNaN(mod)) {
+        value = mod;
+      };
+      return value;
     };
-    return value;
-  };
+    // exposed methods
+    return {
+      score: score,
+      mod: mod
+    };
+  })();
 
   // exposed methods
   return {
     render: render,
     bind: bind,
-    getMod: get_mod,
-    getScore: get_score,
+    get: get
   };
 
 })();
@@ -37040,7 +37046,7 @@ var totalBlock = (function() {
         if (totalBlockObject.bonuses[key] && key != "max_dex") {
           var externalBouns;
           if (key == "str") {
-            externalBouns = _checkValue(stats.getMod("str"));
+            externalBouns = _checkValue(stats.get.mod("str"));
           };
           if (key == "dex") {
             // if max dex is true
@@ -37051,29 +37057,29 @@ var totalBlock = (function() {
                 }) != "" && helper.getObject({
                   object: sheet.get(),
                   path: "equipment.armor.max_dex"
-                }) < _checkValue(stats.getMod("dex"))) {
+                }) < _checkValue(stats.get.mod("dex"))) {
                 externalBouns = helper.getObject({
                   object: sheet.get(),
                   path: "equipment.armor.max_dex"
                 });
               } else {
-                externalBouns = _checkValue(stats.getMod("dex"));
+                externalBouns = _checkValue(stats.get.mod("dex"));
               };
             } else {
-              externalBouns = _checkValue(stats.getMod("dex"));
+              externalBouns = _checkValue(stats.get.mod("dex"));
             };
           };
           if (key == "con") {
-            externalBouns = _checkValue(stats.getMod("con"));
+            externalBouns = _checkValue(stats.get.mod("con"));
           };
           if (key == "int") {
-            externalBouns = _checkValue(stats.getMod("int"));
+            externalBouns = _checkValue(stats.get.mod("int"));
           };
           if (key == "wis") {
-            externalBouns = _checkValue(stats.getMod("wis"));
+            externalBouns = _checkValue(stats.get.mod("wis"));
           };
           if (key == "cha") {
-            externalBouns = _checkValue(stats.getMod("cha"));
+            externalBouns = _checkValue(stats.get.mod("cha"));
           };
           if (key == "bab") {
             externalBouns = _checkValue(helper.getObject({
@@ -37324,17 +37330,17 @@ var totalBlock = (function() {
         return newData;
       };
       if (label == "str") {
-        return "STR Bonus (" + _addPrefix(stats.getMod("str")) + ")";
+        return "STR Bonus (" + _addPrefix(stats.get.mod("str")) + ")";
       } else if (label == "dex") {
-        return "DEX Bonus (" + _addPrefix(stats.getMod("dex")) + ")";
+        return "DEX Bonus (" + _addPrefix(stats.get.mod("dex")) + ")";
       } else if (label == "con") {
-        return "CON Bonus (" + _addPrefix(stats.getMod("con")) + ")";
+        return "CON Bonus (" + _addPrefix(stats.get.mod("con")) + ")";
       } else if (label == "int") {
-        return "INT Bonus (" + _addPrefix(stats.getMod("int")) + ")";
+        return "INT Bonus (" + _addPrefix(stats.get.mod("int")) + ")";
       } else if (label == "wis") {
-        return "WIS Bonus (" + _addPrefix(stats.getMod("wis")) + ")";
+        return "WIS Bonus (" + _addPrefix(stats.get.mod("wis")) + ")";
       } else if (label == "cha") {
-        return "CHA Bonus (" + _addPrefix(stats.getMod("cha")) + ")";
+        return "CHA Bonus (" + _addPrefix(stats.get.mod("cha")) + ")";
       } else if (label == "bab") {
         return "Base Attack Bonus (" + _addPrefix(helper.getObject({
           object: sheet.get(),

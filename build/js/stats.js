@@ -92,36 +92,41 @@ var stats = (function() {
     };
   };
 
-  function get_score(key) {
-    var value = 0;
-    var score = helper.getObject({
-      object: sheet.get(),
-      path: "statistics.stats." + key + ".current"
-    });
-    if (score != "" || !isNaN(score)) {
-      value = score;
+  var get = (function() {
+    var score = function(key) {
+      var value = 0;
+      var score = helper.getObject({
+        object: sheet.get(),
+        path: "statistics.stats." + key.toLowerCase() + ".current"
+      });
+      if (score != "" || !isNaN(score)) {
+        value = score;
+      };
+      return value;
     };
-    return value;
-  };
-
-  function get_mod(key) {
-    var value = 0;
-    var mod = helper.getObject({
-      object: sheet.get(),
-      path: "statistics.stats." + key + ".modifier"
-    });
-    if (mod != "" || !isNaN(mod)) {
-      value = mod;
+    var mod = function(key) {
+      var value = 0;
+      var mod = helper.getObject({
+        object: sheet.get(),
+        path: "statistics.stats." + key.toLowerCase() + ".modifier"
+      });
+      if (mod != "" || !isNaN(mod)) {
+        value = mod;
+      };
+      return value;
     };
-    return value;
-  };
+    // exposed methods
+    return {
+      score: score,
+      mod: mod
+    };
+  })();
 
   // exposed methods
   return {
     render: render,
     bind: bind,
-    getMod: get_mod,
-    getScore: get_score,
+    get: get
   };
 
 })();

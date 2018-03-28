@@ -167,7 +167,7 @@ var totalBlock = (function() {
         if (totalBlockObject.bonuses[key] && key != "max_dex") {
           var externalBouns;
           if (key == "str") {
-            externalBouns = _checkValue(stats.getMod("str"));
+            externalBouns = _checkValue(stats.get.mod("str"));
           };
           if (key == "dex") {
             // if max dex is true
@@ -178,29 +178,29 @@ var totalBlock = (function() {
                 }) != "" && helper.getObject({
                   object: sheet.get(),
                   path: "equipment.armor.max_dex"
-                }) < _checkValue(stats.getMod("dex"))) {
+                }) < _checkValue(stats.get.mod("dex"))) {
                 externalBouns = helper.getObject({
                   object: sheet.get(),
                   path: "equipment.armor.max_dex"
                 });
               } else {
-                externalBouns = _checkValue(stats.getMod("dex"));
+                externalBouns = _checkValue(stats.get.mod("dex"));
               };
             } else {
-              externalBouns = _checkValue(stats.getMod("dex"));
+              externalBouns = _checkValue(stats.get.mod("dex"));
             };
           };
           if (key == "con") {
-            externalBouns = _checkValue(stats.getMod("con"));
+            externalBouns = _checkValue(stats.get.mod("con"));
           };
           if (key == "int") {
-            externalBouns = _checkValue(stats.getMod("int"));
+            externalBouns = _checkValue(stats.get.mod("int"));
           };
           if (key == "wis") {
-            externalBouns = _checkValue(stats.getMod("wis"));
+            externalBouns = _checkValue(stats.get.mod("wis"));
           };
           if (key == "cha") {
-            externalBouns = _checkValue(stats.getMod("cha"));
+            externalBouns = _checkValue(stats.get.mod("cha"));
           };
           if (key == "bab") {
             externalBouns = _checkValue(helper.getObject({
@@ -451,17 +451,17 @@ var totalBlock = (function() {
         return newData;
       };
       if (label == "str") {
-        return "STR Bonus (" + _addPrefix(stats.getMod("str")) + ")";
+        return "STR Bonus (" + _addPrefix(stats.get.mod("str")) + ")";
       } else if (label == "dex") {
-        return "DEX Bonus (" + _addPrefix(stats.getMod("dex")) + ")";
+        return "DEX Bonus (" + _addPrefix(stats.get.mod("dex")) + ")";
       } else if (label == "con") {
-        return "CON Bonus (" + _addPrefix(stats.getMod("con")) + ")";
+        return "CON Bonus (" + _addPrefix(stats.get.mod("con")) + ")";
       } else if (label == "int") {
-        return "INT Bonus (" + _addPrefix(stats.getMod("int")) + ")";
+        return "INT Bonus (" + _addPrefix(stats.get.mod("int")) + ")";
       } else if (label == "wis") {
-        return "WIS Bonus (" + _addPrefix(stats.getMod("wis")) + ")";
+        return "WIS Bonus (" + _addPrefix(stats.get.mod("wis")) + ")";
       } else if (label == "cha") {
-        return "CHA Bonus (" + _addPrefix(stats.getMod("cha")) + ")";
+        return "CHA Bonus (" + _addPrefix(stats.get.mod("cha")) + ")";
       } else if (label == "bab") {
         return "Base Attack Bonus (" + _addPrefix(helper.getObject({
           object: sheet.get(),
