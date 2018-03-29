@@ -1158,19 +1158,39 @@ var clone = (function() {
       };
       classes.render();
     };
-    if (cloneType == "consumable" || cloneType == "power" || cloneType == "item" || cloneType == "skill" || cloneType == "attack-melee" || cloneType == "attack-ranged") {
+    if (cloneType == "consumable" || cloneType == "power") {
       var all_inputBlocks = target.querySelectorAll(".js-input-block");
       for (var i = 0; i < all_inputBlocks.length; i++) {
         inputBlock.render(all_inputBlocks[i]);
       };
     };
-    if (cloneType == "note-story" || cloneType == "note-character") {
+    if (cloneType == "skill") {
+      var all_inputBlocks = target.querySelectorAll(".js-input-block");
+      for (var i = 0; i < all_inputBlocks.length; i++) {
+        inputBlock.render(all_inputBlocks[i]);
+      };
+    };
+    if (cloneType == "attack-melee" || cloneType == "attack-ranged") {
+      var all_inputBlocks = target.querySelectorAll(".js-input-block");
+      for (var i = 0; i < all_inputBlocks.length; i++) {
+        inputBlock.render(all_inputBlocks[i]);
+      };
+      var all_checkBlock = target.querySelectorAll(".js-check-block");
+      for (var i = 0; i < all_checkBlock.length; i++) {
+        checkBlock.render(all_checkBlock[i]);
+      };
+    };
+    if (cloneType == "note-character" || cloneType == "note-story") {
       var all_textareaBlock = target.querySelectorAll(".js-textarea-block");
       for (var i = 0; i < all_textareaBlock.length; i++) {
         textareaBlock.render(all_textareaBlock[i]);
       };
     };
     if (cloneType == "item") {
+      var all_inputBlocks = target.querySelectorAll(".js-input-block");
+      for (var i = 0; i < all_inputBlocks.length; i++) {
+        inputBlock.render(all_inputBlocks[i]);
+      };
       var all_checkBlock = target.querySelectorAll(".js-check-block");
       for (var i = 0; i < all_checkBlock.length; i++) {
         checkBlock.render(all_checkBlock[i]);
