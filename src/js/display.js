@@ -2166,7 +2166,7 @@ var display = (function() {
                 use_magic_device: "Use Magic Device"
               };
               for (var key in all_listItem) {
-                if (all_listItem[key].ranks != "") {
+                if (all_listItem[key].ranks != "" || !all_listItem[key].trained) {
                   contentFound++;
                   var skillObject = {};
                   skillObject.name = skillNames[key];

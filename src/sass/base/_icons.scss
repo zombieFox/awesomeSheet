@@ -22,6 +22,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.icon-tip {
+  pointer-events: all;
+  cursor: help;
+}
 .icon-error:before {
   content: "\e000";
 }
@@ -177,6 +181,12 @@
 }
 .icon-sun:before {
   content: "\e91b";
+}
+.icon-info:before {
+  content: "\e91c";
+}
+.icon-info-outline:before {
+  content: "\e91d";
 }
 .icon-awesomSheet:before {
   content: "\e914";
