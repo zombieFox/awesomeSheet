@@ -88,7 +88,7 @@
             opacity: 1;
             // visibility: visible;
             transform: scale(1);
-            transition: opacity $transition-ease-fast 0.3s, transform $transition-ease-fast 0.3s, background-color $transition-ease-fast, border-color $transition-ease-fast, color $transition-ease-fast, padding $transition-ease-fast, box-shadow $transition-ease-fast;
+            transition: opacity $transition-ease-fast 0.3s, transform $transition-bounce-fast 0.3s, background-color $transition-ease-fast, border-color $transition-ease-fast, color $transition-ease-fast, padding $transition-ease-fast, box-shadow $transition-ease-fast;
           }
         }
       }
