@@ -3,7 +3,7 @@ var nefi = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.6
+      version: 5.8
     },
     basics: {
       character: {
@@ -703,7 +703,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 6,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -723,7 +724,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -743,7 +745,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 0,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -763,7 +766,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 10,
+          current: "",
+          trained: false,
           bonuses: {
             str: true,
             dex: false,
@@ -784,7 +788,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -805,7 +810,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -825,7 +831,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 0,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -845,7 +852,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 0,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: true,
@@ -865,7 +873,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 0,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -885,7 +894,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 0,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -905,7 +915,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 0,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -926,7 +937,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 11,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -946,7 +958,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -966,7 +979,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 7,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -986,7 +1000,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1006,7 +1021,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 5,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1026,7 +1042,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 5,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1046,7 +1063,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1066,7 +1084,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1086,7 +1105,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1106,7 +1126,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1126,7 +1147,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1146,7 +1168,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1166,7 +1189,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1186,7 +1210,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 2,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1206,7 +1231,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 12,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -1227,7 +1253,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 0,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -1248,7 +1275,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 0,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -1269,7 +1297,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1290,7 +1319,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1310,7 +1340,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 10,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -1330,7 +1361,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -1350,7 +1382,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 0,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: true,
@@ -1370,7 +1403,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1390,7 +1424,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 0,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -1411,7 +1446,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 12,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -1431,7 +1467,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 10,
+          current: "",
+          trained: false,
           bonuses: {
             str: true,
             dex: false,
@@ -1451,7 +1488,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 0,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,

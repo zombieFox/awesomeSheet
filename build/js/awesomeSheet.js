@@ -2602,7 +2602,7 @@ var izlara = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.6,
+      version: 5.8,
       demo: true
     },
     basics: {
@@ -3446,6 +3446,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -3466,6 +3467,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -3486,6 +3488,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -3506,6 +3509,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: true,
             dex: false,
@@ -3527,6 +3531,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -3548,6 +3553,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -3568,6 +3574,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -3588,6 +3595,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: true,
@@ -3608,6 +3616,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -3628,6 +3637,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -3648,6 +3658,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -3669,6 +3680,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -3689,6 +3701,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -3709,6 +3722,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -3729,6 +3743,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -3749,6 +3764,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -3769,6 +3785,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -3789,6 +3806,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -3809,6 +3827,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -3829,6 +3848,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -3849,6 +3869,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -3869,6 +3890,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -3889,6 +3911,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -3909,6 +3932,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -3929,6 +3953,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -3949,6 +3974,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -3970,6 +3996,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -3991,6 +4018,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -4012,6 +4040,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -4033,6 +4062,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -4053,6 +4083,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -4073,6 +4104,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -4093,6 +4125,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: true,
@@ -4113,6 +4146,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -4133,6 +4167,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -4154,6 +4189,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -4174,6 +4210,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: true,
             dex: false,
@@ -4194,6 +4231,7 @@ var izlara = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -5749,7 +5787,7 @@ var ravich = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.6,
+      version: 5.8,
       demo: true
     },
     basics: {
@@ -6570,6 +6608,7 @@ var ravich = (function() {
           feat: "",
           trait: 1,
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -6590,6 +6629,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -6610,6 +6650,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -6630,6 +6671,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: true,
             dex: false,
@@ -6651,6 +6693,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -6672,6 +6715,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -6692,6 +6736,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -6712,6 +6757,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: true,
@@ -6732,6 +6778,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -6752,6 +6799,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -6772,6 +6820,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -6793,6 +6842,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -6813,6 +6863,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -6833,6 +6884,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -6853,6 +6905,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -6873,6 +6926,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -6893,6 +6947,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -6913,6 +6968,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -6933,6 +6989,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -6953,6 +7010,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -6973,6 +7031,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -6993,6 +7052,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -7013,6 +7073,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -7033,6 +7094,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -7053,6 +7115,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -7073,6 +7136,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -7094,6 +7158,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -7115,6 +7180,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -7136,6 +7202,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -7157,6 +7224,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -7177,6 +7245,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -7197,6 +7266,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -7217,6 +7287,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: true,
@@ -7237,6 +7308,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -7257,6 +7329,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -7278,6 +7351,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -7298,6 +7372,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: true,
             dex: false,
@@ -7318,6 +7393,7 @@ var ravich = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -8148,7 +8224,7 @@ var marika = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.6
+      version: 5.8
     },
     basics: {
       character: {
@@ -8875,6 +8951,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -8895,6 +8972,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -8915,6 +8993,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -8935,6 +9014,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: true,
             dex: false,
@@ -8956,6 +9036,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -8977,6 +9058,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -8997,6 +9079,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -9017,6 +9100,7 @@ var marika = (function() {
           feat: 2,
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: true,
@@ -9037,6 +9121,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -9057,6 +9142,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -9077,6 +9163,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -9098,6 +9185,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -9118,6 +9206,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -9138,6 +9227,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -9158,6 +9248,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -9178,6 +9269,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -9198,6 +9290,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -9218,6 +9311,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -9238,6 +9332,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -9258,6 +9353,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -9278,6 +9374,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -9298,6 +9395,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -9318,6 +9416,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -9338,6 +9437,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -9358,6 +9458,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -9378,6 +9479,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -9399,6 +9501,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -9420,6 +9523,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -9441,6 +9545,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -9462,6 +9567,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -9482,6 +9588,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -9502,6 +9609,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -9522,6 +9630,7 @@ var marika = (function() {
           feat: 2,
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: true,
@@ -9542,6 +9651,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -9562,6 +9672,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -9583,6 +9694,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -9603,6 +9715,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: true,
             dex: false,
@@ -9623,6 +9736,7 @@ var marika = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -9987,7 +10101,7 @@ var nefi = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.6
+      version: 5.8
     },
     basics: {
       character: {
@@ -10687,7 +10801,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 6,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -10707,7 +10822,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -10727,7 +10843,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 0,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -10747,7 +10864,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 10,
+          current: "",
+          trained: false,
           bonuses: {
             str: true,
             dex: false,
@@ -10768,7 +10886,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -10789,7 +10908,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -10809,7 +10929,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 0,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -10829,7 +10950,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 0,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: true,
@@ -10849,7 +10971,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 0,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -10869,7 +10992,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 0,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -10889,7 +11013,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 0,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -10910,7 +11035,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 11,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -10930,7 +11056,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -10950,7 +11077,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 7,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -10970,7 +11098,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -10990,7 +11119,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 5,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -11010,7 +11140,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 5,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -11030,7 +11161,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -11050,7 +11182,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -11070,7 +11203,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -11090,7 +11224,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -11110,7 +11245,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -11130,7 +11266,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -11150,7 +11287,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -11170,7 +11308,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 2,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -11190,7 +11329,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 12,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -11211,7 +11351,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 0,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -11232,7 +11373,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 0,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -11253,7 +11395,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -11274,7 +11417,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -11294,7 +11438,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 10,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -11314,7 +11459,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -11334,7 +11480,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 0,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: true,
@@ -11354,7 +11501,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 1,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -11374,7 +11522,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 0,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -11395,7 +11544,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 12,
+          current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -11415,7 +11565,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 10,
+          current: "",
+          trained: false,
           bonuses: {
             str: true,
             dex: false,
@@ -11435,7 +11586,8 @@ var nefi = (function() {
           racial: "",
           feat: "",
           trait: "",
-          current: 0,
+          current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -11788,7 +11940,7 @@ var nif = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.6
+      version: 5.8
     },
     basics: {
       character: {
@@ -12638,6 +12790,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -12658,6 +12811,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -12678,6 +12832,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -12698,6 +12853,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: true,
             dex: false,
@@ -12719,6 +12875,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -12740,6 +12897,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -12760,6 +12918,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -12780,6 +12939,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: true,
@@ -12800,6 +12960,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -12820,6 +12981,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -12840,6 +13002,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -12861,6 +13024,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -12881,6 +13045,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -12901,6 +13066,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -12921,6 +13087,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -12941,6 +13108,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -12961,6 +13129,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -12981,6 +13150,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -13001,6 +13171,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -13021,6 +13192,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -13041,6 +13213,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -13061,6 +13234,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -13081,6 +13255,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -13101,6 +13276,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -13121,6 +13297,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -13141,6 +13318,7 @@ var nif = (function() {
           feat: 2,
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -13162,6 +13340,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -13183,6 +13362,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -13204,6 +13384,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -13225,6 +13406,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -13245,6 +13427,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -13265,6 +13448,7 @@ var nif = (function() {
           feat: 2,
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -13285,6 +13469,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: true,
@@ -13305,6 +13490,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -13325,6 +13511,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -13346,6 +13533,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -13366,6 +13554,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: true,
             dex: false,
@@ -13386,6 +13575,7 @@ var nif = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -14290,7 +14480,7 @@ var orrin = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.6
+      version: 5.8
     },
     basics: {
       character: {
@@ -15106,6 +15296,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -15126,6 +15317,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -15146,6 +15338,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -15166,6 +15359,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: true,
             dex: false,
@@ -15187,6 +15381,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -15208,6 +15403,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -15228,6 +15424,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -15248,6 +15445,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: true,
@@ -15268,6 +15466,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -15288,6 +15487,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -15308,6 +15508,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -15329,6 +15530,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -15349,6 +15551,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -15369,6 +15572,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -15389,6 +15593,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -15409,6 +15614,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -15429,6 +15635,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -15449,6 +15656,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -15469,6 +15677,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -15489,6 +15698,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -15509,6 +15719,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -15529,6 +15740,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -15549,6 +15761,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -15569,6 +15782,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -15589,6 +15803,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -15609,6 +15824,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -15630,6 +15846,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -15651,6 +15868,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -15672,6 +15890,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -15693,6 +15912,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -15713,6 +15933,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -15733,6 +15954,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -15753,6 +15975,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: true,
@@ -15773,6 +15996,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -15793,6 +16017,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -15814,6 +16039,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -15834,6 +16060,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: true,
             dex: false,
@@ -15854,6 +16081,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -16360,7 +16588,7 @@ var ro = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.6
+      version: 5.8
     },
     basics: {
       character: {
@@ -17106,6 +17334,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -17126,6 +17355,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -17146,6 +17376,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -17166,6 +17397,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: true,
             dex: false,
@@ -17187,6 +17419,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -17208,6 +17441,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -17228,6 +17462,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -17248,6 +17483,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: true,
@@ -17268,6 +17504,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -17288,6 +17525,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -17308,6 +17546,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -17329,6 +17568,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -17349,6 +17589,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -17369,6 +17610,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -17389,6 +17631,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -17409,6 +17652,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -17429,6 +17673,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -17449,6 +17694,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -17469,6 +17715,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -17489,6 +17736,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -17509,6 +17757,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -17529,6 +17778,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -17549,6 +17799,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -17569,6 +17820,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -17589,6 +17841,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -17609,6 +17862,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -17630,6 +17884,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -17651,6 +17906,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -17672,6 +17928,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -17693,6 +17950,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -17713,6 +17971,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -17733,6 +17992,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -17753,6 +18013,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: true,
@@ -17773,6 +18034,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -17793,6 +18055,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -17814,6 +18077,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -17834,6 +18098,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: true,
             dex: false,
@@ -17854,6 +18119,7 @@ var ro = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -18521,7 +18787,7 @@ var vos = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.6
+      version: 5.8
     },
     basics: {
       character: {
@@ -19331,6 +19597,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -19351,6 +19618,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -19371,6 +19639,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -19391,6 +19660,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: true,
             dex: false,
@@ -19412,6 +19682,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -19433,6 +19704,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -19453,6 +19725,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -19473,6 +19746,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: true,
@@ -19493,6 +19767,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -19513,6 +19788,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -19533,6 +19809,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -19554,6 +19831,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -19574,6 +19852,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -19594,6 +19873,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -19614,6 +19894,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -19634,6 +19915,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -19654,6 +19936,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -19674,6 +19957,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -19694,6 +19978,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -19714,6 +19999,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -19734,6 +20020,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -19754,6 +20041,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -19774,6 +20062,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -19794,6 +20083,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -19814,6 +20104,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -19834,6 +20125,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -19855,6 +20147,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -19876,6 +20169,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -19897,6 +20191,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -19918,6 +20213,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -19938,6 +20234,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -19958,6 +20255,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -19978,6 +20276,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: true,
@@ -19998,6 +20297,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -20018,6 +20318,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -20039,6 +20340,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -20059,6 +20361,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: true,
             dex: false,
@@ -20079,6 +20382,7 @@ var vos = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,

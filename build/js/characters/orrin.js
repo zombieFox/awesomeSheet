@@ -3,7 +3,7 @@ var orrin = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.6
+      version: 5.8
     },
     basics: {
       character: {
@@ -819,6 +819,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -839,6 +840,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -859,6 +861,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -879,6 +882,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: true,
             dex: false,
@@ -900,6 +904,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -921,6 +926,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -941,6 +947,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -961,6 +968,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: true,
@@ -981,6 +989,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -1001,6 +1010,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -1021,6 +1031,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -1042,6 +1053,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1062,6 +1074,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -1082,6 +1095,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -1102,6 +1116,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1122,6 +1137,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1142,6 +1158,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1162,6 +1179,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1182,6 +1200,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1202,6 +1221,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1222,6 +1242,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1242,6 +1263,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1262,6 +1284,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1282,6 +1305,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1302,6 +1326,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1322,6 +1347,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -1343,6 +1369,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -1364,6 +1391,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -1385,6 +1413,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1406,6 +1435,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1426,6 +1456,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -1446,6 +1477,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -1466,6 +1498,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: true,
@@ -1486,6 +1519,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1506,6 +1540,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -1527,6 +1562,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -1547,6 +1583,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: true,
             dex: false,
@@ -1567,6 +1604,7 @@ var orrin = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
