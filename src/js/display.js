@@ -2185,7 +2185,7 @@ var display = (function() {
                 if (all_listItem.ranks != "") {
                   contentFound++;
                   var skillObject = {
-                    name: arrayItem.name,
+                    name: arrayItem.name || "Custom Skill",
                     current: dataFormat.bonus(arrayItem.current)
                   };
                   foundSkills.push(skillObject);
