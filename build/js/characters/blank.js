@@ -550,6 +550,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -570,6 +571,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -590,6 +592,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -610,6 +613,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: true,
             dex: false,
@@ -631,6 +635,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -652,6 +657,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -672,6 +678,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -692,6 +699,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: true,
@@ -712,6 +720,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -732,6 +741,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -752,6 +762,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -773,6 +784,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -793,6 +805,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -813,6 +826,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -833,6 +847,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -853,6 +868,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -873,6 +889,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -893,6 +910,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -913,6 +931,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -933,6 +952,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -953,6 +973,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -973,6 +994,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -993,6 +1015,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1013,6 +1036,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1033,6 +1057,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1053,6 +1078,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -1074,6 +1100,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -1095,6 +1122,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -1116,6 +1144,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1137,6 +1166,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1157,6 +1187,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -1177,6 +1208,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -1197,6 +1229,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: true,
@@ -1217,6 +1250,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1237,6 +1271,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -1258,6 +1293,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -1278,6 +1314,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: true,
             dex: false,
@@ -1298,6 +1335,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,

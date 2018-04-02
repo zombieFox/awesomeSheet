@@ -2166,7 +2166,7 @@ var display = (function() {
                 use_magic_device: "Use Magic Device"
               };
               for (var key in all_listItem) {
-                if (all_listItem[key].ranks != "") {
+                if (all_listItem[key].ranks != "" || !all_listItem[key].trained) {
                   contentFound++;
                   var skillObject = {};
                   skillObject.name = skillNames[key];
@@ -2185,7 +2185,7 @@ var display = (function() {
                 if (all_listItem.ranks != "") {
                   contentFound++;
                   var skillObject = {
-                    name: arrayItem.name,
+                    name: arrayItem.name || "Custom Skill",
                     current: dataFormat.bonus(arrayItem.current)
                   };
                   foundSkills.push(skillObject);

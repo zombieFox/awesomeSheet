@@ -1,6 +1,11 @@
 var update = (function() {
 
   var history = [{
+    version: "5.8.0",
+    list: [
+      "Added support for Untrained Skills. Skills which may be used Untrained or with Skill Ranks will be shown in Display Mode."
+    ]
+  }, {
     version: "5.7.0",
     list: [
       "Added Include option for each Item in Equipment."

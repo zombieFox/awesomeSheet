@@ -1914,6 +1914,12 @@ label {
 .icon-sun:before {
   content: "\e91b"; }
 
+.icon-info:before {
+  content: "\e91c"; }
+
+.icon-info-outline:before {
+  content: "\e91d"; }
+
 .icon-awesomSheet:before {
   content: "\e914"; }
 
@@ -3041,28 +3047,10 @@ label {
   box-sizing: border-box;
   transition: margin 0.2s ease-in-out, padding 0.2s ease-in-out; }
 
-.m-edit-box-head {
-  width: 100%;
-  margin-bottom: 1em; }
-  .m-edit-box-head .m-edit-box-description {
-    margin-bottom: 1em; }
-
-.m-edit-box-head-row {
-  margin-bottom: 1em;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: row nowrap;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start; }
-  .m-edit-box-head-row > *:not(:only-child):not(:last-child) {
-    margin-right: 1em; }
-
+.m-edit-box-head,
 .m-edit-box-body {
-  max-width: 100%; }
+  width: 100%;
+  box-sizing: border-box; }
 
 .m-edit-box-content {
   margin-left: -0.5rem;
@@ -3085,7 +3073,7 @@ label {
   padding-bottom: 0; }
 
 .m-edit-box-indent .m-edit-box-body {
-  margin-left: 1em; }
+  padding-left: 1em; }
 
 .m-edit-box-content-nowrap {
   -webkit-flex-wrap: nowrap;
@@ -3147,6 +3135,12 @@ label {
   line-height: 1.5; }
   .m-edit-box-title:not(:only-child):not(:last-child) {
     margin-bottom: 0; }
+
+.m-edit-box-info {
+  padding: 0.5em 0;
+  line-height: 1.5;
+  pointer-events: all;
+  cursor: help; }
 
 .m-edit-box-description {
   font-family: "Open Sans Regular", Helvetica, Arial, sans-serif;
@@ -3278,6 +3272,11 @@ label {
       -ms-flex-positive: 1;
           flex-grow: 1;
   max-width: initial; }
+
+.m-edit-box-item-top {
+  -webkit-align-self: flex-start;
+      -ms-flex-item-align: start;
+          align-self: flex-start; }
 
 .m-edit-box-content.m-edit-box-content-end {
   -webkit-justify-content: flex-end;
@@ -4026,13 +4025,15 @@ label {
       margin-bottom: 0; }
   .m-edit-box-head-row {
     margin-bottom: 0; }
-    .m-edit-box-head-row > * {
-      margin-right: 1em; }
+  .m-edit-box-title-text {
+    -webkit-flex: 1 1 auto;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto; }
   .m-edit-box-indent .m-edit-box-body {
     margin-left: 0; }
-  .m-edit-box-labels .m-edit-box-head > *,
-  .m-edit-box-labels .m-edit-box-head-row > * {
-    margin-top: 1.25em; }
+  .m-edit-box-labels .m-edit-box-head,
+  .m-edit-box-labels .m-edit-box-head-row {
+    padding-top: 1.25em; }
   .m-edit-box-head-small .m-edit-box-head,
   .m-edit-box-head-small .m-edit-box-head-row {
     -webkit-flex: 0 0 30%;
@@ -4954,8 +4955,8 @@ label {
   -webkit-transform: scale(1);
       -ms-transform: scale(1);
           transform: scale(1);
-  transition: opacity 0.2s ease-in-out 0.3s, -webkit-transform 0.2s ease-in-out 0.3s, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out, padding 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  transition: opacity 0.2s ease-in-out 0.3s, transform 0.2s ease-in-out 0.3s, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out, padding 0.2s ease-in-out, box-shadow 0.2s ease-in-out; }
+  transition: opacity 0.2s ease-in-out 0.3s, -webkit-transform 0.3s cubic-bezier(0.22, 0.44, 0.22, 1.55) 0.3s, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out, padding 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out 0.3s, transform 0.3s cubic-bezier(0.22, 0.44, 0.22, 1.55) 0.3s, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out, padding 0.2s ease-in-out, box-shadow 0.2s ease-in-out; }
 
 @media (min-width: 550px) {
   .m-clone-block .m-clone-block-target .m-clone .m-clone-block-delete-controls-skill {
@@ -6090,15 +6091,6 @@ label {
 @media print {
   .m-shade {
     display: none; } }
-
-.m-skill {
-  font-size: 1rem; }
-
-.m-skill-name {
-  width: 100%; }
-
-.m-skill-variant-name {
-  width: 100%; }
 
 .m-spell-block.is-state-remove .m-spell-block-known .m-spell .m-spell-name {
   max-width: 80%; }

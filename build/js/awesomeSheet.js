@@ -1469,6 +1469,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -1489,6 +1490,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -1509,6 +1511,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -1529,6 +1532,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: true,
             dex: false,
@@ -1550,6 +1554,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -1571,6 +1576,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -1591,6 +1597,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -1611,6 +1618,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: true,
@@ -1631,6 +1639,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -1651,6 +1660,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -1671,6 +1681,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -1692,6 +1703,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1712,6 +1724,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -1732,6 +1745,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -1752,6 +1766,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1772,6 +1787,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1792,6 +1808,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1812,6 +1829,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1832,6 +1850,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1852,6 +1871,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1872,6 +1892,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1892,6 +1913,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1912,6 +1934,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1932,6 +1955,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1952,6 +1976,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -1972,6 +1997,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -1993,6 +2019,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -2014,6 +2041,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -2035,6 +2063,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -2056,6 +2085,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -2076,6 +2106,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -2096,6 +2127,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -2116,6 +2148,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: true,
@@ -2136,6 +2169,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -2156,6 +2190,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: true,
@@ -2177,6 +2212,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: false,
             dex: false,
@@ -2197,6 +2233,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: false,
           bonuses: {
             str: true,
             dex: false,
@@ -2217,6 +2254,7 @@ var blank = (function() {
           feat: "",
           trait: "",
           current: "",
+          trained: true,
           bonuses: {
             str: false,
             dex: false,
@@ -25877,7 +25915,7 @@ var display = (function() {
                 use_magic_device: "Use Magic Device"
               };
               for (var key in all_listItem) {
-                if (all_listItem[key].ranks != "") {
+                if (all_listItem[key].ranks != "" || !all_listItem[key].trained) {
                   contentFound++;
                   var skillObject = {};
                   skillObject.name = skillNames[key];
@@ -25896,7 +25934,7 @@ var display = (function() {
                 if (all_listItem.ranks != "") {
                   contentFound++;
                   var skillObject = {
-                    name: arrayItem.name,
+                    name: arrayItem.name || "Custom Skill",
                     current: dataFormat.bonus(arrayItem.current)
                   };
                   foundSkills.push(skillObject);
@@ -33971,6 +34009,59 @@ var repair = (function() {
     return characterObject;
   };
 
+  function _update_580(characterObject) {
+    var _report = {
+      name: characterObject.basics.character.name,
+      repaired: []
+    };
+    // awesome
+    _report.repaired.push("update: awesome version");
+    characterObject.awesomeSheet.version = 5.8;
+    _report.repaired.push("update: Trained Skills");
+    characterObject.skills.default.acrobatics.trained = false;
+    characterObject.skills.default.appraise.trained = false;
+    characterObject.skills.default.bluff.trained = false;
+    characterObject.skills.default.climb.trained = false;
+    characterObject.skills.default.craft_1.trained = false;
+    characterObject.skills.default.craft_2.trained = false;
+    characterObject.skills.default.diplomacy.trained = false;
+    characterObject.skills.default.disable_device.trained = true;
+    characterObject.skills.default.disguise.trained = false;
+    characterObject.skills.default.escape_artist.trained = false;
+    characterObject.skills.default.fly.trained = false;
+    characterObject.skills.default.handle_animal.trained = true;
+    characterObject.skills.default.heal.trained = false;
+    characterObject.skills.default.intimidate.trained = false;
+    characterObject.skills.default.knowledge_arcana.trained = true;
+    characterObject.skills.default.knowledge_dungeoneering.trained = true;
+    characterObject.skills.default.knowledge_engineering.trained = true;
+    characterObject.skills.default.knowledge_geography.trained = true;
+    characterObject.skills.default.knowledge_history.trained = true;
+    characterObject.skills.default.knowledge_local.trained = true;
+    characterObject.skills.default.knowledge_nature.trained = true;
+    characterObject.skills.default.knowledge_nobility.trained = true;
+    characterObject.skills.default.knowledge_planes.trained = true;
+    characterObject.skills.default.knowledge_religion.trained = true;
+    characterObject.skills.default.linguistics.trained = true;
+    characterObject.skills.default.perception.trained = false;
+    characterObject.skills.default.perform_1.trained = false;
+    characterObject.skills.default.perform_2.trained = false;
+    characterObject.skills.default.profession_1.trained = true;
+    characterObject.skills.default.profession_2.trained = true;
+    characterObject.skills.default.ride.trained = false;
+    characterObject.skills.default.sense_motive.trained = false;
+    characterObject.skills.default.sleight_of_hand.trained = true;
+    characterObject.skills.default.spellcraft.trained = true;
+    characterObject.skills.default.stealth.trained = false;
+    characterObject.skills.default.survival.trained = false;
+    characterObject.skills.default.swim.trained = false;
+    characterObject.skills.default.use_magic_device.trained = true;
+    _log("update complete: 580");
+    _log("report:", _report);
+    _log("------------------------------------------");
+    return characterObject;
+  };
+
   function _repair(characterObject) {
     // if version is found
     if (typeof characterObject.awesomeSheet == "object" && "version" in characterObject.awesomeSheet) {
@@ -34001,6 +34092,9 @@ var repair = (function() {
         };
         if (characterObject.awesomeSheet.version < 5.7) {
           characterObject = _update_570(characterObject);
+        };
+        if (characterObject.awesomeSheet.version < 5.8) {
+          characterObject = _update_580(characterObject);
         };
       };
     } else {
@@ -37619,6 +37713,11 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "5.8.0",
+    list: [
+      "Added support for Untrained Skills. Skills which may be used Untrained or with Skill Ranks will be shown in Display Mode."
+    ]
+  }, {
     version: "5.7.0",
     list: [
       "Added Include option for each Item in Equipment."
