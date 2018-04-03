@@ -2,7 +2,7 @@
 **A dynamic character sheet which auto calculates many scores and bonuses.**
 ### [See it in action](https://zombiefox.github.io/awesomeSheet/)
 
-[<img src="https://github.com/zombieFox/awesomeSheet/raw/master/screenshots/demo.gif">](https://zombiefox.github.io/awesomeSheet/)
+[![awesomeSheet Demo](screenshots/demo.gif)](https://zombiefox.github.io/awesomeSheet/)
 
 ## Pathfinder Character Support
 - Multiple Classes with automatic HP, BAB, Skill Ranks, Base Fortitude, Base Reflex and Base Will calculations.
