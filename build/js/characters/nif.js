@@ -57,7 +57,7 @@ var nif = (function() {
         },
         next_level: "",
         needed: "",
-        total: 57480,
+        total: 59080,
         advancement: "Medium"
       },
       initiative: {
@@ -2485,7 +2485,7 @@ var nif = (function() {
       all: [{
         type: "xp",
         event: {
-          aggregate_value: 1000
+          aggregate_value: 2600
         },
         timestamp: {
           date: 12,
