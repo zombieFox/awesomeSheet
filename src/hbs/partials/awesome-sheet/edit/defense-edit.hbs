@@ -103,7 +103,7 @@
 
 <div class="m-tab-panel js-tab-panel js-tab-panel-armor-class is-hidden">
 
-  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:defense.ac.armor_class,addition:+misc+temp,bonuses:+str+dex+con+int+wis+cha+plus_ten+armor+shield+deflect+dodge+natural+size_base+max_dex">
+  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:defense.ac.armor_class,addition:+misc+temp,bonuses:+str+dex+con+int+wis+cha+plus_ten+armor+shield+deflect+dodge+natural+size_base+max_dex+ac_temp+ac_misc+ac_enhancement+ac_insight+ac_luck+ac_profane+ac_sacred+ac_trait">
     <div class="m-edit-box-head">
       <div class="m-edit-box-content m-edit-box-content-nowrap m-edit-box-content-margin-large">
         <div class="m-edit-box-item-shrink">
@@ -138,7 +138,7 @@
     </div>
   </div>
 
-  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:defense.ac.flat_footed,addition:+misc+temp,bonuses:+str+dex+con+int+wis+cha+plus_ten+armor+shield+deflect+dodge+natural+size_base">
+  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:defense.ac.flat_footed,addition:+misc+temp,bonuses:+str+dex+con+int+wis+cha+plus_ten+armor+shield+deflect+dodge+natural+size_base+ac_temp+ac_misc+ac_enhancement+ac_insight+ac_luck+ac_profane+ac_sacred+ac_trait">
     <div class="m-edit-box-head">
       <div class="m-edit-box-content m-edit-box-content-nowrap m-edit-box-content-margin-large">
         <div class="m-edit-box-item-shrink">
@@ -173,7 +173,7 @@
     </div>
   </div>
 
-  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:defense.ac.touch,addition:+misc+temp,bonuses:+str+dex+con+int+wis+cha+plus_ten+armor+shield+deflect+dodge+natural+size_base+max_dex">
+  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:defense.ac.touch,addition:+misc+temp,bonuses:+str+dex+con+int+wis+cha+plus_ten+armor+shield+deflect+dodge+natural+size_base+max_dex+ac_temp+ac_misc+ac_enhancement+ac_insight+ac_luck+ac_profane+ac_sacred+ac_trait">
     <div class="m-edit-box-head">
       <div class="m-edit-box-content m-edit-box-content-nowrap m-edit-box-content-margin-large">
         <div class="m-edit-box-item-shrink">
@@ -221,31 +221,79 @@
         <div class="m-edit-box-item-4">
           <div class="m-input-block js-input-block" data-input-block-options="path:defense.ac.stats.armor,type:integer">
             <label class="m-input-block-label js-input-block-label" for="defense-ac-stats-armor">Armor Bonus</label>
-            <input id="defense-ac-stats-armor" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+            <input id="defense-ac-stats-armor" class="m-input-block-field u-full-width u-text-center js-input-block-field js-tip" data-tip-options="message:Applies to AC and Flat Footed AC.,state:focus" type="number" tabindex="1">
           </div>
         </div>
         <div class="m-edit-box-item-4">
           <div class="m-input-block js-input-block" data-input-block-options="path:defense.ac.stats.shield,type:integer">
             <label class="m-input-block-label js-input-block-label" for="defense-ac-stats-shield">Shield Bonus</label>
-            <input id="defense-ac-stats-shield" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+            <input id="defense-ac-stats-shield" class="m-input-block-field u-full-width u-text-center js-input-block-field js-tip" data-tip-options="message:Applies to AC and Flat Footed AC.,state:focus" type="number" tabindex="1">
           </div>
         </div>
         <div class="m-edit-box-item-4">
           <div class="m-input-block js-input-block" data-input-block-options="path:defense.ac.stats.deflect,type:integer">
             <label class="m-input-block-label js-input-block-label" for="defense-ac-stats-deflect">Deflect Bonus</label>
-            <input id="defense-ac-stats-deflect" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+            <input id="defense-ac-stats-deflect" class="m-input-block-field u-full-width u-text-center js-input-block-field js-tip" data-tip-options="message:Applies to AC, Flat Footed AC and Touch AC.,state:focus" type="number" tabindex="1">
           </div>
         </div>
         <div class="m-edit-box-item-4">
           <div class="m-input-block js-input-block" data-input-block-options="path:defense.ac.stats.dodge,type:integer">
             <label class="m-input-block-label js-input-block-label" for="defense-ac-stats-dodge">Dodge Bonus</label>
-            <input id="defense-ac-stats-dodge" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+            <input id="defense-ac-stats-dodge" class="m-input-block-field u-full-width u-text-center js-input-block-field js-tip" data-tip-options="message:Applies to AC and Touch AC.,state:focus" type="number" tabindex="1">
           </div>
         </div>
         <div class="m-edit-box-item-4">
           <div class="m-input-block js-input-block" data-input-block-options="path:defense.ac.stats.natural,type:integer">
             <label class="m-input-block-label js-input-block-label" for="defense-ac-stats-natural">Natural Armor Bonus</label>
-            <input id="defense-ac-stats-natural" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+            <input id="defense-ac-stats-natural" class="m-input-block-field u-full-width u-text-center js-input-block-field js-tip" data-tip-options="message:Applies to AC and Flat Footed AC.,state:focus" type="number" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-4">
+          <div class="m-input-block js-input-block" data-input-block-options="path:defense.ac.stats.enhancement,type:integer">
+            <label class="m-input-block-label js-input-block-label" for="defense-ac-stats-enhancement">Enhancement</label>
+            <input id="defense-ac-stats-enhancement" class="m-input-block-field u-full-width u-text-center js-input-block-field js-tip" data-tip-options="message:Applies to AC, Flat Footed AC and Touch AC.,state:focus" type="number" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-4">
+          <div class="m-input-block js-input-block" data-input-block-options="path:defense.ac.stats.insight,type:integer">
+            <label class="m-input-block-label js-input-block-label" for="defense-ac-stats-insight">Insight</label>
+            <input id="defense-ac-stats-insight" class="m-input-block-field u-full-width u-text-center js-input-block-field js-tip" data-tip-options="message:Applies to AC, Flat Footed AC and Touch AC.,state:focus" type="number" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-4">
+          <div class="m-input-block js-input-block" data-input-block-options="path:defense.ac.stats.luck,type:integer">
+            <label class="m-input-block-label js-input-block-label" for="defense-ac-stats-luck">Luck</label>
+            <input id="defense-ac-stats-luck" class="m-input-block-field u-full-width u-text-center js-input-block-field js-tip" data-tip-options="message:Applies to AC, Flat Footed AC and Touch AC.,state:focus" type="number" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-4">
+          <div class="m-input-block js-input-block" data-input-block-options="path:defense.ac.stats.profane,type:integer">
+            <label class="m-input-block-label js-input-block-label" for="defense-ac-stats-profane">Profane</label>
+            <input id="defense-ac-stats-profane" class="m-input-block-field u-full-width u-text-center js-input-block-field js-tip" data-tip-options="message:Applies to AC, Flat Footed AC and Touch AC.,state:focus" type="number" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-4">
+          <div class="m-input-block js-input-block" data-input-block-options="path:defense.ac.stats.sacred,type:integer">
+            <label class="m-input-block-label js-input-block-label" for="defense-ac-stats-sacred">Sacred</label>
+            <input id="defense-ac-stats-sacred" class="m-input-block-field u-full-width u-text-center js-input-block-field js-tip" data-tip-options="message:Applies to AC, Flat Footed AC and Touch AC.,state:focus" type="number" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-4">
+          <div class="m-input-block js-input-block" data-input-block-options="path:defense.ac.stats.trait,type:integer">
+            <label class="m-input-block-label js-input-block-label" for="defense-ac-stats-trait">Trait</label>
+            <input id="defense-ac-stats-trait" class="m-input-block-field u-full-width u-text-center js-input-block-field js-tip" data-tip-options="message:Applies to AC, Flat Footed AC and Touch AC.,state:focus" type="number" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-4">
+          <div class="m-input-block js-input-block" data-input-block-options="path:defense.ac.stats.temp,type:integer">
+            <label class="m-input-block-label js-input-block-label" for="defense-ac-stats-temp">Temp Armor Bonus</label>
+            <input id="defense-ac-stats-temp" class="m-input-block-field u-full-width u-text-center js-input-block-field js-tip" data-tip-options="message:Applies to AC, Flat Footed AC and Touch AC.,state:focus" type="number" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-4">
+          <div class="m-input-block js-input-block" data-input-block-options="path:defense.ac.stats.misc,type:integer">
+            <label class="m-input-block-label js-input-block-label" for="defense-ac-stats-misc">Misc Armor Bonus</label>
+            <input id="defense-ac-stats-misc" class="m-input-block-field u-full-width u-text-center js-input-block-field js-tip" data-tip-options="message:Applies to AC, Flat Footed AC and Touch AC.,state:focus" type="number" tabindex="1">
           </div>
         </div>
         <div class="m-edit-box-item-100">
@@ -262,7 +310,7 @@
 
 <div class="m-tab-panel js-tab-panel js-tab-panel-combat-maneuver-defense is-hidden">
 
-    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:defense.cmd,addition:+misc+temp,bonuses:+str+dex+con+int+wis+cha+bab+size_special+level+half_level">
+    <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels js-total-block" data-total-block-options="path:defense.cmd,addition:+misc+temp,bonuses:+str+dex+con+int+wis+cha+bab+deflect+dodge+size_special+level+half_level">
       <div class="m-edit-box-head">
         <div class="m-edit-box-content m-edit-box-content-nowrap m-edit-box-content-margin-large">
           <div class="m-edit-box-item-shrink">

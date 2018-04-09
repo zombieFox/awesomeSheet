@@ -2811,6 +2811,55 @@ var repair = (function() {
     return characterObject;
   };
 
+  function _update_590(characterObject) {
+    var _report = {
+      name: characterObject.basics.character.name,
+      repaired: []
+    };
+    // awesome
+    _report.repaired.push("update: awesome version");
+    characterObject.awesomeSheet.version = 5.9;
+    _report.repaired.push("update: AC");
+    characterObject.defense.cmd.bonuses.dodge = true;
+    characterObject.defense.cmd.bonuses.deflect = true;
+    characterObject.defense.ac.armor_class.bonuses.ac_temp = true;
+    characterObject.defense.ac.armor_class.bonuses.ac_misc = true;
+    characterObject.defense.ac.armor_class.bonuses.ac_enhancement = true;
+    characterObject.defense.ac.armor_class.bonuses.ac_insight = true;
+    characterObject.defense.ac.armor_class.bonuses.ac_luck = true;
+    characterObject.defense.ac.armor_class.bonuses.ac_profane = true;
+    characterObject.defense.ac.armor_class.bonuses.ac_sacred = true;
+    characterObject.defense.ac.armor_class.bonuses.ac_trait = true;
+    characterObject.defense.ac.flat_footed.bonuses.ac_temp = true;
+    characterObject.defense.ac.flat_footed.bonuses.ac_misc = true;
+    characterObject.defense.ac.flat_footed.bonuses.ac_enhancement = true;
+    characterObject.defense.ac.flat_footed.bonuses.ac_insight = true;
+    characterObject.defense.ac.flat_footed.bonuses.ac_luck = true;
+    characterObject.defense.ac.flat_footed.bonuses.ac_profane = true;
+    characterObject.defense.ac.flat_footed.bonuses.ac_sacred = true;
+    characterObject.defense.ac.flat_footed.bonuses.ac_trait = true;
+    characterObject.defense.ac.touch.bonuses.ac_temp = true;
+    characterObject.defense.ac.touch.bonuses.ac_misc = true;
+    characterObject.defense.ac.touch.bonuses.ac_enhancement = true;
+    characterObject.defense.ac.touch.bonuses.ac_insight = true;
+    characterObject.defense.ac.touch.bonuses.ac_luck = true;
+    characterObject.defense.ac.touch.bonuses.ac_profane = true;
+    characterObject.defense.ac.touch.bonuses.ac_sacred = true;
+    characterObject.defense.ac.touch.bonuses.ac_trait = true;
+    characterObject.defense.ac.stats.temp = "";
+    characterObject.defense.ac.stats.misc = "";
+    characterObject.defense.ac.stats.enhancement = "";
+    characterObject.defense.ac.stats.insight = "";
+    characterObject.defense.ac.stats.luck = "";
+    characterObject.defense.ac.stats.profane = "";
+    characterObject.defense.ac.stats.sacred = "";
+    characterObject.defense.ac.stats.trait = "";
+    _log("update complete: 590");
+    _log("report:", _report);
+    _log("------------------------------------------");
+    return characterObject;
+  };
+
   function _repair(characterObject) {
     // if version is found
     if (typeof characterObject.awesomeSheet == "object" && "version" in characterObject.awesomeSheet) {
@@ -2844,6 +2893,9 @@ var repair = (function() {
         };
         if (characterObject.awesomeSheet.version < 5.8) {
           characterObject = _update_580(characterObject);
+        };
+        if (characterObject.awesomeSheet.version < 5.9) {
+          characterObject = _update_590(characterObject);
         };
       };
     } else {

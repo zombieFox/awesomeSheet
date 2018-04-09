@@ -289,6 +289,54 @@ var totalBlock = (function() {
               path: options.path + ".spell_level"
             }));
           };
+          if (key == "ac_temp") {
+            externalBouns = _checkValue(helper.getObject({
+              object: sheet.get(),
+              path: "defense.ac.stats.temp"
+            }));
+          };
+          if (key == "ac_misc") {
+            externalBouns = _checkValue(helper.getObject({
+              object: sheet.get(),
+              path: "defense.ac.stats.misc"
+            }));
+          };
+          if (key == "ac_enhancement") {
+            externalBouns = _checkValue(helper.getObject({
+              object: sheet.get(),
+              path: "defense.ac.stats.enhancement"
+            }));
+          };
+          if (key == "ac_insight") {
+            externalBouns = _checkValue(helper.getObject({
+              object: sheet.get(),
+              path: "defense.ac.stats.insight"
+            }));
+          };
+          if (key == "ac_luck") {
+            externalBouns = _checkValue(helper.getObject({
+              object: sheet.get(),
+              path: "defense.ac.stats.luck"
+            }));
+          };
+          if (key == "ac_profane") {
+            externalBouns = _checkValue(helper.getObject({
+              object: sheet.get(),
+              path: "defense.ac.stats.profane"
+            }));
+          };
+          if (key == "ac_sacred") {
+            externalBouns = _checkValue(helper.getObject({
+              object: sheet.get(),
+              path: "defense.ac.stats.sacred"
+            }));
+          };
+          if (key == "ac_trait") {
+            externalBouns = _checkValue(helper.getObject({
+              object: sheet.get(),
+              path: "defense.ac.stats.trait"
+            }));
+          };
           if (key == "plus_ten") {
             externalBouns = 10;
           };
@@ -541,6 +589,46 @@ var totalBlock = (function() {
           object: sheet.get(),
           path: totalBlockOptions.path + ".spell_level"
         })) + ")";
+      } else if (label == "ac_temp") {
+        return "Temp Armor Bonus (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.stats.temp"
+        })) + ")";
+      } else if (label == "ac_misc") {
+        return "Misc Armor Bonus (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.stats.misc"
+        })) + ")";
+      } else if (label == "ac_enhancement") {
+        return "Enhancement (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.stats.enhancement"
+        })) + ")";
+      } else if (label == "ac_insight") {
+        return "Insight (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.stats.insight"
+        })) + ")";
+      } else if (label == "ac_luck") {
+        return "Luck (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.stats.luck"
+        })) + ")";
+      } else if (label == "ac_profane") {
+        return "Profane (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.stats.profane"
+        })) + ")";
+      } else if (label == "ac_sacred") {
+        return "Sacred (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.stats.sacred"
+        })) + ")";
+      } else if (label == "ac_trait") {
+        return "Trait (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.stats.trait"
+        })) + ")";
       } else {
         return label;
       };
@@ -663,6 +751,46 @@ var totalBlock = (function() {
         if ("spell_level" in totalBlockBonusesObject) {
           orderedBonuses.push({
             spell_level: totalBlockBonusesObject["spell_level"]
+          })
+        };
+        if ("ac_enhancement" in totalBlockBonusesObject) {
+          orderedBonuses.push({
+            ac_enhancement: totalBlockBonusesObject["ac_enhancement"]
+          })
+        };
+        if ("ac_insight" in totalBlockBonusesObject) {
+          orderedBonuses.push({
+            ac_insight: totalBlockBonusesObject["ac_insight"]
+          })
+        };
+        if ("ac_luck" in totalBlockBonusesObject) {
+          orderedBonuses.push({
+            ac_luck: totalBlockBonusesObject["ac_luck"]
+          })
+        };
+        if ("ac_profane" in totalBlockBonusesObject) {
+          orderedBonuses.push({
+            ac_profane: totalBlockBonusesObject["ac_profane"]
+          })
+        };
+        if ("ac_sacred" in totalBlockBonusesObject) {
+          orderedBonuses.push({
+            ac_sacred: totalBlockBonusesObject["ac_sacred"]
+          })
+        };
+        if ("ac_trait" in totalBlockBonusesObject) {
+          orderedBonuses.push({
+            ac_trait: totalBlockBonusesObject["ac_trait"]
+          })
+        };
+        if ("ac_temp" in totalBlockBonusesObject) {
+          orderedBonuses.push({
+            ac_temp: totalBlockBonusesObject["ac_temp"]
+          })
+        };
+        if ("ac_misc" in totalBlockBonusesObject) {
+          orderedBonuses.push({
+            ac_misc: totalBlockBonusesObject["ac_misc"]
           })
         };
         for (var i = 0; i < orderedBonuses.length; i++) {

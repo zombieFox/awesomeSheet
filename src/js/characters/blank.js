@@ -273,7 +273,15 @@ var blank = (function() {
             dodge: true,
             natural: true,
             size_base: true,
-            max_dex: true
+            max_dex: true,
+            ac_temp: true,
+            ac_misc: true,
+            ac_enhancement: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         flat_footed: {
@@ -293,7 +301,15 @@ var blank = (function() {
             deflect: true,
             natural: true,
             size_base: true,
-            dodge: false
+            dodge: false,
+            ac_temp: true,
+            ac_misc: true,
+            ac_enhancement: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         touch: {
@@ -314,7 +330,15 @@ var blank = (function() {
             max_dex: true,
             armor: false,
             shield: false,
-            natural: false
+            natural: false,
+            ac_temp: true,
+            ac_misc: true,
+            ac_enhancement: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         stats: {
@@ -322,7 +346,15 @@ var blank = (function() {
           shield: "",
           deflect: "",
           dodge: "",
-          natural: ""
+          natural: "",
+          temp: "",
+          misc: "",
+          enhancement: "",
+          insight: "",
+          luck: "",
+          profane: "",
+          sacred: "",
+          trait: ""
         },
         notes: ""
       },
@@ -339,6 +371,8 @@ var blank = (function() {
           wis: false,
           cha: false,
           bab: true,
+          dodge: true,
+          deflect: true,
           size_special: true,
           level: false,
           half_level: false,
