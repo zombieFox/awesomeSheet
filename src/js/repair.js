@@ -458,7 +458,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair character image uploaded
     if (!("uploaded" in characterObject.basics.character_image)) {
-      _report.repaired.push("repair character image uploaded");
+      _report.repaired.push("update: character image uploaded");
       if (characterObject.equipment.potion_viles_oils != "") {
         characterObject.basics.character_image.uploaded = true;
       } else {
@@ -2766,7 +2766,7 @@ var repair = (function() {
     // awesome
     _report.repaired.push("update: awesome version");
     characterObject.awesomeSheet.version = 5.8;
-    _report.repaired.push("update: Trained Skills");
+    _report.repaired.push("update: trained skills");
     characterObject.skills.default.acrobatics.trained = false;
     characterObject.skills.default.appraise.trained = false;
     characterObject.skills.default.bluff.trained = false;
@@ -2819,9 +2819,10 @@ var repair = (function() {
     // awesome
     _report.repaired.push("update: awesome version");
     characterObject.awesomeSheet.version = 5.9;
-    _report.repaired.push("update: AC");
+    _report.repaired.push("update: cmd");
     characterObject.defense.cmd.bonuses.dodge = true;
     characterObject.defense.cmd.bonuses.deflect = true;
+    _report.repaired.push("update: ac");
     characterObject.defense.ac.armor_class.bonuses.ac_temp = true;
     characterObject.defense.ac.armor_class.bonuses.ac_misc = true;
     characterObject.defense.ac.armor_class.bonuses.ac_enhancement = true;
@@ -2830,6 +2831,7 @@ var repair = (function() {
     characterObject.defense.ac.armor_class.bonuses.ac_profane = true;
     characterObject.defense.ac.armor_class.bonuses.ac_sacred = true;
     characterObject.defense.ac.armor_class.bonuses.ac_trait = true;
+    _report.repaired.push("update: flat footed ac");
     characterObject.defense.ac.flat_footed.bonuses.ac_temp = true;
     characterObject.defense.ac.flat_footed.bonuses.ac_misc = true;
     characterObject.defense.ac.flat_footed.bonuses.ac_enhancement = true;
@@ -2838,14 +2840,15 @@ var repair = (function() {
     characterObject.defense.ac.flat_footed.bonuses.ac_profane = true;
     characterObject.defense.ac.flat_footed.bonuses.ac_sacred = true;
     characterObject.defense.ac.flat_footed.bonuses.ac_trait = true;
+    _report.repaired.push("update: touch ac");
     characterObject.defense.ac.touch.bonuses.ac_temp = true;
     characterObject.defense.ac.touch.bonuses.ac_misc = true;
-    characterObject.defense.ac.touch.bonuses.ac_enhancement = true;
     characterObject.defense.ac.touch.bonuses.ac_insight = true;
     characterObject.defense.ac.touch.bonuses.ac_luck = true;
     characterObject.defense.ac.touch.bonuses.ac_profane = true;
     characterObject.defense.ac.touch.bonuses.ac_sacred = true;
     characterObject.defense.ac.touch.bonuses.ac_trait = true;
+    _report.repaired.push("update: ac stats");
     characterObject.defense.ac.stats.temp = "";
     characterObject.defense.ac.stats.misc = "";
     characterObject.defense.ac.stats.enhancement = "";
@@ -2854,6 +2857,8 @@ var repair = (function() {
     characterObject.defense.ac.stats.profane = "";
     characterObject.defense.ac.stats.sacred = "";
     characterObject.defense.ac.stats.trait = "";
+    _report.repaired.push("update: armor notes");
+    characterObject.equipment.armor.notes = "";
     _log("update complete: 590");
     _log("report:", _report);
     _log("------------------------------------------");

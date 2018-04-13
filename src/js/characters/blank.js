@@ -198,7 +198,8 @@ var blank = (function() {
         armor: "",
         check_penalty: "",
         max_dex: "",
-        shield: ""
+        shield: "",
+        notes: ""
       },
       body_slots: {
         belts: "",
@@ -333,7 +334,6 @@ var blank = (function() {
             natural: false,
             ac_temp: true,
             ac_misc: true,
-            ac_enhancement: true,
             ac_insight: true,
             ac_luck: true,
             ac_profane: true,

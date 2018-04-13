@@ -4,7 +4,8 @@ var update = (function() {
     version: "5.9.0",
     list: [
       "Added option to add Dodge Bonus to CMD.",
-      "Added Anhancement, Insight, Luck, Profane, Sacred, Trait, Temp Armor Bonuses and Misc Armor Bonuses to the AC section. These Bonuses can effect Armor Class, Flat Footed AC and Touch AC."
+      "Added Anhancement, Insight, Luck, Profane, Sacred, Trait, Temp Armor Bonuses and Misc Armor Bonuses to the AC section. These Bonuses can effect Armor Class, Flat Footed AC and Touch AC.",
+      "Added Notes for Armor and Shield in Equipment."
     ]
   }, {
     version: "5.8.0",

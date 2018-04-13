@@ -205,7 +205,7 @@ var display = (function() {
           },
           contentItems: [{
             path: "statistics.abilities.notes",
-            prefix: "Notes"
+            prefix: "Abilities Notes"
           }],
         }]
       },
@@ -230,7 +230,7 @@ var display = (function() {
           },
           contentItems: [{
             path: "statistics.feats.notes",
-            prefix: "Notes"
+            prefix: "Feats Notes"
           }],
         }]
       },
@@ -255,7 +255,7 @@ var display = (function() {
           },
           contentItems: [{
             path: "statistics.traits.notes",
-            prefix: "Notes"
+            prefix: "Traits Notes"
           }],
         }]
       },
@@ -280,7 +280,7 @@ var display = (function() {
           },
           contentItems: [{
             path: "statistics.languages.notes",
-            prefix: "Notes"
+            prefix: "Languages Notes"
           }],
         }]
       },
@@ -365,6 +365,15 @@ var display = (function() {
             path: "equipment.armor.shield",
             prefix: "Shield"
           }]
+        }, {
+          type: "block",
+          element: {
+            node: "div"
+          },
+          contentItems: [{
+            path: "equipment.armor.notes",
+            prefix: "Armor & Shield Notes"
+          }],
         }]
       },
       body_slots: {
@@ -768,7 +777,7 @@ var display = (function() {
           },
           contentItems: [{
             path: "spells.stats.notes",
-            prefix: "Notes"
+            prefix: "Spells Notes"
           }]
         }]
       },
