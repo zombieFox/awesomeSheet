@@ -199,6 +199,7 @@ var blank = (function() {
           name: "",
           check_penalty: "",
           max_dex: "",
+          weight: "",
           arcane_spell_failure: "",
           notes: ""
         },
@@ -206,6 +207,7 @@ var blank = (function() {
           name: "",
           check_penalty: "",
           max_dex: "",
+          weight: "",
           arcane_spell_failure: "",
           notes: ""
         }

@@ -2867,6 +2867,7 @@ var repair = (function() {
         name: oldArmor,
         check_penalty: oldCheckPenalty,
         max_dex: oldMaxDex,
+        weight: "",
         arcane_spell_failure: "",
         notes: ""
       },
@@ -2874,6 +2875,7 @@ var repair = (function() {
         name: oldShield,
         check_penalty: "",
         max_dex: "",
+        weight: "",
         arcane_spell_failure: "",
         notes: ""
       }
