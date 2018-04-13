@@ -2857,8 +2857,27 @@ var repair = (function() {
     characterObject.defense.ac.stats.profane = "";
     characterObject.defense.ac.stats.sacred = "";
     characterObject.defense.ac.stats.trait = "";
-    _report.repaired.push("update: armor notes");
-    characterObject.equipment.armor.notes = "";
+    _report.repaired.push("update: armor");
+    var oldArmor = characterObject.equipment.armor.armor;
+    var oldMaxDex = characterObject.equipment.armor.max_dex;
+    var oldCheckPenalty = characterObject.equipment.armor.check_penalty;
+    var oldShield = characterObject.equipment.armor.shield;
+    characterObject.equipment.armor = {
+      armor: {
+        name: oldArmor,
+        check_penalty: oldCheckPenalty,
+        max_dex: oldMaxDex,
+        arcane_spell_failure: "",
+        notes: ""
+      },
+      shield: {
+        name: oldShield,
+        check_penalty: "",
+        max_dex: "",
+        arcane_spell_failure: "",
+        notes: ""
+      }
+    };
     _log("update complete: 590");
     _log("report:", _report);
     _log("------------------------------------------");

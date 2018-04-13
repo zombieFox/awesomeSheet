@@ -195,11 +195,20 @@ var blank = (function() {
         scrolls: ""
       },
       armor: {
-        armor: "",
-        check_penalty: "",
-        max_dex: "",
-        shield: "",
-        notes: ""
+        armor: {
+          name: "",
+          check_penalty: "",
+          max_dex: "",
+          arcane_spell_failure: "",
+          notes: ""
+        },
+        shield: {
+          name: "",
+          check_penalty: "",
+          max_dex: "",
+          arcane_spell_failure: "",
+          notes: ""
+        }
       },
       body_slots: {
         belts: "",
