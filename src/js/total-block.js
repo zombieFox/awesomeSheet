@@ -281,7 +281,7 @@ var totalBlock = (function() {
           if (key == "check_penalty") {
             externalBouns = _checkValue(helper.getObject({
               object: sheet.get(),
-              path: "equipment.armor.check_penalty"
+              path: "equipment.armor.stats.check_penalty.current"
             }));
           };
           if (key == "class_skill") {
@@ -588,7 +588,7 @@ var totalBlock = (function() {
       } else if (label == "check_penalty") {
         return "Armor Check Penalty (" + _addPrefix(helper.getObject({
           object: sheet.get(),
-          path: "equipment.armor.check_penalty"
+          path: "equipment.armor.stats.check_penalty.current"
         })) + ")";
       } else if (label == "max_dex") {
         return "Max Dex Bonus (" + _checkForNull(helper.getObject({
