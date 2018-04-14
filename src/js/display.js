@@ -205,7 +205,7 @@ var display = (function() {
           },
           contentItems: [{
             path: "statistics.abilities.notes",
-            prefix: "Notes"
+            prefix: "Abilities Notes"
           }],
         }]
       },
@@ -230,7 +230,7 @@ var display = (function() {
           },
           contentItems: [{
             path: "statistics.feats.notes",
-            prefix: "Notes"
+            prefix: "Feats Notes"
           }],
         }]
       },
@@ -255,7 +255,7 @@ var display = (function() {
           },
           contentItems: [{
             path: "statistics.traits.notes",
-            prefix: "Notes"
+            prefix: "Traits Notes"
           }],
         }]
       },
@@ -280,7 +280,7 @@ var display = (function() {
           },
           contentItems: [{
             path: "statistics.languages.notes",
-            prefix: "Notes"
+            prefix: "Languages Notes"
           }],
         }]
       },
@@ -359,12 +359,94 @@ var display = (function() {
             classname: ["u-list-unstyled", "m-display-list-responsive", "m-display-list-stack"]
           },
           contentItems: [{
-            path: "equipment.armor.armor",
+            path: "equipment.armor.armor.name",
             prefix: "Armor"
           }, {
-            path: "equipment.armor.shield",
+            path: "equipment.armor.shield.name",
             prefix: "Shield"
           }]
+        }, {
+          type: "block",
+          element: {
+            node: "div"
+          },
+          contentItems: [{
+            path: "equipment.armor.armor.notes",
+            prefix: "Armor Notes"
+          }],
+        }, {
+          type: "block",
+          element: {
+            node: "div"
+          },
+          contentItems: [{
+            path: "equipment.armor.shield.notes",
+            prefix: "Shield Notes"
+          }],
+        }]
+      },
+      ___armor: {
+        head: "Armor & Shield",
+        content: [{
+          type: "snippet",
+          element: {
+            node: "p"
+          },
+          contentItems: [{
+            path: "equipment.armor.armor.name",
+            prefix: "Armor"
+          }, {
+            path: "equipment.armor.armor.check_penalty",
+            prefix: "Check Penalty"
+          }, {
+            path: "equipment.armor.armor.max_dex",
+            prefix: "Max DEX"
+          }, {
+            path: "equipment.armor.armor.weight",
+            prefix: "Weight"
+          }, {
+            path: "equipment.armor.armor.arcane_spell_failure",
+            prefix: "Arcane Spell Failure"
+          }]
+        }, {
+          type: "block",
+          element: {
+            node: "div"
+          },
+          contentItems: [{
+            path: "equipment.armor.armor.notes",
+            prefix: "Armor Notes"
+          }],
+        }, {
+          type: "snippet",
+          element: {
+            node: "p"
+          },
+          contentItems: [{
+            path: "equipment.armor.shield.name",
+            prefix: "Shield"
+          }, {
+            path: "equipment.armor.shield.check_penalty",
+            prefix: "Check Penalty"
+          }, {
+            path: "equipment.armor.shield.max_dex",
+            prefix: "Max DEX"
+          }, {
+            path: "equipment.armor.shield.weight",
+            prefix: "Weight"
+          }, {
+            path: "equipment.armor.shield.arcane_spell_failure",
+            prefix: "Arcane Spell Failure"
+          }]
+        }, {
+          type: "block",
+          element: {
+            node: "div"
+          },
+          contentItems: [{
+            path: "equipment.armor.shield.notes",
+            prefix: "Shield Notes"
+          }],
         }]
       },
       body_slots: {
@@ -768,7 +850,7 @@ var display = (function() {
           },
           contentItems: [{
             path: "spells.stats.notes",
-            prefix: "Notes"
+            prefix: "Spells Notes"
           }]
         }]
       },

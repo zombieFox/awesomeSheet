@@ -84,37 +84,130 @@
     <div class="m-edit-box-head">
       <div class="m-edit-box-content m-edit-box-content-nowrap m-edit-box-content-margin-large">
         <div class="m-edit-box-item-shrink">
-          <h2 class="m-edit-box-title">Armor</h2>
+          <h2 class="m-edit-box-title">Armor Equipped</h2>
         </div>
       </div>
     </div>
     <div class="m-edit-box-body">
-      <div class="m-edit-box-content m-edit-box-content-margin-large">
-        <div class="m-edit-box-item-100 m-edit-box-group">
-          <div class="m-edit-box-item-100">
-            <div class="m-input-block js-input-block" data-input-block-options="path:equipment.armor.armor">
-              <label class="m-input-block-label js-input-block-label" for="equipment–armor-armor">Armor</label>
-              <input id="equipment–armor-armor" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">
-            </div>
-          </div>
-          <div class="m-edit-box-item-12">
-            <div class="m-input-block js-input-block" data-input-block-options="path:equipment.armor.check_penalty,type:integer">
-              <label class="m-input-block-label js-input-block-label" for="equipment-armor-check-penalty">Armour Check Penalty</label>
-              <input id="equipment-armor-check-penalty" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
-            </div>
-          </div>
-          <div class="m-edit-box-item-12">
-            <div class="m-input-block js-input-block" data-input-block-options="path:equipment.armor.max_dex,type:integer">
-              <label class="m-input-block-label js-input-block-label" for="equipment-armor-max-dex">Max Dex</label>
-              <input id="equipment-armor-max-dex" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
-            </div>
+      <div class="m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-outline">
+        <div class="m-edit-box-item-100">
+          <div class="m-input-block js-input-block" data-input-block-options="path:equipment.armor.armor.name">
+            <label class="m-input-block-label js-input-block-label" for="equipment-armor-armor-name">Name</label>
+            <input id="equipment-armor-armor-name" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">
           </div>
         </div>
-        <div class="m-edit-box-item-100">
-          <div class="m-input-block js-input-block" data-input-block-options="path:equipment.armor.shield">
-            <label class="m-input-block-label js-input-block-label" for="equipment-armor-shield">Shield</label>
-            <input id="equipment-armor-shield" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">
+        <div class="m-edit-box-item-8">
+          <div class="m-input-block js-input-block" data-input-block-options="path:equipment.armor.armor.check_penalty,type:integer">
+            <label class="m-input-block-label js-input-block-label" for="equipment-armor-armor-check-penalty">Armour Check Penalty</label>
+            <input id="equipment-armor-armor-check-penalty" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
           </div>
+        </div>
+        <div class="m-edit-box-item-8">
+          <div class="m-input-block js-input-block" data-input-block-options="path:equipment.armor.armor.max_dex,type:integer">
+            <label class="m-input-block-label js-input-block-label" for="equipment-armor-armor-max-dex">Maximum DEX Bonus</label>
+            <input id="equipment-armor-armor-max-dex" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-8">
+          <div class="m-input-block js-input-block" data-input-block-options="path:equipment.armor.armor.arcane_spell_failure,type:integer">
+            <label class="m-input-block-label js-input-block-label" for="equipment-armor-armor-arcane-spell-failure">Arcane Spell Failure (%)</label>
+            <input id="equipment-armor-armor-arcane-spell-failure" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-8">
+          <div class="m-input-block js-input-block" data-input-block-options="path:equipment.armor.armor.weight">
+            <label class="m-input-block-label js-input-block-label" for="equipment-armor-armor-weight">Weight</label>
+            <input id="equipment-armor-armor-weight" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="text" tabindex="1">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="m-edit-box m-edit-box-indent m-edit-box-no-head-small m-edit-box-labels">
+    <div class="m-edit-box-body">
+      <div class="m-edit-box-content m-edit-box-content-margin-large">
+        <div class="m-edit-box-item-100">
+          <div class="m-textarea-block js-textarea-block" data-textarea-block-options="path:equipment.armor.armor.notes">
+            <label class="m-textarea-block-label js-textarea-block-label" for="equipment-armor-armor-notes">Armor Notes</label>
+            <div id="equipment-armor-armor-notes" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="1"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="m-edit-box m-edit-box-indent m-edit-box-head-small m-edit-box-labels">
+    <div class="m-edit-box-head">
+      <div class="m-edit-box-content m-edit-box-content-nowrap m-edit-box-content-margin-large">
+        <div class="m-edit-box-item-shrink">
+          <h2 class="m-edit-box-title">Shield Equipped</h2>
+        </div>
+      </div>
+    </div>
+    <div class="m-edit-box-body">
+      <div class="m-edit-box-content m-edit-box-content-margin-large m-edit-box-content-outline">
+        <div class="m-edit-box-item-100">
+          <div class="m-input-block js-input-block" data-input-block-options="path:equipment.armor.shield.name">
+            <label class="m-input-block-label js-input-block-label" for="equipment-armor-shield-name">Name</label>
+            <input id="equipment-armor-shield-name" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-8">
+          <div class="m-input-block js-input-block" data-input-block-options="path:equipment.armor.shield.check_penalty,type:integer">
+            <label class="m-input-block-label js-input-block-label" for="equipment-armor-shield-check-penalty">Armour Check Penalty</label>
+            <input id="equipment-armor-shield-check-penalty" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-8">
+          <div class="m-input-block js-input-block" data-input-block-options="path:equipment.armor.shield.max_dex,type:integer">
+            <label class="m-input-block-label js-input-block-label" for="equipment-armor-shield-max-dex">Maximum DEX Bonus</label>
+            <input id="equipment-armor-shield-max-dex" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-8">
+          <div class="m-input-block js-input-block" data-input-block-options="path:equipment.armor.shield.arcane_spell_failure,type:integer">
+            <label class="m-input-block-label js-input-block-label" for="equipment-armor-shield-arcane-spell-failure">Arcane Spell Failure (%)</label>
+            <input id="equipment-armor-shield-arcane-spell-failure" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="number" tabindex="1">
+          </div>
+        </div>
+        <div class="m-edit-box-item-8">
+          <div class="m-input-block js-input-block" data-input-block-options="path:equipment.armor.shield.weight">
+            <label class="m-input-block-label js-input-block-label" for="equipment-armor-shield-weight">Weight</label>
+            <input id="equipment-armor-shield-weight" class="m-input-block-field u-full-width u-text-center js-input-block-field" type="text" tabindex="1">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="m-edit-box m-edit-box-indent m-edit-box-no-head-small m-edit-box-labels">
+    <div class="m-edit-box-body">
+      <div class="m-edit-box-content m-edit-box-content-margin-large">
+        <div class="m-edit-box-item-100">
+          <div class="m-textarea-block js-textarea-block" data-textarea-block-options="path:equipment.armor.shield.notes">
+            <label class="m-textarea-block-label js-textarea-block-label" for="equipment-armor-shield-notes">Shield Notes</label>
+            <div id="equipment-armor-shield-notes" class="m-textarea-block-field textarea textarea-large u-full-width js-textarea-block-field" contentEditable="true" tabindex="1"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="m-edit-box m-edit-box-indent m-edit-box-no-head-small m-edit-box-labels">
+    <div class="m-edit-box-body">
+      <div class="m-edit-box-content m-edit-box-content-margin-large">
+        <div class="m-edit-box-item-total">
+          <p class="m-edit-box-label">Armour Check Penalty</p>
+          <p class="m-edit-box-total js-text-block js-tip" data-text-block-options="path:equipment.armor.stats.check_penalty.current" data-tip-options="message:Total Armour Check Penalty from equipped Armor and Shield.,state:hover"></p>
+        </div>
+        <div class="m-edit-box-item-total">
+          <p class="m-edit-box-label">Maximum DEX Bonus</p>
+          <p class="m-edit-box-total js-text-block js-tip" data-text-block-options="path:equipment.armor.stats.max_dex.current,type:bonus,check:null" data-tip-options="message:Maximum DEX Bonus from equipped Armor and Shield.,state:hover"></p>
+        </div>
+        <div class="m-edit-box-item-total">
+          <p class="m-edit-box-label">Arcane Spell Failure</p>
+          <p class="m-edit-box-total js-text-block js-tip" data-text-block-options="path:equipment.armor.stats.arcane_spell_failure.current,type:percentage" data-tip-options="message:Total Arcane Spell Failure from equipped Armor and Shield.,state:hover"></p>
         </div>
       </div>
     </div>
@@ -212,8 +305,6 @@
             <input id="equipment-body-slots-feet" class="m-input-block-field u-full-width js-input-block-field" type="text" tabindex="1">
           </div>
         </div>
-        <div class="m-edit-box-item-16 m-edit-box-item-grow"></div>
-        <div class="m-edit-box-item-16 m-edit-box-item-grow"></div>
       </div>
     </div>
   </div>

@@ -3,7 +3,7 @@ var vos = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.8
+      version: 5.9
     },
     basics: {
       character: {
@@ -349,10 +349,33 @@ var vos = (function() {
         scrolls: ""
       },
       armor: {
-        armor: "",
-        check_penalty: "",
-        max_dex: "",
-        shield: ""
+        armor: {
+          name: "",
+          check_penalty: "",
+          max_dex: "",
+          weight: "",
+          arcane_spell_failure: "",
+          notes: ""
+        },
+        shield: {
+          name: "",
+          check_penalty: "",
+          max_dex: "",
+          weight: "",
+          arcane_spell_failure: "",
+          notes: ""
+        },
+        stats: {
+          check_penalty: {
+            current: ""
+          },
+          max_dex: {
+            current: ""
+          },
+          arcane_spell_failure: {
+            current: ""
+          }
+        }
       },
       body_slots: {
         belts: "Belt of Giant Strength +2",
@@ -474,7 +497,15 @@ var vos = (function() {
             dodge: true,
             natural: true,
             size_base: true,
-            max_dex: true
+            max_dex: true,
+            ac_temp: true,
+            ac_misc: true,
+            ac_enhancement: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         flat_footed: {
@@ -494,7 +525,15 @@ var vos = (function() {
             deflect: true,
             natural: true,
             size_base: true,
-            dodge: false
+            dodge: false,
+            ac_temp: true,
+            ac_misc: true,
+            ac_enhancement: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         touch: {
@@ -515,7 +554,14 @@ var vos = (function() {
             max_dex: true,
             armor: false,
             shield: false,
-            natural: false
+            natural: false,
+            ac_temp: true,
+            ac_misc: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         stats: {
@@ -523,7 +569,15 @@ var vos = (function() {
           shield: "",
           deflect: 1,
           dodge: 1,
-          natural: ""
+          natural: "",
+          temp: "",
+          misc: "",
+          enhancement: "",
+          insight: "",
+          luck: "",
+          profane: "",
+          sacred: "",
+          trait: ""
         },
         notes: ""
       },
@@ -543,7 +597,9 @@ var vos = (function() {
           size_special: true,
           level: false,
           half_level: false,
-          plus_ten: true
+          plus_ten: true,
+          dodge: true,
+          deflect: true
         }
       },
       saves: {

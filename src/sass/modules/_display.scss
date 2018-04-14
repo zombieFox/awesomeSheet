@@ -171,6 +171,9 @@ h3 {
   .m-display-value {
     display: block;
   }
+  &:not(:only-child):not(:last-child) {
+    margin-bottom: 1em;
+  }
 }
 // --------------------------------------------------
 // stats
@@ -825,6 +828,18 @@ h3 {
     max-width: 16em;
     max-height: 16em;
   }
+}
+@media (min-width: $screen-xl) {
+  // display area
+  .m-display-area {
+    &:not(:only-child):not(:last-child) {
+      margin-bottom: 2.5em;
+    }
+  }
+  // image
+  .m-display-image-wrapper {
+    margin: 0 2em 0 -4em;
+  }
   // list
   .m-display-list-responsive {
     .m-display-list-item {
@@ -851,18 +866,6 @@ h3 {
         margin-right: 5%;
       }
     }
-  }
-}
-@media (min-width: $screen-xl) {
-  // display area
-  .m-display-area {
-    &:not(:only-child):not(:last-child) {
-      margin-bottom: 2.5em;
-    }
-  }
-  // image
-  .m-display-image-wrapper {
-    margin: 0 2em 0 -4em;
   }
   // attack
   .m-display-list-attack {
