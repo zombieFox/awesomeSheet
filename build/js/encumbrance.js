@@ -1,6 +1,6 @@
 var encumbrance = (function() {
 
-  var _timer_render = null;
+  var changeEncumbranceTimer = null;
   var carryMove = {
     light: "",
     medium: "",
@@ -12,8 +12,8 @@ var encumbrance = (function() {
   function bind(input) {
     var equipmentEncumbranceStr = helper.e("#equipment-encumbrance-str");
     equipmentEncumbranceStr.addEventListener("input", function() {
-      clearTimeout(_timer_render);
-      _timer_render = setTimeout(update, 350);
+      clearTimeout(changeEncumbranceTimer);
+      changeEncumbranceTimer = setTimeout(update, 350);
     }, false);
   };
 

@@ -3,7 +3,7 @@ var ro = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.9
+      version: 5.8
     },
     basics: {
       character: {
@@ -329,33 +329,10 @@ var ro = (function() {
         scrolls: ""
       },
       armor: {
-        armor: {
-          name: "Mithral Chain Shirt +1",
-          check_penalty: "",
-          max_dex: "",
-          weight: "",
-          arcane_spell_failure: "",
-          notes: ""
-        },
-        shield: {
-          name: "",
-          check_penalty: "",
-          max_dex: "",
-          weight: "",
-          arcane_spell_failure: "",
-          notes: ""
-        },
-        stats: {
-          check_penalty: {
-            current: ""
-          },
-          max_dex: {
-            current: ""
-          },
-          arcane_spell_failure: {
-            current: ""
-          }
-        }
+        armor: "Mithral Chain Shirt +1",
+        check_penalty: "",
+        max_dex: "",
+        shield: ""
       },
       body_slots: {
         belts: "Belt of Incredible Dexterity +2",
@@ -440,15 +417,7 @@ var ro = (function() {
             dodge: true,
             natural: true,
             size_base: true,
-            max_dex: true,
-            ac_temp: true,
-            ac_misc: true,
-            ac_enhancement: true,
-            ac_insight: true,
-            ac_luck: true,
-            ac_profane: true,
-            ac_sacred: true,
-            ac_trait: true
+            max_dex: true
           }
         },
         flat_footed: {
@@ -468,15 +437,7 @@ var ro = (function() {
             deflect: true,
             natural: true,
             size_base: true,
-            dodge: false,
-            ac_temp: true,
-            ac_misc: true,
-            ac_enhancement: true,
-            ac_insight: true,
-            ac_luck: true,
-            ac_profane: true,
-            ac_sacred: true,
-            ac_trait: true
+            dodge: false
           }
         },
         touch: {
@@ -497,14 +458,7 @@ var ro = (function() {
             max_dex: true,
             armor: false,
             shield: false,
-            natural: false,
-            ac_temp: true,
-            ac_misc: true,
-            ac_insight: true,
-            ac_luck: true,
-            ac_profane: true,
-            ac_sacred: true,
-            ac_trait: true
+            natural: false
           }
         },
         stats: {
@@ -512,15 +466,7 @@ var ro = (function() {
           shield: "",
           deflect: "",
           dodge: "",
-          natural: "",
-          temp: "",
-          misc: "",
-          enhancement: "",
-          insight: "",
-          luck: "",
-          profane: "",
-          sacred: "",
-          trait: ""
+          natural: ""
         },
         notes: ""
       },
@@ -540,9 +486,7 @@ var ro = (function() {
           size_special: true,
           level: false,
           half_level: false,
-          plus_ten: true,
-          dodge: true,
-          deflect: true
+          plus_ten: true
         }
       },
       saves: {

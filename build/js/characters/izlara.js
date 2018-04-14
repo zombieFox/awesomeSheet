@@ -3,7 +3,7 @@ var izlara = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.9,
+      version: 5.8,
       demo: true
     },
     basics: {
@@ -373,33 +373,10 @@ var izlara = (function() {
         scrolls: "Create Pit (3), Spiked Pit (3), Hungry Pit (3), Acid Pit (3), Summon Monster III (3), Summon Monster IV (3), Summon Monster V (3), Summon Monster VI (2), Form of the Dragon I (2), Invisibility (5), Web (3), Stinking Cloud (2), Grease (2), Mirror Image (3), Fly (3), Interposing Hand (1), Elemental Body 2 (2), Wall of Fire (2), Haste (2), Enlarge Person (2), Endure Elements (2), Acid Arrow (2), Gust of Wind (1), Animate Rope (2), False Life (2), Floating Disk (1), Erase (1), Detect Secret Doors (2), Black Tentacles (2), Mage Armor (2)"
       },
       armor: {
-        armor: {
-          name: "",
-          check_penalty: "",
-          max_dex: "",
-          weight: "",
-          arcane_spell_failure: "",
-          notes: ""
-        },
-        shield: {
-          name: "",
-          check_penalty: "",
-          max_dex: "",
-          weight: "",
-          arcane_spell_failure: "",
-          notes: ""
-        },
-        stats: {
-          check_penalty: {
-            current: ""
-          },
-          max_dex: {
-            current: ""
-          },
-          arcane_spell_failure: {
-            current: ""
-          }
-        }
+        armor: "",
+        check_penalty: "",
+        max_dex: "",
+        shield: ""
       },
       body_slots: {
         belts: "Belt of Physical Perfection +2",
@@ -558,15 +535,7 @@ var izlara = (function() {
             dodge: true,
             natural: true,
             size_base: true,
-            max_dex: true,
-            ac_temp: true,
-            ac_misc: true,
-            ac_enhancement: true,
-            ac_insight: true,
-            ac_luck: true,
-            ac_profane: true,
-            ac_sacred: true,
-            ac_trait: true
+            max_dex: true
           }
         },
         flat_footed: {
@@ -586,15 +555,7 @@ var izlara = (function() {
             deflect: true,
             natural: true,
             size_base: true,
-            dodge: false,
-            ac_temp: true,
-            ac_misc: true,
-            ac_enhancement: true,
-            ac_insight: true,
-            ac_luck: true,
-            ac_profane: true,
-            ac_sacred: true,
-            ac_trait: true
+            dodge: false
           }
         },
         touch: {
@@ -615,14 +576,7 @@ var izlara = (function() {
             max_dex: true,
             armor: false,
             shield: false,
-            natural: false,
-            ac_temp: true,
-            ac_misc: true,
-            ac_insight: true,
-            ac_luck: true,
-            ac_profane: true,
-            ac_sacred: true,
-            ac_trait: true
+            natural: false
           }
         },
         stats: {
@@ -630,15 +584,7 @@ var izlara = (function() {
           shield: "",
           deflect: "",
           dodge: "",
-          natural: 2,
-          temp: "",
-          misc: "",
-          enhancement: "",
-          insight: "",
-          luck: "",
-          profane: "",
-          sacred: "",
-          trait: ""
+          natural: 2
         },
         notes: ""
       },
@@ -658,9 +604,7 @@ var izlara = (function() {
           size_special: true,
           level: false,
           half_level: false,
-          plus_ten: true,
-          dodge: true,
-          deflect: true
+          plus_ten: true
         }
       },
       saves: {

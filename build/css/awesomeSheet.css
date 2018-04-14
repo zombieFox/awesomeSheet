@@ -2168,15 +2168,15 @@ label {
   .l-section-wrapper {
     margin: 3em 0 0 3em; }
   .l-section {
-    width: 90%; } }
+    width: 80%; } }
 
 @media (min-width: 1300px) {
   .l-section {
-    width: 80%; } }
+    width: 70%; } }
 
 @media (min-width: 2000px) {
   .l-section {
-    width: 70%; } }
+    width: 60%; } }
 
 @media print {
   .l-section-wrapper {
@@ -6800,8 +6800,6 @@ h3 .m-display-value {
     display: block; }
   .m-display-text-block .m-display-value {
     display: block; }
-  .m-display-text-block:not(:only-child):not(:last-child) {
-    margin-bottom: 1em; }
 
 .m-display-stats {
   display: -webkit-flex;
@@ -7474,13 +7472,7 @@ h3 .m-display-value {
     min-width: 16em;
     min-height: 16em;
     max-width: 16em;
-    max-height: 16em; } }
-
-@media (min-width: 1300px) {
-  .m-display-area:not(:only-child):not(:last-child) {
-    margin-bottom: 2.5em; }
-  .m-display-image-wrapper {
-    margin: 0 2em 0 -4em; }
+    max-height: 16em; }
   .m-display-list-responsive .m-display-list-item {
     -webkit-flex: 0 0 30%;
         -ms-flex: 0 0 30%;
@@ -7498,7 +7490,13 @@ h3 .m-display-value {
     .m-display-list-spell .m-display-list-item-spell:nth-child(odd) {
       margin-right: 0; }
     .m-display-list-spell .m-display-list-item-spell:nth-child(3n+1), .m-display-list-spell .m-display-list-item-spell:nth-child(3n+2) {
-      margin-right: 5%; }
+      margin-right: 5%; } }
+
+@media (min-width: 1300px) {
+  .m-display-area:not(:only-child):not(:last-child) {
+    margin-bottom: 2.5em; }
+  .m-display-image-wrapper {
+    margin: 0 2em 0 -4em; }
   .m-display-list-attack .m-display-list-item-attack {
     -webkit-justify-content: flex-end;
         -ms-flex-pack: end;
