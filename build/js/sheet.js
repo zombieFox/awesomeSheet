@@ -207,6 +207,7 @@ var sheet = (function() {
     textareaBlock.render();
     skills.render();
     spells.render();
+    armorShield.render();
     encumbrance.render();
     size.render();
     exp.render();
@@ -252,6 +253,7 @@ var sheet = (function() {
     spells.bind();
     skills.bind();
     wealth.bind();
+    armorShield.bind();
     encumbrance.bind();
     size.bind();
     totalBlock.bind();

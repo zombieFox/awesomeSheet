@@ -1114,10 +1114,33 @@ var blank = (function() {
         scrolls: ""
       },
       armor: {
-        armor: "",
-        check_penalty: "",
-        max_dex: "",
-        shield: ""
+        armor: {
+          name: "",
+          check_penalty: "",
+          max_dex: "",
+          weight: "",
+          arcane_spell_failure: "",
+          notes: ""
+        },
+        shield: {
+          name: "",
+          check_penalty: "",
+          max_dex: "",
+          weight: "",
+          arcane_spell_failure: "",
+          notes: ""
+        },
+        stats: {
+          check_penalty: {
+            current: ""
+          },
+          max_dex: {
+            current: ""
+          },
+          arcane_spell_failure: {
+            current: ""
+          }
+        }
       },
       body_slots: {
         belts: "",
@@ -1192,7 +1215,15 @@ var blank = (function() {
             dodge: true,
             natural: true,
             size_base: true,
-            max_dex: true
+            max_dex: true,
+            ac_temp: true,
+            ac_misc: true,
+            ac_enhancement: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         flat_footed: {
@@ -1212,7 +1243,15 @@ var blank = (function() {
             deflect: true,
             natural: true,
             size_base: true,
-            dodge: false
+            dodge: false,
+            ac_temp: true,
+            ac_misc: true,
+            ac_enhancement: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         touch: {
@@ -1233,7 +1272,14 @@ var blank = (function() {
             max_dex: true,
             armor: false,
             shield: false,
-            natural: false
+            natural: false,
+            ac_temp: true,
+            ac_misc: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         stats: {
@@ -1241,7 +1287,15 @@ var blank = (function() {
           shield: "",
           deflect: "",
           dodge: "",
-          natural: ""
+          natural: "",
+          temp: "",
+          misc: "",
+          enhancement: "",
+          insight: "",
+          luck: "",
+          profane: "",
+          sacred: "",
+          trait: ""
         },
         notes: ""
       },
@@ -1258,6 +1312,8 @@ var blank = (function() {
           wis: false,
           cha: false,
           bab: true,
+          dodge: true,
+          deflect: true,
           size_special: true,
           level: false,
           half_level: false,
@@ -2602,7 +2658,7 @@ var izlara = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.8,
+      version: 5.9,
       demo: true
     },
     basics: {
@@ -2972,10 +3028,33 @@ var izlara = (function() {
         scrolls: "Create Pit (3), Spiked Pit (3), Hungry Pit (3), Acid Pit (3), Summon Monster III (3), Summon Monster IV (3), Summon Monster V (3), Summon Monster VI (2), Form of the Dragon I (2), Invisibility (5), Web (3), Stinking Cloud (2), Grease (2), Mirror Image (3), Fly (3), Interposing Hand (1), Elemental Body 2 (2), Wall of Fire (2), Haste (2), Enlarge Person (2), Endure Elements (2), Acid Arrow (2), Gust of Wind (1), Animate Rope (2), False Life (2), Floating Disk (1), Erase (1), Detect Secret Doors (2), Black Tentacles (2), Mage Armor (2)"
       },
       armor: {
-        armor: "",
-        check_penalty: "",
-        max_dex: "",
-        shield: ""
+        armor: {
+          name: "",
+          check_penalty: "",
+          max_dex: "",
+          weight: "",
+          arcane_spell_failure: "",
+          notes: ""
+        },
+        shield: {
+          name: "",
+          check_penalty: "",
+          max_dex: "",
+          weight: "",
+          arcane_spell_failure: "",
+          notes: ""
+        },
+        stats: {
+          check_penalty: {
+            current: ""
+          },
+          max_dex: {
+            current: ""
+          },
+          arcane_spell_failure: {
+            current: ""
+          }
+        }
       },
       body_slots: {
         belts: "Belt of Physical Perfection +2",
@@ -3134,7 +3213,15 @@ var izlara = (function() {
             dodge: true,
             natural: true,
             size_base: true,
-            max_dex: true
+            max_dex: true,
+            ac_temp: true,
+            ac_misc: true,
+            ac_enhancement: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         flat_footed: {
@@ -3154,7 +3241,15 @@ var izlara = (function() {
             deflect: true,
             natural: true,
             size_base: true,
-            dodge: false
+            dodge: false,
+            ac_temp: true,
+            ac_misc: true,
+            ac_enhancement: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         touch: {
@@ -3175,7 +3270,14 @@ var izlara = (function() {
             max_dex: true,
             armor: false,
             shield: false,
-            natural: false
+            natural: false,
+            ac_temp: true,
+            ac_misc: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         stats: {
@@ -3183,7 +3285,15 @@ var izlara = (function() {
           shield: "",
           deflect: "",
           dodge: "",
-          natural: 2
+          natural: 2,
+          temp: "",
+          misc: "",
+          enhancement: "",
+          insight: "",
+          luck: "",
+          profane: "",
+          sacred: "",
+          trait: ""
         },
         notes: ""
       },
@@ -3203,7 +3313,9 @@ var izlara = (function() {
           size_special: true,
           level: false,
           half_level: false,
-          plus_ten: true
+          plus_ten: true,
+          dodge: true,
+          deflect: true
         }
       },
       saves: {
@@ -5787,7 +5899,7 @@ var ravich = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.8,
+      version: 5.9,
       demo: true
     },
     basics: {
@@ -6107,10 +6219,33 @@ var ravich = (function() {
         scrolls: ""
       },
       armor: {
-        armor: "Mithral Chain Shirt +1",
-        check_penalty: 0,
-        max_dex: 6,
-        shield: "Mithral Buckler +1"
+        armor: {
+          name: "Mithral Chain Shirt +1",
+          check_penalty: 0,
+          max_dex: 6,
+          weight: "25lbs",
+          arcane_spell_failure: 10,
+          notes: ""
+        },
+        shield: {
+          name: "Mithral Buckler +1",
+          check_penalty: "",
+          max_dex: "",
+          weight: "5lbs",
+          arcane_spell_failure: 5,
+          notes: ""
+        },
+        stats: {
+          check_penalty: {
+            current: ""
+          },
+          max_dex: {
+            current: ""
+          },
+          arcane_spell_failure: {
+            current: ""
+          }
+        }
       },
       body_slots: {
         belts: "Belt of Physical Might +2 (Str, Dex)",
@@ -6231,7 +6366,15 @@ var ravich = (function() {
             dodge: true,
             natural: true,
             size_base: true,
-            max_dex: true
+            max_dex: true,
+            ac_temp: true,
+            ac_misc: true,
+            ac_enhancement: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         flat_footed: {
@@ -6251,7 +6394,15 @@ var ravich = (function() {
             deflect: true,
             natural: true,
             size_base: true,
-            dodge: false
+            dodge: false,
+            ac_temp: true,
+            ac_misc: true,
+            ac_enhancement: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         touch: {
@@ -6272,7 +6423,14 @@ var ravich = (function() {
             max_dex: true,
             armor: false,
             shield: false,
-            natural: false
+            natural: false,
+            ac_temp: true,
+            ac_misc: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         stats: {
@@ -6280,7 +6438,15 @@ var ravich = (function() {
           shield: 1,
           deflect: 1,
           dodge: "",
-          natural: 1
+          natural: 1,
+          temp: "",
+          misc: "",
+          enhancement: "",
+          insight: "",
+          luck: "",
+          profane: "",
+          sacred: "",
+          trait: ""
         },
         notes: "+1 dodge bonus to AC against attacks made by traps. +1 damage when flanking."
       },
@@ -6300,7 +6466,9 @@ var ravich = (function() {
           size_special: true,
           level: false,
           half_level: false,
-          plus_ten: true
+          plus_ten: true,
+          dodge: true,
+          deflect: true
         }
       },
       saves: {
@@ -8224,7 +8392,7 @@ var marika = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.8
+      version: 5.9
     },
     basics: {
       character: {
@@ -8520,10 +8688,33 @@ var marika = (function() {
         scrolls: ""
       },
       armor: {
-        armor: "Leather +2",
-        check_penalty: -3,
-        max_dex: "",
-        shield: ""
+        armor: {
+          name: "Mithral Chain Shirt +2",
+          check_penalty: 0,
+          max_dex: 6,
+          weight: "25lbs",
+          arcane_spell_failure: 10,
+          notes: ""
+        },
+        shield: {
+          name: "",
+          check_penalty: "",
+          max_dex: "",
+          weight: "",
+          arcane_spell_failure: "",
+          notes: ""
+        },
+        stats: {
+          check_penalty: {
+            current: ""
+          },
+          max_dex: {
+            current: ""
+          },
+          arcane_spell_failure: {
+            current: ""
+          }
+        }
       },
       body_slots: {
         belts: "Belt of physical perfection +4",
@@ -8603,7 +8794,15 @@ var marika = (function() {
             dodge: true,
             natural: true,
             size_base: true,
-            max_dex: true
+            max_dex: true,
+            ac_temp: true,
+            ac_misc: true,
+            ac_enhancement: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         flat_footed: {
@@ -8623,7 +8822,15 @@ var marika = (function() {
             deflect: true,
             natural: true,
             size_base: true,
-            dodge: false
+            dodge: false,
+            ac_temp: true,
+            ac_misc: true,
+            ac_enhancement: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         touch: {
@@ -8644,15 +8851,30 @@ var marika = (function() {
             max_dex: true,
             armor: false,
             shield: false,
-            natural: false
+            natural: false,
+            ac_temp: true,
+            ac_misc: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         stats: {
-          armor: 4,
+          armor: 6,
           shield: "",
           deflect: 2,
           dodge: "",
-          natural: ""
+          natural: "",
+          temp: "",
+          misc: "",
+          enhancement: "",
+          insight: "",
+          luck: "",
+          profane: "",
+          sacred: "",
+          trait: ""
         },
         notes: "+3 dodge bonus to AC against attacks made by traps."
       },
@@ -8672,7 +8894,9 @@ var marika = (function() {
           size_special: true,
           level: false,
           half_level: false,
-          plus_ten: true
+          plus_ten: true,
+          dodge: true,
+          deflect: true
         }
       },
       saves: {
@@ -10101,7 +10325,7 @@ var nefi = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.8
+      version: 5.9
     },
     basics: {
       character: {
@@ -10385,10 +10609,33 @@ var nefi = (function() {
         scrolls: ""
       },
       armor: {
-        armor: "Full Plate +2",
-        check_penalty: -3,
-        max_dex: "",
-        shield: ""
+        armor: {
+          name: "Full Plate +2",
+          check_penalty: -3,
+          max_dex: 1,
+          weight: "50lbs",
+          arcane_spell_failure: 35,
+          notes: ""
+        },
+        shield: {
+          name: "",
+          check_penalty: "",
+          max_dex: "",
+          weight: "",
+          arcane_spell_failure: "",
+          notes: ""
+        },
+        stats: {
+          check_penalty: {
+            current: ""
+          },
+          max_dex: {
+            current: ""
+          },
+          arcane_spell_failure: {
+            current: ""
+          }
+        }
       },
       body_slots: {
         belts: "Belt of Physical Might (+4 Str +2 Dex)",
@@ -10463,7 +10710,15 @@ var nefi = (function() {
             dodge: true,
             natural: true,
             size_base: true,
-            max_dex: true
+            max_dex: true,
+            ac_temp: true,
+            ac_misc: true,
+            ac_enhancement: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         flat_footed: {
@@ -10483,7 +10738,15 @@ var nefi = (function() {
             deflect: true,
             natural: true,
             size_base: true,
-            dodge: false
+            dodge: false,
+            ac_temp: true,
+            ac_misc: true,
+            ac_enhancement: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         touch: {
@@ -10504,7 +10767,14 @@ var nefi = (function() {
             max_dex: true,
             armor: false,
             shield: false,
-            natural: false
+            natural: false,
+            ac_temp: true,
+            ac_misc: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         stats: {
@@ -10512,7 +10782,15 @@ var nefi = (function() {
           shield: "",
           deflect: 2,
           dodge: 1,
-          natural: 3
+          natural: 3,
+          temp: "",
+          misc: "",
+          enhancement: "",
+          insight: "",
+          luck: "",
+          profane: "",
+          sacred: "",
+          trait: ""
         },
         notes: "Ioun Stone (Dusty rose) +1 insight bonus to AC."
       },
@@ -10532,7 +10810,9 @@ var nefi = (function() {
           size_special: true,
           level: false,
           half_level: false,
-          plus_ten: true
+          plus_ten: true,
+          dodge: true,
+          deflect: true
         }
       },
       saves: {
@@ -11940,7 +12220,7 @@ var nif = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.8
+      version: 5.9
     },
     basics: {
       character: {
@@ -12292,12 +12572,36 @@ var nif = (function() {
         magic_gear: "Handy Haversack",
         potion_viles_oils: "Insect sap (14), Antitoxin(1), Holy Water(1), Yellow Mushroom Juice (3), Magic Weapon (2), Cure Light Wounds (0), Cure Moderate Wounds (2), Cure Serious Wounds (1), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1), Hide from Animals (1), Delay Poison (1), Bear's Endurance (1), Levitate (2), Gasious Form (1)",
         scrolls: "Acid Pit (2), Summon Monster III (2), Summon Monster IV (0), Invisibility (2), Create Pit (2), Web (3), Stinking Cloud (2), Grease (1), Mirror Image (2), Spiked Pit (6), Fly (1), Interposing Hand (0), Elemental Body 2 (0), Wall of Fire (1), Haste (2), Enlarge Person (2), Endure Elements (2), Acid Arrow (0), Gust of Wind (0), Animate Rope (0), False Life (2), Floating Disk (2), Comprehend Languages (0), Erase (1), Detect Secret Doors (1), Black Tentacles (2), Mage Armor (0)"
+
       },
       armor: {
-        armor: "",
-        check_penalty: "",
-        max_dex: "",
-        shield: ""
+        armor: {
+          name: "",
+          check_penalty: "",
+          max_dex: "",
+          weight: "",
+          arcane_spell_failure: "",
+          notes: ""
+        },
+        shield: {
+          name: "",
+          check_penalty: "",
+          max_dex: "",
+          weight: "",
+          arcane_spell_failure: "",
+          notes: ""
+        },
+        stats: {
+          check_penalty: {
+            current: ""
+          },
+          max_dex: {
+            current: ""
+          },
+          arcane_spell_failure: {
+            current: ""
+          }
+        }
       },
       body_slots: {
         belts: "",
@@ -12478,7 +12782,15 @@ var nif = (function() {
             dodge: true,
             natural: true,
             size_base: true,
-            max_dex: true
+            max_dex: true,
+            ac_temp: true,
+            ac_misc: true,
+            ac_enhancement: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         flat_footed: {
@@ -12498,7 +12810,15 @@ var nif = (function() {
             deflect: true,
             natural: true,
             size_base: true,
-            dodge: false
+            dodge: false,
+            ac_temp: true,
+            ac_misc: true,
+            ac_enhancement: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         touch: {
@@ -12519,7 +12839,14 @@ var nif = (function() {
             max_dex: true,
             armor: false,
             shield: false,
-            natural: false
+            natural: false,
+            ac_temp: true,
+            ac_misc: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         stats: {
@@ -12527,7 +12854,15 @@ var nif = (function() {
           shield: 4,
           deflect: "",
           dodge: "",
-          natural: 1
+          natural: 1,
+          temp: "",
+          misc: "",
+          enhancement: "",
+          insight: "",
+          luck: "",
+          profane: "",
+          sacred: "",
+          trait: ""
         },
         notes: "Mirror image 6, Shield, Mage Armor"
       },
@@ -12547,7 +12882,9 @@ var nif = (function() {
           size_special: true,
           level: false,
           half_level: false,
-          plus_ten: true
+          plus_ten: true,
+          dodge: true,
+          deflect: true
         }
       },
       saves: {
@@ -14480,7 +14817,7 @@ var orrin = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.8
+      version: 5.9
     },
     basics: {
       character: {
@@ -14777,10 +15114,33 @@ var orrin = (function() {
         scrolls: ""
       },
       armor: {
-        armor: "Mithral Chain Shirt +2",
-        check_penalty: "",
-        max_dex: "",
-        shield: ""
+        armor: {
+          name: "Mithral Chain Shirt +1",
+          check_penalty: 0,
+          max_dex: 6,
+          weight: "25lbs",
+          arcane_spell_failure: 10,
+          notes: ""
+        },
+        shield: {
+          name: "",
+          check_penalty: "",
+          max_dex: "",
+          weight: "",
+          arcane_spell_failure: "",
+          notes: ""
+        },
+        stats: {
+          check_penalty: {
+            current: ""
+          },
+          max_dex: {
+            current: ""
+          },
+          arcane_spell_failure: {
+            current: ""
+          }
+        }
       },
       body_slots: {
         belts: "Belt of Dexterity +4",
@@ -14904,7 +15264,15 @@ var orrin = (function() {
             dodge: true,
             natural: true,
             size_base: true,
-            max_dex: true
+            max_dex: true,
+            ac_temp: true,
+            ac_misc: true,
+            ac_enhancement: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         flat_footed: {
@@ -14924,7 +15292,15 @@ var orrin = (function() {
             deflect: true,
             natural: true,
             size_base: true,
-            dodge: false
+            dodge: false,
+            ac_temp: true,
+            ac_misc: true,
+            ac_enhancement: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         touch: {
@@ -14945,7 +15321,14 @@ var orrin = (function() {
             max_dex: true,
             armor: false,
             shield: false,
-            natural: false
+            natural: false,
+            ac_temp: true,
+            ac_misc: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         stats: {
@@ -14953,7 +15336,15 @@ var orrin = (function() {
           shield: 3,
           deflect: 1,
           dodge: 1,
-          natural: 1
+          natural: 1,
+          temp: "",
+          misc: "",
+          enhancement: "",
+          insight: "",
+          luck: "",
+          profane: "",
+          sacred: "",
+          trait: ""
         },
         notes: "+4 dodge bonus to AC against attacks made by traps.<br>+2 AC against incorporeal attacks.<br>+6 Dodge to AC for 1 round after Sneak Attack.<br>Active spells: Heroism"
       },
@@ -14973,7 +15364,9 @@ var orrin = (function() {
           size_special: true,
           level: false,
           half_level: false,
-          plus_ten: true
+          plus_ten: true,
+          dodge: true,
+          deflect: true
         }
       },
       saves: {
@@ -16608,7 +17001,7 @@ var ro = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.8
+      version: 5.9
     },
     basics: {
       character: {
@@ -16934,10 +17327,33 @@ var ro = (function() {
         scrolls: ""
       },
       armor: {
-        armor: "Mithral Chain Shirt +1",
-        check_penalty: "",
-        max_dex: "",
-        shield: ""
+        armor: {
+          name: "Mithral Chain Shirt +1",
+          check_penalty: "",
+          max_dex: "",
+          weight: "",
+          arcane_spell_failure: "",
+          notes: ""
+        },
+        shield: {
+          name: "",
+          check_penalty: "",
+          max_dex: "",
+          weight: "",
+          arcane_spell_failure: "",
+          notes: ""
+        },
+        stats: {
+          check_penalty: {
+            current: ""
+          },
+          max_dex: {
+            current: ""
+          },
+          arcane_spell_failure: {
+            current: ""
+          }
+        }
       },
       body_slots: {
         belts: "Belt of Incredible Dexterity +2",
@@ -17022,7 +17438,15 @@ var ro = (function() {
             dodge: true,
             natural: true,
             size_base: true,
-            max_dex: true
+            max_dex: true,
+            ac_temp: true,
+            ac_misc: true,
+            ac_enhancement: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         flat_footed: {
@@ -17042,7 +17466,15 @@ var ro = (function() {
             deflect: true,
             natural: true,
             size_base: true,
-            dodge: false
+            dodge: false,
+            ac_temp: true,
+            ac_misc: true,
+            ac_enhancement: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         touch: {
@@ -17063,7 +17495,14 @@ var ro = (function() {
             max_dex: true,
             armor: false,
             shield: false,
-            natural: false
+            natural: false,
+            ac_temp: true,
+            ac_misc: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         stats: {
@@ -17071,7 +17510,15 @@ var ro = (function() {
           shield: "",
           deflect: "",
           dodge: "",
-          natural: ""
+          natural: "",
+          temp: "",
+          misc: "",
+          enhancement: "",
+          insight: "",
+          luck: "",
+          profane: "",
+          sacred: "",
+          trait: ""
         },
         notes: ""
       },
@@ -17091,7 +17538,9 @@ var ro = (function() {
           size_special: true,
           level: false,
           half_level: false,
-          plus_ten: true
+          plus_ten: true,
+          dodge: true,
+          deflect: true
         }
       },
       saves: {
@@ -18807,7 +19256,7 @@ var vos = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.8
+      version: 5.9
     },
     basics: {
       character: {
@@ -19153,10 +19602,33 @@ var vos = (function() {
         scrolls: ""
       },
       armor: {
-        armor: "",
-        check_penalty: "",
-        max_dex: "",
-        shield: ""
+        armor: {
+          name: "",
+          check_penalty: "",
+          max_dex: "",
+          weight: "",
+          arcane_spell_failure: "",
+          notes: ""
+        },
+        shield: {
+          name: "",
+          check_penalty: "",
+          max_dex: "",
+          weight: "",
+          arcane_spell_failure: "",
+          notes: ""
+        },
+        stats: {
+          check_penalty: {
+            current: ""
+          },
+          max_dex: {
+            current: ""
+          },
+          arcane_spell_failure: {
+            current: ""
+          }
+        }
       },
       body_slots: {
         belts: "Belt of Giant Strength +2",
@@ -19278,7 +19750,15 @@ var vos = (function() {
             dodge: true,
             natural: true,
             size_base: true,
-            max_dex: true
+            max_dex: true,
+            ac_temp: true,
+            ac_misc: true,
+            ac_enhancement: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         flat_footed: {
@@ -19298,7 +19778,15 @@ var vos = (function() {
             deflect: true,
             natural: true,
             size_base: true,
-            dodge: false
+            dodge: false,
+            ac_temp: true,
+            ac_misc: true,
+            ac_enhancement: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         touch: {
@@ -19319,7 +19807,14 @@ var vos = (function() {
             max_dex: true,
             armor: false,
             shield: false,
-            natural: false
+            natural: false,
+            ac_temp: true,
+            ac_misc: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         stats: {
@@ -19327,7 +19822,15 @@ var vos = (function() {
           shield: "",
           deflect: 1,
           dodge: 1,
-          natural: ""
+          natural: "",
+          temp: "",
+          misc: "",
+          enhancement: "",
+          insight: "",
+          luck: "",
+          profane: "",
+          sacred: "",
+          trait: ""
         },
         notes: ""
       },
@@ -19347,7 +19850,9 @@ var vos = (function() {
           size_special: true,
           level: false,
           half_level: false,
-          plus_ten: true
+          plus_ten: true,
+          dodge: true,
+          deflect: true
         }
       },
       saves: {
@@ -20802,6 +21307,157 @@ var hardCodedCharacters = (function() {
     demo: demo,
     all: all,
     single: single
+  };
+
+})();
+
+var armorShield = (function() {
+
+  var _timer_render = null;
+
+  function bind(input) {
+    var equipmentArmorArmorCheckPenalty = helper.e("#equipment-armor-armor-check-penalty");
+    var equipmentArmorArmorMaxDex = helper.e("#equipment-armor-armor-max-dex");
+    var equipmentArmorArmorArcaneSpellFailure = helper.e("#equipment-armor-armor-arcane-spell-failure");
+    var equipmentArmorShieldCheckPenalty = helper.e("#equipment-armor-shield-check-penalty");
+    var equipmentArmorShieldMaxDex = helper.e("#equipment-armor-shield-max-dex");
+    var equipmentArmorShieldArcaneSpellFailure = helper.e("#equipment-armor-shield-arcane-spell-failure");
+
+    equipmentArmorArmorCheckPenalty.addEventListener("input", function() {
+      clearTimeout(_timer_render);
+      _timer_render = setTimeout(update, 350);
+    }, false);
+
+    equipmentArmorArmorMaxDex.addEventListener("input", function() {
+      clearTimeout(_timer_render);
+      _timer_render = setTimeout(update, 350);
+    }, false);
+
+    equipmentArmorArmorArcaneSpellFailure.addEventListener("input", function() {
+      clearTimeout(_timer_render);
+      _timer_render = setTimeout(update, 350);
+    }, false);
+
+    equipmentArmorShieldCheckPenalty.addEventListener("input", function() {
+      clearTimeout(_timer_render);
+      _timer_render = setTimeout(update, 350);
+    }, false);
+
+    equipmentArmorShieldMaxDex.addEventListener("input", function() {
+      clearTimeout(_timer_render);
+      _timer_render = setTimeout(update, 350);
+    }, false);
+
+    equipmentArmorShieldArcaneSpellFailure.addEventListener("input", function() {
+      clearTimeout(_timer_render);
+      _timer_render = setTimeout(update, 350);
+    }, false);
+
+  };
+
+  function update() {
+    render();
+    totalBlock.render();
+    textBlock.render();
+    display.clear();
+    display.render();
+  };
+
+  function render() {
+    _render_armorShield();
+  };
+
+  function _render_armorShield() {
+    var _maxDex = function() {
+      var maxDex = "";
+      var armorMaxDex = helper.getObject({
+        object: sheet.get(),
+        path: "equipment.armor.armor.max_dex"
+      });
+      var shieldMaxDex = helper.getObject({
+        object: sheet.get(),
+        path: "equipment.armor.shield.max_dex"
+      });
+      if (armorMaxDex == "" && armorMaxDex !== 0) {
+        armorMaxDex = null;
+      };
+      if (shieldMaxDex == "" && shieldMaxDex !== 0) {
+        shieldMaxDex = null;
+      };
+      // if both armor and shield have a max dex
+      if ((armorMaxDex != null || armorMaxDex === 0) && (shieldMaxDex != null || shieldMaxDex === 0)) {
+        // find the lowest max dex
+        if (armorMaxDex < shieldMaxDex) {
+          maxDex = armorMaxDex;
+        } else {
+          maxDex = shieldMaxDex;
+        };
+        // if only armor has max dex
+      } else if (armorMaxDex != null || armorMaxDex === 0) {
+        maxDex = armorMaxDex;
+        // if only shield has max dex
+      } else if (shieldMaxDex != null || shieldMaxDex === 0) {
+        maxDex = shieldMaxDex;
+      };
+      helper.setObject({
+        object: sheet.get(),
+        path: "equipment.armor.stats.max_dex.current",
+        newValue: maxDex
+      });
+    };
+    var _arcaneSpellFailure = function() {
+      var arcaneSpellFailure = 0;
+      var armorArcaneSpellFailure = helper.getObject({
+        object: sheet.get(),
+        path: "equipment.armor.armor.arcane_spell_failure"
+      });
+      var shieldArcaneSpellFailure = helper.getObject({
+        object: sheet.get(),
+        path: "equipment.armor.shield.arcane_spell_failure"
+      });
+      if (armorArcaneSpellFailure != "") {
+        arcaneSpellFailure = arcaneSpellFailure + armorArcaneSpellFailure;
+      };
+      if (shieldArcaneSpellFailure != "") {
+        arcaneSpellFailure = arcaneSpellFailure + shieldArcaneSpellFailure;
+      };
+      helper.setObject({
+        object: sheet.get(),
+        path: "equipment.armor.stats.arcane_spell_failure.current",
+        newValue: arcaneSpellFailure
+      });
+    };
+    var _checkPenalty = function() {
+      var checkPenalty = 0;
+      var armorCheckPenalty = helper.getObject({
+        object: sheet.get(),
+        path: "equipment.armor.armor.check_penalty"
+      });
+      var shieldCheckPenalty = helper.getObject({
+        object: sheet.get(),
+        path: "equipment.armor.shield.check_penalty"
+      });
+      if (armorCheckPenalty != "") {
+        checkPenalty = checkPenalty + armorCheckPenalty;
+      };
+      if (shieldCheckPenalty != "") {
+        checkPenalty = checkPenalty + shieldCheckPenalty;
+      };
+      helper.setObject({
+        object: sheet.get(),
+        path: "equipment.armor.stats.check_penalty.current",
+        newValue: checkPenalty
+      });
+    };
+    _maxDex();
+    _arcaneSpellFailure();
+    _checkPenalty();
+  };
+
+  // exposed methods
+  return {
+    bind: bind,
+    render: render
   };
 
 })();
@@ -24282,7 +24938,7 @@ var display = (function() {
           },
           contentItems: [{
             path: "statistics.abilities.notes",
-            prefix: "Notes"
+            prefix: "Abilities Notes"
           }],
         }]
       },
@@ -24307,7 +24963,7 @@ var display = (function() {
           },
           contentItems: [{
             path: "statistics.feats.notes",
-            prefix: "Notes"
+            prefix: "Feats Notes"
           }],
         }]
       },
@@ -24332,7 +24988,7 @@ var display = (function() {
           },
           contentItems: [{
             path: "statistics.traits.notes",
-            prefix: "Notes"
+            prefix: "Traits Notes"
           }],
         }]
       },
@@ -24357,7 +25013,7 @@ var display = (function() {
           },
           contentItems: [{
             path: "statistics.languages.notes",
-            prefix: "Notes"
+            prefix: "Languages Notes"
           }],
         }]
       },
@@ -24436,12 +25092,94 @@ var display = (function() {
             classname: ["u-list-unstyled", "m-display-list-responsive", "m-display-list-stack"]
           },
           contentItems: [{
-            path: "equipment.armor.armor",
+            path: "equipment.armor.armor.name",
             prefix: "Armor"
           }, {
-            path: "equipment.armor.shield",
+            path: "equipment.armor.shield.name",
             prefix: "Shield"
           }]
+        }, {
+          type: "block",
+          element: {
+            node: "div"
+          },
+          contentItems: [{
+            path: "equipment.armor.armor.notes",
+            prefix: "Armor Notes"
+          }],
+        }, {
+          type: "block",
+          element: {
+            node: "div"
+          },
+          contentItems: [{
+            path: "equipment.armor.shield.notes",
+            prefix: "Shield Notes"
+          }],
+        }]
+      },
+      ___armor: {
+        head: "Armor & Shield",
+        content: [{
+          type: "snippet",
+          element: {
+            node: "p"
+          },
+          contentItems: [{
+            path: "equipment.armor.armor.name",
+            prefix: "Armor"
+          }, {
+            path: "equipment.armor.armor.check_penalty",
+            prefix: "Check Penalty"
+          }, {
+            path: "equipment.armor.armor.max_dex",
+            prefix: "Max DEX"
+          }, {
+            path: "equipment.armor.armor.weight",
+            prefix: "Weight"
+          }, {
+            path: "equipment.armor.armor.arcane_spell_failure",
+            prefix: "Arcane Spell Failure"
+          }]
+        }, {
+          type: "block",
+          element: {
+            node: "div"
+          },
+          contentItems: [{
+            path: "equipment.armor.armor.notes",
+            prefix: "Armor Notes"
+          }],
+        }, {
+          type: "snippet",
+          element: {
+            node: "p"
+          },
+          contentItems: [{
+            path: "equipment.armor.shield.name",
+            prefix: "Shield"
+          }, {
+            path: "equipment.armor.shield.check_penalty",
+            prefix: "Check Penalty"
+          }, {
+            path: "equipment.armor.shield.max_dex",
+            prefix: "Max DEX"
+          }, {
+            path: "equipment.armor.shield.weight",
+            prefix: "Weight"
+          }, {
+            path: "equipment.armor.shield.arcane_spell_failure",
+            prefix: "Arcane Spell Failure"
+          }]
+        }, {
+          type: "block",
+          element: {
+            node: "div"
+          },
+          contentItems: [{
+            path: "equipment.armor.shield.notes",
+            prefix: "Shield Notes"
+          }],
         }]
       },
       body_slots: {
@@ -24845,7 +25583,7 @@ var display = (function() {
           },
           contentItems: [{
             path: "spells.stats.notes",
-            prefix: "Notes"
+            prefix: "Spells Notes"
           }]
         }]
       },
@@ -26410,7 +27148,7 @@ var display = (function() {
 
 var encumbrance = (function() {
 
-  var changeEncumbranceTimer = null;
+  var _timer_render = null;
   var carryMove = {
     light: "",
     medium: "",
@@ -26422,8 +27160,8 @@ var encumbrance = (function() {
   function bind(input) {
     var equipmentEncumbranceStr = helper.e("#equipment-encumbrance-str");
     equipmentEncumbranceStr.addEventListener("input", function() {
-      clearTimeout(changeEncumbranceTimer);
-      changeEncumbranceTimer = setTimeout(update, 350);
+      clearTimeout(_timer_render);
+      _timer_render = setTimeout(update, 350);
     }, false);
   };
 
@@ -32037,7 +32775,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair character image uploaded
     if (!("uploaded" in characterObject.basics.character_image)) {
-      _report.repaired.push("repair character image uploaded");
+      _report.repaired.push("update: character image uploaded");
       if (characterObject.equipment.potion_viles_oils != "") {
         characterObject.basics.character_image.uploaded = true;
       } else {
@@ -34345,7 +35083,7 @@ var repair = (function() {
     // awesome
     _report.repaired.push("update: awesome version");
     characterObject.awesomeSheet.version = 5.8;
-    _report.repaired.push("update: Trained Skills");
+    _report.repaired.push("update: trained skills");
     characterObject.skills.default.acrobatics.trained = false;
     characterObject.skills.default.appraise.trained = false;
     characterObject.skills.default.bluff.trained = false;
@@ -34390,6 +35128,98 @@ var repair = (function() {
     return characterObject;
   };
 
+  function _update_590(characterObject) {
+    var _report = {
+      name: characterObject.basics.character.name,
+      repaired: []
+    };
+    // awesome
+    _report.repaired.push("update: awesome version");
+    characterObject.awesomeSheet.version = 5.9;
+    // cmd
+    _report.repaired.push("update: cmd");
+    characterObject.defense.cmd.bonuses.dodge = true;
+    characterObject.defense.cmd.bonuses.deflect = true;
+    // ac
+    _report.repaired.push("update: ac");
+    characterObject.defense.ac.armor_class.bonuses.ac_temp = true;
+    characterObject.defense.ac.armor_class.bonuses.ac_misc = true;
+    characterObject.defense.ac.armor_class.bonuses.ac_enhancement = true;
+    characterObject.defense.ac.armor_class.bonuses.ac_insight = true;
+    characterObject.defense.ac.armor_class.bonuses.ac_luck = true;
+    characterObject.defense.ac.armor_class.bonuses.ac_profane = true;
+    characterObject.defense.ac.armor_class.bonuses.ac_sacred = true;
+    characterObject.defense.ac.armor_class.bonuses.ac_trait = true;
+    // flat footed ac
+    _report.repaired.push("update: flat footed ac");
+    characterObject.defense.ac.flat_footed.bonuses.ac_temp = true;
+    characterObject.defense.ac.flat_footed.bonuses.ac_misc = true;
+    characterObject.defense.ac.flat_footed.bonuses.ac_enhancement = true;
+    characterObject.defense.ac.flat_footed.bonuses.ac_insight = true;
+    characterObject.defense.ac.flat_footed.bonuses.ac_luck = true;
+    characterObject.defense.ac.flat_footed.bonuses.ac_profane = true;
+    characterObject.defense.ac.flat_footed.bonuses.ac_sacred = true;
+    characterObject.defense.ac.flat_footed.bonuses.ac_trait = true;
+    // touch ac
+    _report.repaired.push("update: touch ac");
+    characterObject.defense.ac.touch.bonuses.ac_temp = true;
+    characterObject.defense.ac.touch.bonuses.ac_misc = true;
+    characterObject.defense.ac.touch.bonuses.ac_insight = true;
+    characterObject.defense.ac.touch.bonuses.ac_luck = true;
+    characterObject.defense.ac.touch.bonuses.ac_profane = true;
+    characterObject.defense.ac.touch.bonuses.ac_sacred = true;
+    characterObject.defense.ac.touch.bonuses.ac_trait = true;
+    // ac stats
+    _report.repaired.push("update: ac stats");
+    characterObject.defense.ac.stats.temp = "";
+    characterObject.defense.ac.stats.misc = "";
+    characterObject.defense.ac.stats.enhancement = "";
+    characterObject.defense.ac.stats.insight = "";
+    characterObject.defense.ac.stats.luck = "";
+    characterObject.defense.ac.stats.profane = "";
+    characterObject.defense.ac.stats.sacred = "";
+    characterObject.defense.ac.stats.trait = "";
+    // armor
+    _report.repaired.push("update: armor");
+    var oldArmor = characterObject.equipment.armor.armor;
+    var oldMaxDex = characterObject.equipment.armor.max_dex;
+    var oldCheckPenalty = characterObject.equipment.armor.check_penalty;
+    var oldShield = characterObject.equipment.armor.shield;
+    characterObject.equipment.armor = {
+      armor: {
+        name: oldArmor,
+        check_penalty: oldCheckPenalty,
+        max_dex: oldMaxDex,
+        weight: "",
+        arcane_spell_failure: "",
+        notes: ""
+      },
+      shield: {
+        name: oldShield,
+        check_penalty: "",
+        max_dex: "",
+        weight: "",
+        arcane_spell_failure: "",
+        notes: ""
+      },
+      stats: {
+        check_penalty: {
+          current: ""
+        },
+        max_dex: {
+          current: ""
+        },
+        arcane_spell_failure: {
+          current: ""
+        }
+      }
+    };
+    _log("update complete: 590");
+    _log("report:", _report);
+    _log("------------------------------------------");
+    return characterObject;
+  };
+
   function _repair(characterObject) {
     // if version is found
     if (typeof characterObject.awesomeSheet == "object" && "version" in characterObject.awesomeSheet) {
@@ -34423,6 +35253,9 @@ var repair = (function() {
         };
         if (characterObject.awesomeSheet.version < 5.8) {
           characterObject = _update_580(characterObject);
+        };
+        if (characterObject.awesomeSheet.version < 5.9) {
+          characterObject = _update_590(characterObject);
         };
       };
     } else {
@@ -34783,6 +35616,7 @@ var sheet = (function() {
     textareaBlock.render();
     skills.render();
     spells.render();
+    armorShield.render();
     encumbrance.render();
     size.render();
     exp.render();
@@ -34828,6 +35662,7 @@ var sheet = (function() {
     spells.bind();
     skills.bind();
     wealth.bind();
+    armorShield.bind();
     encumbrance.bind();
     size.bind();
     totalBlock.bind();
@@ -37001,6 +37836,15 @@ var textBlock = (function() {
           } else {
             data = 0;
           };
+        } else if (options.type == "percentage") {
+          if (data != "" && data != undefined) {
+            data = parseFloat(data).toLocaleString(undefined, {
+              minimumFractionDigits: 0,
+              maximumFractionDigits: 0
+            }) + "%";
+          } else {
+            data = "0%";
+          };
         } else if (options.type == "weight") {
           if (data != "" && data != undefined) {
             data = parseFloat(data).toLocaleString(undefined, {
@@ -37019,11 +37863,21 @@ var textBlock = (function() {
         };
       };
     };
+    var _checkForNull = function() {
+      if (options.check) {
+        if (options.check == "null") {
+          if (data == "" && data !== 0) {
+            data = "None"
+          };
+        };
+      };
+    };
     var _render = function() {
       textBlock.textContent = data;
     };
     _get_data();
     _addPrefixSuffix();
+    _checkForNull();
     _render();
   };
 
@@ -37480,10 +38334,27 @@ var totalBlock = (function() {
       };
 
     };
+    var _getMaxDex = function() {
+      var maxDex = helper.getObject({
+        object: sheet.get(),
+        path: "equipment.armor.stats.max_dex.current"
+      });
+      // if max dex
+      if (maxDex != "" || maxDex === 0) {
+        // if max dex is less than dex bonus
+        if (maxDex < stats.get.mod("dex")) {
+          return maxDex;
+        } else {
+          return stats.get.mod("dex");
+        };
+      } else {
+        return stats.get.mod("dex");
+      };
+    };
     var _push_externalValues = function() {
       // loop over bonuses in totalBlockObject
       for (var key in totalBlockObject.bonuses) {
-        // if external bonuse is true
+        // if external bonus is true
         // max dex is not a bonus too add or subtract but a value to limit the dex modifier
         if (totalBlockObject.bonuses[key] && key != "max_dex") {
           var externalBouns;
@@ -37493,20 +38364,7 @@ var totalBlock = (function() {
           if (key == "dex") {
             // if max dex is true
             if (totalBlockObject.bonuses.max_dex) {
-              if (helper.getObject({
-                  object: sheet.get(),
-                  path: "equipment.armor.max_dex"
-                }) != "" && helper.getObject({
-                  object: sheet.get(),
-                  path: "equipment.armor.max_dex"
-                }) < _checkValue(stats.get.mod("dex"))) {
-                externalBouns = helper.getObject({
-                  object: sheet.get(),
-                  path: "equipment.armor.max_dex"
-                });
-              } else {
-                externalBouns = _checkValue(stats.get.mod("dex"));
-              };
+              externalBouns = _getMaxDex();
             } else {
               externalBouns = _checkValue(stats.get.mod("dex"));
             };
@@ -37598,7 +38456,7 @@ var totalBlock = (function() {
           if (key == "check_penalty") {
             externalBouns = _checkValue(helper.getObject({
               object: sheet.get(),
-              path: "equipment.armor.check_penalty"
+              path: "equipment.armor.stats.check_penalty.current"
             }));
           };
           if (key == "class_skill") {
@@ -37608,6 +38466,54 @@ var totalBlock = (function() {
             externalBouns = _checkValue(helper.getObject({
               object: sheet.get(),
               path: options.path + ".spell_level"
+            }));
+          };
+          if (key == "ac_temp") {
+            externalBouns = _checkValue(helper.getObject({
+              object: sheet.get(),
+              path: "defense.ac.stats.temp"
+            }));
+          };
+          if (key == "ac_misc") {
+            externalBouns = _checkValue(helper.getObject({
+              object: sheet.get(),
+              path: "defense.ac.stats.misc"
+            }));
+          };
+          if (key == "ac_enhancement") {
+            externalBouns = _checkValue(helper.getObject({
+              object: sheet.get(),
+              path: "defense.ac.stats.enhancement"
+            }));
+          };
+          if (key == "ac_insight") {
+            externalBouns = _checkValue(helper.getObject({
+              object: sheet.get(),
+              path: "defense.ac.stats.insight"
+            }));
+          };
+          if (key == "ac_luck") {
+            externalBouns = _checkValue(helper.getObject({
+              object: sheet.get(),
+              path: "defense.ac.stats.luck"
+            }));
+          };
+          if (key == "ac_profane") {
+            externalBouns = _checkValue(helper.getObject({
+              object: sheet.get(),
+              path: "defense.ac.stats.profane"
+            }));
+          };
+          if (key == "ac_sacred") {
+            externalBouns = _checkValue(helper.getObject({
+              object: sheet.get(),
+              path: "defense.ac.stats.sacred"
+            }));
+          };
+          if (key == "ac_trait") {
+            externalBouns = _checkValue(helper.getObject({
+              object: sheet.get(),
+              path: "defense.ac.stats.trait"
             }));
           };
           if (key == "plus_ten") {
@@ -37758,6 +38664,13 @@ var totalBlock = (function() {
       return editBox;
     };
     var _bonusTextLable = function(label) {
+      var _checkForNull = function(data) {
+        if (data == "" && data !== 0) {
+          return "None"
+        } else {
+          return data;
+        };
+      };
       var _addPrefix = function(data) {
         var newData;
         if (data != "" && data != undefined) {
@@ -37850,17 +38763,57 @@ var totalBlock = (function() {
       } else if (label == "check_penalty") {
         return "Armor Check Penalty (" + _addPrefix(helper.getObject({
           object: sheet.get(),
-          path: "equipment.armor.check_penalty"
+          path: "equipment.armor.stats.check_penalty.current"
         })) + ")";
       } else if (label == "max_dex") {
-        return "Max Dex Bonus (" + _addPrefix(helper.getObject({
+        return "Max Dex Bonus (" + _addPrefix(_checkForNull(helper.getObject({
           object: sheet.get(),
-          path: "equipment.armor.max_dex"
-        })) + ")";
+          path: "equipment.armor.stats.max_dex.current"
+        }))) + ")";
       } else if (label == "spell_level") {
         return "Spell Level (" + _addPrefix(helper.getObject({
           object: sheet.get(),
           path: totalBlockOptions.path + ".spell_level"
+        })) + ")";
+      } else if (label == "ac_temp") {
+        return "Temp Armor Bonus (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.stats.temp"
+        })) + ")";
+      } else if (label == "ac_misc") {
+        return "Misc Armor Bonus (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.stats.misc"
+        })) + ")";
+      } else if (label == "ac_enhancement") {
+        return "Enhancement (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.stats.enhancement"
+        })) + ")";
+      } else if (label == "ac_insight") {
+        return "Insight (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.stats.insight"
+        })) + ")";
+      } else if (label == "ac_luck") {
+        return "Luck (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.stats.luck"
+        })) + ")";
+      } else if (label == "ac_profane") {
+        return "Profane (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.stats.profane"
+        })) + ")";
+      } else if (label == "ac_sacred") {
+        return "Sacred (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.stats.sacred"
+        })) + ")";
+      } else if (label == "ac_trait") {
+        return "Trait (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.stats.trait"
         })) + ")";
       } else {
         return label;
@@ -37986,6 +38939,46 @@ var totalBlock = (function() {
             spell_level: totalBlockBonusesObject["spell_level"]
           })
         };
+        if ("ac_enhancement" in totalBlockBonusesObject) {
+          orderedBonuses.push({
+            ac_enhancement: totalBlockBonusesObject["ac_enhancement"]
+          })
+        };
+        if ("ac_insight" in totalBlockBonusesObject) {
+          orderedBonuses.push({
+            ac_insight: totalBlockBonusesObject["ac_insight"]
+          })
+        };
+        if ("ac_luck" in totalBlockBonusesObject) {
+          orderedBonuses.push({
+            ac_luck: totalBlockBonusesObject["ac_luck"]
+          })
+        };
+        if ("ac_profane" in totalBlockBonusesObject) {
+          orderedBonuses.push({
+            ac_profane: totalBlockBonusesObject["ac_profane"]
+          })
+        };
+        if ("ac_sacred" in totalBlockBonusesObject) {
+          orderedBonuses.push({
+            ac_sacred: totalBlockBonusesObject["ac_sacred"]
+          })
+        };
+        if ("ac_trait" in totalBlockBonusesObject) {
+          orderedBonuses.push({
+            ac_trait: totalBlockBonusesObject["ac_trait"]
+          })
+        };
+        if ("ac_temp" in totalBlockBonusesObject) {
+          orderedBonuses.push({
+            ac_temp: totalBlockBonusesObject["ac_temp"]
+          })
+        };
+        if ("ac_misc" in totalBlockBonusesObject) {
+          orderedBonuses.push({
+            ac_misc: totalBlockBonusesObject["ac_misc"]
+          })
+        };
         for (var i = 0; i < orderedBonuses.length; i++) {
           for (var key in orderedBonuses[i]) {
             var title = _bonusTextLable(key);
@@ -38041,6 +39034,13 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "5.9.0",
+    list: [
+      "Added option to add Dodge Bonus to CMD.",
+      "Added Enhancement, Insight, Luck, Profane, Sacred, Trait, Temp Armor Bonuses and Misc Armor Bonuses to the AC section. These Bonuses can effect Armor Class, Flat Footed AC and Touch AC.",
+      "Added Arcane Spell Failure, Weight and Notes for Armor and Shield to the Equipment section."
+    ]
+  }, {
     version: "5.8.0",
     list: [
       "Added support for Untrained Skills. Skills which may be used Untrained or with Skill Ranks will be shown in Display Mode."
