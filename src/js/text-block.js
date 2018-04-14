@@ -40,6 +40,15 @@ var textBlock = (function() {
           } else {
             data = 0;
           };
+        } else if (options.type == "percentage") {
+          if (data != "" && data != undefined) {
+            data = parseFloat(data).toLocaleString(undefined, {
+              minimumFractionDigits: 0,
+              maximumFractionDigits: 0
+            }) + "%";
+          } else {
+            data = "0%";
+          };
         } else if (options.type == "weight") {
           if (data != "" && data != undefined) {
             data = parseFloat(data).toLocaleString(undefined, {
@@ -58,11 +67,21 @@ var textBlock = (function() {
         };
       };
     };
+    var _checkForNull = function() {
+      if (options.check) {
+        if (options.check == "null") {
+          if (data == "" && data !== 0) {
+            data = "None"
+          };
+        };
+      };
+    };
     var _render = function() {
       textBlock.textContent = data;
     };
     _get_data();
     _addPrefixSuffix();
+    _checkForNull();
     _render();
   };
 

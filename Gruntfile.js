@@ -71,6 +71,7 @@ module.exports = function(grunt) {
           '<%= folders.build %>/js/characters/ro.js',
           '<%= folders.build %>/js/characters/vos.js',
           '<%= folders.build %>/js/hard-coded-characters.js',
+          '<%= folders.build %>/js/armor-shield.js',
           '<%= folders.build %>/js/character-image.js',
           '<%= folders.build %>/js/character-select.js',
           '<%= folders.build %>/js/check-block.js',

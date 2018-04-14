@@ -2819,9 +2819,11 @@ var repair = (function() {
     // awesome
     _report.repaired.push("update: awesome version");
     characterObject.awesomeSheet.version = 5.9;
+    // cmd
     _report.repaired.push("update: cmd");
     characterObject.defense.cmd.bonuses.dodge = true;
     characterObject.defense.cmd.bonuses.deflect = true;
+    // ac
     _report.repaired.push("update: ac");
     characterObject.defense.ac.armor_class.bonuses.ac_temp = true;
     characterObject.defense.ac.armor_class.bonuses.ac_misc = true;
@@ -2831,6 +2833,7 @@ var repair = (function() {
     characterObject.defense.ac.armor_class.bonuses.ac_profane = true;
     characterObject.defense.ac.armor_class.bonuses.ac_sacred = true;
     characterObject.defense.ac.armor_class.bonuses.ac_trait = true;
+    // flat footed ac
     _report.repaired.push("update: flat footed ac");
     characterObject.defense.ac.flat_footed.bonuses.ac_temp = true;
     characterObject.defense.ac.flat_footed.bonuses.ac_misc = true;
@@ -2840,6 +2843,7 @@ var repair = (function() {
     characterObject.defense.ac.flat_footed.bonuses.ac_profane = true;
     characterObject.defense.ac.flat_footed.bonuses.ac_sacred = true;
     characterObject.defense.ac.flat_footed.bonuses.ac_trait = true;
+    // touch ac
     _report.repaired.push("update: touch ac");
     characterObject.defense.ac.touch.bonuses.ac_temp = true;
     characterObject.defense.ac.touch.bonuses.ac_misc = true;
@@ -2848,6 +2852,7 @@ var repair = (function() {
     characterObject.defense.ac.touch.bonuses.ac_profane = true;
     characterObject.defense.ac.touch.bonuses.ac_sacred = true;
     characterObject.defense.ac.touch.bonuses.ac_trait = true;
+    // ac stats
     _report.repaired.push("update: ac stats");
     characterObject.defense.ac.stats.temp = "";
     characterObject.defense.ac.stats.misc = "";
@@ -2857,6 +2862,7 @@ var repair = (function() {
     characterObject.defense.ac.stats.profane = "";
     characterObject.defense.ac.stats.sacred = "";
     characterObject.defense.ac.stats.trait = "";
+    // armor
     _report.repaired.push("update: armor");
     var oldArmor = characterObject.equipment.armor.armor;
     var oldMaxDex = characterObject.equipment.armor.max_dex;
@@ -2878,6 +2884,17 @@ var repair = (function() {
         weight: "",
         arcane_spell_failure: "",
         notes: ""
+      },
+      stats: {
+        check_penalty: {
+          current: ""
+        },
+        max_dex: {
+          current: ""
+        },
+        arcane_spell_failure: {
+          current: ""
+        }
       }
     };
     _log("update complete: 590");

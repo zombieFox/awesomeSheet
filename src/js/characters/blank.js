@@ -210,6 +210,17 @@ var blank = (function() {
           weight: "",
           arcane_spell_failure: "",
           notes: ""
+        },
+        stats: {
+          check_penalty: {
+            current: ""
+          },
+          max_dex: {
+            current: ""
+          },
+          arcane_spell_failure: {
+            current: ""
+          }
         }
       },
       body_slots: {

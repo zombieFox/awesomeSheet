@@ -159,10 +159,27 @@ var totalBlock = (function() {
       };
 
     };
+    var _getMaxDex = function() {
+      var maxDex = helper.getObject({
+        object: sheet.get(),
+        path: "equipment.armor.stats.max_dex.current"
+      });
+      // if max dex
+      if (maxDex != "" || maxDex === 0) {
+        // if max dex is less than dex bonus
+        if (maxDex < stats.get.mod("dex")) {
+          return maxDex;
+        } else {
+          return stats.get.mod("dex");
+        };
+      } else {
+        return stats.get.mod("dex");
+      };
+    };
     var _push_externalValues = function() {
       // loop over bonuses in totalBlockObject
       for (var key in totalBlockObject.bonuses) {
-        // if external bonuse is true
+        // if external bonus is true
         // max dex is not a bonus too add or subtract but a value to limit the dex modifier
         if (totalBlockObject.bonuses[key] && key != "max_dex") {
           var externalBouns;
@@ -172,20 +189,7 @@ var totalBlock = (function() {
           if (key == "dex") {
             // if max dex is true
             if (totalBlockObject.bonuses.max_dex) {
-              if (helper.getObject({
-                  object: sheet.get(),
-                  path: "equipment.armor.max_dex"
-                }) != "" && helper.getObject({
-                  object: sheet.get(),
-                  path: "equipment.armor.max_dex"
-                }) < _checkValue(stats.get.mod("dex"))) {
-                externalBouns = helper.getObject({
-                  object: sheet.get(),
-                  path: "equipment.armor.max_dex"
-                });
-              } else {
-                externalBouns = _checkValue(stats.get.mod("dex"));
-              };
+              externalBouns = _getMaxDex();
             } else {
               externalBouns = _checkValue(stats.get.mod("dex"));
             };
@@ -485,6 +489,13 @@ var totalBlock = (function() {
       return editBox;
     };
     var _bonusTextLable = function(label) {
+      var _checkForNull = function(data) {
+        if (data == "" && data !== 0) {
+          return "None"
+        } else {
+          return data;
+        };
+      };
       var _addPrefix = function(data) {
         var newData;
         if (data != "" && data != undefined) {
@@ -580,9 +591,9 @@ var totalBlock = (function() {
           path: "equipment.armor.check_penalty"
         })) + ")";
       } else if (label == "max_dex") {
-        return "Max Dex Bonus (" + _addPrefix(helper.getObject({
+        return "Max Dex Bonus (" + _checkForNull(helper.getObject({
           object: sheet.get(),
-          path: "equipment.armor.max_dex"
+          path: "equipment.armor.stats.max_dex.current"
         })) + ")";
       } else if (label == "spell_level") {
         return "Spell Level (" + _addPrefix(helper.getObject({
