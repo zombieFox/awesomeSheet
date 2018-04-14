@@ -591,10 +591,10 @@ var totalBlock = (function() {
           path: "equipment.armor.stats.check_penalty.current"
         })) + ")";
       } else if (label == "max_dex") {
-        return "Max Dex Bonus (" + _checkForNull(helper.getObject({
+        return "Max Dex Bonus (" + _addPrefix(_checkForNull(helper.getObject({
           object: sheet.get(),
           path: "equipment.armor.stats.max_dex.current"
-        })) + ")";
+        }))) + ")";
       } else if (label == "spell_level") {
         return "Spell Level (" + _addPrefix(helper.getObject({
           object: sheet.get(),
