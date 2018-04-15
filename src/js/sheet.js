@@ -33,14 +33,19 @@ var sheet = (function() {
   var _all_characters = JSON.parse(JSON.stringify([blank.data]));
 
   function init() {
+    console.log("===================================================");
+    console.log("awesomeSheet v", sheet.ver());
+    console.log("===================================================");
     if (helper.read("allCharacters")) {
       // if characters are found in local storage repair them
       _all_characters = JSON.parse(helper.read("allCharacters"));
       _all_characters.forEach(function(item, index, array) {
+        console.log("character", index);
         array[index] = repair.render({
           object: item,
           debug: true
         });
+        console.log("---------------------------------------------------");
       });
     } else {
       // else load demo characters
@@ -48,6 +53,8 @@ var sheet = (function() {
       var newBlank = JSON.parse(JSON.stringify(blank.data));
       newBlank.awesomeSheet.version = update.version();
       _all_characters.unshift(newBlank);
+      console.log("loading default characters");
+      console.log("---------------------------------------------------");
     };
     store();
   };
