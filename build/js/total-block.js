@@ -159,10 +159,27 @@ var totalBlock = (function() {
       };
 
     };
+    var _getMaxDex = function() {
+      var maxDex = helper.getObject({
+        object: sheet.get(),
+        path: "equipment.armor.stats.max_dex.current"
+      });
+      // if max dex
+      if (maxDex != "" || maxDex === 0) {
+        // if max dex is less than dex bonus
+        if (maxDex < stats.get.mod("dex")) {
+          return maxDex;
+        } else {
+          return stats.get.mod("dex");
+        };
+      } else {
+        return stats.get.mod("dex");
+      };
+    };
     var _push_externalValues = function() {
       // loop over bonuses in totalBlockObject
       for (var key in totalBlockObject.bonuses) {
-        // if external bonuse is true
+        // if external bonus is true
         // max dex is not a bonus too add or subtract but a value to limit the dex modifier
         if (totalBlockObject.bonuses[key] && key != "max_dex") {
           var externalBouns;
@@ -172,20 +189,7 @@ var totalBlock = (function() {
           if (key == "dex") {
             // if max dex is true
             if (totalBlockObject.bonuses.max_dex) {
-              if (helper.getObject({
-                  object: sheet.get(),
-                  path: "equipment.armor.max_dex"
-                }) != "" && helper.getObject({
-                  object: sheet.get(),
-                  path: "equipment.armor.max_dex"
-                }) < _checkValue(stats.get.mod("dex"))) {
-                externalBouns = helper.getObject({
-                  object: sheet.get(),
-                  path: "equipment.armor.max_dex"
-                });
-              } else {
-                externalBouns = _checkValue(stats.get.mod("dex"));
-              };
+              externalBouns = _getMaxDex();
             } else {
               externalBouns = _checkValue(stats.get.mod("dex"));
             };
@@ -277,7 +281,7 @@ var totalBlock = (function() {
           if (key == "check_penalty") {
             externalBouns = _checkValue(helper.getObject({
               object: sheet.get(),
-              path: "equipment.armor.check_penalty"
+              path: "equipment.armor.stats.check_penalty.current"
             }));
           };
           if (key == "class_skill") {
@@ -287,6 +291,54 @@ var totalBlock = (function() {
             externalBouns = _checkValue(helper.getObject({
               object: sheet.get(),
               path: options.path + ".spell_level"
+            }));
+          };
+          if (key == "ac_temp") {
+            externalBouns = _checkValue(helper.getObject({
+              object: sheet.get(),
+              path: "defense.ac.stats.temp"
+            }));
+          };
+          if (key == "ac_misc") {
+            externalBouns = _checkValue(helper.getObject({
+              object: sheet.get(),
+              path: "defense.ac.stats.misc"
+            }));
+          };
+          if (key == "ac_enhancement") {
+            externalBouns = _checkValue(helper.getObject({
+              object: sheet.get(),
+              path: "defense.ac.stats.enhancement"
+            }));
+          };
+          if (key == "ac_insight") {
+            externalBouns = _checkValue(helper.getObject({
+              object: sheet.get(),
+              path: "defense.ac.stats.insight"
+            }));
+          };
+          if (key == "ac_luck") {
+            externalBouns = _checkValue(helper.getObject({
+              object: sheet.get(),
+              path: "defense.ac.stats.luck"
+            }));
+          };
+          if (key == "ac_profane") {
+            externalBouns = _checkValue(helper.getObject({
+              object: sheet.get(),
+              path: "defense.ac.stats.profane"
+            }));
+          };
+          if (key == "ac_sacred") {
+            externalBouns = _checkValue(helper.getObject({
+              object: sheet.get(),
+              path: "defense.ac.stats.sacred"
+            }));
+          };
+          if (key == "ac_trait") {
+            externalBouns = _checkValue(helper.getObject({
+              object: sheet.get(),
+              path: "defense.ac.stats.trait"
             }));
           };
           if (key == "plus_ten") {
@@ -437,6 +489,13 @@ var totalBlock = (function() {
       return editBox;
     };
     var _bonusTextLable = function(label) {
+      var _checkForNull = function(data) {
+        if (data == "" && data !== 0) {
+          return "None"
+        } else {
+          return data;
+        };
+      };
       var _addPrefix = function(data) {
         var newData;
         if (data != "" && data != undefined) {
@@ -529,17 +588,57 @@ var totalBlock = (function() {
       } else if (label == "check_penalty") {
         return "Armor Check Penalty (" + _addPrefix(helper.getObject({
           object: sheet.get(),
-          path: "equipment.armor.check_penalty"
+          path: "equipment.armor.stats.check_penalty.current"
         })) + ")";
       } else if (label == "max_dex") {
-        return "Max Dex Bonus (" + _addPrefix(helper.getObject({
+        return "Max Dex Bonus (" + _addPrefix(_checkForNull(helper.getObject({
           object: sheet.get(),
-          path: "equipment.armor.max_dex"
-        })) + ")";
+          path: "equipment.armor.stats.max_dex.current"
+        }))) + ")";
       } else if (label == "spell_level") {
         return "Spell Level (" + _addPrefix(helper.getObject({
           object: sheet.get(),
           path: totalBlockOptions.path + ".spell_level"
+        })) + ")";
+      } else if (label == "ac_temp") {
+        return "Temp Armor Bonus (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.stats.temp"
+        })) + ")";
+      } else if (label == "ac_misc") {
+        return "Misc Armor Bonus (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.stats.misc"
+        })) + ")";
+      } else if (label == "ac_enhancement") {
+        return "Enhancement (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.stats.enhancement"
+        })) + ")";
+      } else if (label == "ac_insight") {
+        return "Insight (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.stats.insight"
+        })) + ")";
+      } else if (label == "ac_luck") {
+        return "Luck (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.stats.luck"
+        })) + ")";
+      } else if (label == "ac_profane") {
+        return "Profane (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.stats.profane"
+        })) + ")";
+      } else if (label == "ac_sacred") {
+        return "Sacred (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.stats.sacred"
+        })) + ")";
+      } else if (label == "ac_trait") {
+        return "Trait (" + _addPrefix(helper.getObject({
+          object: sheet.get(),
+          path: "defense.ac.stats.trait"
         })) + ")";
       } else {
         return label;
@@ -663,6 +762,46 @@ var totalBlock = (function() {
         if ("spell_level" in totalBlockBonusesObject) {
           orderedBonuses.push({
             spell_level: totalBlockBonusesObject["spell_level"]
+          })
+        };
+        if ("ac_enhancement" in totalBlockBonusesObject) {
+          orderedBonuses.push({
+            ac_enhancement: totalBlockBonusesObject["ac_enhancement"]
+          })
+        };
+        if ("ac_insight" in totalBlockBonusesObject) {
+          orderedBonuses.push({
+            ac_insight: totalBlockBonusesObject["ac_insight"]
+          })
+        };
+        if ("ac_luck" in totalBlockBonusesObject) {
+          orderedBonuses.push({
+            ac_luck: totalBlockBonusesObject["ac_luck"]
+          })
+        };
+        if ("ac_profane" in totalBlockBonusesObject) {
+          orderedBonuses.push({
+            ac_profane: totalBlockBonusesObject["ac_profane"]
+          })
+        };
+        if ("ac_sacred" in totalBlockBonusesObject) {
+          orderedBonuses.push({
+            ac_sacred: totalBlockBonusesObject["ac_sacred"]
+          })
+        };
+        if ("ac_trait" in totalBlockBonusesObject) {
+          orderedBonuses.push({
+            ac_trait: totalBlockBonusesObject["ac_trait"]
+          })
+        };
+        if ("ac_temp" in totalBlockBonusesObject) {
+          orderedBonuses.push({
+            ac_temp: totalBlockBonusesObject["ac_temp"]
+          })
+        };
+        if ("ac_misc" in totalBlockBonusesObject) {
+          orderedBonuses.push({
+            ac_misc: totalBlockBonusesObject["ac_misc"]
           })
         };
         for (var i = 0; i < orderedBonuses.length; i++) {

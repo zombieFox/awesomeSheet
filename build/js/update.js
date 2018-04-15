@@ -1,6 +1,13 @@
 var update = (function() {
 
   var history = [{
+    version: "5.9.0",
+    list: [
+      "Added option to add Dodge Bonus to CMD.",
+      "Added Enhancement, Insight, Luck, Profane, Sacred, Trait, Temp Armor Bonuses and Misc Armor Bonuses to the AC section. These Bonuses can effect Armor Class, Flat Footed AC and Touch AC.",
+      "Added Arcane Spell Failure, Weight and Notes for Armor and Shield to the Equipment section."
+    ]
+  }, {
     version: "5.8.0",
     list: [
       "Added support for Untrained Skills. Skills which may be used Untrained or with Skill Ranks will be shown in Display Mode."

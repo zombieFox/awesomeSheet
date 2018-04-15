@@ -3,7 +3,7 @@ var ravich = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.8,
+      version: 5.9,
       demo: true
     },
     basics: {
@@ -323,10 +323,33 @@ var ravich = (function() {
         scrolls: ""
       },
       armor: {
-        armor: "Mithral Chain Shirt +1",
-        check_penalty: 0,
-        max_dex: 6,
-        shield: "Mithral Buckler +1"
+        armor: {
+          name: "Mithral Chain Shirt +1",
+          check_penalty: 0,
+          max_dex: 6,
+          weight: "25lbs",
+          arcane_spell_failure: 10,
+          notes: ""
+        },
+        shield: {
+          name: "Mithral Buckler +1",
+          check_penalty: "",
+          max_dex: "",
+          weight: "5lbs",
+          arcane_spell_failure: 5,
+          notes: ""
+        },
+        stats: {
+          check_penalty: {
+            current: ""
+          },
+          max_dex: {
+            current: ""
+          },
+          arcane_spell_failure: {
+            current: ""
+          }
+        }
       },
       body_slots: {
         belts: "Belt of Physical Might +2 (Str, Dex)",
@@ -447,7 +470,15 @@ var ravich = (function() {
             dodge: true,
             natural: true,
             size_base: true,
-            max_dex: true
+            max_dex: true,
+            ac_temp: true,
+            ac_misc: true,
+            ac_enhancement: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         flat_footed: {
@@ -467,7 +498,15 @@ var ravich = (function() {
             deflect: true,
             natural: true,
             size_base: true,
-            dodge: false
+            dodge: false,
+            ac_temp: true,
+            ac_misc: true,
+            ac_enhancement: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         touch: {
@@ -488,7 +527,14 @@ var ravich = (function() {
             max_dex: true,
             armor: false,
             shield: false,
-            natural: false
+            natural: false,
+            ac_temp: true,
+            ac_misc: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         stats: {
@@ -496,7 +542,15 @@ var ravich = (function() {
           shield: 1,
           deflect: 1,
           dodge: "",
-          natural: 1
+          natural: 1,
+          temp: "",
+          misc: "",
+          enhancement: "",
+          insight: "",
+          luck: "",
+          profane: "",
+          sacred: "",
+          trait: ""
         },
         notes: "+1 dodge bonus to AC against attacks made by traps. +1 damage when flanking."
       },
@@ -516,7 +570,9 @@ var ravich = (function() {
           size_special: true,
           level: false,
           half_level: false,
-          plus_ten: true
+          plus_ten: true,
+          dodge: true,
+          deflect: true
         }
       },
       saves: {

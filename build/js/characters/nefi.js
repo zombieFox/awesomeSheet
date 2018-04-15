@@ -3,7 +3,7 @@ var nefi = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.8
+      version: 5.9
     },
     basics: {
       character: {
@@ -287,10 +287,33 @@ var nefi = (function() {
         scrolls: ""
       },
       armor: {
-        armor: "Full Plate +2",
-        check_penalty: -3,
-        max_dex: "",
-        shield: ""
+        armor: {
+          name: "Full Plate +2",
+          check_penalty: -3,
+          max_dex: 1,
+          weight: "50lbs",
+          arcane_spell_failure: 35,
+          notes: ""
+        },
+        shield: {
+          name: "",
+          check_penalty: "",
+          max_dex: "",
+          weight: "",
+          arcane_spell_failure: "",
+          notes: ""
+        },
+        stats: {
+          check_penalty: {
+            current: ""
+          },
+          max_dex: {
+            current: ""
+          },
+          arcane_spell_failure: {
+            current: ""
+          }
+        }
       },
       body_slots: {
         belts: "Belt of Physical Might (+4 Str +2 Dex)",
@@ -365,7 +388,15 @@ var nefi = (function() {
             dodge: true,
             natural: true,
             size_base: true,
-            max_dex: true
+            max_dex: true,
+            ac_temp: true,
+            ac_misc: true,
+            ac_enhancement: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         flat_footed: {
@@ -385,7 +416,15 @@ var nefi = (function() {
             deflect: true,
             natural: true,
             size_base: true,
-            dodge: false
+            dodge: false,
+            ac_temp: true,
+            ac_misc: true,
+            ac_enhancement: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         touch: {
@@ -406,7 +445,14 @@ var nefi = (function() {
             max_dex: true,
             armor: false,
             shield: false,
-            natural: false
+            natural: false,
+            ac_temp: true,
+            ac_misc: true,
+            ac_insight: true,
+            ac_luck: true,
+            ac_profane: true,
+            ac_sacred: true,
+            ac_trait: true
           }
         },
         stats: {
@@ -414,7 +460,15 @@ var nefi = (function() {
           shield: "",
           deflect: 2,
           dodge: 1,
-          natural: 3
+          natural: 3,
+          temp: "",
+          misc: "",
+          enhancement: "",
+          insight: "",
+          luck: "",
+          profane: "",
+          sacred: "",
+          trait: ""
         },
         notes: "Ioun Stone (Dusty rose) +1 insight bonus to AC."
       },
@@ -434,7 +488,9 @@ var nefi = (function() {
           size_special: true,
           level: false,
           half_level: false,
-          plus_ten: true
+          plus_ten: true,
+          dodge: true,
+          deflect: true
         }
       },
       saves: {
