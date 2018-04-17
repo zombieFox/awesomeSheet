@@ -2845,63 +2845,73 @@ var repair = (function() {
     // if version is found
     if (typeof characterObject.awesomeSheet == "object" && "version" in characterObject.awesomeSheet) {
       _report = {};
-      _log("--- sheet version found => " + characterObject.awesomeSheet.version + " ---");
       if ("character" in characterObject.basics) {
-        _log("name " + characterObject.basics.character.name);
+        console.log("# name " + characterObject.basics.character.name);
+      } else if ("name" in characterObject.basics) {
+        console.log("# name " + characterObject.basics.name);
+      } else {
+        console.log("# name unknown");
       };
+      console.log("\t# sheet version found:", characterObject.awesomeSheet.version);
       // if version number is below current version
       if (characterObject.awesomeSheet.version < update.version()) {
         if (characterObject.awesomeSheet.version < 5) {
+          console.log("\t# running update", 5);
           characterObject = _update_500(characterObject);
         };
         if (characterObject.awesomeSheet.version < 5.1) {
+          console.log("\t# running update", 5.1);
           characterObject = _update_510(characterObject);
         };
         if (characterObject.awesomeSheet.version < 5.2) {
+          console.log("\t# running update", 5.2);
           characterObject = _update_520(characterObject);
         };
         if (characterObject.awesomeSheet.version < 5.4) {
+          console.log("\t# running update", 5.4);
           characterObject = _update_540(characterObject);
         };
         if (characterObject.awesomeSheet.version < 5.5) {
+          console.log("\t# running update", 5.5);
           characterObject = _update_550(characterObject);
         };
         if (characterObject.awesomeSheet.version < 5.6) {
+          console.log("\t# running update", 5.6);
           characterObject = _update_560(characterObject);
         };
         if (characterObject.awesomeSheet.version < 5.7) {
+          console.log("\t# running update", 5.7);
           characterObject = _update_570(characterObject);
         };
         if (characterObject.awesomeSheet.version < 5.8) {
+          console.log("\t# running update", 5.8);
           characterObject = _update_580(characterObject);
         };
         if (characterObject.awesomeSheet.version < 5.9) {
+          console.log("\t# running update", 5.9);
           characterObject = _update_590(characterObject);
         };
-        _log("\treport:");
-        _log("\t",  _report);
+        console.log("\t# report:",  _report);
+      } else {
+        console.log("\t# no need to update");
       };
     } else {
       _report = {};
-      _log("=== sheet version not found => repair legacy ===");
+      if ("name" in characterObject.basics) {
+        console.log("# name " + characterObject.basics.name);
+      } else {
+        console.log("# name unknown");
+      };
+      console.log("\t# sheet not version found => running legacy repair");
       // if no version is found
       if (typeof characterObject.awesomeSheet == "boolean") {
         characterObject = _update_legacy(characterObject);
-        _log("report:");
-        _log(_report);
+        console.log("\t# report:",  _report);
         // then run normal repairs
         _repair(characterObject);
       };
     };
     return characterObject;
-  };
-
-  function _log() {
-    if (_debug) {
-      for (var i = 0; i < arguments.length; i++) {
-        console.log(arguments[i]);
-      };
-    };
   };
 
   function render(options) {

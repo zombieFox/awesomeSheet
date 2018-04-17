@@ -40,7 +40,7 @@ var sheet = (function() {
       // if characters are found in local storage repair them
       _all_characters = JSON.parse(helper.read("allCharacters"));
       _all_characters.forEach(function(item, index, array) {
-        console.log("character", index);
+        console.log("### character", index, "###");
         array[index] = repair.render({
           object: item,
           debug: true
@@ -53,7 +53,7 @@ var sheet = (function() {
       var newBlank = JSON.parse(JSON.stringify(blank.data));
       newBlank.awesomeSheet.version = update.version();
       _all_characters.unshift(newBlank);
-      console.log("loading default characters");
+      console.log("### loading default characters ###");
       console.log("---------------------------------------------------");
     };
     store();
@@ -143,6 +143,9 @@ var sheet = (function() {
   };
 
   function all() {
+    console.log("===================================================");
+    console.log("awesomeSheet restore all");
+    console.log("===================================================");
     localStorage.clear();
     prompt.destroy();
     snack.destroy();
@@ -152,6 +155,7 @@ var sheet = (function() {
         object: item,
         debug: true
       });
+      console.log("---------------------------------------------------");
     });
     index.set(0);
     store();
@@ -402,6 +406,7 @@ var sheet = (function() {
             object: data,
             debug: true
           }));
+          console.log("---------------------------------------------------");
           var name = get().basics.character.name || "New character";
           snack.render({
             message: helper.truncate(name, 40, true) + " imported and back in the game."
