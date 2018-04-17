@@ -1,13 +1,11 @@
 var repair = (function() {
 
   var _debug = false;
+  var _report = {};
 
   // legacy sheet update
   function _update_legacy(characterObject) {
-    var _report = {
-      name: characterObject.basics.name,
-      repaired: []
-    };
+    _report._legacy = [];
     // --------------------------------------------------
     // repair spell notes
     if (characterObject.spells.book) {
@@ -16,7 +14,7 @@ var repair = (function() {
           if (characterObject.spells.book[i][j].length > 0) {
             for (var k in characterObject.spells.book[i][j]) {
               if (!("note" in characterObject.spells.book[i][j][k]) && typeof characterObject.spells.book[i][j][k].note != "string") {
-                _report.repaired.push("update: spell notes");
+                _report._legacy.push("update: spell notes");
                 characterObject.spells.book[i][j][k].note = "";
               };
             };
@@ -27,26 +25,26 @@ var repair = (function() {
     // --------------------------------------------------
     // repair item array
     if (typeof characterObject.equipment.item == "string" || !characterObject.equipment.item) {
-      _report.repaired.push("update: item array");
+      _report._legacy.push("update: item array");
       characterObject.equipment.item = [];
     };
     // --------------------------------------------------
     // repair note array
     if (typeof characterObject.notes.character == "string" || typeof characterObject.notes.story == "string") {
-      _report.repaired.push("update: note array");
+      _report._legacy.push("update: note array");
       characterObject.notes.character = [];
       characterObject.notes.story = [];
     };
     // --------------------------------------------------
     // repair custom skills array
     if (typeof characterObject.skills.custom == "string" || !characterObject.skills.custom) {
-      _report.repaired.push("update: custom skills array");
+      _report._legacy.push("update: custom skills array");
       characterObject.skills.custom = [];
     };
     // --------------------------------------------------
     // repair custom skills
     if ("custom_1" in characterObject.skills || "custom_2" in characterObject.skills || "custom_3" in characterObject.skills || "custom_4" in characterObject.skills || "custom_5" in characterObject.skills || "custom_6" in characterObject.skills || "custom_7" in characterObject.skills || "custom_8" in characterObject.skills) {
-      _report.repaired.push("update: custom skills");
+      _report._legacy.push("update: custom skills");
       var skillKeys = ["custom_1", "custom_2", "custom_3", "custom_4", "custom_5", "custom_6", "custom_7", "custom_8"];
       for (var i = 0; i < skillKeys.length; i++) {
         if (characterObject.skills[skillKeys[i]].name != "" || characterObject.skills[skillKeys[i]].ranks || characterObject.skills[skillKeys[i]].misc) {
@@ -60,7 +58,7 @@ var repair = (function() {
     // repair concentration bonus object
     if ("concentration" in characterObject.spells && "bonuses" in characterObject.spells.concentration) {
       if (typeof characterObject.spells.concentration.bonuses != "object" || !characterObject.spells.concentration.bonuses) {
-        _report.repaired.push("update: concentration bonus object");
+        _report._legacy.push("update: concentration bonus object");
         characterObject.spells.concentration.bonuses = {
           str_bonus: false,
           dex_bonus: false,
@@ -76,7 +74,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair initiative object
     if (typeof characterObject.basics.initiative != "object" || typeof characterObject.basics.initiative.bonuses != "object" || !characterObject.basics.initiative.bonuses) {
-      _report.repaired.push("update: initiative object");
+      _report._legacy.push("update: initiative object");
       characterObject.basics.initiative = {
         misc: "",
         temp: "",
@@ -97,7 +95,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair size object
     if (typeof characterObject.basics.size != "object" || "size_bonus" in characterObject.defense.ac) {
-      _report.repaired.push("update: size object");
+      _report._legacy.push("update: size object");
       var size = characterObject.basics.size;
       if (size == "M" || size == "m" || size == "medium" || size == "Medium" || size != "") {
         size = "Medium";
@@ -129,7 +127,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair alignment
     if (["Lawful Good", "Lawful Neutral", "Lawful Evil", "Neutral Good", "Neutral", "Neutral Evil", "Chaotic Good", "Chaotic Neutral", "Chaotic Evil", ""].indexOf(characterObject.basics.alignment) === -1) {
-      _report.repaired.push("update: alignment");
+      _report._legacy.push("update: alignment");
       if (["Lawful Good", "Lawful good", "lawful good", "LG", "Lg", "lg"].indexOf(characterObject.basics.alignment) > -1) {
         characterObject.basics.alignment = "Lawful Good";
       };
@@ -161,7 +159,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair armor
     if (typeof characterObject.equipment.armor != "object") {
-      _report.repaired.push("update: armor");
+      _report._legacy.push("update: armor");
       characterObject.equipment.armor = {
         armor: "",
         check_penalty: "",
@@ -191,7 +189,7 @@ var repair = (function() {
       if (key in object) {
         if (object.racial != "" && !isNaN(object.racial)) {
           if (object.misc != "" && !isNaN(object.misc)) {
-            _report.repaired.push("update: racial save bonuses");
+            _report._legacy.push("update: racial save bonuses");
             object.misc = object.misc + object.racial;
           } else {
             object.misc = object.racial;
@@ -206,7 +204,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair classes
     if (!characterObject.basics.classes || typeof characterObject.basics.class == "string") {
-      _report.repaired.push("update: classes");
+      _report._legacy.push("update: classes");
       characterObject.basics.classes = [{
         classname: "",
         level: "",
@@ -259,7 +257,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair caster level check
     if (!characterObject.spells.caster_level_check) {
-      _report.repaired.push("update: caster level check");
+      _report._legacy.push("update: caster level check");
       characterObject.spells.caster_level_check = {
         current: "",
         misc: "",
@@ -280,7 +278,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair encumbrance
     if ("light" in characterObject.equipment.encumbrance || "medium" in characterObject.equipment.encumbrance || "heavy" in characterObject.equipment.encumbrance || "lift" in characterObject.equipment.encumbrance || "drag" in characterObject.equipment.encumbrance) {
-      _report.repaired.push("update: encumbrance");
+      _report._legacy.push("update: encumbrance");
       delete characterObject.equipment.encumbrance.light;
       delete characterObject.equipment.encumbrance.medium;
       delete characterObject.equipment.encumbrance.heavy;
@@ -290,7 +288,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair encumbrance
     if (!("carry_move" in characterObject.equipment.encumbrance)) {
-      _report.repaired.push("update: encumbrance");
+      _report._legacy.push("update: encumbrance");
       characterObject.equipment.encumbrance = {
         encumbrance_str: "",
         carry_move: {
@@ -305,37 +303,37 @@ var repair = (function() {
     // --------------------------------------------------
     // repair xp
     if (typeof characterObject.basics.xp == "string" && !characterObject.basics.xp == "") {
-      _report.repaired.push("update: xp");
+      _report._legacy.push("update: xp");
       characterObject.basics.xp = parseInt(characterObject.basics.xp.replace(/,/g, ""), 10);
     };
     // --------------------------------------------------
     // repair wealth
     if (typeof characterObject.equipment.wealth.platinum == "string" && !characterObject.equipment.wealth.platinum == "") {
-      _report.repaired.push("update: wealth platinum");
+      _report._legacy.push("update: wealth platinum");
       characterObject.equipment.wealth.platinum = parseInt(characterObject.equipment.wealth.platinum.replace(/,/g, ""), 10);
     };
     if (typeof characterObject.equipment.wealth.gold == "string" && !characterObject.equipment.wealth.gold == "") {
-      _report.repaired.push("update: wealth gold");
+      _report._legacy.push("update: wealth gold");
       characterObject.equipment.wealth.gold = parseInt(characterObject.equipment.wealth.gold.replace(/,/g, ""), 10);
     };
     if (typeof characterObject.equipment.wealth.silver == "string" && !characterObject.equipment.wealth.silver == "") {
-      _report.repaired.push("update: wealth silver");
+      _report._legacy.push("update: wealth silver");
       characterObject.equipment.wealth.silver = parseInt(characterObject.equipment.wealth.silver.replace(/,/g, ""), 10);
     };
     if (typeof characterObject.equipment.wealth.copper == "string" && !characterObject.equipment.wealth.copper == "") {
-      _report.repaired.push("update: wealth copper");
+      _report._legacy.push("update: wealth copper");
       characterObject.equipment.wealth.copper = parseInt(characterObject.equipment.wealth.copper.replace(/,/g, ""), 10);
     };
     // --------------------------------------------------
     // repair events array
     if (!characterObject.hasOwnProperty("events")) {
-      _report.repaired.push("update: events array");
+      _report._legacy.push("update: events array");
       characterObject.events = [];
     };
     // --------------------------------------------------
     // repair xp and next level
     if (typeof characterObject.basics.xp == "string" || typeof characterObject.basics.xp == "number") {
-      _report.repaired.push("update: xp and next level");
+      _report._legacy.push("update: xp and next level");
       var oldXp;
       if (typeof characterObject.basics.xp == "number") {
         oldXp = characterObject.basics.xp;
@@ -351,7 +349,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair speed
     if (typeof characterObject.basics.speed == "string" || typeof characterObject.basics.speed == "number" || characterObject.basics.speed == "" || typeof characterObject.basics.speed != "object") {
-      _report.repaired.push("update: speed");
+      _report._legacy.push("update: speed");
       var oldSpeed = characterObject.basics.speed;
       characterObject.basics.speed = {};
       characterObject.basics.speed.land = oldSpeed;
@@ -359,7 +357,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair character image
     if (!characterObject.basics.character_image) {
-      _report.repaired.push("update: character image");
+      _report._legacy.push("update: character image");
       characterObject.basics.character_image = {
         uploaded: false,
         background: "",
@@ -386,7 +384,7 @@ var repair = (function() {
     if (characterObject.offense.attack.melee.length > 0) {
       for (var i = 0; i < characterObject.offense.attack.melee.length; i++) {
         if (!characterObject.offense.attack.melee[i].type && characterObject.offense.attack.melee[i].type != "") {
-          _report.repaired.push("update: attack types melee");
+          _report._legacy.push("update: attack types melee");
           characterObject.offense.attack.melee[i].type = "";
         };
       };
@@ -394,7 +392,7 @@ var repair = (function() {
     if (characterObject.offense.attack.ranged.length > 0) {
       for (var i = 0; i < characterObject.offense.attack.ranged.length; i++) {
         if (!characterObject.offense.attack.ranged[i].type && characterObject.offense.attack.ranged[i].type != "") {
-          _report.repaired.push("update: attack types ranged");
+          _report._legacy.push("update: attack types ranged");
           characterObject.offense.attack.ranged[i].type = "";
         };
       };
@@ -402,7 +400,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair stats
     if (!("enhancement" in characterObject.statistics.stats.str) || !("enhancement" in characterObject.statistics.stats.dex) || !("enhancement" in characterObject.statistics.stats.con) || !("enhancement" in characterObject.statistics.stats.int) || !("enhancement" in characterObject.statistics.stats.wis) || !("enhancement" in characterObject.statistics.stats.cha)) {
-      _report.repaired.push("update: stats");
+      _report._legacy.push("update: stats");
       for (var key in characterObject.statistics.stats) {
         characterObject.statistics.stats[key].current = "";
         characterObject.statistics.stats[key].modifier = "";
@@ -430,7 +428,7 @@ var repair = (function() {
       if (characterObject.events.length > 0) {
         for (var i = 0; i < characterObject.events.length; i++) {
           if (characterObject.events[i].event.aggregateValue) {
-            _report.repaired.push("update: events");
+            _report._legacy.push("update: events");
             characterObject.events[i].event.aggregate_value = characterObject.events[i].event.aggregateValue;
             delete characterObject.events[i].event.aggregateValue;
           };
@@ -442,14 +440,14 @@ var repair = (function() {
     // --------------------------------------------------
     // repair character image cover and contain
     if ("cover" in characterObject.basics.character_image || "contain" in characterObject.basics.character_image) {
-      _report.repaired.push("update: character image cover and contain");
+      _report._legacy.push("update: character image cover and contain");
       delete characterObject.basics.character_image.cover;
       delete characterObject.basics.character_image.contain;
     };
     // --------------------------------------------------
     // repair character image size
     if (!characterObject.basics.character_image.size) {
-      _report.repaired.push("update: character image size");
+      _report._legacy.push("update: character image size");
       characterObject.basics.character_image.size = {
         width: "",
         height: ""
@@ -458,7 +456,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair character image uploaded
     if (!("uploaded" in characterObject.basics.character_image)) {
-      _report.repaired.push("update: character image uploaded");
+      _report._legacy.push("update: character image uploaded");
       if (characterObject.equipment.potion_viles_oils != "") {
         characterObject.basics.character_image.uploaded = true;
       } else {
@@ -468,7 +466,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair equipment
     if (!characterObject.equipment.potion_viles_oils && characterObject.equipment.potion_viles_oils != "") {
-      _report.repaired.push("update: equipment");
+      _report._legacy.push("update: equipment");
       characterObject.equipment.potion_viles_oils = "";
     };
     if (!characterObject.equipment.scrolls && characterObject.equipment.scrolls != "") {
@@ -478,16 +476,16 @@ var repair = (function() {
     // repair skills
     for (var key in characterObject.skills) {
       if (typeof characterObject.skills[key].ranks == "string" && characterObject.skills[key].ranks != "") {
-        _report.repaired.push("update: skills ranks");
+        _report._legacy.push("update: skills ranks");
         characterObject.skills[key].ranks = parseInt(characterObject.skills[key].ranks, 10);
       };
       if (typeof characterObject.skills[key].misc == "string" && characterObject.skills[key].misc != "") {
-        _report.repaired.push("update: skills misc");
+        _report._legacy.push("update: skills misc");
         characterObject.skills[key].ranks = parseInt(characterObject.skills[key].misc, 10);
       };
     };
     if (!("all" in characterObject.skills)) {
-      _report.repaired.push("update: skills");
+      _report._legacy.push("update: skills");
       characterObject.skills.all = {};
       if ("acrobatics" in characterObject.skills) {
         characterObject.skills.all.acrobatics = characterObject.skills.acrobatics;
@@ -647,15 +645,15 @@ var repair = (function() {
     if (characterObject.skills.custom.length > 0) {
       for (var i = 0; i < characterObject.skills.custom.length; i++) {
         if (!("racial" in characterObject.skills.custom[i])) {
-          _report.repaired.push("update: custom skills");
+          _report._legacy.push("update: custom skills");
           characterObject.skills.custom[i].racial = "";
         };
         if (!("trait" in characterObject.skills.custom[i])) {
-          _report.repaired.push("update: custom skills");
+          _report._legacy.push("update: custom skills");
           characterObject.skills.custom[i].trait = "";
         };
         if (!("feat" in characterObject.skills.custom[i])) {
-          _report.repaired.push("update: custom skills");
+          _report._legacy.push("update: custom skills");
           characterObject.skills.custom[i].feat = "";
         };
       };
@@ -663,36 +661,36 @@ var repair = (function() {
     // --------------------------------------------------
     // repair concentration stats
     if (!("trait" in characterObject.spells.concentration)) {
-      _report.repaired.push("update: spell stats");
+      _report._legacy.push("update: spell stats");
       characterObject.spells.concentration.trait = "";
     };
     // repair caster level stats
     if (!("trait" in characterObject.spells.caster_level_check)) {
-      _report.repaired.push("update: level stats");
+      _report._legacy.push("update: level stats");
       characterObject.spells.caster_level_check.trait = "";
     };
     // --------------------------------------------------
     // repair item
     if (Array.isArray(characterObject.equipment.item)) {
-      _report.repaired.push("update: item");
+      _report._legacy.push("update: item");
       var tempItems = characterObject.equipment.item.slice();
       characterObject.equipment.item = {};
       characterObject.equipment.item.all = tempItems;
     };
     if (!("weight" in characterObject.equipment.item)) {
-      _report.repaired.push("update: item weight");
+      _report._legacy.push("update: item weight");
       characterObject.equipment.item.weight = {};
       characterObject.equipment.item.weight.current = "";
     };
     if (!("value" in characterObject.equipment.item)) {
-      _report.repaired.push("update: item value");
+      _report._legacy.push("update: item value");
       characterObject.equipment.item.value = {};
       characterObject.equipment.item.value.current = "";
     };
     // --------------------------------------------------
     // repair spell bonus
     if (!("bonus" in characterObject.spells)) {
-      _report.repaired.push("update: spells bonus");
+      _report._legacy.push("update: spells bonus");
       characterObject.spells.bonus = {};
       characterObject.spells.bonus.level_0 = "";
       characterObject.spells.bonus.level_1 = "";
@@ -709,15 +707,15 @@ var repair = (function() {
     // repair skills
     for (var i in characterObject.skills.all) {
       if (!("racial" in characterObject.skills.all[i])) {
-        _report.repaired.push("update: skill " + i + " racial");
+        _report._legacy.push("update: skill " + i + " racial");
         characterObject.skills.all[i].racial = "";
       };
       if (!("feat" in characterObject.skills.all[i])) {
-        _report.repaired.push("update: skill " + i + " feat");
+        _report._legacy.push("update: skill " + i + " feat");
         characterObject.skills.all[i].feat = "";
       };
       if (!("trait" in characterObject.skills.all[i])) {
-        _report.repaired.push("update: skill " + i + " trait");
+        _report._legacy.push("update: skill " + i + " trait");
         characterObject.skills.all[i].trait = "";
       };
       if (typeof characterObject.skills.all[i].misc == "string") {
@@ -730,7 +728,7 @@ var repair = (function() {
     // --------------------------------------------------
     // repair spells
     if (typeof characterObject.spells.dc.level_0 != "object") {
-      _report.repaired.push("update: spell dc");
+      _report._legacy.push("update: spell dc");
       var dcObject = function(level, oldDc) {
         var object = {
           spell_level: level,
@@ -771,47 +769,47 @@ var repair = (function() {
     // --------------------------------------------------
     // repair caster level check and concentration
     if (!("racial" in characterObject.spells.concentration)) {
-      _report.repaired.push("update: concentration racial");
+      _report._legacy.push("update: concentration racial");
       characterObject.spells.concentration.racial = "";
     };
     if (!("racial" in characterObject.spells.caster_level_check)) {
-      _report.repaired.push("update: caster level check racial");
+      _report._legacy.push("update: caster level check racial");
       characterObject.spells.caster_level_check.racial = "";
     };
     // --------------------------------------------------
     // repair initiative trait
     if (!("trait" in characterObject.basics.initiative)) {
-      _report.repaired.push("update: initiative trait");
+      _report._legacy.push("update: initiative trait");
       characterObject.basics.initiative.trait = "";
     };
     // --------------------------------------------------
     if (!("school" in characterObject.spells)) {
-      _report.repaired.push("update: spell school");
+      _report._legacy.push("update: spell school");
       characterObject.spells.school = "";
     };
     // --------------------------------------------------
     if (!("opposition" in characterObject.spells)) {
-      _report.repaired.push("update: spell opposition");
+      _report._legacy.push("update: spell opposition");
       characterObject.spells.opposition = "";
     };
     // --------------------------------------------------
     if (!("domains" in characterObject.spells)) {
-      _report.repaired.push("update: spell domains");
+      _report._legacy.push("update: spell domains");
       characterObject.spells.domains = "";
     };
     // --------------------------------------------------
     if (!("bloodline" in characterObject.spells)) {
-      _report.repaired.push("update: spell bloodline");
+      _report._legacy.push("update: spell bloodline");
       characterObject.spells.bloodline = "";
     };
     // --------------------------------------------------
     if (!("power" in characterObject.statistics)) {
-      _report.repaired.push("update: power");
+      _report._legacy.push("update: power");
       characterObject.statistics.power = [];
     };
     // --------------------------------------------------
     if (!("dr" in characterObject.defense)) {
-      _report.repaired.push("update: dr");
+      _report._legacy.push("update: dr");
       characterObject.defense.dr = {
         feat: "",
         trait: "",
@@ -834,49 +832,41 @@ var repair = (function() {
     };
     // --------------------------------------------------
     if (typeof characterObject.awesomeSheet == "boolean") {
-      _report.repaired.push("update: awesome check");
+      _report._legacy.push("update: awesome check");
       characterObject.awesomeSheet = {};
       characterObject.awesomeSheet.awesome = true;
       characterObject.awesomeSheet.version = 4;
     };
     // --------------------------------------------------
-    _log("update complete: legacy");
-    _log("report:", _report);
-    _log("------------------------------------------");
     return characterObject;
   };
 
   function _update_500(characterObject) {
-    var _report = {
-      name: characterObject.basics.name,
-      repaired: []
-    };
+    _report._500 = [];
     var _checkForValue = function(object, path, alt) {
       var path = path.split(".");
       while (path.length > 1) {
         var currentKey = path.shift();
         if (!(currentKey in object)) {
           return alt;
-          console.log(path, alt);
         };
         object = object[currentKey];
       };
       var finalKey = path.shift();
       if (object[finalKey] == undefined) {
         return alt;
-        console.log(path, alt);
       } else {
         return object[finalKey];
       };
     };
     var tempCharacterObject = JSON.parse(JSON.stringify(characterObject));
     // awesome
-    _report.repaired.push("update: awesome version");
+    _report._500.push("update: awesome version");
     characterObject.awesomeSheet = {};
     characterObject.awesomeSheet.awesome = true;
     characterObject.awesomeSheet.version = 5;
     // basics
-    _report.repaired.push("update: basics");
+    _report._500.push("update: basics");
     characterObject.basics = {
       character: {
         name: _checkForValue(tempCharacterObject, "basics.name", ""),
@@ -956,7 +946,7 @@ var repair = (function() {
       }
     };
     // statistics
-    _report.repaired.push("update: statistics");
+    _report._500.push("update: statistics");
     characterObject.statistics = {
       stats: {
         str: {
@@ -1025,7 +1015,7 @@ var repair = (function() {
       }
     };
     // equipment
-    _report.repaired.push("update: equipment");
+    _report._500.push("update: equipment");
     characterObject.equipment = {
       possessions: {
         gear: _checkForValue(tempCharacterObject, "equipment.gear", ""),
@@ -1085,7 +1075,7 @@ var repair = (function() {
       }
     };
     // defense
-    _report.repaired.push("update: defense");
+    _report._500.push("update: defense");
     characterObject.defense = {
       hp: {
         total: _checkForValue(tempCharacterObject, "defense.hp.total", ""),
@@ -1299,7 +1289,7 @@ var repair = (function() {
       }
     };
     // offense
-    _report.repaired.push("update: offense");
+    _report._500.push("update: offense");
     characterObject.offense = {
       stats: {
         base_attack: _checkForValue(tempCharacterObject, "offense.base_attack", ""),
@@ -1368,7 +1358,7 @@ var repair = (function() {
       }
     };
     // skills
-    _report.repaired.push("update: skills");
+    _report._500.push("update: skills");
     characterObject.skills = {
       ranks: {
         total: "",
@@ -2168,7 +2158,7 @@ var repair = (function() {
       };
     };
     // spells
-    _report.repaired.push("update: spells");
+    _report._500.push("update: spells");
     characterObject.spells = {
       stats: {
         concentration: {
@@ -2517,12 +2507,12 @@ var repair = (function() {
       characterObject.spells.book.level_9.all = [];
     };
     // events
-    _report.repaired.push("update: events");
+    _report._500.push("update: events");
     characterObject.events = {
       all: _checkForValue(tempCharacterObject, "events", [])
     };
     // notes
-    _report.repaired.push("update: spells");
+    _report._500.push("update: spells");
     characterObject.notes = {
       character: {
         all: _checkForValue(tempCharacterObject, "notes.character", [])
@@ -2532,28 +2522,22 @@ var repair = (function() {
       }
     };
     // demo
-    _report.repaired.push("update: demo");
+    _report._500.push("update: demo");
     if (tempCharacterObject.demo) {
       characterObject.awesomeSheet.demo = true;
       delete characterObject.demo;
     };
-    _log("update complete: 500");
-    _log("report:", _report);
-    _log("------------------------------------------");
     return characterObject;
   };
 
   function _update_510(characterObject) {
-    var _report = {
-      name: characterObject.basics.character.name,
-      repaired: []
-    };
+    _report._510 = [];
     // awesome
-    _report.repaired.push("update: awesome version");
+    _report._510.push("update: awesome version");
     characterObject.awesomeSheet.version = 5.1;
     // abilities
     if (!("feats" in characterObject.statistics) || !("traits" in characterObject.statistics) || !("languages" in characterObject.statistics)) {
-      _report.repaired.push("update: feats");
+      _report._510.push("update: feats");
       var oldFeats = characterObject.statistics.abilities.feats;
       var oldTraits = characterObject.statistics.abilities.traits;
       var oldLanguages = characterObject.statistics.abilities.languages;
@@ -2562,39 +2546,33 @@ var repair = (function() {
         all: [],
         notes: oldFeats
       };
-      _report.repaired.push("update: traits");
+      _report._510.push("update: traits");
       characterObject.statistics.traits = {
         all: [],
         notes: oldTraits
       };
-      _report.repaired.push("update: languages");
+      _report._510.push("update: languages");
       characterObject.statistics.languages = {
         all: [],
         notes: oldLanguages
       };
-      _report.repaired.push("update: abilities");
+      _report._510.push("update: abilities");
       characterObject.statistics.abilities = {
         all: [],
         notes: oldAbilities
       };
     };
-    _log("update complete: 510");
-    _log("report:", _report);
-    _log("------------------------------------------");
     return characterObject;
   };
 
   function _update_520(characterObject) {
-    var _report = {
-      name: characterObject.basics.character.name,
-      repaired: []
-    };
+    _report._520 = [];
     // awesome
-    _report.repaired.push("update: awesome version");
+    _report._520.push("update: awesome version");
     characterObject.awesomeSheet.version = 5.2;
     // classes
     if (!("string" in characterObject.basics.classes)) {
-      _report.repaired.push("update: classes");
+      _report._520.push("update: classes");
       var classAndLevel = "";
       var classes = characterObject.basics.classes.all;
       if (classes.length > 0) {
@@ -2611,7 +2589,7 @@ var repair = (function() {
     };
     // consumable
     if (characterObject.equipment.consumable.all.length > 0) {
-      _report.repaired.push("update: consumable name");
+      _report._520.push("update: consumable name");
       characterObject.equipment.consumable.all.forEach(function(arrayItem) {
         arrayItem.name = arrayItem.item;
         delete arrayItem.item;
@@ -2619,58 +2597,46 @@ var repair = (function() {
     };
     // bab
     if ("base_attack_bonuses" in characterObject.offense.stats) {
-      _report.repaired.push("update: bab");
+      _report._520.push("update: bab");
       characterObject.offense.stats.base_attack = {
         bonus: "",
         string: ""
       };
       delete characterObject.offense.stats.base_attack_bonuses;
     };
-    _log("update complete: 520");
-    _log("report:", _report);
-    _log("------------------------------------------");
     return characterObject;
   };
 
   function _update_540(characterObject) {
-    var _report = {
-      name: characterObject.basics.character.name,
-      repaired: []
-    };
+    _report._540 = [];
     // awesome
-    _report.repaired.push("update: awesome version");
+    _report._540.push("update: awesome version");
     characterObject.awesomeSheet.version = 5.4;
     // experience
-    _report.repaired.push("update: experience level");
+    _report._540.push("update: experience level");
     characterObject.basics.experience.level = {
       current: "",
       class_total: ""
     };
-    _log("update complete: 540");
-    _log("report:", _report);
-    _log("------------------------------------------");
     return characterObject;
   };
 
   function _update_550(characterObject) {
-    var _report = {
-      name: characterObject.basics.character.name,
-      repaired: []
-    };
+    _report._550 = [];
     // awesome
-    _report.repaired.push("update: awesome version");
+    _report._550.push("update: awesome version");
     characterObject.awesomeSheet.version = 5.5;
     // senses
-    _report.repaired.push("update: senses");
+    _report._550.push("update: senses");
     characterObject.basics.senses = {
       racial: "",
       magical: ""
     };
-    _report.repaired.push("update: skill notes");
+    _report._550.push("update: skill notes");
     characterObject.skills.stats = {
       notes: ""
     };
-    _report.repaired.push("update: favoured hp and ranks");
+    _report._550.push("update: favoured hp and ranks");
     if (characterObject.basics.classes.all.length > 0) {
       characterObject.basics.classes.all.forEach(function(arrayItem) {
         var oldHp = arrayItem.hp;
@@ -2700,22 +2666,15 @@ var repair = (function() {
         delete arrayItem.will;
       });
     };
-
-    _log("update complete: 550");
-    _log("report:", _report);
-    _log("------------------------------------------");
     return characterObject;
   };
 
   function _update_560(characterObject) {
-    var _report = {
-      name: characterObject.basics.character.name,
-      repaired: []
-    };
+    _report._560 = [];
     // awesome
-    _report.repaired.push("update: awesome version");
+    _report._560.push("update: awesome version");
     characterObject.awesomeSheet.version = 5.6;
-    _report.repaired.push("update: attacks");
+    _report._560.push("update: attacks");
     if (characterObject.offense.attack.melee.all.length > 0) {
       characterObject.offense.attack.melee.all.forEach(function(arrayItem) {
         if (!("equipped" in arrayItem)) {
@@ -2730,21 +2689,15 @@ var repair = (function() {
         };
       });
     };
-    _log("update complete: 560");
-    _log("report:", _report);
-    _log("------------------------------------------");
     return characterObject;
   };
 
   function _update_570(characterObject) {
-    var _report = {
-      name: characterObject.basics.character.name,
-      repaired: []
-    };
+    _report._570 = [];
     // awesome
-    _report.repaired.push("update: awesome version");
+    _report._570.push("update: awesome version");
     characterObject.awesomeSheet.version = 5.7;
-    _report.repaired.push("update: items");
+    _report._570.push("update: items");
     if (characterObject.equipment.item.all.length > 0) {
       characterObject.equipment.item.all.forEach(function(arrayItem) {
         if (!("include" in arrayItem)) {
@@ -2752,21 +2705,15 @@ var repair = (function() {
         };
       });
     };
-    _log("update complete: 570");
-    _log("report:", _report);
-    _log("------------------------------------------");
     return characterObject;
   };
 
   function _update_580(characterObject) {
-    var _report = {
-      name: characterObject.basics.character.name,
-      repaired: []
-    };
+    _report._580 = [];
     // awesome
-    _report.repaired.push("update: awesome version");
+    _report._580.push("update: awesome version");
     characterObject.awesomeSheet.version = 5.8;
-    _report.repaired.push("update: trained skills");
+    _report._580.push("update: trained skills");
     characterObject.skills.default.acrobatics.trained = false;
     characterObject.skills.default.appraise.trained = false;
     characterObject.skills.default.bluff.trained = false;
@@ -2805,26 +2752,20 @@ var repair = (function() {
     characterObject.skills.default.survival.trained = false;
     characterObject.skills.default.swim.trained = false;
     characterObject.skills.default.use_magic_device.trained = true;
-    _log("update complete: 580");
-    _log("report:", _report);
-    _log("------------------------------------------");
     return characterObject;
   };
 
   function _update_590(characterObject) {
-    var _report = {
-      name: characterObject.basics.character.name,
-      repaired: []
-    };
+    _report._590 = [];
     // awesome
-    _report.repaired.push("update: awesome version");
+    _report._590.push("update: awesome version");
     characterObject.awesomeSheet.version = 5.9;
     // cmd
-    _report.repaired.push("update: cmd");
+    _report._590.push("update: cmd");
     characterObject.defense.cmd.bonuses.dodge = true;
     characterObject.defense.cmd.bonuses.deflect = true;
     // ac
-    _report.repaired.push("update: ac");
+    _report._590.push("update: ac");
     characterObject.defense.ac.armor_class.bonuses.ac_temp = true;
     characterObject.defense.ac.armor_class.bonuses.ac_misc = true;
     characterObject.defense.ac.armor_class.bonuses.ac_enhancement = true;
@@ -2834,7 +2775,7 @@ var repair = (function() {
     characterObject.defense.ac.armor_class.bonuses.ac_sacred = true;
     characterObject.defense.ac.armor_class.bonuses.ac_trait = true;
     // flat footed ac
-    _report.repaired.push("update: flat footed ac");
+    _report._590.push("update: flat footed ac");
     characterObject.defense.ac.flat_footed.bonuses.ac_temp = true;
     characterObject.defense.ac.flat_footed.bonuses.ac_misc = true;
     characterObject.defense.ac.flat_footed.bonuses.ac_enhancement = true;
@@ -2844,7 +2785,7 @@ var repair = (function() {
     characterObject.defense.ac.flat_footed.bonuses.ac_sacred = true;
     characterObject.defense.ac.flat_footed.bonuses.ac_trait = true;
     // touch ac
-    _report.repaired.push("update: touch ac");
+    _report._590.push("update: touch ac");
     characterObject.defense.ac.touch.bonuses.ac_temp = true;
     characterObject.defense.ac.touch.bonuses.ac_misc = true;
     characterObject.defense.ac.touch.bonuses.ac_insight = true;
@@ -2853,7 +2794,7 @@ var repair = (function() {
     characterObject.defense.ac.touch.bonuses.ac_sacred = true;
     characterObject.defense.ac.touch.bonuses.ac_trait = true;
     // ac stats
-    _report.repaired.push("update: ac stats");
+    _report._590.push("update: ac stats");
     characterObject.defense.ac.stats.temp = "";
     characterObject.defense.ac.stats.misc = "";
     characterObject.defense.ac.stats.enhancement = "";
@@ -2863,7 +2804,7 @@ var repair = (function() {
     characterObject.defense.ac.stats.sacred = "";
     characterObject.defense.ac.stats.trait = "";
     // armor
-    _report.repaired.push("update: armor");
+    _report._590.push("update: armor");
     var oldArmor = characterObject.equipment.armor.armor;
     var oldMaxDex = characterObject.equipment.armor.max_dex;
     var oldCheckPenalty = characterObject.equipment.armor.check_penalty;
@@ -2897,68 +2838,80 @@ var repair = (function() {
         }
       }
     };
-    _log("update complete: 590");
-    _log("report:", _report);
-    _log("------------------------------------------");
     return characterObject;
   };
 
   function _repair(characterObject) {
     // if version is found
     if (typeof characterObject.awesomeSheet == "object" && "version" in characterObject.awesomeSheet) {
-      _log(["awesome v", update.version(), " | sheet v", characterObject.awesomeSheet.version]);
+      _report = {};
       if ("character" in characterObject.basics) {
-        _log(characterObject.basics.character.name);
+        console.log("# name " + characterObject.basics.character.name);
+      } else if ("name" in characterObject.basics) {
+        console.log("# name " + characterObject.basics.name);
+      } else {
+        console.log("# name unknown");
       };
+      console.log("\t# sheet version found:", characterObject.awesomeSheet.version);
       // if version number is below current version
       if (characterObject.awesomeSheet.version < update.version()) {
-        _log("------------------------------------------");
         if (characterObject.awesomeSheet.version < 5) {
+          console.log("\t# running update", 5);
           characterObject = _update_500(characterObject);
         };
         if (characterObject.awesomeSheet.version < 5.1) {
+          console.log("\t# running update", 5.1);
           characterObject = _update_510(characterObject);
         };
         if (characterObject.awesomeSheet.version < 5.2) {
+          console.log("\t# running update", 5.2);
           characterObject = _update_520(characterObject);
         };
         if (characterObject.awesomeSheet.version < 5.4) {
+          console.log("\t# running update", 5.4);
           characterObject = _update_540(characterObject);
         };
         if (characterObject.awesomeSheet.version < 5.5) {
+          console.log("\t# running update", 5.5);
           characterObject = _update_550(characterObject);
         };
         if (characterObject.awesomeSheet.version < 5.6) {
+          console.log("\t# running update", 5.6);
           characterObject = _update_560(characterObject);
         };
         if (characterObject.awesomeSheet.version < 5.7) {
+          console.log("\t# running update", 5.7);
           characterObject = _update_570(characterObject);
         };
         if (characterObject.awesomeSheet.version < 5.8) {
+          console.log("\t# running update", 5.8);
           characterObject = _update_580(characterObject);
         };
         if (characterObject.awesomeSheet.version < 5.9) {
+          console.log("\t# running update", 5.9);
           characterObject = _update_590(characterObject);
         };
+        console.log("\t# report:",  _report);
+      } else {
+        console.log("\t# no need to update");
       };
     } else {
-      console.log("awesome v", update.version(), " | sheet v not found");
+      _report = {};
+      if ("name" in characterObject.basics) {
+        console.log("# name " + characterObject.basics.name);
+      } else {
+        console.log("# name unknown");
+      };
+      console.log("\t# sheet not version found => running legacy repair");
       // if no version is found
       if (typeof characterObject.awesomeSheet == "boolean") {
         characterObject = _update_legacy(characterObject);
+        console.log("\t# report:",  _report);
         // then run normal repairs
         _repair(characterObject);
       };
     };
     return characterObject;
-  };
-
-  function _log() {
-    if (_debug) {
-      for (var i = 0; i < arguments.length; i++) {
-        console.log(arguments[i]);
-      };
-    };
   };
 
   function render(options) {
@@ -2970,12 +2923,10 @@ var repair = (function() {
       defaultOptions = helper.applyOptions(defaultOptions, options);
     };
     _debug = defaultOptions.debug;
-    _log("##########################################");
-    _log("REPAIR");
     if (defaultOptions.object != null) {
-      return _repair(defaultOptions.object);
+      defaultOptions.object = _repair(defaultOptions.object);
     };
-    _log("repair end");
+    return defaultOptions.object;
   };
 
   // exposed methods
