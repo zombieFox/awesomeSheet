@@ -35219,7 +35219,7 @@ var repair = (function() {
       } else {
         console.log("# name unknown");
       };
-      console.log("\t# sheet not version found => running legacy repair");
+      console.log("\t# sheet version not found => running legacy repair");
       // if no version is found
       if (typeof characterObject.awesomeSheet == "boolean") {
         characterObject = _update_legacy(characterObject);
