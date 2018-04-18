@@ -2290,10 +2290,11 @@ var display = (function() {
                 });
                 // if skill is trained only
                 if (variantSkill1.trained) {
-                  // if skill variant names are the same
+                  // if both skill variant names are not entered
                   if (variantSkill1.variant_name == "" && variantSkill2.variant_name == "") {
-                    // if the variant totals are the same merge the skill
+                    // if the variant totals are the same
                     if (variantSkill1.current == variantSkill2.current) {
+                      // add a single generic skill with its total
                       if (variantSkill1.ranks != "" && variantSkill2.ranks != "") {
                         foundSkills.push({
                           name: skillNames[key],
@@ -2302,28 +2303,36 @@ var display = (function() {
                       };
                       // if variant totals are not the same
                     } else {
+                      // if the skill has ranks
                       if (variantSkill1.ranks != "") {
+                        // add a skill with a number prefixed generic name
                         foundSkills.push({
                           name: skillNames[key + "_1"],
                           current: dataFormat.bonus(variantSkill1.current)
                         });
                       };
+                      // if the skill has ranks
                       if (variantSkill2.ranks != "") {
+                        // add a skill with a number prefixed generic name
                         foundSkills.push({
                           name: skillNames[key + "_2"],
                           current: dataFormat.bonus(variantSkill2.current)
                         });
                       };
                     };
-                    // if skill variant names are not the same
+                    // if either skill variant names are entered
                   } else {
+                    // if the skill has ranks
                     if (variantSkill1.ranks != "") {
+                      // add a skill with the user entered name or a number prefixed generic name
                       foundSkills.push({
                         name: skillNames[key] + " " + variantSkill1.variant_name || skillNames[key + "_1"],
                         current: dataFormat.bonus(variantSkill1.current)
                       });
                     };
+                    // if the skill has ranks
                     if (variantSkill2.ranks != "") {
+                      // add a skill with the user entered name or a number prefixed generic name
                       foundSkills.push({
                         name: skillNames[key] + " " + variantSkill2.variant_name || skillNames[key + "_2"],
                         current: dataFormat.bonus(variantSkill2.current)
@@ -2332,29 +2341,36 @@ var display = (function() {
                   };
                   // if skill is not trained only
                 } else {
+                  // if both skill variant names are not entered
                   if (variantSkill1.variant_name == "" && variantSkill2.variant_name == "") {
-                    // if variant skill names are the same
+                    // if both skill variant totals are the same
                     if (variantSkill1.current == variantSkill2.current) {
+                      // add a single generic skill with its total
                       foundSkills.push({
                         name: skillNames[key],
                         current: dataFormat.bonus(variantSkill1.current)
                       });
+                      // if skill variant totals are not the same
                     } else {
+                      // add a skill with a number prefixed generic name
                       foundSkills.push({
                         name: skillNames[key + "_1"],
                         current: dataFormat.bonus(variantSkill1.current)
                       });
+                      // add a skill with a number prefixed generic name
                       foundSkills.push({
                         name: skillNames[key + "_2"],
                         current: dataFormat.bonus(variantSkill2.current)
                       });
                     };
-                    // if skill variant names are not the same
+                    // if either skill variant names are entered
                   } else {
+                    // add a skill with the user entered name or a number prefixed generic name
                     foundSkills.push({
                       name: skillNames[key] + " " + variantSkill1.variant_name || skillNames[key + "_1"],
                       current: dataFormat.bonus(variantSkill1.current)
                     });
+                    // add a skill with the user entered name or a number prefixed generic name
                     foundSkills.push({
                       name: skillNames[key] + " " + variantSkill2.variant_name || skillNames[key + "_2"],
                       current: dataFormat.bonus(variantSkill2.current)
