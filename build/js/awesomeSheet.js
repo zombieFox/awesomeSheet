@@ -25529,6 +25529,9 @@ var display = (function() {
           }, {
             path: "skills.custom.all",
             skillType: "custom"
+          }, {
+            path: "skills.default",
+            skillType: "variant"
           }]
         }, {
           type: "block",
@@ -26938,60 +26941,61 @@ var display = (function() {
             object: sheet.get(),
             path: arrayItem.path
           });
+          var skillNames = {
+            acrobatics: "Acrobatics",
+            appraise: "Appraise",
+            bluff: "Bluff",
+            climb: "Climb",
+            craft: "Craft",
+            craft_1: "Craft 1",
+            craft_2: "Craft 2",
+            diplomacy: "Diplomacy",
+            disable_device: "Disable Device",
+            disguise: "Disguise",
+            escape_artist: "Escape Artist",
+            fly: "Fly",
+            handle_animal: "Handle Animal",
+            heal: "Heal",
+            intimidate: "Intimidate",
+            knowledge_arcana: "Knowledge Arcana",
+            knowledge_dungeoneering: "Knowledge Dungeoneering",
+            knowledge_engineering: "Knowledge Engineering",
+            knowledge_geography: "Knowledge Geography",
+            knowledge_history: "Knowledge History",
+            knowledge_local: "Knowledge Local",
+            knowledge_nature: "Knowledge Nature",
+            knowledge_nobility: "Knowledge Nobility",
+            knowledge_planes: "Knowledge Planes",
+            knowledge_religion: "Knowledge Religion",
+            linguistics: "Linguistics",
+            perception: "Perception",
+            perform: "Perform ",
+            perform_1: "Perform 1",
+            perform_2: "Perform 2",
+            profession: "Profession ",
+            profession_1: "Profession 1",
+            profession_2: "Profession 2",
+            ride: "Ride",
+            sense_motive: "Sense Motive",
+            sleight_of_hand: "Sleight of Hand",
+            spellcraft: "Spellcraft",
+            stealth: "Stealth",
+            survival: "Survival",
+            swim: "Swim",
+            use_magic_device: "Use Magic Device"
+          };
           var skills = {
             default: function() {
-              var skillNames = {
-                acrobatics: "Acrobatics",
-                appraise: "Appraise",
-                bluff: "Bluff",
-                climb: "Climb",
-                craft_1: "Craft 1",
-                craft_2: "Craft 2",
-                diplomacy: "Diplomacy",
-                disable_device: "Disable Device",
-                disguise: "Disguise",
-                escape_artist: "Escape Artist",
-                fly: "Fly",
-                handle_animal: "Handle Animal",
-                heal: "Heal",
-                intimidate: "Intimidate",
-                knowledge_arcana: "Knowledge Arcana",
-                knowledge_dungeoneering: "Knowledge Dungeoneering",
-                knowledge_engineering: "Knowledge Engineering",
-                knowledge_geography: "Knowledge Geography",
-                knowledge_history: "Knowledge History",
-                knowledge_local: "Knowledge Local",
-                knowledge_nature: "Knowledge Nature",
-                knowledge_nobility: "Knowledge Nobility",
-                knowledge_planes: "Knowledge Planes",
-                knowledge_religion: "Knowledge Religion",
-                linguistics: "Linguistics",
-                perception: "Perception",
-                perform_1: "Perform 1",
-                perform_2: "Perform 2",
-                profession_1: "Profession 1",
-                profession_2: "Profession 2",
-                ride: "Ride",
-                sense_motive: "Sense Motive",
-                sleight_of_hand: "Sleight of Hand",
-                spellcraft: "Spellcraft",
-                stealth: "Stealth",
-                survival: "Survival",
-                swim: "Swim",
-                use_magic_device: "Use Magic Device"
-              };
               for (var key in all_listItem) {
                 if (all_listItem[key].ranks != "" || !all_listItem[key].trained) {
-                  contentFound++;
-                  var skillObject = {};
-                  skillObject.name = skillNames[key];
-                  if (key == "craft_1" || key == "craft_2" || key == "perform_1" || key == "perform_2" || key == "profession_1" || key == "profession_2") {
-                    if (all_listItem[key].variant_name != "" && all_listItem[key].variant_name != undefined) {
-                      skillObject.name = all_listItem[key].variant_name;
+                  if (key != "craft_1" && key != "craft_2" && key != "perform_1" && key != "perform_2" && key != "profession_1" && key != "profession_2") {
+                    contentFound++;
+                    var skillObject = {
+                      name: skillNames[key],
+                      current: dataFormat.bonus(all_listItem[key].current)
                     };
+                    foundSkills.push(skillObject);
                   };
-                  skillObject.current = dataFormat.bonus(all_listItem[key].current);
-                  foundSkills.push(skillObject);
                 };
               };
             },
@@ -27006,6 +27010,110 @@ var display = (function() {
                   foundSkills.push(skillObject);
                 };
               });
+            },
+            variant: function() {
+              var variantSkill = function(key) {
+                var variantSkill1 = helper.getObject({
+                  object: sheet.get(),
+                  path: "skills.default." + key + "_1"
+                });
+                var variantSkill2 = helper.getObject({
+                  object: sheet.get(),
+                  path: "skills.default." + key + "_2"
+                });
+                // if skill is trained only
+                if (variantSkill1.trained) {
+                  // if both skill variant names are not entered
+                  if (variantSkill1.variant_name == "" && variantSkill2.variant_name == "") {
+                    // if the variant totals are the same
+                    if (variantSkill1.current == variantSkill2.current) {
+                      // add a single generic skill with its total
+                      if (variantSkill1.ranks != "" && variantSkill2.ranks != "") {
+                        foundSkills.push({
+                          name: skillNames[key],
+                          current: dataFormat.bonus(variantSkill1.current)
+                        });
+                      };
+                      // if variant totals are not the same
+                    } else {
+                      // if the skill has ranks
+                      if (variantSkill1.ranks != "") {
+                        // add a skill with a number prefixed generic name
+                        foundSkills.push({
+                          name: skillNames[key + "_1"],
+                          current: dataFormat.bonus(variantSkill1.current)
+                        });
+                      };
+                      // if the skill has ranks
+                      if (variantSkill2.ranks != "") {
+                        // add a skill with a number prefixed generic name
+                        foundSkills.push({
+                          name: skillNames[key + "_2"],
+                          current: dataFormat.bonus(variantSkill2.current)
+                        });
+                      };
+                    };
+                    // if either skill variant names are entered
+                  } else {
+                    // if the skill has ranks
+                    if (variantSkill1.ranks != "") {
+                      // add a skill with the user entered name or a number prefixed generic name
+                      foundSkills.push({
+                        name: skillNames[key] + " " + variantSkill1.variant_name || skillNames[key + "_1"],
+                        current: dataFormat.bonus(variantSkill1.current)
+                      });
+                    };
+                    // if the skill has ranks
+                    if (variantSkill2.ranks != "") {
+                      // add a skill with the user entered name or a number prefixed generic name
+                      foundSkills.push({
+                        name: skillNames[key] + " " + variantSkill2.variant_name || skillNames[key + "_2"],
+                        current: dataFormat.bonus(variantSkill2.current)
+                      });
+                    };
+                  };
+                  // if skill is not trained only
+                } else {
+                  // if both skill variant names are not entered
+                  if (variantSkill1.variant_name == "" && variantSkill2.variant_name == "") {
+                    // if both skill variant totals are the same
+                    if (variantSkill1.current == variantSkill2.current) {
+                      // add a single generic skill with its total
+                      foundSkills.push({
+                        name: skillNames[key],
+                        current: dataFormat.bonus(variantSkill1.current)
+                      });
+                      // if skill variant totals are not the same
+                    } else {
+                      // add a skill with a number prefixed generic name
+                      foundSkills.push({
+                        name: skillNames[key + "_1"],
+                        current: dataFormat.bonus(variantSkill1.current)
+                      });
+                      // add a skill with a number prefixed generic name
+                      foundSkills.push({
+                        name: skillNames[key + "_2"],
+                        current: dataFormat.bonus(variantSkill2.current)
+                      });
+                    };
+                    // if either skill variant names are entered
+                  } else {
+                    // add a skill with the user entered name or a number prefixed generic name
+                    foundSkills.push({
+                      name: skillNames[key] + " " + variantSkill1.variant_name || skillNames[key + "_1"],
+                      current: dataFormat.bonus(variantSkill1.current)
+                    });
+                    // add a skill with the user entered name or a number prefixed generic name
+                    foundSkills.push({
+                      name: skillNames[key] + " " + variantSkill2.variant_name || skillNames[key + "_2"],
+                      current: dataFormat.bonus(variantSkill2.current)
+                    });
+                  };
+                };
+              };
+              variantSkill("craft");
+              variantSkill("perform");
+              variantSkill("profession");
             }
           };
           skills[arrayItem.skillType]();
