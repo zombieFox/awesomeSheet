@@ -2288,8 +2288,11 @@ var display = (function() {
                   object: sheet.get(),
                   path: "skills.default." + key + "_2"
                 });
+                // if skill is trained only
                 if (variantSkill1.trained) {
+                  // if skill variant names are the same
                   if (variantSkill1.variant_name == "" && variantSkill2.variant_name == "") {
+                    // if the variant totals are the same merge the skill
                     if (variantSkill1.current == variantSkill2.current) {
                       if (variantSkill1.ranks != "" && variantSkill2.ranks != "") {
                         foundSkills.push({
@@ -2297,6 +2300,7 @@ var display = (function() {
                           current: dataFormat.bonus(variantSkill1.current)
                         });
                       };
+                      // if variant totals are not the same
                     } else {
                       if (variantSkill1.ranks != "") {
                         foundSkills.push({
@@ -2311,6 +2315,7 @@ var display = (function() {
                         });
                       };
                     };
+                    // if skill variant names are not the same
                   } else {
                     if (variantSkill1.ranks != "") {
                       foundSkills.push({
@@ -2325,8 +2330,10 @@ var display = (function() {
                       });
                     };
                   };
+                  // if skill is not trained only
                 } else {
                   if (variantSkill1.variant_name == "" && variantSkill2.variant_name == "") {
+                    // if variant skill names are the same
                     if (variantSkill1.current == variantSkill2.current) {
                       foundSkills.push({
                         name: skillNames[key],
@@ -2342,6 +2349,7 @@ var display = (function() {
                         current: dataFormat.bonus(variantSkill2.current)
                       });
                     };
+                    // if skill variant names are not the same
                   } else {
                     foundSkills.push({
                       name: skillNames[key] + " " + variantSkill1.variant_name || skillNames[key + "_1"],
