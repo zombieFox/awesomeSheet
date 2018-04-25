@@ -2,10 +2,7 @@
 **A dynamic character sheet which auto calculates many scores and bonuses.**
 ### [See it in action](https://zombiefox.github.io/awesomeSheet/)
 
-### Demo Gif
 [![awesomeSheet Demo](screenshots/demo.gif)](https://zombiefox.github.io/awesomeSheet/)
-
-### Screenshots
 ![alt Screenshot 1](screenshots/screenshot-001.png)
 ![alt Screenshot 2](screenshots/screenshot-002.png)
 ![alt Screenshot 3](screenshots/screenshot-003.png)
