@@ -13,13 +13,15 @@
 // --------------------------------------------------
 @media (min-width: $screen-sm) {
   .l-section {
-    margin: 1em auto 0;
+    margin: 0 auto;
+    padding-top: 1em;
     width: calc(100% - 2em);
   }
 }
 @media (min-width: $screen-md) {
   .l-section {
-    margin: 2em auto 0;
+    margin: 0 auto;
+    padding-top: 2em;
     width: calc(100% - 4em);
   }
 }

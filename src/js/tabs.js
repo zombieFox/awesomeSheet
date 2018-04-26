@@ -1,5 +1,69 @@
 var tabs = (function() {
 
+  var _state = {
+    basics: {
+      character: true,
+      experience: false,
+      classes: false,
+      senses: false,
+      initiative: false,
+      speed: false,
+      image: false
+    },
+    statistics: {
+      stats: true,
+      abilities: false,
+      feats: false,
+      traits: false,
+      languages: false,
+      power: false
+    },
+    equipment: {
+      possessions: true,
+      armor: false,
+      body_slots: false,
+      item: false,
+      encumbrance: false,
+      consumable: false,
+      wealth: false
+    },
+    defense: {
+      hp: true,
+      ac: false,
+      cmd: false,
+      saves: false,
+      dr: false,
+      sr: false,
+      resistance: false
+    },
+    offense: {
+      stats: true,
+      cmb: false,
+      attack: false
+    },
+    skills: {
+      all: true,
+      custom: false
+    },
+    spells: {
+      stats: true,
+      level_0: false,
+      level_1: false,
+      level_2: false,
+      level_3: false,
+      level_4: false,
+      level_5: false,
+      level_6: false,
+      level_7: false,
+      level_8: false,
+      level_9: false
+    },
+    notes: {
+      character: true,
+      story: false
+    }
+  };
+
   function bind() {
     _bind_tabGroup();
     _bind_tabArrow();
@@ -82,6 +146,7 @@ var tabs = (function() {
 
   function _switchTabPanel(tab) {
     var options = helper.makeObject(tab.dataset.tabOptions);
+    console.log(options.tab);
     var all_targetToShow = options.target.split(",");
     var tabGroup = helper.getClosest(tab, ".js-tab-group");
     var tabRow = tabGroup.querySelector(".js-tab-row");
@@ -111,17 +176,17 @@ var tabs = (function() {
   };
 
   function render() {
-    _render_all_rabRow();
+    _render_all_tabRow();
   };
 
-  function _render_all_rabRow() {
+  function _render_all_tabRow() {
     var all_tabRow = helper.eA(".js-tab-row");
     for (var i = 0; i < all_tabRow.length; i++) {
-      _render_rabRow(all_tabRow[i]);
+      _render_tabRow(all_tabRow[i]);
     };
   };
 
-  function _render_rabRow(rabRow) {
+  function _render_tabRow(rabRow) {
     var all_tabItem = rabRow.querySelectorAll(".js-tab-item");
     var tabIndicator = document.createElement("span");
     tabIndicator.setAttribute("class", "m-tab-indicator");
