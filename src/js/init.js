@@ -6,6 +6,7 @@
   onboarding.render();
   nav.bind();
   menu.bind();
+  tabs.init();
   tabs.bind();
   tabs.render();
   log.render();

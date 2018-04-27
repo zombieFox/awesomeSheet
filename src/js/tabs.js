@@ -1,67 +1,115 @@
 var tabs = (function() {
 
-  var _state = {
-    basics: {
-      character: true,
-      experience: false,
-      classes: false,
-      senses: false,
-      initiative: false,
-      speed: false,
-      image: false
-    },
-    statistics: {
-      stats: true,
-      abilities: false,
-      feats: false,
-      traits: false,
-      languages: false,
-      power: false
-    },
-    equipment: {
-      possessions: true,
-      armor: false,
-      body_slots: false,
-      item: false,
-      encumbrance: false,
-      consumable: false,
-      wealth: false
-    },
-    defense: {
-      hp: true,
-      ac: false,
-      cmd: false,
-      saves: false,
-      dr: false,
-      sr: false,
-      resistance: false
-    },
-    offense: {
-      stats: true,
-      cmb: false,
-      attack: false
-    },
-    skills: {
-      all: true,
-      custom: false
-    },
-    spells: {
-      stats: true,
-      level_0: false,
-      level_1: false,
-      level_2: false,
-      level_3: false,
-      level_4: false,
-      level_5: false,
-      level_6: false,
-      level_7: false,
-      level_8: false,
-      level_9: false
-    },
-    notes: {
-      character: true,
-      story: false
-    }
+  var state = (function() {
+    var tabState = {
+      basics: {
+        character: true,
+        experience: false,
+        classes: false,
+        senses: false,
+        initiative: false,
+        speed: false,
+        image: false
+      },
+      statistics: {
+        stats: true,
+        abilities: false,
+        feats: false,
+        traits: false,
+        languages: false,
+        power: false
+      },
+      equipment: {
+        possessions: true,
+        armor: false,
+        body_slots: false,
+        item: false,
+        encumbrance: false,
+        consumable: false,
+        wealth: false
+      },
+      defense: {
+        hp: true,
+        ac: false,
+        cmd: false,
+        saves: false,
+        dr: false,
+        sr: false,
+        resistance: false
+      },
+      offense: {
+        stats: true,
+        cmb: false,
+        attack: false
+      },
+      skills: {
+        all: true,
+        custom: false
+      },
+      spells: {
+        stats: true,
+        level_0: false,
+        level_1: false,
+        level_2: false,
+        level_3: false,
+        level_4: false,
+        level_5: false,
+        level_6: false,
+        level_7: false,
+        level_8: false,
+        level_9: false
+      },
+      notes: {
+        character: true,
+        story: false
+      }
+    };
+    var get = function(section, tab) {
+      if (!section && !tab) {
+        return tabState;
+      } else {
+        if (tab) {
+          return tabState[section][tab];
+        } else {
+          return tabState[section];
+        };
+      };
+    };
+    var set = function(options) {
+      var defaultOptions = {
+        section: null,
+        tab: null,
+        boolean: null
+      };
+      if (options) {
+        defaultOptions = helper.applyOptions(defaultOptions, options);
+      };
+      if (defaultOptions.boolean != null) {
+        if (defaultOptions.section != null && defaultOptions.tab != null) {
+          tabState[defaultOptions.section][defaultOptions.tab] = defaultOptions.boolean;
+        };
+      } else {
+        if (defaultOptions.section != null && defaultOptions.tab != null) {
+          for (var key in tabState[defaultOptions.section]) {
+            tabState[defaultOptions.section][key] = false;
+          };
+          if (tabState[defaultOptions.section][defaultOptions.tab]) {
+            tabState[defaultOptions.section][defaultOptions.tab] = false;
+          } else {
+            tabState[defaultOptions.section][defaultOptions.tab] = true;
+          };
+        };
+      };
+    };
+    // exposed methods
+    return {
+      set: set,
+      get: get
+    };
+  })();
+
+  function _store() {
+    helper.store("tabState", JSON.stringify(state.get()));
   };
 
   function bind() {
@@ -75,104 +123,75 @@ var tabs = (function() {
       var all_tabItem = all_tabGroup[i].querySelectorAll(".js-tab-item");
       for (var j = 0; j < all_tabItem.length; j++) {
         all_tabItem[j].addEventListener("click", function() {
-          _switchTabPanel(this);
+          _updateState(this);
+          _store();
+          render();
         }, false);
       };
     };
   };
 
   function _bind_tabArrow() {
-    var all_tabArrow = helper.eA(".js-tab-arrow");
-    for (var i = 0; i < all_tabArrow.length; i++) {
-      all_tabArrow[i].addEventListener("click", function() {
-        _tabArrow(this);
-      }, false);
-    };
+    // var all_tabArrow = helper.eA(".js-tab-arrow");
+    // for (var i = 0; i < all_tabArrow.length; i++) {
+    //   all_tabArrow[i].addEventListener("click", function() {
+    //     _tabArrow(this);
+    //   }, false);
+    // };
   };
 
   function _tabArrow(button) {
-    var options = helper.makeObject(button.dataset.tabArrowOptions);
-    var tabGroup = helper.getClosest(button, ".js-tab-group");
-    var tabRow = tabGroup.querySelector(".js-tab-row");
-    var all_tabItem = tabGroup.querySelectorAll(".js-tab-item");
-    var currentIndex;
-    var newIndex;
-    for (var i = 0; i < all_tabItem.length; i++) {
-      if (all_tabItem[i].dataset.tabState == "true") {
-        currentIndex = i;
-      };
-      helper.removeClass(all_tabItem[i], "is-active");
-      all_tabItem[i].dataset.tabState = false;
-    };
-    if (options.action == "right") {
-      newIndex = currentIndex + 1;
-      if (newIndex > all_tabItem.length - 1) {
-        newIndex = 0;
-      };
-    } else if (options.action == "left") {
-      newIndex = currentIndex - 1;
-      if (newIndex < 0) {
-        newIndex = all_tabItem.length - 1;
-      };
-    };
-    helper.addClass(all_tabItem[newIndex], "is-active");
-    all_tabItem[newIndex].dataset.tabState = true;
-    _scrollTabInToView(tabRow, all_tabItem[newIndex]);
-    _switchTabPanel(all_tabItem[newIndex]);
+    // var options = helper.makeObject(button.dataset.tabArrowOptions);
+    // var tabGroup = helper.getClosest(button, ".js-tab-group");
+    // var tabRow = tabGroup.querySelector(".js-tab-row");
+    // var all_tabItem = tabGroup.querySelectorAll(".js-tab-item");
+    // var currentIndex;
+    // var newIndex;
+    // for (var i = 0; i < all_tabItem.length; i++) {
+    //   if (all_tabItem[i].dataset.tabState == "true") {
+    //     currentIndex = i;
+    //   };
+    //   helper.removeClass(all_tabItem[i], "is-active");
+    //   all_tabItem[i].dataset.tabState = false;
+    // };
+    // if (options.action == "right") {
+    //   newIndex = currentIndex + 1;
+    //   if (newIndex > all_tabItem.length - 1) {
+    //     newIndex = 0;
+    //   };
+    // } else if (options.action == "left") {
+    //   newIndex = currentIndex - 1;
+    //   if (newIndex < 0) {
+    //     newIndex = all_tabItem.length - 1;
+    //   };
+    // };
+    // helper.addClass(all_tabItem[newIndex], "is-active");
+    // all_tabItem[newIndex].dataset.tabState = true;
+    // _scrollTabInToView(tabRow, all_tabItem[newIndex]);
+    // _switchTabPanel(all_tabItem[newIndex]);
   };
 
-  function _scrollTabInToView(tabRow, tab) {
-    var tabIndicator = tabRow.querySelector(".m-tab-indicator");
-    var tabRowArea = tabRow.getBoundingClientRect();
-    var tabArea = tab.getBoundingClientRect();
-    var left = Math.ceil(tab.offsetLeft - (tabRowArea.width / 2) + (tabArea.width / 2), 10);
-    tabIndicator.setAttribute("style", "width:" + (tabArea.width - 10) + "px;left:" + (tab.offsetLeft + 5) + "px;");
-    if (tabRow.scroll) {
-      tabRow.scroll({
-        top: 0,
-        left: left,
-        behavior: 'smooth'
-      });
-    } else {
-      if (tabArea.left < tabRowArea.left) {
-        var left = tab.offsetLeft;
-        tabRow.scrollLeft = left;
-      } else if (tabArea.right > tabRowArea.right) {
-        var right = Math.ceil(tab.offsetLeft - tabRowArea.width + tabArea.width, 10);
-        tabRow.scrollLeft = right;
-      };
-    };
-  };
-
-  function _switchTabPanel(tab) {
+  function _updateState(tab) {
     var options = helper.makeObject(tab.dataset.tabOptions);
-    console.log(options.tab);
-    var all_targetToShow = options.target.split(",");
-    var tabGroup = helper.getClosest(tab, ".js-tab-group");
-    var tabRow = tabGroup.querySelector(".js-tab-row");
-    var all_tabItem = tabGroup.querySelectorAll(".js-tab-item");
-    var _hideAllTabPanel = function() {
-      for (var i = 0; i < all_tabItem.length; i++) {
-        all_tabItem[i].dataset.tabState = false;
-        helper.removeClass(all_tabItem[i], "is-active");
-        var tabItemOptions = helper.makeObject(all_tabItem[i].dataset.tabOptions);
-        var all_targetToHide = tabItemOptions.target.split(",");
-        for (var j = 0; j < all_targetToHide.length; j++) {
-          helper.addClass(helper.e("." + all_targetToHide[j]), "is-hidden");
+    state.set({
+      section: options.tabGroup,
+      tab: options.tab
+    });
+  };
+
+  function init() {
+    if (helper.read("tabState")) {
+      var savedState = JSON.parse(helper.read("tabState"));
+      for (var key1 in savedState) {
+        for (var key2 in savedState[key1]) {
+          state.set({
+            section: key1,
+            tab: key2,
+            boolean: savedState[key1][key2]
+          });
         };
       };
     };
-    var _showPanel = function() {
-      tab.dataset.tabState = true;
-      helper.addClass(tab, "is-active");
-      for (var i = 0; i < all_targetToShow.length; i++) {
-        var target = helper.e("." + all_targetToShow[i]);
-        helper.removeClass(target, "is-hidden");
-      };
-    };
-    _hideAllTabPanel();
-    _showPanel();
-    _scrollTabInToView(tabRow, tab);
   };
 
   function render() {
@@ -182,11 +201,12 @@ var tabs = (function() {
   function _render_all_tabRow() {
     var all_tabRow = helper.eA(".js-tab-row");
     for (var i = 0; i < all_tabRow.length; i++) {
-      _render_tabRow(all_tabRow[i]);
+      _switchTabPanel(all_tabRow[i]);
+      _render_tabRowIndicator(all_tabRow[i]);
     };
   };
 
-  function _render_tabRow(rabRow) {
+  function _render_tabRowIndicator(rabRow) {
     var all_tabItem = rabRow.querySelectorAll(".js-tab-item");
     var tabIndicator = document.createElement("span");
     tabIndicator.setAttribute("class", "m-tab-indicator");
@@ -194,8 +214,63 @@ var tabs = (function() {
     rabRow.appendChild(tabIndicator);
   };
 
+  function _switchTabPanel(tabRow) {
+    console.log(tabRow);
+    // var options = helper.makeObject(tab.dataset.tabOptions);
+    // var all_targetToShow = options.target.split(",");
+    // var tabGroup = helper.getClosest(tab, ".js-tab-group");
+    // var tabRow = tabGroup.querySelector(".js-tab-row");
+    // var all_tabItem = tabGroup.querySelectorAll(".js-tab-item");
+    // var _scrollTabInToView = function(tabRow, tab) {
+    //   var tabIndicator = tabRow.querySelector(".m-tab-indicator");
+    //   var tabRowArea = tabRow.getBoundingClientRect();
+    //   var tabArea = tab.getBoundingClientRect();
+    //   var left = Math.ceil(tab.offsetLeft - (tabRowArea.width / 2) + (tabArea.width / 2), 10);
+    //   tabIndicator.setAttribute("style", "width:" + (tabArea.width - 10) + "px;left:" + (tab.offsetLeft + 5) + "px;");
+    //   if (tabRow.scroll) {
+    //     tabRow.scroll({
+    //       top: 0,
+    //       left: left,
+    //       behavior: 'smooth'
+    //     });
+    //   } else {
+    //     if (tabArea.left < tabRowArea.left) {
+    //       var left = tab.offsetLeft;
+    //       tabRow.scrollLeft = left;
+    //     } else if (tabArea.right > tabRowArea.right) {
+    //       var right = Math.ceil(tab.offsetLeft - tabRowArea.width + tabArea.width, 10);
+    //       tabRow.scrollLeft = right;
+    //     };
+    //   };
+    // };
+    // var _hideAllTabPanel = function() {
+    //   for (var i = 0; i < all_tabItem.length; i++) {
+    //     all_tabItem[i].dataset.tabState = false;
+    //     helper.removeClass(all_tabItem[i], "is-active");
+    //     var tabItemOptions = helper.makeObject(all_tabItem[i].dataset.tabOptions);
+    //     var all_targetToHide = tabItemOptions.target.split(",");
+    //     for (var j = 0; j < all_targetToHide.length; j++) {
+    //       helper.addClass(helper.e("." + all_targetToHide[j]), "is-hidden");
+    //     };
+    //   };
+    // };
+    // var _showPanel = function() {
+    //   tab.dataset.tabState = true;
+    //   helper.addClass(tab, "is-active");
+    //   for (var i = 0; i < all_targetToShow.length; i++) {
+    //     var target = helper.e("." + all_targetToShow[i]);
+    //     helper.removeClass(target, "is-hidden");
+    //   };
+    // };
+    // _hideAllTabPanel();
+    // _showPanel();
+    // _scrollTabInToView(tabRow, tab);
+  };
+
   // exposed methods
   return {
+    init: init,
+    state: state,
     bind: bind,
     render: render
   };
