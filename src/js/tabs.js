@@ -123,7 +123,7 @@ var tabs = (function() {
       var all_tabItem = all_tabGroup[i].querySelectorAll(".js-tab-item");
       for (var j = 0; j < all_tabItem.length; j++) {
         all_tabItem[j].addEventListener("click", function() {
-          _updateState(this);
+          _changeState(this);
           _store();
           render();
         }, false);
@@ -132,46 +132,52 @@ var tabs = (function() {
   };
 
   function _bind_tabArrow() {
-    // var all_tabArrow = helper.eA(".js-tab-arrow");
-    // for (var i = 0; i < all_tabArrow.length; i++) {
-    //   all_tabArrow[i].addEventListener("click", function() {
-    //     _tabArrow(this);
-    //   }, false);
-    // };
+    var all_tabArrow = helper.eA(".js-tab-arrow");
+    for (var i = 0; i < all_tabArrow.length; i++) {
+      all_tabArrow[i].addEventListener("click", function() {
+        _singleStepChangeState(this);
+        _store();
+        render();
+      }, false);
+    };
   };
 
-  function _tabArrow(button) {
-    // var options = helper.makeObject(button.dataset.tabArrowOptions);
-    // var tabGroup = helper.getClosest(button, ".js-tab-group");
-    // var tabRow = tabGroup.querySelector(".js-tab-row");
-    // var all_tabItem = tabGroup.querySelectorAll(".js-tab-item");
-    // var currentIndex;
-    // var newIndex;
-    // for (var i = 0; i < all_tabItem.length; i++) {
-    //   if (all_tabItem[i].dataset.tabState == "true") {
-    //     currentIndex = i;
-    //   };
-    //   helper.removeClass(all_tabItem[i], "is-active");
-    //   all_tabItem[i].dataset.tabState = false;
-    // };
-    // if (options.action == "right") {
-    //   newIndex = currentIndex + 1;
-    //   if (newIndex > all_tabItem.length - 1) {
-    //     newIndex = 0;
-    //   };
-    // } else if (options.action == "left") {
-    //   newIndex = currentIndex - 1;
-    //   if (newIndex < 0) {
-    //     newIndex = all_tabItem.length - 1;
-    //   };
-    // };
-    // helper.addClass(all_tabItem[newIndex], "is-active");
-    // all_tabItem[newIndex].dataset.tabState = true;
-    // _scrollTabInToView(tabRow, all_tabItem[newIndex]);
-    // _switchTabPanel(all_tabItem[newIndex]);
+  function _singleStepChangeState(arrow) {
+    var tabOrder = {
+      basics: ["character", "experience", "classes", "senses", "initiative", "speed", "image"],
+      statistics: ["stats", "abilities", "feats", "traits", "languages", "power"],
+      equipment: ["possessions", "armor", "body_slots", "item", "encumbrance", "consumable", "wealth"],
+      defense: ["hp", "ac", "cmd", "saves", "dr", "sr", "resistance"],
+      offense: ["stats", "cmb", "attack"],
+      skills: ["all", "custom"],
+      spells: ["stats", "level_0", "level_1", "level_2", "level_3", "level_4", "level_5", "level_6", "level_7", "level_8", "level_9"],
+      notes: ["character", "story"]
+    };
+    var options = helper.makeObject(arrow.dataset.tabArrowOptions);
+    var newIndex = 0;
+    tabOrder[options.tabGroup].forEach(function(arrayItem, index) {
+      if (state.get(options.tabGroup, arrayItem)) {
+        if (options.action == "right") {
+          newIndex = index + 1;
+        };
+        if (options.action == "left") {
+          newIndex = index - 1;
+        };
+        if (newIndex > (tabOrder[options.tabGroup].length - 1)) {
+          newIndex = 0;
+        };
+        if (newIndex < 0) {
+          newIndex = (tabOrder[options.tabGroup].length - 1);
+        };
+      };
+    });
+    state.set({
+      section: options.tabGroup,
+      tab: tabOrder[options.tabGroup][newIndex]
+    });
   };
 
-  function _updateState(tab) {
+  function _changeState(tab) {
     var options = helper.makeObject(tab.dataset.tabOptions);
     state.set({
       section: options.tabGroup,
@@ -182,12 +188,12 @@ var tabs = (function() {
   function init() {
     if (helper.read("tabState")) {
       var savedState = JSON.parse(helper.read("tabState"));
-      for (var key1 in savedState) {
-        for (var key2 in savedState[key1]) {
+      for (var section in savedState) {
+        for (var tab in savedState[section]) {
           state.set({
-            section: key1,
-            tab: key2,
-            boolean: savedState[key1][key2]
+            section: section,
+            tab: tab,
+            boolean: savedState[section][tab]
           });
         };
       };
@@ -201,70 +207,63 @@ var tabs = (function() {
   function _render_all_tabRow() {
     var all_tabRow = helper.eA(".js-tab-row");
     for (var i = 0; i < all_tabRow.length; i++) {
-      _switchTabPanel(all_tabRow[i]);
       _render_tabRowIndicator(all_tabRow[i]);
+      _render_tabPanel(all_tabRow[i]);
+      _render_row(all_tabRow[i]);
     };
   };
 
-  function _render_tabRowIndicator(rabRow) {
-    var all_tabItem = rabRow.querySelectorAll(".js-tab-item");
-    var tabIndicator = document.createElement("span");
-    tabIndicator.setAttribute("class", "m-tab-indicator");
-    tabIndicator.setAttribute("style", "width:" + (all_tabItem[0].getBoundingClientRect().width - 10) + "px;left:" + (all_tabItem[0].offsetLeft + 5) + "px;");
-    rabRow.appendChild(tabIndicator);
+  function _render_tabRowIndicator(tabRow) {
+    var tabIndicator = tabRow.querySelector(".m-tab-indicator");
+    var all_tabItem = tabRow.querySelectorAll(".js-tab-item");
+    all_tabItem.forEach(function(arrayItem, index) {
+      var options = helper.makeObject(arrayItem.dataset.tabOptions);
+      if (state.get(options.tabGroup, options.tab)) {
+        var tabArea = arrayItem.getBoundingClientRect();
+        tabIndicator.setAttribute("style", "width:" + (tabArea.width - 10) + "px;left:" + (arrayItem.offsetLeft + 5) + "px;");
+      };
+    });
   };
 
-  function _switchTabPanel(tabRow) {
-    console.log(tabRow);
-    // var options = helper.makeObject(tab.dataset.tabOptions);
-    // var all_targetToShow = options.target.split(",");
-    // var tabGroup = helper.getClosest(tab, ".js-tab-group");
-    // var tabRow = tabGroup.querySelector(".js-tab-row");
-    // var all_tabItem = tabGroup.querySelectorAll(".js-tab-item");
-    // var _scrollTabInToView = function(tabRow, tab) {
-    //   var tabIndicator = tabRow.querySelector(".m-tab-indicator");
-    //   var tabRowArea = tabRow.getBoundingClientRect();
-    //   var tabArea = tab.getBoundingClientRect();
-    //   var left = Math.ceil(tab.offsetLeft - (tabRowArea.width / 2) + (tabArea.width / 2), 10);
-    //   tabIndicator.setAttribute("style", "width:" + (tabArea.width - 10) + "px;left:" + (tab.offsetLeft + 5) + "px;");
-    //   if (tabRow.scroll) {
-    //     tabRow.scroll({
-    //       top: 0,
-    //       left: left,
-    //       behavior: 'smooth'
-    //     });
-    //   } else {
-    //     if (tabArea.left < tabRowArea.left) {
-    //       var left = tab.offsetLeft;
-    //       tabRow.scrollLeft = left;
-    //     } else if (tabArea.right > tabRowArea.right) {
-    //       var right = Math.ceil(tab.offsetLeft - tabRowArea.width + tabArea.width, 10);
-    //       tabRow.scrollLeft = right;
-    //     };
-    //   };
-    // };
-    // var _hideAllTabPanel = function() {
-    //   for (var i = 0; i < all_tabItem.length; i++) {
-    //     all_tabItem[i].dataset.tabState = false;
-    //     helper.removeClass(all_tabItem[i], "is-active");
-    //     var tabItemOptions = helper.makeObject(all_tabItem[i].dataset.tabOptions);
-    //     var all_targetToHide = tabItemOptions.target.split(",");
-    //     for (var j = 0; j < all_targetToHide.length; j++) {
-    //       helper.addClass(helper.e("." + all_targetToHide[j]), "is-hidden");
-    //     };
-    //   };
-    // };
-    // var _showPanel = function() {
-    //   tab.dataset.tabState = true;
-    //   helper.addClass(tab, "is-active");
-    //   for (var i = 0; i < all_targetToShow.length; i++) {
-    //     var target = helper.e("." + all_targetToShow[i]);
-    //     helper.removeClass(target, "is-hidden");
-    //   };
-    // };
-    // _hideAllTabPanel();
-    // _showPanel();
-    // _scrollTabInToView(tabRow, tab);
+  function _render_tabPanel(tabRow) {
+    var all_tabItem = tabRow.querySelectorAll(".js-tab-item");
+    all_tabItem.forEach(function(arrayItem, index) {
+      var options = helper.makeObject(arrayItem.dataset.tabOptions);
+      if (state.get(options.tabGroup, options.tab)) {
+        helper.addClass(arrayItem, "is-active");
+        helper.removeClass(helper.e("." + options.target), "is-hidden");
+      } else {
+        helper.removeClass(arrayItem, "is-active");
+        helper.addClass(helper.e("." + options.target), "is-hidden");
+      };
+    });
+  };
+
+  function _render_row(tabRow) {
+    var tabRowArea = tabRow.getBoundingClientRect();
+    var all_tabItem = tabRow.querySelectorAll(".js-tab-item");
+    all_tabItem.forEach(function(arrayItem, index) {
+      var options = helper.makeObject(arrayItem.dataset.tabOptions);
+      if (state.get(options.tabGroup, options.tab)) {
+        var tabArea = arrayItem.getBoundingClientRect();
+        var left = Math.ceil(arrayItem.offsetLeft - (tabRowArea.width / 2) + (tabArea.width / 2), 10);
+        if (tabRow.scroll) {
+          tabRow.scroll({
+            top: 0,
+            left: left,
+            behavior: 'smooth'
+          });
+        } else {
+          if (tabArea.left < tabRowArea.left) {
+            var left = arrayItem.offsetLeft;
+            tabRow.scrollLeft = left;
+          } else if (tabArea.right > tabRowArea.right) {
+            var right = Math.ceil(arrayItem.offsetLeft - tabRowArea.width + tabArea.width, 10);
+            tabRow.scrollLeft = right;
+          };
+        };
+      };
+    });
   };
 
   // exposed methods

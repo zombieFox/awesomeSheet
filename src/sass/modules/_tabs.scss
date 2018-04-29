@@ -23,11 +23,11 @@
 }
 .m-tab-indicator {
   background-color: $white;
-  width: 1em;
+  width: 10em;
   height: 8px;
   position: absolute;
   bottom: -3px;
-  left: 0;
+  left: calc(50% - 5em);
   z-index: 2;
   pointer-events: none;
   border-radius: $border-radius-extra-small $border-radius-extra-small 0 0;
