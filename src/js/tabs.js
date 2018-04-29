@@ -64,15 +64,21 @@ var tabs = (function() {
         story: false
       }
     };
-    var get = function(section, tab) {
-      if (!section && !tab) {
+    var get = function(options) {
+      var defaultOptions = {
+        section: null,
+        tab: null,
+        all: null
+      };
+      if (options) {
+        defaultOptions = helper.applyOptions(defaultOptions, options);
+      };
+      if (defaultOptions.all) {
         return tabState;
-      } else {
-        if (tab) {
-          return tabState[section][tab];
-        } else {
-          return tabState[section];
-        };
+      } else if (defaultOptions.section != null && defaultOptions.tab == null) {
+        return tabState[defaultOptions.section];
+      } else if (defaultOptions.section != null && defaultOptions.tab != null) {
+        return tabState[defaultOptions.section][defaultOptions.tab];
       };
     };
     var set = function(options) {
@@ -109,7 +115,9 @@ var tabs = (function() {
   })();
 
   function _store() {
-    helper.store("tabState", JSON.stringify(state.get()));
+    helper.store("tabState", JSON.stringify(state.get({
+      all: true
+    })));
   };
 
   function bind() {
@@ -156,7 +164,10 @@ var tabs = (function() {
     var options = helper.makeObject(arrow.dataset.tabArrowOptions);
     var newIndex = 0;
     tabOrder[options.tabGroup].forEach(function(arrayItem, index) {
-      if (state.get(options.tabGroup, arrayItem)) {
+      if (state.get({
+          section: options.tabGroup,
+          tab: arrayItem
+        })) {
         if (options.action == "right") {
           newIndex = index + 1;
         };
@@ -218,7 +229,10 @@ var tabs = (function() {
     var all_tabItem = tabRow.querySelectorAll(".js-tab-item");
     all_tabItem.forEach(function(arrayItem, index) {
       var options = helper.makeObject(arrayItem.dataset.tabOptions);
-      if (state.get(options.tabGroup, options.tab)) {
+      if (state.get({
+          section: options.tabGroup,
+          tab: options.tab
+        })) {
         var tabArea = arrayItem.getBoundingClientRect();
         tabIndicator.setAttribute("style", "width:" + (tabArea.width - 10) + "px;left:" + (arrayItem.offsetLeft + 5) + "px;");
       };
@@ -229,7 +243,10 @@ var tabs = (function() {
     var all_tabItem = tabRow.querySelectorAll(".js-tab-item");
     all_tabItem.forEach(function(arrayItem, index) {
       var options = helper.makeObject(arrayItem.dataset.tabOptions);
-      if (state.get(options.tabGroup, options.tab)) {
+      if (state.get({
+          section: options.tabGroup,
+          tab: options.tab
+        })) {
         helper.addClass(arrayItem, "is-active");
         helper.removeClass(helper.e("." + options.target), "is-hidden");
       } else {
@@ -244,7 +261,10 @@ var tabs = (function() {
     var all_tabItem = tabRow.querySelectorAll(".js-tab-item");
     all_tabItem.forEach(function(arrayItem, index) {
       var options = helper.makeObject(arrayItem.dataset.tabOptions);
-      if (state.get(options.tabGroup, options.tab)) {
+      if (state.get({
+          section: options.tabGroup,
+          tab: options.tab
+        })) {
         var tabArea = arrayItem.getBoundingClientRect();
         var left = Math.ceil(arrayItem.offsetLeft - (tabRowArea.width / 2) + (tabArea.width / 2), 10);
         if (tabRow.scroll) {
