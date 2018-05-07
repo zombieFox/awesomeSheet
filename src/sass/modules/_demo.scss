@@ -30,4 +30,8 @@
 @media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}
-@media print {}
+@media print {
+  .m-demo {
+    display: none;
+  }
+}
