@@ -209,6 +209,7 @@ var tabs = (function() {
         };
       };
     };
+    render();
   };
 
   function render() {

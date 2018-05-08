@@ -918,6 +918,8 @@ h3 {
   // image
   .m-display-image-wrapper {
     box-shadow: none;
+    margin: 0 auto 1em auto;
+    border: 1px solid $black;
   }
   // list
   [class*="m-display-list"],
