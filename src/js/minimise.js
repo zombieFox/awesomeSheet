@@ -60,23 +60,22 @@ var minimise = (function() {
   };
 
   function init() {
-    if (helper.read("minimiseState")) {
-      var savedState = JSON.parse(helper.read("minimiseState"));
-      for (var key in savedState) {
-        state.set({
-          force: savedState[key],
-          section: key
-        });
-      };
-    };
-    render();
+    // if (helper.read("minimiseState")) {
+    //   var savedState = JSON.parse(helper.read("minimiseState"));
+    //   for (var key in savedState) {
+    //     state.set({
+    //       force: savedState[key],
+    //       section: key
+    //     });
+    //   };
+    // };
+    // render();
   };
 
   function toggle(options) {
     var defaultOptions = {
       force: null,
-      section: null,
-      all: null
+      section: null
     };
     if (options) {
       defaultOptions = helper.applyOptions(defaultOptions, options);
@@ -96,46 +95,6 @@ var minimise = (function() {
         _store();
         render();
       };
-    } else {
-      if (defaultOptions.all != null && defaultOptions.all) {
-        state.set({
-          all: true
-        });
-        _store();
-        render();
-      } else if (defaultOptions.section != null) {
-        state.set({
-          section: defaultOptions.section.id
-        });
-        _store();
-        render();
-      };
-    };
-
-
-
-
-    if (defaultOptions.force != null) {
-      if (defaultOptions.section != null) {
-        state.set({
-          force: defaultOptions.force,
-          section: defaultOptions.section.id
-        });
-        _store();
-        render();
-      } else {
-        state.set({
-          force: defaultOptions.force
-        });
-        _store();
-        render();
-      };
-    } else if (defaultOptions.section != null) {
-      state.set({
-        section: defaultOptions.section.id
-      });
-      _store();
-      render();
     } else if (defaultOptions.section != null) {
       state.set({
         section: defaultOptions.section.id
@@ -143,7 +102,6 @@ var minimise = (function() {
       _store();
       render();
     };
-
   };
 
   function render(section) {
@@ -155,7 +113,7 @@ var minimise = (function() {
       helper.addClass(icon, "icon-unfold-more");
       helper.removeClass(icon, "icon-unfold-less");
       if (cardTabs && !display.state.get({
-          section: section
+          section: section.id
         })) {
         helper.addClass(cardTabs, "is-hidden");
       };
@@ -167,7 +125,7 @@ var minimise = (function() {
       helper.removeClass(icon, "icon-unfold-more");
       helper.addClass(icon, "icon-unfold-less");
       if (cardTabs && !display.state.get({
-          section: section
+          section: section.id
         })) {
         helper.removeClass(cardTabs, "is-hidden");
       };
