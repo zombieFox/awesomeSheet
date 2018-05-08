@@ -19,7 +19,7 @@ var minimise = (function() {
         defaultOptions = helper.applyOptions(defaultOptions, options);
       };
       if (defaultOptions.section != null) {
-        return _state[defaultOptions.section.id];
+        return _state[defaultOptions.section];
       } else {
         return _state;
       };
@@ -60,16 +60,18 @@ var minimise = (function() {
   };
 
   function init() {
-    // if (helper.read("minimiseState")) {
-    //   var savedState = JSON.parse(helper.read("minimiseState"));
-    //   for (var key in savedState) {
-    //     state.set({
-    //       force: savedState[key],
-    //       section: key
-    //     });
-    //   };
-    // };
-    // render();
+    if (helper.read("minimiseState")) {
+      var savedState = JSON.parse(helper.read("minimiseState"));
+      for (var key in savedState) {
+        state.set({
+          force: savedState[key],
+          section: key
+        });
+      };
+    };
+    _render_all_section({
+      all: true
+    });
   };
 
   function toggle(options) {
@@ -87,28 +89,62 @@ var minimise = (function() {
           section: defaultOptions.section
         });
         _store();
-        render();
+        _render_all_section({
+          all: true
+        });
       } else {
         state.set({
           force: defaultOptions.force
         });
         _store();
-        render();
+        _render_all_section({
+          all: true
+        });
       };
     } else if (defaultOptions.section != null) {
       state.set({
-        section: defaultOptions.section.id
+        section: defaultOptions.section
       });
       _store();
-      render();
+      _render_section({
+        section: helper.e("#" + defaultOptions.section)
+      });
     };
   };
 
-  function render(section) {
-    var all_section = helper.eA(".js-section");
+  function _render_all_section(options) {
+    var defaultOptions = {
+      section: null,
+      all: null
+    };
+    if (options) {
+      defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
+    if (defaultOptions.all != null && defaultOptions.all) {
+      var all_section = helper.eA(".js-section");
+      all_section.forEach(function(arrayItem) {
+        _render_section({
+          section: arrayItem
+        });
+      });
+    } else if (defaultOptions.section != null) {
+      _render_section({
+        section: defaultOptions.section
+      });
+    };
+  };
+
+  function _render_section(options) {
+    var defaultOptions = {
+      section: null
+    };
+    if (options) {
+      defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
+    var section = helper.e("#" + defaultOptions.section.id);
+    var icon = section.querySelector(".js-card-minimise-icon");
+    var cardTabs = section.querySelector(".js-card-tabs");
     var _on = function(section) {
-      var icon = section.querySelector(".js-card-minimise-icon");
-      var cardTabs = section.querySelector(".js-card-tabs");
       helper.addClass(section, "is-minimise");
       helper.addClass(icon, "icon-unfold-more");
       helper.removeClass(icon, "icon-unfold-less");
@@ -119,8 +155,6 @@ var minimise = (function() {
       };
     };
     var _off = function(section) {
-      var icon = section.querySelector(".js-card-minimise-icon");
-      var cardTabs = section.querySelector(".js-card-tabs");
       helper.removeClass(section, "is-minimise");
       helper.removeClass(icon, "icon-unfold-more");
       helper.addClass(icon, "icon-unfold-less");
@@ -130,16 +164,18 @@ var minimise = (function() {
         helper.removeClass(cardTabs, "is-hidden");
       };
     };
-    all_section.forEach(function(arrayItem, index) {
+    if (defaultOptions.section != null) {
       if (state.get({
-          section: arrayItem
+          section: section.id
         })) {
-        _on(arrayItem);
+        _on(section);
       } else {
-        _off(arrayItem);
+        _off(section);
       };
-    });
+    };
   };
+
+  function render(section) {};
 
   // exposed methods
   return {

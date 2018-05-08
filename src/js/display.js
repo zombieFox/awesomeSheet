@@ -1343,23 +1343,6 @@ var display = (function() {
     _render_chrome();
   };
 
-  function bind() {
-    _bind_fab();
-  };
-
-  function _bind_fab() {
-    var fabButton = helper.e(".js-fab-button");
-    fabButton.addEventListener("click", function() {
-      totalBlock.render();
-      clear();
-      render();
-      toggle({
-        all: true
-      });
-      themeColor.update();
-    }, false);
-  };
-
   function toggle(options) {
     var defaultOptions = {
       force: null,
@@ -1373,7 +1356,7 @@ var display = (function() {
       if (defaultOptions.section != null) {
         state.set({
           force: defaultOptions.force,
-          section: defaultOptions.section.id
+          section: defaultOptions.section
         });
         _store();
         _render_all_section({
@@ -1402,11 +1385,11 @@ var display = (function() {
         _render_chrome();
       } else if (defaultOptions.section != null) {
         state.set({
-          section: defaultOptions.section.id
+          section: defaultOptions.section
         });
         _store();
         _render_section({
-          section: defaultOptions.section
+          section: helper.e("#" + defaultOptions.section)
         });
         _render_chrome();
       };
@@ -1442,38 +1425,42 @@ var display = (function() {
     if (options) {
       defaultOptions = helper.applyOptions(defaultOptions, options);
     };
-    var display = defaultOptions.section.querySelector(".js-display");
-    var icon = defaultOptions.section.querySelector(".js-card-toggle-icon");
-    var edit = defaultOptions.section.querySelector(".js-edit");
-    var cardTabs = defaultOptions.section.querySelector(".js-card-tabs");
-    var minimise = (defaultOptions.section.dataset.minimise == "true");
-    var _on = function() {
-      helper.addClass(defaultOptions.section, "is-display-mode");
+    var section = helper.e("#" + defaultOptions.section.id);
+    var display = section.querySelector(".js-display");
+    var icon = section.querySelector(".js-card-toggle-icon");
+    var edit = section.querySelector(".js-edit");
+    var cardTabs = section.querySelector(".js-card-tabs");
+    var _on = function(section) {
+      helper.addClass(section, "is-display-mode");
       helper.addClass(edit, "is-hidden");
       helper.removeClass(display, "is-hidden");
       helper.addClass(icon, "icon-edit");
       helper.removeClass(icon, "icon-reader");
-      if (cardTabs && !minimise) {
+      if (cardTabs && !minimise.state.get({
+          section: section.id
+        })) {
         helper.addClass(cardTabs, "is-hidden");
       };
     };
-    var _off = function() {
-      helper.removeClass(defaultOptions.section, "is-display-mode");
+    var _off = function(section) {
+      helper.removeClass(section, "is-display-mode");
       helper.removeClass(edit, "is-hidden");
       helper.addClass(display, "is-hidden");
       helper.removeClass(icon, "icon-edit");
       helper.addClass(icon, "icon-reader");
-      if (cardTabs && !minimise) {
+      if (cardTabs && !minimise.state.get({
+          section: section.id
+        })) {
         helper.removeClass(cardTabs, "is-hidden");
       };
     };
     if (defaultOptions.section != null) {
       if (state.get({
-          section: defaultOptions.section.id
+          section: section.id
         })) {
-        _on();
+        _on(section);
       } else {
-        _off();
+        _off(section);
       };
     };
   };
@@ -1539,6 +1526,23 @@ var display = (function() {
     } else {
       _off();
     };
+  };
+
+  function bind() {
+    _bind_fab();
+  };
+
+  function _bind_fab() {
+    var fabButton = helper.e(".js-fab-button");
+    fabButton.addEventListener("click", function() {
+      totalBlock.render();
+      clear();
+      render();
+      toggle({
+        all: true
+      });
+      themeColor.update();
+    }, false);
   };
 
   function clear(display) {

@@ -50,7 +50,7 @@ var card = (function() {
     display.clear();
     display.render();
     display.toggle({
-      section: section
+      section: section.id
     });
     themeColor.update();
   };
@@ -58,7 +58,7 @@ var card = (function() {
   function _minimiseToggle(element) {
     var section = helper.getClosest(element, ".js-section");
     minimise.toggle({
-      section: section
+      section: section.id
     });
   };
 

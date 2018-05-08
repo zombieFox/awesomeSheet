@@ -297,9 +297,9 @@ var sheet = (function() {
   };
 
   function print() {
+    var previousNightState;
     var previousDisplayState;
     var previousMinimiseState;
-    var previousNightState;
     window.onbeforeprint = function() {
       previousNightState = JSON.parse(JSON.stringify(night.state.get()));
       previousDisplayState = JSON.parse(JSON.stringify(display.state.get()));
@@ -323,9 +323,9 @@ var sheet = (function() {
       night.toggle({
         force: previousNightState
       });
-      for (var key in previousNightState) {
+      for (var key in previousMinimiseState) {
         minimise.toggle({
-          force: previousNightState[key],
+          force: previousMinimiseState[key],
           section: key
         });
       };
