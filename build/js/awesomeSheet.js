@@ -26256,6 +26256,11 @@ var display = (function() {
       toggle({
         all: true
       });
+      if (!display.state.get({
+          all: true
+        })) {
+        tabs.render();
+      };
       themeColor.update();
     }, false);
   };
