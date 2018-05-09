@@ -918,7 +918,7 @@ h3 {
   // image
   .m-display-image-wrapper {
     box-shadow: none;
-    margin: 0 auto 1em auto;
+    margin: 0 auto 1em;
     border: 1px solid $black;
   }
   // list
@@ -940,5 +940,11 @@ h3 {
     .m-display-list-item-attack {
       padding: 0;
     }
+  }
+  .m-display-list-item-attack-equipped {
+    background-color: transparent;
+    border-width: 1px;
+    border-color: $gray-14;
+    color: $black;
   }
 }

@@ -52,6 +52,11 @@ var card = (function() {
     display.toggle({
       section: section.id
     });
+    if (!display.state.get({
+        section: section.id
+      })) {
+      tabs.render();
+    };
     themeColor.update();
   };
 
@@ -60,6 +65,11 @@ var card = (function() {
     minimise.toggle({
       section: section.id
     });
+    if (!minimise.state.get({
+        section: section.id
+      })) {
+      tabs.render();
+    };
   };
 
   // exposed methods

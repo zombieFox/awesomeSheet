@@ -219,13 +219,13 @@ var tabs = (function() {
   function _render_all_tabRow() {
     var all_tabRow = helper.eA(".js-tab-row");
     for (var i = 0; i < all_tabRow.length; i++) {
-      _render_tabRowIndicator(all_tabRow[i]);
+      _render_tabIndicator(all_tabRow[i]);
       _render_tabPanel(all_tabRow[i]);
-      _render_row(all_tabRow[i]);
+      render_scroll(all_tabRow[i]);
     };
   };
 
-  function _render_tabRowIndicator(tabRow) {
+  function _render_tabIndicator(tabRow) {
     var tabIndicator = tabRow.querySelector(".m-tab-indicator");
     var all_tabItem = tabRow.querySelectorAll(".js-tab-item");
     all_tabItem.forEach(function(arrayItem, index) {
@@ -235,7 +235,9 @@ var tabs = (function() {
           tab: options.tab
         })) {
         var tabArea = arrayItem.getBoundingClientRect();
-        tabIndicator.setAttribute("style", "width:" + (tabArea.width - 10) + "px;left:" + (arrayItem.offsetLeft + 5) + "px;");
+        var width = (tabArea.width - 10).toFixed(0);
+        var left = (arrayItem.offsetLeft + 5).toFixed(0);
+        tabIndicator.setAttribute("style", "width:" + width + "px;left:" + left + "px;");
       };
     });
   };
@@ -257,7 +259,7 @@ var tabs = (function() {
     });
   };
 
-  function _render_row(tabRow) {
+  function render_scroll(tabRow) {
     var tabRowArea = tabRow.getBoundingClientRect();
     var all_tabItem = tabRow.querySelectorAll(".js-tab-item");
     all_tabItem.forEach(function(arrayItem, index) {
@@ -292,7 +294,8 @@ var tabs = (function() {
     init: init,
     state: state,
     bind: bind,
-    render: render
+    render: render,
+    render_scroll: render_scroll
   };
 
 })();
