@@ -22,47 +22,6 @@ var menu = (function() {
     };
   };
 
-  function _toggleMenuItemOn(menuItem) {
-    var options = helper.makeObject(menuItem.dataset.menuItemOptions);
-    var menuLinkIcon = menuItem.querySelector(".js-menu-link-icon");
-    var menuLinkText = menuItem.querySelector(".js-menu-link-text");
-    menuItem.dataset.active = true;
-    helper.addClass(menuItem, "is-active");
-    if (options.mode == "display") {
-      helper.addClass(menuLinkIcon, "icon-edit");
-      helper.removeClass(menuLinkIcon, "icon-reader");
-      menuLinkText.textContent = options.activeText;
-    } else if (options.mode == "night") {
-      helper.addClass(menuLinkIcon, "icon-sun");
-      helper.removeClass(menuLinkIcon, "icon-moon");
-      menuLinkText.textContent = options.activeText;
-    } else if (options.mode == "fullscreen") {
-      helper.addClass(menuLinkIcon, "icon-fullscreen-exit");
-      helper.removeClass(menuLinkIcon, "icon-fullscreen");
-      menuLinkText.textContent = options.activeText;
-    };
-  };
-
-  function _toggleMenuItemOff(menuItem) {
-    var options = helper.makeObject(menuItem.dataset.menuItemOptions);
-    var menuLinkIcon = menuItem.querySelector(".js-menu-link-icon");
-    var menuLinkText = menuItem.querySelector(".js-menu-link-text");
-    menuItem.dataset.active = false;
-    helper.removeClass(menuItem, "is-active");
-    if (options.mode == "display") {
-      helper.addClass(menuLinkIcon, "icon-reader");
-      helper.removeClass(menuLinkIcon, "icon-edit");
-      menuLinkText.textContent = options.inactiveText;
-    } else if (options.mode == "night") {
-      helper.addClass(menuLinkIcon, "icon-moon");
-      helper.removeClass(menuLinkIcon, "icon-sun");
-      menuLinkText.textContent = options.inactiveText;
-    } else if (options.mode == "fullscreen") {
-      helper.addClass(menuLinkIcon, "icon-fullscreen");
-      helper.removeClass(menuLinkIcon, "icon-fullscreen-exit");
-      menuLinkText.textContent = options.inactiveText;
-    };
-  };
 
   function toggleMenuItem(options) {
     var defaultOptions = {
@@ -72,11 +31,51 @@ var menu = (function() {
     if (options) {
       defaultOptions = helper.applyOptions(defaultOptions, options);
     };
+    var _on = function(menuItem) {
+      var options = helper.makeObject(menuItem.dataset.menuItemOptions);
+      var menuLinkIcon = menuItem.querySelector(".js-menu-link-icon");
+      var menuLinkText = menuItem.querySelector(".js-menu-link-text");
+      menuItem.dataset.active = true;
+      helper.addClass(menuItem, "is-active");
+      if (options.mode == "display") {
+        helper.addClass(menuLinkIcon, "icon-edit");
+        helper.removeClass(menuLinkIcon, "icon-reader");
+        menuLinkText.textContent = options.activeText;
+      } else if (options.mode == "night") {
+        helper.addClass(menuLinkIcon, "icon-sun");
+        helper.removeClass(menuLinkIcon, "icon-moon");
+        menuLinkText.textContent = options.activeText;
+      } else if (options.mode == "fullscreen") {
+        helper.addClass(menuLinkIcon, "icon-fullscreen-exit");
+        helper.removeClass(menuLinkIcon, "icon-fullscreen");
+        menuLinkText.textContent = options.activeText;
+      };
+    };
+    var _off = function(menuItem) {
+      var options = helper.makeObject(menuItem.dataset.menuItemOptions);
+      var menuLinkIcon = menuItem.querySelector(".js-menu-link-icon");
+      var menuLinkText = menuItem.querySelector(".js-menu-link-text");
+      menuItem.dataset.active = false;
+      helper.removeClass(menuItem, "is-active");
+      if (options.mode == "display") {
+        helper.addClass(menuLinkIcon, "icon-reader");
+        helper.removeClass(menuLinkIcon, "icon-edit");
+        menuLinkText.textContent = options.inactiveText;
+      } else if (options.mode == "night") {
+        helper.addClass(menuLinkIcon, "icon-moon");
+        helper.removeClass(menuLinkIcon, "icon-sun");
+        menuLinkText.textContent = options.inactiveText;
+      } else if (options.mode == "fullscreen") {
+        helper.addClass(menuLinkIcon, "icon-fullscreen");
+        helper.removeClass(menuLinkIcon, "icon-fullscreen-exit");
+        menuLinkText.textContent = options.inactiveText;
+      };
+    };
     if (defaultOptions.state != null) {
       if (defaultOptions.state == "active") {
-        _toggleMenuItemOn(defaultOptions.menuItem);
+        _on(defaultOptions.menuItem);
       } else if (defaultOptions.state == "inactive") {
-        _toggleMenuItemOff(defaultOptions.menuItem);
+        _off(defaultOptions.menuItem);
       };
     };
   };

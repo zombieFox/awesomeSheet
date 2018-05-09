@@ -251,6 +251,7 @@ var sheet = (function() {
     shortcuts();
     scroll();
     resize();
+    print();
     characterSelect.bind();
     stats.bind();
     autoSuggest.bind();
@@ -295,6 +296,48 @@ var sheet = (function() {
     data.load();
   };
 
+  function print() {
+    var previousNightState;
+    var previousDisplayState;
+    var previousMinimiseState;
+    window.onbeforeprint = function() {
+      previousNightState = JSON.parse(JSON.stringify(night.state.get()));
+      previousDisplayState = JSON.parse(JSON.stringify(display.state.get()));
+      previousMinimiseState = JSON.parse(JSON.stringify(minimise.state.get()));
+      menu.close();
+      characterSelect.close();
+      modal.destroy();
+      prompt.destroy();
+      shade.destroy();
+      night.toggle({
+        force: false
+      });
+      minimise.toggle({
+        force: false
+      });
+      display.toggle({
+        force: true
+      });
+    };
+    window.onafterprint = function() {
+      night.toggle({
+        force: previousNightState
+      });
+      for (var key in previousMinimiseState) {
+        minimise.toggle({
+          force: previousMinimiseState[key],
+          section: key
+        });
+      };
+      for (var key in previousDisplayState) {
+        display.toggle({
+          force: previousDisplayState[key],
+          section: key
+        });
+      };
+    };
+  };
+
   function switcher(newIndex) {
     var switcheroo = function(newIndex) {
       index.set(newIndex);
@@ -312,10 +355,6 @@ var sheet = (function() {
   };
 
   function replaceJson() {
-    // var name = helper.getObject({
-    //   object: get(),
-    //   path: "basics.character.name"
-    // });
     var name = get().basics.character.name || "New character";
     modal.render({
       heading: "Replace " + name,

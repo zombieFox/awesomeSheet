@@ -6,8 +6,11 @@
   onboarding.render();
   nav.bind();
   menu.bind();
+  tabs.init();
   tabs.bind();
-  tabs.render();
+  night.init();
+  display.init();
+  minimise.init();
   log.render();
   checkUrl.render();
   sheet.load();

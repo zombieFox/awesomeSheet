@@ -1213,7 +1213,7 @@ var display = (function() {
   };
 
   var state = (function() {
-    var displayState = {
+    var _state = {
       basics: false,
       statistics: false,
       equipment: false,
@@ -1234,9 +1234,9 @@ var display = (function() {
       if (defaultOptions.all != null && defaultOptions.all) {
         var displayOnCount = 0;
         var sectionCount = 0;
-        for (var key in displayState) {
+        for (var key in _state) {
           sectionCount++;
-          if (displayState[key]) {
+          if (_state[key]) {
             displayOnCount++;
           };
         };
@@ -1254,54 +1254,65 @@ var display = (function() {
           return false;
         };
       } else if (defaultOptions.section != null) {
-        return displayState[defaultOptions.section.id];
+        return _state[defaultOptions.section];
       } else {
-        return displayState;
+        return _state;
       };
     };
     var set = function(options) {
       var defaultOptions = {
+        force: null,
         section: null,
         all: null
       };
       if (options) {
         defaultOptions = helper.applyOptions(defaultOptions, options);
       };
-      if (defaultOptions.all != null && defaultOptions.all) {
-        var displayOnCount = 0;
-        var sectionCount = 0;
-        for (var key in displayState) {
-          sectionCount++;
-          if (displayState[key]) {
-            displayOnCount++;
+      if (defaultOptions.force != null) {
+        if (defaultOptions.section != null) {
+          _state[defaultOptions.section] = defaultOptions.force;
+        } else {
+          for (var key in _state) {
+            _state[key] = defaultOptions.force;
           };
         };
-        // if no sections are in display mode
-        if (displayOnCount == 0) {
-          for (var key in displayState) {
-            displayState[key] = true;
+      } else {
+        if (defaultOptions.all != null && defaultOptions.all) {
+          var displayOnCount = 0;
+          var sectionCount = 0;
+          for (var key in _state) {
+            sectionCount++;
+            if (_state[key]) {
+              displayOnCount++;
+            };
           };
-          // if all sections are in display mode
-        } else if (displayOnCount == sectionCount) {
-          for (var key in displayState) {
-            displayState[key] = false;
+          // if no sections are in display mode
+          if (displayOnCount == 0) {
+            for (var key in _state) {
+              _state[key] = true;
+            };
+            // if all sections are in display mode
+          } else if (displayOnCount == sectionCount) {
+            for (var key in _state) {
+              _state[key] = false;
+            };
+            // if more than half the number of sections are in display mode
+          } else if (displayOnCount >= (sectionCount / 2)) {
+            for (var key in _state) {
+              _state[key] = true;
+            };
+          } else {
+            // else restore to edit mode
+            for (var key in _state) {
+              _state[key] = false;
+            };
           };
-          // if more than half the number of sections are in display mode
-        } else if (displayOnCount >= (sectionCount / 2)) {
-          for (var key in displayState) {
-            displayState[key] = true;
+        } else if (defaultOptions.section != null) {
+          if (_state[defaultOptions.section]) {
+            _state[defaultOptions.section] = false;
+          } else {
+            _state[defaultOptions.section] = true;
           };
-        } else {
-          // else restore to edit mode
-          for (var key in displayState) {
-            displayState[key] = false;
-          };
-        };
-      } else if (defaultOptions.section != null) {
-        if (displayState[defaultOptions.section.id]) {
-          displayState[defaultOptions.section.id] = false;
-        } else {
-          displayState[defaultOptions.section.id] = true;
         };
       };
     };
@@ -1312,51 +1323,80 @@ var display = (function() {
     };
   })();
 
-  function bind() {
-    _bind_fab();
+  function _store() {
+    helper.store("displayState", JSON.stringify(state.get()));
   };
 
-  function _bind_fab() {
-    var fabButton = helper.e(".js-fab-button");
-    fabButton.addEventListener("click", function() {
-      totalBlock.render();
-      clear();
-      render();
-      toggle({
-        all: true
-      });
-      themeColor.update();
-    }, false);
+  function init() {
+    if (helper.read("displayState")) {
+      var savedState = JSON.parse(helper.read("displayState"));
+      for (var key in savedState) {
+        state.set({
+          force: savedState[key],
+          section: key
+        });
+      };
+    };
+    _render_all_section({
+      all: true
+    });
+    _render_chrome();
   };
 
   function toggle(options) {
     var defaultOptions = {
+      force: null,
       section: null,
       all: null
     };
     if (options) {
       defaultOptions = helper.applyOptions(defaultOptions, options);
     };
-    if (defaultOptions.all != null && defaultOptions.all) {
-      state.set({
-        all: true
-      });
-      _toggle_all_section({
-        all: true
-      });
-      _toggle_chrome();
-    } else if (defaultOptions.section != null) {
-      state.set({
-        section: defaultOptions.section
-      });
-      _toggle_section({
-        section: defaultOptions.section
-      });
-      _toggle_chrome();
+    if (defaultOptions.force != null) {
+      if (defaultOptions.section != null) {
+        state.set({
+          force: defaultOptions.force,
+          section: defaultOptions.section
+        });
+        _store();
+        _render_all_section({
+          all: true
+        });
+        _render_chrome();
+      } else {
+        state.set({
+          force: defaultOptions.force
+        });
+        _store();
+        _render_all_section({
+          all: true
+        });
+        _render_chrome();
+      };
+    } else {
+      if (defaultOptions.all != null && defaultOptions.all) {
+        state.set({
+          all: true
+        });
+        _store();
+        _render_all_section({
+          all: true
+        });
+        _render_chrome();
+      } else if (defaultOptions.section != null) {
+        state.set({
+          section: defaultOptions.section
+        });
+        _store();
+        _render_section({
+          section: helper.e("#" + defaultOptions.section)
+        });
+        _render_chrome();
+      };
     };
   };
 
-  function _toggle_all_section(options) {
+  function _render_all_section(options) {
     var defaultOptions = {
       section: null,
       all: null
@@ -1367,62 +1407,65 @@ var display = (function() {
     if (defaultOptions.all != null && defaultOptions.all) {
       var all_section = helper.eA(".js-section");
       all_section.forEach(function(arrayItem) {
-        _toggle_section({
+        _render_section({
           section: arrayItem
         });
       });
     } else if (defaultOptions.section != null) {
-      _toggle_section({
+      _render_section({
         section: defaultOptions.section
       });
     };
   };
 
-  function _toggle_section(options) {
+  function _render_section(options) {
     var defaultOptions = {
       section: null
     };
     if (options) {
       defaultOptions = helper.applyOptions(defaultOptions, options);
     };
-    var display = defaultOptions.section.querySelector(".js-display");
-    var icon = defaultOptions.section.querySelector(".js-card-toggle-icon");
-    var edit = defaultOptions.section.querySelector(".js-edit");
-    var cardTabs = defaultOptions.section.querySelector(".js-card-tabs");
-    var minimise = (defaultOptions.section.dataset.minimise == "true");
-    var _toggle_on = function() {
-      helper.addClass(defaultOptions.section, "is-display-mode");
+    var section = helper.e("#" + defaultOptions.section.id);
+    var display = section.querySelector(".js-display");
+    var icon = section.querySelector(".js-card-toggle-icon");
+    var edit = section.querySelector(".js-edit");
+    var cardTabs = section.querySelector(".js-card-tabs");
+    var _on = function(section) {
+      helper.addClass(section, "is-display-mode");
       helper.addClass(edit, "is-hidden");
       helper.removeClass(display, "is-hidden");
       helper.addClass(icon, "icon-edit");
       helper.removeClass(icon, "icon-reader");
-      if (cardTabs && !minimise) {
+      if (cardTabs && !minimise.state.get({
+          section: section.id
+        })) {
         helper.addClass(cardTabs, "is-hidden");
       };
     };
-    var _toggle_off = function() {
-      helper.removeClass(defaultOptions.section, "is-display-mode");
+    var _off = function(section) {
+      helper.removeClass(section, "is-display-mode");
       helper.removeClass(edit, "is-hidden");
       helper.addClass(display, "is-hidden");
       helper.removeClass(icon, "icon-edit");
       helper.addClass(icon, "icon-reader");
-      if (cardTabs && !minimise) {
+      if (cardTabs && !minimise.state.get({
+          section: section.id
+        })) {
         helper.removeClass(cardTabs, "is-hidden");
       };
     };
-
     if (defaultOptions.section != null) {
       if (state.get({
-          section: defaultOptions.section
+          section: section.id
         })) {
-        _toggle_on();
+        _on(section);
       } else {
-        _toggle_off();
+        _off(section);
       };
     };
   };
 
-  function _toggle_chrome() {
+  function _render_chrome() {
     var header = helper.e(".js-header");
     var demo = helper.e(".js-demo");
     var nav = helper.e(".js-nav");
@@ -1436,7 +1479,7 @@ var display = (function() {
     var all_section = helper.eA(".js-section");
     var anySectionDisplay = false;
     var allSectionDisplay = 0;
-    var _toggle_on = function() {
+    var _on = function() {
       helper.addClass(fabIcon, "icon-edit");
       helper.removeClass(fabIcon, "icon-reader");
       helper.removeClass(fabButton, "button-primary");
@@ -1456,7 +1499,7 @@ var display = (function() {
         state: "active"
       });
     };
-    var _toggle_off = function() {
+    var _off = function() {
       helper.removeClass(fabIcon, "icon-edit");
       helper.addClass(fabIcon, "icon-reader");
       helper.addClass(fabButton, "button-primary");
@@ -1479,10 +1522,27 @@ var display = (function() {
     if (state.get({
         all: true
       })) {
-      _toggle_on();
+      _on();
     } else {
-      _toggle_off();
+      _off();
     };
+  };
+
+  function bind() {
+    _bind_fab();
+  };
+
+  function _bind_fab() {
+    var fabButton = helper.e(".js-fab-button");
+    fabButton.addEventListener("click", function() {
+      totalBlock.render();
+      clear();
+      render();
+      toggle({
+        all: true
+      });
+      themeColor.update();
+    }, false);
   };
 
   function clear(display) {
@@ -2512,6 +2572,7 @@ var display = (function() {
 
   // exposed methods
   return {
+    init: init,
     toggle: toggle,
     bind: bind,
     render: render,

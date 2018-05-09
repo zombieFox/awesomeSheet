@@ -50,44 +50,25 @@ var card = (function() {
     display.clear();
     display.render();
     display.toggle({
-      section: section
+      section: section.id
     });
+    if (!display.state.get({
+        section: section.id
+      })) {
+      tabs.render();
+    };
     themeColor.update();
   };
 
   function _minimiseToggle(element) {
     var section = helper.getClosest(element, ".js-section");
-    var icon = section.querySelector(".js-card-minimise-icon");
-    var cardTabs = section.querySelector(".js-card-tabs");
-
-    var _minimise = function() {
-      section.dataset.minimise = "true";
-      helper.addClass(section, "is-minimise");
-      helper.addClass(icon, "icon-unfold-more");
-      helper.removeClass(icon, "icon-unfold-less");
-      if (cardTabs && !display.state.get({
-          section: section
-        })) {
-        helper.addClass(cardTabs, "is-hidden");
-      };
-    };
-
-    var _maximise = function() {
-      section.dataset.minimise = "false";
-      helper.removeClass(section, "is-minimise");
-      helper.removeClass(icon, "icon-unfold-more");
-      helper.addClass(icon, "icon-unfold-less");
-      if (cardTabs && !display.state.get({
-          section: section
-        })) {
-        helper.removeClass(cardTabs, "is-hidden");
-      };
-    };
-
-    if (section.dataset.minimise == "true") {
-      _maximise();
-    } else if (section.dataset.minimise == "false" || !section.dataset.minimise) {
-      _minimise();
+    minimise.toggle({
+      section: section.id
+    });
+    if (!minimise.state.get({
+        section: section.id
+      })) {
+      tabs.render();
     };
   };
 

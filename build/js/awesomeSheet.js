@@ -870,44 +870,25 @@ var card = (function() {
     display.clear();
     display.render();
     display.toggle({
-      section: section
+      section: section.id
     });
+    if (!display.state.get({
+        section: section.id
+      })) {
+      tabs.render();
+    };
     themeColor.update();
   };
 
   function _minimiseToggle(element) {
     var section = helper.getClosest(element, ".js-section");
-    var icon = section.querySelector(".js-card-minimise-icon");
-    var cardTabs = section.querySelector(".js-card-tabs");
-
-    var _minimise = function() {
-      section.dataset.minimise = "true";
-      helper.addClass(section, "is-minimise");
-      helper.addClass(icon, "icon-unfold-more");
-      helper.removeClass(icon, "icon-unfold-less");
-      if (cardTabs && !display.state.get({
-          section: section
-        })) {
-        helper.addClass(cardTabs, "is-hidden");
-      };
-    };
-
-    var _maximise = function() {
-      section.dataset.minimise = "false";
-      helper.removeClass(section, "is-minimise");
-      helper.removeClass(icon, "icon-unfold-more");
-      helper.addClass(icon, "icon-unfold-less");
-      if (cardTabs && !display.state.get({
-          section: section
-        })) {
-        helper.removeClass(cardTabs, "is-hidden");
-      };
-    };
-
-    if (section.dataset.minimise == "true") {
-      _maximise();
-    } else if (section.dataset.minimise == "false" || !section.dataset.minimise) {
-      _minimise();
+    minimise.toggle({
+      section: section.id
+    });
+    if (!minimise.state.get({
+        section: section.id
+      })) {
+      tabs.render();
     };
   };
 
@@ -917,6 +898,7 @@ var card = (function() {
   };
 
 })();
+
 var blank = (function() {
 
   var data = {
@@ -25946,7 +25928,7 @@ var display = (function() {
   };
 
   var state = (function() {
-    var displayState = {
+    var _state = {
       basics: false,
       statistics: false,
       equipment: false,
@@ -25967,9 +25949,9 @@ var display = (function() {
       if (defaultOptions.all != null && defaultOptions.all) {
         var displayOnCount = 0;
         var sectionCount = 0;
-        for (var key in displayState) {
+        for (var key in _state) {
           sectionCount++;
-          if (displayState[key]) {
+          if (_state[key]) {
             displayOnCount++;
           };
         };
@@ -25987,54 +25969,65 @@ var display = (function() {
           return false;
         };
       } else if (defaultOptions.section != null) {
-        return displayState[defaultOptions.section.id];
+        return _state[defaultOptions.section];
       } else {
-        return displayState;
+        return _state;
       };
     };
     var set = function(options) {
       var defaultOptions = {
+        force: null,
         section: null,
         all: null
       };
       if (options) {
         defaultOptions = helper.applyOptions(defaultOptions, options);
       };
-      if (defaultOptions.all != null && defaultOptions.all) {
-        var displayOnCount = 0;
-        var sectionCount = 0;
-        for (var key in displayState) {
-          sectionCount++;
-          if (displayState[key]) {
-            displayOnCount++;
+      if (defaultOptions.force != null) {
+        if (defaultOptions.section != null) {
+          _state[defaultOptions.section] = defaultOptions.force;
+        } else {
+          for (var key in _state) {
+            _state[key] = defaultOptions.force;
           };
         };
-        // if no sections are in display mode
-        if (displayOnCount == 0) {
-          for (var key in displayState) {
-            displayState[key] = true;
+      } else {
+        if (defaultOptions.all != null && defaultOptions.all) {
+          var displayOnCount = 0;
+          var sectionCount = 0;
+          for (var key in _state) {
+            sectionCount++;
+            if (_state[key]) {
+              displayOnCount++;
+            };
           };
-          // if all sections are in display mode
-        } else if (displayOnCount == sectionCount) {
-          for (var key in displayState) {
-            displayState[key] = false;
+          // if no sections are in display mode
+          if (displayOnCount == 0) {
+            for (var key in _state) {
+              _state[key] = true;
+            };
+            // if all sections are in display mode
+          } else if (displayOnCount == sectionCount) {
+            for (var key in _state) {
+              _state[key] = false;
+            };
+            // if more than half the number of sections are in display mode
+          } else if (displayOnCount >= (sectionCount / 2)) {
+            for (var key in _state) {
+              _state[key] = true;
+            };
+          } else {
+            // else restore to edit mode
+            for (var key in _state) {
+              _state[key] = false;
+            };
           };
-          // if more than half the number of sections are in display mode
-        } else if (displayOnCount >= (sectionCount / 2)) {
-          for (var key in displayState) {
-            displayState[key] = true;
+        } else if (defaultOptions.section != null) {
+          if (_state[defaultOptions.section]) {
+            _state[defaultOptions.section] = false;
+          } else {
+            _state[defaultOptions.section] = true;
           };
-        } else {
-          // else restore to edit mode
-          for (var key in displayState) {
-            displayState[key] = false;
-          };
-        };
-      } else if (defaultOptions.section != null) {
-        if (displayState[defaultOptions.section.id]) {
-          displayState[defaultOptions.section.id] = false;
-        } else {
-          displayState[defaultOptions.section.id] = true;
         };
       };
     };
@@ -26045,51 +26038,80 @@ var display = (function() {
     };
   })();
 
-  function bind() {
-    _bind_fab();
+  function _store() {
+    helper.store("displayState", JSON.stringify(state.get()));
   };
 
-  function _bind_fab() {
-    var fabButton = helper.e(".js-fab-button");
-    fabButton.addEventListener("click", function() {
-      totalBlock.render();
-      clear();
-      render();
-      toggle({
-        all: true
-      });
-      themeColor.update();
-    }, false);
+  function init() {
+    if (helper.read("displayState")) {
+      var savedState = JSON.parse(helper.read("displayState"));
+      for (var key in savedState) {
+        state.set({
+          force: savedState[key],
+          section: key
+        });
+      };
+    };
+    _render_all_section({
+      all: true
+    });
+    _render_chrome();
   };
 
   function toggle(options) {
     var defaultOptions = {
+      force: null,
       section: null,
       all: null
     };
     if (options) {
       defaultOptions = helper.applyOptions(defaultOptions, options);
     };
-    if (defaultOptions.all != null && defaultOptions.all) {
-      state.set({
-        all: true
-      });
-      _toggle_all_section({
-        all: true
-      });
-      _toggle_chrome();
-    } else if (defaultOptions.section != null) {
-      state.set({
-        section: defaultOptions.section
-      });
-      _toggle_section({
-        section: defaultOptions.section
-      });
-      _toggle_chrome();
+    if (defaultOptions.force != null) {
+      if (defaultOptions.section != null) {
+        state.set({
+          force: defaultOptions.force,
+          section: defaultOptions.section
+        });
+        _store();
+        _render_all_section({
+          all: true
+        });
+        _render_chrome();
+      } else {
+        state.set({
+          force: defaultOptions.force
+        });
+        _store();
+        _render_all_section({
+          all: true
+        });
+        _render_chrome();
+      };
+    } else {
+      if (defaultOptions.all != null && defaultOptions.all) {
+        state.set({
+          all: true
+        });
+        _store();
+        _render_all_section({
+          all: true
+        });
+        _render_chrome();
+      } else if (defaultOptions.section != null) {
+        state.set({
+          section: defaultOptions.section
+        });
+        _store();
+        _render_section({
+          section: helper.e("#" + defaultOptions.section)
+        });
+        _render_chrome();
+      };
     };
   };
 
-  function _toggle_all_section(options) {
+  function _render_all_section(options) {
     var defaultOptions = {
       section: null,
       all: null
@@ -26100,62 +26122,65 @@ var display = (function() {
     if (defaultOptions.all != null && defaultOptions.all) {
       var all_section = helper.eA(".js-section");
       all_section.forEach(function(arrayItem) {
-        _toggle_section({
+        _render_section({
           section: arrayItem
         });
       });
     } else if (defaultOptions.section != null) {
-      _toggle_section({
+      _render_section({
         section: defaultOptions.section
       });
     };
   };
 
-  function _toggle_section(options) {
+  function _render_section(options) {
     var defaultOptions = {
       section: null
     };
     if (options) {
       defaultOptions = helper.applyOptions(defaultOptions, options);
     };
-    var display = defaultOptions.section.querySelector(".js-display");
-    var icon = defaultOptions.section.querySelector(".js-card-toggle-icon");
-    var edit = defaultOptions.section.querySelector(".js-edit");
-    var cardTabs = defaultOptions.section.querySelector(".js-card-tabs");
-    var minimise = (defaultOptions.section.dataset.minimise == "true");
-    var _toggle_on = function() {
-      helper.addClass(defaultOptions.section, "is-display-mode");
+    var section = helper.e("#" + defaultOptions.section.id);
+    var display = section.querySelector(".js-display");
+    var icon = section.querySelector(".js-card-toggle-icon");
+    var edit = section.querySelector(".js-edit");
+    var cardTabs = section.querySelector(".js-card-tabs");
+    var _on = function(section) {
+      helper.addClass(section, "is-display-mode");
       helper.addClass(edit, "is-hidden");
       helper.removeClass(display, "is-hidden");
       helper.addClass(icon, "icon-edit");
       helper.removeClass(icon, "icon-reader");
-      if (cardTabs && !minimise) {
+      if (cardTabs && !minimise.state.get({
+          section: section.id
+        })) {
         helper.addClass(cardTabs, "is-hidden");
       };
     };
-    var _toggle_off = function() {
-      helper.removeClass(defaultOptions.section, "is-display-mode");
+    var _off = function(section) {
+      helper.removeClass(section, "is-display-mode");
       helper.removeClass(edit, "is-hidden");
       helper.addClass(display, "is-hidden");
       helper.removeClass(icon, "icon-edit");
       helper.addClass(icon, "icon-reader");
-      if (cardTabs && !minimise) {
+      if (cardTabs && !minimise.state.get({
+          section: section.id
+        })) {
         helper.removeClass(cardTabs, "is-hidden");
       };
     };
-
     if (defaultOptions.section != null) {
       if (state.get({
-          section: defaultOptions.section
+          section: section.id
         })) {
-        _toggle_on();
+        _on(section);
       } else {
-        _toggle_off();
+        _off(section);
       };
     };
   };
 
-  function _toggle_chrome() {
+  function _render_chrome() {
     var header = helper.e(".js-header");
     var demo = helper.e(".js-demo");
     var nav = helper.e(".js-nav");
@@ -26169,7 +26194,7 @@ var display = (function() {
     var all_section = helper.eA(".js-section");
     var anySectionDisplay = false;
     var allSectionDisplay = 0;
-    var _toggle_on = function() {
+    var _on = function() {
       helper.addClass(fabIcon, "icon-edit");
       helper.removeClass(fabIcon, "icon-reader");
       helper.removeClass(fabButton, "button-primary");
@@ -26189,7 +26214,7 @@ var display = (function() {
         state: "active"
       });
     };
-    var _toggle_off = function() {
+    var _off = function() {
       helper.removeClass(fabIcon, "icon-edit");
       helper.addClass(fabIcon, "icon-reader");
       helper.addClass(fabButton, "button-primary");
@@ -26212,10 +26237,27 @@ var display = (function() {
     if (state.get({
         all: true
       })) {
-      _toggle_on();
+      _on();
     } else {
-      _toggle_off();
+      _off();
     };
+  };
+
+  function bind() {
+    _bind_fab();
+  };
+
+  function _bind_fab() {
+    var fabButton = helper.e(".js-fab-button");
+    fabButton.addEventListener("click", function() {
+      totalBlock.render();
+      clear();
+      render();
+      toggle({
+        all: true
+      });
+      themeColor.update();
+    }, false);
   };
 
   function clear(display) {
@@ -27245,6 +27287,7 @@ var display = (function() {
 
   // exposed methods
   return {
+    init: init,
     toggle: toggle,
     bind: bind,
     render: render,
@@ -30597,47 +30640,6 @@ var menu = (function() {
     };
   };
 
-  function _toggleMenuItemOn(menuItem) {
-    var options = helper.makeObject(menuItem.dataset.menuItemOptions);
-    var menuLinkIcon = menuItem.querySelector(".js-menu-link-icon");
-    var menuLinkText = menuItem.querySelector(".js-menu-link-text");
-    menuItem.dataset.active = true;
-    helper.addClass(menuItem, "is-active");
-    if (options.mode == "display") {
-      helper.addClass(menuLinkIcon, "icon-edit");
-      helper.removeClass(menuLinkIcon, "icon-reader");
-      menuLinkText.textContent = options.activeText;
-    } else if (options.mode == "night") {
-      helper.addClass(menuLinkIcon, "icon-sun");
-      helper.removeClass(menuLinkIcon, "icon-moon");
-      menuLinkText.textContent = options.activeText;
-    } else if (options.mode == "fullscreen") {
-      helper.addClass(menuLinkIcon, "icon-fullscreen-exit");
-      helper.removeClass(menuLinkIcon, "icon-fullscreen");
-      menuLinkText.textContent = options.activeText;
-    };
-  };
-
-  function _toggleMenuItemOff(menuItem) {
-    var options = helper.makeObject(menuItem.dataset.menuItemOptions);
-    var menuLinkIcon = menuItem.querySelector(".js-menu-link-icon");
-    var menuLinkText = menuItem.querySelector(".js-menu-link-text");
-    menuItem.dataset.active = false;
-    helper.removeClass(menuItem, "is-active");
-    if (options.mode == "display") {
-      helper.addClass(menuLinkIcon, "icon-reader");
-      helper.removeClass(menuLinkIcon, "icon-edit");
-      menuLinkText.textContent = options.inactiveText;
-    } else if (options.mode == "night") {
-      helper.addClass(menuLinkIcon, "icon-moon");
-      helper.removeClass(menuLinkIcon, "icon-sun");
-      menuLinkText.textContent = options.inactiveText;
-    } else if (options.mode == "fullscreen") {
-      helper.addClass(menuLinkIcon, "icon-fullscreen");
-      helper.removeClass(menuLinkIcon, "icon-fullscreen-exit");
-      menuLinkText.textContent = options.inactiveText;
-    };
-  };
 
   function toggleMenuItem(options) {
     var defaultOptions = {
@@ -30647,11 +30649,51 @@ var menu = (function() {
     if (options) {
       defaultOptions = helper.applyOptions(defaultOptions, options);
     };
+    var _on = function(menuItem) {
+      var options = helper.makeObject(menuItem.dataset.menuItemOptions);
+      var menuLinkIcon = menuItem.querySelector(".js-menu-link-icon");
+      var menuLinkText = menuItem.querySelector(".js-menu-link-text");
+      menuItem.dataset.active = true;
+      helper.addClass(menuItem, "is-active");
+      if (options.mode == "display") {
+        helper.addClass(menuLinkIcon, "icon-edit");
+        helper.removeClass(menuLinkIcon, "icon-reader");
+        menuLinkText.textContent = options.activeText;
+      } else if (options.mode == "night") {
+        helper.addClass(menuLinkIcon, "icon-sun");
+        helper.removeClass(menuLinkIcon, "icon-moon");
+        menuLinkText.textContent = options.activeText;
+      } else if (options.mode == "fullscreen") {
+        helper.addClass(menuLinkIcon, "icon-fullscreen-exit");
+        helper.removeClass(menuLinkIcon, "icon-fullscreen");
+        menuLinkText.textContent = options.activeText;
+      };
+    };
+    var _off = function(menuItem) {
+      var options = helper.makeObject(menuItem.dataset.menuItemOptions);
+      var menuLinkIcon = menuItem.querySelector(".js-menu-link-icon");
+      var menuLinkText = menuItem.querySelector(".js-menu-link-text");
+      menuItem.dataset.active = false;
+      helper.removeClass(menuItem, "is-active");
+      if (options.mode == "display") {
+        helper.addClass(menuLinkIcon, "icon-reader");
+        helper.removeClass(menuLinkIcon, "icon-edit");
+        menuLinkText.textContent = options.inactiveText;
+      } else if (options.mode == "night") {
+        helper.addClass(menuLinkIcon, "icon-moon");
+        helper.removeClass(menuLinkIcon, "icon-sun");
+        menuLinkText.textContent = options.inactiveText;
+      } else if (options.mode == "fullscreen") {
+        helper.addClass(menuLinkIcon, "icon-fullscreen");
+        helper.removeClass(menuLinkIcon, "icon-fullscreen-exit");
+        menuLinkText.textContent = options.inactiveText;
+      };
+    };
     if (defaultOptions.state != null) {
       if (defaultOptions.state == "active") {
-        _toggleMenuItemOn(defaultOptions.menuItem);
+        _on(defaultOptions.menuItem);
       } else if (defaultOptions.state == "inactive") {
-        _toggleMenuItemOff(defaultOptions.menuItem);
+        _off(defaultOptions.menuItem);
       };
     };
   };
@@ -30886,6 +30928,194 @@ var modal = (function() {
 
 })();
 
+var minimise = (function() {
+
+  var state = (function() {
+    var _state = {
+      basics: false,
+      statistics: false,
+      equipment: false,
+      defense: false,
+      offense: false,
+      skills: false,
+      spells: false,
+      notes: false
+    };
+    var get = function(options) {
+      var defaultOptions = {
+        section: null
+      };
+      if (options) {
+        defaultOptions = helper.applyOptions(defaultOptions, options);
+      };
+      if (defaultOptions.section != null) {
+        return _state[defaultOptions.section];
+      } else {
+        return _state;
+      };
+    };
+    var set = function(options) {
+      var defaultOptions = {
+        force: null,
+        section: null
+      };
+      if (options) {
+        defaultOptions = helper.applyOptions(defaultOptions, options);
+      };
+      if (defaultOptions.force != null) {
+        if (defaultOptions.section != null) {
+          _state[defaultOptions.section] = defaultOptions.force;
+        } else {
+          for (var key in _state) {
+            _state[key] = defaultOptions.force;
+          };
+        };
+      } else if (defaultOptions.section != null) {
+        if (_state[defaultOptions.section]) {
+          _state[defaultOptions.section] = false;
+        } else {
+          _state[defaultOptions.section] = true;
+        };
+      };
+    };
+    // exposed methods
+    return {
+      set: set,
+      get: get
+    };
+  })();
+
+  function _store() {
+    helper.store("minimiseState", JSON.stringify(state.get()));
+  };
+
+  function init() {
+    if (helper.read("minimiseState")) {
+      var savedState = JSON.parse(helper.read("minimiseState"));
+      for (var key in savedState) {
+        state.set({
+          force: savedState[key],
+          section: key
+        });
+      };
+    };
+    _render_all_section({
+      all: true
+    });
+  };
+
+  function toggle(options) {
+    var defaultOptions = {
+      force: null,
+      section: null
+    };
+    if (options) {
+      defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
+    if (defaultOptions.force != null) {
+      if (defaultOptions.section != null) {
+        state.set({
+          force: defaultOptions.force,
+          section: defaultOptions.section
+        });
+        _store();
+        _render_all_section({
+          all: true
+        });
+      } else {
+        state.set({
+          force: defaultOptions.force
+        });
+        _store();
+        _render_all_section({
+          all: true
+        });
+      };
+    } else if (defaultOptions.section != null) {
+      state.set({
+        section: defaultOptions.section
+      });
+      _store();
+      _render_section({
+        section: helper.e("#" + defaultOptions.section)
+      });
+    };
+  };
+
+  function _render_all_section(options) {
+    var defaultOptions = {
+      section: null,
+      all: null
+    };
+    if (options) {
+      defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
+    if (defaultOptions.all != null && defaultOptions.all) {
+      var all_section = helper.eA(".js-section");
+      all_section.forEach(function(arrayItem) {
+        _render_section({
+          section: arrayItem
+        });
+      });
+    } else if (defaultOptions.section != null) {
+      _render_section({
+        section: defaultOptions.section
+      });
+    };
+  };
+
+  function _render_section(options) {
+    var defaultOptions = {
+      section: null
+    };
+    if (options) {
+      defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
+    var section = helper.e("#" + defaultOptions.section.id);
+    var icon = section.querySelector(".js-card-minimise-icon");
+    var cardTabs = section.querySelector(".js-card-tabs");
+    var _on = function(section) {
+      helper.addClass(section, "is-minimise");
+      helper.addClass(icon, "icon-unfold-more");
+      helper.removeClass(icon, "icon-unfold-less");
+      if (cardTabs && !display.state.get({
+          section: section.id
+        })) {
+        helper.addClass(cardTabs, "is-hidden");
+      };
+    };
+    var _off = function(section) {
+      helper.removeClass(section, "is-minimise");
+      helper.removeClass(icon, "icon-unfold-more");
+      helper.addClass(icon, "icon-unfold-less");
+      if (cardTabs && !display.state.get({
+          section: section.id
+        })) {
+        helper.removeClass(cardTabs, "is-hidden");
+      };
+    };
+    if (defaultOptions.section != null) {
+      if (state.get({
+          section: section.id
+        })) {
+        _on(section);
+      } else {
+        _off(section);
+      };
+    };
+  };
+
+  function render(section) {};
+
+  // exposed methods
+  return {
+    init: init,
+    state: state,
+    toggle: toggle
+  };
+
+})();
+
 var nav = (function() {
 
   function scrollToTop() {
@@ -31064,35 +31294,102 @@ var nav = (function() {
 
 var night = (function() {
 
-  function toggle() {
+  var state = (function() {
+    var _state = false;
+    var get = function(options) {
+      return _state;
+    };
+    var set = function(options) {
+      var defaultOptions = {
+        force: null,
+        toggle: null
+      };
+      if (options) {
+        defaultOptions = helper.applyOptions(defaultOptions, options);
+      };
+      if (defaultOptions.force != null) {
+        _state = defaultOptions.force;
+      } else if (defaultOptions.toggle != null) {
+        if (_state) {
+          _state = false;
+        } else {
+          _state = true;
+        };
+      };
+    };
+    // exposed methods
+    return {
+      set: set,
+      get: get
+    };
+  })();
+
+  function _store() {
+    helper.store("nightModeState", JSON.stringify(state.get()));
+  };
+
+  function init() {
+    if (helper.read("nightModeState")) {
+      var savedState = JSON.parse(helper.read("nightModeState"));
+      state.set({
+        force: savedState
+      });
+    };
+    render();
+  };
+
+  function toggle(options) {
+    var defaultOptions = {
+      force: null
+    };
+    if (options) {
+      defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
+    if (defaultOptions.force != null) {
+      state.set({
+        force: defaultOptions.force
+      });
+      _store();
+      render();
+    } else {
+      state.set({
+        toggle: true
+      });
+      _store();
+      render();
+    };
+  };
+
+  function render() {
     var body = helper.e("body");
     var menuItem = helper.e(".js-menu-link-night-mode");
-    var _nightModeOn = function() {
+    var _on = function() {
       helper.addClass(body, "is-night-mode");
       menu.toggleMenuItem({
         menuItem: menuItem,
         state: "active"
       });
     };
-    var _nightModeOff = function() {
+    var _off = function() {
       helper.removeClass(body, "is-night-mode");
       menu.toggleMenuItem({
         menuItem: menuItem,
         state: "inactive"
       });
     };
-    if (body.dataset.nightMode == "true") {
-      body.dataset.nightMode = "false";
-      _nightModeOff();
-    } else if (body.dataset.nightMode == "false" || !body.dataset.nightMode) {
-      body.dataset.nightMode = "true";
-      _nightModeOn();
+    if (state.get()) {
+      _on();
+    } else {
+      _off();
     };
   };
 
   // exposed methods
   return {
-    toggle: toggle
+    init: init,
+    state: state,
+    toggle: toggle,
+    render: render
   };
 
 })();
@@ -35719,6 +36016,7 @@ var sheet = (function() {
     shortcuts();
     scroll();
     resize();
+    print();
     characterSelect.bind();
     stats.bind();
     autoSuggest.bind();
@@ -35763,6 +36061,48 @@ var sheet = (function() {
     data.load();
   };
 
+  function print() {
+    var previousNightState;
+    var previousDisplayState;
+    var previousMinimiseState;
+    window.onbeforeprint = function() {
+      previousNightState = JSON.parse(JSON.stringify(night.state.get()));
+      previousDisplayState = JSON.parse(JSON.stringify(display.state.get()));
+      previousMinimiseState = JSON.parse(JSON.stringify(minimise.state.get()));
+      menu.close();
+      characterSelect.close();
+      modal.destroy();
+      prompt.destroy();
+      shade.destroy();
+      night.toggle({
+        force: false
+      });
+      minimise.toggle({
+        force: false
+      });
+      display.toggle({
+        force: true
+      });
+    };
+    window.onafterprint = function() {
+      night.toggle({
+        force: previousNightState
+      });
+      for (var key in previousMinimiseState) {
+        minimise.toggle({
+          force: previousMinimiseState[key],
+          section: key
+        });
+      };
+      for (var key in previousDisplayState) {
+        display.toggle({
+          force: previousDisplayState[key],
+          section: key
+        });
+      };
+    };
+  };
+
   function switcher(newIndex) {
     var switcheroo = function(newIndex) {
       index.set(newIndex);
@@ -35780,10 +36120,6 @@ var sheet = (function() {
   };
 
   function replaceJson() {
-    // var name = helper.getObject({
-    //   object: get(),
-    //   path: "basics.character.name"
-    // });
     var name = get().basics.character.name || "New character";
     modal.render({
       heading: "Replace " + name,
@@ -37728,6 +38064,126 @@ var stats = (function() {
 
 var tabs = (function() {
 
+  var state = (function() {
+    var tabState = {
+      basics: {
+        character: true,
+        experience: false,
+        classes: false,
+        senses: false,
+        initiative: false,
+        speed: false,
+        image: false
+      },
+      statistics: {
+        stats: true,
+        abilities: false,
+        feats: false,
+        traits: false,
+        languages: false,
+        power: false
+      },
+      equipment: {
+        possessions: true,
+        armor: false,
+        body_slots: false,
+        item: false,
+        encumbrance: false,
+        consumable: false,
+        wealth: false
+      },
+      defense: {
+        hp: true,
+        ac: false,
+        cmd: false,
+        saves: false,
+        dr: false,
+        sr: false,
+        resistance: false
+      },
+      offense: {
+        stats: true,
+        cmb: false,
+        attack: false
+      },
+      skills: {
+        all: true,
+        custom: false
+      },
+      spells: {
+        stats: true,
+        level_0: false,
+        level_1: false,
+        level_2: false,
+        level_3: false,
+        level_4: false,
+        level_5: false,
+        level_6: false,
+        level_7: false,
+        level_8: false,
+        level_9: false
+      },
+      notes: {
+        character: true,
+        story: false
+      }
+    };
+    var get = function(options) {
+      var defaultOptions = {
+        section: null,
+        tab: null,
+        all: null
+      };
+      if (options) {
+        defaultOptions = helper.applyOptions(defaultOptions, options);
+      };
+      if (defaultOptions.all) {
+        return tabState;
+      } else if (defaultOptions.section != null && defaultOptions.tab == null) {
+        return tabState[defaultOptions.section];
+      } else if (defaultOptions.section != null && defaultOptions.tab != null) {
+        return tabState[defaultOptions.section][defaultOptions.tab];
+      };
+    };
+    var set = function(options) {
+      var defaultOptions = {
+        section: null,
+        tab: null,
+        boolean: null
+      };
+      if (options) {
+        defaultOptions = helper.applyOptions(defaultOptions, options);
+      };
+      if (defaultOptions.boolean != null) {
+        if (defaultOptions.section != null && defaultOptions.tab != null) {
+          tabState[defaultOptions.section][defaultOptions.tab] = defaultOptions.boolean;
+        };
+      } else {
+        if (defaultOptions.section != null && defaultOptions.tab != null) {
+          for (var key in tabState[defaultOptions.section]) {
+            tabState[defaultOptions.section][key] = false;
+          };
+          if (tabState[defaultOptions.section][defaultOptions.tab]) {
+            tabState[defaultOptions.section][defaultOptions.tab] = false;
+          } else {
+            tabState[defaultOptions.section][defaultOptions.tab] = true;
+          };
+        };
+      };
+    };
+    // exposed methods
+    return {
+      set: set,
+      get: get
+    };
+  })();
+
+  function _store() {
+    helper.store("tabState", JSON.stringify(state.get({
+      all: true
+    })));
+  };
+
   function bind() {
     _bind_tabGroup();
     _bind_tabArrow();
@@ -37739,7 +38195,9 @@ var tabs = (function() {
       var all_tabItem = all_tabGroup[i].querySelectorAll(".js-tab-item");
       for (var j = 0; j < all_tabItem.length; j++) {
         all_tabItem[j].addEventListener("click", function() {
-          _switchTabPanel(this);
+          _changeState(this);
+          _store();
+          render();
         }, false);
       };
     };
@@ -37749,118 +38207,159 @@ var tabs = (function() {
     var all_tabArrow = helper.eA(".js-tab-arrow");
     for (var i = 0; i < all_tabArrow.length; i++) {
       all_tabArrow[i].addEventListener("click", function() {
-        _tabArrow(this);
+        _singleStepChangeState(this);
+        _store();
+        render();
       }, false);
     };
   };
 
-  function _tabArrow(button) {
-    var options = helper.makeObject(button.dataset.tabArrowOptions);
-    var tabGroup = helper.getClosest(button, ".js-tab-group");
-    var tabRow = tabGroup.querySelector(".js-tab-row");
-    var all_tabItem = tabGroup.querySelectorAll(".js-tab-item");
-    var currentIndex;
-    var newIndex;
-    for (var i = 0; i < all_tabItem.length; i++) {
-      if (all_tabItem[i].dataset.tabState == "true") {
-        currentIndex = i;
-      };
-      helper.removeClass(all_tabItem[i], "is-active");
-      all_tabItem[i].dataset.tabState = false;
+  function _singleStepChangeState(arrow) {
+    var tabOrder = {
+      basics: ["character", "experience", "classes", "senses", "initiative", "speed", "image"],
+      statistics: ["stats", "abilities", "feats", "traits", "languages", "power"],
+      equipment: ["possessions", "armor", "body_slots", "item", "encumbrance", "consumable", "wealth"],
+      defense: ["hp", "ac", "cmd", "saves", "dr", "sr", "resistance"],
+      offense: ["stats", "cmb", "attack"],
+      skills: ["all", "custom"],
+      spells: ["stats", "level_0", "level_1", "level_2", "level_3", "level_4", "level_5", "level_6", "level_7", "level_8", "level_9"],
+      notes: ["character", "story"]
     };
-    if (options.action == "right") {
-      newIndex = currentIndex + 1;
-      if (newIndex > all_tabItem.length - 1) {
-        newIndex = 0;
+    var options = helper.makeObject(arrow.dataset.tabArrowOptions);
+    var newIndex = 0;
+    tabOrder[options.tabGroup].forEach(function(arrayItem, index) {
+      if (state.get({
+          section: options.tabGroup,
+          tab: arrayItem
+        })) {
+        if (options.action == "right") {
+          newIndex = index + 1;
+        };
+        if (options.action == "left") {
+          newIndex = index - 1;
+        };
+        if (newIndex > (tabOrder[options.tabGroup].length - 1)) {
+          newIndex = 0;
+        };
+        if (newIndex < 0) {
+          newIndex = (tabOrder[options.tabGroup].length - 1);
+        };
       };
-    } else if (options.action == "left") {
-      newIndex = currentIndex - 1;
-      if (newIndex < 0) {
-        newIndex = all_tabItem.length - 1;
-      };
-    };
-    helper.addClass(all_tabItem[newIndex], "is-active");
-    all_tabItem[newIndex].dataset.tabState = true;
-    _scrollTabInToView(tabRow, all_tabItem[newIndex]);
-    _switchTabPanel(all_tabItem[newIndex]);
+    });
+    state.set({
+      section: options.tabGroup,
+      tab: tabOrder[options.tabGroup][newIndex]
+    });
   };
 
-  function _scrollTabInToView(tabRow, tab) {
-    var tabIndicator = tabRow.querySelector(".m-tab-indicator");
-    var tabRowArea = tabRow.getBoundingClientRect();
-    var tabArea = tab.getBoundingClientRect();
-    var left = Math.ceil(tab.offsetLeft - (tabRowArea.width / 2) + (tabArea.width / 2), 10);
-    tabIndicator.setAttribute("style", "width:" + (tabArea.width - 10) + "px;left:" + (tab.offsetLeft + 5) + "px;");
-    if (tabRow.scroll) {
-      tabRow.scroll({
-        top: 0,
-        left: left,
-        behavior: 'smooth'
-      });
-    } else {
-      if (tabArea.left < tabRowArea.left) {
-        var left = tab.offsetLeft;
-        tabRow.scrollLeft = left;
-      } else if (tabArea.right > tabRowArea.right) {
-        var right = Math.ceil(tab.offsetLeft - tabRowArea.width + tabArea.width, 10);
-        tabRow.scrollLeft = right;
-      };
-    };
-  };
-
-  function _switchTabPanel(tab) {
+  function _changeState(tab) {
     var options = helper.makeObject(tab.dataset.tabOptions);
-    var all_targetToShow = options.target.split(",");
-    var tabGroup = helper.getClosest(tab, ".js-tab-group");
-    var tabRow = tabGroup.querySelector(".js-tab-row");
-    var all_tabItem = tabGroup.querySelectorAll(".js-tab-item");
-    var _hideAllTabPanel = function() {
-      for (var i = 0; i < all_tabItem.length; i++) {
-        all_tabItem[i].dataset.tabState = false;
-        helper.removeClass(all_tabItem[i], "is-active");
-        var tabItemOptions = helper.makeObject(all_tabItem[i].dataset.tabOptions);
-        var all_targetToHide = tabItemOptions.target.split(",");
-        for (var j = 0; j < all_targetToHide.length; j++) {
-          helper.addClass(helper.e("." + all_targetToHide[j]), "is-hidden");
+    state.set({
+      section: options.tabGroup,
+      tab: options.tab
+    });
+  };
+
+  function init() {
+    if (helper.read("tabState")) {
+      var savedState = JSON.parse(helper.read("tabState"));
+      for (var section in savedState) {
+        for (var tab in savedState[section]) {
+          state.set({
+            section: section,
+            tab: tab,
+            boolean: savedState[section][tab]
+          });
         };
       };
     };
-    var _showPanel = function() {
-      tab.dataset.tabState = true;
-      helper.addClass(tab, "is-active");
-      for (var i = 0; i < all_targetToShow.length; i++) {
-        var target = helper.e("." + all_targetToShow[i]);
-        helper.removeClass(target, "is-hidden");
-      };
-    };
-    _hideAllTabPanel();
-    _showPanel();
-    _scrollTabInToView(tabRow, tab);
+    render();
   };
 
   function render() {
-    _render_all_rabRow();
+    _render_all_tabRow();
   };
 
-  function _render_all_rabRow() {
+  function _render_all_tabRow() {
     var all_tabRow = helper.eA(".js-tab-row");
     for (var i = 0; i < all_tabRow.length; i++) {
-      _render_rabRow(all_tabRow[i]);
+      _render_tabIndicator(all_tabRow[i]);
+      _render_tabPanel(all_tabRow[i]);
+      render_scroll(all_tabRow[i]);
     };
   };
 
-  function _render_rabRow(rabRow) {
-    var all_tabItem = rabRow.querySelectorAll(".js-tab-item");
-    var tabIndicator = document.createElement("span");
-    tabIndicator.setAttribute("class", "m-tab-indicator");
-    tabIndicator.setAttribute("style", "width:" + (all_tabItem[0].getBoundingClientRect().width - 10) + "px;left:" + (all_tabItem[0].offsetLeft + 5) + "px;");
-    rabRow.appendChild(tabIndicator);
+  function _render_tabIndicator(tabRow) {
+    var tabIndicator = tabRow.querySelector(".m-tab-indicator");
+    var all_tabItem = tabRow.querySelectorAll(".js-tab-item");
+    all_tabItem.forEach(function(arrayItem, index) {
+      var options = helper.makeObject(arrayItem.dataset.tabOptions);
+      if (state.get({
+          section: options.tabGroup,
+          tab: options.tab
+        })) {
+        var tabArea = arrayItem.getBoundingClientRect();
+        var width = (tabArea.width - 10).toFixed(0);
+        var left = (arrayItem.offsetLeft + 5).toFixed(0);
+        tabIndicator.setAttribute("style", "width:" + width + "px;left:" + left + "px;");
+      };
+    });
+  };
+
+  function _render_tabPanel(tabRow) {
+    var all_tabItem = tabRow.querySelectorAll(".js-tab-item");
+    all_tabItem.forEach(function(arrayItem, index) {
+      var options = helper.makeObject(arrayItem.dataset.tabOptions);
+      if (state.get({
+          section: options.tabGroup,
+          tab: options.tab
+        })) {
+        helper.addClass(arrayItem, "is-active");
+        helper.removeClass(helper.e("." + options.target), "is-hidden");
+      } else {
+        helper.removeClass(arrayItem, "is-active");
+        helper.addClass(helper.e("." + options.target), "is-hidden");
+      };
+    });
+  };
+
+  function render_scroll(tabRow) {
+    var tabRowArea = tabRow.getBoundingClientRect();
+    var all_tabItem = tabRow.querySelectorAll(".js-tab-item");
+    all_tabItem.forEach(function(arrayItem, index) {
+      var options = helper.makeObject(arrayItem.dataset.tabOptions);
+      if (state.get({
+          section: options.tabGroup,
+          tab: options.tab
+        })) {
+        var tabArea = arrayItem.getBoundingClientRect();
+        var left = Math.ceil(arrayItem.offsetLeft - (tabRowArea.width / 2) + (tabArea.width / 2), 10);
+        if (tabRow.scroll) {
+          tabRow.scroll({
+            top: 0,
+            left: left,
+            behavior: 'smooth'
+          });
+        } else {
+          if (tabArea.left < tabRowArea.left) {
+            var left = arrayItem.offsetLeft;
+            tabRow.scrollLeft = left;
+          } else if (tabArea.right > tabRowArea.right) {
+            var right = Math.ceil(arrayItem.offsetLeft - tabRowArea.width + tabArea.width, 10);
+            tabRow.scrollLeft = right;
+          };
+        };
+      };
+    });
   };
 
   // exposed methods
   return {
+    init: init,
+    state: state,
     bind: bind,
-    render: render
+    render: render,
+    render_scroll: render_scroll
   };
 
 })();
@@ -39539,8 +40038,11 @@ var wealth = (function() {
   onboarding.render();
   nav.bind();
   menu.bind();
+  tabs.init();
   tabs.bind();
-  tabs.render();
+  night.init();
+  display.init();
+  minimise.init();
   log.render();
   checkUrl.render();
   sheet.load();
