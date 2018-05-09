@@ -874,7 +874,9 @@ var clone = (function() {
     var targetTop = cloneTarget.lastChild.getBoundingClientRect().top;
     var targetBottom = cloneTarget.lastChild.getBoundingClientRect().bottom;
     var windowHeight = window.innerHeight;
-    if (body.dataset.displayMode == "false" || !body.dataset.displayMode) {
+    if (!display.state.get({
+        all: true
+      })) {
       if (targetTop > (windowHeight - (windowHeight / 10)) || targetBottom <= 0) {
         var offset = (windowHeight - (windowHeight / 2));
         var options = {
