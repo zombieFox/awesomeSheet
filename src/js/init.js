@@ -11,6 +11,7 @@
   night.init();
   display.init();
   minimise.init();
+  themeColor.render();
   log.render();
   checkUrl.render();
   sheet.load();

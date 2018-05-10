@@ -1546,7 +1546,7 @@ var display = (function() {
         })) {
         tabs.render();
       };
-      themeColor.update();
+      themeColor.render();
     }, false);
   };
 

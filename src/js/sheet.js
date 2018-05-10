@@ -627,7 +627,7 @@ var sheet = (function() {
         display.toggle({
           all: true
         });
-        themeColor.update();
+        themeColor.render();
       };
       // ctrl+alt+n
       if (event.ctrlKey && event.altKey && event.keyCode == 78) {

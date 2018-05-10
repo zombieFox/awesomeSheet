@@ -1,6 +1,6 @@
 var themeColor = (function() {
 
-  function update() {
+  function render() {
     var themeMeta = document.getElementsByTagName("meta");
     if (display.state.get({
         all: true
@@ -23,7 +23,7 @@ var themeColor = (function() {
 
   // exposed methods
   return {
-    update: update
+    render: render
   };
 
 })();

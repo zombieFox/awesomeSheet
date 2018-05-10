@@ -57,7 +57,7 @@ var card = (function() {
       })) {
       tabs.render();
     };
-    themeColor.update();
+    themeColor.render();
   };
 
   function _minimiseToggle(element) {
