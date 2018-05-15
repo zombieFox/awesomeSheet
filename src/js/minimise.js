@@ -76,8 +76,8 @@ var minimise = (function() {
 
   function toggle(options) {
     var defaultOptions = {
-      force: null,
-      section: null
+      section: null,
+      force: null
     };
     if (options) {
       defaultOptions = helper.applyOptions(defaultOptions, options);
@@ -175,11 +175,22 @@ var minimise = (function() {
     };
   };
 
+  function reset() {
+    var section = ["basics", "statistics", "equipment", "defense", "offense", "skills", "spells", "notes"];
+    section.forEach(function(arrayItem) {
+      toggle({
+        section: arrayItem,
+        force: false
+      });
+    });
+  };
+
   function render(section) {};
 
   // exposed methods
   return {
     init: init,
+    reset: reset,
     state: state,
     toggle: toggle
   };

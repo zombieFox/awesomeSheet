@@ -93,6 +93,8 @@ var sheet = (function() {
     render();
     nav.scrollToTop();
     store();
+    minimise.reset();
+    tabs.reset();
     snack.render({
       message: "New character added."
     });

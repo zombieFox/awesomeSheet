@@ -289,9 +289,63 @@ var tabs = (function() {
     });
   };
 
+  function toggle(options) {
+    var defaultOptions = {
+      section: null,
+      tab: null
+    };
+    if (options) {
+      defaultOptions = helper.applyOptions(defaultOptions, options);
+    };
+    if (options.section != null && options.tab != null) {
+      state.set({
+        section: options.section,
+        tab: options.tab
+      });
+      _store();
+      render();
+    };
+  };
+
+  function reset() {
+    var defaultState = [{
+      section: "basics",
+      tab: "character"
+    }, {
+      section: "statistics",
+      tab: "stats"
+    }, {
+      section: "equipment",
+      tab: "possessions"
+    }, {
+      section: "defense",
+      tab: "hp"
+    }, {
+      section: "offense",
+      tab: "stats"
+    }, {
+      section: "skills",
+      tab: "all"
+    }, {
+      section: "spells",
+      tab: "stats"
+    }, {
+      section: "notes",
+      tab: "character"
+    }];
+    defaultState.forEach(function(arrayItem) {
+      toggle({
+        section: arrayItem.section,
+        tab: arrayItem.tab
+      });
+    });
+  };
+
   // exposed methods
   return {
     init: init,
+    reset: reset,
+    toggle: toggle,
     state: state,
     bind: bind,
     render: render,
