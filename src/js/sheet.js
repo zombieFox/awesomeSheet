@@ -343,6 +343,8 @@ var sheet = (function() {
   function switcher(newIndex) {
     var switcheroo = function(newIndex) {
       index.set(newIndex);
+      minimise.reset();
+      tabs.reset();
       clear();
       render();
       characterSelect.clear();
