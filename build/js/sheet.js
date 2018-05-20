@@ -93,6 +93,8 @@ var sheet = (function() {
     render();
     nav.scrollToTop();
     store();
+    minimise.reset();
+    tabs.reset();
     snack.render({
       message: "New character added."
     });
@@ -341,6 +343,8 @@ var sheet = (function() {
   function switcher(newIndex) {
     var switcheroo = function(newIndex) {
       index.set(newIndex);
+      minimise.reset();
+      tabs.reset();
       clear();
       render();
       characterSelect.clear();
@@ -627,7 +631,7 @@ var sheet = (function() {
         display.toggle({
           all: true
         });
-        themeColor.update();
+        themeColor.render();
       };
       // ctrl+alt+n
       if (event.ctrlKey && event.altKey && event.keyCode == 78) {

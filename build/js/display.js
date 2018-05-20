@@ -285,7 +285,7 @@ var display = (function() {
         }]
       },
       power: {
-        head: "Power",
+        head: "Powers",
         content: [{
           type: "clone",
           cloneType: "power",
@@ -1546,7 +1546,7 @@ var display = (function() {
         })) {
         tabs.render();
       };
-      themeColor.update();
+      themeColor.render();
     }, false);
   };
 
