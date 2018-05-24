@@ -69,6 +69,7 @@
     box-shadow: $shadow-small;
   }
   .m-card-head {
+    transition: background-color $transition-ease-fast;
     border-radius: $border-radius-large $border-radius-large 0 0;
   }
   .is-minimise {
