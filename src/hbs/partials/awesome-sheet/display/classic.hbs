@@ -1,0 +1,40 @@
+<style media="screen">
+  .grid {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .item {
+  }
+
+  .item-1 {
+    grid-column-start: auto;
+    grid-column-end: span 3;
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    border: 1px solid red;
+  }
+  .item-1 > div {
+    border: 1px solid black;
+    grid-column-end: span 2;
+  }
+</style>
+
+
+<section id="classic" class="l-section">
+  <div class="m-card">
+    <div class="m-card-body">
+      <div class="grid">
+        <div class="item item-1">
+          <div class="m-display-block js-display-block" data-display-options="sections:+basics.image"></div>
+        </div>
+        <div class="item item-2">2</div>
+        <div class="item item-3">3</div>
+        <div class="item item-4">4</div>
+        <div class="item item-5">5</div>
+      </div>
+    </div>
+  </div>
+</section>

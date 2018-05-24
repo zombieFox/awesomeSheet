@@ -2,6 +2,23 @@ var display = (function() {
 
   var _displayContent = {
     basics: {
+      image: {
+        contentClass: ["m-display-intro"],
+        content: [{
+          type: "image",
+          element: {
+            node: "div",
+            classname: ["m-display-image-wrapper", "m-display-intro-image"]
+          },
+          contentItems: [{
+            path: "basics.image.data",
+            scale: "basics.image.scale",
+            position: "basics.image.position",
+            background: "basics.image.background",
+            color: "basics.image.color"
+          }]
+        }]
+      },
       intro: {
         contentClass: ["m-display-intro"],
         content: [{
