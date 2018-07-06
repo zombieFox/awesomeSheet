@@ -6,8 +6,8 @@
   height: 3em;
   font-size: $font-size-root-100;
   z-index: $header;
-  transform: translate(0, 0);
-  transition: transform $transition-ease-fast;
+  // transform: translate(0, 0);
+  // transition: transform $transition-ease-fast;
   &.is-pinned {
     transform: translate(0, -3em);
   }
