@@ -3,7 +3,6 @@ var display = (function() {
   var _displayContent = {
     basics: {
       image: {
-        contentClass: ["m-display-intro"],
         content: [{
           type: "image",
           element: {
@@ -16,6 +15,78 @@ var display = (function() {
             position: "basics.image.position",
             background: "basics.image.background",
             color: "basics.image.color"
+          }]
+        }]
+      },
+      nameClass: {
+        content: [{
+          type: "snippet",
+          element: {
+            node: "div",
+            classname: ["m-display-intro-details"]
+          },
+          contentItems: [{
+            path: "basics.character.name",
+            element: {
+              node: "p",
+            }
+          }, {
+            path: "basics.classes.string",
+            element: {
+              node: "p",
+            }
+          }]
+        }, {
+          type: "snippet",
+          element: {
+            node: "div",
+            classname: ["m-display-intro-details"]
+          },
+          contentItems: [{
+            path: "basics.initiative.current",
+            prefix: "Initiative",
+            valueType: "bonus",
+            element: {
+              node: "p",
+            }
+          }, {
+            path: "skills.default.perception.current",
+            prefix: "Perception",
+            valueType: "bonus",
+            element: {
+              node: "p",
+            }
+          }, {
+            path: "basics.speed.land",
+            prefix: "Land Speed",
+            element: {
+              node: "p",
+            }
+          }, {
+            path: "basics.speed.swim",
+            prefix: "Swim Speed",
+            element: {
+              node: "p",
+            }
+          }, {
+            path: "basics.speed.climb",
+            prefix: "Climb Speed",
+            element: {
+              node: "p",
+            }
+          }, {
+            path: "basics.speed.burrow",
+            prefix: "Burrow Speed",
+            element: {
+              node: "p",
+            }
+          }, {
+            path: "basics.speed.fly",
+            prefix: "Fly Speed",
+            dependency: "basics.speed.maneuverability",
+            element: {
+              node: "p",
+            }
           }]
         }]
       },
