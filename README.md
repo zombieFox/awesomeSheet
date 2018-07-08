@@ -57,14 +57,13 @@
 ### Development
 
 Dependencies:
-NodeJS, Bower, Grunt
+NodeJS, Grunt
 
 1. Clone repo, navigate to root and run
 2. run `npm install`
-3. run `bower install`
 
 Then run:
 
 `grunt dev` for live development
 
-`grunt build` to build project into build directory 
+`grunt build` to build project into build directory
