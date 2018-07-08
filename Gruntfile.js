@@ -74,6 +74,7 @@ module.exports = function(grunt) {
     concat: {
       awesomeSheet: {
         src: [
+          'node_modules/smooth-scroll/dist/smooth-scroll.min.js',
           '<%= folders.build %>/js/strict.js',
           '<%= folders.build %>/js/helper.js',
           '<%= folders.build %>/js/auto-suggest.js',
@@ -140,12 +141,6 @@ module.exports = function(grunt) {
           '<%= folders.build %>/js/init.js' // invoke calls
         ],
         dest: '<%= folders.build %>/js/awesomeSheet.js'
-      },
-      vendor_build: {
-        src: [
-          'node_modules/smooth-scroll/dist/smooth-scroll.min.js'
-        ],
-        dest: '<%= folders.build %>/js/vendor.min.js'
       },
       vendor_dev: {
         src: [
@@ -372,7 +367,6 @@ module.exports = function(grunt) {
     'cssmin:build',
     'useminPrepare',
     'concat:awesomeSheet',
-    'concat:vendor_build',
     'uglify:build',
     'usemin',
     'htmlmin',

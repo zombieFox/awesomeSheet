@@ -4,7 +4,9 @@ var nav = (function() {
     if (window.innerWidth < 550) {
       window.scrollTo(0, 0);
     } else {
-      smoothScroll.animateScroll(null, "#body");
+      var scroll = new SmoothScroll();
+      var scrollAnchor = document.querySelector('#body');
+      scroll.animateScroll(scrollAnchor);
     };
   };
 
@@ -127,7 +129,9 @@ var nav = (function() {
       speed: speed,
       offset: offset
     };
-    smoothScroll.animateScroll(null, id, options);
+    var scroll = new SmoothScroll();
+    var scrollAnchor = document.querySelector(id);
+    scroll.animateScroll(scrollAnchor, 0, options);
   };
 
   function _navLink(element) {
