@@ -141,12 +141,18 @@ module.exports = function(grunt) {
         ],
         dest: '<%= folders.build %>/js/awesomeSheet.js'
       },
-      vendor: {
+      vendor_build: {
         src: [
-          'node_modules/smooth-scroll/dist/js/smooth-scroll.min.js'
+          'node_modules/smooth-scroll/dist/smooth-scroll.min.js'
         ],
         dest: '<%= folders.build %>/js/vendor.min.js'
-      }
+      },
+      vendor_dev: {
+        src: [
+          'node_modules/smooth-scroll/dist/smooth-scroll.min.js'
+        ],
+        dest: '<%= folders.dev %>/js/vendor.min.js'
+      },
     },
 
     uglify: {
@@ -339,6 +345,7 @@ module.exports = function(grunt) {
     'clean:tmp',
     'assemble:dev',
     'copy:dev',
+    'concat:vendor_dev',
     'sass:dev',
     'autoprefixer:dev',
     'connect:dev',
@@ -364,7 +371,8 @@ module.exports = function(grunt) {
     'autoprefixer:build',
     'cssmin:build',
     'useminPrepare',
-    'concat',
+    'concat:awesomeSheet',
+    'concat:vendor_build',
     'uglify:build',
     'usemin',
     'htmlmin',
@@ -377,6 +385,7 @@ module.exports = function(grunt) {
     'assemble:build',
     'copy:build',
     'copy:webapp',
+    'concat:vendor_dev',
     'sass:build',
     'autoprefixer:build',
     'sw-precache:default'
