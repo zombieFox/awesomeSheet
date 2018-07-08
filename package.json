@@ -31,7 +31,6 @@
     "time-grunt": "^1.4.0"
   },
   "dependencies": {
-    "normalize.css": "^8.0.0",
     "skeleton-scss": "^2.0.4",
     "smooth-scroll": "^14.2.0"
   }
