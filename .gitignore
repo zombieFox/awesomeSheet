@@ -5,3 +5,4 @@ dist/
 bower_components/
 dev/
 .DS_Store
+/build
