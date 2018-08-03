@@ -1,6 +1,22 @@
 'use strict';
 
+const sass = require('node-sass');
+
 module.exports = function(grunt) {
+
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
+  grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-usemin');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-assemble');
+  grunt.loadNpmTasks('grunt-autoprefixer');
+  grunt.loadNpmTasks('grunt-sw-precache');
 
   require('time-grunt')(grunt);
 
@@ -9,19 +25,22 @@ module.exports = function(grunt) {
     folders: {
       src: ['src'],
       dev: ['dev'],
-      build: ['build']
+      build: ['build'],
+      node: ['node_modules']
     },
 
     copy: {
       dev: {
         cwd: '<%= folders.src %>/',
-        src: ['{images,fonts,js,db}/**/*', 'bower_components/**/*.js', 'manifest.json'],
+        src: ['{images,fonts,js,db}/**/*',
+              'manifest.json'],
         dest: '<%= folders.dev %>/',
         expand: true
       },
       build: {
         cwd: '<%= folders.src %>/',
-        src: ['{images,fonts,js,db}/**/*', 'bower_components/**/*.js', 'manifest.json'],
+        src: ['{images,fonts,js,db}/**/*',
+              'manifest.json'],
         dest: '<%= folders.build %>/',
         expand: true
       },
@@ -43,8 +62,7 @@ module.exports = function(grunt) {
         '<%= folders.build %>/*',
         '.tmp/*',
         '.sass-cache/*'
-      ],
-      buildCleanBower: '<%= folders.build %>/bower_components/'
+      ]
     },
 
     useminPrepare: {
@@ -55,8 +73,9 @@ module.exports = function(grunt) {
     },
 
     concat: {
-      awesomeSheet: {
+      build: {
         src: [
+          '<%= folders.node %>/smooth-scroll/dist/smooth-scroll.min.js',
           '<%= folders.build %>/js/strict.js',
           '<%= folders.build %>/js/helper.js',
           '<%= folders.build %>/js/auto-suggest.js',
@@ -124,12 +143,12 @@ module.exports = function(grunt) {
         ],
         dest: '<%= folders.build %>/js/awesomeSheet.js'
       },
-      vendor: {
+      dev: {
         src: [
-          '<%= folders.build %>/bower_components/smooth-scroll/dist/js/smooth-scroll.min.js'
+          '<%= folders.node %>/smooth-scroll/dist/smooth-scroll.min.js'
         ],
-        dest: '<%= folders.build %>/js/vendor.min.js'
-      }
+        dest: '<%= folders.dev %>/js/vendor.min.js'
+      },
     },
 
     uglify: {
@@ -146,6 +165,7 @@ module.exports = function(grunt) {
     sass: {
       dev: {
         options: {
+          implementation: sass,
           style: 'compact',
           compass: false
         },
@@ -157,6 +177,7 @@ module.exports = function(grunt) {
       },
       build: {
         options: {
+          implementation: sass,
           style: 'compact',
           compass: false
         },
@@ -313,28 +334,14 @@ module.exports = function(grunt) {
         ],
       }
     }
-
   });
-
-  grunt.loadNpmTasks('grunt-contrib-htmlmin');
-  grunt.loadNpmTasks('grunt-sass');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-usemin');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-assemble');
-  grunt.loadNpmTasks('grunt-autoprefixer');
-  grunt.loadNpmTasks('grunt-sw-precache');
 
   grunt.registerTask('dev', [
     'clean:dev',
     'clean:tmp',
     'assemble:dev',
     'copy:dev',
+    'concat:dev',
     'sass:dev',
     'autoprefixer:dev',
     'connect:dev',
@@ -360,10 +367,9 @@ module.exports = function(grunt) {
     'autoprefixer:build',
     'cssmin:build',
     'useminPrepare',
-    'concat',
+    'concat:build',
     'uglify:build',
     'usemin',
-    'clean:buildCleanBower',
     'htmlmin',
     'sw-precache:default'
   ]);
@@ -374,6 +380,7 @@ module.exports = function(grunt) {
     'assemble:build',
     'copy:build',
     'copy:webapp',
+    'concat:dev',
     'sass:build',
     'autoprefixer:build',
     'sw-precache:default'

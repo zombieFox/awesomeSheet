@@ -4,7 +4,12 @@ var nav = (function() {
     if (window.innerWidth < 550) {
       window.scrollTo(0, 0);
     } else {
-      smoothScroll.animateScroll(null, "#body");
+      var options = {
+        speed: 600,
+        easing: "easeInOutQuad"
+      };
+      var scroll = new SmoothScroll();
+      scroll.animateScroll(helper.e('#body'), null, options);
     };
   };
 
@@ -28,7 +33,7 @@ var nav = (function() {
 
     for (var i = 0; i < all_section.length; i++) {
       // console.log(all_section[i].id, "--- top", (all_section[i].getBoundingClientRect().top - parseInt(getComputedStyle(document.querySelector(".js-edit")).marginTop, 10)), "bottom", all_section[i].getBoundingClientRect().bottom);
-      if ((all_section[i].getBoundingClientRect().top - parseInt(getComputedStyle(all_section[i]).marginTop, 10)) <= offset && (all_section[i].getBoundingClientRect().bottom + parseInt(getComputedStyle(all_section[i]).marginBottom, 10)) > offset) {
+      if (Math.round((all_section[i].getBoundingClientRect().top - parseInt(getComputedStyle(all_section[i]).marginTop, 10))) <= offset && Math.round((all_section[i].getBoundingClientRect().bottom + parseInt(getComputedStyle(all_section[i]).marginBottom, 10))) > offset) {
         for (var j = 0; j < all_navLinks.length; j++) {
           helper.removeClass(all_navLinks[j], "is-active");
         };
@@ -125,9 +130,12 @@ var nav = (function() {
     };
     options = {
       speed: speed,
-      offset: offset
+      offset: offset,
+      easing: "easeInOutQuad"
     };
-    smoothScroll.animateScroll(null, id, options);
+    var scroll = new SmoothScroll();
+    var scrollAnchor = document.querySelector(id);
+    scroll.animateScroll(scrollAnchor, null, options);
   };
 
   function _navLink(element) {

@@ -881,9 +881,11 @@ var clone = (function() {
         var offset = (windowHeight - (windowHeight / 2));
         var options = {
           speed: 300,
-          offset: offset
+          offset: offset,
+          easing: "easeInOutQuad"
         };
-        smoothScroll.animateScroll(null, "#" + cloneTarget.lastChild.id, options);
+        var scroll = new SmoothScroll();
+        scroll.animateScroll(helper.e("#" + cloneTarget.lastChild.id), null, options);
       };
     };
   };
