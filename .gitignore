@@ -1,8 +1,8 @@
 node_modules/
-dist/
-.tmp/
-.sass-cache/
 bower_components/
 dev/
+build/
+dist/
+.sass-cache/
+.tmp/
 .DS_Store
-/build
