@@ -9,20 +9,25 @@
       </a>
     </div>
 
-    <div class="m-header-select">
-      <p class="m-header-select-title hidden-xs hidden-sm">Character Select:</p>
-      <h2 class="m-character-select-toggle js-character-select-toggle" tabindex="1">
-        <span class="m-character-select-name js-character-select-name"></span>
-        <span class="m-character-select-class-level js-character-select-class-level"></span>
-        <span class="m-character-select-arrow"></span>
-      </h2>
+    <div class="m-header-bar-area">
+
+      <div class="m-header-bar-area-spacer">
+
+        <p class="m-header-select-title hidden-xs hidden-sm">Character Select:</p>
+
+        <div class="m-header-select">
+          {{> character-select }}
+        </div>
+        <div class="m-header-control">
+          <a href="javascript:void(0)" class="m-header-control-button js-header-control-export" tabindex="1">
+            <span class="icon-file-download"></span>
+          </a>
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="m-header-control">
-      <a href="javascript:void(0)" class="m-header-control-button js-header-control-export" tabindex="1">
-        <span class="icon-file-download"></span>
-      </a>
-    </div>
 
   </div>
 </header>

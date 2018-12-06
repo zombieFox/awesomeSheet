@@ -1,21 +1,21 @@
 .m-character-select {
   background-color: $white;
-  padding: 3em 0 0;
+  padding: 0;
   margin: 0;
-  position: fixed;
-  top: 0;
-  left: 50%;
-  width: calc(100% - 8em);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
   max-height: calc(100vh - 6em);
   font-size: $font-size-root-100;
   border-radius: 0 0 $border-radius-large $border-radius-large;
   overflow-y: auto;
-  transform: translate(-50%, calc(-100% - 1em));
+  transform: translate(0, calc(-100% - 3em));
   transition: transform $transition-ease-fast;
-  z-index: $character-select;
+  z-index: -1;
   box-sizing: border-box;
   &.is-open {
-    transform: translate(-50%, 0);
+    transform: translate(0, 0);
   }
 }
 .m-character-select-control,
@@ -242,21 +242,23 @@
 }
 .m-character-select-toggle {
   background-color: transparent;
-  margin: 0;
   padding: 0 5em 0 2em;
+  margin: 0;
   border: 1px solid transparent;
-  font-size: $font-size-root-100;
-  position: relative;
-  height: 100%;
+  border-radius: 0;
   width: 100%;
-  z-index: 2;
+  height: 100%;
+  color: $white;
+  font-size: $font-size-100;
+  box-sizing: border-box;
+  transition: all $transition-ease-fast;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: center;
-  box-sizing: border-box;
-  transition: background-color $transition-ease-fast;
+  text-decoration: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  z-index: $character-select-toggle;
   cursor: pointer;
   &:not(:only-child):not(:last-child) {
     margin-bottom: 0;
@@ -265,12 +267,14 @@
   &:hover {
     background-color: $secondary-color-alpha-18;
     border-color: $secondary-color-14;
+    text-decoration: none;
     outline: none;
   }
   &.is-active,
   &:active {
     background-color: $secondary-color-alpha-12;
     border-color: $secondary-color-12;
+    box-shadow: none;
   }
 }
 .m-character-select-class-level {
@@ -900,44 +904,9 @@
     }
   }
 }
-@media (min-width: $screen-md) {
-  .m-character-select {
-    left: inherit;
-    right: 4em;
-    width: 50vw;
-    max-height: calc(100vh - 3em);
-    transform: translate(0, calc(-100% - 1em));
-    &.is-open {
-      transform: translate(0, 0);
-    }
-  }
-  .m-character-select-toggle {
-    width: 50vw;
-  }
-}
-@media (min-width: $screen-lg) {
-  .m-character-select {
-    right: calc(10% - -2.75em);
-  }
-  .m-character-select,
-  .m-character-select-toggle {
-    width: 40vw;
-  }
-}
-@media (min-width: $screen-xl) {
-  .m-character-select {
-    right: calc(15% - -2.5em);
-  }
-  .m-character-select,
-  .m-character-select-toggle {
-    width: 30vw;
-  }
-}
-@media (min-width: 2000px) {
-  .m-character-select {
-    right: calc(20% - -2.5em);
-  }
-}
+@media (min-width: $screen-md) {}
+@media (min-width: $screen-lg) {}
+@media (min-width: $screen-xl) {}
 @media print {
   .m-character-select {
     display: none;
