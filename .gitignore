@@ -1,7 +1,6 @@
 node_modules/
 bower_components/
 dev/
-build/
 dist/
 .sass-cache/
 .tmp/
