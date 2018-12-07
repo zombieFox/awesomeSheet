@@ -11,7 +11,7 @@
   font-size: $font-size-root-100;
   border-radius: 0 0 $border-radius-large $border-radius-large;
   overflow-y: auto;
-  transform: translate(0, calc(-100% - 3em));
+  transform: translate(0, calc(-100% - 4em));
   transition: transform $transition-ease-fast;
   z-index: -1;
   box-sizing: border-box;
