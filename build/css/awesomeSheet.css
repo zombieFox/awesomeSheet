@@ -4029,6 +4029,7 @@ label {
   top: 100%;
   left: 0;
   width: 100%;
+  min-height: 4em;
   max-height: calc(100vh - 6em);
   font-size: 1rem;
   border-radius: 0 0 5px 5px;
@@ -4929,7 +4930,7 @@ label {
   .m-header-select {
     -ms-flex-positive: 0;
         flex-grow: 0;
-    width: 50vw; }
+    width: 40vw; }
   .m-header-control {
     width: 3em; } }
 
@@ -4937,7 +4938,7 @@ label {
   .m-header-bar-area-spacer {
     width: 80%; }
   .m-header-select {
-    width: 40vw; } }
+    width: 30vw; } }
 
 @media print {
   .m-header {
