@@ -57,13 +57,17 @@
 ### Development
 
 Dependencies:
-NodeJS, Grunt
+NodeJS, Grunt, Yarn
 
-1. Clone repo, navigate to root and run
-2. run `npm install`
+## To run local dev environment:
 
-Then run:
+1. Clone repo and navigate to root
+2. Run `npm install`
+3. Run `yarn install`
+4. Run `grunt dev`
 
-`grunt dev` for live development
+A local server will launch on: http://0.0.0.0:9000/
 
-`grunt build` to build project into build directory
+## To build the project for production:
+
+1. Run `grunt build`
