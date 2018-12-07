@@ -2841,6 +2841,18 @@ var repair = (function() {
     return characterObject;
   };
 
+  function _update_591(characterObject) {
+    _report._591 = [];
+    // awesome
+    _report._591.push("update: awesome version");
+    characterObject.awesomeSheet.version = 5.91;
+    // cmd
+    _report._591.push("update: vials");
+    characterObject.equipment.possessions.potion_vials_oils = characterObject.equipment.possessions.potion_viles_oils;
+    delete characterObject.equipment.possessions.potion_viles_oils;
+    return characterObject;
+  }
+
   function _repair(characterObject) {
     // if version is found
     if (typeof characterObject.awesomeSheet == "object" && "version" in characterObject.awesomeSheet) {
@@ -2890,6 +2902,10 @@ var repair = (function() {
         if (characterObject.awesomeSheet.version < 5.9) {
           console.log("\t# running update", 5.9);
           characterObject = _update_590(characterObject);
+        };
+        if (characterObject.awesomeSheet.version < 5.91) {
+          console.log("\t# running update", 5.91);
+          characterObject = _update_591(characterObject);
         };
         console.log("\t# report:",  _report);
       } else {

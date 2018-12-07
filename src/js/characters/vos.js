@@ -3,7 +3,7 @@ var vos = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.9
+      version: 5.91
     },
     basics: {
       character: {
@@ -345,7 +345,7 @@ var vos = (function() {
       possessions: {
         gear: "Backpack, Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Rubbing Poweder, Fine Cheese (1), Smelly Cheese (3), Wine (2), Wrestling Costume (2), Dagger, Lavendar soap, Soap bar",
         magic_gear: "Good Berries (5), Bracers of Armor +1, Ioun Stones Dusty Rose",
-        potion_viles_oils: "Rubbing Oils (5)",
+        potion_vials_oils: "Rubbing Oils (5)",
         scrolls: ""
       },
       armor: {

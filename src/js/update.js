@@ -1,6 +1,11 @@
 var update = (function() {
 
   var history = [{
+    version: "5.9.1",
+    list: [
+      "Correct typos in UI and in code."
+    ]
+  }, {
     version: "5.9.0",
     list: [
       "Added option to add Dodge Bonus to CMD.",

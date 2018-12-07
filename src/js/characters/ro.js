@@ -3,7 +3,7 @@ var ro = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.9
+      version: 5.91
     },
     basics: {
       character: {
@@ -325,7 +325,7 @@ var ro = (function() {
       possessions: {
         gear: "Fur coat and cold weather outfit, Rapier, Spell component pouch, Spellbook, Backpack, Flask of Oil x3, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Tent for 2, Trained Donkey (commands: come, down, stay heal, work)",
         magic_gear: "",
-        potion_viles_oils: "Alchemist Fire (3), Potion of CLW (3)",
+        potion_vials_oils: "Alchemist Fire (3), Potion of CLW (3)",
         scrolls: ""
       },
       armor: {

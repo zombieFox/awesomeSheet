@@ -325,15 +325,15 @@ var display = (function() {
             }],
           }]
         },
-        potion_viles_oils: {
-          head: "Potions / Viles / Oils",
+        potion_vials_oils: {
+          head: "Potions / Vials / Oils",
           content: [{
             type: "block",
             element: {
               node: "div"
             },
             contentItems: [{
-              path: "equipment.possessions.potion_viles_oils",
+              path: "equipment.possessions.potion_vials_oils",
             }],
           }]
         },
