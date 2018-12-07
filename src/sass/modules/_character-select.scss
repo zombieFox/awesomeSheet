@@ -6,6 +6,7 @@
   top: 100%;
   left: 0;
   width: 100%;
+  min-height: 4em;
   max-height: calc(100vh - 6em);
   font-size: $font-size-root-100;
   border-radius: 0 0 $border-radius-large $border-radius-large;
