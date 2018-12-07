@@ -54,12 +54,12 @@
 - Static text blocks
 - Clone blocks
 
-### Development
+## Development
 
 Dependencies:
 NodeJS, Grunt, Yarn
 
-## To run local dev environment:
+### To run local dev environment:
 
 1. Clone repo and navigate to root
 2. Run `npm install`
@@ -68,6 +68,6 @@ NodeJS, Grunt, Yarn
 
 A local server will launch on: http://0.0.0.0:9000/
 
-## To build the project for production:
+### To build the project for production:
 
 1. Run `grunt build`
