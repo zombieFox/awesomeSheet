@@ -4034,8 +4034,8 @@ label {
   font-size: 1rem;
   border-radius: 0 0 5px 5px;
   overflow-y: auto;
-  -ms-transform: translate(0, calc(-100% - 3em));
-      transform: translate(0, calc(-100% - 3em));
+  -ms-transform: translate(0, calc(-100% - 4em));
+      transform: translate(0, calc(-100% - 4em));
   transition: transform 0.2s ease-in-out;
   z-index: -1;
   box-sizing: border-box; }

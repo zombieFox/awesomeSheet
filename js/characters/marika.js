@@ -3,7 +3,7 @@ var marika = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.9
+      version: 5.91
     },
     basics: {
       character: {
@@ -295,7 +295,7 @@ var marika = (function() {
       possessions: {
         gear: "Large Black Backpack, Bedroll, Silk Rope, Pencils, Ink, Paper, Sketch Book, Grappling Hook, Flint and Steel, Torch, Masterwork Thieves’ Tools (+2 Disable Device), Magnifying Glass (+2 Appraise), Merchant’s Scale (+2 Appraise), Trail Rations, Bread, Cheese and Wine.",
         magic_gear: "Rapier +2 (Flaming Crystal), Short Sword +2 (Frost Crystal), Studded Leather +2, Belt of Dexterity +4, Cloak of Resistance +2, Spider Climb Pendent 1/day, Ring of Protection +1, Eyes of the Eagle, Handy Haversack.",
-        potion_viles_oils: "Cure Light Wounds (6) Cure Moderate Wounds (3), Cure Serious Wounds (2), BarkSkin (5), Shield of Faith (2)",
+        potion_vials_oils: "Cure Light Wounds (6) Cure Moderate Wounds (3), Cure Serious Wounds (2), BarkSkin (5), Shield of Faith (2)",
         scrolls: ""
       },
       armor: {

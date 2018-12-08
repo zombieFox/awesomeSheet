@@ -191,7 +191,7 @@ var blank = (function() {
       possessions: {
         gear: "",
         magic_gear: "",
-        potion_viles_oils: "",
+        potion_vials_oils: "",
         scrolls: ""
       },
       armor: {
