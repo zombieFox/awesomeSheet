@@ -144,12 +144,8 @@
     flex: 0 0 auto;
     position: relative;
     z-index: 2;
-    display: block;
-    [class*=" icon-"],
-    [class^="icon-"] {
-      font-size: 1.4em;
-      display: block;
-    }
+    display: flex;
+    border-radius: 0;
   }
 }
 @media (min-width: $screen-md) {}

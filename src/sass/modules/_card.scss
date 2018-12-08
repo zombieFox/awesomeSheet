@@ -16,12 +16,15 @@
     text-align: left;
     justify-content: flex-start;
     position: relative;
-  }
-  .button {
-    padding: 0.5em 1.5em;
     [class*=" icon-"],
     [class^="icon-"] {
       font-size: 1.2em;
+    }
+  }
+  &.button-group {
+    .button {
+      padding: 0.5em 1.5em;
+      border-radius: 0;
     }
   }
 }
@@ -72,6 +75,18 @@
     transition: background-color $transition-ease-fast;
     border-radius: $border-radius-large $border-radius-large 0 0;
   }
+  .m-card-controls {
+    &.button-group {
+      .button {
+        &:first-of-type {
+          border-radius: $border-radius-large 0 0 0;
+        }
+        &:last-of-type {
+          border-radius: 0 $border-radius-large 0 0;
+        }
+      }
+    }
+  }
   .is-minimise {
     .m-card {
       &:hover {
@@ -85,6 +100,18 @@
       border-radius: $border-radius-large;
       .button {
         color: $gray-05;
+      }
+    }
+    .m-card-controls {
+      &.button-group {
+        .button {
+          &:first-of-type {
+            border-radius: $border-radius-large 0 0 $border-radius-large;
+          }
+          &:last-of-type {
+            border-radius: 0 $border-radius-large $border-radius-large 0;
+          }
+        }
       }
     }
     &.is-display-mode {
@@ -126,14 +153,14 @@
   }
 }
 @media (min-width: $screen-md) {
-  .m-card-controls {
-    .button {
-      [class*=" icon-"],
-      [class^="icon-"] {
-        font-size: 1.4em;
-      }
-    }
-  }
+  // .m-card-controls {
+  //   .button {
+  //     [class*=" icon-"],
+  //     [class^="icon-"] {
+  //       font-size: 1.4em;
+  //     }
+  //   }
+  // }
 }
 @media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}
