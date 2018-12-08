@@ -3,7 +3,7 @@ var nif = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.9
+      version: 5.91
     },
     basics: {
       character: {
@@ -353,7 +353,7 @@ var nif = (function() {
       possessions: {
         gear: "Spellbook, Scroll case, Spell component pouch, Candle, Flint and Steel, Tindertwig, Ink, pen and paper, Belt Pouch, Backpack, Rations (5 days), Combat trained horse",
         magic_gear: "Handy Haversack",
-        potion_viles_oils: "Insect sap (14), Antitoxin(1), Holy Water(1), Yellow Mushroom Juice (3), Magic Weapon (2), Cure Light Wounds (0), Cure Moderate Wounds (2), Cure Serious Wounds (1), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1), Hide from Animals (1), Delay Poison (1), Bear's Endurance (1), Levitate (2), Gasious Form (1)",
+        potion_vials_oils: "Insect sap (14), Antitoxin(1), Holy Water(1), Yellow Mushroom Juice (3), Magic Weapon (2), Cure Light Wounds (0), Cure Moderate Wounds (2), Cure Serious Wounds (1), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1), Hide from Animals (1), Delay Poison (1), Bear's Endurance (1), Levitate (2), Gasious Form (1)",
         scrolls: "Acid Pit (2), Summon Monster III (2), Summon Monster IV (0), Invisibility (2), Create Pit (2), Web (3), Stinking Cloud (2), Grease (1), Mirror Image (2), Spiked Pit (6), Fly (1), Interposing Hand (0), Elemental Body 2 (0), Wall of Fire (1), Haste (2), Enlarge Person (2), Endure Elements (2), Acid Arrow (0), Gust of Wind (0), Animate Rope (0), False Life (2), Floating Disk (2), Comprehend Languages (0), Erase (1), Detect Secret Doors (1), Black Tentacles (2), Mage Armor (0)"
 
       },

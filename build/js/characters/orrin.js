@@ -3,7 +3,7 @@ var orrin = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.9
+      version: 5.91
     },
     basics: {
       character: {
@@ -296,7 +296,7 @@ var orrin = (function() {
       possessions: {
         gear: "Fur coat and cold weather outfit, Thieves' tools MW, Climber's kit, Magnifying glass, Merchant's scale, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Torch, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Dagger (2), Hide armor, 10ft pole in pieces",
         magic_gear: "Ioun Torch, Ioun Stones Dusty Rose, Rapier +1, Bag of Tricks Tan",
-        potion_viles_oils: "Cure Light Wounds (7), Cure Moderate Wounds (2), Endure Elements (1), Bless Weapon (4), Greese (1), Reduce Person (1), Stabilise (1), Jump (1), Protection from Good (1), Protection from Law (2), Protection from Evil (2), Remove Fear (1), Remove Sickness (1), Shield of Faith (1), Vanish (1), Gaseous Form (1), Dispel Magic (1), Black Smear Poison (6), Fireballs (1) (5d6), Grease (1), Reduce Person (1), Jump (1), Shield of Faith (1), Remove Fear (1), Remove Sickness (1), Invisibilty (1), Ablative Barrier (1), Fly (1), Displacement (1), Blink (1)",
+        potion_vials_oils: "Cure Light Wounds (7), Cure Moderate Wounds (2), Endure Elements (1), Bless Weapon (4), Greese (1), Reduce Person (1), Stabilise (1), Jump (1), Protection from Good (1), Protection from Law (2), Protection from Evil (2), Remove Fear (1), Remove Sickness (1), Shield of Faith (1), Vanish (1), Gaseous Form (1), Dispel Magic (1), Black Smear Poison (6), Fireballs (1) (5d6), Grease (1), Reduce Person (1), Jump (1), Shield of Faith (1), Remove Fear (1), Remove Sickness (1), Invisibilty (1), Ablative Barrier (1), Fly (1), Displacement (1), Blink (1)",
         scrolls: ""
       },
       armor: {

@@ -1094,7 +1094,7 @@ var blank = (function() {
       possessions: {
         gear: "",
         magic_gear: "",
-        potion_viles_oils: "",
+        potion_vials_oils: "",
         scrolls: ""
       },
       armor: {
@@ -2642,7 +2642,7 @@ var izlara = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.9,
+      version: 5.91,
       demo: true
     },
     basics: {
@@ -3008,7 +3008,7 @@ var izlara = (function() {
       possessions: {
         gear: "Spellbook, Scroll case, Spell component pouch, Candle, Flint and steel, Tindertwig, Ink, pen and paper, Belt Pouch, Backpack, Rations (5 days), Spyglass",
         magic_gear: "Handy Haversack, Ioun Stones (Scarlet and Blue), lesser, Pearl of Power (1st) (1), Pearl of Power (2nd) (1), Pearl of Power (3rd) (1), Pearl of Power (4th) (1), Pearl of Power (5th) (1)",
-        potion_viles_oils: "Antitoxin (2), Holy Water (1), Cure Light Wounds (4), Cure Moderate Wounds (2), Cure Serious Wounds (2), Protection from Evil (2), Displacement (2), Hide from Animals (1), Delay Poison (1), Bear's Endurance (1), Levitate (1)",
+        potion_vials_oils: "Antitoxin (2), Holy Water (1), Cure Light Wounds (4), Cure Moderate Wounds (2), Cure Serious Wounds (2), Protection from Evil (2), Displacement (2), Hide from Animals (1), Delay Poison (1), Bear's Endurance (1), Levitate (1)",
         scrolls: "Create Pit (3), Spiked Pit (3), Hungry Pit (3), Acid Pit (3), Summon Monster III (3), Summon Monster IV (3), Summon Monster V (3), Summon Monster VI (2), Form of the Dragon I (2), Invisibility (5), Web (3), Stinking Cloud (2), Grease (2), Mirror Image (3), Fly (3), Interposing Hand (1), Elemental Body 2 (2), Wall of Fire (2), Haste (2), Enlarge Person (2), Endure Elements (2), Acid Arrow (2), Gust of Wind (1), Animate Rope (2), False Life (2), Floating Disk (1), Erase (1), Detect Secret Doors (2), Black Tentacles (2), Mage Armor (2)"
       },
       armor: {
@@ -5883,7 +5883,7 @@ var ravich = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.9,
+      version: 5.91,
       demo: true
     },
     basics: {
@@ -6199,7 +6199,7 @@ var ravich = (function() {
       possessions: {
         gear: "Backpack, Flask Of Oil (2), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Dagger, Combat Horse (Tafi), Roc feathers, head and feet, Red Dragon (Adult) scales and claws",
         magic_gear: "Ioun Stone (Dusty Rose), Feather Token (Tree)",
-        potion_viles_oils: "Cure Light Wounds (4), Cure Moderate Wounds (5), Cure Serious Wounds (1), Resist Fire (1), Alchemist Fire (1), Lesser Restoration (1), Remove Disease (1)",
+        potion_vials_oils: "Cure Light Wounds (4), Cure Moderate Wounds (5), Cure Serious Wounds (1), Resist Fire (1), Alchemist Fire (1), Lesser Restoration (1), Remove Disease (1)",
         scrolls: ""
       },
       armor: {
@@ -8376,7 +8376,7 @@ var marika = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.9
+      version: 5.91
     },
     basics: {
       character: {
@@ -8668,7 +8668,7 @@ var marika = (function() {
       possessions: {
         gear: "Large Black Backpack, Bedroll, Silk Rope, Pencils, Ink, Paper, Sketch Book, Grappling Hook, Flint and Steel, Torch, Masterwork Thieves’ Tools (+2 Disable Device), Magnifying Glass (+2 Appraise), Merchant’s Scale (+2 Appraise), Trail Rations, Bread, Cheese and Wine.",
         magic_gear: "Rapier +2 (Flaming Crystal), Short Sword +2 (Frost Crystal), Studded Leather +2, Belt of Dexterity +4, Cloak of Resistance +2, Spider Climb Pendent 1/day, Ring of Protection +1, Eyes of the Eagle, Handy Haversack.",
-        potion_viles_oils: "Cure Light Wounds (6) Cure Moderate Wounds (3), Cure Serious Wounds (2), BarkSkin (5), Shield of Faith (2)",
+        potion_vials_oils: "Cure Light Wounds (6) Cure Moderate Wounds (3), Cure Serious Wounds (2), BarkSkin (5), Shield of Faith (2)",
         scrolls: ""
       },
       armor: {
@@ -10309,7 +10309,7 @@ var nefi = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.9
+      version: 5.91
     },
     basics: {
       character: {
@@ -10589,7 +10589,7 @@ var nefi = (function() {
       possessions: {
         gear: "Backpack, Flask Of Oil (2), Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Dagger, Combat Horse (Tafi), Roc feathers, head and feet, Red Dragon (Adult) scales and claws",
         magic_gear: "Ioun Stone (Dusty rose), Feather Token (Tree)",
-        potion_viles_oils: "Light Wounds (4) Moderate Wounds (5), Serious Wounds (1), Potion of Resist Fire (1), Alchemist Fire (1), Potion of Lesser Restoration (1), Potion of Remove Disease (1)",
+        potion_vials_oils: "Light Wounds (4) Moderate Wounds (5), Serious Wounds (1), Potion of Resist Fire (1), Alchemist Fire (1), Potion of Lesser Restoration (1), Potion of Remove Disease (1)",
         scrolls: ""
       },
       armor: {
@@ -12204,7 +12204,7 @@ var nif = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.9
+      version: 5.91
     },
     basics: {
       character: {
@@ -12554,7 +12554,7 @@ var nif = (function() {
       possessions: {
         gear: "Spellbook, Scroll case, Spell component pouch, Candle, Flint and Steel, Tindertwig, Ink, pen and paper, Belt Pouch, Backpack, Rations (5 days), Combat trained horse",
         magic_gear: "Handy Haversack",
-        potion_viles_oils: "Insect sap (14), Antitoxin(1), Holy Water(1), Yellow Mushroom Juice (3), Magic Weapon (2), Cure Light Wounds (0), Cure Moderate Wounds (2), Cure Serious Wounds (1), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1), Hide from Animals (1), Delay Poison (1), Bear's Endurance (1), Levitate (2), Gasious Form (1)",
+        potion_vials_oils: "Insect sap (14), Antitoxin(1), Holy Water(1), Yellow Mushroom Juice (3), Magic Weapon (2), Cure Light Wounds (0), Cure Moderate Wounds (2), Cure Serious Wounds (1), Protection from Evil (1), Adjustable Disguise (1), Aid (1), Displacement (1), Hide from Animals (1), Delay Poison (1), Bear's Endurance (1), Levitate (2), Gasious Form (1)",
         scrolls: "Acid Pit (2), Summon Monster III (2), Summon Monster IV (0), Invisibility (2), Create Pit (2), Web (3), Stinking Cloud (2), Grease (1), Mirror Image (2), Spiked Pit (6), Fly (1), Interposing Hand (0), Elemental Body 2 (0), Wall of Fire (1), Haste (2), Enlarge Person (2), Endure Elements (2), Acid Arrow (0), Gust of Wind (0), Animate Rope (0), False Life (2), Floating Disk (2), Comprehend Languages (0), Erase (1), Detect Secret Doors (1), Black Tentacles (2), Mage Armor (0)"
 
       },
@@ -14801,7 +14801,7 @@ var orrin = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.9
+      version: 5.91
     },
     basics: {
       character: {
@@ -15094,7 +15094,7 @@ var orrin = (function() {
       possessions: {
         gear: "Fur coat and cold weather outfit, Thieves' tools MW, Climber's kit, Magnifying glass, Merchant's scale, Backpack, Flask of Oil (3), Pouch (belt), Sack, Candle, Flint and Steel, Torch, Tindertwig (5), Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Pen, Paper sheets, Dagger (2), Hide armor, 10ft pole in pieces",
         magic_gear: "Ioun Torch, Ioun Stones Dusty Rose, Rapier +1, Bag of Tricks Tan",
-        potion_viles_oils: "Cure Light Wounds (7), Cure Moderate Wounds (2), Endure Elements (1), Bless Weapon (4), Greese (1), Reduce Person (1), Stabilise (1), Jump (1), Protection from Good (1), Protection from Law (2), Protection from Evil (2), Remove Fear (1), Remove Sickness (1), Shield of Faith (1), Vanish (1), Gaseous Form (1), Dispel Magic (1), Black Smear Poison (6), Fireballs (1) (5d6), Grease (1), Reduce Person (1), Jump (1), Shield of Faith (1), Remove Fear (1), Remove Sickness (1), Invisibilty (1), Ablative Barrier (1), Fly (1), Displacement (1), Blink (1)",
+        potion_vials_oils: "Cure Light Wounds (7), Cure Moderate Wounds (2), Endure Elements (1), Bless Weapon (4), Greese (1), Reduce Person (1), Stabilise (1), Jump (1), Protection from Good (1), Protection from Law (2), Protection from Evil (2), Remove Fear (1), Remove Sickness (1), Shield of Faith (1), Vanish (1), Gaseous Form (1), Dispel Magic (1), Black Smear Poison (6), Fireballs (1) (5d6), Grease (1), Reduce Person (1), Jump (1), Shield of Faith (1), Remove Fear (1), Remove Sickness (1), Invisibilty (1), Ablative Barrier (1), Fly (1), Displacement (1), Blink (1)",
         scrolls: ""
       },
       armor: {
@@ -17020,7 +17020,7 @@ var ro = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.9
+      version: 5.91
     },
     basics: {
       character: {
@@ -17342,7 +17342,7 @@ var ro = (function() {
       possessions: {
         gear: "Fur coat and cold weather outfit, Rapier, Spell component pouch, Spellbook, Backpack, Flask of Oil x3, Pouch (belt), Sack, Candle, Flint and Steel, Tindertwig, Rations (5 days), Waterskin, Bedroll, Blanket, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper sheets, Case for maps/scrolls, Tent for 2, Trained Donkey (commands: come, down, stay heal, work)",
         magic_gear: "",
-        potion_viles_oils: "Alchemist Fire (3), Potion of CLW (3)",
+        potion_vials_oils: "Alchemist Fire (3), Potion of CLW (3)",
         scrolls: ""
       },
       armor: {
@@ -19275,7 +19275,7 @@ var vos = (function() {
   var data = {
     awesomeSheet: {
       awesome: true,
-      version: 5.9
+      version: 5.91
     },
     basics: {
       character: {
@@ -19617,7 +19617,7 @@ var vos = (function() {
       possessions: {
         gear: "Backpack, Pouch (belt), Sack, Candle, Flint And Steel, Tindertwig, Rations (5 Days), Waterskin, Bedroll, Blanket, Bloodblock, Rope (silk), Mirror, Compass, Ink, Inkpen, Paper Sheets, Case For Maps/scrolls, Torch, Rubbing Poweder, Fine Cheese (1), Smelly Cheese (3), Wine (2), Wrestling Costume (2), Dagger, Lavendar soap, Soap bar",
         magic_gear: "Good Berries (5), Bracers of Armor +1, Ioun Stones Dusty Rose",
-        potion_viles_oils: "Rubbing Oils (5)",
+        potion_vials_oils: "Rubbing Oils (5)",
         scrolls: ""
       },
       armor: {
@@ -25081,15 +25081,15 @@ var display = (function() {
             }],
           }]
         },
-        potion_viles_oils: {
-          head: "Potions / Viles / Oils",
+        potion_vials_oils: {
+          head: "Potions / Vials / Oils",
           content: [{
             type: "block",
             element: {
               node: "div"
             },
             contentItems: [{
-              path: "equipment.possessions.potion_viles_oils",
+              path: "equipment.possessions.potion_vials_oils",
             }],
           }]
         },
@@ -35631,6 +35631,18 @@ var repair = (function() {
     return characterObject;
   };
 
+  function _update_591(characterObject) {
+    _report._591 = [];
+    // awesome
+    _report._591.push("update: awesome version");
+    characterObject.awesomeSheet.version = 5.91;
+    // cmd
+    _report._591.push("update: vials");
+    characterObject.equipment.possessions.potion_vials_oils = characterObject.equipment.possessions.potion_viles_oils;
+    delete characterObject.equipment.possessions.potion_viles_oils;
+    return characterObject;
+  }
+
   function _repair(characterObject) {
     // if version is found
     if (typeof characterObject.awesomeSheet == "object" && "version" in characterObject.awesomeSheet) {
@@ -35680,6 +35692,10 @@ var repair = (function() {
         if (characterObject.awesomeSheet.version < 5.9) {
           console.log("\t# running update", 5.9);
           characterObject = _update_590(characterObject);
+        };
+        if (characterObject.awesomeSheet.version < 5.91) {
+          console.log("\t# running update", 5.91);
+          characterObject = _update_591(characterObject);
         };
         console.log("\t# report:",  _report);
       } else {
@@ -39730,6 +39746,11 @@ var totalBlock = (function() {
 var update = (function() {
 
   var history = [{
+    version: "5.9.1",
+    list: [
+      "Correct typos in UI and in code."
+    ]
+  }, {
     version: "5.9.0",
     list: [
       "Added option to add Dodge Bonus to CMD.",
