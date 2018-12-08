@@ -2569,11 +2569,12 @@ label {
     -ms-flex-pack: start;
         justify-content: flex-start;
     position: relative; }
-  .m-card-controls .button {
-    padding: 0.5em 1.5em; }
-    .m-card-controls .button [class*=" icon-"],
-    .m-card-controls .button [class^="icon-"] {
+    .m-card-controls .m-card-title [class*=" icon-"],
+    .m-card-controls .m-card-title [class^="icon-"] {
       font-size: 1.2em; }
+  .m-card-controls.button-group .button {
+    padding: 0.5em 1.5em;
+    border-radius: 0; }
 
 .m-card-body {
   padding: 2em;
@@ -2609,6 +2610,10 @@ label {
   .m-card-head {
     transition: background-color 0.2s ease-in-out;
     border-radius: 5px 5px 0 0; }
+  .m-card-controls.button-group .button:first-of-type {
+    border-radius: 5px 0 0 0; }
+  .m-card-controls.button-group .button:last-of-type {
+    border-radius: 0 5px 0 0; }
   .is-minimise .m-card:hover .m-card-head {
     background-color: #d4d4d4; }
   .is-minimise .m-card-head {
@@ -2616,6 +2621,10 @@ label {
     border-radius: 5px; }
     .is-minimise .m-card-head .button {
       color: #3b3b3b; }
+  .is-minimise .m-card-controls.button-group .button:first-of-type {
+    border-radius: 5px 0 0 5px; }
+  .is-minimise .m-card-controls.button-group .button:last-of-type {
+    border-radius: 0 5px 5px 0; }
   .is-minimise.is-display-mode .m-card-head {
     background-color: #e0e0e0; }
     .is-minimise.is-display-mode .m-card-head .button {
@@ -2632,11 +2641,6 @@ label {
     background-color: #141414; }
     .is-night-mode .is-minimise.is-display-mode .m-card-head .button {
       color: #ffffff; } }
-
-@media (min-width: 700px) {
-  .m-card-controls .button [class*=" icon-"],
-  .m-card-controls .button [class^="icon-"] {
-    font-size: 1.4em; } }
 
 @media print {
   .m-card {
@@ -5542,11 +5546,9 @@ label {
         flex: 0 0 auto;
     position: relative;
     z-index: 2;
-    display: block; }
-    .m-tab-arrow [class*=" icon-"],
-    .m-tab-arrow [class^="icon-"] {
-      font-size: 1.4em;
-      display: block; } }
+    display: -ms-flexbox;
+    display: flex;
+    border-radius: 0; } }
 
 .m-textarea-block {
   position: relative;
