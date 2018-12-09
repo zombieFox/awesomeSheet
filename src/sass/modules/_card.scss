@@ -16,9 +16,11 @@
     text-align: left;
     justify-content: flex-start;
     position: relative;
-    [class*=" icon-"],
-    [class^="icon-"] {
-      font-size: 1.2em;
+    &.button {
+      [class*=" icon-"],
+      [class^="icon-"] {
+        margin-right: 1em;
+      }
     }
   }
   &.button-group {
@@ -152,16 +154,7 @@
     }
   }
 }
-@media (min-width: $screen-md) {
-  // .m-card-controls {
-  //   .button {
-  //     [class*=" icon-"],
-  //     [class^="icon-"] {
-  //       font-size: 1.4em;
-  //     }
-  //   }
-  // }
-}
+@media (min-width: $screen-md) {}
 @media (min-width: $screen-lg) {}
 @media (min-width: $screen-xl) {}
 @media print {

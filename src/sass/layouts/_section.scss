@@ -14,15 +14,49 @@
 @media (min-width: $screen-sm) {
   .l-section {
     margin: 0 auto;
-    padding-top: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
     width: calc(100% - 2em);
+    &:first-of-type {
+      padding-top: 1em;
+    }
+    &:last-of-type {
+      padding-bottom: 1em;
+    }
+    &.is-minimise {
+      padding-top: 0.1em;
+      padding-bottom: 0.1em;
+      &:first-of-type {
+        padding-top: 1em;
+      }
+      &:last-of-type {
+        padding-bottom: 1em;
+      }
+    }
   }
 }
 @media (min-width: $screen-md) {
   .l-section {
     margin: 0 auto;
-    padding-top: 2em;
+    padding-top: 1em;
+    padding-bottom: 1em;
     width: calc(100% - 4em);
+    &:first-of-type {
+      padding-top: 2em;
+    }
+    &:last-of-type {
+      padding-bottom: 2em;
+    }
+    &.is-minimise {
+      padding-top: 0.2em;
+      padding-bottom: 0.2em;
+      &:first-of-type {
+        padding-top: 2em;
+      }
+      &:last-of-type {
+        padding-bottom: 2em;
+      }
+    }
   }
 }
 @media (min-width: $screen-lg) {
