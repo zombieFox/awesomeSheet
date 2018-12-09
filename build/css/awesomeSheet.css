@@ -3839,9 +3839,10 @@ label {
   position: sticky;
   top: 6.5em;
   transition: top 0.2s ease-in-out;
-  z-index: 2000; }
-  .m-edit-controls .button-group {
-    margin-bottom: 0; }
+  z-index: 2000;
+  pointer-events: none; }
+  .m-edit-controls .button {
+    pointer-events: all; }
 
 .is-header-pinned .m-edit-controls {
   top: 3.5em; }
