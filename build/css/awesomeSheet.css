@@ -4969,6 +4969,10 @@ label {
   .m-header-select {
     width: 30vw; } }
 
+@media (min-width: 2000px) {
+  .m-header-bar-area-spacer {
+    width: 70%; } }
+
 @media print {
   .m-header {
     display: none; } }
