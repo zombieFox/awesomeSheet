@@ -1,4 +1,4 @@
-name|race
+name|race, list
 Abyssal|Demons, Chaotic evil outsiders
 Aklo|Derros, Inhuman or otherworldly monsters, Evil fey
 Aquan|Aquatic creatures, Water-based creatures
@@ -15,7 +15,7 @@ Goblin|Bugbears, Goblins, Hobgoblins
 Gnoll|Gnolls
 Halfling|Halflings
 Ignan|Fire-based creatures
-Infernal|Fevils, Lawful evil outsiders
+Infernal|Devils, Lawful evil outsiders
 Orc|Orcs, Half-orcs
 Sylvan|Centaurs, Fey creatures, Plant creatures, Unicorns
 Terran|Earth-based creatures
