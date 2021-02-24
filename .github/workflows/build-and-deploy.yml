@@ -13,9 +13,9 @@ jobs:
 
     - name: 🔨 Build Project
       run: |
-        npm install -g bower
         npm install -g yarn
         npm install -g grunt-cli
+        yarn install
         grunt build
 
     - name: 🚀 Deploy
