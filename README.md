@@ -71,3 +71,21 @@ A local server will launch on: http://0.0.0.0:9000/
 ### To build the project for production:
 
 1. Run `grunt build`
+
+### To run the project in a docker image
+
+1. Generate the image
+In this case we are building the image with the name `awesomeSheet` and tagging as `latest`
+
+```Shell
+docker build --rm -f Dockerfile -t awesomeSheet:latest .
+````
+
+2. Run the image generated
+In this case we are mapping the port `80` of the internal nginx to the port `9999` of the machine where the container is runnig
+
+```Shell
+docker run --rm -d -p 9999:80 awesomesheet:latest
+````
+
+Disclaimer: All the new character profiles and modifications will be saved into the image. This means that all changes will be lost once the image is stopped. In order to have that information saved the db folder has to be mapped to an storage folder outside the container.
